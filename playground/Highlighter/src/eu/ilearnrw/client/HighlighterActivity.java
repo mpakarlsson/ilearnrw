@@ -32,7 +32,7 @@ public class HighlighterActivity extends Activity implements OnInitListener {
 	private TextView tv2;
 	private TextToSpeech tts;
 	private static final String TEXT1 = "Children have to read this text very carefully.";
-	private static final String TEXT2 = "This is a second really hard to read text";
+	private static final String TEXT2 = "This is a second really hard to read text. Hello Canti!";
 
 	TextHighlighter highlighter1 = new TextHighlighter(TEXT1, new HighlightNotifier() {
 
