@@ -2,7 +2,8 @@ package ilearnrw.user;
 
 public class UserPreferences {
 	private int fontSize;
-	
+	//we have to decide if we are going to use enumerators (or static fields), 
+	//and special 'validity check' methods for the variables fontstyle, fontcolour etc.
 
 	public UserPreferences() {
 		this.setFontSize(14);

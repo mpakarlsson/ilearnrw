@@ -1,145 +1,267 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.1.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
-  associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="ilearnrw.user.ProblemCategories" project="UserProfileV001" 
-    file="/UserProfileV001/src/ilearnrw/user/ProblemCategories.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="81" y="75"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <enumeration id="2" language="java" name="ilearnrw.user.GameAction" project="UserProfileV001" 
+<class-diagram version="1.1.3" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
+  <enumeration id="1" language="java" name="ilearnrw.user.GameAction" project="UserProfileV001" 
     file="/UserProfileV001/src/ilearnrw/user/GameAction.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="411" y="392"/>    
+    <position height="-1" width="-1" x="1119" y="956"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
+  <class id="2" language="java" name="ilearnrw.user.Category" project="UserProfileV001" 
+    file="/UserProfileV001/src/ilearnrw/user/Category.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-191" y="1094"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
   <class id="3" language="java" name="ilearnrw.user.User" project="UserProfileV001" 
     file="/UserProfileV001/src/ilearnrw/user/User.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="234" y="57"/>    
+    <position height="-1" width="-1" x="725" y="142"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="ilearnrw.user.UserAction" project="UserProfileV001" 
+  <class id="4" language="java" name="ilearnrw.user.UserProblem" project="UserProfileV001" 
+    file="/UserProfileV001/src/ilearnrw/user/UserProblem.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-194" y="704"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="ilearnrw.user.Subcategory" project="UserProfileV001" 
+    file="/UserProfileV001/src/ilearnrw/user/Subcategory.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="19" y="1326"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="ilearnrw.user.UserAction" project="UserProfileV001" 
     file="/UserProfileV001/src/ilearnrw/user/UserAction.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="362" y="66"/>    
+    <position height="-1" width="-1" x="1117" y="761"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="ilearnrw.user.UserProfile" project="UserProfileV001" 
+  <class id="7" language="java" name="ilearnrw.user.UserProfile" project="UserProfileV001" 
     file="/UserProfileV001/src/ilearnrw/user/UserProfile.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="490" y="57"/>    
+    <position height="-1" width="-1" x="194" y="443"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="ilearnrw.user.ProblemDefinition" project="UserProfileV001" 
+  <class id="8" language="java" name="ilearnrw.user.ProblemDefinition" project="UserProfileV001" 
     file="/UserProfileV001/src/ilearnrw/user/ProblemDefinition.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1329" y="156"/>    
+    <position height="-1" width="-1" x="130" y="1029"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="ilearnrw.user.UserPreferences" project="UserProfileV001" 
+  <class id="9" language="java" name="ilearnrw.user.UserPreferences" project="UserProfileV001" 
     file="/UserProfileV001/src/ilearnrw/user/UserPreferences.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="638" y="93"/>    
+    <position height="-1" width="-1" x="-222" y="474"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="ilearnrw.user.IlearnException" project="UserProfileV001" 
+  <class id="10" language="java" name="ilearnrw.user.IlearnException" project="UserProfileV001" 
     file="/UserProfileV001/src/ilearnrw/user/IlearnException.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="837" y="75"/>    
+    <position height="-1" width="-1" x="-131" y="98"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="ilearnrw.user.ProblemDefinitionIndex" project="UserProfileV001" 
+  <class id="11" language="java" name="ilearnrw.user.ProblemDefinitionIndex" project="UserProfileV001" 
     file="/UserProfileV001/src/ilearnrw/user/ProblemDefinitionIndex.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1050" y="57"/>    
+    <position height="-1" width="-1" x="557" y="1133"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="ilearnrw.user.UserProblems" project="UserProfileV001" 
-    file="/UserProfileV001/src/ilearnrw/user/UserProblems.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1867" y="75"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
-      visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="11" language="java" name="ilearnrw.user.UserSession" project="UserProfileV001" 
+  <class id="12" language="java" name="ilearnrw.user.UserSession" project="UserProfileV001" 
     file="/UserProfileV001/src/ilearnrw/user/UserSession.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2087" y="120"/>    
+    <position height="-1" width="-1" x="1130" y="440"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="ilearnrw.user.UserDetails" project="UserProfileV001" 
+  <class id="13" language="java" name="ilearnrw.user.UserProblemsList" project="UserProfileV001" 
+    file="/UserProfileV001/src/ilearnrw/user/UserProblemsList.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="91" y="708"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="ilearnrw.user.UserDetails" project="UserProfileV001" 
     file="/UserProfileV001/src/ilearnrw/user/UserDetails.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1626" y="147"/>    
+    <position height="-1" width="-1" x="708" y="567"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="13" language="java" name="ilearnrw.user.LanguageCode" project="UserProfileV001" 
+  <enumeration id="15" language="java" name="ilearnrw.user.LanguageCode" project="UserProfileV001" 
     file="/UserProfileV001/src/ilearnrw/user/LanguageCode.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1415" y="410"/>    
+    <position height="-1" width="-1" x="504" y="891"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <association id="14">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="15" name="language"/>      
-      <multiplicity id="16" minimum="0" maximum="1"/>    
+  <association id="16">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="17" name="index"/>      
+      <multiplicity id="18" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
+    <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="17">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="18" name="availableLanguages"/>      
-      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
+  <association id="19">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="20" name="profile"/>      
+      <multiplicity id="21" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
+    <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="20">    
+  <association id="22">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="23" name="session"/>      
+      <multiplicity id="24" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="25">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="21" name="gameAction"/>      
-      <multiplicity id="22" minimum="0" maximum="1"/>    
+      <attribute id="26" name="problem"/>      
+      <multiplicity id="27" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="28">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="29" name="type"/>      
+      <multiplicity id="30" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="31">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="32" name="language"/>      
+      <multiplicity id="33" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="34">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="35" name="preferences"/>      
+      <multiplicity id="36" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="37">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="38" name="history"/>      
+      <multiplicity id="39" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="40">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="41" name="gameAction"/>      
+      <multiplicity id="42" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="44" name="problems"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="46">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="47" name="details"/>      
+      <multiplicity id="48" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="49">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="50" name="availableLanguages"/>      
+      <multiplicity id="51" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="52">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="53" name="list"/>      
+      <multiplicity id="54" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="55">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="56" name="language"/>      
+      <multiplicity id="57" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="58">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="59" name="category"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="61">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="62" name="oldSessions"/>      
+      <multiplicity id="63" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

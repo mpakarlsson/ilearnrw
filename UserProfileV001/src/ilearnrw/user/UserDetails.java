@@ -5,6 +5,26 @@ public class UserDetails {
 	private int password;
 	private LanguageCode language;
 	
+	public UserDetails(String username, int password, LanguageCode language) {
+		this.username = username;
+		this.password = password;
+		this.language = language;
+	}
+	
+	public UserDetails(LanguageCode language) {
+		this.username = "username";
+		this.password = 1216985755;//hasCode of the word 'password'!
+		this.language = language;
+	}
+	
+	public UserDetails(int userId) {
+		//it has to load the corresponding details to the user that has this userId!
+		this.username = "username";
+		this.password = 1216985755;//hasCode of the word 'password'!
+		this.language = LanguageCode.GR;
+	}
+	
+	
 	public String getUsername() {
 		return username;
 	}

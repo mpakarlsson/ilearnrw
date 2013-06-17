@@ -4,14 +4,15 @@ import java.util.ArrayList;
 
 public class ProblemDefinition {
 	String URI;
-	String category;
-	//Category:: the string has to be replaced! It gives no semantically information about the category!
+	Subcategory type;
+	//Category:: I replaced the 'string'... 
+	//String gives no semantically information about the category!
 	int scoreUpperBound;
 	ArrayList<LanguageCode> availableLanguages;
-	public ProblemDefinition(String URI, String category, int scoreUpperBound,
+	public ProblemDefinition(String URI, Subcategory type, int scoreUpperBound,
 			ArrayList<LanguageCode> availableLanguages) {
 		this.URI = URI;
-		this.category = category;
+		this.type = type;
 		this.scoreUpperBound = scoreUpperBound;
 		this.availableLanguages = availableLanguages;
 	}
@@ -22,11 +23,11 @@ public class ProblemDefinition {
 	public void setURI(String uRI) {
 		URI = uRI;
 	}
-	public String getCategory() {
-		return category;
+	public Subcategory getType() {
+		return type;
 	}
-	public void setCategory(String category) {
-		this.category = category;
+	public void setSubcategory(Subcategory type) {
+		this.type = type;
 	}
 	public int getScoreUpperBound() {
 		return scoreUpperBound;
@@ -39,6 +40,13 @@ public class ProblemDefinition {
 	}
 	public void setAvailableLanguages(ArrayList<LanguageCode> availableLanguages) {
 		this.availableLanguages = availableLanguages;
+	}
+
+	@Override
+	public String toString() {
+		return "ProblemDefinition [URI=" + URI + ", type=" + type
+				+ ",\n scoreUpperBound=" + scoreUpperBound
+				+ ",\n availableLanguages=" + availableLanguages + "]\n";
 	}
 	
 	
