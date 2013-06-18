@@ -1,6 +1,10 @@
 package ilearnrw.user;
 
-public class UserDetails {
+import java.io.Serializable;
+
+public class UserDetails implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	private String username;
 	private int password;
 	private LanguageCode language;

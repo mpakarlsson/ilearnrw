@@ -34,3 +34,37 @@ package ilearnrw.datalogger;
  *  * Graphviz
  *
  */
+
+
+/** DataLogger class.
+ * 
+ *
+ */
+public class DataLogger
+{
+	private UserStore mUserStore = null;
+	
+	/** Loads the UserStore from disk.
+	 * 
+	 * @note filePath does not have to exist.
+	 * 	 	 But the directory it is in has to.
+	 * 
+	 * @param filePath FilePath to a disk copy.
+	 * @return true if successful. false if already loaded.
+	 */
+	public boolean loadUserStore(String filePath) {
+		if( mUserStore != null )
+			return false;
+		mUserStore = new UserStore(filePath);
+		return true;
+	}
+	/**
+	 * 
+	 * @return The UserStore if loaded, null otherwise.
+	 */
+	public UserStore getUserStore() {
+		return mUserStore;
+	}
+	
+	
+}

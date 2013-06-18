@@ -7,5 +7,4 @@ interface ILoginProvider {
      *
      */
     UserProfile getProfile(String UserName, String Password);
-
 }

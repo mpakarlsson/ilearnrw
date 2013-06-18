@@ -1,6 +1,10 @@
 package ilearnrw.user;
 
-public class Subcategory {
+import java.io.Serializable;
+
+public class Subcategory implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	Category category;
 	private String subcategoryTitle;
 

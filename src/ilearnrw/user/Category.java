@@ -1,6 +1,10 @@
 package ilearnrw.user;
 
-public class Category {
+import java.io.Serializable;
+
+public class Category implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	private String title;
 	private boolean isReadingProblem;
 	public Category(String title, boolean isReadingProblem) {

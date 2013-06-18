@@ -1,8 +1,11 @@
 package ilearnrw.user;
 
+import java.io.Serializable;
 import java.util.ArrayList; 
 
-public class UserProblemsList {
+public class UserProblemsList implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	private ArrayList<ProblemDefinition> list;
 	
 	public UserProblemsList(int userId) {
