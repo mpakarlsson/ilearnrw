@@ -13,6 +13,12 @@ import java.util.Scanner;
 public class Program {
 
 	public static DataLogger gDataLogger = new DataLogger();
+	private static String sWelcomeMessage = "Welcome to the iLearnRW prototype application\n"
+											+ "\n"
+											+ "Developer notes:\n"
+											+ "\tUsernames are not unique.\n"
+											+ "\tUsernames cannot contain spaces.\n"
+											+ "\n";
 
 	public static String getStringArg(String name, String[] args) throws Exception
 	{
@@ -45,7 +51,7 @@ public class Program {
 	 */
 	public static void main(String[] args) {
 		try {
-			System.out.println("Hello iLearnRW");
+			System.out.print(sWelcomeMessage);
 			String databaseFile = getStringArg("--db", args);
 			System.out.println("Using database file: " + databaseFile);
 			gDataLogger.loadUserStore(databaseFile);
@@ -53,15 +59,8 @@ public class Program {
 			ConsoleMenu mnu = new ConsoleMenu(System.out, System.in, "iLearnRW - Main menu", 
 					new IConsoleMenuAction[] {
 						new DatabaseManager("Manage datalogger database"),
-						new ConsoleMenuAction("Manage user") {
-							@Override
-							public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
-								System.out.println("Not implemented yet.");
-								return EConsoleMenuActionResult.showThisMenuAgain;
-								
-							}
-						},
-						new ConsoleMenuAction("exit") {
+						new UserLogin("Login user"),
+						new ConsoleMenuAction("Exit") {
 							@Override
 							public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
 								return EConsoleMenuActionResult.menuBreak;

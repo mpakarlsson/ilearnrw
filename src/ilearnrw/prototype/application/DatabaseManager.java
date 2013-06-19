@@ -52,11 +52,14 @@ public class DatabaseManager extends ConsoleMenuAction {
 						new ConsoleMenuAction("List users") {
 							@Override
 							public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
-								menu.out().println("User id\t User name");
+								menu.out().println("User id\t User name\t Password set");
 								for( Integer i : userStore.getUserIds() )
 								{
 									User u = userStore.read(i);
-									menu.out().println(Integer.toString(i) + "\t" + u.getDetails().getUsername());
+									menu.out().print(Integer.toString(i) + "\t");
+									menu.out().print(u.getDetails().getUsername() + "\t");
+									menu.out().print(Boolean.toString(u.getDetails().hasPassword()) + "\t");
+									menu.out().println();
 								}
 								return EConsoleMenuActionResult.showThisMenuAgain;
 							}
@@ -84,6 +87,20 @@ public class DatabaseManager extends ConsoleMenuAction {
 									menu.out().print("Enter new username: ");
 									String userName = menu.in().next();
 									u.getDetails().setUsername(userName);
+									userStore.update(u);
+								}
+								return EConsoleMenuActionResult.showThisMenuAgain;
+							}
+						},
+						new ConsoleMenuAction("Change password") {
+							@Override
+							public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
+								menu.out().println("Enter index of user to change name of: ");
+								User u = selectUser.selectUser(menu);
+								if( u != null ) {
+									menu.out().print("Enter new password: ");
+									String plaintextPassword = menu.in().next();
+									u.getDetails().setPassword(plaintextPassword);
 									userStore.update(u);
 								}
 								return EConsoleMenuActionResult.showThisMenuAgain;

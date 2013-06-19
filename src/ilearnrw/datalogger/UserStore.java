@@ -28,7 +28,7 @@ import ilearnrw.user.User;
  * Implements a CRUD interface for users and save/load functions to
  * store the data persistantly.
  */
-public class UserStore {
+public class UserStore implements ILoginProvider {
 	
 	private ArrayList<User> mLoadedUsers;
 	private static String mFilePath; //!< The complete path to the file to read/write the user information from/to.
@@ -83,6 +83,8 @@ public class UserStore {
 	}
 	
 	/** Updates the user currently stored with the one supplied.
+	 * 
+	 * @todo Don't allow multiple users with the same username.
 	 * 
 	 * @param user The new user copy to store.
 	 * @return A new copy of the user object.
@@ -204,6 +206,17 @@ public class UserStore {
         	mLogger.severe("Could not save Users object: " + ex.toString());
 			mLoadedUsers.clear();
 		}
+	}
+
+	@Override
+	public User getUser(String userName, String password) {
+		for(User u : mLoadedUsers)
+		{
+			if( u.getDetails().getUsername().equals(userName) )
+				if( u.getDetails().checkPassword(password))
+					return u;
+		}
+		return null;
 	}
 	
 
