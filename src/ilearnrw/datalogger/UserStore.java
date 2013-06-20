@@ -20,19 +20,22 @@ import ilearnrw.user.User;
  * @brief The UserStore is used to create and store user objects persistantly.
  * 
  * @todo Replace storage backed with SQL database.
+ * @todo Enforce unique usernames.
  * 
  * @note At the moment Java's built in serialization is used
  * 		 to store users to disk. This requires all objects to
  * 		 be stored to implement the Serializable interface.
  * 
  * Implements a CRUD interface for users and save/load functions to
- * store the data persistantly.
+ * store the data persistently.
  */
-public class UserStore implements ILoginProvider {
+class UserStore implements ILoginProvider, IUserAdministration {
 	
 	private ArrayList<User> mLoadedUsers;
 	private static String mFilePath; //!< The complete path to the file to read/write the user information from/to.
 	private Logger mLogger;
+	private boolean mHasAdminAuth = false;
+		
 	
 	/**
 	 * 
@@ -72,6 +75,13 @@ public class UserStore implements ILoginProvider {
 		if( u == null )
 			return null;
 		return deepCopy(u);
+	}
+	
+	private User read(String username) {
+		for( User u : mLoadedUsers )
+			if( u.getDetails().getUsername().equals(username))
+				return u;
+		return null;
 	}
 	
 	private User read_noCopy(int userId) {
@@ -125,6 +135,7 @@ public class UserStore implements ILoginProvider {
 		return ret;
 	}
 	
+
 	/** Returns a copy of a User object
 	 * 
 	 * This is called from functions returning a user
@@ -208,19 +219,89 @@ public class UserStore implements ILoginProvider {
 		}
 	}
 
-	@Override
-	public User getUser(String userName, String password) {
+	public User getUser(String username, String password) {
 		for(User u : mLoadedUsers)
 		{
-			if( u.getDetails().getUsername().equals(userName) )
+			if( u.getDetails().getUsername().equals(username) )
 				if( u.getDetails().checkPassword(password))
 					return u;
 		}
 		return null;
 	}
-	
 
-	
-	
+	@Override
+	public void authenticateAdmin(String adminPassword)
+			throws AuthenticationException {
+		if( adminPassword.equals("ilearn"))
+			mHasAdminAuth = true;
+		checkAdminAuth();
+	}
+	@Override
+	public boolean isAuthenticated() {
+		return mHasAdminAuth;
+	}
 
+	@Override
+	public User createUser(String username, String password)
+			throws AuthenticationException {
+		checkAdminAuth();
+
+		User u = create();
+		u.getDetails().setUsername(username);
+		u.getDetails().setPassword(password);
+		return update(u);
+	}
+
+	@Override
+	public User updatePassword(String username, String newPassword)
+			throws AuthenticationException {
+		checkAdminAuth();
+		
+		User u = read(username);
+		if( u == null )
+			return null;
+		u.getDetails().setPassword(newPassword);
+		return update(u);
+	}
+
+	@Override
+	public User changeUsername(String oldUsername, String newUsername)
+			throws AuthenticationException {
+		checkAdminAuth();
+
+		User u = read(oldUsername);
+		if( u == null )
+			return null;
+		u.getDetails().setUsername(newUsername);
+		return update(u);
+	}
+
+	@Override
+	public boolean deleteUser(String username) throws AuthenticationException {
+		checkAdminAuth();
+
+		User u = read(username);
+		if(u == null)
+			return false;
+		return delete(u.getUserId());
+	}
+	private void checkAdminAuth() throws AuthenticationException {
+		if(!mHasAdminAuth)
+			throw new AuthenticationException("Not authenticated for administration tasks.");
+		
+	}
+
+	@Override
+	public IUserAdministration getUserAdministration() {
+		return this;
+	}
+
+	@Override
+	public List<User> getAllUsers() throws AuthenticationException {
+		checkAdminAuth();
+		List<User> ret = new ArrayList<User>();
+		for( User u : mLoadedUsers )
+			ret.add(deepCopy(u));
+		return ret;
+	}
 }

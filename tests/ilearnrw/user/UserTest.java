@@ -41,21 +41,17 @@ public class UserTest {
 	public void testGetDetails(){
 		UserDetails details = user.getDetails();
 		assertEquals("Karl", details.getUsername());
-		assertEquals(2, details.getPassword());
 		assertEquals(LanguageCode.EN, details.getLanguage());
 	}
 	
 	@Test
 	public void testSetDetails(){
 		UserDetails userDetails = user.getDetails();
-		user.setDetails(new UserDetails("Eric", 
-				userDetails.getPassword(), 
-				userDetails.getLanguage()));
 
 		userDetails = user.getDetails();
 		
 		assertEquals("Eric", userDetails.getUsername());
-		assertEquals(2, userDetails.getPassword());
+		assertEquals(2, "");
 		assertEquals(LanguageCode.EN, userDetails.getLanguage());
 	}
 }

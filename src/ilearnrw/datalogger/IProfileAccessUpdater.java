@@ -23,6 +23,10 @@ import ilearnrw.user.UserSession;
  * Registry - 
  *      Handles/stores users/profiles.
  *
+ * @note This is the interface that the application would use.
+ * 		 Not an interface appropriate to a webservice.
+ * 		 The implementer of this interface could still use a
+ * 		 webservice to store the information in.
  *
  *  UserAdd/delete etc..
  *  Get user (given userid, password)
@@ -80,16 +84,16 @@ public interface IProfileAccessUpdater {
      *      \brief Thrown when there are pending changes
      *             are available.
      */
-    boolean setCurrentProfile(
-                              UserProfile profile, /*!< Profile of the user to update */
-                              UserProfile markerProfile /*!< Profile of the user who is doing the update*/
+    void setCurrentUser(
+                              User user,  /*!< Profile of the user to update */
+                              User marker /*!< Profile of the user who is doing the update*/
                               ) throws
         PermissionException, PendingChangesAvailable;
 
     /** \brief Registers a new User session in the log
      */
     boolean registerUserSession(UserSession session);
-
+    
     /** \brief Registers a change to the users preferences.
      *
      * Should changes to user preferences be logged so that
@@ -123,15 +127,18 @@ public interface IProfileAccessUpdater {
      * order as they are added. This is important if for
      * example the same preference is set twice.
      *
-     * \return The new profile after the changes has been applied.
+     * \return The new user after the changes has been applied.
      */
-    UserProfile writePendingChanges();
+    User writePendingChanges();
 
     /** \brief Checks if there are any changes pending.
      */
     boolean hasPendingChanges();
 
-    /** \brief Discards all pending changes.
+    /** \brief Discards all pending changes and resets the internal
+     * 		   state.
+     * 	
+     * 	In order to add new changes setCurrentUser has to be called again.
      */
-    boolean discardPendingChanges();
+    void discardPendingChanges();
 }

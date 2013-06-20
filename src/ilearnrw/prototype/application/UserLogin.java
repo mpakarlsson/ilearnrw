@@ -1,6 +1,6 @@
 package ilearnrw.prototype.application;
 
-import ilearnrw.datalogger.UserStore;
+import ilearnrw.datalogger.ILoginProvider;
 import ilearnrw.prototype.application.ConsoleMenu.*;
 import ilearnrw.prototype.application.ConsoleMenuAction.*;
 import ilearnrw.user.User;
@@ -28,8 +28,8 @@ public class UserLogin extends ConsoleMenuAction {
 		/* Get the User from the UserStore based
 		 * on the username and password.
 		 */
-		final UserStore userStore = Program.gDataLogger.getUserStore();
-		final User user = userStore.getUser(username, password);
+		final ILoginProvider loginProvider = Program.getLoginProvider();
+		final User user = loginProvider.getUser(username, password);
 		if( user == null )
 		{
 			menu.out().println("Wrong username or password");

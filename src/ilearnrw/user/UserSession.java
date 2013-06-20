@@ -5,10 +5,15 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * @note At the moment there will be issues if a user has 2
+ * 		 concurrent sessions. The reason for this is that the
+ * 		 UserActions are not tied directly to a session.
+ * 		 To fix: Add deviceid to session and actions.
+ */
 public class UserSession {
 	boolean isActive;
 	Timestamp start, end;
-	ArrayList<UserAction> history;
 	/**
 	 * sets the timestamp and turns the boolean variable 'isActive' to true!
 	 */
@@ -17,7 +22,6 @@ public class UserSession {
 		Date date = new Date();
 		start = new Timestamp(date.getTime());
 		isActive = true;
-		this.history = new ArrayList<UserAction>();
 	}
 	/**
 	 * sets the timestamp and turns the boolean variable 'isActive' to true!
@@ -31,11 +35,5 @@ public class UserSession {
 	
 	public void insertAction(UserAction x) throws IlearnException{
 		if (!isActive) throw new IlearnException("session has not started!");
-		else history.add(x);		
-	}
-	
-	public void loadSession(int userId){
-		//it has to load the specific entries fro the database!
-		this.history = new ArrayList<UserAction>();
 	}
 }

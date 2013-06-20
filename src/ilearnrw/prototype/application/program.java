@@ -3,6 +3,9 @@ package ilearnrw.prototype.application;
 import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.prototype.application.ConsoleMenu.IConsoleMenuAction;
 
+import ilearnrw.datalogger.IProfileAccessUpdater;
+import ilearnrw.datalogger.ILoginProvider;
+import ilearnrw.datalogger.IDataLogger;
 import ilearnrw.datalogger.LoginDetails;
 import ilearnrw.datalogger.DataLogger;
 
@@ -12,7 +15,17 @@ import java.util.Scanner;
 
 public class Program {
 
-	public static DataLogger gDataLogger = new DataLogger();
+	private static DataLogger sDataLogger = new DataLogger();
+	public static IProfileAccessUpdater getProfileAccessUpdater() {
+		return sDataLogger;
+	}
+	public static ILoginProvider getLoginProvider() {
+		return sDataLogger;
+	}
+	public static IDataLogger getDataLogger() {
+		return sDataLogger;
+	}
+
 	private static String sWelcomeMessage = "Welcome to the iLearnRW prototype application\n"
 											+ "\n"
 											+ "Developer notes:\n"
@@ -32,16 +45,6 @@ public class Program {
 		throw new Exception("Argument " + name + " not found.");
 	}
 	
-	public static LoginDetails getLoginDetails() {
-		LoginDetails ret = new LoginDetails();
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("Enter username: ");
-		ret.Username = scanner.nextLine();
-		System.out.print("Enter password: ");
-		ret.Password = scanner.nextLine();
-		scanner.close();
-		return ret;
-	}
 	/**
 	 * @param args	Commandline arguments.
 	 * 
@@ -54,7 +57,9 @@ public class Program {
 			System.out.print(sWelcomeMessage);
 			String databaseFile = getStringArg("--db", args);
 			System.out.println("Using database file: " + databaseFile);
-			gDataLogger.loadUserStore(databaseFile);
+
+			// Initialize the DataLogger object
+			sDataLogger.loadUserStore(databaseFile);
 			
 			ConsoleMenu mnu = new ConsoleMenu(System.out, System.in, "iLearnRW - Main menu", 
 					new IConsoleMenuAction[] {
