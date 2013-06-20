@@ -1,6 +1,10 @@
 package ilearnrw.user;
 
-public class UserPreferences {
+import java.io.Serializable;
+
+public class UserPreferences implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	private int fontSize;
 	//we have to decide if we are going to use enumerators (or static fields), 
 	//and special 'validity check' methods for the variables fontstyle, fontcolour etc.

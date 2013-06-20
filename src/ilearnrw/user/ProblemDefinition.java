@@ -1,8 +1,10 @@
 package ilearnrw.user;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ProblemDefinition {
+public class ProblemDefinition implements Serializable {
+	private static final long serialVersionUID = 1L;
 	String URI;
 	Subcategory type;
 	//Category:: I replaced the 'string'... 

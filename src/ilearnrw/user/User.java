@@ -1,8 +1,11 @@
 package ilearnrw.user;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class User {
+public class User implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	private int userId;
 	private UserProfile profile;
 	private UserDetails details;
@@ -30,8 +33,12 @@ public class User {
 		this.userId = userId;
 		this.profile = new UserProfile(userId);
 		this.details = new UserDetails(userId);
-		this.oldSessions = new ArrayList<UserSession>(userId);
+		this.oldSessions = new ArrayList<UserSession>();
 		this.session = new ArrayList<UserSession>();
+	}
+	
+	public int getUserId() {
+		return userId;
 	}
 
 	public UserProfile getProfile() {
