@@ -3,7 +3,6 @@ package ilearnrw.datalogger;
 import ilearnrw.user.LanguageCode;
 import ilearnrw.user.User;
 import ilearnrw.user.UserDetails;
-import ilearnrw.user.UserProfile;
 import ilearnrw.user.UserPreferences;
 import ilearnrw.user.UserSession;
 

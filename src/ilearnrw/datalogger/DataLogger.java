@@ -1,7 +1,17 @@
 /** \brief DataLogger package.
  *
- * \note Exactly what package the IProfileAccessUpdater
- * should be part of is still unknown.
+ * 
+ * Four main interfaces has been defined at the moment.
+ * 
+ * 1. IDataLogger
+ * 2. ILoginProvider
+ * 3. IProfileAccessUpdater
+ * 4. IUserAdministration
+ * 
+ * 
+ * The DataLogger object implements IDataLogger, ILoginProvider and IProfileAccessUpdater.
+ * 
+ * See their respective documentation for details.
  * 
  */
 package ilearnrw.datalogger;
@@ -9,10 +19,10 @@ package ilearnrw.datalogger;
 /** \addtogroup DolphinTodo_20130619
  *  @{
  * 		@todo Implement IProfileAccessUpdater
- * 		@todo Move interfaces to DataLogger
- * 		@todo implement all usecases provided by iprofileaccessupdater into console application.
- * 		@todo cleanup the code
- * 		@todo merge chris changes.
+ * 		@todo *DONE:* Move interfaces to DataLogger
+ * 		@todo Implement all usecases provided by IProfileAccessUpdater into console application.
+ * 		@todo *DONE:* cleanup the code
+ * 		@todo *DONE:* Merge with the main branch.
  *  @}
  */
 
@@ -20,29 +30,60 @@ package ilearnrw.datalogger;
 import java.util.List;
 
 import ilearnrw.datalogger.IDataLogger;
-/** \page "Log format"
+/** \page "DataLogger Log format"
  *
- * Actions
- * * Add difficult word
- * * Remove difficult word
- *
- * Profile|Marker|Application|TimeStamp|Tag|Value
- * -------|------|-----------|---------|------|-----
- * child1 |Teach1|some_id|2013-06-14|ADD|cat
- * child1 |child1|some_id|2013-06-14|REMOVE|cat
+ * Following is a quick description about how data is, or will be, stored.
  * 
+ * ##Users
+ * 
+ * Users are stored in the UserStore. Initially the UserStore just uses Java serialization
+ * to write the User objects to disk. 
+ * This requires that any objects that has a relationship (via class members) to the
+ * User object has to implement the java.io.Serializable interface.
+ * 
+ * This could be changed to a SQL backend in the future.
+ * 
+ * ##User Actions
+ * 
+ * The User actions are envisioned to be stored in a SQL database with a similar setup as
+ * described below.
+ * 
+ * Table UserActions:
+ * 
+ * |Type|Name|
+ * |---:|:---|
+ * |PK          | actionId  
+ * |FK          | userId d
+ * |FK          | marker r
+ * |FK          | applicationId 
+ * |TimeStamp   | timestamp 
+ * |VARCHAR()   | tag 
+ * |VARCHAR()   | value 
  *
+ *
+ * This would result in SQL output similar to:
+ *
+ * Id|Profile|Marker|Application|TimeStamp|Tag|Value
+ * --|-------|------|-----------|---------|------|-----
+ * 1 |child1 |Teach1|some_id|2013-06-14|ADD|cat
+ * 2 |child1 |child1|some_id|2013-06-14|REMOVE|cat
+ * 
+ * 
+ * Using the getUserActions() function of the IDataLogger interface the database
+ * can be queried. To filter the result a UserActionFilter object is provided.
  */
 import ilearnrw.user.LanguageCode;
 import ilearnrw.user.User;
 import ilearnrw.user.UserAction;
 import ilearnrw.user.UserDetails;
 import ilearnrw.user.UserPreferences;
-import ilearnrw.user.UserProfile;
 import ilearnrw.user.UserSession;
 
 
 /** DataLogger class.
+ * 
+ * The Datalogger is the main object that Applications will use to query and update the
+ * user object and it's properties.
  * 
  */
 public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataLogger
@@ -174,8 +215,6 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 		mMarker = null;
 		mUserIsDirty = false;
 	}
-
-
 
 	@Override
 	public IUserAdministration getUserAdministration() {

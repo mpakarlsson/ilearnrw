@@ -2,9 +2,7 @@ package ilearnrw.prototype.application;
 
 import ilearnrw.datalogger.ILoginProvider;
 import ilearnrw.prototype.application.ConsoleMenu.*;
-import ilearnrw.prototype.application.ConsoleMenuAction.*;
 import ilearnrw.user.User;
-import ilearnrw.user.UserSession;
 
 /** @brief Main menu of a logged in user.
  *

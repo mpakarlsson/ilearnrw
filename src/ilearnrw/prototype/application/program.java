@@ -6,12 +6,7 @@ import ilearnrw.prototype.application.ConsoleMenu.IConsoleMenuAction;
 import ilearnrw.datalogger.IProfileAccessUpdater;
 import ilearnrw.datalogger.ILoginProvider;
 import ilearnrw.datalogger.IDataLogger;
-import ilearnrw.datalogger.LoginDetails;
 import ilearnrw.datalogger.DataLogger;
-
-import java.util.ArrayList;
-import java.util.Scanner;
-
 
 public class Program {
 

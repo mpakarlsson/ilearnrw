@@ -2,11 +2,11 @@ package ilearnrw.datalogger;
 
 import java.util.List;
 
-import ilearnrw.user.User;
 import ilearnrw.user.UserAction;
 
 
 /** \brief Provides an interface for applications to log UserActions.
+ * 
  */
 public interface IDataLogger {
 

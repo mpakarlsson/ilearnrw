@@ -1,7 +1,6 @@
 package ilearnrw.prototype.application;
 
 import ilearnrw.prototype.application.ConsoleMenu.*;
-import ilearnrw.prototype.application.ConsoleMenuAction.*;
 import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.user.ProblemDefinition;
 import ilearnrw.user.User;
