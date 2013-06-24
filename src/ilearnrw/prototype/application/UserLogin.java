@@ -1,6 +1,9 @@
 package ilearnrw.prototype.application;
 
+
 import ilearnrw.datalogger.ILoginProvider;
+import ilearnrw.datalogger.IProfileAccessUpdater.PendingChangesAvailable;
+import ilearnrw.datalogger.IProfileAccessUpdater.PermissionException;
 import ilearnrw.prototype.application.ConsoleMenu.*;
 import ilearnrw.user.User;
 
@@ -34,8 +37,20 @@ public class UserLogin extends ConsoleMenuAction {
 			return EConsoleMenuActionResult.showThisMenuAgain;
 		}
 		
+		
+		try {			
+			Program.getProfileAccessUpdater().setCurrentUser(user, user);
+		} catch (PermissionException e) {
+			menu.out().println("Does not have permission to set current user.");
+			e.printStackTrace();
+		} catch (PendingChangesAvailable e) {
+			menu.out().println("Could not set current user due to pending changes");
+			e.printStackTrace();
+		}
+		
+		
 		menu.out().println("User successfully logged in: " + user.getDetails().getUsername());
-
+		
 		menu.subMenu("User: " + user.getDetails().getUsername(), new IConsoleMenuAction[] {
 				new ConsoleMenuAction("List Sessions") {
 					@Override
@@ -48,12 +63,30 @@ public class UserLogin extends ConsoleMenuAction {
 				new ConsoleMenuAction("Log out") {
 					@Override
 					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
+						if(Program.getProfileAccessUpdater().hasPendingChanges()){
+							menu.out().println("User has pending changes");
+							menu.out().println("1. Apply changes");
+							menu.out().println("2. Discard changes");
+							int value = Integer.parseInt(menu.in().next());
+							switch (value) {
+							case 1:
+								Program.getProfileAccessUpdater().writePendingChanges();
+								menu.out().println("Pending changes has been applied");
+								break;
+							case 2:
+								Program.getProfileAccessUpdater().discardPendingChanges();
+								menu.out().println("Pending changes has been discarded");
+								break;
+							default:
+								menu.out().println("Please choose an alternative");
+								return EConsoleMenuActionResult.showThisMenuAgain;
+							}
+						}
+						
 						return EConsoleMenuActionResult.menuBreak;
 					}
 				}
 		}).doModalMenu();
 		return EConsoleMenuActionResult.showThisMenuAgain;
 	}
-	
-
 }

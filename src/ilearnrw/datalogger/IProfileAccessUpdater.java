@@ -1,6 +1,7 @@
 package ilearnrw.datalogger;
 
 import ilearnrw.user.LanguageCode;
+import ilearnrw.user.ProblemDefinition;
 import ilearnrw.user.User;
 import ilearnrw.user.UserDetails;
 import ilearnrw.user.UserPreferences;
@@ -110,11 +111,11 @@ public interface IProfileAccessUpdater {
      *         to the user profile.
      *
      */
-    boolean addProblemDefinition(String URI);
+    boolean addProblemDefinition(ProblemDefinition problemDefinition);
 
     /** \brief Removes a ProblemDefinition.
      */
-    boolean removeProblemDefinition(String URI);
+    boolean removeProblemDefinition(ProblemDefinition problemDefinition);
     
     /** \brief Sets the userlanguage.
     */

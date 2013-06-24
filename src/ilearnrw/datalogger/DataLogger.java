@@ -26,7 +26,6 @@ package ilearnrw.datalogger;
  *  @}
  */
 
-
 import java.util.List;
 
 import ilearnrw.datalogger.IDataLogger;
@@ -73,6 +72,7 @@ import ilearnrw.datalogger.IDataLogger;
  * can be queried. To filter the result a UserActionFilter object is provided.
  */
 import ilearnrw.user.LanguageCode;
+import ilearnrw.user.ProblemDefinition;
 import ilearnrw.user.User;
 import ilearnrw.user.UserAction;
 import ilearnrw.user.UserDetails;
@@ -178,14 +178,27 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 	}
 
 	@Override
-	public boolean addProblemDefinition(String URI) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean addProblemDefinition(ProblemDefinition problemDefinition) {
+		for(ProblemDefinition problem : mUser.getProfile().getProblemsList().getList()){
+			if(problem.getURI().equals(problemDefinition.getURI()))
+				return false;
+		}
+		mUser.getProfile().getProblemsList().getList().add(problemDefinition);
+		setDirty();
+		return true;
 	}
 
 	@Override
-	public boolean removeProblemDefinition(String URI) {
-		// TODO Auto-generated method stub
+	public boolean removeProblemDefinition(ProblemDefinition problemDefinition) {
+		
+		for(ProblemDefinition problem : mUser.getProfile().getProblemsList().getList()){
+			if(problem.getURI().equals(problemDefinition.getURI())){
+				mUser.getProfile().getProblemsList().getList().remove(problem);
+				setDirty();
+				return true;
+			}
+		}
+		
 		return false;
 	}
 
@@ -199,6 +212,7 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 	public User writePendingChanges() {
 		if(!mUserIsDirty)
 			return mUser;
+		mUserIsDirty = false;
 		return mUserStore.update(mUser);
 	}
 
@@ -211,6 +225,7 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 	 */
 	@Override
 	public void discardPendingChanges() {
+		mUserStore.reload();
 		mUser = null;
 		mMarker = null;
 		mUserIsDirty = false;

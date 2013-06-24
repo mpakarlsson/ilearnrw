@@ -199,6 +199,14 @@ class UserStore implements ILoginProvider, IUserAdministration {
 			mLoadedUsers = new ArrayList<User>();
 		}
 	}
+	
+	/** @brief Reload used for discarding information
+	 * 
+	 */
+	public void reload(){
+		load();
+	}
+	
 	/** @brief Serializes mLoadedUsers into `mFilePath`
 	 * 
 	 */
