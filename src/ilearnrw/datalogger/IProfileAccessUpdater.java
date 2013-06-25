@@ -94,6 +94,11 @@ public interface IProfileAccessUpdater {
      */
     boolean registerUserSession(UserSession session);
     
+    /** \brief Adds current sessions to old sessions 
+     */
+    
+    boolean moveToOldSessions();
+    
     /** \brief Registers a change to the users preferences.
      *
      * Should changes to user preferences be logged so that

@@ -161,19 +161,43 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 
 	@Override
 	public boolean registerUserSession(UserSession session) {
-		// TODO Auto-generated method stub
+		if(session != null){
+			mUser.getSession().add(session);
+
+			setDirty();
+			return true;
+		}
 		return false;
+	}
+	
+	@Override
+	public boolean moveToOldSessions(){
+		for(UserSession session : mUser.getSession()){
+			mUser.getOldSessions().add(session);
+		}
+		mUser.getSession().clear();
+		setDirty();
+		
+		return true;
 	}
 
 	@Override
 	public boolean setPreference(UserPreferences preferences) {
-		// TODO Auto-generated method stub
+		if(preferences != null){
+			mUser.getProfile().setPreferences(preferences);
+			setDirty();
+			return true;
+		}
 		return false;
 	}
 
 	@Override
 	public boolean setUserDetail(UserDetails userDetails) {
-		// TODO Auto-generated method stub
+		if(userDetails != null){
+			mUser.setDetails(userDetails);
+			setDirty();
+			return true;
+		}
 		return false;
 	}
 
@@ -203,8 +227,12 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 	}
 
 	@Override
-	public boolean setUserLanguage(LanguageCode Language) {
-		// TODO Auto-generated method stub
+	public boolean setUserLanguage(LanguageCode language) {
+		if(language != mUser.getDetails().getLanguage()){
+			mUser.getDetails().setLanguage(language);
+			setDirty();
+			return true;
+		}
 		return false;
 	}
 
