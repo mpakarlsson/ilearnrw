@@ -253,7 +253,6 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 	 */
 	@Override
 	public void discardPendingChanges() {
-		mUserStore.reload();
 		mUser = null;
 		mMarker = null;
 		mUserIsDirty = false;

@@ -89,7 +89,7 @@ public interface IProfileAccessUpdater {
                               User marker /*!< Profile of the user who is doing the update*/
                               ) throws
         PermissionException, PendingChangesAvailable;
-
+    
     /** \brief Registers a new User session in the log
      */
     boolean registerUserSession(UserSession session);

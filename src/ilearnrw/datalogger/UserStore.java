@@ -200,13 +200,6 @@ class UserStore implements ILoginProvider, IUserAdministration {
 		}
 	}
 	
-	/** @brief Reload used for discarding information
-	 * 
-	 */
-	public void reload(){
-		load();
-	}
-	
 	/** @brief Serializes mLoadedUsers into `mFilePath`
 	 * 
 	 */
@@ -232,7 +225,7 @@ class UserStore implements ILoginProvider, IUserAdministration {
 		{
 			if( u.getDetails().getUsername().equals(username) )
 				if( u.getDetails().checkPassword(password))
-					return u;
+					return deepCopy(u);
 		}
 		return null;
 	}
