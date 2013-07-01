@@ -29,6 +29,8 @@ package ilearnrw.datalogger;
 import java.util.List;
 
 import ilearnrw.datalogger.IDataLogger;
+import ilearnrw.prototype.application.UserActions;
+import ilearnrw.prototype.application.UserActionsLog;
 /** \page "DataLogger Log format"
  *
  * Following is a quick description about how data is, or will be, stored.
@@ -91,6 +93,7 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 	/** The object that store users.
 	 */
 	private UserStore mUserStore = null;
+	private UserActions mUserActions = null;
 	
 	/** Loads the UserStore from disk.
 	 * 
@@ -109,6 +112,22 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 		return true;
 	}
 	
+	/** Loads the UserActions from disk.
+	 * 
+	 * This has to be called during initialization.
+	 * 
+	 * @note filePath does not have to exist.
+	 * 	 	 But the directory it is in has to.
+	 * 
+	 * @param filePath FilePath to a disk copy.
+	 * @return true if successful. false if already loaded.
+	 */
+	public boolean loadUserActions(String filePath){
+		if( mUserActions != null)
+			return false;
+		mUserActions = new UserActions(filePath);
+		return true;
+	}
 	
 
 	@Override
@@ -119,8 +138,14 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 
 	@Override
 	public void logAction(UserAction action) {
-		// TODO Auto-generated method stub
+		if(action == null)
+			return;
 		
+		mUserActions.addUserAction(action);
+	}
+	
+	public UserActions getUserActions(){
+		return mUserActions;
 	}
 
 	/** The current user to be updated.

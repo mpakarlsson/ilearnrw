@@ -3,6 +3,7 @@ package ilearnrw.prototype.application;
 import ilearnrw.datalogger.IUserAdministration;
 import ilearnrw.datalogger.IUserAdministration.AuthenticationException;
 import ilearnrw.prototype.application.ConsoleMenu.*;
+import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.prototype.application.ConsoleMenuAction;
 import ilearnrw.user.User;
 
@@ -131,6 +132,7 @@ public class DatabaseManager extends ConsoleMenuAction {
 						return EConsoleMenuActionResult.showThisMenuAgain;
 					}
 				},
+				new UserActionsLog("User Actions Log"),
 				new ConsoleMenuAction("Back") {
 					@Override
 					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {

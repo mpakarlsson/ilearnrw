@@ -18,4 +18,13 @@ public class UserActionFilter {
 	Date mTimeStart;
 	Date mTimeEnd;
 	
+	
+	public UserActionFilter(int userId, ApplicationId appId, Date start, Date end, List<String> tags){
+		mUserId = userId;
+		mApplicationId = appId;
+		mTags = tags;
+		mTimeStart = start;
+		mTimeEnd = end;
+	}
+	
 }

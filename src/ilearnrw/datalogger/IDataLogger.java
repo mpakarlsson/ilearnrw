@@ -2,6 +2,7 @@ package ilearnrw.datalogger;
 
 import java.util.List;
 
+import ilearnrw.prototype.application.UserActions;
 import ilearnrw.user.UserAction;
 
 
@@ -21,4 +22,6 @@ public interface IDataLogger {
 	 * The timestamp should be local time of the server when this function is called.
 	 */
 	void logAction(UserAction action);
+	
+	UserActions getUserActions();
 }

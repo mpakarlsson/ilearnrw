@@ -55,6 +55,7 @@ public class Program {
 
 			// Initialize the DataLogger object
 			sDataLogger.loadUserStore(databaseFile);
+			sDataLogger.loadUserActions(databaseFile);
 			
 			ConsoleMenu mnu = new ConsoleMenu(System.out, System.in, "iLearnRW - Main menu", 
 					new IConsoleMenuAction[] {

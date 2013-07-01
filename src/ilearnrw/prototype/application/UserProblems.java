@@ -24,8 +24,6 @@ public class UserProblems extends ConsoleMenuAction {
 	@Override
 	public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
 		
-
-
 			menu.subMenu("User: " + mUser.getDetails().getUsername(), new IConsoleMenuAction[] {
 				new ConsoleMenuAction("List problem definitions") {
 					@Override
