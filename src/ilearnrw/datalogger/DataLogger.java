@@ -125,6 +125,7 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 	public boolean loadUserActions(String filePath){
 		if( mUserActions != null)
 			return false;
+
 		mUserActions = new UserActions(filePath);
 		return true;
 	}
@@ -247,7 +248,6 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 				return true;
 			}
 		}
-		
 		return false;
 	}
 

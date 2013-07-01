@@ -1,6 +1,7 @@
 package ilearnrw.user;
 
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -10,9 +11,11 @@ import java.util.Date;
  * 		 UserActions are not tied directly to a session.
  * 		 To fix: Add deviceid to session and actions.
  */
-public class UserSession {
+public class UserSession implements Serializable {
+	private static final long serialVersionUID = 1L;
 	boolean isActive;
 	Timestamp start, end;
+
 	/**
 	 * sets the timestamp and turns the boolean variable 'isActive' to true!
 	 */

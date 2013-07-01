@@ -24,4 +24,5 @@ public interface IDataLogger {
 	void logAction(UserAction action);
 	
 	UserActions getUserActions();
+	
 }

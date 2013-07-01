@@ -47,11 +47,11 @@ public class UserTest {
 	@Test
 	public void testSetDetails(){
 		UserDetails userDetails = user.getDetails();
-
-		userDetails = user.getDetails();
+		
+		userDetails.setUsername("Eric");
+		userDetails.setLanguage(LanguageCode.EN);
 		
 		assertEquals("Eric", userDetails.getUsername());
-		assertEquals(2, "");
 		assertEquals(LanguageCode.EN, userDetails.getLanguage());
 	}
 }
