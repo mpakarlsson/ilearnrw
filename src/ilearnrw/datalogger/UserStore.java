@@ -56,7 +56,7 @@ class UserStore implements ILoginProvider, IUserAdministration {
 	 */
 	public User create() {
 		SecureRandom random = new SecureRandom();
-		int userId = random.nextInt();
+		int userId = random.nextInt(Integer.MAX_VALUE);
 		if( read_noCopy(userId) != null ) // If we managed to randomize an already existing user, just try again (Stackoverflow potential).
 			return create();
 		User newUser = new User(userId);

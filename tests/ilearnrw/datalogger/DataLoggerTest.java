@@ -136,10 +136,10 @@ public class DataLoggerTest {
 		
 		UserActions actions2 = dataLogger.getUserActions();
 		
-		assertEquals("Tag", actions2.getAction(actions2.getActions().size()-1).getTag());
-		assertEquals("Text", actions2.getAction(actions2.getActions().size()-1).getText());
-		assertEquals("TestId", actions2.getAction(actions2.getActions().size()-1).getApplicationId());
-		assertEquals(-1, actions2.getAction(actions2.getActions().size()-1).getUserId());
+		assertEquals("Tag", actions2.getAction(actions2.getActions(null).size()-1).getTag());
+		assertEquals("Text", actions2.getAction(actions2.getActions(null).size()-1).getText());
+		assertEquals("TestId", actions2.getAction(actions2.getActions(null).size()-1).getApplicationId());
+		assertEquals(-1, actions2.getAction(actions2.getActions(null).size()-1).getUserId());
 	}
 	
 	@Test

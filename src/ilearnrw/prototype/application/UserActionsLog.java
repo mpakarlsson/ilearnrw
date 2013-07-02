@@ -1,10 +1,15 @@
 package ilearnrw.prototype.application;
 
+import java.io.PrintStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
+import ilearnrw.application.ApplicationId;
+import ilearnrw.datalogger.UserActionFilter;
 import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.prototype.application.ConsoleMenu.IConsoleMenuAction;
 import ilearnrw.user.UserAction;
@@ -21,25 +26,92 @@ public class UserActionsLog extends ConsoleMenuAction {
 				new ConsoleMenuAction("List all actions"){
 					@Override
 					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
-						Calendar calendar = Calendar.getInstance();
-						List<UserAction> actions = Program.getDataLogger().getUserActions().getActions();
+						List<UserAction> actions = Program.getDataLogger().getUserActions().getActions(null);
 						if(actions == null){
 							menu.out().println("There are no user actions to log");
 							return EConsoleMenuActionResult.showThisMenuAgain;
 						}
 						
-						for( UserAction action : actions){
-							calendar.setTime(action.getTimeStamp());
-							int hours = calendar.get(Calendar.HOUR_OF_DAY);
-							int minutes = calendar.get(Calendar.MINUTE);
-							int seconds = calendar.get(Calendar.SECOND);
-							
-							menu.out().printf("%s %02d:%02d:%02d", "TIME:", hours, minutes, seconds);
-							menu.out().print(", APPID: " + action.getApplicationId());
-							menu.out().print(", USERID: " + action.getUserId());
-							menu.out().print(", TAG: " + action.getTag());
-							menu.out().println(", TEXT: " + action.getText());
+						printOutActions(actions, menu.out());
+						return EConsoleMenuActionResult.showThisMenuAgain;
+					}
+				},
+				new ConsoleMenuAction("List actions"){
+
+					@Override
+					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
+						menu.out().println("Listing actions, preparing filter");
+						menu.out().println("Enter an userid. (Enter '-1' to skip)");
+						int id = Integer.parseInt(menu.in().next());
+						
+						menu.out().println("Enter an applicationid. (Enter 'n' to skip)");
+						String appIdValue = menu.in().next();
+						ApplicationId appId;
+						if(appIdValue.equals("n"))
+							appId = null;
+						else
+							appId = new ApplicationId(appIdValue);
+						
+						int yearStart = -1, monthStart = -1, dayStart = -1;
+						menu.out().println("Do you wish to enter a starttime. (y/n)");
+						if(menu.in().next().equals("y")){
+							menu.out().print("Year:");
+							yearStart = Integer.parseInt(menu.in().next());
+							menu.out().print("Month:");
+							monthStart = Integer.parseInt(menu.in().next());
+							menu.out().print("Day:");
+							dayStart = Integer.parseInt(menu.in().next());
 						}
+						
+						int yearEnd = -1, monthEnd = -1, dayEnd = -1;
+						menu.out().println("Do you wish to enter an endtime. (y/n)");
+						if(menu.in().next().equals("y")){
+							menu.out().print("Year:");
+							yearEnd = Integer.parseInt(menu.in().next());
+							menu.out().print("Month:");
+							monthEnd = Integer.parseInt(menu.in().next());
+							menu.out().print("Day:");
+							dayEnd = Integer.parseInt(menu.in().next());
+						}
+						menu.out().println("Enter tags:");
+						List<String> tags = new ArrayList<String>();
+						String tag = "";
+						
+						do{
+							menu.out().println("Tag: (enter 'n' to stop entering tags)");
+							tag = menu.in().next();
+							if(tag.equals("n"))
+								break;
+							
+							tags.add(tag);
+							
+						}while(true);
+						
+						
+						Calendar cal = Calendar.getInstance();
+						Date startTime = null;
+						if(yearStart != -1){
+							cal.set(yearStart, monthStart, dayStart);
+							startTime = cal.getTime();
+						}
+						
+						Date endTime = null;
+						if(yearEnd != -1){
+							cal.set(yearEnd, monthEnd, dayEnd);
+							endTime = cal.getTime();
+						}
+						
+						
+						UserActionFilter filter = new UserActionFilter(id, appId, startTime, endTime, tags);
+						
+						List<UserAction> actions = Program.getDataLogger().getUserActions().getActions(filter);
+						if(actions == null){
+							menu.out().println("There are no user actions to log");
+							return EConsoleMenuActionResult.showThisMenuAgain;
+						}
+						
+						printOutActions(actions, menu.out());
+						
 						return EConsoleMenuActionResult.showThisMenuAgain;
 					}
 				},
@@ -105,5 +177,15 @@ public class UserActionsLog extends ConsoleMenuAction {
 		return super.onSelected(menu);
 	}
 
-	
+	private void printOutActions(List<UserAction> actions, PrintStream out){
+		for( UserAction action : actions){							
+			SimpleDateFormat ft = new SimpleDateFormat("E yyyy.MM.dd 'at' HH:mm:ss");
+			out.print(ft.format(action.getTimeStamp()));
+			
+			out.print(", APPID: " + action.getApplicationId());
+			out.print(", USERID: " + action.getUserId());
+			out.print(", TAG: " + action.getTag());
+			out.println(", TEXT: " + action.getText());
+		}
+	}
 }
