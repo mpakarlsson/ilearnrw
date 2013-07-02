@@ -1,7 +1,9 @@
 package ilearnrw.user;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /** 
  * @todo Add some documentation about this class.
@@ -30,7 +32,9 @@ public class UserAction implements Serializable{
 	 */
 	public UserAction(String tag, String value, String applicationId, int userId)
 	{
-		mTimeStamp = new Date();
+		
+		//mTimeStamp = new Date();
+		mTimeStamp = createRandomDate(1980, 2014).getTime();
 		mTag = tag;
 		mValue = value;
 		mApplicationId = applicationId;
@@ -66,4 +70,20 @@ public class UserAction implements Serializable{
 		mApplicationId = applicationId;
 	}
 	
+	
+	/** @todo: remove these after testing UserActions with UserActionFilter enough
+	 */
+
+	private Calendar createRandomDate(int startYear, int endYear){
+		Calendar cal = new GregorianCalendar();
+		int year = randBetween(startYear, endYear);
+		cal.set(Calendar.YEAR, year);
+		int dayOfYear = randBetween(1, cal.getActualMaximum(Calendar.DAY_OF_YEAR));
+		cal.set(Calendar.DAY_OF_YEAR, dayOfYear);
+		return cal;
+		
+	}
+	private static int randBetween(int start, int end){
+		return start + (int)Math.round(Math.random() * ( end - start ));
+	}
 }

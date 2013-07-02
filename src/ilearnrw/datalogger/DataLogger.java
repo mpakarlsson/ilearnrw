@@ -131,11 +131,11 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 	}
 	
 
-	@Override
-	public List<UserAction> getUserActions(UserActionFilter filter) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public List<UserAction> getUserActions(UserActionFilter filter) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	@Override
 	public void logAction(UserAction action) {
@@ -145,6 +145,7 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 		mUserActions.addUserAction(action);
 	}
 	
+	@Override
 	public UserActions getUserActions(){
 		return mUserActions;
 	}

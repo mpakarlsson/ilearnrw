@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import ilearnrw.datalogger.UserActionFilter;
 import ilearnrw.user.UserAction;
 
 public class UserActions {
@@ -29,11 +30,120 @@ public class UserActions {
 	}
 	
 	
-	public List<UserAction> getActions(){
+	private List<UserAction> getActions(){
 		if(mActions.size() == 0)
 			return null;
 		
 		return mActions;
+	}
+	
+	public List<UserAction> getActions(UserActionFilter filter){
+		boolean hasValues = false;
+		
+		
+		if(filter == null)
+			return getActions();
+		
+		List<UserAction> filteredActions = new ArrayList<UserAction>();
+
+		if(filter.getUserId() != -1){
+			for(UserAction action : mActions){
+				if(action.getUserId() == filter.getUserId()){
+					filteredActions.add(action);	
+					hasValues = true;
+				}
+			}
+		}
+		
+		if(filter.getApplicationId() != null){
+			if(filteredActions.size() > 0){
+				for(int i = filteredActions.size()-1; i >= 0; i--){
+					if(!filter.getApplicationId().getId().equals(filteredActions.get(i).getApplicationId()))
+						filteredActions.remove(i);
+				}	
+			} else {
+				for(UserAction action : mActions){
+					if(filter.getApplicationId().getId().equals(action.getApplicationId())){
+						filteredActions.add(action);
+						hasValues = true;
+					}
+				}
+			}
+		}
+		
+		if(filteredActions.size() == 0 && hasValues)
+			return null;
+		
+		boolean exists = false;
+		if(filter.getTags().size() > 0){
+			if(filteredActions.size() > 0){
+				for(int i = filteredActions.size()-1; i>=0; i--){
+					for(String tag : filter.getTags()){
+						if(filteredActions.get(i).getTag().equals(tag)){
+							exists = true;
+							break;
+						}
+					}
+					if(!exists)
+						filteredActions.remove(i);
+					exists = false;
+				}
+			} else {
+				for(UserAction action : mActions){
+					for(String tag : filter.getTags()){
+						if(action.getTag().equals(tag)){
+							filteredActions.add(action);
+							hasValues = true;
+						}
+					}
+				}
+			}
+		}
+		
+		if(filteredActions.size() == 0 && hasValues)
+			return null;
+		
+		if(filter.getStartTime() != null){
+			if(filteredActions.size() > 0){
+				for(int i = filteredActions.size()-1; i>=0; i--){
+					if(filter.getStartTime().after(filteredActions.get(i).getTimeStamp())){
+						filteredActions.remove(i);
+					}
+				}
+			} else {
+				for(UserAction action : mActions){
+					if(filter.getStartTime().before(action.getTimeStamp())){
+						filteredActions.add(action);
+						hasValues = true;
+					}
+				}
+			}	
+		}
+		
+		if(filteredActions.size() == 0 && hasValues)
+			return null;
+		
+		if(filter.getEndTime() != null){
+			if(filteredActions.size() > 0){
+				for(int i = filteredActions.size()-1; i>=0; i--){
+					if(filter.getEndTime().before(filteredActions.get(i).getTimeStamp())){
+						filteredActions.remove(i);
+					}
+				}
+			} else {
+				for(UserAction action : mActions){
+					if(filter.getEndTime().after(action.getTimeStamp())){
+						filteredActions.add(action);
+						hasValues = true;
+					}
+				}
+			}
+		}
+		
+		if(!hasValues)
+			return getActions();
+		
+		return filteredActions;
 	}
 	
 	public UserAction getAction(int i){
