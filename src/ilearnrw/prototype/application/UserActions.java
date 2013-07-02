@@ -83,7 +83,7 @@ public class UserActions {
 			mActions = (ArrayList<UserAction>) ois.readObject();
 			ois.close();
 		} catch (FileNotFoundException e) {
-			mLogger.severe("Could not load UserActions: " + e.getMessage());
+			//mLogger.severe("Could not load UserActions: " + e.getMessage());
 			mActions = new ArrayList<UserAction>();
 		} catch (IOException e) {
 			mLogger.severe("Could not load UserActions: " + e.getMessage());

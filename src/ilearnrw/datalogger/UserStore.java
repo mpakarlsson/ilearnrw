@@ -186,7 +186,7 @@ class UserStore implements ILoginProvider, IUserAdministration {
 		}
 		catch (FileNotFoundException ex)
 		{
-        	mLogger.severe("Could not load Users: " + ex.toString());
+        	//mLogger.severe("Could not load Users: " + ex.toString());
 			mLoadedUsers = new ArrayList<User>();
 		}
 		catch (IOException ex)
