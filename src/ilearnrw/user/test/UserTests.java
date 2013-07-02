@@ -6,7 +6,6 @@ import junit.framework.Assert;
 import ilearnrw.user.Category;
 import ilearnrw.user.LanguageCode;
 import ilearnrw.user.ProblemDefinition;
-import ilearnrw.user.Subcategory;
 import ilearnrw.user.UserProfile;
 
 import org.junit.Test;
@@ -24,19 +23,17 @@ public class UserTests {
 	
 	@Test
 	public void createProblems() {
-		Category category1 = new Category("PHONOLOGY - SUB-WORD LEVEL: LETTER RECOGNITION PROBLEMS", true);
-		Subcategory recognizeLetters11 = new Subcategory("Difficulty in recognizing letters: Auditory-based errors", category1);
-		Subcategory recognizeLetters12 = new Subcategory("Difficulty in recognizing letters: Visually-based errors", category1);
+		Category category1 = new Category("PHONOLOGY-SUB-WORDLEVEL.Difficultyinrecognizingletters.Auditory-basederrors");
+		Category category2 = new Category("PHONOLOGY-SUB-WORDLEVEL.Difficultyinrecognizingletters.Visually-basederrors");
 
-		Category category2 = new Category("WORD LEVEL: WORD RECOGNITION PROBLEMS", true);
-		Subcategory wordRecognition21 = new Subcategory("Word recognition: Visually-based errors", category2);
-		Subcategory wordRecognition22 = new Subcategory("Word recognition: Semantically-based errors", category2);
+		Category category3 = new Category("WORDLEVEL.Wordrecognition.Visually-basederrors");
+		Category category4 = new Category("WORDLEVEL.Wordrecognition.Semantically-basederrors");
 		
 
 		ArrayList<LanguageCode> acceptedLanguages = new ArrayList<LanguageCode>();
 		acceptedLanguages.add(LanguageCode.GR);
-		ProblemDefinition problem111 = new ProblemDefinition("1.1.1", recognizeLetters11, 10, acceptedLanguages);
-		ProblemDefinition problem121 = new ProblemDefinition("1.2.1", recognizeLetters12, 10, acceptedLanguages);
+		ProblemDefinition problem111 = new ProblemDefinition("1.1.1", category1, 10, acceptedLanguages);
+		ProblemDefinition problem121 = new ProblemDefinition("1.2.1", category2, 10, acceptedLanguages);
 		
 
 		Assert.assertEquals("We have added only one language", problem111.getAvailableLanguages().size(), 1);

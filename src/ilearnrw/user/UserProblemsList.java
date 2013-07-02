@@ -42,11 +42,9 @@ public class UserProblemsList implements Serializable {
 	public void loadProblems(LanguageCode lc){
 		//this code is going to be load some kind of csv file or entries from a db
 		//depending on the language of the user that calls this method
-		Category reading = new Category("Reading Problem", true);
-		Category writting = new Category("Writting Problem", false);
-		Subcategory suffixing = new Subcategory("Suffixing", writting);
-		Subcategory phonemeGrapheme = 
-				new Subcategory("Phoneme Grapheme Correspondance", reading);
+		Category reading = new Category("ReadingProblem.Suffixing");
+		Category writting = new Category("WrittingProblem");
+		Category suffixing = new Category("Suffixing.PhonemeGraphemeCorrespondance");
 		ArrayList<LanguageCode> bothLanguages = new ArrayList<LanguageCode>();
 		bothLanguages.add(LanguageCode.EN);
 		bothLanguages.add(LanguageCode.GR);
@@ -62,11 +60,11 @@ public class UserProblemsList implements Serializable {
 						10, bothLanguages);
 				break;
 				case 2:
-				pr = new ProblemDefinition("URI"+i, suffixing, 
+				pr = new ProblemDefinition("URI"+i, writting, 
 						10, greekLanguage);
 				break;
 				default:
-				pr = new ProblemDefinition("URI"+i, phonemeGrapheme, 
+				pr = new ProblemDefinition("URI"+i, reading, 
 						10, englishLanguage);
 			}
 			//the logic has to be here...
@@ -77,11 +75,9 @@ public class UserProblemsList implements Serializable {
 	public void loadProblems(int userId){
 		//this code is going to be load some kind of csv file or entries from a db
 		//depending on the language of the user that calls this method
-		Category reading = new Category("Reading Problem", true);
-		Category writting = new Category("Writting Problem", false);
-		Subcategory suffixing = new Subcategory("Suffixing", writting);
-		Subcategory phonemeGrapheme = 
-				new Subcategory("Phoneme Grapheme Correspondance", reading);
+		Category reading = new Category("ReadingProblem.Suffixing");
+		Category writting = new Category("WrittingProblem");
+		Category suffixing = new Category("Suffixing.PhonemeGraphemeCorrespondance");
 		ArrayList<LanguageCode> bothLanguages = new ArrayList<LanguageCode>();
 		bothLanguages.add(LanguageCode.EN);
 		bothLanguages.add(LanguageCode.GR);
@@ -97,11 +93,11 @@ public class UserProblemsList implements Serializable {
 						10, bothLanguages);
 				break;
 				case 2:
-				pr = new ProblemDefinition("URI"+i, suffixing, 
+				pr = new ProblemDefinition("URI"+i, reading, 
 						10, greekLanguage);
 				break;
 				default:
-				pr = new ProblemDefinition("URI"+i, phonemeGrapheme, 
+				pr = new ProblemDefinition("URI"+i, writting, 
 						10, englishLanguage);
 			}
 			//the logic has to be here...

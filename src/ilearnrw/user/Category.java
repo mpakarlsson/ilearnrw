@@ -5,35 +5,31 @@ import java.io.Serializable;
 public class Category implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private String title;
-	private boolean isReadingProblem;
-	public Category(String title, boolean isReadingProblem) {
-		this.title = title;
-		this.isReadingProblem = isReadingProblem;
+	private String url;//always to lowercase
+	
+	public Category(String url) {
+		this.url = url.toLowerCase().trim();
 	}
-	public String getTitle() {
-		return title;
+	public String getUrl() {
+		return url;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setUrl(String url) {
+		this.url = url.toLowerCase().trim();
 	}
-	public boolean isReadingProblem() {
-		return isReadingProblem;
-	}
-	public void setReadingProblem(boolean isReadingProblem) {
-		this.isReadingProblem = isReadingProblem;
-	}
+
 	@Override
 	public boolean equals(Object obj) {
 		Category c = (Category)obj;
-		return c.getTitle().equals(this.title);
+		return c.getUrl().trim().equalsIgnoreCase(this.url.trim());
 	}
 	@Override
 	public String toString() {
-		return "Category [title=" + title + ", isReadingProblem="
-				+ isReadingProblem + "]";
+		return "Category [category url=" + url + "]";
 	}
 	
+	public boolean isSubCategory(Category c){
+		return url.startsWith(c.getUrl()) && !(c.getUrl()).startsWith(url);
+	}
 	
 	
 }
