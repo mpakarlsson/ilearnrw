@@ -1,5 +1,8 @@
 package ilearnrw.user;
 
+import ilearn.user.problems.Category;
+import ilearn.user.problems.ProblemDefinition;
+
 import java.io.Serializable;
 import java.util.ArrayList; 
 

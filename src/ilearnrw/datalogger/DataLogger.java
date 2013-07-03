@@ -28,6 +28,7 @@ package ilearnrw.datalogger;
 
 import java.util.List;
 
+import ilearn.user.problems.ProblemDefinition;
 import ilearnrw.datalogger.IDataLogger;
 import ilearnrw.prototype.application.UserActions;
 import ilearnrw.prototype.application.UserActionsLog;
@@ -74,7 +75,6 @@ import ilearnrw.prototype.application.UserActionsLog;
  * can be queried. To filter the result a UserActionFilter object is provided.
  */
 import ilearnrw.user.LanguageCode;
-import ilearnrw.user.ProblemDefinition;
 import ilearnrw.user.User;
 import ilearnrw.user.UserAction;
 import ilearnrw.user.UserDetails;

@@ -6,12 +6,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+import ilearn.user.problems.ProblemDefinition;
 import ilearnrw.datalogger.IProfileAccessUpdater.PendingChangesAvailable;
 import ilearnrw.datalogger.IProfileAccessUpdater.PermissionException;
 import ilearnrw.datalogger.IUserAdministration.AuthenticationException;
 import ilearnrw.prototype.application.UserActions;
 import ilearnrw.user.LanguageCode;
-import ilearnrw.user.ProblemDefinition;
 import ilearnrw.user.User;
 import ilearnrw.user.UserAction;
 import ilearnrw.user.UserDetails;

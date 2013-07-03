@@ -3,10 +3,10 @@ package ilearnrw.user.mockup;
 import java.util.ArrayList;
 import java.util.List;
 
-import ilearnrw.user.Category;
+import ilearn.user.problems.Category;
+import ilearn.user.problems.ProblemDefinition;
+import ilearn.user.problems.ProblemDefinitionIndexApi;
 import ilearnrw.user.LanguageCode;
-import ilearnrw.user.ProblemDefinition;
-import ilearnrw.user.ProblemDefinitionIndexApi;
 
 public class ProblemDefinitionIndexMockup implements ProblemDefinitionIndexApi{
 

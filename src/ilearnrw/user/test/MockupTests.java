@@ -2,8 +2,8 @@ package ilearnrw.user.test;
 
 import java.util.GregorianCalendar;
 
+import ilearn.user.problems.ProblemDefinitionIndexApi;
 import ilearnrw.user.LanguageCode;
-import ilearnrw.user.ProblemDefinitionIndexApi;
 import ilearnrw.user.mockup.ProblemDefinitionIndexMockup;
 
 import org.junit.Assert;

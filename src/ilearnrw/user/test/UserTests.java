@@ -3,9 +3,9 @@ package ilearnrw.user.test;
 import java.util.ArrayList;
 
 import junit.framework.Assert;
-import ilearnrw.user.Category;
+import ilearn.user.problems.Category;
+import ilearn.user.problems.ProblemDefinition;
 import ilearnrw.user.LanguageCode;
-import ilearnrw.user.ProblemDefinition;
 import ilearnrw.user.UserProfile;
 
 import org.junit.Test;

@@ -1,7 +1,7 @@
 package ilearnrw.datalogger;
 
+import ilearn.user.problems.ProblemDefinition;
 import ilearnrw.user.LanguageCode;
-import ilearnrw.user.ProblemDefinition;
 import ilearnrw.user.User;
 import ilearnrw.user.UserDetails;
 import ilearnrw.user.UserPreferences;
