@@ -2,11 +2,11 @@ package ilearnrw.prototype.application;
 
 import java.util.ArrayList;
 
-import ilearn.user.problems.ProblemDefinition;
 import ilearnrw.prototype.application.ConsoleMenu.*;
 import ilearnrw.user.LanguageCode;
 import ilearnrw.user.User;
 import ilearnrw.user.mockup.ProblemDefinitionIndexMockup;
+import ilearnrw.user.problems.ProblemDefinition;
 
 public class UserProblems extends ConsoleMenuAction {
 

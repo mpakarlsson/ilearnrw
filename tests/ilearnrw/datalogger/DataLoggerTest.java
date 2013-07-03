@@ -6,7 +6,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-import ilearn.user.problems.ProblemDefinition;
 import ilearnrw.datalogger.IProfileAccessUpdater.PendingChangesAvailable;
 import ilearnrw.datalogger.IProfileAccessUpdater.PermissionException;
 import ilearnrw.datalogger.IUserAdministration.AuthenticationException;
@@ -17,6 +16,7 @@ import ilearnrw.user.UserAction;
 import ilearnrw.user.UserDetails;
 import ilearnrw.user.UserPreferences;
 import ilearnrw.user.UserSession;
+import ilearnrw.user.problems.ProblemDefinition;
 
 import static org.junit.Assert.*;
 

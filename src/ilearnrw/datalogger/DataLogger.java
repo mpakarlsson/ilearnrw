@@ -28,7 +28,6 @@ package ilearnrw.datalogger;
 
 import java.util.List;
 
-import ilearn.user.problems.ProblemDefinition;
 import ilearnrw.datalogger.IDataLogger;
 import ilearnrw.prototype.application.UserActions;
 import ilearnrw.prototype.application.UserActionsLog;
@@ -80,6 +79,7 @@ import ilearnrw.user.UserAction;
 import ilearnrw.user.UserDetails;
 import ilearnrw.user.UserPreferences;
 import ilearnrw.user.UserSession;
+import ilearnrw.user.problems.ProblemDefinition;
 
 
 /** DataLogger class.

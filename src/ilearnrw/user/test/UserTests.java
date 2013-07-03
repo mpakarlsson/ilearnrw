@@ -3,10 +3,10 @@ package ilearnrw.user.test;
 import java.util.ArrayList;
 
 import junit.framework.Assert;
-import ilearn.user.problems.Category;
-import ilearn.user.problems.ProblemDefinition;
 import ilearnrw.user.LanguageCode;
 import ilearnrw.user.UserProfile;
+import ilearnrw.user.problems.Category;
+import ilearnrw.user.problems.ProblemDefinition;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

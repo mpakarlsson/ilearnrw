@@ -1,6 +1,6 @@
 package ilearnrw.user;
 
-import ilearn.user.problems.ProblemDefinition;
+import ilearnrw.user.problems.ProblemDefinition;
 
 
 public class UserProblem {
