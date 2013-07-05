@@ -1,5 +1,6 @@
 package ilearnrw.user.problems;
 
+import ilearnrw.user.IlearnException;
 import ilearnrw.user.LanguageCode;
 
 import java.io.Serializable;
@@ -7,10 +8,10 @@ import java.util.ArrayList;
 
 public class ProblemDefinition implements Serializable {
 	private static final long serialVersionUID = 1L;
-	String URI;
-	Category type;
-	// Category:: I replaced the 'string'...
-	// String gives no semantically information about the category!
+	private String URI;
+	private Category type;
+	private ArrayList<ProblemNode> problemNodes;
+
 	int scoreUpperBound;
 	ArrayList<LanguageCode> availableLanguages;
 
@@ -52,6 +53,15 @@ public class ProblemDefinition implements Serializable {
 
 	public void setAvailableLanguages(ArrayList<LanguageCode> availableLanguages) {
 		this.availableLanguages = availableLanguages;
+	}
+	
+	public ProblemNode getProblemNode(int idx) throws IlearnException{
+		if (problemNodes == null) throw new IlearnException("Null Problem Node List");
+		if (problemNodes.size()==0) throw new IlearnException("Empty Problem Node List");
+		if (idx<0 || idx>scoreUpperBound) throw new IlearnException("Problem Node Out Of Bounds");
+		else {
+			return problemNodes.get(idx);
+		}
 	}
 
 	@Override
