@@ -62,6 +62,7 @@ public class UserLogin extends ConsoleMenuAction {
 					}
 				},
 				new UserProblems("Problem definitions", user),
+				new UserGames("Play Games", user),
 				new ConsoleMenuAction("Log out") {
 					@Override
 					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
