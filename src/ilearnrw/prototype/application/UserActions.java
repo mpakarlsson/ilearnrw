@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import javax.sound.sampled.ReverbType;
+
 import ilearnrw.datalogger.UserActionFilter;
 import ilearnrw.user.UserAction;
 
@@ -75,25 +77,27 @@ public class UserActions {
 			return null;
 		
 		boolean exists = false;
-		if(filter.getTags().size() > 0){
-			if(filteredActions.size() > 0){
-				for(int i = filteredActions.size()-1; i>=0; i--){
-					for(String tag : filter.getTags()){
-						if(filteredActions.get(i).getTag().equals(tag)){
-							exists = true;
-							break;
+		if(filter.getTags() != null){
+			if(filter.getTags().size() > 0){
+				if(filteredActions.size() > 0){
+					for(int i = filteredActions.size()-1; i>=0; i--){
+						for(String tag : filter.getTags()){
+							if(filteredActions.get(i).getTag().equals(tag)){
+								exists = true;
+								break;
+							}
 						}
+						if(!exists)
+							filteredActions.remove(i);
+						exists = false;
 					}
-					if(!exists)
-						filteredActions.remove(i);
-					exists = false;
-				}
-			} else {
-				for(UserAction action : mActions){
-					for(String tag : filter.getTags()){
-						if(action.getTag().equals(tag)){
-							filteredActions.add(action);
-							hasValues = true;
+				} else {
+					for(UserAction action : mActions){
+						for(String tag : filter.getTags()){
+							if(action.getTag().equals(tag)){
+								filteredActions.add(action);
+								hasValues = true;
+							}
 						}
 					}
 				}

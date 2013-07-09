@@ -33,8 +33,8 @@ public class UserAction implements Serializable{
 	public UserAction(String tag, String value, String applicationId, int userId)
 	{
 		
-		//mTimeStamp = new Date();
-		mTimeStamp = createRandomDate(1980, 2014).getTime();
+		mTimeStamp = new Date();
+		//mTimeStamp = createRandomDate(1980, 2014).getTime();
 		mTag = tag;
 		mValue = value;
 		mApplicationId = applicationId;

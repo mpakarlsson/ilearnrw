@@ -1,7 +1,7 @@
 package ilearnrw.prototype.application;
 
-import ilearn.games.GameAddTwoNumbers;
 import ilearnrw.datalogger.DataLogger;
+import ilearnrw.games.GameAddTwoNumbers;
 import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.prototype.application.ConsoleMenu.IConsoleMenuAction;
 import ilearnrw.user.User;
@@ -26,6 +26,7 @@ public class UserGames extends ConsoleMenuAction {
 						@Override
 						public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
 							menu.out().println("This is not implemented yet");
+							new GameAddTwoNumbers(mUser, Program.getDataLogger());
 							return EConsoleMenuActionResult.showThisMenuAgain;
 						}
 					},
@@ -33,7 +34,6 @@ public class UserGames extends ConsoleMenuAction {
 						@Override
 						public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
 							menu.out().println("This is not implemented yet");
-							//new GameAddTwoNumbers(mUser, Program.getDataLogger());
 							return EConsoleMenuActionResult.showThisMenuAgain;
 						}
 					},

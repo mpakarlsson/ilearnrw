@@ -24,7 +24,7 @@ public class ConsoleMenu {
 	String mMenuTitle;
 	IConsoleMenuAction[] mMenuActions;
 
-	ConsoleMenu(PrintStream outStream, InputStream inStream, String menuTitle, IConsoleMenuAction[] menuActions) {
+	public ConsoleMenu(PrintStream outStream, InputStream inStream, String menuTitle, IConsoleMenuAction[] menuActions) {
 		mOut = outStream;
 		mIn = inStream;
 		mScanner = new Scanner(mIn);
