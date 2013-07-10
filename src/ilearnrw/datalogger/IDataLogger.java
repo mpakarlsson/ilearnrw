@@ -12,10 +12,10 @@ import ilearnrw.user.UserAction;
 public interface IDataLogger {
 
 	
-	/* Given a UserActionFilter this function can return a list of UserActions.
+	/** Given a UserActionFilter this function can return a list of UserActions.
 	 * 
 	 */
-	/*List<UserAction> getUserActions(UserActionFilter filter);*/
+	List<UserAction> getActions(UserActionFilter filter);
 	/** \brief
 	 * 
 	 * The Timestamp of the UserAction should be updated before the actions
@@ -35,5 +35,7 @@ public interface IDataLogger {
 	 * */
 	
 	UserActions getUserActions();
+	
+	
 	
 }

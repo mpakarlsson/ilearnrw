@@ -1,5 +1,7 @@
 package ilearnrw.user;
 
+import ilearnrw.application.ApplicationId;
+
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,7 +16,7 @@ public class UserAction implements Serializable{
 	
 	private String mTag;
 	private String mValue;
-	private String mApplicationId;
+	private ApplicationId mApplicationId;
 	private int mUserId;
 	/**
 	 * Not sure about the datatype Date.
@@ -30,7 +32,7 @@ public class UserAction implements Serializable{
 	 * @param applicationId
 	 * @param userId
 	 */
-	public UserAction(String tag, String value, String applicationId, int userId)
+	public UserAction(String tag, String value, ApplicationId applicationId, int userId)
 	{
 		
 		mTimeStamp = new Date();
@@ -46,7 +48,7 @@ public class UserAction implements Serializable{
 		return mUserId;
 	}
 	
-	public String getApplicationId(){
+	public ApplicationId getApplicationId(){
 		return mApplicationId;
 	}
 	
@@ -66,7 +68,7 @@ public class UserAction implements Serializable{
 		mUserId = userId;
 	}
 	
-	public void setApplicationId(String applicationId){
+	public void setApplicationId(ApplicationId applicationId){
 		mApplicationId = applicationId;
 	}
 	

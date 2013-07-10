@@ -129,13 +129,6 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 		mUserActions = new UserActions(filePath);
 		return true;
 	}
-	
-
-//	@Override
-//	public List<UserAction> getUserActions(UserActionFilter filter) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 
 	@Override
 	public void logAction(UserAction action) {
@@ -145,9 +138,21 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 		mUserActions.addUserAction(action);
 	}
 	
+	
+	/** The handler for user actions
+	 * 
+	 * */
 	@Override
 	public UserActions getUserActions(){
 		return mUserActions;
+	}
+	
+	/**
+	 * The list of user actions if you only are interested in the list of user actions
+	 */
+	@Override
+	public List<UserAction> getActions(UserActionFilter filter) {
+		return mUserActions.getActions(filter);
 	}
 
 	/** The current user to be updated.

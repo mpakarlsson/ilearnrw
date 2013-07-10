@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
+import ilearnrw.application.ApplicationId;
 import ilearnrw.datalogger.IProfileAccessUpdater.PendingChangesAvailable;
 import ilearnrw.datalogger.IProfileAccessUpdater.PermissionException;
 import ilearnrw.datalogger.IUserAdministration.AuthenticationException;
@@ -58,9 +59,9 @@ public class DataLoggerTest {
 			e1.printStackTrace();
 		}
 		
-		UserAction action = new UserAction("Tag", "Text", "Test", 1);
-		UserAction action2 = new UserAction("Tag2", "Text2", "Test2", 2);
-		UserAction action3 = new UserAction("Tag3", "Text3", "Test3", 3);
+		UserAction action = new UserAction("Tag", "Text", new ApplicationId("Test"), 1);
+		UserAction action2 = new UserAction("Tag2", "Text2", new ApplicationId("Test2"), 2);
+		UserAction action3 = new UserAction("Tag3", "Text3", new ApplicationId("Test3"), 3);
 		
 		userActions.addUserAction(action);
 		userActions.addUserAction(action2);
@@ -129,7 +130,7 @@ public class DataLoggerTest {
 	
 	@Test
 	public void testLogAction(){
-		UserAction actionLog = new UserAction("Tag", "Text", "TestId", -1);
+		UserAction actionLog = new UserAction("Tag", "Text", new ApplicationId("TestId"), -1);
 
 		
 		dataLogger.logAction(actionLog);

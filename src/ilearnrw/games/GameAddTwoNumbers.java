@@ -21,7 +21,7 @@ public class GameAddTwoNumbers {
 
 	private IDataLogger mLogger;
 	private User mUser;
-	private String mApplicationId = "AddTwoNumbers";
+	private ApplicationId mApplicationId = new ApplicationId("AddTwoNumbers");
 	private int mUserId;
 	private String mWelcomeMessage = "Welcome, you are now playing 'AddTwoNumbers'";
 	private List<UserAction> mUserActions = null;
@@ -39,7 +39,7 @@ public class GameAddTwoNumbers {
 	public void update(){
 		System.out.println(mWelcomeMessage);
 		try{
-			ConsoleMenu mnu = new ConsoleMenu(System.out, System.in, "iLearnRW - " + mApplicationId, 
+			ConsoleMenu mnu = new ConsoleMenu(System.out, System.in, "iLearnRW - " + mApplicationId.getId(), 
 					new IConsoleMenuAction[] {
 						new ConsoleMenuAction("Start Game") {
 							@Override
@@ -102,7 +102,7 @@ public class GameAddTwoNumbers {
 						new ConsoleMenuAction("Show User Results"){
 							@Override
 							public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
-								UserActionFilter filter = new UserActionFilter(mUserId, new ApplicationId(mApplicationId), null, null, null);
+								UserActionFilter filter = new UserActionFilter(mUserId, mApplicationId, null, null, null);
 								printOutActions(mLogger.getUserActions().getActions(filter), menu.out());
 								return EConsoleMenuActionResult.showThisMenuAgain;
 							}

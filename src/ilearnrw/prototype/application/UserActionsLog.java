@@ -127,7 +127,7 @@ public class UserActionsLog extends ConsoleMenuAction {
 						menu.out().print("UserId: ");
 						int userId = Integer.parseInt(menu.in().next());
 						
-						UserAction action = new UserAction(tag, text, appId, userId);
+						UserAction action = new UserAction(tag, text, new ApplicationId(appId), userId);
 						Program.getDataLogger().logAction(action);
 						return EConsoleMenuActionResult.showThisMenuAgain;
 					}
@@ -137,7 +137,7 @@ public class UserActionsLog extends ConsoleMenuAction {
 					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
 						Random rand = new Random(System.currentTimeMillis());
 						
-						UserAction action = new UserAction("Test", "Test Value", "No App", rand.nextInt(200));
+						UserAction action = new UserAction("Test", "Test Value", new ApplicationId("No App"), rand.nextInt(200));
 						Program.getDataLogger().getUserActions().addUserActionTest(action);
 						return EConsoleMenuActionResult.showThisMenuAgain;
 					}

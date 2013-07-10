@@ -111,8 +111,8 @@ public class NumbersToText extends ConsoleMenuAction {
 							if (inputString.compareToIgnoreCase(nrToText) == 0) {
 								menu.out().println("That's correct!\n");
 								mDataLogger.logAction(new UserAction("OK",
-										String.valueOf(random), APPID
-												.toString(), mUser.getUserId()));
+										String.valueOf(random), APPID, 
+										mUser.getUserId()));
 							} else {
 								menu.out()
 										.println(
@@ -121,7 +121,7 @@ public class NumbersToText extends ConsoleMenuAction {
 														nrToText));
 								mDataLogger.logAction(new UserAction("FAILED",
 										String.format("%d => %s", random,
-												inputString), APPID.toString(),
+												inputString), APPID,
 										mUser.getUserId()));
 							}
 						} while (inputString.compareTo("quit") != 0);
