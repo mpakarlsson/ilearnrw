@@ -4,6 +4,7 @@ import ilearnrw.user.LanguageCode;
 import ilearnrw.user.User;
 import ilearnrw.user.UserDetails;
 import ilearnrw.user.UserPreferences;
+import ilearnrw.user.UserProblem;
 import ilearnrw.user.UserSession;
 import ilearnrw.user.problems.ProblemDefinition;
 
@@ -116,11 +117,11 @@ public interface IProfileAccessUpdater {
      *         to the user profile.
      *
      */
-    boolean addProblemDefinition(ProblemDefinition problemDefinition);
+    boolean addUserProblem(UserProblem userProblem);
 
     /** \brief Removes a ProblemDefinition.
      */
-    boolean removeProblemDefinition(ProblemDefinition problemDefinition);
+    boolean removeUserProblem(UserProblem userProblem);
     
     /** \brief Sets the userlanguage.
     */

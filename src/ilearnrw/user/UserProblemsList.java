@@ -1,30 +1,38 @@
 package ilearnrw.user;
 
+import ilearnrw.games.NumberProblems;
 import ilearnrw.user.problems.Category;
 import ilearnrw.user.problems.ProblemDefinition;
 
 import java.io.Serializable;
 import java.util.ArrayList; 
+import java.util.Random;
 
 public class UserProblemsList implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private ArrayList<ProblemDefinition> list;
+	private ArrayList<UserProblem> list;
 	
+	public UserProblemsList(){
+		this.list = new ArrayList<UserProblem>();
+		loadTestProblems();
+	}
+	
+	/*
 	public UserProblemsList(int userId) {
-		this.list = new ArrayList<ProblemDefinition>();
+		this.list = new ArrayList<UserProblem>();
 		loadProblems(userId);
 	}
 	
 	public UserProblemsList(LanguageCode lc) {
-		this.list = new ArrayList<ProblemDefinition>();
+		this.list = new ArrayList<UserProblem>();
 		loadProblems(lc);
 	}
 	
-	public UserProblemsList(ArrayList<ProblemDefinition> list) {
-		this.list = new ArrayList<ProblemDefinition>();
+	public UserProblemsList(ArrayList<UserProblem> list) {
+		this.list = new ArrayList<UserProblem>();
 		this.list = list;
-	}
+	}*/
 
 	//implement methods like:
 	//hasProblem(problem name)
@@ -42,6 +50,7 @@ public class UserProblemsList implements Serializable {
 	//getAverageOfScoresOfSubCategory(category of problem here) *requires that all scores have the same upper bound!
 	
 
+	/*
 	public void loadProblems(LanguageCode lc){
 		//this code is going to be load some kind of csv file or entries from a db
 		//depending on the language of the user that calls this method
@@ -106,13 +115,24 @@ public class UserProblemsList implements Serializable {
 			//the logic has to be here...
 			list.add(pr);
 		}
+	}*/
+	
+	public void loadTestProblems(){
+		list.clear();
+		NumberProblems numProbs = new NumberProblems();
+		ArrayList<ProblemDefinition> probs = numProbs.getAllProblems();
+		Random rand = new Random();
+		for (int i=0;i<probs.size(); i++){
+			list.add(new UserProblem(probs.get(i), rand.nextInt(probs.get(i).getScoreUpperBound())));			
+		}
+		
 	}
 
-	public ArrayList<ProblemDefinition> getList() {
+	public ArrayList<UserProblem> getList() {
 		return list;
 	}
 
-	public void setList(ArrayList<ProblemDefinition> list) {
+	public void setList(ArrayList<UserProblem> list) {
 		this.list = list;
 	}
 	

@@ -29,6 +29,7 @@ package ilearnrw.datalogger;
 import java.util.List;
 
 import ilearnrw.datalogger.IDataLogger;
+import ilearnrw.games.NumberProblems;
 import ilearnrw.prototype.application.UserActions;
 /** \page "DataLogger Log format"
  *
@@ -77,6 +78,8 @@ import ilearnrw.user.User;
 import ilearnrw.user.UserAction;
 import ilearnrw.user.UserDetails;
 import ilearnrw.user.UserPreferences;
+import ilearnrw.user.UserProblem;
+import ilearnrw.user.UserProblemsList;
 import ilearnrw.user.UserSession;
 import ilearnrw.user.problems.ProblemDefinition;
 
@@ -224,21 +227,21 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 	}
 
 	@Override
-	public boolean addProblemDefinition(ProblemDefinition problemDefinition) {
-		for(ProblemDefinition problem : mUser.getProfile().getProblemsList().getList()){
-			if(problem.getURI().equals(problemDefinition.getURI()))
+	public boolean addUserProblem(UserProblem userProblem) {
+		for(UserProblem problem : mUser.getProfile().getProblemsList().getList()){
+			if(problem.getProblem().getURI().equals(userProblem.getProblem().getURI()))
 				return false;
 		}
-		mUser.getProfile().getProblemsList().getList().add(problemDefinition);
+		mUser.getProfile().getProblemsList().getList().add(userProblem);
 		setDirty();
 		return true;
 	}
 
 	@Override
-	public boolean removeProblemDefinition(ProblemDefinition problemDefinition) {
+	public boolean removeUserProblem(UserProblem userProblem) {
 		
-		for(ProblemDefinition problem : mUser.getProfile().getProblemsList().getList()){
-			if(problem.getURI().equals(problemDefinition.getURI())){
+		for(UserProblem problem : mUser.getProfile().getProblemsList().getList()){
+			if(problem.getProblem().getURI().equals(userProblem.getProblem().getURI())){
 				mUser.getProfile().getProblemsList().getList().remove(problem);
 				setDirty();
 				return true;

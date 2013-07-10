@@ -13,11 +13,15 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemNode;
 
 
-public class NumberProblems {
-	ProblemDefinitionIndex allProbs;
+public class NumberProblems extends ProblemDefinitionIndex {
 
 	public NumberProblems() {
-		this.allProbs = new ProblemDefinitionIndex();
+		super();
+		initialize();
+	}
+	
+	public void getProblem(int idx){
+		
 	}
 
 	public void initialize(){
@@ -32,7 +36,7 @@ public class NumberProblems {
 		prob.addProblemNode(new ProblemNode("Two Digits", null));
 		prob.addProblemNode(new ProblemNode("Three Digits", null));
 		prob.addProblemNode(new ProblemNode("Four Digits", null));
-		allProbs.addProblemDefinition(prob);
+		super.addProblemDefinition(prob);
 		
 
 		//2) Problem on recognizing numbers containing the digit {3} or {4} or {5 and ending in 2 or 3 or 7} 
@@ -47,11 +51,13 @@ public class NumberProblems {
 		subnodes.add(new ProblemNode("Ends With Number 7", null));
 		
 		prob.addProblemNode(new ProblemNode("5", subnodes));
+		super.addProblemDefinition(prob);
 
 		
 		//3) Problem on recognizing numbers containing pattern xy, where y = x+1
 		prob = new ProblemDefinition("1.3", cat, 1, lang);
 		prob.addProblemNode(new ProblemNode("Containing xy, y = x+1", null));
+		super.addProblemDefinition(prob);
 		
 	}
 	

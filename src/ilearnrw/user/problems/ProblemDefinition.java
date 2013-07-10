@@ -21,6 +21,7 @@ public class ProblemDefinition implements Serializable {
 		this.type = type;
 		this.scoreUpperBound = scoreUpperBound;
 		this.availableLanguages = availableLanguages;
+		this.problemNodes = new ArrayList<ProblemNode>();
 	}
 
 	public String getURI() {

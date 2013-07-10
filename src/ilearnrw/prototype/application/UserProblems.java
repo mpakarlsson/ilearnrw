@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import ilearnrw.prototype.application.ConsoleMenu.*;
 import ilearnrw.user.LanguageCode;
 import ilearnrw.user.User;
+import ilearnrw.user.UserProblem;
 import ilearnrw.user.mockup.ProblemDefinitionIndexMockup;
 import ilearnrw.user.problems.ProblemDefinition;
 
@@ -28,10 +29,10 @@ public class UserProblems extends ConsoleMenuAction {
 				new ConsoleMenuAction("List problem definitions") {
 					@Override
 					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
-						for( ProblemDefinition problem : mUser.getProfile().getProblemsList().getList() )
+						for( UserProblem problem : mUser.getProfile().getProblemsList().getList() )
 						{
-							menu.out().print(problem.getURI() + "\t");
-							menu.out().println(Integer.toString(problem.getScoreUpperBound()));
+							menu.out().print(problem.getProblem().getURI() + "\t");
+							menu.out().println(Integer.toString(problem.getProblem().getScoreUpperBound()));
 						}
 						return EConsoleMenuActionResult.showThisMenuAgain;
 					}
@@ -65,9 +66,9 @@ public class UserProblems extends ConsoleMenuAction {
 					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
 						menu.out().println("Remove a problem");
 						int i = 1;
-						ArrayList<ProblemDefinition> problemList = mUser.getProfile().getProblemsList().getList();
-						for(ProblemDefinition problem : problemList){
-							menu.out().println((i++) + ". " + problem.getURI());
+						ArrayList<UserProblem> problemList = mUser.getProfile().getProblemsList().getList();
+						for(UserProblem problem : problemList){
+							menu.out().println((i++) + ". " + problem.getProblem().getURI());
 						}
 						menu.out().println(i + ". Back");
 						String value = menu.in().next();
@@ -75,8 +76,8 @@ public class UserProblems extends ConsoleMenuAction {
 						if(Integer.parseInt(value) == i)
 							return EConsoleMenuActionResult.showThisMenuAgain;
 						
-						ProblemDefinition problemDefinition = problemList.get(Integer.parseInt(value)-1);
-						Program.getProfileAccessUpdater().removeProblemDefinition(problemDefinition);
+						UserProblem userProblem = problemList.get(Integer.parseInt(value)-1);
+						Program.getProfileAccessUpdater().removeUserProblem(userProblem);
 						
 						return EConsoleMenuActionResult.showThisMenuAgain;
 					}
@@ -132,8 +133,9 @@ public class UserProblems extends ConsoleMenuAction {
 				availableProblems.get(uriValue).getType(),
 				availableProblems.get(uriValue).getScoreUpperBound(), 
 				languages);
+
 		
-		if( Program.getProfileAccessUpdater().addProblemDefinition(problem) )
+		if( Program.getProfileAccessUpdater().addUserProblem(new UserProblem(problem)) )
 			menu.out().println("Added a problem definition to user");
 		else
 			menu.out().println("Could not add a problem definition to user");			

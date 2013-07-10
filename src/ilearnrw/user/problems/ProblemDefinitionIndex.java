@@ -16,6 +16,10 @@ public class ProblemDefinitionIndex implements ProblemDefinitionIndexApi {
 		index.add(prob);
 	}
 	
+	public ArrayList<ProblemDefinition> getAllProblems(){
+		return index;
+	}
+	
 	public ProblemDefinition getProblemDefinition(int idx) throws IlearnException{
 		if (index.size()<idx || idx<0) throw new IlearnException("Index out of Bounds");
 		return index.get(idx);

@@ -4,11 +4,13 @@
 **/
 package ilearnrw.user.problems;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class ProblemNode {
+public class ProblemNode implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private String nodeTitle;
 	private ArrayList<ProblemNode> children;
 	/**

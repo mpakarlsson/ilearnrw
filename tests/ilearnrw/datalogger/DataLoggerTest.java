@@ -16,6 +16,7 @@ import ilearnrw.user.User;
 import ilearnrw.user.UserAction;
 import ilearnrw.user.UserDetails;
 import ilearnrw.user.UserPreferences;
+import ilearnrw.user.UserProblem;
 import ilearnrw.user.UserSession;
 import ilearnrw.user.problems.ProblemDefinition;
 
@@ -172,8 +173,8 @@ public class DataLoggerTest {
 	public void testAddProblemDefinition(){
 		ProblemDefinition problem1 = new ProblemDefinition("URI200", null, 10, new ArrayList<LanguageCode>());
 		
-		assertTrue(dataLogger.addProblemDefinition(problem1));
-		assertFalse(dataLogger.addProblemDefinition(problem1));
+		assertTrue(dataLogger.addUserProblem(new UserProblem(problem1)));
+		assertFalse(dataLogger.addUserProblem(new UserProblem(problem1)));
 	}
 	
 	@Test
@@ -181,11 +182,11 @@ public class DataLoggerTest {
 		ProblemDefinition problem1 = new ProblemDefinition("URI100", null, 10, new ArrayList<LanguageCode>());
 		ProblemDefinition problem2 = new ProblemDefinition("URI101", null, 10, new ArrayList<LanguageCode>());
 		
-		dataLogger.addProblemDefinition(problem1);
+		dataLogger.addUserProblem(new UserProblem(problem1));
 		
-		assertFalse(dataLogger.removeProblemDefinition(problem2));
-		assertTrue(dataLogger.removeProblemDefinition(problem1));
-		assertFalse(dataLogger.removeProblemDefinition(problem1));
+		assertFalse(dataLogger.removeUserProblem(new UserProblem(problem2)));
+		assertTrue(dataLogger.removeUserProblem(new UserProblem(problem1)));
+		assertFalse(dataLogger.removeUserProblem(new UserProblem(problem1)));
 	}
 	
 	@Test
@@ -201,7 +202,7 @@ public class DataLoggerTest {
 		ProblemDefinition problem1 = new ProblemDefinition("URI100", null, 10, new ArrayList<LanguageCode>());
 		int origSize = user.getProfile().getProblemsList().getList().size();
 		
-		dataLogger.addProblemDefinition(problem1);
+		dataLogger.addUserProblem(new UserProblem(problem1));
 		dataLogger.writePendingChanges();
 		dataLogger = null;
 		
@@ -214,7 +215,8 @@ public class DataLoggerTest {
 		} catch (PermissionException e) {e.printStackTrace();
 		} catch (PendingChangesAvailable e) {e.printStackTrace();}
 		
-		ProblemDefinition definition = user.getProfile().getProblemsList().getList().get(user.getProfile().getProblemsList().getList().size()-1);
+		ProblemDefinition definition = 
+				user.getProfile().getProblemsList().getList().get(user.getProfile().getProblemsList().getList().size()-1).getProblem();
 		
 		// Has written pending changes, the definition has been added
 		assertEquals(definition.getURI(), problem1.getURI());
@@ -226,7 +228,7 @@ public class DataLoggerTest {
 		assertFalse(dataLogger.hasPendingChanges());
 		
 		ProblemDefinition problem2 = new ProblemDefinition("URI300", null, 10, new ArrayList<LanguageCode>());		
-		dataLogger.addProblemDefinition(problem2);
+		dataLogger.addUserProblem(new UserProblem(problem2));
 		assertTrue(dataLogger.hasPendingChanges());
 	}
 }

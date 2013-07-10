@@ -22,9 +22,15 @@ public class UserProfile implements Serializable {
 		//this.preferences = sets preferences to default values;
 	}
 	
+	public UserProfile() {
+		this.language = LanguageCode.EN;
+		this.problems = new UserProblemsList();//has to set the problems to default values;
+		this.preferences = new UserPreferences();//has to set the preferences to default values;
+	}
+	
 	public UserProfile(int userId) {
 		this.language = LanguageCode.EN;
-		this.problems = new UserProblemsList(userId);//has to set the problems to default values;
+		this.problems = new UserProblemsList();//userId);//has to set the problems to default values;
 		this.preferences = new UserPreferences(userId);//has to set the preferences to default values;
 	}
 

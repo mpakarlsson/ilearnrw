@@ -30,11 +30,11 @@ public class UserLogin extends ConsoleMenuAction {
 		 */
 		final ILoginProvider loginProvider = Program.getLoginProvider();
 		final User user = loginProvider.getUser(username, password);
-		if( user == null )
-		{
+		if( user == null ){
 			menu.out().println("Wrong username or password");
 			return EConsoleMenuActionResult.showThisMenuAgain;
 		}
+		
 		
 		
 		try {			
@@ -49,6 +49,11 @@ public class UserLogin extends ConsoleMenuAction {
 		
 		
 		menu.out().println("User successfully logged in: " + user.getDetails().getUsername());
+		
+		for(int i=0; i<user.getProfile().getProblemsList().getList().size();i++){
+			menu.out().println("User problem " +i + " " +user.getProfile().getProblemsList().getList().get(i));
+		}
+		
 		
 		menu.subMenu("User: " + user.getDetails().getUsername(), new IConsoleMenuAction[] {
 				new ConsoleMenuAction("List Sessions") {

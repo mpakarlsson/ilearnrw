@@ -1,10 +1,13 @@
 package ilearnrw.user;
 
+import java.io.Serializable;
+
 import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.problems.ProblemNode;
 
 
-public class UserProblem {
+public class UserProblem implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private ProblemDefinition problem;
 	private int index;
 	
@@ -33,4 +36,12 @@ public class UserProblem {
 		return this.problem.getProblemNode(index);
 	}
 
+
+	@Override
+	public String toString() {
+		return "URI: "+problem.getURI() + ", index="+index;
+	}
+
+	
+	
 }
