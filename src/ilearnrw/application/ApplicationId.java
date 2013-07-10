@@ -1,10 +1,14 @@
 package ilearnrw.application;
 
+import java.io.Serializable;
+
 /** \brief ApplicationId identifies an application in different parts of the system.
  * 
  * It should be a unique identifier
  */
-public class ApplicationId {
+public class ApplicationId implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	String mId;
 

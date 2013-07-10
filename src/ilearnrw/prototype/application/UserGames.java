@@ -2,6 +2,7 @@ package ilearnrw.prototype.application;
 
 import ilearnrw.datalogger.DataLogger;
 import ilearnrw.games.GameAddTwoNumbers;
+import ilearnrw.games.NumbersToText;
 import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.prototype.application.ConsoleMenu.IConsoleMenuAction;
 import ilearnrw.user.User;
@@ -30,13 +31,7 @@ public class UserGames extends ConsoleMenuAction {
 							return EConsoleMenuActionResult.showThisMenuAgain;
 						}
 					},
-					new ConsoleMenuAction("'Numbers to Text' Game") {
-						@Override
-						public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
-							menu.out().println("This is not implemented yet");
-							return EConsoleMenuActionResult.showThisMenuAgain;
-						}
-					},
+					new NumbersToText("'Numbers to Text' Game", mUser, Program.getDataLogger()),
 					new ConsoleMenuAction("Back") {
 						@Override
 						public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
@@ -45,7 +40,7 @@ public class UserGames extends ConsoleMenuAction {
 					},
 				
 				}).doModalMenu();
-		return EConsoleMenuActionResult.showThisMenuAgain;
+		return super.onSelected(menu);
 	}
 
 }

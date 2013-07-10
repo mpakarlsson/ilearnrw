@@ -15,6 +15,9 @@ import javax.sound.sampled.ReverbType;
 
 import ilearnrw.datalogger.UserActionFilter;
 import ilearnrw.user.UserAction;
+/** 
+ * @todo getActions(filter) should not return null? It's easier to return just an empty list
+ */
 
 public class UserActions {
 	private List<UserAction> mActions;
@@ -25,7 +28,7 @@ public class UserActions {
 	public UserActions(String filePath){
 		
 		mActions = new ArrayList<UserAction>();
-		mFilePath = new StringBuilder(filePath).insert(filePath.length()-3, "_LOG").toString();
+		mFilePath = new StringBuilder(filePath).insert(filePath.length()-4, "_LOG").toString();
 		mLogger = Logger.getLogger("UserActions");
 		
 		load();
@@ -38,10 +41,9 @@ public class UserActions {
 		
 		return mActions;
 	}
-	
+
 	public List<UserAction> getActions(UserActionFilter filter){
 		boolean hasValues = false;
-		
 		
 		if(filter == null)
 			return getActions();
