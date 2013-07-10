@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.Random;
 
 import ilearnrw.application.ApplicationId;
 import ilearnrw.datalogger.UserActionFilter;
@@ -26,7 +25,7 @@ public class UserActionsLog extends ConsoleMenuAction {
 				new ConsoleMenuAction("List all actions"){
 					@Override
 					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
-						List<UserAction> actions = Program.getDataLogger().getUserActions().getActions(null);
+						List<UserAction> actions = Program.getDataLogger().getActions(null);
 						if(actions == null){
 							menu.out().println("There are no user actions to log");
 							return EConsoleMenuActionResult.showThisMenuAgain;
@@ -104,7 +103,7 @@ public class UserActionsLog extends ConsoleMenuAction {
 						
 						UserActionFilter filter = new UserActionFilter(id, appId, startTime, endTime, tags);
 						
-						List<UserAction> actions = Program.getDataLogger().getUserActions().getActions(filter);
+						List<UserAction> actions = Program.getDataLogger().getActions(filter);
 						if(actions == null){
 							menu.out().println("There are no user actions to log");
 							return EConsoleMenuActionResult.showThisMenuAgain;
@@ -132,40 +131,6 @@ public class UserActionsLog extends ConsoleMenuAction {
 						return EConsoleMenuActionResult.showThisMenuAgain;
 					}
 				},
-				new ConsoleMenuAction("Add test user action"){
-					@Override
-					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
-						Random rand = new Random(System.currentTimeMillis());
-						
-						UserAction action = new UserAction("Test", "Test Value", new ApplicationId("No App"), rand.nextInt(200));
-						Program.getDataLogger().getUserActions().addUserActionTest(action);
-						return EConsoleMenuActionResult.showThisMenuAgain;
-					}
-				},
-				new ConsoleMenuAction("Clear Log"){
-					@Override
-					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
-						menu.out().println("Are you sure you wish to clear the log? (Y/N)");
-						menu.out().println("The data will be irrecoverable.");
-						String answer = menu.in().next();
-
-						if(answer.startsWith("Y") || answer.startsWith("y")){
-							menu.out().println("Log is cleared!");
-							Program.getDataLogger().getUserActions().clearLog();
-						}
-						else
-							menu.out().println("Log is NOT cleared!");
-						
-						return EConsoleMenuActionResult.showThisMenuAgain;
-					}
-				},
-				new ConsoleMenuAction("Save"){
-					@Override
-					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
-						Program.getDataLogger().getUserActions().save();
-						return EConsoleMenuActionResult.showThisMenuAgain;
-					}
-				},
 				new ConsoleMenuAction("Back"){
 					@Override
 					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
@@ -182,7 +147,7 @@ public class UserActionsLog extends ConsoleMenuAction {
 			SimpleDateFormat ft = new SimpleDateFormat("E yyyy.MM.dd 'at' HH:mm:ss");
 			out.print(ft.format(action.getTimeStamp()));
 			
-			out.print(", APPID: " + action.getApplicationId());
+			out.print(", APPID: " + action.getApplicationId().getId());
 			out.print(", USERID: " + action.getUserId());
 			out.print(", TAG: " + action.getTag());
 			out.println(", TEXT: " + action.getText());

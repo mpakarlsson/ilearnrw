@@ -66,7 +66,6 @@ public class DataLoggerTest {
 		userActions.addUserAction(action);
 		userActions.addUserAction(action2);
 		userActions.addUserAction(action3);
-		userActions.save();
 		
 		userStore = null;
 		userActions = null;
@@ -121,27 +120,6 @@ public class DataLoggerTest {
 //	public void testLoadUserActions(){
 //		assertTrue(dataLogger.loadUserActions(tempFile.getAbsolutePath()+"ilearn.db"));
 //	}
-	
-	@Test
-	public void testGetUserActions(){		
-		UserActions actions = dataLogger.getUserActions();
-		assertNotNull(actions);
-	}
-	
-	@Test
-	public void testLogAction(){
-		UserAction actionLog = new UserAction("Tag", "Text", new ApplicationId("TestId"), -1);
-
-		
-		dataLogger.logAction(actionLog);
-		
-		UserActions actions2 = dataLogger.getUserActions();
-		
-		assertEquals("Tag", actions2.getAction(actions2.getActions(null).size()-1).getTag());
-		assertEquals("Text", actions2.getAction(actions2.getActions(null).size()-1).getText());
-		assertEquals("TestId", actions2.getAction(actions2.getActions(null).size()-1).getApplicationId());
-		assertEquals(-1, actions2.getAction(actions2.getActions(null).size()-1).getUserId());
-	}
 	
 	@Test
 	public void testGetUser(){

@@ -1,7 +1,5 @@
 package ilearnrw.user.test;
 
-import java.util.GregorianCalendar;
-
 import ilearnrw.user.LanguageCode;
 import ilearnrw.user.mockup.ProblemDefinitionIndexMockup;
 import ilearnrw.user.problems.ProblemDefinitionIndexApi;

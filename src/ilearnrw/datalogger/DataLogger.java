@@ -30,7 +30,6 @@ import java.util.List;
 
 import ilearnrw.datalogger.IDataLogger;
 import ilearnrw.prototype.application.UserActions;
-import ilearnrw.prototype.application.UserActionsLog;
 /** \page "DataLogger Log format"
  *
  * Following is a quick description about how data is, or will be, stored.
@@ -136,15 +135,6 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 			return;
 		
 		mUserActions.addUserAction(action);
-	}
-	
-	
-	/** The handler for user actions
-	 * 
-	 * */
-	@Override
-	public UserActions getUserActions(){
-		return mUserActions;
 	}
 	
 	/**

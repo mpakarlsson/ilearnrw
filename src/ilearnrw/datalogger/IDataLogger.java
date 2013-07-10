@@ -2,7 +2,6 @@ package ilearnrw.datalogger;
 
 import java.util.List;
 
-import ilearnrw.prototype.application.UserActions;
 import ilearnrw.user.UserAction;
 
 
@@ -34,7 +33,7 @@ public interface IDataLogger {
 	 * - Saving, Loading, getting, creating
 	 * */
 	
-	UserActions getUserActions();
+	//UserActions getUserActions();
 	
 	
 	

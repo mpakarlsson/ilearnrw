@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-import javax.sound.sampled.ReverbType;
 
 import ilearnrw.datalogger.UserActionFilter;
 import ilearnrw.user.UserAction;
@@ -163,18 +162,10 @@ public class UserActions {
 		if(action == null)
 			return;
 		mActions.add(action);
-	}
-	
-	public void addUserActionTest(UserAction action){
-		mActions.add(action);
-	}
-	
-	public void clearLog(){
-		mActions.clear();
 		save();
 	}
 	
-	public void save(){
+	private void save(){
 		try {
 			FileOutputStream fos = new FileOutputStream(new File(mFilePath));
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -192,7 +183,7 @@ public class UserActions {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public void load(){
+	private void load(){
 		try {
 			FileInputStream fis = new FileInputStream(new File(mFilePath));
 			ObjectInputStream ois = new ObjectInputStream(fis);

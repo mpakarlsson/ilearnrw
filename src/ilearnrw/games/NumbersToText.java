@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.Random;
 
 import ilearnrw.application.ApplicationId;
-import ilearnrw.datalogger.DataLogger;
 import ilearnrw.datalogger.IDataLogger;
 import ilearnrw.datalogger.UserActionFilter;
 import ilearnrw.games.NumbersToTextHelper.AbstractProcessor;
@@ -49,7 +48,6 @@ public class NumbersToText extends ConsoleMenuAction {
 						tags.add(OK_TAG);
 						tags.add(FAILED_TAG);
 						List<UserAction> history = mDataLogger
-								.getUserActions()
 								.getActions(
 										new UserActionFilter(mUser.getUserId(),
 												APPID,
@@ -130,7 +128,6 @@ public class NumbersToText extends ConsoleMenuAction {
 						 * @todo: it's the responsability of the datalogger to
 						 *        save the actions
 						 */
-						mDataLogger.getUserActions().save();
 						return EConsoleMenuActionResult.showThisMenuAgain;
 					}
 				}, new ConsoleMenuAction("Show User Results") {
@@ -138,15 +135,13 @@ public class NumbersToText extends ConsoleMenuAction {
 					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
 						UserActionFilter filter = new UserActionFilter(mUser
 								.getUserId(), APPID, null, null, null);
-						printOutActions(mDataLogger.getUserActions()
-								.getActions(filter), menu.out());
+						printOutActions(mDataLogger.getActions(filter), menu.out());
 						return EConsoleMenuActionResult.showThisMenuAgain;
 					}
 				}, new ConsoleMenuAction("Show Log") {
 					@Override
 					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
-						printOutActions(mDataLogger.getUserActions()
-								.getActions(null), menu.out());
+						printOutActions(mDataLogger.getActions(null), menu.out());
 						return EConsoleMenuActionResult.showThisMenuAgain;
 					}
 				}, new ConsoleMenuAction("Exit Game") {
@@ -175,7 +170,7 @@ public class NumbersToText extends ConsoleMenuAction {
 					"E yyyy.MM.dd 'at' HH:mm:ss");
 			out.print(ft.format(action.getTimeStamp()));
 
-			out.print(", APPID: " + action.getApplicationId());
+			out.print(", APPID: " + action.getApplicationId().getId());
 			out.print(", USERID: " + action.getUserId());
 			out.print(", TAG: " + action.getTag());
 			out.println(", TEXT: " + action.getText());

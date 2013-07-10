@@ -1,8 +1,5 @@
 package ilearnrw.prototype.application;
 
-
-import java.io.ObjectInputStream.GetField;
-
 import ilearnrw.datalogger.ILoginProvider;
 import ilearnrw.datalogger.IProfileAccessUpdater.PendingChangesAvailable;
 import ilearnrw.datalogger.IProfileAccessUpdater.PermissionException;

@@ -13,7 +13,6 @@ import ilearnrw.prototype.application.ConsoleMenu;
 import ilearnrw.prototype.application.ConsoleMenuAction;
 import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.prototype.application.ConsoleMenu.IConsoleMenuAction;
-import ilearnrw.prototype.application.UserActions;
 import ilearnrw.user.User;
 import ilearnrw.user.UserAction;
 
@@ -87,7 +86,6 @@ public class GameAddTwoNumbers {
 											mUserActions.add(action);
 										}
 									}									
-									mLogger.getUserActions().save();
 								}
 								return EConsoleMenuActionResult.showThisMenuAgain;
 							}
@@ -103,14 +101,14 @@ public class GameAddTwoNumbers {
 							@Override
 							public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
 								UserActionFilter filter = new UserActionFilter(mUserId, mApplicationId, null, null, null);
-								printOutActions(mLogger.getUserActions().getActions(filter), menu.out());
+								printOutActions(mLogger.getActions(filter), menu.out());
 								return EConsoleMenuActionResult.showThisMenuAgain;
 							}
 						},
 						new ConsoleMenuAction("Show Log"){
 							@Override
 							public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
-								printOutActions(mLogger.getUserActions().getActions(null), menu.out());
+								printOutActions(mLogger.getActions(null), menu.out());
 								return EConsoleMenuActionResult.showThisMenuAgain;
 							}
 						},
@@ -143,7 +141,7 @@ public class GameAddTwoNumbers {
 			SimpleDateFormat ft = new SimpleDateFormat("E yyyy.MM.dd 'at' HH:mm:ss");
 			out.print(ft.format(action.getTimeStamp()));
 			
-			out.print(", APPID: " + action.getApplicationId());
+			out.print(", APPID: " + action.getApplicationId().getId());
 			out.print(", USERID: " + action.getUserId());
 			out.print(", TAG: " + action.getTag());
 			out.println(", TEXT: " + action.getText());

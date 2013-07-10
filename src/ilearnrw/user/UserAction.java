@@ -76,6 +76,7 @@ public class UserAction implements Serializable{
 	/** @todo: remove these after testing UserActions with UserActionFilter enough
 	 */
 
+	@SuppressWarnings("unused")
 	private Calendar createRandomDate(int startYear, int endYear){
 		Calendar cal = new GregorianCalendar();
 		int year = randBetween(startYear, endYear);

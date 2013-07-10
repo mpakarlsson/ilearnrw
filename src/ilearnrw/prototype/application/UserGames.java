@@ -1,12 +1,10 @@
 package ilearnrw.prototype.application;
 
-import ilearnrw.datalogger.DataLogger;
 import ilearnrw.games.GameAddTwoNumbers;
 import ilearnrw.games.NumbersToText;
 import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.prototype.application.ConsoleMenu.IConsoleMenuAction;
 import ilearnrw.user.User;
-import ilearnrw.user.problems.ProblemDefinition;
 
 public class UserGames extends ConsoleMenuAction {
 
