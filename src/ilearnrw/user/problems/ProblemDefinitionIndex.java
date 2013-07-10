@@ -1,5 +1,6 @@
 package ilearnrw.user.problems;
 
+import ilearnrw.user.IlearnException;
 import ilearnrw.user.LanguageCode;
 
 import java.util.ArrayList;
@@ -8,6 +9,16 @@ public class ProblemDefinitionIndex implements ProblemDefinitionIndexApi {
 	private ArrayList<ProblemDefinition> index;
 
 	public ProblemDefinitionIndex() {
+		index = new ArrayList<ProblemDefinition>();
+	}
+	
+	public void addProblemDefinition(ProblemDefinition prob){
+		index.add(prob);
+	}
+	
+	public ProblemDefinition getProblemDefinition(int idx) throws IlearnException{
+		if (index.size()<idx || idx<0) throw new IlearnException("Index out of Bounds");
+		return index.get(idx);
 	}
 
 	public ArrayList<ProblemDefinition> getProblemsByLanguage(LanguageCode x) {

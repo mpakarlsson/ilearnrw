@@ -1,15 +1,16 @@
 package ilearnrw.user;
 
 import ilearnrw.user.problems.ProblemDefinition;
+import ilearnrw.user.problems.ProblemNode;
 
 
 public class UserProblem {
 	private ProblemDefinition problem;
-	private int score;
+	private int index;
 	
-	public UserProblem(ProblemDefinition problem, int score){
+	public UserProblem(ProblemDefinition problem, int index){
 		this.problem = problem;
-		this.score = score;
+		this.index = index;
 	}
 	
 	public UserProblem(ProblemDefinition problem){
@@ -17,7 +18,6 @@ public class UserProblem {
 	}
 	
 	/**
-	 * 
 	 * @return the ProblemDefintion of the user's problem
 	 */
 	public ProblemDefinition getProblem() {
@@ -27,16 +27,10 @@ public class UserProblem {
 	public void setProblem(ProblemDefinition problem) {
 		this.problem = problem;
 	}
-
-	/**
-	 * 
-	 * @return the frequency that the user does errors related to this problem
-	 */
-	public int getScore() {
-		return score;
+	
+	public ProblemNode getProblemNode() throws IlearnException{
+		if (this.problem == null) throw new IlearnException("Null Problem");
+		return this.problem.getProblemNode(index);
 	}
 
-	public void setScore(int score) {
-		this.score = score;
-	}
 }

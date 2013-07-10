@@ -35,7 +35,7 @@ public class ProblemDefinition implements Serializable {
 		return type;
 	}
 
-	public void setSubcategory(Category type) {
+	public void setType(Category type) {
 		this.type = type;
 	}
 
@@ -53,6 +53,18 @@ public class ProblemDefinition implements Serializable {
 
 	public void setAvailableLanguages(ArrayList<LanguageCode> availableLanguages) {
 		this.availableLanguages = availableLanguages;
+	}
+
+	public ArrayList<ProblemNode> getProblemNodes() {
+		return problemNodes;
+	}
+
+	public void setProblemNodes(ArrayList<ProblemNode> problemNodes) {
+		this.problemNodes = problemNodes;
+	}
+	
+	public void addProblemNode(ProblemNode node){
+		problemNodes.add(node);
 	}
 	
 	public ProblemNode getProblemNode(int idx) throws IlearnException{
