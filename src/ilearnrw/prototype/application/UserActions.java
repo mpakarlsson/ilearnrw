@@ -28,11 +28,11 @@ public class UserActions {
 	public UserActions(String filePath){
 		
 		mActions = new ArrayList<UserAction>();
-		mFilePath = new StringBuilder(filePath).insert(filePath.length()-4, "_LOG").toString();
+		mFilePath = new StringBuilder(filePath).insert(filePath.length()-3, "_LOG").toString();
 		mLogger = Logger.getLogger("UserActions");
 		
 		load();
-	}
+	} 
 	
 	
 	private List<UserAction> getActions(){
