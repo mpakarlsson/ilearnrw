@@ -61,12 +61,12 @@ public class UserActions {
 		if(filter.getApplicationId() != null){
 			if(filteredActions.size() > 0){
 				for(int i = filteredActions.size()-1; i >= 0; i--){
-					if(!filter.getApplicationId().getId().equals(filteredActions.get(i).getApplicationId()))
+					if(!filter.getApplicationId().getId().equals(filteredActions.get(i).getApplicationId().getId()))
 						filteredActions.remove(i);
 				}	
 			} else {
 				for(UserAction action : mActions){
-					if(filter.getApplicationId().getId().equals(action.getApplicationId())){
+					if(filter.getApplicationId().getId().equals(action.getApplicationId().getId())){
 						filteredActions.add(action);
 						hasValues = true;
 					}

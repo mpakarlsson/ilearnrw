@@ -48,11 +48,10 @@ public class NumbersToText extends ConsoleMenuAction {
 						tags.add(OK_TAG);
 						tags.add(FAILED_TAG);
 						List<UserAction> history = mDataLogger
-								.getActions(
-										new UserActionFilter(mUser.getUserId(),
-												APPID,
-												new Date(Long.MIN_VALUE),
-												new Date(Long.MAX_VALUE), tags));
+								.getActions(new UserActionFilter(mUser
+										.getUserId(), APPID, new Date(
+										Long.MIN_VALUE), new Date(
+										Long.MAX_VALUE), tags));
 
 						if (history != null) {
 							menu.out()
@@ -66,9 +65,14 @@ public class NumbersToText extends ConsoleMenuAction {
 
 						if (history != null) {
 							for (UserAction userAction : history) {
-								if (userAction.getTag() == OK_TAG) {
-									int currentValue = countOk.get(userAction
-											.getText().length());
+								if (userAction.getTag().compareTo(OK_TAG) == 0) {
+									int currentValue = 0;
+									if (countOk.containsKey(userAction
+											.getText().length())) {
+										currentValue = countOk.get(userAction
+												.getText().length());
+									}
+
 									currentValue++;
 									countOk.put(userAction.getText().length(),
 											currentValue);
@@ -80,7 +84,7 @@ public class NumbersToText extends ConsoleMenuAction {
 						int digitsToUse = 1;
 						for (int i = 1; i < 3; i++) {
 							if (countOk.containsKey(i) && countOk.get(i) > 5) {
-								digitsToUse = 1;
+								digitsToUse++;
 							}
 						}
 						menu.out()
@@ -109,8 +113,8 @@ public class NumbersToText extends ConsoleMenuAction {
 							if (inputString.compareToIgnoreCase(nrToText) == 0) {
 								menu.out().println("That's correct!\n");
 								mDataLogger.logAction(new UserAction("OK",
-										String.valueOf(random), APPID, 
-										mUser.getUserId()));
+										String.valueOf(random), APPID, mUser
+												.getUserId()));
 							} else {
 								menu.out()
 										.println(
@@ -119,8 +123,8 @@ public class NumbersToText extends ConsoleMenuAction {
 														nrToText));
 								mDataLogger.logAction(new UserAction("FAILED",
 										String.format("%d => %s", random,
-												inputString), APPID,
-										mUser.getUserId()));
+												inputString), APPID, mUser
+												.getUserId()));
 							}
 						} while (inputString.compareTo("quit") != 0);
 
@@ -135,13 +139,15 @@ public class NumbersToText extends ConsoleMenuAction {
 					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
 						UserActionFilter filter = new UserActionFilter(mUser
 								.getUserId(), APPID, null, null, null);
-						printOutActions(mDataLogger.getActions(filter), menu.out());
+						printOutActions(mDataLogger.getActions(filter),
+								menu.out());
 						return EConsoleMenuActionResult.showThisMenuAgain;
 					}
 				}, new ConsoleMenuAction("Show Log") {
 					@Override
 					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
-						printOutActions(mDataLogger.getActions(null), menu.out());
+						printOutActions(mDataLogger.getActions(null),
+								menu.out());
 						return EConsoleMenuActionResult.showThisMenuAgain;
 					}
 				}, new ConsoleMenuAction("Exit Game") {
