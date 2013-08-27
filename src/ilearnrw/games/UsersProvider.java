@@ -1,7 +1,3 @@
-/**
- * @author Chris Litsas 
- * 10 Ιουλ 2013 3:53:28 μ.μ.
-**/
 package ilearnrw.games;
 
 /**

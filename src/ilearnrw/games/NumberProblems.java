@@ -1,7 +1,3 @@
-/**
- * @author Chris Litsas 
- * 10 Ιουλ 2013 2:21:21 μ.μ.
-**/
 package ilearnrw.games;
 
 import java.util.ArrayList;

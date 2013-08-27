@@ -1,7 +1,3 @@
-/**
- * @author Chris Litsas 
- * 4 Jul 2013 3:41:53 ì.ì.
-**/
 package ilearnrw.user.problems;
 
 import java.io.Serializable;
