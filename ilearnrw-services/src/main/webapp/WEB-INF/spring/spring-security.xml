@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<!-- if you want only specific pattern to avoid security, define different 
+		http blocks here with security="none" -->
+
+
+	<!-- Creates the springSecurityFilterChain with the customer filter customRestFilter 
+		injected. -->
+	<http create-session="stateless" use-expressions="true"
+		entry-point-ref="authenticationEntryPoint">
+		<intercept-url pattern="/user/auth" access="permitAll" />
+		<intercept-url pattern="/user/newtokens" access="permitAll" />
+		<intercept-url pattern="/**" access="hasRole('ROLE_API_USER')" />
+
+		<custom-filter ref="basicAuthenticationFilter" position="BASIC_AUTH_FILTER" />
+		<custom-filter ref="customRestFilter" after="BASIC_AUTH_FILTER" />
+	</http>
+
+	<beans:bean id="basicAuthenticationFilter"
+		class="org.springframework.security.web.authentication.www.BasicAuthenticationFilter">
+		<beans:constructor-arg name="authenticationManager"
+			ref="apiAuthenticationManager" />
+		<beans:constructor-arg name="authenticationEntryPoint"
+			ref="authenticationEntryPoint" />
+	</beans:bean>
+
+	<!-- The authenticationEntryPoint allows us to customise to start the authentication 
+		process (i.e. bring up the dialog box when no header is present) The realmName 
+		will be displayed in the dialog box, hence not wise to put the username and 
+		password in it. -->
+	<beans:bean id="authenticationEntryPoint"
+		class="org.springframework.security.web.authentication.www.BasicAuthenticationEntryPoint">
+		<beans:property name="realmName" value="API basic auth" />
+	</beans:bean>
+
+	<beans:bean id="customRestFilter"
+		class="com.ilearnrw.services.rest.CustomRestSecurityFilter">
+		<beans:constructor-arg name="authenticationManager"
+			ref="restAuthenticationManager" />
+		<beans:constructor-arg name="authenticationEntryPoint"
+			ref="authenticationEntryPoint" />
+		<beans:constructor-arg name="tokenService" ref="tokenService" />
+
+	</beans:bean>
+
+	<!-- <authentication-manager id="restAuthenticationManager"> <authentication-provider 
+		ref="restAuthenticationProvider" /> </authentication-manager> -->
+
+	<authentication-manager id="restAuthenticationManager">
+		<authentication-provider ref="restAuthenticationProvider" />
+	</authentication-manager>
+
+	<authentication-manager alias="apiAuthenticationManager">
+		<authentication-provider>
+			<user-service id="apiUserDetailsService">
+				<user name="api" password="api" authorities="ROLE_API_USER" />
+			</user-service>
+		</authentication-provider>
+	</authentication-manager>
+
+	<beans:bean id="passwordEncoder"
+		class="org.springframework.security.crypto.password.StandardPasswordEncoder">
+	</beans:bean>
+
+	<user-service id="usersService">
+		<user name="student" password="student" authorities="ROLE_STUDENT" />
+		<user name="student2" password="student2" authorities="ROLE_STUDENT" />
+		<user name="test_user" password="test_password" authorities="ROLE_STUDENT" />
+	</user-service>
+
+
+	<!-- The restAuthenticationProvider is the class responsible for verifying 
+		that the username and password are valid and returning an AuthenticationToken 
+		matching the user requesting the resource and the user's access level. This 
+		is the place where you would normally hook into a more complex authentication 
+		system and user data layer. -->
+	<beans:bean id="restAuthenticationProvider"
+		class="com.ilearnrw.services.rest.RestAuthenticationProvider">
+		<beans:constructor-arg name="userDetailsService"
+			ref="usersService" />
+	</beans:bean>
+
+	<beans:bean id="secureRandom"
+		class="org.springframework.security.core.token.SecureRandomFactoryBean">
+	</beans:bean>
+
+	<beans:bean id="tokenService"
+		class="org.springframework.security.core.token.KeyBasedPersistenceTokenService">
+		<beans:property name="secureRandom" ref="secureRandom"></beans:property>
+		<beans:property name="serverSecret" value="ILEARNRW_password0123456789"></beans:property>
+		<beans:property name="serverInteger" value="454545"></beans:property>
+	</beans:bean>
+
+</beans:beans>
