@@ -2,6 +2,7 @@ package ilearnrw.games;
 
 import java.util.ArrayList;
 
+import ilearnrw.user.IlearnException;
 import ilearnrw.user.LanguageCode;
 import ilearnrw.user.problems.Category;
 import ilearnrw.user.problems.ProblemDefinition;
@@ -9,52 +10,57 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemNode;
 
 
-public class NumberProblems extends ProblemDefinitionIndex {
+public class NumberProblems{ 
+	private ProblemDefinitionIndex probsMatrix;
 
 	public NumberProblems() {
-		super();
+		//three problems
+		probsMatrix = new ProblemDefinitionIndex(3, LanguageCode.EN);	
 		initialize();
 	}
 	
 	public void getProblem(int idx){
 		
 	}
+	
+	public ProblemDefinitionIndex getAllProblems(){
+		return probsMatrix;
+	}
 
-	public void initialize(){
-		ArrayList<LanguageCode> lang = new ArrayList<LanguageCode>();
-		lang.add(LanguageCode.EN);
-		lang.add(LanguageCode.GR);
+	public void initialize(){	
 		
 		//1) Problem on adding numbers (one digit, two digits, three digits, four digits)
+		probsMatrix.constructProblemRow(0, 4);
 		Category cat = new Category("Numbers.Addition");
-		ProblemDefinition prob = new ProblemDefinition("1.1", cat, 4, lang);
-		prob.addProblemNode(new ProblemNode("One Digit", null));
-		prob.addProblemNode(new ProblemNode("Two Digits", null));
-		prob.addProblemNode(new ProblemNode("Three Digits", null));
-		prob.addProblemNode(new ProblemNode("Four Digits", null));
-		super.addProblemDefinition(prob);
-		
-
-		//2) Problem on recognizing numbers containing the digit {3} or {4} or {5 and ending in 2 or 3 or 7} 
-		cat = new Category("Numbers.Recognition");
-		prob = new ProblemDefinition("1.2", cat, 3, lang);
-		prob.addProblemNode(new ProblemNode("3", null));
-		prob.addProblemNode(new ProblemNode("4", null));
-		
-		ArrayList<ProblemNode> subnodes = new ArrayList<ProblemNode>();
-		subnodes.add(new ProblemNode("Ends With Number 2", null));
-		subnodes.add(new ProblemNode("Ends With Number 3", null));
-		subnodes.add(new ProblemNode("Ends With Number 7", null));
-		
-		prob.addProblemNode(new ProblemNode("5", subnodes));
-		super.addProblemDefinition(prob);
-
-		
-		//3) Problem on recognizing numbers containing pattern xy, where y = x+1
-		prob = new ProblemDefinition("1.3", cat, 1, lang);
-		prob.addProblemNode(new ProblemNode("Containing xy, y = x+1", null));
-		super.addProblemDefinition(prob);
-		
+		ProblemDefinition prob = new ProblemDefinition("1.1", cat);
+		probsMatrix.setProblemDefinition(prob, 0);
+		try {
+			probsMatrix.setProblemDescription(new String[]{"One Digit"}, 0, 0);
+			probsMatrix.setProblemDescription(new String[]{"Two Digits"}, 0, 1);
+			probsMatrix.setProblemDescription(new String[]{"Three Digits"}, 0, 2);
+			probsMatrix.setProblemDescription(new String[]{"Four Digits"}, 0, 3);
+			
+	
+			//2) Problem on recognizing numbers containing the digit {3} or {4} or { {5} with {7} } 
+			probsMatrix.constructProblemRow(1, 3);
+			cat = new Category("Numbers.Recognition");
+			prob = new ProblemDefinition("1.2", cat);
+			probsMatrix.setProblemDefinition(prob, 1);
+			probsMatrix.setProblemDescription(new String[]{"3"}, 1, 0);
+			probsMatrix.setProblemDescription(new String[]{"4"}, 1, 1);		
+			probsMatrix.setProblemDescription(new String[]{"5", "7"}, 1, 2);
+	
+			
+			//3) Problem on recognizing numbers containing pattern xy, where y = x+1
+			probsMatrix.constructProblemRow(2, 1);
+			prob = new ProblemDefinition("1.3", cat);
+			probsMatrix.setProblemDefinition(prob, 2);
+			probsMatrix.setProblemDescription(new String[]{"Containing xy, y = x+1"}, 2, 0);
+			
+		} catch (IlearnException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 	}
 	
 

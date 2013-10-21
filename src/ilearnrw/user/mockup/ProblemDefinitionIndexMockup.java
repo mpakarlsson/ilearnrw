@@ -3,59 +3,65 @@ package ilearnrw.user.mockup;
 import java.util.ArrayList;
 import java.util.List;
 
+import ilearnrw.user.IlearnException;
 import ilearnrw.user.LanguageCode;
 import ilearnrw.user.problems.Category;
 import ilearnrw.user.problems.ProblemDefinition;
+import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemDefinitionIndexApi;
+import ilearnrw.user.problems.ProblemDescription;
 
-public class ProblemDefinitionIndexMockup implements ProblemDefinitionIndexApi{
+public class ProblemDefinitionIndexMockup{
 
-	private List<ProblemDefinition> index = new ArrayList<ProblemDefinition>();
+	private ProblemDefinitionIndex index;
 	
-	public ProblemDefinitionIndexMockup()
-	{
+	public ProblemDefinitionIndexMockup(){
+		index = new ProblemDefinitionIndex(5, LanguageCode.EN);
+		
+		
 		Category category1 = new Category("PHONOLOGY-SUB-WORDLEVEL.Difficultyinrecognizingletters.Auditory-basederrors");
 		Category category2 = new Category("PHONOLOGY-SUB-WORDLEVEL.Difficultyinrecognizingletters.Visually-basederrors");
 
 		Category category3 = new Category("WORDLEVEL.Wordrecognition.Visually-basederrors");
 		Category category4 = new Category("WORDLEVEL.Wordrecognition.Semantically-basederrors");
 		
+	
 
-		ArrayList<LanguageCode> acceptedLanguages = new ArrayList<LanguageCode>();
-		acceptedLanguages.add(LanguageCode.GR);
-		ProblemDefinition problem111 = new ProblemDefinition("1.1.1", category1, 10, acceptedLanguages);
-		ProblemDefinition problem121 = new ProblemDefinition("1.2.1", category2, 10, acceptedLanguages);
-		ProblemDefinition problem122 = new ProblemDefinition("1.2.2", category3, 10, acceptedLanguages);
-		ProblemDefinition problem123 = new ProblemDefinition("1.2.3", category4, 10, acceptedLanguages);
-		ProblemDefinition problem124 = new ProblemDefinition("1.2.4", category4, 10, acceptedLanguages);
-
-		index.add(problem111);
-		index.add(problem121);
-		index.add(problem122);
-		index.add(problem123);
-		index.add(problem124);
-
-	}
-	@Override
-	public ArrayList<ProblemDefinition> getProblemsByLanguage(LanguageCode x) {
-		ArrayList<ProblemDefinition> temp = new ArrayList<ProblemDefinition>();
-		for(ProblemDefinition problem : index) {
-			if (problem.getAvailableLanguages().contains(x)) {
-				temp.add(problem);
-			}
+		try {
+			index.constructProblemRow(0, 2);
+			ProblemDefinition problem111 = new ProblemDefinition("suffixing", category1);
+			index.setProblemDefinition(problem111, 0);
+			index.setProblemDescription(new String[]{"-ing"}, 0, 0);
+			index.setProblemDescription(new String[]{"-es"}, 0, 1);		
+	
+			index.constructProblemRow(1, 2);
+			ProblemDefinition problem121 = new ProblemDefinition("affixing", category2);
+			index.setProblemDefinition(problem121, 1);
+			index.setProblemDescription(new String[]{"un-"}, 1, 0);
+			index.setProblemDescription(new String[]{"dis-"}, 1, 1);	
+	
+			index.constructProblemRow(2, 1);
+			ProblemDefinition problem122 = new ProblemDefinition("something", category3);
+			index.setProblemDefinition(problem122, 1);
+			index.setProblemDescription(new String[]{"xmmm"}, 2, 0);
+	
+			index.constructProblemRow(3, 2);
+			ProblemDefinition problem123 = new ProblemDefinition("test", category4);
+			index.setProblemDefinition(problem123, 1);
+			index.setProblemDescription(new String[]{"one", "two"}, 3, 0);
+			index.setProblemDescription(new String[]{"eleven", "twelve"}, 3, 1);
+	
+			index.constructProblemRow(4, 2);
+			ProblemDefinition problem124 = new ProblemDefinition("last", category4);
+			index.setProblemDefinition(problem124, 1);
+			index.setProblemDescription(new String[]{"big  problem"}, 3, 0);
+			index.setProblemDescription(new String[]{"huge problem"}, 3, 1);	
+		} 
+		catch (IlearnException e) {
+			e.printStackTrace();
 		}
-		return temp;
-	}
+			
 
-	@Override
-	public ArrayList<ProblemDefinition> getProblemsByCategory(Category x) {
-		ArrayList<ProblemDefinition> temp = new ArrayList<ProblemDefinition>();
-		for(ProblemDefinition problem : index) {
-			if (problem.getType().equals(x)) {
-				temp.add(problem);
-			}
-		}
-		return temp;
 	}
 
 }

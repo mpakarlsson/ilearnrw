@@ -78,8 +78,7 @@ import ilearnrw.user.User;
 import ilearnrw.user.UserAction;
 import ilearnrw.user.UserDetails;
 import ilearnrw.user.UserPreferences;
-import ilearnrw.user.UserProblem;
-import ilearnrw.user.UserProblemsList;
+import ilearnrw.user.UserProblemsMatrix;
 import ilearnrw.user.UserSession;
 import ilearnrw.user.problems.ProblemDefinition;
 
@@ -227,27 +226,10 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 	}
 
 	@Override
-	public boolean addUserProblem(UserProblem userProblem) {
-		for(UserProblem problem : mUser.getProfile().getProblemsList().getList()){
-			if(problem.getProblem().getURI().equals(userProblem.getProblem().getURI()))
-				return false;
-		}
-		mUser.getProfile().getProblemsList().getList().add(userProblem);
+	public boolean setUserProblemMatrix(UserProblemsMatrix problemsMatrix) {
+		mUser.getProfile().setProblemsMatrix(problemsMatrix);
 		setDirty();
 		return true;
-	}
-
-	@Override
-	public boolean removeUserProblem(UserProblem userProblem) {
-		
-		for(UserProblem problem : mUser.getProfile().getProblemsList().getList()){
-			if(problem.getProblem().getURI().equals(userProblem.getProblem().getURI())){
-				mUser.getProfile().getProblemsList().getList().remove(problem);
-				setDirty();
-				return true;
-			}
-		}
-		return false;
 	}
 
 	@Override

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 import ilearnrw.application.ApplicationId;
+import ilearnrw.datalogger.DataLogger;
 import ilearnrw.datalogger.IDataLogger;
 import ilearnrw.datalogger.UserActionFilter;
 import ilearnrw.prototype.application.ConsoleMenu;
@@ -33,6 +34,12 @@ public class GameAddTwoNumbers {
 		mUserActions = new ArrayList<UserAction>();
 		
 		update();
+	}
+	
+	public static void main(String args[]){
+		DataLogger dl = new DataLogger();
+		dl.loadUserActions("test");
+		new GameAddTwoNumbers(new User(1), dl);
 	}
 	
 	public void update(){
@@ -125,6 +132,7 @@ public class GameAddTwoNumbers {
 			System.out.println("Unhandled exception");
 			System.out.println("-------------------");
 			System.out.print(ex.toString());
+			ex.printStackTrace();
 		}
 	}
 	

@@ -1,48 +1,103 @@
 package ilearnrw.user.problems;
 
+import java.util.ArrayList;
+
 import ilearnrw.user.IlearnException;
 import ilearnrw.user.LanguageCode;
 
-import java.util.ArrayList;
-
 public class ProblemDefinitionIndex implements ProblemDefinitionIndexApi {
-	private ArrayList<ProblemDefinition> index;
+	private ProblemDefinition problemsIndex[];
+	private ProblemDescription problems[][];
+	LanguageCode language;
 
-	public ProblemDefinitionIndex() {
-		index = new ArrayList<ProblemDefinition>();
+	public ProblemDefinitionIndex(int length, LanguageCode language) {
+		problemsIndex = new ProblemDefinition[length];
+		problems = new ProblemDescription[length][];
+		this.language = language;
 	}
 	
-	public void addProblemDefinition(ProblemDefinition prob){
-		index.add(prob);
-	}
-	
-	public ArrayList<ProblemDefinition> getAllProblems(){
-		return index;
+	public void setProblemDefinition(ProblemDefinition prob, int position){
+		problemsIndex[position] = prob;
 	}
 	
 	public ProblemDefinition getProblemDefinition(int idx) throws IlearnException{
-		if (index.size()<idx || idx<0) throw new IlearnException("Index out of Bounds");
-		return index.get(idx);
+		if (problemsIndex == null || idx<0 || idx>problemsIndex.length) 
+			throw new IlearnException("Index out of Bounds");
+		return problemsIndex[idx];
 	}
 
-	public ArrayList<ProblemDefinition> getProblemsByLanguage(LanguageCode x) {
-		ArrayList<ProblemDefinition> res = new ArrayList<ProblemDefinition>();
-		if (index == null)
-			return res;
-		for (int i = 0; i < index.size(); i++) {
-			if (index.get(i).getAvailableLanguages().contains(x))
-				res.add(index.get(i));
+	public int getCategoryFirstIndex(Category x) {
+		for (int i = 0; i < problemsIndex.length; i++) {
+			if (problemsIndex[i].getType().equals(x))
+				return i;
 		}
-		return res;
+		return -1;
 	}
 
-	public ArrayList<ProblemDefinition> getProblemsByCategory(Category x) {
-		ArrayList<ProblemDefinition> res = new ArrayList<ProblemDefinition>();
-		if (index == null)
-			return res;
-		for (int i = 0; i < index.size(); i++) {
-			if (index.get(i).getType().equals(x))
-				res.add(index.get(i));
+	public int getCategoryLastIndex(Category x) {
+		for (int i = problemsIndex.length-1; i>=0; i--) {
+			if (problemsIndex[i].getType().equals(x))
+				return i;
+		}
+		return -1;
+	}
+	
+	public void constructProblemRow(int i, int length){
+		problems[i] = new ProblemDescription[length];
+	}
+	
+	public void setProblemDescription(String descriptions[], int i, int j) throws IlearnException{
+		try{
+			problems[i][j] = new ProblemDescription(descriptions);
+		}
+		catch(IndexOutOfBoundsException e){
+			throw new IlearnException("Index out of Matrix Bounds or Matrix Not Constructed");
+		}
+	}
+	
+	public void setProblemDescription(ProblemDescription description, int i, int j) throws IlearnException{
+		try{
+			problems[i][j] = description;
+		}
+		catch(IndexOutOfBoundsException e){
+			throw new IlearnException("Index out of Matrix Bounds or Matrix Not Constructed");
+		}
+	}
+	
+	public ProblemDescription getProblemDescription(int i, int j) throws IlearnException{
+		try{
+			return problems[i][j];
+		}
+		catch(IndexOutOfBoundsException e){
+			throw new IlearnException("Index out of Matrix Bounds or Matrix Not Constructed");
+		}
+	}
+	
+	public int getIndexLength(){
+			return problemsIndex.length;
+	}
+	
+	public int getIthRowLength(int i){
+		return problems[i].length;
+	}
+
+	public LanguageCode getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(LanguageCode language) {
+		this.language = language;
+	}
+	
+	@Override
+	public String toString(){
+		String res = "[ ";
+		for (int i=0; i<problemsIndex.length; i++){
+			res = res + problemsIndex[i] + " ] : |";
+			for (int j=0; j<problems[i].length; j++){
+				res = res + problems[i][j].toString() + " | ";
+			}
+			res = res + "\n";
 		}
 		return res;
 	}

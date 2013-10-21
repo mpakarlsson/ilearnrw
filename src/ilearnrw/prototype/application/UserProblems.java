@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import ilearnrw.prototype.application.ConsoleMenu.*;
 import ilearnrw.user.LanguageCode;
 import ilearnrw.user.User;
-import ilearnrw.user.UserProblem;
 import ilearnrw.user.mockup.ProblemDefinitionIndexMockup;
 import ilearnrw.user.problems.ProblemDefinition;
 
@@ -29,15 +28,12 @@ public class UserProblems extends ConsoleMenuAction {
 				new ConsoleMenuAction("List problem definitions") {
 					@Override
 					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
-						for( UserProblem problem : mUser.getProfile().getProblemsList().getList() )
-						{
-							menu.out().print(problem.getProblem().getURI() + "\t");
-							menu.out().println(Integer.toString(problem.getProblem().getScoreUpperBound()));
-						}
+						menu.out().print(mUser.getProfile().getProblemsMatrix().toString());
+
 						return EConsoleMenuActionResult.showThisMenuAgain;
 					}
 				},
-				new ConsoleMenuAction("Add problem definition") {
+				/*new ConsoleMenuAction("Set problem index / severity") {
 					@Override
 					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
 						
@@ -60,28 +56,7 @@ public class UserProblems extends ConsoleMenuAction {
 						
 						return EConsoleMenuActionResult.showThisMenuAgain;
 					}
-				},
-				new ConsoleMenuAction("Remove problem definition") {
-					@Override
-					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
-						menu.out().println("Remove a problem");
-						int i = 1;
-						ArrayList<UserProblem> problemList = mUser.getProfile().getProblemsList().getList();
-						for(UserProblem problem : problemList){
-							menu.out().println((i++) + ". " + problem.getProblem().getURI());
-						}
-						menu.out().println(i + ". Back");
-						String value = menu.in().next();
-						
-						if(Integer.parseInt(value) == i)
-							return EConsoleMenuActionResult.showThisMenuAgain;
-						
-						UserProblem userProblem = problemList.get(Integer.parseInt(value)-1);
-						Program.getProfileAccessUpdater().removeUserProblem(userProblem);
-						
-						return EConsoleMenuActionResult.showThisMenuAgain;
-					}
-				},				
+				},*/				
 				new ConsoleMenuAction("Back") {
 					@Override
 					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
@@ -91,61 +66,6 @@ public class UserProblems extends ConsoleMenuAction {
 		}).doModalMenu();
 		return EConsoleMenuActionResult.showThisMenuAgain;
 	}
-	
-	
-	
-	private void addProblemDefinitionByLanguage(ConsoleMenu menu){
-		menu.out().println("Choose a Language");
 		
-		// temporary
-		ProblemDefinitionIndexMockup mockUp = new ProblemDefinitionIndexMockup();
-		ArrayList<ProblemDefinition> availableProblems;
-		
-		int i = 1;
-		for( LanguageCode language : LanguageCode.values() ){
-			menu.out().println(i++ + ". " + language);
-		}
-		
-		String languageValue = menu.in().next();
-		LanguageCode code;
-		code = Integer.parseInt(languageValue) == 1 ? LanguageCode.EN : LanguageCode.GR;
-		availableProblems = mockUp.getProblemsByLanguage(code);
-		
-		if(availableProblems.isEmpty()){
-			menu.out().println("No available problems for language " + code);
-			return;
-		}
-		
-		menu.out().println("Choose an URI");
-		i = 1;
-		for(ProblemDefinition problem : availableProblems){
-			menu.out().println(i++ + ". " + problem.getURI());
-		}
-		
-		int uriValue = Integer.parseInt(menu.in().next()) - 1;
-		
-		// temporary, this feels odd
-		ArrayList<LanguageCode> languages = new ArrayList<LanguageCode>();
-		languages.add(code);
-		
-		ProblemDefinition problem = new ProblemDefinition(
-				availableProblems.get(uriValue).getURI(),
-				availableProblems.get(uriValue).getType(),
-				availableProblems.get(uriValue).getScoreUpperBound(), 
-				languages);
-
-		
-		if( Program.getProfileAccessUpdater().addUserProblem(new UserProblem(problem)) )
-			menu.out().println("Added a problem definition to user");
-		else
-			menu.out().println("Could not add a problem definition to user");			
-	}
-	
-	private void addProblemDefinitionByCategory(ConsoleMenu menu){
-		menu.out().println("Not implemented yet.");
-
-	}
-	
-	
 
 }

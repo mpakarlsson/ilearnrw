@@ -6,7 +6,12 @@ import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.problems.ProblemNode;
 
 
-public class UserProblem implements Serializable{
+public class UserProblemInactive implements Serializable{
+	/**
+	 * @author chris
+	 * Class inactive since 20/10/2013
+	 */
+	/*
 	private static final long serialVersionUID = 1L;
 	private ProblemDefinition problem;
 	private int index;
@@ -23,6 +28,8 @@ public class UserProblem implements Serializable{
 	/**
 	 * @return the ProblemDefintion of the user's problem
 	 */
+	
+	/*
 	public ProblemDefinition getProblem() {
 		return problem;
 	}
@@ -42,6 +49,6 @@ public class UserProblem implements Serializable{
 		return "URI: "+problem.getURI() + ", index="+index;
 	}
 
-	
+	*/
 	
 }

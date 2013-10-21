@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import ilearnrw.user.User;
-import ilearnrw.user.UserProblemsList;
+import ilearnrw.user.UserProblemsMatrix;
 import ilearnrw.user.UserProfile;
 /**
  * @brief The UserStore is used to create and store user objects persistantly.
@@ -227,7 +227,7 @@ class UserStore implements ILoginProvider, IUserAdministration {
 		{
 			if( u.getDetails().getUsername().equals(username) )
 				if( u.getDetails().checkPassword(password)){
-					u.getProfile().getProblemsList().loadTestProblems();
+					u.getProfile().getProblemsMatrix().loadTestProblems();
 					return deepCopy(u);
 				}
 		}

@@ -16,7 +16,6 @@ import ilearnrw.user.User;
 import ilearnrw.user.UserAction;
 import ilearnrw.user.UserDetails;
 import ilearnrw.user.UserPreferences;
-import ilearnrw.user.UserProblem;
 import ilearnrw.user.UserSession;
 import ilearnrw.user.problems.ProblemDefinition;
 

@@ -2,20 +2,36 @@ package ilearnrw.user;
 
 import ilearnrw.games.NumberProblems;
 import ilearnrw.user.problems.Category;
-import ilearnrw.user.problems.ProblemDefinition;
+import ilearnrw.user.problems.ProblemDefinitionIndex;
 
 import java.io.Serializable;
 import java.util.ArrayList; 
 import java.util.Random;
 
-public class UserProblemsList implements Serializable {
+public class UserProblemsMatrix implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private ArrayList<UserProblem> list;
+	private ProblemDefinitionIndex theProblems;
+	private int indices[];
+	private int severities[][];
 	
-	public UserProblemsList(){
-		this.list = new ArrayList<UserProblem>();
+	public UserProblemsMatrix(){
 		loadTestProblems();
+	}
+	
+	public UserProblemsMatrix(ProblemDefinitionIndex theProblems){
+		initialize(theProblems);
+	}
+	
+	private void initialize(ProblemDefinitionIndex theProblems){
+		this.theProblems = theProblems;
+		int idxLen = theProblems.getIndexLength();
+		indices = new int[idxLen];
+		severities = new int[idxLen][];
+		for (int i=0; i<idxLen; i++){
+			severities[i] = new int[theProblems.getIthRowLength(i)];
+		}
+
 	}
 	
 	/*
@@ -118,23 +134,39 @@ public class UserProblemsList implements Serializable {
 	}*/
 	
 	public void loadTestProblems(){
-		list.clear();
 		NumberProblems numProbs = new NumberProblems();
-		ArrayList<ProblemDefinition> probs = numProbs.getAllProblems();
+		initialize(numProbs.getAllProblems());
 		Random rand = new Random();
-		for (int i=0;i<probs.size(); i++){
-			list.add(new UserProblem(probs.get(i), rand.nextInt(probs.get(i).getScoreUpperBound())));			
+		for (int i=0;i<indices.length; i++){
+			indices[i] = rand.nextInt(theProblems.getIthRowLength(i));
+			for (int j=0; j<severities[i].length; j++){
+				severities[i][j] = rand.nextInt(3)+1;
+			}
 		}
 		
 	}
 
-	public ArrayList<UserProblem> getList() {
-		return list;
+	public int getSeverity(int i, int j) {
+		return severities[i][j];
 	}
 
-	public void setList(ArrayList<UserProblem> list) {
-		this.list = list;
+	public int getIthIndex(int i) {
+		return indices[i];
 	}
 	
+	@Override
+	public String toString(){
+		if (indices == null)
+			return "null indices matrix";
+		String res = "[ ";
+		for (int i=0; i<indices.length; i++){
+			res = res + indices[i] + " ] : |";
+			for (int j=0; j<severities[i].length; j++){
+				res = res + severities[i][j] + " | ";
+			}
+			res = res + "\n";
+		}
+		return res;
+	}
 	
 }

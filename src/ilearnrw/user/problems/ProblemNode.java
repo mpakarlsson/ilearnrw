@@ -4,6 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 
+/**
+ * @author chris
+ *
+ * Class is inactive since 20/10/2013
+ */
+
 public class ProblemNode implements Serializable{
 
 	private static final long serialVersionUID = 1L;
