@@ -119,6 +119,13 @@ public class GameAddTwoNumbers {
 								return EConsoleMenuActionResult.showThisMenuAgain;
 							}
 						},
+						new ConsoleMenuAction("Show User"){
+							@Override
+							public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
+								menu.out().println(mUser.getProfile().getSeveritiesToProblemsMatrix().toString());
+								return EConsoleMenuActionResult.showThisMenuAgain;
+							}
+						},
 						new ConsoleMenuAction("Exit Game") {
 							@Override
 							public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {

@@ -78,7 +78,7 @@ import ilearnrw.user.User;
 import ilearnrw.user.UserAction;
 import ilearnrw.user.UserDetails;
 import ilearnrw.user.UserPreferences;
-import ilearnrw.user.UserProblemsMatrix;
+import ilearnrw.user.UserSeveritiesToProblems;
 import ilearnrw.user.UserSession;
 import ilearnrw.user.problems.ProblemDefinition;
 
@@ -226,8 +226,8 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 	}
 
 	@Override
-	public boolean setUserProblemMatrix(UserProblemsMatrix problemsMatrix) {
-		mUser.getProfile().setProblemsMatrix(problemsMatrix);
+	public boolean setUserProblemMatrix(UserSeveritiesToProblems problemsMatrix) {
+		mUser.getProfile().setSeveritiesToProblems(problemsMatrix);
 		setDirty();
 		return true;
 	}

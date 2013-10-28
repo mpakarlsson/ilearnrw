@@ -6,10 +6,10 @@ public class UserProfile implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private LanguageCode language;
-	private UserProblemsMatrix problemsMatrix;
+	private UserSeveritiesToProblems problemsMatrix;
 	private UserPreferences preferences;
 	
-	public UserProfile(LanguageCode language, UserProblemsMatrix problemsMatrix,
+	public UserProfile(LanguageCode language, UserSeveritiesToProblems problemsMatrix,
 			UserPreferences preferences) {
 		this.language = language;
 		this.problemsMatrix = problemsMatrix;
@@ -24,13 +24,13 @@ public class UserProfile implements Serializable {
 	
 	public UserProfile() {
 		this.language = LanguageCode.EN;
-		this.problemsMatrix = new UserProblemsMatrix();//has to set the problems to default values;
+		this.problemsMatrix = new UserSeveritiesToProblems();//has to set the problems to default values;
 		this.preferences = new UserPreferences();//has to set the preferences to default values;
 	}
 	
 	public UserProfile(int userId) {
 		this.language = LanguageCode.EN;
-		this.problemsMatrix = new UserProblemsMatrix();//userId);//has to set the problems to default values;
+		this.problemsMatrix = new UserSeveritiesToProblems();//userId);//has to set the problems to default values;
 		this.preferences = new UserPreferences(userId);//has to set the preferences to default values;
 	}
 
@@ -42,11 +42,11 @@ public class UserProfile implements Serializable {
 		this.language = language;
 	}
 
-	public UserProblemsMatrix getProblemsMatrix() {
+	public UserSeveritiesToProblems getSeveritiesToProblemsMatrix() {
 		return problemsMatrix;
 	}
 
-	public void setProblemsMatrix(UserProblemsMatrix problemsMatrix) {
+	public void setSeveritiesToProblems(UserSeveritiesToProblems problemsMatrix) {
 		this.problemsMatrix = problemsMatrix;
 	}
 
