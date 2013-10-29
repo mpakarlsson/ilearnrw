@@ -37,26 +37,46 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
 			try {
 				int i=0;
-				probsMatrix.setProblemDescription(new String[]{"-cv-cv-"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-cv-v-"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-v-cv-"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-cv-vc-"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-vc-cv-"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-cvc-cv-"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-cv-ccv-"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-ccv-cv-"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-ccvc-cv-"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-cv-cccv-"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-v-cccv-"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/ιά/","/ειά/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/ιά/","/ία/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/αί/","/αΐ/", "/εί/","/εΐ/","/οί/","/οΐ"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/αί/","/άι/","/οί/","/όι/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/άι/","/όι/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/αι/","/αϊ/","/οι/","/οϊ/","/ει/","/εϊ/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/ου/","/οϋ/","/ού/","/οΰ/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/αυ/","/αϋ/","/αύ/","/αΰ/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/εύω/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.PATTERN, 
+						new String[]{"-cv-cv-"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.PATTERN, 
+						new String[]{"-cv-v-"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.PATTERN, 
+						new String[]{"-v-cv-"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.PATTERN, 
+						new String[]{"-cv-vc-"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.PATTERN, 
+						new String[]{"-vc-cv-"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.PATTERN, 
+						new String[]{"-cvc-cv-"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.PATTERN, 
+						new String[]{"-cv-ccv-"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.PATTERN, 
+						new String[]{"-ccv-cv-"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.PATTERN, 
+						new String[]{"-ccvc-cv-"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.PATTERN, 
+						new String[]{"-cv-cccv-"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.PATTERN, 
+						new String[]{"-v-cccv-"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.ENDING, 
+						new String[]{"/ιά/","/ειά/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.ENDING, 
+						new String[]{"/ιά/","/ία/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.ENDING, 
+						new String[]{"/αί/","/αΐ/", "/εί/","/εΐ/","/οί/","/οΐ"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.ENDING, 
+						new String[]{"/αί/","/άι/","/οί/","/όι/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.ENDING, 
+						new String[]{"/άι/","/όι/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.ENDING, 
+						new String[]{"/αι/","/αϊ/","/οι/","/οϊ/","/ει/","/εϊ/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.ENDING, 
+						new String[]{"/ου/","/οϋ/","/ού/","/οΰ/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.ENDING, 
+						new String[]{"/αυ/","/αϋ/","/αύ/","/αΰ/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.ENDING, 
+						new String[]{"/εύω/"}, problemIndexPosition, i++);
 			} catch (IlearnException e) {
 				e.printStackTrace();
 			}
@@ -71,18 +91,30 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
 			try {
 				int i=0;
-				probsMatrix.setProblemDescription(new String[]{"/t/-/d/","/p/-/b/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/k/-/p/","/k/-/t/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/m/-/n/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/θ/-/ð/","/f/-/v/", "/χ/-/γ/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/k/-/γ/","/k/-/χ/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/s/-/z/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/l/-/r/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/ð/-/v/","/f/-/θ/","/f/-/v/","/θ/-/ð/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/kt/-/pt/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/ks/-/ps/","/ks/-/sk/","/ps/-/sp/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/ðr/-/θr/","/fr/-/χr/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"/χθ/-/fθ/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"/t/-/d/","/p/-/b/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"/k/-/p/","/k/-/t/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"/m/-/n/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"/θ/-/ð/","/f/-/v/", "/χ/-/γ/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"/k/-/γ/","/k/-/χ/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"/s/-/z/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"/l/-/r/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"/ð/-/v/","/f/-/θ/","/f/-/v/","/θ/-/ð/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"/kt/-/pt/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"/ks/-/ps/","/ks/-/sk/","/ps/-/sp/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"/ðr/-/θr/","/fr/-/χr/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"/χθ/-/fθ/"}, problemIndexPosition, i++);
 			} catch (IlearnException e) {
 				e.printStackTrace();
 			}
@@ -95,12 +127,18 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
 			try {
 				int i=0;
-				probsMatrix.setProblemDescription(new String[]{"εϋ: /eɪ/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"οϋ: /oɪ/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"αϊ: /aɪ/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"αη: /aɪ/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"οΰ: /oi/"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"αΐ: /ai/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"εϋ: /eɪ/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"οϋ: /oɪ/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"αϊ: /aɪ/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"αη: /aɪ/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"οΰ: /oi/"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
+						new String[]{"αΐ: /ai/"}, problemIndexPosition, i++);
 			} catch (IlearnException e) {
 				e.printStackTrace();
 			}
@@ -114,34 +152,47 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
 			try {
 				int i=0;
-				probsMatrix.setProblemDescription(new String[]{"-άκι","-άκης","-άκος","-ίτσα",
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_SUFFIX, 
+						new String[]{"-άκι","-άκης","-άκος","-ίτσα",
 						"-κας","-οπούλα","-όπουλο","-ούδι","-ούλα","-ούλης","-ούλης","-ούλα","ούλικο",
 						"-ούτσικος","-ούτσικη","-ούτσικο"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-άκλα","-άρα","-αράς","-αρόνα",
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_SUFFIX, 
+						new String[]{"-άκλα","-άρα","-αράς","-αρόνα",
 						"-αρος","-ούκλα"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-άς","-έας","-ιάς","-δόρος","-άρης",
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_SUFFIX, 
+						new String[]{"-άς","-έας","-ιάς","-δόρος","-άρης",
 						"-ιάρης","-ιέρης", "-ιέρα","-ίτης","-ιώτης","-ίστας","-ιστής","-ίστρια",
 						"-της","-τής","-τρια","-τισσα","-τζής","-τζού","-τίας","-τορας"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-είο","-ιά","-ία","-ικο","-δικο"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-έας","-ερό","-ιέρα","-τήρας","-τήρι","-τήριο",
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_SUFFIX, 
+						new String[]{"-είο","-ιά","-ία","-ικο","-δικο"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_SUFFIX, 
+						new String[]{"-έας","-ερό","-ιέρα","-τήρας","-τήρι","-τήριο",
 						"-τρα","-της"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-άδα","-εια","-ίλα","-ιλίκι","-μάρα","-οσύνη",
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_SUFFIX, 
+						new String[]{"-άδα","-εια","-ίλα","-ιλίκι","-μάρα","-οσύνη",
 						"-ούρα","-σιά","-ξιά","-ότητα","-ύτητα"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-ί","-ιά"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-άλα","-εία","-ειά","-εια","-ση","-ξη","-ψη",
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_SUFFIX, 
+						new String[]{"-ί","-ιά"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_SUFFIX, 
+						new String[]{"-άλα","-εία","-ειά","-εια","-ση","-ξη","-ψη",
 						"-ία","-σιά","-ψιά","-ξιά","-ματιά","-σιμο","-ξιμο","-ψιμο","-αμα","-ημα","-ωμα","-σμα",
 						"-γμα","-μός","-ητό","-ατό","-κτό","-χτό","-φτό","πτό"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-ικός","-ική","-ικό","-σιμος","-σιμη","-σιμο",
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_SUFFIX, 
+						new String[]{"-ικός","-ική","-ικό","-σιμος","-σιμη","-σιμο",
 						"-ιάρης","-ιάρα","-άρικο","-ερός","-ερή","-ερό","-τός","-τή","-τό","-άτος","-άτη","-άτο",
 						"-ινος","-ινη","-ινο","-ιακός","-ιακή","-ιακό","-ανός","-ανή","-ανό","-ούρης","-ούρα",
 						"-ούρικο"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-ίστικος","-ίστικη","-ίστικο","-ήσιος","-ήσια","-ήσιο",
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_SUFFIX, 
+						new String[]{"-ίστικος","-ίστικη","-ίστικο","-ήσιος","-ήσια","-ήσιο",
 						"-λέος","-λέα","-λέο","-αίος","-αία","-αίο","-ωπός","-ωπή","-ωπό","-ένιος","-ένια","-ένιο",
 						"-τέος","-τέα","-τέο","-ώδης","-ώδες"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-ίζω","-άζω","-ιάζω","-αίνω","-ώνω","-ύνω",
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_SUFFIX, 
+						new String[]{"-ίζω","-άζω","-ιάζω","-αίνω","-ώνω","-ύνω",
 						"-εύω","-άρω"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-βολώ","-λογώ","-ποιώ"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{"-ειδής","-ειδές","-μελής","-μελές",
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_SUFFIX, 
+						new String[]{"-βολώ","-λογώ","-ποιώ"}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.CONTAINS_SUFFIX, 
+						new String[]{"-ειδής","-ειδές","-μελής","-μελές",
 						"-ετής","-ετές"}, problemIndexPosition, i++);
 			} catch (IlearnException e) {
 				e.printStackTrace();
@@ -155,23 +206,23 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
 			try {
 				int i=0;
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
 			} catch (IlearnException e) {
 				e.printStackTrace();
 			}
@@ -185,12 +236,12 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
 			try {
 				int i=0;
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
 			} catch (IlearnException e) {
 				e.printStackTrace();
 			}
@@ -207,26 +258,26 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
 			try {
 				int i=0;
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
 			} catch (IlearnException e) {
 				e.printStackTrace();
 			}
@@ -239,13 +290,13 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
 			try {
 				int i=0;
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
 			} catch (IlearnException e) {
 				e.printStackTrace();
 			}
@@ -259,16 +310,16 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
 			try {
 				int i=0;
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
+				probsMatrix.setProblemDescription(ProblemType.X, new String[]{""}, problemIndexPosition, i++);
 			} catch (IlearnException e) {
 				e.printStackTrace();
 			}	

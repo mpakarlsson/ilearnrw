@@ -9,7 +9,7 @@ public class EnglishWord extends GreekWord {
 		super.word = word.toLowerCase();
 		super.checkType();
 		this.syllabism();
-		this.createPatern();
+		this.createCVForm();
 	}
 
 	
@@ -31,8 +31,8 @@ public class EnglishWord extends GreekWord {
 		}
 	}
 	
-	protected void createPatern(){
+	protected void createCVForm(){
 		//somehow whith the help of lowererCharToCV
-		patern = "";
+		cvForm = "";
 	}
 }

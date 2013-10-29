@@ -46,9 +46,10 @@ public class ProblemDefinitionIndex implements ProblemDefinitionIndexApi {
 		problems[i] = new ProblemDescription[length];
 	}
 	
-	public void setProblemDescription(String descriptions[], int i, int j) throws IlearnException{
+	public void setProblemDescription(ProblemType problemType, String descriptions[], int i, int j) 
+			throws IlearnException{
 		try{
-			problems[i][j] = new ProblemDescription(descriptions);
+			problems[i][j] = new ProblemDescription(problemType, descriptions);
 		}
 		catch(IndexOutOfBoundsException e){
 			throw new IlearnException("Index out of Matrix Bounds or Matrix Not Constructed");

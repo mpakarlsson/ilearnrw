@@ -8,7 +8,7 @@ public class Text {
 
 	protected int numberOfTotalWords, numberOfDistinctWords, numberOfSentences, numberOfSyllables, 
 		longestWordLength, longestSentenceLength;
-	protected double averageWordLength;
+	protected double averageWordLength, averageLongestWordLength;
 	
 	public Text(String text){
 		this.text = text;
@@ -56,6 +56,10 @@ public class Text {
 	public double getAverageWordLength(){
 		return averageWordLength;
 	}
+
+	public double getAverageLongestWordLength(){
+		return averageLongestWordLength;
+	}
 	
 	protected void splitSentences(){
 		//question: ´εχω αλλαγή πρότασης στα (...) και (:) ?
@@ -74,6 +78,7 @@ public class Text {
 		longestWordLength = 0;
 		longestSentenceLength = 0;
 		averageWordLength = 0;
+		averageLongestWordLength = 0;
 		
 		for (int i=0; i<numberOfSentences; i++){
 			if (sentences[i].getNumberOfWords()>longestSentenceLength)
@@ -82,6 +87,8 @@ public class Text {
 			Word words[] = sentences[i].getWords();
 			numberOfTotalWords += words.length;
 			numberOfSyllables += sentences[i].getNumberOfSyllables();
+			
+			averageLongestWordLength += sentences[i].getLongestWordLength();
 			if (sentences[i].getLongestWordLength()>longestWordLength)
 				longestWordLength = sentences[i].getLongestWordLength();
 			
@@ -98,6 +105,7 @@ public class Text {
 			}
 		}
 		averageWordLength = averageWordLength/numberOfTotalWords;
+		averageLongestWordLength = averageLongestWordLength/numberOfSentences;
 	}
 	
 }
