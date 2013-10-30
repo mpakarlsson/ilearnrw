@@ -2,7 +2,9 @@ package ilearnrw.user;
 
 import ilearnrw.games.NumberProblems;
 import ilearnrw.user.problems.Category;
+import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
+import ilearnrw.user.problems.ProblemDescription;
 
 import java.io.Serializable;
 import java.util.ArrayList; 
@@ -46,12 +48,27 @@ public class UserSeveritiesToProblems implements Serializable {
 		
 	}
 
+	public ProblemDefinitionIndex getProblemDefinitionIndex(){
+		return theProblems;
+	}
+	public UserSeverities getUserSeverities(){
+		return theSeverities;
+	}
+	
 	public int getSeverity(int i, int j) {
 		return theSeverities.getSeverity(i,j);
 	}
 
 	public int getIndex(int i) {
 		return theSeverities.getIndex(i);
+	}
+
+	public ProblemDescription getProblemDefinition(int i, int j) {
+		return theProblems.getProblemDescription(i,j);
+	}
+
+	public ProblemDefinition getProblemDefinition(int i) {
+		return theProblems.getProblemDefinition(i);
 	}
 	
 	@Override

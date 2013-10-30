@@ -1,8 +1,5 @@
 package ilearnrw.user.problems;
 
-import java.util.ArrayList;
-
-import ilearnrw.user.IlearnException;
 import ilearnrw.user.LanguageCode;
 
 public class ProblemDefinitionIndex implements ProblemDefinitionIndexApi {
@@ -20,9 +17,7 @@ public class ProblemDefinitionIndex implements ProblemDefinitionIndexApi {
 		problemsIndex[position] = prob;
 	}
 	
-	public ProblemDefinition getProblemDefinition(int idx) throws IlearnException{
-		if (problemsIndex == null || idx<0 || idx>problemsIndex.length) 
-			throw new IlearnException("Index out of Bounds");
+	public ProblemDefinition getProblemDefinition(int idx){
 		return problemsIndex[idx];
 	}
 
@@ -46,32 +41,16 @@ public class ProblemDefinitionIndex implements ProblemDefinitionIndexApi {
 		problems[i] = new ProblemDescription[length];
 	}
 	
-	public void setProblemDescription(ProblemType problemType, String descriptions[], int i, int j) 
-			throws IlearnException{
-		try{
+	public void setProblemDescription(ProblemType problemType, String descriptions[], int i, int j){
 			problems[i][j] = new ProblemDescription(problemType, descriptions);
-		}
-		catch(IndexOutOfBoundsException e){
-			throw new IlearnException("Index out of Matrix Bounds or Matrix Not Constructed");
-		}
 	}
 	
-	public void setProblemDescription(ProblemDescription description, int i, int j) throws IlearnException{
-		try{
-			problems[i][j] = description;
-		}
-		catch(IndexOutOfBoundsException e){
-			throw new IlearnException("Index out of Matrix Bounds or Matrix Not Constructed");
-		}
+	public void setProblemDescription(ProblemDescription description, int i, int j){
+		problems[i][j] = description;
 	}
 	
-	public ProblemDescription getProblemDescription(int i, int j) throws IlearnException{
-		try{
-			return problems[i][j];
-		}
-		catch(IndexOutOfBoundsException e){
-			throw new IlearnException("Index out of Matrix Bounds or Matrix Not Constructed");
-		}
+	public ProblemDescription getProblemDescription(int i, int j){
+		return problems[i][j];
 	}
 	
 	public int getIndexLength(){

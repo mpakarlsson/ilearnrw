@@ -1,9 +1,9 @@
 package ilearnrw.textclassification;
 public class Sentence {
-	protected String sentence;
-	protected Word[] words;
-	protected int numberOfSyllables, longestWordLength;
-	protected double averageWordLength;
+	private String sentence;
+	private Word[] words;
+	private int numberOfSyllables, longestWordLength;
+	private double averageWordLength;
 
 	public Sentence(String sentence){
 		this.sentence = sentence;
@@ -39,7 +39,7 @@ public class Sentence {
 		return averageWordLength;
 	}
 	
-	protected void splitWords(){
+	private void splitWords(){
 		String theWords[] = sentence.split("[(\\s+)(\\.)(\\')(\\!)(\\,)(\\;)(\\-)(\\:)(\\?)(\\\")]");
 		String tmp;
 		int size = 0;
@@ -54,7 +54,7 @@ public class Sentence {
 		}
 	}
 	
-	protected void metrics(){
+	private void metrics(){
 		numberOfSyllables = 0;
 		longestWordLength = 0;
 		averageWordLength = 0;

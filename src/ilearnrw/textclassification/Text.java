@@ -2,13 +2,13 @@ package ilearnrw.textclassification;
 import java.util.HashMap;
 
 public class Text {
-	protected String text;
-	protected Sentence sentences[];
-	protected HashMap<Word, Integer> wordsFreq;
+	private String text;
+	private Sentence sentences[];
+	private HashMap<Word, Integer> wordsFreq;
 
-	protected int numberOfTotalWords, numberOfDistinctWords, numberOfSentences, numberOfSyllables, 
+	private int numberOfTotalWords, numberOfDistinctWords, numberOfSentences, numberOfSyllables, 
 		longestWordLength, longestSentenceLength;
-	protected double averageWordLength, averageLongestWordLength;
+	private double averageWordLength, averageLongestWordLength;
 	
 	public Text(String text){
 		this.text = text;
@@ -61,7 +61,7 @@ public class Text {
 		return averageLongestWordLength;
 	}
 	
-	protected void splitSentences(){
+	private void splitSentences(){
 		//question: ´εχω αλλαγή πρότασης στα (...) και (:) ?
 		String tmp[] = text.trim().split("((\\.)*(\\.)\\s)|((\\!)*(\\!)\\s)|((\\;)*(\\;)\\s)|((\\?)*(\\?)\\s)");
 		sentences = new Sentence[tmp.length];
@@ -70,7 +70,7 @@ public class Text {
 		}
 	}
 	
-	protected void metrics(){
+	private void metrics(){
 		numberOfTotalWords = 0;
 		numberOfDistinctWords = 0;
 		numberOfSyllables = 0;
