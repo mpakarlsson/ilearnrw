@@ -9,18 +9,33 @@ public class WordProblemInfo {
 	private boolean found; 
 	private int start, end, severity, workingIndex, problemIndex, indexLength;
 	
-	public WordProblemInfo(ProblemDefinition type, String what, boolean found, int start,
-			int end, int severity, int workingIndex, int problemIndex,
-			int indexLength) {
-		this.type = type;
-		this.what = what;
-		this.found = found;
-		this.start = start;
-		this.end = end;
-		this.severity = severity;
-		this.workingIndex = workingIndex;
-		this.problemIndex = problemIndex;
-		this.indexLength = indexLength;
+	public WordProblemInfo() {
+		this.type = null;
+		this.what = null;
+		this.found = false;
+		this.start = -1;
+		this.end = -1;
+		this.severity = -1;
+		this.workingIndex = -1;
+		this.problemIndex = -1;
+		this.indexLength = -1;
+	}
+	
+	public void setProblemInfo(ProblemDefinition type, StringMatchesInfo smi, 
+			int severity, int workingIndex, int problemIndex, int indexLength) {
+		if (smi!=null && smi.isMatched()) {
+			this.found = true;
+			this.type = type;
+			this.what = smi.getWhat();
+			this.start = smi.getStart();
+			this.end = smi.getEnd();
+			this.severity = severity;
+			this.workingIndex = workingIndex;
+			this.problemIndex = problemIndex;
+			this.indexLength = indexLength;
+		}
+		else 
+			this.found = false;
 	}
 
 	public ProblemDefinition getType() {

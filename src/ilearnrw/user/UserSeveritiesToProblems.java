@@ -2,6 +2,7 @@ package ilearnrw.user;
 
 import ilearnrw.games.NumberProblems;
 import ilearnrw.user.problems.Category;
+import ilearnrw.user.problems.GreekProblems;
 import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemDescription;
@@ -38,6 +39,19 @@ public class UserSeveritiesToProblems implements Serializable {
 	public void loadTestProblems(){
 		NumberProblems numProbs = new NumberProblems();
 		initialize(numProbs.getAllProblems());
+		Random rand = new Random();
+		for (int i=0;i<theProblems.getIndexLength(); i++){
+			theSeverities.setIndex(i, rand.nextInt(theProblems.getIthRowLength(i)));
+			for (int j=0; j<theSeverities.getSeverityLength(i); j++){
+				theSeverities.setSeverity(i, j, rand.nextInt(3)+1);
+			}
+		}
+		
+	}
+	
+	public void loadTestGreekProblems(){
+		GreekProblems greekProbs = new GreekProblems();
+		initialize(greekProbs.getAllProblems());
 		Random rand = new Random();
 		for (int i=0;i<theProblems.getIndexLength(); i++){
 			theSeverities.setIndex(i, rand.nextInt(theProblems.getIthRowLength(i)));

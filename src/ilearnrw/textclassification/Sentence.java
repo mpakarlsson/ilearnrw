@@ -1,11 +1,16 @@
 package ilearnrw.textclassification;
+
+import ilearnrw.user.LanguageCode;
+
 public class Sentence {
 	private String sentence;
 	private Word[] words;
 	private int numberOfSyllables, longestWordLength;
 	private double averageWordLength;
+	private LanguageCode lc;
 
-	public Sentence(String sentence){
+	public Sentence(String sentence, LanguageCode lc){
+		this.lc = lc;
 		this.sentence = sentence;
 		splitWords();
 		metrics();
@@ -46,11 +51,21 @@ public class Sentence {
 		for (int i=0;i<theWords.length; i++){
 			if (!theWords[i].trim().equals("")) size++;
 		}
-		words = new GreekWord[size];
-		int j = 0;
-		for (int i=0;i<theWords.length;i++){
-			if (theWords[i].trim().equals("")) continue;
-			words[j++] = new GreekWord(theWords[i]);
+		if (lc == LanguageCode.GR){
+			words = new GreekWord[size];
+			int j = 0;
+			for (int i=0;i<theWords.length;i++){
+				if (theWords[i].trim().equals("")) continue;
+				words[j++] = new GreekWord(theWords[i]);
+			}
+		}
+		else {
+			words = new EnglishWord[size];
+			int j = 0;
+			for (int i=0;i<theWords.length;i++){
+				if (theWords[i].trim().equals("")) continue;
+				words[j++] = new EnglishWord(theWords[i]);
+			}
 		}
 	}
 	

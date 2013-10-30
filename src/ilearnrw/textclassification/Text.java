@@ -1,16 +1,20 @@
 package ilearnrw.textclassification;
+import ilearnrw.user.LanguageCode;
+
 import java.util.HashMap;
 
 public class Text {
 	private String text;
 	private Sentence sentences[];
 	private HashMap<Word, Integer> wordsFreq;
+	private LanguageCode lc;
 
 	private int numberOfTotalWords, numberOfDistinctWords, numberOfSentences, numberOfSyllables, 
 		longestWordLength, longestSentenceLength;
 	private double averageWordLength, averageLongestWordLength;
 	
-	public Text(String text){
+	public Text(String text, LanguageCode lc){
+		this.lc = lc;
 		this.text = text;
 		splitSentences();
 		wordsFreq = new HashMap<Word, Integer>();
@@ -66,7 +70,7 @@ public class Text {
 		String tmp[] = text.trim().split("((\\.)*(\\.)\\s)|((\\!)*(\\!)\\s)|((\\;)*(\\;)\\s)|((\\?)*(\\?)\\s)");
 		sentences = new Sentence[tmp.length];
 		for (int i=0;i<tmp.length; i++){
-			sentences[i] = new Sentence(tmp[i]);
+			sentences[i] = new Sentence(tmp[i], lc);
 		}
 	}
 	

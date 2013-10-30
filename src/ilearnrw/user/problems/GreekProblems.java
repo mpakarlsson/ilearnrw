@@ -1,7 +1,6 @@
 package ilearnrw.user.problems;
 
 import ilearnrw.user.LanguageCode;
-import ilearnrw.user.IlearnException;
 import ilearnrw.user.problems.Category;
 import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
@@ -35,7 +34,7 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			ProblemDefinition prob = new ProblemDefinition("Syllable Division", cat);
 			probsMatrix.setProblemDefinition(prob, problemIndexPosition);
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
-			try {
+			{
 				int i=0;
 				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PATTERN, 
 						new String[]{"-cv-cv-"}, problemIndexPosition, i++);
@@ -78,8 +77,6 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 						new String[]{"αυ","αϋ","αύ","αΰ"}, problemIndexPosition, i++);
 				probsMatrix.setProblemDescription(ProblemType.CONTAINS, 
 						new String[]{"εύω"}, problemIndexPosition, i++);
-			} catch (IlearnException e) {
-				e.printStackTrace();
 			}
 			
 
@@ -90,7 +87,7 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			prob = new ProblemDefinition("Consonants", cat);
 			probsMatrix.setProblemDefinition(prob, problemIndexPosition);
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
-			try {
+			{
 				int i=0;
 				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
 						new String[]{"/t/-/d/","/p/-/b/"}, problemIndexPosition, i++);
@@ -116,8 +113,6 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 						new String[]{"/ðr/-/θr/","/fr/-/χr/"}, problemIndexPosition, i++);
 				probsMatrix.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
 						new String[]{"/χθ/-/fθ/"}, problemIndexPosition, i++);
-			} catch (IlearnException e) {
-				e.printStackTrace();
 			}
 
 			//B.3 Phonemes: Vowels (6 problems)
@@ -126,7 +121,7 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			prob = new ProblemDefinition("Vowels", cat);
 			probsMatrix.setProblemDefinition(prob, problemIndexPosition);
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
-			try {
+			{
 				int i=0;
 				probsMatrix.setProblemDescription(ProblemType.CONTAINS, 
 						//new String[]{"εϋ: /eɪ/"}, problemIndexPosition, i++);
@@ -146,8 +141,6 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 				probsMatrix.setProblemDescription(ProblemType.CONTAINS, 
 						//new String[]{"αΐ: /ai/"}, problemIndexPosition, i++);
 						new String[]{"αΐ"}, problemIndexPosition, i++);
-			} catch (IlearnException e) {
-				e.printStackTrace();
 			}
 
 			cat = new Category("Suffixing");
@@ -157,51 +150,49 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			prob = new ProblemDefinition("Derivational", cat);
 			probsMatrix.setProblemDefinition(prob, problemIndexPosition);
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
-			try {
+			{
 				int i=0;
-				probsMatrix.setProblemDescription(ProblemType.IS_NOUN_OR_ADJ_AND_ENDS_WITH, 
-						new String[]{"άκι","άκης","άκος","ίτσα",
-						"κας","οπούλα","όπουλο","ούδι","ούλα","ούλης","ούλης","ούλα","ούλικο",
-						"ούτσικος","ούτσικη","ούτσικο"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(ProblemType.IS_NOUN_OR_ADJ_AND_ENDS_WITH, 
-						new String[]{"άκλα","άρα","αράς","αρόνα",
-						"αρος","ούκλα"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH, 
-						new String[]{"άς","έας","ιάς","δόρος","άρης",
-						"ιάρης","ιέρης", "ιέρα","ίτης","ιώτης","ίστας","ιστής","ίστρια",
-						"της","τής","τρια","τισσα","τζής","τζού","τίας","τορας"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH, 
-						new String[]{"είο","ιά","ία","ικο","δικο"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH, 
-						new String[]{"έας","ερό","ιέρα","τήρας","τήρι","τήριο",
-						"τρα","της"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH, 
-						new String[]{"άδα","εια","ίλα","ιλίκι","μάρα","οσύνη",
-						"ούρα","σιά","ξιά","ότητα","ύτητα"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH, 
-						new String[]{"ί","ιά"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH, 
-						new String[]{"άλα","εία","ειά","εια","ση","ξη","ψη",
-						"ία","σιά","ψιά","ξιά","ματιά","σιμο","ξιμο","ψιμο","αμα","ημα","ωμα","σμα",
-						"γμα","μός","ητό","ατό","κτό","χτό","φτό","πτό"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(ProblemType.IS_ADJ_AND_ENDS_WITH, 
-						new String[]{"ικός","ική","ικό","σιμος","σιμη","σιμο",
-						"ιάρης","ιάρα","άρικο","ερός","ερή","ερό","τός","τή","τό","άτος","άτη","άτο",
-						"ινος","ινη","ινο","ιακός","ιακή","ιακό","ανός","ανή","ανό","ούρης","ούρα",
-						"ούρικο"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(ProblemType.IS_ADJ_AND_ENDS_WITH, 
-						new String[]{"ίστικος","ίστικη","ίστικο","ήσιος","ήσια","ήσιο",
-						"λέος","λέα","λέο","αίος","αία","αίο","ωπός","ωπή","ωπό","ένιος","ένια","ένιο",
-						"τέος","τέα","τέο","ώδης","ώδες"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(ProblemType.IS_VERB_AND_ENDS_WITH, 
-						new String[]{"ίζω","άζω","ιάζω","αίνω","ώνω","ύνω","εύω","άρω"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(ProblemType.IS_VERB_AND_ENDS_WITH, 
-						new String[]{"βολώ","λογώ","ποιώ"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(ProblemType.IS_ADJ_AND_ENDS_WITH, 
-						new String[]{"ειδής","ειδές","μελής","μελές",
-						"ετής","ετές"}, problemIndexPosition, i++);
-			} catch (IlearnException e) {
-				e.printStackTrace();
+                probsMatrix.setProblemDescription(ProblemType.IS_NOUN_OR_ADJ_AND_ENDS_WITH,
+                                new String[]{"άκι","άκης","άκος","ίτσα",
+                                "κας","οπούλα","όπουλο","ούδι","ούλα","ούλης","ούλης","ούλα","ούλικο",
+                                "ούτσικος","ούτσικη","ούτσικο"}, problemIndexPosition, i++);
+                probsMatrix.setProblemDescription(ProblemType.IS_NOUN_OR_ADJ_AND_ENDS_WITH,
+                                new String[]{"άκλα","άρα","αράς","αρόνα",
+                                "αρος","ούκλα"}, problemIndexPosition, i++);
+                probsMatrix.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH,
+                                new String[]{"άς","έας","ιάς","δόρος","άρης",
+                                "ιάρης","ιέρης", "ιέρα","ίτης","ιώτης","ίστας","ιστής","ίστρια",
+                                "της","τής","τρια","τισσα","τζής","τζού","τίας","τορας"}, problemIndexPosition, i++);
+                probsMatrix.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH,
+                                new String[]{"είο","ιά","ία","ικο","δικο"}, problemIndexPosition, i++);
+                probsMatrix.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH,
+                                new String[]{"έας","ερό","ιέρα","τήρας","τήρι","τήριο",
+                                "τρα","της"}, problemIndexPosition, i++);
+                probsMatrix.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH,
+                                new String[]{"άδα","εια","ίλα","ιλίκι","μάρα","οσύνη",
+                                "ούρα","σιά","ξιά","ότητα","ύτητα"}, problemIndexPosition, i++);
+                probsMatrix.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH,
+                                new String[]{"ί","ιά"}, problemIndexPosition, i++);
+                probsMatrix.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH,
+                                new String[]{"άλα","εία","ειά","εια","ση","ξη","ψη",
+                                "ία","σιά","ψιά","ξιά","ματιά","σιμο","ξιμο","ψιμο","αμα","ημα","ωμα","σμα",
+                                "γμα","μός","ητό","ατό","κτό","χτό","φτό","πτό"}, problemIndexPosition, i++);
+                probsMatrix.setProblemDescription(ProblemType.IS_ADJ_AND_ENDS_WITH,
+                                new String[]{"ικός","ική","ικό","σιμος","σιμη","σιμο",
+                                "ιάρης","ιάρα","άρικο","ερός","ερή","ερό","τός","τή","τό","άτος","άτη","άτο",
+                                "ινος","ινη","ινο","ιακός","ιακή","ιακό","ανός","ανή","ανό","ούρης","ούρα",
+                                "ούρικο"}, problemIndexPosition, i++);
+                probsMatrix.setProblemDescription(ProblemType.IS_ADJ_AND_ENDS_WITH,
+                                new String[]{"ίστικος","ίστικη","ίστικο","ήσιος","ήσια","ήσιο",
+                                "λέος","λέα","λέο","αίος","αία","αίο","ωπός","ωπή","ωπό","ένιος","ένια","ένιο",
+                                "τέος","τέα","τέο","ώδης","ώδες"}, problemIndexPosition, i++);
+                probsMatrix.setProblemDescription(ProblemType.IS_VERB_AND_ENDS_WITH,
+                                new String[]{"ίζω","άζω","ιάζω","αίνω","ώνω","ύνω","εύω","άρω"}, problemIndexPosition, i++);
+                probsMatrix.setProblemDescription(ProblemType.IS_VERB_AND_ENDS_WITH,
+                                new String[]{"βολώ","λογώ","ποιώ"}, problemIndexPosition, i++);
+                probsMatrix.setProblemDescription(ProblemType.IS_ADJ_AND_ENDS_WITH,
+                                new String[]{"ειδής","ειδές","μελής","μελές",
+                                "ετής","ετές"}, problemIndexPosition, i++);
 			}
 
 			//B.5 Suffixing: Inflectional/Grammatical (17 problems)
@@ -210,7 +201,7 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			prob = new ProblemDefinition("Inflectional/Grammatical", cat);
 			probsMatrix.setProblemDefinition(prob, problemIndexPosition);
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
-			try {
+			{
 				int i=0;
 				probsMatrix.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH, 
 						new String[]{"ος", "ο", "ας", "α", "ης", "η", "α", "η", "ο"}, problemIndexPosition, i++);
@@ -251,8 +242,6 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 						"ούνταν", "ούντανε", "ηκα", "ηκες", "ηκε", "ήκαμε", "ήκατε", "αν"}, problemIndexPosition, i++);
 				probsMatrix.setProblemDescription(ProblemType.IS_PARTICIPLE_AND_ENDS_WITH, 
 						new String[]{"ών", "ούσα", "όν", "είς", "είσα", "έν"}, problemIndexPosition, i++);
-			} catch (IlearnException e) {
-				e.printStackTrace();
 			}
 
 			cat = new Category("Prefixing");
@@ -262,7 +251,7 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			prob = new ProblemDefinition("Prefixing", cat);
 			probsMatrix.setProblemDefinition(prob, problemIndexPosition);
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
-			try {
+			{
 				int i=0;
 				probsMatrix.setProblemDescription(ProblemType.IS_ADJ_AND_STARTS_WITH, 
 						new String[]{"α", "αντι", "δυσ"}, problemIndexPosition, i++);
@@ -270,15 +259,13 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 						new String[]{"υπερ", "υπο", "κατα"}, problemIndexPosition, i++);
 				probsMatrix.setProblemDescription(ProblemType.IS_VERB_AND_STARTS_WITH, 
 						new String[]{"υπερ", "υπο"}, problemIndexPosition, i++);
-				probsMatrix.setProblemDescription(ProblemType.STARTS_WITH, 
+				probsMatrix.setProblemDescription(ProblemType.STARTS_WITH, //starts with kai einai epiu8eto
 						new String[]{"δι", "τρι", "πρωτο", "αυτο", "πολυ", "μικρο", "ψιλο", "ημι"}, problemIndexPosition, i++);
 				probsMatrix.setProblemDescription(ProblemType.IS_VERB_AND_STARTS_WITH, 
 						new String[]{"ανα", "αντι", "απο", "δια", "εισ", "εκ", "εξ", "εν", "επι", "κατα", 
 						"μετα", "παρα", "περι", "προ", "προσ", "συν"}, problemIndexPosition, i++);
 				probsMatrix.setProblemDescription(ProblemType.IS_VERB_AND_STARTS_WITH, 
 						new String[]{"ψιλο", "μισο", "κουτσο", "ψευτο"}, problemIndexPosition, i++);
-			} catch (IlearnException e) {
-				e.printStackTrace();
 			}
 
 
@@ -291,7 +278,7 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			prob = new ProblemDefinition("Regular:Consonant clusters", cat);
 			probsMatrix.setProblemDefinition(prob, problemIndexPosition);
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
-			try {
+			{
 				int i=0;
 				probsMatrix.setProblemDescription(ProblemType.TWO_SYL_WORD_INITIAL_PHONEME, 
 						new String[]{"/sp/", "/st/", "/sk/"}, problemIndexPosition, i++);
@@ -333,8 +320,6 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 						new String[]{"/fr/", "/ðr/", "/χr/", "/vr/", "/γr/", "/θr/"}, problemIndexPosition, i++);
 				probsMatrix.setProblemDescription(ProblemType.THREE_SYL_WORD_INTERNAL_PHONEME, 
 						new String[]{"/spr/", "/skr/", "/str/", "/sfr/"}, problemIndexPosition, i++);
-			} catch (IlearnException e) {
-				e.printStackTrace();
 			}
 			
 			//Irregular (7 problems)
@@ -343,7 +328,7 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			prob = new ProblemDefinition("Irregular", cat);
 			probsMatrix.setProblemDefinition(prob, problemIndexPosition);
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
-			try {
+			{
 				int i=0;
 				probsMatrix.setProblemDescription(ProblemType.CONTAINS, 
 						new String[]{"ευ"}, problemIndexPosition, i++);
@@ -359,8 +344,6 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 						new String[]{"οΰ"}, problemIndexPosition, i++);
 				probsMatrix.setProblemDescription(ProblemType.CONTAINS, 
 						new String[]{"αΐ"}, problemIndexPosition, i++);
-			} catch (IlearnException e) {
-				e.printStackTrace();
 			}
 
 			cat = new Category("Grammar/Function Words");
@@ -370,7 +353,7 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			prob = new ProblemDefinition("Grammar/Function Words", cat);
 			probsMatrix.setProblemDefinition(prob, problemIndexPosition);
 			probsMatrix.constructProblemRow(problemIndexPosition, problemLength);
-			try {
+			{
 				int i=0;
 				probsMatrix.setProblemDescription(ProblemType.EQUALS, 
 						new String[]{"των"}, problemIndexPosition, i++);
@@ -392,8 +375,6 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 						new String[]{"για"}, problemIndexPosition, i++);
 				probsMatrix.setProblemDescription(ProblemType.EQUALS, 
 						new String[]{"από"}, problemIndexPosition, i++);
-			} catch (IlearnException e) {
-				e.printStackTrace();
 			}	
 		}
 		

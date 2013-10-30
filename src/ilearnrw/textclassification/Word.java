@@ -49,6 +49,11 @@ public class Word {
 		}
 		return res;
 	}
+	
+	public String getWordInToPhonemes(){
+		String res = "-";
+		return res;
+	}
 		
 	@Override
 	public boolean equals(Object x){
