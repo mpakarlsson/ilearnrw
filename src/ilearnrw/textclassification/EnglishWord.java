@@ -1,13 +1,13 @@
 package ilearnrw.textclassification;
 
 
-public class EnglishWord extends GreekWord {
+public class EnglishWord extends Word {
 
 	
 	//We put inside only lower case words
 	public EnglishWord(String word) {
 		super.word = word.toLowerCase();
-		super.checkType();
+		//super.checkType();
 		this.syllabism();
 		this.createCVForm();
 	}

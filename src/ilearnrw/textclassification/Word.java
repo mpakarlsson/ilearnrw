@@ -1,6 +1,4 @@
 package ilearnrw.textclassification;
-import ilearnrw.textclassification.speller.GreekSpeller;
-import ilearnrw.textclassification.speller.Speller;
 
 public class Word {
 	protected String word;
@@ -57,7 +55,7 @@ public class Word {
 		
 	@Override
 	public boolean equals(Object x){
-		GreekWord w = (GreekWord)x;
+		Word w = (Word)x;
 		return w.getWord().equalsIgnoreCase(this.word);
 	}
 	

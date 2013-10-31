@@ -1,8 +1,6 @@
 package ilearnrw.games;
 
 import ilearnrw.textclassification.Classifier;
-import ilearnrw.textclassification.Sentence;
-import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.Text;
 import ilearnrw.user.LanguageCode;
 import ilearnrw.user.User;
