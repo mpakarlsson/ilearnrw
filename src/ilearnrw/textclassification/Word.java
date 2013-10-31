@@ -5,6 +5,7 @@ public class Word {
 	protected WordType type;
 	protected String[] syllables;
 	protected String cvForm;
+	protected String phonetics;
 	
 	public Word(){
 	}
@@ -32,6 +33,10 @@ public class Word {
 	
 	public String getCVForm() {
 		return cvForm;
+	}
+	
+	public String getPhonetics(){
+		return phonetics;
 	}
 	
 	public int getLength(){
