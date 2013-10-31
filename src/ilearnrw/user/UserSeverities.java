@@ -1,6 +1,10 @@
 package ilearnrw.user;
 
-public class UserSeverities {
+import java.io.Serializable;
+
+public class UserSeverities implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 	private int indices[];
 	private int severities[][];
 
@@ -39,6 +43,23 @@ public class UserSeverities {
 	public int getIthIndex(int i) {
 		return indices[i];
 	}
+	
+	public int[] getIndices() {
+		return indices;
+	}
+
+	public void setIndices(int[] indices) {
+		this.indices = indices;
+	}
+
+	public int[][] getSeverities() {
+		return severities;
+	}
+
+	public void setSeverities(int[][] severities) {
+		this.severities = severities;
+	}
+
 	
 	@Override
 	public String toString(){

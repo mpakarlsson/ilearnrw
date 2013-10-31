@@ -1,8 +1,12 @@
 package ilearnrw.user.problems;
 
+import java.io.Serializable;
+
 import ilearnrw.user.LanguageCode;
 
-public class ProblemDefinitionIndex implements ProblemDefinitionIndexApi {
+public class ProblemDefinitionIndex implements Serializable,ProblemDefinitionIndexApi {
+
+	private static final long serialVersionUID = 1L;
 	private ProblemDefinition problemsIndex[];
 	private ProblemDescription problems[][];
 	LanguageCode language;
