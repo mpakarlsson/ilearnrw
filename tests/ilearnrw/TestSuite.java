@@ -1,5 +1,5 @@
 package ilearnrw;
-import ilearnrw.datalogger.DataLoggerTest;
+//import ilearnrw.datalogger.DataLoggerTest;
 import ilearnrw.datalogger.UserStoreTest;
 import ilearnrw.user.UserTest;
 
@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-	DataLoggerTest.class,
+	//DataLoggerTest.class,
 	UserStoreTest.class,
 	UserTest.class
 })

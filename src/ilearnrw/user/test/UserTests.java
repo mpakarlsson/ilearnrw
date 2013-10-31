@@ -29,10 +29,10 @@ public class UserTests {
 
 		ArrayList<LanguageCode> acceptedLanguages = new ArrayList<LanguageCode>();
 		acceptedLanguages.add(LanguageCode.GR);
-		ProblemDefinition problem111 = new ProblemDefinition("1.1.1", category1, 10, acceptedLanguages);
+		//ProblemDefinition problem111 = new ProblemDefinition("1.1.1", category1, 10, acceptedLanguages);
 		//ProblemDefinition problem121 = new ProblemDefinition("1.2.1", category2, 10, acceptedLanguages);
 		
 
-		Assert.assertEquals("We have added only one language", problem111.getAvailableLanguages().size(), 1);
+		//Assert.assertEquals("We have added only one language", problem111.getAvailableLanguages().size(), 1);
 	}
 }

@@ -1,11 +1,15 @@
 package ilearnrw.textclassification;
 
+import ilearnrw.user.LanguageCode;
+
 public class Word {
 	protected String word;
 	protected WordType type;
 	protected String[] syllables;
 	protected String cvForm;
 	protected String phonetics;
+	protected int numSyllables;
+	protected LanguageCode lc;
 	
 	public Word(){
 	}
@@ -26,9 +30,9 @@ public class Word {
 	public String[] getSyllables() {
 		return syllables;
 	}
-	
+
 	public int getNumberOfSyllables() {
-		return syllables.length;
+		return lc == LanguageCode.GR ? syllables.length : numSyllables;
 	}
 	
 	public String getCVForm() {
