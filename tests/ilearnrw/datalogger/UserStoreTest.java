@@ -9,8 +9,8 @@ import ilearnrw.user.UserDetails;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+//import java.nio.file.Files;
+//import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -56,13 +56,13 @@ public class UserStoreTest {
 	
 	@After
 	public void postMethodTearDowns(){
-		try { Files.delete(Paths.get(storePath));
+		/*try { Files.delete(Paths.get(storePath));
 		} catch (IOException e) {
 			System.out.println("Could not delete userStore file due to " + e.getMessage());
 			e.printStackTrace();}
 		userStore = null;
 		storePath = null;
-		user = null;
+		user = null;*/
 	}
 		
 	@Test

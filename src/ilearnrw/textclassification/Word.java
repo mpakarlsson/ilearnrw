@@ -32,7 +32,7 @@ public class Word {
 	}
 
 	public int getNumberOfSyllables() {
-		return lc == LanguageCode.GR ? syllables.length : numSyllables;
+		return numSyllables;
 	}
 	
 	public String getCVForm() {

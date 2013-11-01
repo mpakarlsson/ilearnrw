@@ -1,9 +1,9 @@
-/*package ilearnrw.datalogger;
+package ilearnrw.datalogger;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+//import java.nio.file.Files;
+//import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import ilearnrw.application.ApplicationId;
@@ -28,7 +28,10 @@ import org.junit.Test;
 import org.junit.BeforeClass;
 
 public class DataLoggerTest {
+	
+}/*remove this bracket to enable the code */
 
+/*
 	private static DataLogger dataLogger = null;
 	private static UserStore userStore = null;
 	private static UserActions userActions = null;
@@ -230,4 +233,5 @@ public class DataLoggerTest {
 		dataLogger.addUserProblem(new UserProblem(problem2));
 		assertTrue(dataLogger.hasPendingChanges());
 	}
-}*/
+}
+*/
