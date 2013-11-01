@@ -87,7 +87,7 @@ public class Sentence {
 			if (words[i].getLength() > longestWordLength) 
 				longestWordLength = words[i].getLength();
 			
-			if (words[i].getLength() >= 3) 
+			if (words[i].getSyllables().length >= 3) 
 				numberOfPolysyllabicWords++;
 
 			numberOfSyllables += words[i].getNumberOfSyllables();

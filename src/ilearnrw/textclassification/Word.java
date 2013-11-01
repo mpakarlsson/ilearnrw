@@ -10,13 +10,16 @@ public class Word {
 	protected String phonetics;
 	protected int numSyllables;
 	protected LanguageCode lc;
+	protected double freequency;
 	
 	public Word(){
 	}
 			
 	public Word(String word){
+		word = word.replaceAll("(\\«)|(\\»)|(\\()|(\\))|(\\{)|(\\})|(\\[)|(\\])|(\\<)|(\\>)|(\\=)|(\\%)|(\\€)|(\\$)", "");
 		this.word = word.toLowerCase();
 		//all initializations must go here!!!
+		System.out.println(this.word);
 	}
 		
 	public String getWord() {
@@ -45,6 +48,10 @@ public class Word {
 	
 	public int getLength(){
 		return word.length();
+	}
+	
+	public double getFreequency(){
+		return freequency;
 	}
 			
 	public String getWordInToSyllables(){

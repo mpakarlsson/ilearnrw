@@ -74,7 +74,7 @@ public class TextMetricsTest extends JFrame {
         resultsPane.setEditable(false);
         resultsPane.setBackground(Color.lightGray);
         panel.add(resultsPane);
-        resultsPane.setText("Hello");
+        resultsPane.setText("Paste Your Text to The Left.\nSwitch Language if needed.");
 		
 		JToolBar toolBar = new JToolBar();
 		contentPane.add(toolBar, BorderLayout.NORTH);

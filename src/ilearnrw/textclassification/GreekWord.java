@@ -26,7 +26,6 @@ public class GreekWord extends Word{
 		s.performSpelling();
 		syllables = s.getTokensArray();
 		numSyllables = syllables.length;
-		System.out.println(numSyllables);
 	}
 	
 	protected char upperCharToCV(char x){
@@ -65,5 +64,8 @@ public class GreekWord extends Word{
 		}
 	}
 	
+	private void createPhonetics(){
+		//read the word, and calculate its phonetic transcription
+	}
 	
 }
