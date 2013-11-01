@@ -40,4 +40,13 @@ public interface TextAPI {
 	public double smog();
 	
 	public double gunningFog();
+
+	
+	public double daleChall();
+
+	public double getAverageNumberOfWordsWithFrequencyHigher(double frequency);
+
 }
+
+
+

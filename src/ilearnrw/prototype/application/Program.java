@@ -6,14 +6,18 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
 import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.prototype.application.ConsoleMenu.IConsoleMenuAction;
 import ilearnrw.textclassification.EnglishWord;
+import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
+import ilearnrw.user.LanguageCode;
 
 import ilearnrw.datalogger.IProfileAccessUpdater;
 import ilearnrw.datalogger.ILoginProvider;
@@ -24,6 +28,7 @@ public class Program {
 
 	private static DataLogger sDataLogger = new DataLogger();
 	private static final Map<String, Vector<String>> sDictionary = LoadDictionary();
+	private static final ArrayList<String> sDaleChallList = LoadDaleChallList();
 	
 	public static Map<String, Vector<String>> LoadDictionary(){
 		/**
@@ -61,8 +66,30 @@ public class Program {
 		return dict;
 	}
 	
+	public static ArrayList<String> LoadDaleChallList(){
+		ArrayList<String> words = new ArrayList<String>();
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("dale-chall_word_list.txt"));
+		
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				words.add(line);
+			}
+			reader.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return words;
+	}
+	
 	public static Map<String, Vector<String>> getDictionary(){
 		return sDictionary;
+	}
+	
+	public static ArrayList<String> getDaleChallList(){
+		return sDaleChallList;
 	}
 	
 	public static IProfileAccessUpdater getProfileAccessUpdater() {
@@ -110,7 +137,8 @@ public class Program {
 			// Initialize the DataLogger object
 			sDataLogger.loadUserStore(databaseFile);
 			sDataLogger.loadUserActions(databaseFile);
-			
+			Word w = new EnglishWord("test");
+			Word y = new EnglishWord("Potatoraspberry");
 			ConsoleMenu mnu = new ConsoleMenu(System.out, System.in, "iLearnRW - Main menu", 
 					new IConsoleMenuAction[] {
 						new DatabaseManager("Manage datalogger database"),

@@ -14,6 +14,11 @@ public class EnglishWord extends Word {
 		checkType();
 		syllabism();
 		createCVForm();
+		
+		if(Program.getDictionary().containsKey(word)){
+			frequency = Double.parseDouble(Program.getDictionary().get(word).get(2));
+		} else 
+			frequency = 5001;
 	}
 
 	

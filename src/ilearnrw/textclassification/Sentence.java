@@ -87,9 +87,13 @@ public class Sentence {
 			if (words[i].getLength() > longestWordLength) 
 				longestWordLength = words[i].getLength();
 			
-			if (words[i].getSyllables().length >= 3) 
-				numberOfPolysyllabicWords++;
-
+			if(lc == LanguageCode.GR){
+				if (words[i].getSyllables().length >= 3) 
+					numberOfPolysyllabicWords++;
+			} else if(lc == LanguageCode.EN) {
+				if(words[i].getNumberOfSyllables() >= 3)
+					numberOfPolysyllabicWords++;
+			}
 			numberOfSyllables += words[i].getNumberOfSyllables();
 			numberOfLettersAndNumbers += words[i].getLength();
 		}

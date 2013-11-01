@@ -1,7 +1,10 @@
 package ilearnrw.textclassification;
+import ilearnrw.prototype.application.Program;
 import ilearnrw.user.LanguageCode;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Text implements TextAPI{
 	private String text;
@@ -177,6 +180,43 @@ public class Text implements TextAPI{
 		double fog = 0.4 * ( (double)numberOfTotalWords / numberOfSentences + 
 				(100.0 * numberOfPolysyllabicWords) / numberOfTotalWords );
 		return fog;
+	}
+	
+	@Override
+	public double daleChall(){
+		int numDifficultWords = 0;
+		ArrayList<String> wordList = Program.getDaleChallList();
+		for(int i=0, numSentences = sentences.length; i<numSentences; i++){
+			Sentence sentence = sentences[i];
+			for(int j=0, numWords = sentence.getWords().length; j<numWords; j++){
+				Word w = sentence.getWord(j);
+				if(!wordList.contains(w.word))
+					numDifficultWords++;
+			}	
+		}
+		
+		double difficultWords = (numDifficultWords / (double)numberOfTotalWords) * 100;
+		double value = (0.1579 * difficultWords) + (0.0496 * (numberOfTotalWords / numberOfSentences));
+		
+		if(difficultWords > 5)
+			return value + 3.6365;
+		else 
+			return value;
+		
+	}
+	
+	@Override
+	public double getAverageNumberOfWordsWithFrequencyHigher(double frequency){
+		double numWordsHighFrequency = 0;
+		for(int i=0, numSentences = sentences.length; i<numSentences; i++){
+			Sentence sentence = sentences[i];
+			for(int j=0, numWords = sentence.getWords().length; j<numWords; j++){
+				Word word = sentence.getWord(j);
+				if(word.getFrequency() > frequency)
+					numWordsHighFrequency++;
+			}
+		}
+		return (numWordsHighFrequency/numberOfTotalWords);
 	}
 	
 }

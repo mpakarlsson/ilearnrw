@@ -10,7 +10,7 @@ public class Word {
 	protected String phonetics;
 	protected int numSyllables;
 	protected LanguageCode lc;
-	protected double freequency;
+	protected double frequency;
 	
 	public Word(){
 	}
@@ -20,6 +20,13 @@ public class Word {
 		this.word = word.toLowerCase();
 		//all initializations must go here!!!
 		System.out.println(this.word);
+		
+		numSyllables = 0;
+		frequency = 0;
+		type = WordType.Unknown;
+		cvForm = "";
+		phonetics = "";
+		lc = LanguageCode.GR;
 	}
 		
 	public String getWord() {
@@ -50,8 +57,8 @@ public class Word {
 		return word.length();
 	}
 	
-	public double getFreequency(){
-		return freequency;
+	public double getFrequency(){
+		return frequency;
 	}
 			
 	public String getWordInToSyllables(){
