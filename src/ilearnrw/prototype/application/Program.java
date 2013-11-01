@@ -26,8 +26,18 @@ public class Program {
 	private static final Map<String, Vector<String>> sDictionary = LoadDictionary();
 	
 	public static Map<String, Vector<String>> LoadDictionary(){
-		Map<String, Vector<String>> dict = new HashMap<String, Vector<String>>();
-		Vector<String> data = new Vector<String>(); 		
+		/**
+		 * Dictionary layout
+		 * Param1: Word 
+		 * Param2: Root word 
+		 * Param3: Number of syllables
+		 * Param4: Frequency
+		 * 
+		 * e.g. 
+		 * 	absorbed absorb 2 9762
+		 */
+		
+		Map<String, Vector<String>> dict = new HashMap<String, Vector<String>>();		
 			try {
 				BufferedReader reader = new BufferedReader(new FileReader("dictionary.txt"));
 				String line = null;
@@ -44,15 +54,10 @@ public class Program {
 				reader.close();
 				
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	    	
-
-		System.out.println(new File(".").getAbsolutePath());
 		return dict;
 	}
 	
@@ -104,7 +109,7 @@ public class Program {
 			
 			// Initialize the DataLogger object
 			sDataLogger.loadUserStore(databaseFile);
-			sDataLogger.loadUserActions(databaseFile);			
+			sDataLogger.loadUserActions(databaseFile);
 			
 			ConsoleMenu mnu = new ConsoleMenu(System.out, System.in, "iLearnRW - Main menu", 
 					new IConsoleMenuAction[] {

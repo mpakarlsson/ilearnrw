@@ -20,7 +20,7 @@ public class EnglishWord extends Word {
 	protected void syllabism(){
 		if(Program.getDictionary().containsKey(word)){
 			Vector<String> data = Program.getDictionary().get(word);
-			numSyllables = Integer.parseInt(data.get(data.size()-1));
+			numSyllables = Integer.parseInt(data.get(1));
 		} else {
 			numSyllables = countVowels();
 		}
@@ -38,29 +38,14 @@ public class EnglishWord extends Word {
 		// It is being treated as a vowel at the moment, but this needs to be addressed later
 		
 		switch (x){
-			case 'B':
-			case 'C':
-			case 'D':
-			case 'F':
-			case 'G':
-			case 'H':
-			case 'J':
-			case 'K':
-			case 'L':
-			case 'M':
-			case 'N':
-			case 'P':
-			case 'Q':
-			case 'R':
-			case 'S':
-			case 'T':
-			case 'V':
-			case 'W':
-			case 'X':
-			case 'Z':
-				return 'c';
-			default :
+			case 'A':
+			case 'E':
+			case 'I':
+			case 'O':
+			case 'U':
 				return 'v';
+			default :
+				return 'c';
 		}
 	}
 	
@@ -71,11 +56,7 @@ public class EnglishWord extends Word {
 			char c = temp.charAt(i);
 			cvForm += c;
 		}
-		
-		
-		
 	}
-	
 	
 	private int countVowels(){
 		String temp = word.toUpperCase();
@@ -83,6 +64,8 @@ public class EnglishWord extends Word {
 		int numVowels = 0, size = temp.length();
 		for(char c : temp.toCharArray()){
 			if(--size==0 && c == 'E'){
+				if(numVowels == 0)
+					numVowels++;
 				break;
 			}
 			
