@@ -19,7 +19,6 @@ public class Word {
 		word = word.replaceAll("(\\«)|(\\»)|(\\()|(\\))|(\\{)|(\\})|(\\[)|(\\])|(\\<)|(\\>)|(\\=)|(\\%)|(\\€)|(\\$)", "");
 		this.word = word.toLowerCase();
 		//all initializations must go here!!!
-		System.out.println(this.word);
 		
 		numSyllables = 0;
 		frequency = 0;

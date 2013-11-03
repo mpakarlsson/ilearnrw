@@ -184,6 +184,10 @@ public class Text implements TextAPI{
 	
 	@Override
 	public double daleChall(){
+		if (lc==LanguageCode.GR){
+			return -1;
+		}
+		
 		int numDifficultWords = 0;
 		ArrayList<String> wordList = Program.getDaleChallList();
 		for(int i=0, numSentences = sentences.length; i<numSentences; i++){

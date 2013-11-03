@@ -164,6 +164,8 @@ public class TextMetricsTest extends JFrame {
 		
 		res = res + "<br>Gunning FOG:"+txt.gunningFog();
 		
+		res = res + "<br>Dale-Chall:"+txt.daleChall();
+		
 		res = res+"</p></html>";
 		return res;
 	}

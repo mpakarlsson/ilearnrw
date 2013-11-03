@@ -34,21 +34,21 @@ public class GreekSpeller implements Speller{
     private ArrayList<String> result;
     private String dataHolder;
 
-    private char[] lowerCase = {'\u03B1', '\u03B2', '\u03B3', 
-    		'\u03B4', '\u03B5', '\u03B6', '\u03B7', '\u03B8', 
-    		'\u03B9', '\u03BA', '\u03BB', '\u03BC', '\u03BD', 
-    		'\u03BE', '\u03BF', '\u03C0', '\u03C1', '\u03C3', 
-    		'\u03C4', '\u03C5', '\u03C6', '\u03C7', '\u03C8', 
-    		'\u03C9', '\u03AC', '\u03AD', '\u03AE', '\u03AF', 
-    		'\u03CC', '\u03CD', '\u03CE', '\u03CA', '\u03CB', 
-    		'\u0390','\u03B0', '\u03C2'};
-    private char[] upperCase = {'\u0391', '\u0392', '\u0393', 
-    		'\u0394', '\u0395', '\u0396', '\u0397', '\u0398', 
-    		'\u0399', '\u039A', '\u039B', '\u039C', '\u039D', 
-    		'\u039E', '\u039F', '\u03A0', '\u03A1', '\u03A3', 
-    		'\u03A4', '\u03A5', '\u03A6', '\u03A7', '\u03A8', 
-    		'\u03A9', '\u0386', '\u0388', '\u0389', '\u038A', 
-    		'\u038C', '\u038E', '\u038F', '\u03AA', '\u03AB' };
+    private char[] lowerCase = {'α', 'β', 'γ', 
+    		'δ', 'ε', 'ζ', 'η', 'θ', 
+    		'ι', 'κ', 'λ', 'μ', 'ν', 
+    		'ξ', 'ο', 'π', 'ρ', 'σ', 
+    		'τ', 'υ', 'φ', 'χ', 'ψ', 
+    		'ω', 'ά', 'έ', 'ή', 'ί', 
+    		'ό', 'ύ', 'ώ', 'ϊ', 'ϋ', 
+    		'ΐ','ΰ', 'ς'};
+    private char[] upperCase = {'Α', 'Β', 'Γ', 
+    		'Δ', 'Ε', 'Ζ', 'Η', 'Θ', 
+    		'Ι', 'Κ', 'Λ', 'Μ', 'Ν', 
+    		'Ξ', 'Ο', 'Π', 'Ρ', 'Σ', 
+    		'Τ', 'Υ', 'Φ', 'Χ', 'Ψ', 
+    		'Ω', 'Ά', 'Έ', 'Ή', 'Ί', 
+    		'Ό', 'Ύ', 'Ώ', 'Ϊ', 'Ϋ' };
     private int[] converter;
 
     /** Creates a new instance of GreekSpeller */
@@ -145,9 +145,9 @@ public class GreekSpeller implements Speller{
      */
     private void applyTrivialRule(){
 		if (this.secondTraversal.size()>0){
-		    if (this.secondTraversal.get(0).equals("\u03C2")|| 
-		    		this.secondTraversal.get(0).equals("\u03C3") || 
-		    		this.secondTraversal.get(0).equals("\u03BD")){
+		    if (this.secondTraversal.get(0).equals("ς")|| 
+		    		this.secondTraversal.get(0).equals("σ") || 
+		    		this.secondTraversal.get(0).equals("ν")){
 		    	this.dataHolder = this.secondTraversal.get(0);
 		    	this.secondTraversal.remove(0);
 		    }
@@ -404,8 +404,8 @@ public class GreekSpeller implements Speller{
 		    	int position = this.positionOf(this.upperCase, str.charAt(i));
 			
 		    	if (position != -1) {
-		    		if(i==str.length()-1 && str.charAt(i)=='\u03C2'){
-		    			lowerCaseString = lowerCaseString.replace(str.charAt(i),'\u03A3');
+		    		if(i==str.length()-1 && str.charAt(i)=='ς'){
+		    			lowerCaseString = lowerCaseString.replace(str.charAt(i),'Σ');
 		    		}
 		    		else {
 		    			lowerCaseString = lowerCaseString.replace(str.charAt(i),this.lowerCase[position]);		   
@@ -527,138 +527,138 @@ public class GreekSpeller implements Speller{
      */
     private void initLists(){
 		/* Vowels... */
-		this.vowels.add("\u03B1");
-		this.vowels.add("\u03B5");
-		this.vowels.add("\u03B7");	
-		this.vowels.add("\u03B9");
-		this.vowels.add("\u03BF");
-		this.vowels.add("\u03C5");
-		this.vowels.add("\u03C9");
-		this.vowels.add("\u03AC");
-		this.vowels.add("\u03AD");
-		this.vowels.add("\u03AE");
-		this.vowels.add("\u03AF");
-		this.vowels.add("\u03CC");
-		this.vowels.add("\u03CD");
-		this.vowels.add("\u03CE");		
+		this.vowels.add("α");
+		this.vowels.add("ε");
+		this.vowels.add("η");	
+		this.vowels.add("ι");
+		this.vowels.add("ο");
+		this.vowels.add("υ");
+		this.vowels.add("ω");
+		this.vowels.add("ά");
+		this.vowels.add("έ");
+		this.vowels.add("ή");
+		this.vowels.add("ί");
+		this.vowels.add("ό");
+		this.vowels.add("ύ");
+		this.vowels.add("ώ");		
 
 		/* Vowels for checking undue diphthogs */
-		this.unduesVowels.add("\u03AC");
-		this.unduesVowels.add("\u03AD");
-		this.unduesVowels.add("\u03AE");
-		this.unduesVowels.add("\u03AF");
-		this.unduesVowels.add("\u03CC");
-		this.unduesVowels.add("\u03CD");
-		this.unduesVowels.add("\u03CE");	
+		this.unduesVowels.add("ά");
+		this.unduesVowels.add("έ");
+		this.unduesVowels.add("ή");
+		this.unduesVowels.add("ί");
+		this.unduesVowels.add("ό");
+		this.unduesVowels.add("ύ");
+		this.unduesVowels.add("ώ");	
 
 		/* Consonants... */
-		this.consonants.add("\u03B2");
-		this.consonants.add("\u03B3");
-		this.consonants.add("\u03B4");
-		this.consonants.add("\u03B6");
-		this.consonants.add("\u03B8");
-		this.consonants.add("\u03BA");
-		this.consonants.add("\u03BB");
-		this.consonants.add("\u03BC");
-		this.consonants.add("\u00B5");
-		this.consonants.add("\u03BD");
-		this.consonants.add("\u03BE");
-		this.consonants.add("\u03C0");
-		this.consonants.add("\u03C1");
-		this.consonants.add("\u03C3");
-		this.consonants.add("\u03C4");
-		this.consonants.add("\u03C6");
-		this.consonants.add("\u03C7");
-		this.consonants.add("\u03C8");
-		this.consonants.add("\u03C2");
+		this.consonants.add("β");
+		this.consonants.add("γ");
+		this.consonants.add("δ");
+		this.consonants.add("ζ");
+		this.consonants.add("θ");
+		this.consonants.add("κ");
+		this.consonants.add("λ");
+		this.consonants.add("μ");
+		this.consonants.add("μ");
+		this.consonants.add("ν");
+		this.consonants.add("ξ");
+		this.consonants.add("π");
+		this.consonants.add("ρ");
+		this.consonants.add("σ");
+		this.consonants.add("τ");
+		this.consonants.add("φ");
+		this.consonants.add("χ");
+		this.consonants.add("ψ");
+		this.consonants.add("ς");
 
 		/*Two Digits Vowels...*/
-		this.twoDigitsVowels.add("\u03BF\u03C5");
-		this.twoDigitsVowels.add("\u03BF\u03CD");
-		this.twoDigitsVowels.add("\u03B1\u03B9");
-		this.twoDigitsVowels.add("\u03B1\u03AF");
-		this.twoDigitsVowels.add("\u03B5\u03B9");
-		this.twoDigitsVowels.add("\u03B5\u03AF");
-		this.twoDigitsVowels.add("\u03BF\u03B9");
-		this.twoDigitsVowels.add("\u03BF\u03AF");
-		this.twoDigitsVowels.add("\u03C5\u03B9");
+		this.twoDigitsVowels.add("ου");
+		this.twoDigitsVowels.add("ού");
+		this.twoDigitsVowels.add("αι");
+		this.twoDigitsVowels.add("αί");
+		this.twoDigitsVowels.add("ει");
+		this.twoDigitsVowels.add("εί");
+		this.twoDigitsVowels.add("οι");
+		this.twoDigitsVowels.add("οί");
+		this.twoDigitsVowels.add("υι");
 
 		/*Two Digits Consonants...*/
-		this.twoDigitsConsonants.add("\u03BC\u03C0");
-		this.twoDigitsConsonants.add("\u00B5\u03C0");
-		this.twoDigitsConsonants.add("\u03BD\u03C4");
-		this.twoDigitsConsonants.add("\u03B3\u03BA");
-		this.twoDigitsConsonants.add("\u03C4\u03C3");
-		this.twoDigitsConsonants.add("\u03C4\u03B6");
+		this.twoDigitsConsonants.add("μπ");
+		this.twoDigitsConsonants.add("μπ");
+		this.twoDigitsConsonants.add("ντ");
+		this.twoDigitsConsonants.add("γκ");
+		this.twoDigitsConsonants.add("τσ");
+		this.twoDigitsConsonants.add("τζ");
 	
 		/* Diphthongs... */
-		this.diphthongs.add("\u03B1\u03CA");
-		this.diphthongs.add("\u03AC\u03B9");
-		this.diphthongs.add("\u03B1\u03B7");
-		this.diphthongs.add("\u03BF\u03CA");
-		this.diphthongs.add("\u03CC\u03B9");
-		this.diphthongs.add("\u03BF\u03B7");
+		this.diphthongs.add("αϊ");
+		this.diphthongs.add("άι");
+		this.diphthongs.add("αη");
+		this.diphthongs.add("οϊ");
+		this.diphthongs.add("όι");
+		this.diphthongs.add("οη");
 	
 		/* Combinations... */
-		this.combinations.add("\u03B1\u03C5");
-		this.combinations.add("\u03B5\u03C5");
-		this.combinations.add("\u03B1\u03CD");
-		this.combinations.add("\u03B5\u03CD");
+		this.combinations.add("αυ");
+		this.combinations.add("ευ");
+		this.combinations.add("αύ");
+		this.combinations.add("εύ");
 
 	
 		/* Undues... */
-		this.undues.add("\u03B9");
-		this.undues.add("\u03C5");
-		this.undues.add("\u03BF\u03B9");
-		this.undues.add("\u03B5\u03B9");
+		this.undues.add("ι");
+		this.undues.add("υ");
+		this.undues.add("οι");
+		this.undues.add("ει");
 	
 		/* Two Consonants that a greek word can start */
-		this.greekPrefixes.add("\u03B2\u03B4");
-		this.greekPrefixes.add("\u03B2\u03BB");
-		this.greekPrefixes.add("\u03B2\u03C1");
-		this.greekPrefixes.add("\u03B3\u03B4");
-		this.greekPrefixes.add("\u03B3\u03BA");
-		this.greekPrefixes.add("\u03B3\u03BB");
-		this.greekPrefixes.add("\u03B3\u03BD");
-		this.greekPrefixes.add("\u03B3\u03C1");
-		this.greekPrefixes.add("\u03B4\u03C1");
-		this.greekPrefixes.add("\u03B8\u03BB");
-		this.greekPrefixes.add("\u03B8\u03BD");
-		this.greekPrefixes.add("\u03B8\u03C1");
-		this.greekPrefixes.add("\u03BA\u03B2");
-		this.greekPrefixes.add("\u03BA\u03BB");
-		this.greekPrefixes.add("\u03BA\u03BD");
-		this.greekPrefixes.add("\u03BA\u03C1");
-		this.greekPrefixes.add("\u03BA\u03C4");
-		this.greekPrefixes.add("\u03C0\u03BB");
-		this.greekPrefixes.add("\u03C0\u03BD");
-		this.greekPrefixes.add("\u03C0\u03C1");
-		this.greekPrefixes.add("\u03C3\u03B2");
-		this.greekPrefixes.add("\u03C3\u03B3");	
-		this.greekPrefixes.add("\u03C3\u03B8");
-		this.greekPrefixes.add("\u03C3\u03BA");
-		this.greekPrefixes.add("\u03C3\u03BB");
-		this.greekPrefixes.add("\u03C3\u03BC");
-		this.greekPrefixes.add("\u03C3\u00B5");
-		this.greekPrefixes.add("\u03C3\u03BD");
-		this.greekPrefixes.add("\u03C3\u03C0");
-		this.greekPrefixes.add("\u03C3\u03C4");
-		this.greekPrefixes.add("\u03C3\u03C6");
-		this.greekPrefixes.add("\u03C3\u03C7");
-		this.greekPrefixes.add("\u03C4\u03B6");
-		this.greekPrefixes.add("\u03C4\u03BC");
-		this.greekPrefixes.add("\u03C4\u00B5");
-		this.greekPrefixes.add("\u03C4\u03C1");
-		this.greekPrefixes.add("\u03C4\u03C3");
-		this.greekPrefixes.add("\u03C6\u03B8");
-		this.greekPrefixes.add("\u03C6\u03BB");
-		this.greekPrefixes.add("\u03C6\u03C1");
-		this.greekPrefixes.add("\u03C6\u03C4");
-		this.greekPrefixes.add("\u03C7\u03BB");
-		this.greekPrefixes.add("\u03C7\u03BD");
-		this.greekPrefixes.add("\u03C7\u03C1");	
-		this.greekPrefixes.add("\u03C7\u03C4");	
-		this.greekPrefixes.add("\u03B8\u03C1");	
+		this.greekPrefixes.add("βδ");
+		this.greekPrefixes.add("βλ");
+		this.greekPrefixes.add("βρ");
+		this.greekPrefixes.add("γδ");
+		this.greekPrefixes.add("γκ");
+		this.greekPrefixes.add("γλ");
+		this.greekPrefixes.add("γν");
+		this.greekPrefixes.add("γρ");
+		this.greekPrefixes.add("δρ");
+		this.greekPrefixes.add("θλ");
+		this.greekPrefixes.add("θν");
+		this.greekPrefixes.add("θρ");
+		this.greekPrefixes.add("κβ");
+		this.greekPrefixes.add("κλ");
+		this.greekPrefixes.add("κν");
+		this.greekPrefixes.add("κρ");
+		this.greekPrefixes.add("κτ");
+		this.greekPrefixes.add("πλ");
+		this.greekPrefixes.add("πν");
+		this.greekPrefixes.add("πρ");
+		this.greekPrefixes.add("σβ");
+		this.greekPrefixes.add("σγ");	
+		this.greekPrefixes.add("σθ");
+		this.greekPrefixes.add("σκ");
+		this.greekPrefixes.add("σλ");
+		this.greekPrefixes.add("σμ");
+		this.greekPrefixes.add("σμ");
+		this.greekPrefixes.add("σν");
+		this.greekPrefixes.add("σπ");
+		this.greekPrefixes.add("στ");
+		this.greekPrefixes.add("σφ");
+		this.greekPrefixes.add("σχ");
+		this.greekPrefixes.add("τζ");
+		this.greekPrefixes.add("τμ");
+		this.greekPrefixes.add("τμ");
+		this.greekPrefixes.add("τρ");
+		this.greekPrefixes.add("τσ");
+		this.greekPrefixes.add("φθ");
+		this.greekPrefixes.add("φλ");
+		this.greekPrefixes.add("φρ");
+		this.greekPrefixes.add("φτ");
+		this.greekPrefixes.add("χλ");
+		this.greekPrefixes.add("χν");
+		this.greekPrefixes.add("χρ");	
+		this.greekPrefixes.add("χτ");	
+		this.greekPrefixes.add("θρ");	
 
 
 		for (Iterator<String> it = this.undues.iterator(); it.hasNext(); ){
@@ -684,22 +684,22 @@ public class GreekSpeller implements Speller{
 		String hyphenSyllable = "";
 		for (Iterator<String> it = tokens.iterator(); it.hasNext();){
 		    hyphenSyllable = it.next();
-		    if (hyphenSyllable.contains("\u03AC") || 
-		    		hyphenSyllable.contains("\u03AD") || 
-				    hyphenSyllable.contains("\u03AE") || 
-				    hyphenSyllable.contains("\u03AF") || 
-				    hyphenSyllable.contains("\u03CC") ||
-				    hyphenSyllable.contains("\u03CD") || 
-				    hyphenSyllable.contains("\u03CE") ||
-				    hyphenSyllable.contains("\u0390") ||
-				    hyphenSyllable.contains("\u03B0") ||
-				    hyphenSyllable.contains("\u0386") || 
-				    hyphenSyllable.contains("\u0388") || 
-				    hyphenSyllable.contains("\u0389") || 
-				    hyphenSyllable.contains("\u038A") || 
-				    hyphenSyllable.contains("\u038C") ||
-				    hyphenSyllable.contains("\u038E") || 
-				    hyphenSyllable.contains("\u038F")) {			
+		    if (hyphenSyllable.contains("ά") || 
+		    		hyphenSyllable.contains("έ") || 
+				    hyphenSyllable.contains("ή") || 
+				    hyphenSyllable.contains("ί") || 
+				    hyphenSyllable.contains("ό") ||
+				    hyphenSyllable.contains("ύ") || 
+				    hyphenSyllable.contains("ώ") ||
+				    hyphenSyllable.contains("ΐ") ||
+				    hyphenSyllable.contains("ΰ") ||
+				    hyphenSyllable.contains("Ά") || 
+				    hyphenSyllable.contains("Έ") || 
+				    hyphenSyllable.contains("Ή") || 
+				    hyphenSyllable.contains("Ί") || 
+				    hyphenSyllable.contains("Ό") ||
+				    hyphenSyllable.contains("Ύ") || 
+				    hyphenSyllable.contains("Ώ")) {			
 		    	return hyphenSyllable;
 		    }	    
 		}
