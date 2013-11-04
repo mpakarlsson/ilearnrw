@@ -41,6 +41,8 @@ public class UserActions {
 		return mActions;
 	}
 
+	
+	// TODO: Optimize, one for loop
 	public List<UserAction> getActions(UserActionFilter filter){
 		boolean hasValues = false;
 		

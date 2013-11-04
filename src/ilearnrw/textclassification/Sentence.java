@@ -5,7 +5,7 @@ import ilearnrw.user.LanguageCode;
 public class Sentence {
 	private String sentence;
 	private Word[] words;
-	private int numberOfSyllables, longestWordLength;
+	private int numberOfSyllables, longestWordLength, numberOfPolysyllabicWords, numberOfLettersAndNumbers;
 	private double averageWordLength;
 	private LanguageCode lc;
 
@@ -36,8 +36,16 @@ public class Sentence {
 		return numberOfSyllables;
 	}
 
+	public int getNumberOfPolysyllabicWords(){
+		return numberOfPolysyllabicWords;
+	}
+
 	public int getLongestWordLength(){
 		return longestWordLength;
+	}
+
+	public int getNumberOfLettersAndNumbers(){
+		return numberOfLettersAndNumbers;
 	}
 
 	public double getAverageWordLength(){
@@ -73,13 +81,23 @@ public class Sentence {
 		numberOfSyllables = 0;
 		longestWordLength = 0;
 		averageWordLength = 0;
+		numberOfLettersAndNumbers = 0;
+		numberOfPolysyllabicWords = 0;
 		for (int i=0;i<words.length;i++){
 			if (words[i].getLength() > longestWordLength) 
 				longestWordLength = words[i].getLength();
+			
+			if(lc == LanguageCode.GR){
+				if (words[i].getSyllables().length >= 3) 
+					numberOfPolysyllabicWords++;
+			} else if(lc == LanguageCode.EN) {
+				if(words[i].getNumberOfSyllables() >= 3)
+					numberOfPolysyllabicWords++;
+			}
 			numberOfSyllables += words[i].getNumberOfSyllables();
-			averageWordLength += words[i].getLength();
+			numberOfLettersAndNumbers += words[i].getLength();
 		}
-		averageWordLength = averageWordLength/getNumberOfWords();
+		averageWordLength = (double)numberOfLettersAndNumbers/getNumberOfWords();
 	}
 	
 	@Override

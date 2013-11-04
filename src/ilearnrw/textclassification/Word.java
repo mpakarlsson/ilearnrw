@@ -1,17 +1,31 @@
 package ilearnrw.textclassification;
 
+import ilearnrw.user.LanguageCode;
+
 public class Word {
 	protected String word;
 	protected WordType type;
 	protected String[] syllables;
 	protected String cvForm;
+	protected String phonetics;
+	protected int numSyllables;
+	protected LanguageCode lc;
+	protected double frequency;
 	
 	public Word(){
 	}
 			
 	public Word(String word){
+		word = word.replaceAll("(\\«)|(\\»)|(\\()|(\\))|(\\{)|(\\})|(\\[)|(\\])|(\\<)|(\\>)|(\\=)|(\\%)|(\\€)|(\\$)", "");
 		this.word = word.toLowerCase();
 		//all initializations must go here!!!
+		
+		numSyllables = 0;
+		frequency = 0;
+		type = WordType.Unknown;
+		cvForm = "";
+		phonetics = "";
+		lc = LanguageCode.GR;
 	}
 		
 	public String getWord() {
@@ -25,17 +39,25 @@ public class Word {
 	public String[] getSyllables() {
 		return syllables;
 	}
-	
+
 	public int getNumberOfSyllables() {
-		return syllables.length;
+		return numSyllables;
 	}
 	
 	public String getCVForm() {
 		return cvForm;
 	}
 	
+	public String getPhonetics(){
+		return phonetics;
+	}
+	
 	public int getLength(){
 		return word.length();
+	}
+	
+	public double getFrequency(){
+		return frequency;
 	}
 			
 	public String getWordInToSyllables(){

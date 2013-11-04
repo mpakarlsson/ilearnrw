@@ -1,7 +1,23 @@
 package ilearnrw.prototype.application;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
+
 import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.prototype.application.ConsoleMenu.IConsoleMenuAction;
+import ilearnrw.textclassification.EnglishWord;
+import ilearnrw.textclassification.Text;
+import ilearnrw.textclassification.Word;
+import ilearnrw.user.LanguageCode;
 
 import ilearnrw.datalogger.IProfileAccessUpdater;
 import ilearnrw.datalogger.ILoginProvider;
@@ -11,6 +27,71 @@ import ilearnrw.datalogger.DataLogger;
 public class Program {
 
 	private static DataLogger sDataLogger = new DataLogger();
+	private static final Map<String, Vector<String>> sDictionary = LoadDictionary();
+	private static final ArrayList<String> sDaleChallList = LoadDaleChallList();
+	
+	public static Map<String, Vector<String>> LoadDictionary(){
+		/**
+		 * Dictionary layout
+		 * Param1: Word 
+		 * Param2: Root word 
+		 * Param3: Number of syllables
+		 * Param4: Frequency
+		 * 
+		 * e.g. 
+		 * 	absorbed absorb 2 9762
+		 */
+		
+		Map<String, Vector<String>> dict = new HashMap<String, Vector<String>>();		
+			try {
+				BufferedReader reader = new BufferedReader(new FileReader("dictionary.txt"));
+				String line = null;
+				while ((line = reader.readLine()) != null) {
+					String[] parts = line.split("\\s");
+
+					Vector<String> temp = new Vector<String>();
+					for(int i=1; i<parts.length; i++){							
+						temp.add(parts[i]);
+					}
+					
+					dict.put(parts[0], temp);
+				}
+				reader.close();
+				
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		return dict;
+	}
+	
+	public static ArrayList<String> LoadDaleChallList(){
+		ArrayList<String> words = new ArrayList<String>();
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader("dale-chall_word_list.txt"));
+		
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				words.add(line);
+			}
+			reader.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return words;
+	}
+	
+	public static Map<String, Vector<String>> getDictionary(){
+		return sDictionary;
+	}
+	
+	public static ArrayList<String> getDaleChallList(){
+		return sDaleChallList;
+	}
+	
 	public static IProfileAccessUpdater getProfileAccessUpdater() {
 		return sDataLogger;
 	}
@@ -52,11 +133,12 @@ public class Program {
 			System.out.print(sWelcomeMessage);
 			String databaseFile = getStringArg("--db", args);
 			System.out.println("Using database file: " + databaseFile);
-
+			
 			// Initialize the DataLogger object
 			sDataLogger.loadUserStore(databaseFile);
 			sDataLogger.loadUserActions(databaseFile);
-			
+			Word w = new EnglishWord("test");
+			Word y = new EnglishWord("Potatoraspberry");
 			ConsoleMenu mnu = new ConsoleMenu(System.out, System.in, "iLearnRW - Main menu", 
 					new IConsoleMenuAction[] {
 						new DatabaseManager("Manage datalogger database"),
@@ -80,5 +162,7 @@ public class Program {
 		
 
 	}
+	
+
 
 }
