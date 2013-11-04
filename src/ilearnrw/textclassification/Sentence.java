@@ -1,5 +1,7 @@
 package ilearnrw.textclassification;
 
+import ilearnrw.textclassification.english.EnglishWord;
+import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.user.LanguageCode;
 
 public class Sentence {

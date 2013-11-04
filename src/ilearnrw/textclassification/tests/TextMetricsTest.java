@@ -2,6 +2,8 @@ package ilearnrw.textclassification.tests;
 
 import ilearnrw.textclassification.Sentence;
 import ilearnrw.textclassification.Text;
+import ilearnrw.textclassification.Word;
+import ilearnrw.textclassification.WordVsProblems;
 import ilearnrw.user.LanguageCode;
 
 import java.awt.BorderLayout;
@@ -23,6 +25,9 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.swing.JLabel;
 
 public class TextMetricsTest extends JFrame {
@@ -165,6 +170,14 @@ public class TextMetricsTest extends JFrame {
 		res = res + "<br>Gunning FOG:"+txt.gunningFog();
 		
 		res = res + "<br>Dale-Chall:"+txt.daleChall();
+		
+		HashMap<Word, Integer> hs = txt.getWordsFreq();
+		
+		Object tmp[] = hs.keySet().toArray();
+		Word t = (Word)tmp[0];
+		System.out.println(t.toString());
+		WordVsProblems wp = new WordVsProblems(t);
+		System.out.println(wp.toString());
 		
 		res = res+"</p></html>";
 		return res;

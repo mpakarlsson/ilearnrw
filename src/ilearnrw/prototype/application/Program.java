@@ -8,16 +8,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
 import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.prototype.application.ConsoleMenu.IConsoleMenuAction;
-import ilearnrw.textclassification.EnglishWord;
-import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
-import ilearnrw.user.LanguageCode;
+import ilearnrw.textclassification.english.EnglishWord;
 
 import ilearnrw.datalogger.IProfileAccessUpdater;
 import ilearnrw.datalogger.ILoginProvider;

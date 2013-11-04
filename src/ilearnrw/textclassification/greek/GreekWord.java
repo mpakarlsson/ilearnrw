@@ -1,4 +1,6 @@
-package ilearnrw.textclassification;
+package ilearnrw.textclassification.greek;
+import ilearnrw.textclassification.Word;
+import ilearnrw.textclassification.WordType;
 import ilearnrw.textclassification.speller.GreekSpeller;
 import ilearnrw.textclassification.speller.Speller;
 
