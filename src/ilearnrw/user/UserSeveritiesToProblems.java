@@ -14,7 +14,7 @@ import java.util.Random;
 public class UserSeveritiesToProblems implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private ProblemDefinitionIndex theProblems;
+	private ProblemDefinitionIndex problems;
 	private UserSeverities userSeverities;
 	
 	public UserSeveritiesToProblems(){
@@ -26,7 +26,7 @@ public class UserSeveritiesToProblems implements Serializable {
 	}
 	
 	private void initialize(ProblemDefinitionIndex theProblems){
-		this.theProblems = theProblems;
+		this.problems = theProblems;
 		userSeverities = new UserSeverities(theProblems.getIndexLength());
 		
 		int idxLen = theProblems.getIndexLength();
@@ -40,8 +40,8 @@ public class UserSeveritiesToProblems implements Serializable {
 		NumberProblems numProbs = new NumberProblems();
 		initialize(numProbs.getAllProblems());
 		Random rand = new Random();
-		for (int i=0;i<theProblems.getIndexLength(); i++){
-			userSeverities.setIndex(i, rand.nextInt(theProblems.getIthRowLength(i)));
+		for (int i=0;i<problems.getIndexLength(); i++){
+			userSeverities.setIndex(i, rand.nextInt(problems.getIthRowLength(i)));
 			for (int j=0; j<userSeverities.getSeverityLength(i); j++){
 				userSeverities.setSeverity(i, j, rand.nextInt(3)+1);
 			}
@@ -53,8 +53,8 @@ public class UserSeveritiesToProblems implements Serializable {
 		GreekProblems greekProbs = new GreekProblems();
 		initialize(greekProbs.getAllProblems());
 		Random rand = new Random();
-		for (int i=0;i<theProblems.getIndexLength(); i++){
-			userSeverities.setIndex(i, rand.nextInt(theProblems.getIthRowLength(i)));
+		for (int i=0;i<problems.getIndexLength(); i++){
+			userSeverities.setIndex(i, rand.nextInt(problems.getIthRowLength(i)));
 			for (int j=0; j<userSeverities.getSeverityLength(i); j++){
 				userSeverities.setSeverity(i, j, rand.nextInt(3)+1);
 			}
@@ -62,9 +62,14 @@ public class UserSeveritiesToProblems implements Serializable {
 		
 	}
 
-	public ProblemDefinitionIndex getProblemDefinitionIndex(){
-		return theProblems;
+	public ProblemDefinitionIndex getProblems(){
+		return problems;
 	}
+	
+	public void setProblems(ProblemDefinitionIndex problems) {
+		this.problems = problems;
+	}
+	
 	public UserSeverities getUserSeverities(){
 		return userSeverities;
 	}
@@ -82,19 +87,19 @@ public class UserSeveritiesToProblems implements Serializable {
 	}
 
 	public ProblemDescription getProblemDefinition(int i, int j) {
-		return theProblems.getProblemDescription(i,j);
+		return problems.getProblemDescription(i,j);
 	}
 
 	public ProblemDefinition getProblemDefinition(int i) {
-		return theProblems.getProblemDefinition(i);
+		return problems.getProblemDefinition(i);
 	}
 	
 	@Override
 	public String toString(){
-		if (theProblems == null || userSeverities == null)
+		if (problems == null || userSeverities == null)
 			return "null indices or problems matrix";
 		String res = "";
-		res = res + theProblems.toString();
+		res = res + problems.toString();
 		res = res + "\n\n";
 		res = res + userSeverities.toString();
 		return res;

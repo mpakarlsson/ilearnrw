@@ -9,6 +9,10 @@ public class ProblemDefinition implements Serializable {
 	private String title, URI;
 	private Category type;
 
+	public ProblemDefinition() {
+		this.URI = null;
+		this.type = null;
+	}
 
 	public ProblemDefinition(String URI, Category type) {
 		this.URI = URI;

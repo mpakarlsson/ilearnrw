@@ -122,7 +122,7 @@ public class GameAddTwoNumbers {
 						new ConsoleMenuAction("Show User"){
 							@Override
 							public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
-								menu.out().println(mUser.getProfile().getSeveritiesToProblemsMatrix().toString());
+								menu.out().println(mUser.getProfile().getProblemsMatrix().toString());
 								return EConsoleMenuActionResult.showThisMenuAgain;
 							}
 						},

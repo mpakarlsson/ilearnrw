@@ -42,11 +42,11 @@ public class UserProfile implements Serializable {
 		this.language = language;
 	}
 
-	public UserSeveritiesToProblems getSeveritiesToProblemsMatrix() {
+	public UserSeveritiesToProblems getProblemsMatrix() {
 		return problemsMatrix;
 	}
 
-	public void setSeveritiesToProblems(UserSeveritiesToProblems problemsMatrix) {
+	public void setProblemsMatrix(UserSeveritiesToProblems problemsMatrix) {
 		this.problemsMatrix = problemsMatrix;
 	}
 

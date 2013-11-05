@@ -14,8 +14,8 @@ public class Classifier {
 	private Text text;
 	
 	public Classifier(User user, Text text) {
-		this.theProblems = user.getProfile().getSeveritiesToProblemsMatrix().getProblemDefinitionIndex();
-		this.theSeverities = user.getProfile().getSeveritiesToProblemsMatrix().getUserSeverities();
+		this.theProblems = user.getProfile().getProblemsMatrix().getProblems();
+		this.theSeverities = user.getProfile().getProblemsMatrix().getUserSeverities();
 		this.text = text;
 	}
 	

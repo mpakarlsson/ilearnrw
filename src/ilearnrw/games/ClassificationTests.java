@@ -11,7 +11,7 @@ public class ClassificationTests {
 	public static void main(String args[]){
 		User user = new User(1);
 		GreekProblems greek = new GreekProblems();
-		user.getProfile().getSeveritiesToProblemsMatrix().loadTestGreekProblems();
+		user.getProfile().getProblemsMatrix().loadTestGreekProblems();
 		//System.out.println(user.getProfile().getSeveritiesToProblemsMatrix().toString());s
 		Text t = new Text("Σεϋχέλλες τραγούδι αντιλαϊκός", LanguageCode.GR);
 		//System.out.println(t.getSentences()[0].getWord(0));

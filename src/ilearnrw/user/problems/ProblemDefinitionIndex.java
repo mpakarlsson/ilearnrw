@@ -11,6 +11,11 @@ public class ProblemDefinitionIndex implements Serializable,ProblemDefinitionInd
 	private ProblemDescription problems[][];
 	LanguageCode language;
 
+	public ProblemDefinitionIndex() {
+		problemsIndex = null;
+		problems = null;
+	}
+
 	public ProblemDefinitionIndex(int length, LanguageCode language) {
 		problemsIndex = new ProblemDefinition[length];
 		problems = new ProblemDescription[length][];
@@ -58,7 +63,12 @@ public class ProblemDefinitionIndex implements Serializable,ProblemDefinitionInd
 	}
 	
 	public int getIndexLength(){
-			return problemsIndex.length;
+		return problemsIndex.length;
+	}
+	
+	public void setIndexLength(int length){
+		problemsIndex = new ProblemDefinition[length];
+		problems = new ProblemDescription[length][];
 	}
 	
 	public int getIthRowLength(int i){

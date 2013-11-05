@@ -7,7 +7,7 @@ public class Tester {
 	 */
 	public static void main(String[] args) {
 		User user = new User(1);
-		System.out.println(user.getProfile().getSeveritiesToProblemsMatrix().toString());
+		System.out.println(user.getProfile().getProblemsMatrix().toString());
 	}
 
 }
