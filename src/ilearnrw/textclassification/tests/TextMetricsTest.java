@@ -174,9 +174,9 @@ public class TextMetricsTest extends JFrame {
 		HashMap<Word, Integer> hs = txt.getWordsFreq();
 		
 		Object tmp[] = hs.keySet().toArray();
-		Word t = (Word)tmp[0];
-		System.out.println(t.toString());
-		WordVsProblems wp = new WordVsProblems(t);
+		Word w = (Word)tmp[0];
+		System.out.println(w.toString());
+		WordVsProblems wp = new WordVsProblems(w.getLanguageCode());
 		System.out.println(wp.toString());
 		
 		res = res+"</p></html>";

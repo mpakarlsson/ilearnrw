@@ -49,6 +49,7 @@ public class UserSeveritiesToProblems implements Serializable {
 		
 	}
 	
+	// TODO: eliminate this function and replace with db fetches!!!
 	public void loadTestGreekProblems(){
 		GreekProblems greekProbs = new GreekProblems();
 		initialize(greekProbs.getAllProblems());
@@ -79,6 +80,14 @@ public class UserSeveritiesToProblems implements Serializable {
 
 	public int getIndex(int i) {
 		return userSeverities.getIndex(i);
+	}
+	
+	public int getNumerOfRows() {
+		return userSeverities.getNumberOfRows();
+	}
+	
+	public int getRowLength(int i) {
+		return userSeverities.getSeverityLength(i);
 	}
 
 	public ProblemDescription getProblemDefinition(int i, int j) {

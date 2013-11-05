@@ -1,8 +1,10 @@
 package ilearnrw.textclassification;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
 
 import ilearnrw.languagetools.greek.GreekPartOfSpeech;
+import ilearnrw.user.LanguageCode;
 import ilearnrw.user.problems.GreekProblems;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemType;
@@ -13,12 +15,14 @@ public class WordVsProblems {
 	private ProblemDefinitionIndex theProblems;
 	private Word word;
 	private ArrayList<WordProblemInfo> matchedProbs;
+	private Problems prs;
+	private LanguageCode lc;
 	
-	public WordVsProblems(Word word) {
+	public WordVsProblems(LanguageCode lc) {
 		Problems prs = new Problems();
-		matchedProbs = new ArrayList<WordProblemInfo>();
+		this.lc = lc;
 				
-		switch (word.getLanguageCode()) {
+		switch (lc) {
 		case GR:
 			prs = new GreekProblems();
 			break;
@@ -29,6 +33,11 @@ public class WordVsProblems {
 			break;
 		}
 		this.theProblems = prs.getAllProblems();
+	}
+
+	
+	public void insertWord(Word word) {
+		matchedProbs = new ArrayList<WordProblemInfo>();
 		this.word = word;
 		
 		checkWordAgainstMatrix();
@@ -42,6 +51,26 @@ public class WordVsProblems {
 				}
 			}
 		}
+	}
+
+	public LanguageCode getLanguageCode() {
+		return lc;
+	}
+
+	public void setLanguageCode(LanguageCode lc) {
+		this.lc = lc;
+	}
+
+	public ArrayList<WordProblemInfo> getMatchedProbs() {
+		return matchedProbs;
+	}
+
+	public boolean containsPosition(int i, int j){
+		for (WordProblemInfo wpi : matchedProbs){
+			if (wpi.getPosI()==i && wpi.getPosJ()==j)
+				return true;
+		}
+		return false;
 	}
 
 	private WordProblemInfo wordMatches(int i, int j){
@@ -123,6 +152,5 @@ public class WordVsProblems {
 	public String toString(){
 		return matchedProbs.toString();
 	}
-
 
 }

@@ -1,230 +1,35 @@
 package ilearnrw.textclassification;
 
-import ilearnrw.languagetools.greek.GreekPartOfSpeech;
-import ilearnrw.user.User;
-import ilearnrw.user.UserSeverities;
+import java.util.ArrayList;
+
 import ilearnrw.user.UserSeveritiesToProblems;
-import ilearnrw.user.problems.ProblemDefinitionIndex;
-import ilearnrw.user.problems.ProblemDescription;
-import ilearnrw.user.problems.ProblemType;
+import ilearnrw.user.UserTextCounters;
 
 public class Classifier {
 
-	private ProblemDefinitionIndex theProblems;
-	private UserSeverities theSeverities;
+	private UserTextCounters userCnts;
 	private Text text;
+	private WordVsProblems wprobs;
 	
-	public Classifier(User user, Text text) {
-		this.theProblems = user.getProfile().getProblemsMatrix().getProblems();
-		this.theSeverities = user.getProfile().getProblemsMatrix().getUserSeverities();
+	public Classifier(UserSeveritiesToProblems userSevToProbs, Text text) {
+		this.userCnts = new UserTextCounters(userSevToProbs);
 		this.text = text;
+		wprobs = new WordVsProblems(text.getLanguageCode());
+		System.out.println(userSevToProbs.toString());
+		
 	}
 	
 	public void test(){
 		for (Sentence sen : text.getSentences()){
 			for (Word w : sen.getWords()){
-				checkWordAgainstMatrix(w);
-			}
-		}
-	}
-	
-	public void checkWordAgainstMatrix(Word w){
-		for (int i=0;i<theProblems.getIndexLength(); i++){
-			for (int j=0;j<theProblems.getRowLength(i); j++){
-				if (theSeverities.getSeverity(i, j)>0 && 
-						wordMatches(w, i, j).getFound()){
-					System.out.println("Problem ("+i+", "+j+")");
-					System.out.println(wordMatches(w, i, j).toString());
+				wprobs.insertWord(w);
+				ArrayList<WordProblemInfo> probs = wprobs.getMatchedProbs();
+				for (WordProblemInfo x : probs){
+					userCnts.increaseValue(x.getPosI(), x.getPosJ());
 				}
 			}
 		}
+		System.out.println(userCnts.toString());
 	}
-
-	private WordProblemInfoOLD wordMatches(Word w, int i, int j){
-		WordProblemInfoOLD wpi = new WordProblemInfoOLD();
-		//ask for the small strings that describe the problem
-		String pd[] = theProblems.getProblemDescription(i, j).getDescriptions();
-		//ask the problem type
-		ProblemType pt = theProblems.getProblemDescription(i, j).getProblemType();
-		
-		switch (pt){
-			case EQUALS:
-				wpi.setProblemInfo(theProblems.getProblemDefinition(i), equals(pd, w), 
-						theSeverities.getSeverity(i, j), theSeverities.getIndex(i), j, theProblems.getRowLength(i));
-				break;
-			case CONTAINS:
-				wpi.setProblemInfo(theProblems.getProblemDefinition(i), contains(pd, w), 
-						theSeverities.getSeverity(i, j), theSeverities.getIndex(i), j, theProblems.getRowLength(i));
-				break;
-			case IS_NOUN_OR_ADJ_AND_ENDS_WITH:
-				if (GreekPartOfSpeech.isNoun(w) || GreekPartOfSpeech.isAdj(w))
-					wpi.setProblemInfo(theProblems.getProblemDefinition(i), endsWith(pd, w), 
-							theSeverities.getSeverity(i, j), theSeverities.getIndex(i), j, 
-							theProblems.getRowLength(i));
-				break;
-			case IS_NOUN_AND_ENDS_WITH:
-				if (GreekPartOfSpeech.isNoun(w))
-					wpi.setProblemInfo(theProblems.getProblemDefinition(i), endsWith(pd, w), 
-							theSeverities.getSeverity(i, j), theSeverities.getIndex(i), j, 
-							theProblems.getRowLength(i));
-				break;
-			case IS_ADJ_AND_ENDS_WITH:
-				if (GreekPartOfSpeech.isAdj(w))
-					wpi.setProblemInfo(theProblems.getProblemDefinition(i), endsWith(pd, w), 
-							theSeverities.getSeverity(i, j), theSeverities.getIndex(i), j, 
-							theProblems.getRowLength(i));
-				break;
-			case IS_VERB_AND_ENDS_WITH:
-				if (GreekPartOfSpeech.isVerb(w))
-					wpi.setProblemInfo(theProblems.getProblemDefinition(i), endsWith(pd, w), 
-							theSeverities.getSeverity(i, j), theSeverities.getIndex(i), j, 
-							theProblems.getRowLength(i));
-				break;
-			case IS_PARTICIPLE_AND_ENDS_WITH:
-				if (GreekPartOfSpeech.isParticiple(w))
-					wpi.setProblemInfo(theProblems.getProblemDefinition(i), endsWith(pd, w), 
-							theSeverities.getSeverity(i, j), theSeverities.getIndex(i), j, 
-							theProblems.getRowLength(i));
-				break;
-			case IS_NOUN_OR_ADJ_AND_STARTS_WITH:
-				if (GreekPartOfSpeech.isNoun(w) || GreekPartOfSpeech.isAdj(w))
-					wpi.setProblemInfo(theProblems.getProblemDefinition(i), startsWith(pd, w), 
-							theSeverities.getSeverity(i, j), theSeverities.getIndex(i), j, 
-							theProblems.getRowLength(i));
-				break;
-			case IS_ADJ_AND_STARTS_WITH:
-				if (GreekPartOfSpeech.isAdj(w))
-					wpi.setProblemInfo(theProblems.getProblemDefinition(i), startsWith(pd, w), 
-							theSeverities.getSeverity(i, j), theSeverities.getIndex(i), j, 
-							theProblems.getRowLength(i));
-				break;
-			case IS_VERB_AND_STARTS_WITH:
-				if (GreekPartOfSpeech.isVerb(w))
-					wpi.setProblemInfo(theProblems.getProblemDefinition(i), startsWith(pd, w), 
-							theSeverities.getSeverity(i, j), theSeverities.getIndex(i), j, 
-							theProblems.getRowLength(i));
-				break;
-			case TWO_SYL_WORD_INITIAL_PHONEME:
-				if (w.getNumberOfSyllables()==2)
-					wpi.setProblemInfo(theProblems.getProblemDefinition(i), startsWithPhoneme(pd, w), 
-							theSeverities.getSeverity(i, j), theSeverities.getIndex(i), j, 
-							theProblems.getRowLength(i));
-				break;
-			case TWO_SYL_WORD_INTERNAL_PHONEME:
-				if (w.getNumberOfSyllables()==2)
-					wpi.setProblemInfo(theProblems.getProblemDefinition(i), hasInternalPhoneme(pd, w), 
-							theSeverities.getSeverity(i, j), theSeverities.getIndex(i), j, 
-							theProblems.getRowLength(i));
-				break;
-			case THREE_SYL_WORD_INITIAL_PHONEME:
-				if (w.getNumberOfSyllables()==3)
-					wpi.setProblemInfo(theProblems.getProblemDefinition(i), startsWithPhoneme(pd, w), 
-							theSeverities.getSeverity(i, j), theSeverities.getIndex(i), j, 
-							theProblems.getRowLength(i));
-				break;
-			case THREE_SYL_WORD_INTERNAL_PHONEME:
-				if (w.getNumberOfSyllables()==3)
-					wpi.setProblemInfo(theProblems.getProblemDefinition(i), hasInternalPhoneme(pd, w), 
-							theSeverities.getSeverity(i, j), theSeverities.getIndex(i), j, 
-							theProblems.getRowLength(i));
-				break;
-			case STARTS_WITH:
-				wpi.setProblemInfo(theProblems.getProblemDefinition(i), startsWith(pd, w), 
-						theSeverities.getSeverity(i, j), theSeverities.getIndex(i), j, 
-						theProblems.getRowLength(i));
-				break;
-			case CONTAINS_PATTERN:
-				wpi.setProblemInfo(theProblems.getProblemDefinition(i), containsPattern(pd, w), 
-						theSeverities.getSeverity(i, j), theSeverities.getIndex(i), j, 
-						theProblems.getRowLength(i));
-				break;
-			case CONTAINS_PHONEME:
-				wpi.setProblemInfo(theProblems.getProblemDefinition(i), containsPhoneme(pd, w), 
-						theSeverities.getSeverity(i, j), theSeverities.getIndex(i), j, 
-						theProblems.getRowLength(i));
-		}
-		return wpi;
-	}
-	
-	private StringMatchesInfo equals(String str[], Word w){
-		String ws = w.getWord();
-		for (int i=0;i<str.length;i++){
-			if (ws.equals(str[i])){
-				return new StringMatchesInfo(str[i], 0, ws.length());
-			}
-		}
-		return null;
-	}
-	
-	private StringMatchesInfo contains(String str[], Word w){
-		String ws = w.getWord();
-		for (int i=0;i<str.length;i++){
-			if (ws.contains(str[i])){
-				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
-			}
-		}
-		return null;
-	}
-	
-	private StringMatchesInfo endsWith(String str[], Word w){
-		String ws = w.getWord();
-		for (int i=0;i<str.length;i++){
-			if (ws.endsWith(str[i])){
-				return new StringMatchesInfo(str[i], ws.lastIndexOf(str[i]), ws.lastIndexOf(str[i])+str[i].length());
-			}
-		}
-		return null;
-	}
-	//or
-	private StringMatchesInfo startsWith(String str[], Word w){
-		String ws = w.getWord();
-		for (int i=0;i<str.length;i++){
-			if (ws.startsWith(str[i])){
-				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
-			}
-		}
-		return null;
-	}
-
-	private StringMatchesInfo containsPhoneme(String str[], Word w){
-		String ws = w.getWordInToPhonemes();
-		for (int i=0;i<str.length;i++){
-			if (ws.contains(str[i])){
-				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
-			}
-		}
-		return null;
-	}
-
-	private StringMatchesInfo hasInternalPhoneme(String str[], Word w){
-		String ws = w.getWordInToPhonemes();
-		for (int i=0;i<str.length;i++){
-			if (ws.contains(str[i]) && !ws.startsWith(str[i])){
-				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
-			}
-		}
-		return null;
-	}
-
-	private StringMatchesInfo startsWithPhoneme(String str[], Word w){
-		String ws = w.getWordInToPhonemes();
-		for (int i=0;i<str.length;i++){
-			if (ws.startsWith(str[i])){
-				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
-			}
-		}
-		return null;
-	}
-
-	private StringMatchesInfo containsPattern(String str[], Word w){
-		String ws = w.getCVForm();
-		for (int i=0;i<str.length;i++){
-			if (ws.startsWith(str[i])){
-				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
-			}
-		}
-		return null;
-	}
-
 
 }

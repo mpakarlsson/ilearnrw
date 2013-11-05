@@ -83,6 +83,10 @@ public class Text implements TextAPI{
 	public double getAverageLongestWordLength(){
 		return averageLongestWordLength;
 	}
+
+	public LanguageCode getLanguageCode(){
+		return lc;
+	}
 	
 	private void splitSentences(){
 		//question: ´εχω αλλαγή πρότασης στα (...) και (:) ?
