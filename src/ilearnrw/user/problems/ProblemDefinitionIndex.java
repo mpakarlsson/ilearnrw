@@ -5,8 +5,7 @@ import java.io.Serializable;
 import ilearnrw.user.LanguageCode;
 
 public class ProblemDefinitionIndex implements Serializable,ProblemDefinitionIndexApi {
-
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 	private ProblemDefinition problemsIndex[];
 	private ProblemDescription problems[][];
 	LanguageCode language;
@@ -71,7 +70,7 @@ public class ProblemDefinitionIndex implements Serializable,ProblemDefinitionInd
 		problems = new ProblemDescription[length][];
 	}
 	
-	public int getIthRowLength(int i){
+	public int getRowLength(int i){
 		return problems[i].length;
 	}
 

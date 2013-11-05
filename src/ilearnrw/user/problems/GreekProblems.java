@@ -6,21 +6,12 @@ import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 
 
-	public class GreekProblems {
-		private ProblemDefinitionIndex probsMatrix;
+	public class GreekProblems extends Problems{
 
 		public GreekProblems() {
 			//three problems
 			probsMatrix = new ProblemDefinitionIndex(9, LanguageCode.GR);	
 			initialize();
-		}
-		
-		public void getProblem(int idx){
-			
-		}
-		
-		public ProblemDefinitionIndex getAllProblems(){
-			return probsMatrix;
 		}
 
 		public void initialize(){

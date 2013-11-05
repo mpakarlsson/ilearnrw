@@ -59,6 +59,10 @@ public class Word {
 	public double getFrequency(){
 		return frequency;
 	}
+	
+	public LanguageCode getLanguageCode(){
+		return lc;
+	}
 			
 	public String getWordInToSyllables(){
 		String res = "-";

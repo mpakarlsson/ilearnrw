@@ -4,12 +4,12 @@ import ilearnrw.user.LanguageCode;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class Text implements TextAPI{
 	private String text;
 	private Sentence sentences[];
 	private HashMap<Word, Integer> wordsFreq;
+
 	private LanguageCode lc;
 
 	private int numberOfTotalWords, numberOfDistinctWords, numberOfSentences, numberOfSyllables, numberOfBigSentences,
@@ -22,6 +22,10 @@ public class Text implements TextAPI{
 		splitSentences();
 		wordsFreq = new HashMap<Word, Integer>();
 		metrics();
+	}
+
+	public HashMap<Word, Integer> getWordsFreq() {
+		return wordsFreq;
 	}
 
 	public int getNumberOfSentences(){

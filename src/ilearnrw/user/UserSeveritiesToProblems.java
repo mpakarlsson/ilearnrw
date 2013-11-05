@@ -31,7 +31,7 @@ public class UserSeveritiesToProblems implements Serializable {
 		
 		int idxLen = theProblems.getIndexLength();
 		for (int i=0; i<idxLen; i++){
-			userSeverities.constructRow(i, theProblems.getIthRowLength(i));
+			userSeverities.constructRow(i, theProblems.getRowLength(i));
 		}
 
 	}
@@ -41,7 +41,7 @@ public class UserSeveritiesToProblems implements Serializable {
 		initialize(numProbs.getAllProblems());
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){
-			userSeverities.setIndex(i, rand.nextInt(problems.getIthRowLength(i)));
+			userSeverities.setIndex(i, rand.nextInt(problems.getRowLength(i)));
 			for (int j=0; j<userSeverities.getSeverityLength(i); j++){
 				userSeverities.setSeverity(i, j, rand.nextInt(3)+1);
 			}
@@ -54,7 +54,7 @@ public class UserSeveritiesToProblems implements Serializable {
 		initialize(greekProbs.getAllProblems());
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){
-			userSeverities.setIndex(i, rand.nextInt(problems.getIthRowLength(i)));
+			userSeverities.setIndex(i, rand.nextInt(problems.getRowLength(i)));
 			for (int j=0; j<userSeverities.getSeverityLength(i); j++){
 				userSeverities.setSeverity(i, j, rand.nextInt(3)+1);
 			}
@@ -65,11 +65,6 @@ public class UserSeveritiesToProblems implements Serializable {
 	public ProblemDefinitionIndex getProblems(){
 		return problems;
 	}
-	
-	public void setProblems(ProblemDefinitionIndex problems) {
-		this.problems = problems;
-	}
-	
 	public UserSeverities getUserSeverities(){
 		return userSeverities;
 	}
