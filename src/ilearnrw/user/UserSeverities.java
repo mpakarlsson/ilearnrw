@@ -46,6 +46,15 @@ public class UserSeverities implements Serializable {
 		return severities[i][j];
 	}
 
+	public int getLength() {
+		return indices.length;
+	}
+
+	public void setLength(int length) {
+	//	indices = new int[length];
+		severities = new int[length][];
+	}
+	
 	public int getSeverityLength(int i) {
 		return severities[i].length;
 	}

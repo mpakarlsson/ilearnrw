@@ -8,6 +8,7 @@ public class ProblemDefinitionIndex implements Serializable,ProblemDefinitionInd
     private static final long serialVersionUID = 1L;
 	private ProblemDefinition problemsIndex[];
 	private ProblemDescription problems[][];
+
 	LanguageCode language;
 
 	public ProblemDefinitionIndex() {
@@ -82,6 +83,23 @@ public class ProblemDefinitionIndex implements Serializable,ProblemDefinitionInd
 		this.language = language;
 	}
 	
+	public ProblemDescription[][] getProblems() {
+		return problems;
+	}
+
+	public void setProblems(ProblemDescription[][] problems) {
+		this.problems = problems;
+	}
+
+	
+	public ProblemDefinition[] getProblemsIndex() {
+		return problemsIndex;
+	}
+
+	public void setProblemsIndex(ProblemDefinition[] problemsIndex) {
+		this.problemsIndex = problemsIndex;
+	}
+
 	@Override
 	public String toString(){
 		String res = "[ ";
