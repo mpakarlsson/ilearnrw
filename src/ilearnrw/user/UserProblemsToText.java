@@ -16,14 +16,14 @@ public class UserProblemsToText implements Serializable {
 		this.userCounters = null;
 	}
 	
-	public UserProblemsToText(UserSeveritiesToProblems userS2P){
-		this.userSeveritiesToProblems = userS2P;
-		int n = userS2P.getNumerOfRows();
+	public UserProblemsToText(User user){
+		this.userSeveritiesToProblems = user.getProfile().getUserSeveritiesToProblems();
+		int n = userSeveritiesToProblems.getNumerOfRows();
 		
 		userCounters = new UserTextCounters(n);
 		
 		for (int i=0; i<n; i++){
-			userCounters.constructRow(i, userS2P.getRowLength(i));
+			userCounters.constructRow(i, userSeveritiesToProblems.getRowLength(i));
 		}
 	}
 

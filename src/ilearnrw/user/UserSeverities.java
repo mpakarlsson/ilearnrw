@@ -26,11 +26,11 @@ public class UserSeverities implements Serializable {
 		return true;
 	}
 
-	public void setIndex(int i, int value) {
+	public void setWorkingIndex(int i, int value) {
 		indices[i] = value;
 	}
 
-	public int getIndex(int i) {
+	public int getWorkingIndex(int i) {
 		return indices[i];
 	}
 
@@ -83,7 +83,7 @@ public class UserSeverities implements Serializable {
 	public String toString() {
 		if (indices == null || severities == null)
 			return "null indices matrix";
-		String res = "[ ";
+		String res = "";
 		for (int i = 0; i < indices.length; i++) {
 			res = res + indices[i] + " ] : |";
 			for (int j = 0; j < severities[i].length; j++) {

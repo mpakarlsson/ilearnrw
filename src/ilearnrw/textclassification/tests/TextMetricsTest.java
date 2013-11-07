@@ -6,6 +6,7 @@ import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordVsProblems;
 import ilearnrw.textclassification.tests.panels.HeatMapPanel;
 import ilearnrw.textclassification.tests.panels.TextPanel;
+import ilearnrw.textclassification.tests.panels.UserSeveritiesHeatMapPanel;
 import ilearnrw.user.LanguageCode;
 import ilearnrw.user.User;
 
@@ -36,6 +37,8 @@ public class TextMetricsTest extends JFrame {
 	private	JTabbedPane tabbedPane;
 	private TextPanel textPanel;
 	private	HeatMapPanel heatMapPanel;
+	private	UserSeveritiesHeatMapPanel userSeveritiesPanel;
+	private User user;
 	private boolean firstTime = true;
 
 	/**
@@ -58,6 +61,8 @@ public class TextMetricsTest extends JFrame {
 	 * Create the frame.
 	 */
 	public TextMetricsTest() {
+		user = new User(1);
+		user.getProfile().getUserSeveritiesToProblems().loadTestGreekProblems();
 			
 		setTitle( "iLearnRW Demo Application" );
 		setSize( 300, 200 );
@@ -71,6 +76,7 @@ public class TextMetricsTest extends JFrame {
 		
 		textPanel = new TextPanel();
 		heatMapPanel = new HeatMapPanel();
+		userSeveritiesPanel = new UserSeveritiesHeatMapPanel(user);
 		
 		contentPane.add(textPanel, BorderLayout.CENTER);
 		
@@ -78,6 +84,11 @@ public class TextMetricsTest extends JFrame {
 		tabbedPane = new JTabbedPane();
 		tabbedPane.addTab( "Text", textPanel );
 		tabbedPane.addTab( "Heat Map", heatMapPanel );
+		tabbedPane.addTab( "User Severities", userSeveritiesPanel );
+		
+		// TODO change the 2 following rows / send them inside the UserSeveritiesHeatMapPanel class
+		userSeveritiesPanel.draw();
+		userSeveritiesPanel.test();
 
 		contentPane.add( tabbedPane, BorderLayout.CENTER );
 		
@@ -196,10 +207,8 @@ public class TextMetricsTest extends JFrame {
 	}
 	
 	public void runTheClassifier(){
-		User user = new User(1);
-		user.getProfile().getProblemsMatrix().loadTestGreekProblems();
 		Text t = new Text(textPanel.getText(), lc);
-		cls = new Classifier(user.getProfile().getProblemsMatrix(), t);
+		cls = new Classifier(user, t);
 		heatMapPanel.setClassifier(cls);
 		cls.test();
 		//return cls.getUserProblemsToText().getUserCounters().getCounters();

@@ -2,12 +2,13 @@ package ilearnrw.textclassification;
 
 import java.util.ArrayList;
 
+import ilearnrw.user.User;
 import ilearnrw.user.UserProblemsToText;
 import ilearnrw.user.UserSeveritiesToProblems;
 
 public class Classifier {
 
-	private UserSeveritiesToProblems userSeveritiesToProblems;
+	private User user;
 	private UserProblemsToText userProblemsToText;
 	private Text text;
 	private WordVsProblems wprobs;
@@ -16,12 +17,11 @@ public class Classifier {
 		
 	}
 			
-	public Classifier(UserSeveritiesToProblems userSeveritiesToProblems, Text text) {
-		this.userSeveritiesToProblems = userSeveritiesToProblems;
-		this.userProblemsToText = new UserProblemsToText(userSeveritiesToProblems);
+	public Classifier(User user, Text text) {
+		this.user = user;
+		this.userProblemsToText = new UserProblemsToText(user);
 		this.text = text;
 		wprobs = new WordVsProblems(text.getLanguageCode());
-		System.out.println(userProblemsToText.getUserSeveritiesToProblems().toString());
 		
 	}
 	
@@ -35,7 +35,6 @@ public class Classifier {
 				}
 			}
 		}
-		System.out.println(userProblemsToText.toString());
 	}
 
 	public Text getText() {
@@ -58,16 +57,16 @@ public class Classifier {
 		return userProblemsToText;
 	}
 
-	public void setUserPtT(UserProblemsToText userProblemsToText) {
+	public void setUserProblemsToText(UserProblemsToText userProblemsToText) {
 		this.userProblemsToText = userProblemsToText;
 	}
 
-	public UserSeveritiesToProblems getUserSeveritiesToProblems() {
-		return userSeveritiesToProblems;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserSevtP(UserSeveritiesToProblems userSeveritiesToProblems) {
-		this.userSeveritiesToProblems = userSeveritiesToProblems;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

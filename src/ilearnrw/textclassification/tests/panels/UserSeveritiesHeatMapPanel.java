@@ -1,6 +1,5 @@
 package ilearnrw.textclassification.tests.panels;
-
-import ilearnrw.textclassification.Classifier;
+import ilearnrw.user.User;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,20 +11,21 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 
-public class HeatMapPanel extends JPanel {
+public class UserSeveritiesHeatMapPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private JTable heatMap;
 	private JLabel messagesLabel;
-	private Classifier classifier;
+	private User user;
 	private int[][] data;
 	private int[][] multi;
 
-	public HeatMapPanel() {
+	public UserSeveritiesHeatMapPanel(User user){
+		this.user = user;
 	}
 	
-	public void setClassifier(Classifier classifier){
-		this.classifier = classifier;
+	public void setUser(User user){
+		this.user = user;
 	}
 	
 	private void setValues(){
@@ -38,7 +38,7 @@ public class HeatMapPanel extends JPanel {
 	}
 	
 	public void draw(){
-		this.data = classifier.getUserProblemsToText().getUserCounters().getCounters();
+		this.data = user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities();
 		heatMap = new JTable(data.length,data[0].length+2);
 		heatMap.setShowGrid(false);
 		
@@ -104,7 +104,7 @@ public class HeatMapPanel extends JPanel {
 					sum += data[i][j-2];
 				}
 			}
-			multi[i][0] = sum;
+			multi[i][0] = user.getProfile().getUserSeveritiesToProblems().getWorkingIndex(i);
 			multi[i][1] = -1;
 		}
 	}
@@ -112,10 +112,10 @@ public class HeatMapPanel extends JPanel {
 	private String displayCellInfo(int i, int j){
 		String res = "null";
 		if (j==0){
-			res = classifier.getUser().getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
+			res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
 		}
 		else if (j>1 && j<data[i].length+2){
-			res = classifier.getUser().getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j-2).toString();
+			res = user.getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j-2).toString();
 		}
 		return res;
 	}

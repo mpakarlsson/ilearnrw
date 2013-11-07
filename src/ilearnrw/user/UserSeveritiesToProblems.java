@@ -1,14 +1,11 @@
 package ilearnrw.user;
 
-import ilearnrw.games.NumberProblems;
-import ilearnrw.user.problems.Category;
 import ilearnrw.user.problems.GreekProblems;
 import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemDescription;
 
 import java.io.Serializable;
-import java.util.ArrayList; 
 import java.util.Random;
 
 public class UserSeveritiesToProblems implements Serializable {
@@ -41,7 +38,7 @@ public class UserSeveritiesToProblems implements Serializable {
 		initialize(greekProbs.getAllProblems());
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){
-			userSeverities.setIndex(i, rand.nextInt(problems.getRowLength(i)));
+			userSeverities.setWorkingIndex(i, rand.nextInt(problems.getRowLength(i)));
 			for (int j=0; j<userSeverities.getSeverityLength(i); j++){
 				userSeverities.setSeverity(i, j, rand.nextInt(3)+1);
 			}
@@ -64,8 +61,8 @@ public class UserSeveritiesToProblems implements Serializable {
 		return userSeverities.getSeverity(i,j);
 	}
 
-	public int getIndex(int i) {
-		return userSeverities.getIndex(i);
+	public int getWorkingIndex(int i) {
+		return userSeverities.getWorkingIndex(i);
 	}
 	
 	public int getNumerOfRows() {
