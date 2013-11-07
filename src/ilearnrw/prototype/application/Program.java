@@ -41,7 +41,7 @@ public class Program {
 		
 		Map<String, Vector<String>> dict = new HashMap<String, Vector<String>>();		
 			try {
-				BufferedReader reader = new BufferedReader(new FileReader("dictionary.txt"));
+				BufferedReader reader = new BufferedReader(new FileReader("data/dictionary.txt"));
 				String line = null;
 				while ((line = reader.readLine()) != null) {
 					String[] parts = line.split("\\s");
@@ -66,7 +66,7 @@ public class Program {
 	public static ArrayList<String> LoadDaleChallList(){
 		ArrayList<String> words = new ArrayList<String>();
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader("dale-chall_word_list.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/dale-chall_word_list.txt"));
 		
 			String line = null;
 			while ((line = reader.readLine()) != null) {
