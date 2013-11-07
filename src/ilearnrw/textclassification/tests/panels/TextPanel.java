@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
@@ -23,20 +24,21 @@ public class TextPanel extends JPanel{
 		
 		JSplitPane splitPane = new JSplitPane();
 		this.add(splitPane, BorderLayout.CENTER);
-        splitPane.setResizeWeight(0.75);
+        splitPane.setResizeWeight(0.77);
         
 		splitPane.setRightComponent(panel);
         panel.setLayout(new GridLayout(1,1));
         
         mainText = new JTextPane();
-        splitPane.setLeftComponent(mainText);
+        JScrollPane jsp = new JScrollPane(mainText);
+        splitPane.setLeftComponent(jsp);
         
         resultsText = new JTextPane();
         resultsText.setEditable(false);
         resultsText.setBackground(Color.lightGray);
         panel.add(resultsText);
         resultsText.setContentType("text/html");
-        resultsText.setText("Paste Your Text to The Left.\nSwitch Language if needed.");
+        resultsText.setText("Paste Your Text to The Left.<br>Switch Language if needed.");
 	}
 	
 	public JTextPane getResultsText() {

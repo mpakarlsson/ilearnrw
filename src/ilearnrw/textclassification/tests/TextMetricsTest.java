@@ -28,13 +28,15 @@ import javax.swing.JLabel;
 
 public class TextMetricsTest extends JFrame {
 	private static final long serialVersionUID = 1L;
-	LanguageCode lc;
-	static Text txt;
+	private LanguageCode lc;
+	private Text txt;
+	private Classifier cls;
 
 	private JPanel contentPane;
 	private	JTabbedPane tabbedPane;
 	private TextPanel textPanel;
 	private	HeatMapPanel heatMapPanel;
+	private boolean firstTime = true;
 
 	/**
 	 * Launch the application.
@@ -99,7 +101,17 @@ public class TextMetricsTest extends JFrame {
 				String str = textPanel.getText();
 				txt = new Text(str, lc);
 				textPanel.setResultsText(testTextMetrics());
-				heatMapPanel.draw(runTheClassifier());
+				if (firstTime){
+					runTheClassifier();
+					heatMapPanel.draw();
+					heatMapPanel.test();
+					firstTime = false;
+				}
+				else{
+					runTheClassifier();
+					heatMapPanel.draw();
+					heatMapPanel.test();
+				}
 			}
 		});
 		toolBar.add(goButton);
@@ -125,7 +137,7 @@ public class TextMetricsTest extends JFrame {
 		toolBar.add(switchLanguageButton);
 	}
 	
-	private static String testTextMetrics(){
+	private String testTextMetrics(){
 		String res = "<html> <p style=\"font-size:10px; font-weight:bold;\">";
 		
 		res = res + "Number of sentences:"+txt.getNumberOfSentences();
@@ -183,13 +195,14 @@ public class TextMetricsTest extends JFrame {
 		return res;
 	}
 	
-	public int[][] runTheClassifier(){
+	public void runTheClassifier(){
 		User user = new User(1);
 		user.getProfile().getProblemsMatrix().loadTestGreekProblems();
 		Text t = new Text(textPanel.getText(), lc);
-		Classifier cls = new Classifier(user.getProfile().getProblemsMatrix(), t);
+		cls = new Classifier(user.getProfile().getProblemsMatrix(), t);
+		heatMapPanel.setClassifier(cls);
 		cls.test();
-		return cls.getCounters();
+		//return cls.getUserProblemsToText().getUserCounters().getCounters();
 	}
 
 }

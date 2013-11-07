@@ -76,7 +76,7 @@ public class UserSeveritiesToProblems implements Serializable {
 		return userSeverities.getSeverityLength(i);
 	}
 
-	public ProblemDescription getProblemDefinition(int i, int j) {
+	public ProblemDescription getProblemDescription(int i, int j) {
 		return problems.getProblemDescription(i,j);
 	}
 

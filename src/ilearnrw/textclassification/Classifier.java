@@ -2,20 +2,26 @@ package ilearnrw.textclassification;
 
 import java.util.ArrayList;
 
+import ilearnrw.user.UserProblemsToText;
 import ilearnrw.user.UserSeveritiesToProblems;
-import ilearnrw.user.UserTextCounters;
 
 public class Classifier {
 
-	private UserTextCounters userCnts;
+	private UserSeveritiesToProblems userSeveritiesToProblems;
+	private UserProblemsToText userProblemsToText;
 	private Text text;
 	private WordVsProblems wprobs;
 	
-	public Classifier(UserSeveritiesToProblems userSevToProbs, Text text) {
-		this.userCnts = new UserTextCounters(userSevToProbs);
+	public Classifier(){
+		
+	}
+			
+	public Classifier(UserSeveritiesToProblems userSeveritiesToProblems, Text text) {
+		this.userSeveritiesToProblems = userSeveritiesToProblems;
+		this.userProblemsToText = new UserProblemsToText(userSeveritiesToProblems);
 		this.text = text;
 		wprobs = new WordVsProblems(text.getLanguageCode());
-		System.out.println(userSevToProbs.toString());
+		System.out.println(userProblemsToText.getUserSeveritiesToProblems().toString());
 		
 	}
 	
@@ -25,15 +31,43 @@ public class Classifier {
 				wprobs.insertWord(w);
 				ArrayList<WordProblemInfo> probs = wprobs.getMatchedProbs();
 				for (WordProblemInfo x : probs){
-					userCnts.increaseValue(x.getPosI(), x.getPosJ());
+					userProblemsToText.increaseValue(x.getPosI(), x.getPosJ());
 				}
 			}
 		}
-		System.out.println(userCnts.toString());
+		System.out.println(userProblemsToText.toString());
 	}
-	
-	public int[][] getCounters(){
-		return userCnts.getCounters();
+
+	public Text getText() {
+		return text;
+	}
+
+	public void setText(Text text) {
+		this.text = text;
+	}
+
+	public WordVsProblems getWprobs() {
+		return wprobs;
+	}
+
+	public void setWprobs(WordVsProblems wprobs) {
+		this.wprobs = wprobs;
+	}
+
+	public UserProblemsToText getUserProblemsToText() {
+		return userProblemsToText;
+	}
+
+	public void setUserPtT(UserProblemsToText userProblemsToText) {
+		this.userProblemsToText = userProblemsToText;
+	}
+
+	public UserSeveritiesToProblems getUserSeveritiesToProblems() {
+		return userSeveritiesToProblems;
+	}
+
+	public void setUserSevtP(UserSeveritiesToProblems userSeveritiesToProblems) {
+		this.userSeveritiesToProblems = userSeveritiesToProblems;
 	}
 
 }
