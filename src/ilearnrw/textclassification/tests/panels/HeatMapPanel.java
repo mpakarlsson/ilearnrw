@@ -1,0 +1,123 @@
+package ilearnrw.textclassification.tests.panels;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
+
+public class HeatMapPanel extends JPanel {
+	private static final long serialVersionUID = 1L;
+	
+	private JTable heatMap;
+	static int[][] data;/* = new int[][]{
+			  { 30, 23, 0, 0, 0, 21, -1, -1, -1, -1 },
+			  { 0, 0, 23, 0, 0, 73, 81, 60, 50, 98 },
+			  { 76, 0, 23, 12, 0, 0, 10, 40, 06, 93 },
+			  { 0, 0, 45, 0, 23, 40, 30, 30, 10, 91 },
+			  { 22, 0, 0, 0, 0, 0, 04, 30, 20, -1 }
+			};*/
+	static int[][] multi;
+	/**
+	 * Create the table.
+	 */
+	public HeatMapPanel() {
+	}
+	
+	private void setValues(){
+		for (int i=0;i<multi.length;i++){
+			for (int j=0;j<multi[i].length;j++){
+				if (multi[i][j] != -1)
+					heatMap.setValueAt(multi[i][j], i, j);
+			}
+		}
+	}
+	
+	
+	private class CellRenderer extends DefaultTableCellRenderer {
+
+        @Override
+        public Component getTableCellRendererComponent(JTable table, 
+                Object value, boolean isSelected, boolean hasFocus,
+                int row, int column) {
+            Component c = super.getTableCellRendererComponent(table, 
+                value, isSelected, hasFocus, row, column);
+            if (column==0)
+            	c.setBackground(new Color(170, 255-20*((12*multi[row][column])/sumsMax()), 255-((12*multi[row][column])/sumsMax())));                        
+            else if (multi[row][column]==-1)
+            	c.setBackground(Color.white); 
+            else
+            	c.setBackground(new Color(170, 255-20*((12*multi[row][column])/matrixMax()), 255-((12*multi[row][column])/matrixMax())));                        
+            return c;
+        };
+	}
+	
+	public void draw(int p[][]){
+		this.data = p;
+		heatMap = new JTable(data.length,data[0].length+2);
+
+		this.setBorder(new EmptyBorder(5, 5, 5, 5));
+		this.setLayout(new BorderLayout(0, 0));
+
+		this.add(heatMap, BorderLayout.CENTER);
+		
+		heatMap.setRowHeight(80);
+		createMatrix();
+		CellRenderer t = new CellRenderer();
+
+		createMatrix();
+		setValues();
+		
+		heatMap.setDefaultRenderer(Object.class, new CellRenderer());
+	}
+	
+	private int matrixMax(){
+		int max = multi[0][2];
+		for (int i=0;i<multi.length;i++){
+			for (int j=2;j<multi[0].length;j++){
+				if (multi[i][j] > max)
+					max = multi[i][j];
+			}
+		}
+		return max;
+	}
+	
+	private int sumsMax(){
+		int max = multi[0][0];
+		for (int i=0;i<multi.length;i++){
+			if (multi[i][0] > max)
+				max = multi[i][0];
+		}
+		return max;
+	}
+	
+	private int lengthsMax(){
+		int max = data[0].length;
+		for (int i=0;i<data.length;i++){
+			if (data[i].length > max)
+				max = data[i].length;
+		}
+		return max;
+	}
+	
+	private void createMatrix(){
+		multi = new int[data.length][lengthsMax()+2];
+		for (int i=0;i<multi.length;i++){
+			int sum = 0;
+			for (int j=multi[0].length-1;j>1;j--){
+				if (j>=data[i].length+2)
+					multi[i][j] = -1;
+				else{
+					multi[i][j] = data[i][j-2];
+					sum += data[i][j-2];
+				}
+			}
+			multi[i][0] = sum;
+			multi[i][1] = -1;
+		}
+	}
+
+}

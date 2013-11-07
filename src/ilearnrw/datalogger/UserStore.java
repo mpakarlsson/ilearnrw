@@ -227,7 +227,7 @@ class UserStore implements ILoginProvider, IUserAdministration {
 		{
 			if( u.getDetails().getUsername().equals(username) )
 				if( u.getDetails().checkPassword(password)){
-					u.getProfile().getProblemsMatrix().loadTestProblems();
+					u.getProfile().getProblemsMatrix().loadTestGreekProblems();
 					return deepCopy(u);
 				}
 		}

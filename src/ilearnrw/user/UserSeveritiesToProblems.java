@@ -18,7 +18,6 @@ public class UserSeveritiesToProblems implements Serializable {
 	private UserSeverities userSeverities;
 	
 	public UserSeveritiesToProblems(){
-		loadTestProblems();
 	}
 	
 	public UserSeveritiesToProblems(ProblemDefinitionIndex theProblems){
@@ -34,19 +33,6 @@ public class UserSeveritiesToProblems implements Serializable {
 			userSeverities.constructRow(i, theProblems.getRowLength(i));
 		}
 
-	}
-	
-	public void loadTestProblems(){
-		NumberProblems numProbs = new NumberProblems();
-		initialize(numProbs.getAllProblems());
-		Random rand = new Random();
-		for (int i=0;i<problems.getIndexLength(); i++){
-			userSeverities.setIndex(i, rand.nextInt(problems.getRowLength(i)));
-			for (int j=0; j<userSeverities.getSeverityLength(i); j++){
-				userSeverities.setSeverity(i, j, rand.nextInt(3)+1);
-			}
-		}
-		
 	}
 	
 	// TODO: eliminate this function and replace with db fetches!!!

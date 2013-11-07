@@ -144,12 +144,15 @@ public class WordVsProblems {
 				break;
 			case CONTAINS_PHONEME:
 				wpi.setProblemInfo(i, j, matcher.containsPhoneme(pd, word));
+		default:
+			break;
 		}
 		return wpi;
 	}
 	
 	@Override
 	public String toString(){
+		if (matchedProbs==null) return "No Matched Problems";
 		return matchedProbs.toString();
 	}
 

@@ -31,5 +31,9 @@ public class Classifier {
 		}
 		System.out.println(userCnts.toString());
 	}
+	
+	public int[][] getCounters(){
+		return userCnts.getCounters();
+	}
 
 }

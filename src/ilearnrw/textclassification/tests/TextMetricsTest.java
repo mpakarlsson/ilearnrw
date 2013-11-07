@@ -1,10 +1,13 @@
 package ilearnrw.textclassification.tests;
 
-import ilearnrw.textclassification.Sentence;
+import ilearnrw.textclassification.Classifier;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordVsProblems;
+import ilearnrw.textclassification.tests.panels.HeatMapPanel;
+import ilearnrw.textclassification.tests.panels.TextPanel;
 import ilearnrw.user.LanguageCode;
+import ilearnrw.user.User;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -12,30 +15,26 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
 import javax.swing.JButton;
-import javax.swing.JSplitPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JTextPane;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridLayout;
-import java.awt.Insets;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.JLabel;
 
 public class TextMetricsTest extends JFrame {
-	
+	private static final long serialVersionUID = 1L;
 	LanguageCode lc;
 	static Text txt;
 
 	private JPanel contentPane;
+	private	JTabbedPane tabbedPane;
+	private TextPanel textPanel;
+	private	HeatMapPanel heatMapPanel;
 
 	/**
 	 * Launch the application.
@@ -57,6 +56,10 @@ public class TextMetricsTest extends JFrame {
 	 * Create the frame.
 	 */
 	public TextMetricsTest() {
+			
+		setTitle( "iLearnRW Demo Application" );
+		setSize( 300, 200 );
+		setBackground( Color.gray );
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -64,22 +67,18 @@ public class TextMetricsTest extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 		
-		JSplitPane splitPane = new JSplitPane();
-		contentPane.add(splitPane, BorderLayout.CENTER);
-        splitPane.setResizeWeight(0.75);
-        
-        final JTextPane textPane = new JTextPane();
-        splitPane.setLeftComponent(textPane);
-        
-        JPanel panel = new JPanel();
-        splitPane.setRightComponent(panel);
-        panel.setLayout(new GridLayout(1,1));
-        
-        final JTextPane resultsPane = new JTextPane();
-        resultsPane.setEditable(false);
-        resultsPane.setBackground(Color.lightGray);
-        panel.add(resultsPane);
-        resultsPane.setText("Paste Your Text to The Left.\nSwitch Language if needed.");
+		textPanel = new TextPanel();
+		heatMapPanel = new HeatMapPanel();
+		
+		contentPane.add(textPanel, BorderLayout.CENTER);
+		
+
+		tabbedPane = new JTabbedPane();
+		tabbedPane.addTab( "Text", textPanel );
+		tabbedPane.addTab( "Heat Map", heatMapPanel );
+
+		contentPane.add( tabbedPane, BorderLayout.CENTER );
+		
 		
 		JToolBar toolBar = new JToolBar();
 		contentPane.add(toolBar, BorderLayout.NORTH);
@@ -97,10 +96,10 @@ public class TextMetricsTest extends JFrame {
 		goButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String str = textPane.getText();
+				String str = textPanel.getText();
 				txt = new Text(str, lc);
-				resultsPane.setContentType("text/html");
-				resultsPane.setText(testTextMetrics());
+				textPanel.setResultsText(testTextMetrics());
+				heatMapPanel.draw(runTheClassifier());
 			}
 		});
 		toolBar.add(goButton);
@@ -177,10 +176,20 @@ public class TextMetricsTest extends JFrame {
 		Word w = (Word)tmp[0];
 		System.out.println(w.toString());
 		WordVsProblems wp = new WordVsProblems(w.getLanguageCode());
+		wp.insertWord(w);
 		System.out.println(wp.toString());
 		
 		res = res+"</p></html>";
 		return res;
+	}
+	
+	public int[][] runTheClassifier(){
+		User user = new User(1);
+		user.getProfile().getProblemsMatrix().loadTestGreekProblems();
+		Text t = new Text(textPanel.getText(), lc);
+		Classifier cls = new Classifier(user.getProfile().getProblemsMatrix(), t);
+		cls.test();
+		return cls.getCounters();
 	}
 
 }
