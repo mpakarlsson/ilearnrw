@@ -15,6 +15,9 @@ import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.prototype.application.ConsoleMenu.IConsoleMenuAction;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.english.EnglishWord;
+import ilearnrw.user.problems.GreekProblems;
+import ilearnrw.user.problems.ProblemDefinitionIndex;
+import ilearnrw.user.problems.Problems;
 
 import ilearnrw.datalogger.IProfileAccessUpdater;
 import ilearnrw.datalogger.ILoginProvider;
@@ -41,7 +44,7 @@ public class Program {
 		
 		Map<String, Vector<String>> dict = new HashMap<String, Vector<String>>();		
 			try {
-				BufferedReader reader = new BufferedReader(new FileReader("dictionary.txt"));
+				BufferedReader reader = new BufferedReader(new FileReader("data/dictionary.txt"));
 				String line = null;
 				while ((line = reader.readLine()) != null) {
 					String[] parts = line.split("\\s");
@@ -66,7 +69,7 @@ public class Program {
 	public static ArrayList<String> LoadDaleChallList(){
 		ArrayList<String> words = new ArrayList<String>();
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader("dale-chall_word_list.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader("data/dale-chall_word_list.txt"));
 		
 			String line = null;
 			while ((line = reader.readLine()) != null) {
@@ -125,6 +128,8 @@ public class Program {
 	 * 
 	 * --db <filePath>		Database file to use (required)
 	 */
+	
+	
 	public static void main(String[] args) {
 		try {
 			System.out.print(sWelcomeMessage);
@@ -134,8 +139,7 @@ public class Program {
 			// Initialize the DataLogger object
 			sDataLogger.loadUserStore(databaseFile);
 			sDataLogger.loadUserActions(databaseFile);
-			Word w = new EnglishWord("test");
-			Word y = new EnglishWord("Potatoraspberry");
+			
 			ConsoleMenu mnu = new ConsoleMenu(System.out, System.in, "iLearnRW - Main menu", 
 					new IConsoleMenuAction[] {
 						new DatabaseManager("Manage datalogger database"),
