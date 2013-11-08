@@ -13,11 +13,11 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			probsMatrix = new ProblemDefinitionIndex(9, LanguageCode.GR);	
 			initialize();
 		}
-
+		
 		public void initialize(){
-
-			int problemIndexPosition, problemLength;
 			
+			int problemIndexPosition, problemLength;
+
 			Category cat = new Category("Syllable Division");
 			//B.1 Syllable Division (20 problems)
 			problemIndexPosition = 0;
@@ -366,8 +366,8 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 						new String[]{"για"}, problemIndexPosition, i++);
 				probsMatrix.setProblemDescription(ProblemType.EQUALS, 
 						new String[]{"από"}, problemIndexPosition, i++);
-			}	
-		}
-		
-
+			}		
 	}
+}
+	
+	
