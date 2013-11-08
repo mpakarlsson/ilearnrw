@@ -15,6 +15,9 @@ import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.prototype.application.ConsoleMenu.IConsoleMenuAction;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.english.EnglishWord;
+import ilearnrw.user.problems.GreekProblems;
+import ilearnrw.user.problems.ProblemDefinitionIndex;
+import ilearnrw.user.problems.Problems;
 
 import ilearnrw.datalogger.IProfileAccessUpdater;
 import ilearnrw.datalogger.ILoginProvider;
@@ -125,6 +128,8 @@ public class Program {
 	 * 
 	 * --db <filePath>		Database file to use (required)
 	 */
+	
+	
 	public static void main(String[] args) {
 		try {
 			System.out.print(sWelcomeMessage);
@@ -134,8 +139,7 @@ public class Program {
 			// Initialize the DataLogger object
 			sDataLogger.loadUserStore(databaseFile);
 			sDataLogger.loadUserActions(databaseFile);
-			Word w = new EnglishWord("test");
-			Word y = new EnglishWord("Potatoraspberry");
+			
 			ConsoleMenu mnu = new ConsoleMenu(System.out, System.in, "iLearnRW - Main menu", 
 					new IConsoleMenuAction[] {
 						new DatabaseManager("Manage datalogger database"),
