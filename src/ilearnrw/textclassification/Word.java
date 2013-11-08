@@ -1,6 +1,6 @@
 package ilearnrw.textclassification;
 
-import ilearnrw.user.LanguageCode;
+import ilearnrw.utils.LanguageCode;
 
 public class Word {
 	protected String word;

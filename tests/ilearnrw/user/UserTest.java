@@ -1,6 +1,8 @@
 package ilearnrw.user;
 
 import static org.junit.Assert.*;
+import ilearnrw.user.profile.UserProfile;
+import ilearnrw.utils.LanguageCode;
 
 import org.junit.AfterClass;
 import org.junit.Before;

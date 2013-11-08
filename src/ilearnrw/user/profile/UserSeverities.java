@@ -1,4 +1,4 @@
-package ilearnrw.user;
+package ilearnrw.user.profile;
 
 import java.io.Serializable;
 

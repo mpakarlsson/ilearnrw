@@ -11,13 +11,13 @@ import ilearnrw.datalogger.IProfileAccessUpdater.PendingChangesAvailable;
 import ilearnrw.datalogger.IProfileAccessUpdater.PermissionException;
 import ilearnrw.datalogger.IUserAdministration.AuthenticationException;
 import ilearnrw.prototype.application.UserActions;
-import ilearnrw.user.LanguageCode;
 import ilearnrw.user.User;
 import ilearnrw.user.UserAction;
 import ilearnrw.user.UserDetails;
 import ilearnrw.user.UserPreferences;
 import ilearnrw.user.UserSession;
 import ilearnrw.user.problems.ProblemDefinition;
+import ilearnrw.utils.LanguageCode;
 
 import static org.junit.Assert.*;
 

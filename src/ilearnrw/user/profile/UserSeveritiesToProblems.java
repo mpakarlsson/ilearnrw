@@ -1,4 +1,4 @@
-package ilearnrw.user;
+package ilearnrw.user.profile;
 
 import ilearnrw.user.problems.GreekProblems;
 import ilearnrw.user.problems.ProblemDefinition;

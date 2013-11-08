@@ -7,8 +7,8 @@ import ilearnrw.textclassification.WordVsProblems;
 import ilearnrw.textclassification.tests.panels.HeatMapPanel;
 import ilearnrw.textclassification.tests.panels.TextPanel;
 import ilearnrw.textclassification.tests.panels.UserSeveritiesHeatMapPanel;
-import ilearnrw.user.LanguageCode;
 import ilearnrw.user.User;
+import ilearnrw.utils.LanguageCode;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

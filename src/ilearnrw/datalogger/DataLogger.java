@@ -73,14 +73,14 @@ import ilearnrw.prototype.application.UserActions;
  * Using the getUserActions() function of the IDataLogger interface the database
  * can be queried. To filter the result a UserActionFilter object is provided.
  */
-import ilearnrw.user.LanguageCode;
 import ilearnrw.user.User;
 import ilearnrw.user.UserAction;
 import ilearnrw.user.UserDetails;
 import ilearnrw.user.UserPreferences;
-import ilearnrw.user.UserSeveritiesToProblems;
 import ilearnrw.user.UserSession;
 import ilearnrw.user.problems.ProblemDefinition;
+import ilearnrw.user.profile.UserSeveritiesToProblems;
+import ilearnrw.utils.LanguageCode;
 
 
 /** DataLogger class.

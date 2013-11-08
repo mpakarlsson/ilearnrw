@@ -2,8 +2,8 @@ package ilearnrw.games;
 
 import ilearnrw.textclassification.Classifier;
 import ilearnrw.textclassification.Text;
-import ilearnrw.user.LanguageCode;
 import ilearnrw.user.User;
+import ilearnrw.utils.LanguageCode;
 
 public class ClassificationTests {
 

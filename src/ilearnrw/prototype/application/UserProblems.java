@@ -3,10 +3,10 @@ package ilearnrw.prototype.application;
 import java.util.ArrayList;
 
 import ilearnrw.prototype.application.ConsoleMenu.*;
-import ilearnrw.user.LanguageCode;
 import ilearnrw.user.User;
 import ilearnrw.user.mockup.ProblemDefinitionIndexMockup;
 import ilearnrw.user.problems.ProblemDefinition;
+import ilearnrw.utils.LanguageCode;
 
 public class UserProblems extends ConsoleMenuAction {
 

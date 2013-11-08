@@ -1,4 +1,4 @@
-package ilearnrw.user;
+package ilearnrw.utils;
 
 public enum LanguageCode {
 	EN, GR;

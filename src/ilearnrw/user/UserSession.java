@@ -1,6 +1,8 @@
 package ilearnrw.user;
 
 
+import ilearnrw.utils.IlearnException;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;

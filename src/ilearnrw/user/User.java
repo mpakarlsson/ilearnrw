@@ -1,5 +1,8 @@
 package ilearnrw.user;
 
+import ilearnrw.user.profile.UserProfile;
+import ilearnrw.utils.LanguageCode;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 

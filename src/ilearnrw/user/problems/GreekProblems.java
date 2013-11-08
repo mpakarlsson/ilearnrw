@@ -1,9 +1,9 @@
 package ilearnrw.user.problems;
 
-import ilearnrw.user.LanguageCode;
 import ilearnrw.user.problems.Category;
 import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
+import ilearnrw.utils.LanguageCode;
 
 
 	public class GreekProblems extends Problems{

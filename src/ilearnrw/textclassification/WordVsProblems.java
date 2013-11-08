@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 
 import ilearnrw.languagetools.greek.GreekPartOfSpeech;
-import ilearnrw.user.LanguageCode;
 import ilearnrw.user.problems.GreekProblems;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemType;
 import ilearnrw.user.problems.Problems;
+import ilearnrw.utils.LanguageCode;
 
 public class WordVsProblems {
 

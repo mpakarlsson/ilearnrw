@@ -3,8 +3,8 @@ package ilearnrw.textclassification;
 import java.util.ArrayList;
 
 import ilearnrw.user.User;
-import ilearnrw.user.UserProblemsToText;
-import ilearnrw.user.UserSeveritiesToProblems;
+import ilearnrw.user.profile.UserProblemsToText;
+import ilearnrw.user.profile.UserSeveritiesToProblems;
 
 public class Classifier {
 

@@ -1,6 +1,6 @@
 package ilearnrw.textclassification;
 import ilearnrw.prototype.application.Program;
-import ilearnrw.user.LanguageCode;
+import ilearnrw.utils.LanguageCode;
 
 import java.util.ArrayList;
 import java.util.HashMap;

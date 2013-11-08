@@ -1,6 +1,6 @@
 package ilearnrw.user.problems;
 
-import ilearnrw.user.IlearnException;
+import ilearnrw.utils.IlearnException;
 
 import java.io.Serializable;
 

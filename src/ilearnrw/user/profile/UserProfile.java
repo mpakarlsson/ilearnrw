@@ -1,4 +1,7 @@
-package ilearnrw.user;
+package ilearnrw.user.profile;
+
+import ilearnrw.user.UserPreferences;
+import ilearnrw.utils.LanguageCode;
 
 import java.io.Serializable;
 

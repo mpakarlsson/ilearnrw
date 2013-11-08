@@ -1,6 +1,8 @@
 package ilearnrw.user;
 
 
+import ilearnrw.user.profile.UserSeveritiesToProblems;
+
 import java.io.Serializable;
 
 public class UserTextCounters implements Serializable {

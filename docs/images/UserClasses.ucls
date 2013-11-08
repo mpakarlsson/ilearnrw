@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.4" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="ilearnrw.user.UserProfile" project="ilearnrw" 
-    file="/ilearnrw/src/ilearnrw/user/UserProfile.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="ilearnrw.user.profile.UserProfile" project="ilearnrw" 
+    file="/ilearnrw/src/ilearnrw/user/profile/UserProfile.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="456" y="499"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -46,8 +46,8 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="ilearnrw.user.UserSeverities" project="ilearnrw" 
-    file="/ilearnrw/src/ilearnrw/user/UserSeverities.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="ilearnrw.user.profile.UserSeverities" project="ilearnrw" 
+    file="/ilearnrw/src/ilearnrw/user/profile/UserSeverities.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="935" y="508"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
@@ -55,8 +55,8 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="ilearnrw.user.UserSeveritiesToProblems" project="ilearnrw" 
-    file="/ilearnrw/src/ilearnrw/user/UserSeveritiesToProblems.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="7" language="java" name="ilearnrw.user.profile.UserSeveritiesToProblems" project="ilearnrw" 
+    file="/ilearnrw/src/ilearnrw/user/profile/UserSeveritiesToProblems.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="796" y="338"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      

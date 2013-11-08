@@ -1,8 +1,8 @@
 package ilearnrw.user.test;
 
-import ilearnrw.user.LanguageCode;
 import ilearnrw.user.mockup.ProblemDefinitionIndexMockup;
 import ilearnrw.user.problems.ProblemDefinitionIndexApi;
+import ilearnrw.utils.LanguageCode;
 
 import org.junit.Assert;
 import org.junit.Test;

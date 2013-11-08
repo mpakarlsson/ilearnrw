@@ -1,4 +1,4 @@
-package ilearnrw.user;
+package ilearnrw.utils;
 
 public class IlearnException extends Exception{
     public IlearnException(String message) {

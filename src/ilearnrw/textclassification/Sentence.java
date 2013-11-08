@@ -2,7 +2,7 @@ package ilearnrw.textclassification;
 
 import ilearnrw.textclassification.english.EnglishWord;
 import ilearnrw.textclassification.greek.GreekWord;
-import ilearnrw.user.LanguageCode;
+import ilearnrw.utils.LanguageCode;
 
 public class Sentence {
 	private String sentence;

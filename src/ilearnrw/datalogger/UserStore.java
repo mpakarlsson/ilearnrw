@@ -16,8 +16,8 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import ilearnrw.user.User;
-import ilearnrw.user.UserSeveritiesToProblems;
-import ilearnrw.user.UserProfile;
+import ilearnrw.user.profile.UserProfile;
+import ilearnrw.user.profile.UserSeveritiesToProblems;
 /**
  * @brief The UserStore is used to create and store user objects persistantly.
  * 

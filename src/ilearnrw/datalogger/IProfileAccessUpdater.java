@@ -1,12 +1,12 @@
 package ilearnrw.datalogger;
 
-import ilearnrw.user.LanguageCode;
 import ilearnrw.user.User;
 import ilearnrw.user.UserDetails;
 import ilearnrw.user.UserPreferences;
-import ilearnrw.user.UserSeveritiesToProblems;
 import ilearnrw.user.UserSession;
 import ilearnrw.user.problems.ProblemDefinition;
+import ilearnrw.user.profile.UserSeveritiesToProblems;
+import ilearnrw.utils.LanguageCode;
 
 /** \brief Interface to update profiles in the iLearnRW system.
  *

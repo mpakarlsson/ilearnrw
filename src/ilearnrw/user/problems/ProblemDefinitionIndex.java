@@ -2,7 +2,7 @@ package ilearnrw.user.problems;
 
 import java.io.Serializable;
 
-import ilearnrw.user.LanguageCode;
+import ilearnrw.utils.LanguageCode;
 
 public class ProblemDefinitionIndex implements Serializable,ProblemDefinitionIndexApi {
     private static final long serialVersionUID = 1L;

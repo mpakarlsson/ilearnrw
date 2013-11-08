@@ -1,5 +1,8 @@
-package ilearnrw.user;
+package ilearnrw.user.profile;
 
+
+import ilearnrw.user.User;
+import ilearnrw.user.UserTextCounters;
 
 import java.io.Serializable;
 
