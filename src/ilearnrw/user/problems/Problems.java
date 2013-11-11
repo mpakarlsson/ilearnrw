@@ -1,10 +1,12 @@
 package ilearnrw.user.problems;
 
 public class Problems {
-	protected ProblemDefinitionIndex probsMatrix;
+	protected ProblemDefinitionIndex problemDefinitionIndex;
 
-	public Problems() {
-		// TODO Auto-generated constructor stub
+	public Problems(){}
+
+	public Problems(ProblemDefinitionIndex problemDefinitionIndex) {
+		this.problemDefinitionIndex = problemDefinitionIndex;
 	}
 	
 	public void getProblem(int idx){
@@ -12,7 +14,7 @@ public class Problems {
 	}
 	
 	public ProblemDefinitionIndex getAllProblems(){
-		return probsMatrix;
+		return problemDefinitionIndex;
 	}
 
 }

@@ -102,6 +102,7 @@ public class ProblemDefinitionIndex implements Serializable, ProblemDefinitionIn
 
 	@Override
 	public String toString(){
+		if (problemsIndex==null) return "ProblemDefinitionIndex object is null";
 		String res = "[ ";
 		for (int i=0; i<problemsIndex.length; i++){
 			res = res + problemsIndex[i] + " ] : |";

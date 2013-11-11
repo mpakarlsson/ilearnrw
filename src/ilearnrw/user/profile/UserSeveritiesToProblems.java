@@ -1,9 +1,11 @@
 package ilearnrw.user.profile;
 
+import ilearnrw.prototype.application.JsonHandler;
 import ilearnrw.user.problems.GreekProblems;
 import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemDescription;
+import ilearnrw.user.problems.Problems;
 
 import java.io.Serializable;
 import java.util.Random;
@@ -34,7 +36,12 @@ public class UserSeveritiesToProblems implements Serializable {
 	
 	// TODO: eliminate this function and replace with db fetches!!!
 	public void loadTestGreekProblems(){
-		GreekProblems greekProbs = new GreekProblems();
+		JsonHandler handler = new JsonHandler("data/problem_definitions_greece.json", true);
+		GreekProblems greekProbs = (GreekProblems)handler.fromJson(GreekProblems.class);
+		//System.out.println(greekProbs.getAllProblems().toString());
+		
+		
+		//GreekProblems greekProbs = new GreekProblems();
 		initialize(greekProbs.getAllProblems());
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){

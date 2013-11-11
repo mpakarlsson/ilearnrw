@@ -19,6 +19,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
 import javax.swing.JButton;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -61,6 +64,16 @@ public class TextMetricsTest extends JFrame {
 	 * Create the frame.
 	 */
 	public TextMetricsTest() {
+		try{
+	        //Set the required look and feel
+	        UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+	        //Update the component tree - associate the look and feel with the given frame.
+	        SwingUtilities.updateComponentTreeUI(this);
+	    }//end try
+	    catch(Exception ex) {
+	        ex.printStackTrace();
+	    }
+		
 		user = new User(1);
 		user.getProfile().getUserSeveritiesToProblems().loadTestGreekProblems();
 			
