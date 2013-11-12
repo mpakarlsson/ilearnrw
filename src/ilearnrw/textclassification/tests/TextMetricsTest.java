@@ -112,6 +112,7 @@ public class TextMetricsTest extends JFrame {
 					/*Same as already selected*/
 					return;
 
+				userSeveritiesPanel.updateUser();
 				/* Store any changes to user*/
 				mUserStore.update(user);
 				try {

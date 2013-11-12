@@ -1,5 +1,6 @@
 package ilearnrw.textclassification.tests.panels;
 import ilearnrw.user.User;
+import ilearnrw.user.profile.UserSeverities;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -29,6 +30,25 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 		draw();
 		test();
 	}
+	public void updateUser() {
+		if(user == null)
+			return;
+		UserSeverities severities = user.getProfile().getUserSeveritiesToProblems().getUserSeverities();
+		for (int i=0;i<multi.length;i++){
+			for (int j=2;j<multi[i].length;j++){
+				Object o = heatMap.getValueAt(i, j);
+				if( o != null )
+				{
+					try{
+					severities.setSeverity(i, j-2, (Integer) o);
+					} catch( Exception ex ) {
+						severities.setSeverity(i, j-2, Integer.parseInt((String) o));
+					}
+				}
+			}
+		}
+		user.getProfile().getUserSeveritiesToProblems().setUserSeverities(severities);
+	}
 	
 	
 	private void setValues(){
@@ -49,9 +69,16 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 			if( l.length > biggestArray)
 				biggestArray=l.length;
 
+		
+		if( heatMap != null )
+			this.remove(heatMap);
+		if( messagesLabel != null )
+			this.remove(messagesLabel);
+
+
 		heatMap = new JTable(data.length,biggestArray + 2);
 		heatMap.setShowGrid(false);
-		
+
 		messagesLabel = new JLabel("hello");
 
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -69,6 +96,7 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 		heatMap.repaint();
 		createMatrix();
 		setValues();
+		heatMap.repaint();
 		
 		heatMap.setDefaultRenderer(Object.class, new CellRenderer());
 	}
