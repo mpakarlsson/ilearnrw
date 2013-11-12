@@ -1,5 +1,6 @@
 package ilearnrw.user.problems;
 
+import ilearnrw.prototype.application.JsonHandler;
 import ilearnrw.user.problems.Category;
 import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
@@ -9,9 +10,12 @@ import ilearnrw.utils.LanguageCode;
 	public class GreekProblems extends Problems{
 
 		public GreekProblems() {
+			JsonHandler handler = new JsonHandler("data/problem_definitions_greece.json", true);
+			probsMatrix = (ProblemDefinitionIndex) handler.fromJson(ProblemDefinitionIndex.class);
+			
 			//three problems
-			probsMatrix = new ProblemDefinitionIndex(9, LanguageCode.GR);	
-			initialize();
+			//probsMatrix = new ProblemDefinitionIndex(9, LanguageCode.GR);	
+			//initialize();
 		}
 		
 		public void initialize(){

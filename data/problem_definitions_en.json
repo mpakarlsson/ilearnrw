@@ -1,0 +1,942 @@
+{
+  "problemsIndex": [
+    {
+      "URI": "Syllable Division",
+      "type": {
+        "url": "syllable division"
+      }
+    },
+    {
+      "URI": "Consonants",
+      "type": {
+        "url": "phonemes"
+      }
+    },
+    {
+      "URI": "Vowels",
+      "type": {
+        "url": "phonemes"
+      }
+    },
+    {
+      "URI": "Derivational",
+      "type": {
+        "url": "suffixing"
+      }
+    },
+    {
+      "URI": "Inflectional/Grammatical",
+      "type": {
+        "url": "suffixing"
+      }
+    },
+    {
+      "URI": "Prefixing",
+      "type": {
+        "url": "prefixing"
+      }
+    }
+  ],
+  "problems": [
+    [
+      {
+        "descriptions": [
+          "-cv-cv-"
+        ],
+        "problemType": "CONTAINS_PATTERN"
+      },
+      {
+        "descriptions": [
+          "-cv-v-"
+        ],
+        "problemType": "CONTAINS_PATTERN"
+      },
+      {
+        "descriptions": [
+          "-v-cv-"
+        ],
+        "problemType": "CONTAINS_PATTERN"
+      },
+      {
+        "descriptions": [
+          "-cv-vc-"
+        ],
+        "problemType": "CONTAINS_PATTERN"
+      },
+      {
+        "descriptions": [
+          "-vc-cv-"
+        ],
+        "problemType": "CONTAINS_PATTERN"
+      },
+      {
+        "descriptions": [
+          "-cvc-cv-"
+        ],
+        "problemType": "CONTAINS_PATTERN"
+      },
+      {
+        "descriptions": [
+          "-cv-ccv-"
+        ],
+        "problemType": "CONTAINS_PATTERN"
+      },
+      {
+        "descriptions": [
+          "-ccv-cv-"
+        ],
+        "problemType": "CONTAINS_PATTERN"
+      },
+      {
+        "descriptions": [
+          "-ccvc-cv-"
+        ],
+        "problemType": "CONTAINS_PATTERN"
+      },
+      {
+        "descriptions": [
+          "-cv-cccv-"
+        ],
+        "problemType": "CONTAINS_PATTERN"
+      },
+      {
+        "descriptions": [
+          "-v-cccv-"
+        ],
+        "problemType": "CONTAINS_PATTERN"
+      },
+      {
+        "descriptions": [
+          "??",
+          "e??"
+        ],
+        "problemType": "CONTAINS"
+      },
+      {
+        "descriptions": [
+          "??",
+          "?a"
+        ],
+        "problemType": "CONTAINS"
+      },
+      {
+        "descriptions": [
+          "a?",
+          "a?",
+          "e?",
+          "e?",
+          "??",
+          "??"
+        ],
+        "problemType": "CONTAINS"
+      },
+      {
+        "descriptions": [
+          "a?",
+          "??",
+          "??",
+          "??"
+        ],
+        "problemType": "CONTAINS"
+      },
+      {
+        "descriptions": [
+          "??",
+          "??"
+        ],
+        "problemType": "CONTAINS"
+      },
+      {
+        "descriptions": [
+          "a?",
+          "a?",
+          "??",
+          "??",
+          "e?",
+          "e?"
+        ],
+        "problemType": "CONTAINS"
+      },
+      {
+        "descriptions": [
+          "??",
+          "??",
+          "??",
+          "??"
+        ],
+        "problemType": "CONTAINS"
+      },
+      {
+        "descriptions": [
+          "a?",
+          "a?",
+          "a?",
+          "a?"
+        ],
+        "problemType": "CONTAINS"
+      },
+      {
+        "descriptions": [
+          "e??"
+        ],
+        "problemType": "CONTAINS"
+      }
+    ],
+    [
+      {
+        "descriptions": [
+          "/t/-/d/",
+          "/p/-/b/"
+        ],
+        "problemType": "CONTAINS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "/k/-/p/",
+          "/k/-/t/"
+        ],
+        "problemType": "CONTAINS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "/m/-/n/"
+        ],
+        "problemType": "CONTAINS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "/?/-/�/",
+          "/f/-/v/",
+          "/?/-/?/"
+        ],
+        "problemType": "CONTAINS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "/k/-/?/",
+          "/k/-/?/"
+        ],
+        "problemType": "CONTAINS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "/s/-/z/"
+        ],
+        "problemType": "CONTAINS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "/l/-/r/"
+        ],
+        "problemType": "CONTAINS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "/�/-/v/",
+          "/f/-/?/",
+          "/f/-/v/",
+          "/?/-/�/"
+        ],
+        "problemType": "CONTAINS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "/kt/-/pt/"
+        ],
+        "problemType": "CONTAINS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "/ks/-/ps/",
+          "/ks/-/sk/",
+          "/ps/-/sp/"
+        ],
+        "problemType": "CONTAINS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "/�r/-/?r/",
+          "/fr/-/?r/"
+        ],
+        "problemType": "CONTAINS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "/??/-/f?/"
+        ],
+        "problemType": "CONTAINS_PHONEME"
+      }
+    ],
+    [
+      {
+        "descriptions": [
+          "e?"
+        ],
+        "problemType": "CONTAINS"
+      },
+      {
+        "descriptions": [
+          "??"
+        ],
+        "problemType": "CONTAINS"
+      },
+      {
+        "descriptions": [
+          "a?"
+        ],
+        "problemType": "CONTAINS"
+      },
+      {
+        "descriptions": [
+          "a?"
+        ],
+        "problemType": "CONTAINS"
+      },
+      {
+        "descriptions": [
+          "??"
+        ],
+        "problemType": "CONTAINS"
+      },
+      {
+        "descriptions": [
+          "a?"
+        ],
+        "problemType": "CONTAINS"
+      }
+    ],
+    [
+      {
+        "descriptions": [
+          "???",
+          "????",
+          "????",
+          "?tsa",
+          "?a?",
+          "?p???a",
+          "?p????",
+          "??d?",
+          "???a",
+          "?????",
+          "?????",
+          "???a",
+          "??????",
+          "??ts????",
+          "??ts???",
+          "??ts???"
+        ],
+        "problemType": "IS_NOUN_OR_ADJ_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "???a",
+          "??a",
+          "a???",
+          "a???a",
+          "a???",
+          "????a"
+        ],
+        "problemType": "IS_NOUN_OR_ADJ_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "??",
+          "?a?",
+          "???",
+          "d????",
+          "????",
+          "?????",
+          "?????",
+          "???a",
+          "?t??",
+          "??t??",
+          "?sta?",
+          "?st??",
+          "?st??a",
+          "t??",
+          "t??",
+          "t??a",
+          "t?ssa",
+          "t???",
+          "t???",
+          "t?a?",
+          "t??a?"
+        ],
+        "problemType": "IS_NOUN_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "e??",
+          "??",
+          "?a",
+          "???",
+          "d???"
+        ],
+        "problemType": "IS_NOUN_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "?a?",
+          "e??",
+          "???a",
+          "t??a?",
+          "t???",
+          "t????",
+          "t?a",
+          "t??"
+        ],
+        "problemType": "IS_NOUN_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "?da",
+          "e?a",
+          "??a",
+          "?????",
+          "�??a",
+          "?s???",
+          "???a",
+          "s??",
+          "???",
+          "?t?ta",
+          "?t?ta"
+        ],
+        "problemType": "IS_NOUN_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "?",
+          "??"
+        ],
+        "problemType": "IS_NOUN_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "??a",
+          "e?a",
+          "e??",
+          "e?a",
+          "s?",
+          "??",
+          "??",
+          "?a",
+          "s??",
+          "???",
+          "???",
+          "�at??",
+          "s?�?",
+          "??�?",
+          "??�?",
+          "a�a",
+          "?�a",
+          "?�a",
+          "s�a",
+          "?�a",
+          "�??",
+          "?t?",
+          "at?",
+          "?t?",
+          "?t?",
+          "ft?",
+          "pt?"
+        ],
+        "problemType": "IS_NOUN_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "????",
+          "???",
+          "???",
+          "s?�??",
+          "s?�?",
+          "s?�?",
+          "?????",
+          "???a",
+          "?????",
+          "e???",
+          "e??",
+          "e??",
+          "t??",
+          "t?",
+          "t?",
+          "?t??",
+          "?t?",
+          "?t?",
+          "????",
+          "???",
+          "???",
+          "?a???",
+          "?a??",
+          "?a??",
+          "a???",
+          "a??",
+          "a??",
+          "?????",
+          "???a",
+          "??????"
+        ],
+        "problemType": "IS_ADJ_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "?st????",
+          "?st???",
+          "?st???",
+          "?s???",
+          "?s?a",
+          "?s??",
+          "????",
+          "??a",
+          "???",
+          "a???",
+          "a?a",
+          "a??",
+          "?p??",
+          "?p?",
+          "?p?",
+          "?????",
+          "???a",
+          "????",
+          "t???",
+          "t?a",
+          "t??",
+          "?d??",
+          "?de?"
+        ],
+        "problemType": "IS_ADJ_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "???",
+          "???",
+          "????",
+          "a???",
+          "???",
+          "???",
+          "e??",
+          "???"
+        ],
+        "problemType": "IS_VERB_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "�???",
+          "????",
+          "p???"
+        ],
+        "problemType": "IS_VERB_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "e?d??",
+          "e?d??",
+          "�e???",
+          "�e???",
+          "et??",
+          "et??"
+        ],
+        "problemType": "IS_ADJ_AND_ENDS_WITH"
+      }
+    ],
+    [
+      {
+        "descriptions": [
+          "??",
+          "?",
+          "a?",
+          "a",
+          "??",
+          "?",
+          "a",
+          "?",
+          "?"
+        ],
+        "problemType": "IS_NOUN_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "??",
+          "?",
+          "a?",
+          "a",
+          "??",
+          "?",
+          "a",
+          "?",
+          "?"
+        ],
+        "problemType": "IS_NOUN_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "??",
+          "??",
+          "",
+          "e?",
+          "??",
+          "e??",
+          "e??",
+          "e?",
+          "??",
+          "",
+          "??",
+          "??",
+          "??"
+        ],
+        "problemType": "IS_NOUN_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "e?",
+          "e",
+          "??",
+          "?",
+          "???",
+          "??",
+          "??",
+          "?",
+          "??",
+          "??",
+          "a?",
+          "a",
+          "?"
+        ],
+        "problemType": "IS_NOUN_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "?de?",
+          "?de?",
+          "??de?",
+          "??ta",
+          "?",
+          "?",
+          "ata"
+        ],
+        "problemType": "IS_NOUN_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "?",
+          "?d??",
+          "?",
+          "?d??",
+          "??",
+          "??d??",
+          "???",
+          "",
+          "??d??",
+          "???",
+          "???",
+          "??t??",
+          "??t??",
+          "at??",
+          "?t??"
+        ],
+        "problemType": "IS_NOUN_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "??",
+          "?",
+          "?",
+          "??",
+          "a",
+          "?",
+          "??",
+          "??",
+          "?",
+          "??",
+          "a",
+          "???",
+          "????",
+          "????",
+          "?d???"
+        ],
+        "problemType": "IS_ADJ_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "??",
+          "??",
+          "?",
+          "??",
+          "??",
+          "?",
+          "??",
+          "??"
+        ],
+        "problemType": "IS_ADJ_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "p????",
+          "p????",
+          "p???"
+        ],
+        "problemType": "EQUALS"
+      },
+      {
+        "descriptions": [
+          "??",
+          "e?",
+          "a",
+          "?de?",
+          "e?",
+          "??a",
+          "?de?",
+          "??de?",
+          "?d??a"
+        ],
+        "problemType": "IS_ADJ_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "???",
+          "???",
+          "??",
+          "",
+          "e??",
+          "?"
+        ],
+        "problemType": "IS_ADJ_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "p?????",
+          "p?????",
+          "p????"
+        ],
+        "problemType": "EQUALS"
+      },
+      {
+        "descriptions": [
+          "??",
+          "??",
+          "??",
+          "??",
+          "a?",
+          "??",
+          "??",
+          "???",
+          "??",
+          "?",
+          "a?",
+          "????",
+          "?",
+          "???",
+          "?d????"
+        ],
+        "problemType": "IS_ADJ_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "???",
+          "???",
+          "???",
+          "???",
+          "???",
+          "??"
+        ],
+        "problemType": "IS_ADJ_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "?",
+          "e??",
+          "e?",
+          "??�e",
+          "ete",
+          "???",
+          "?",
+          "??",
+          "?",
+          "?e?",
+          "?�e",
+          "??�e",
+          "?te",
+          "???",
+          "???e",
+          "??",
+          "??e",
+          "???",
+          "?",
+          "e??",
+          "e?",
+          "??�e",
+          "e?te",
+          "???",
+          "???e"
+        ],
+        "problemType": "IS_VERB_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "a",
+          "e?",
+          "e",
+          "a�e",
+          "ate",
+          "a?",
+          "??e",
+          "a?a",
+          "a?e?",
+          "a?e",
+          "??a�e",
+          "??ate",
+          "a?a?",
+          "??a?e",
+          "??sa",
+          "??se?",
+          "??se",
+          "??sa�e",
+          "??sate",
+          "??sa?",
+          "??sa?e"
+        ],
+        "problemType": "IS_VERB_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "?�a?",
+          "esa?",
+          "eta?",
+          "?�aste",
+          "?saste",
+          "este",
+          "??ta?",
+          "??�a?",
+          "??sa?",
+          "??ta?",
+          "??�aste",
+          "??ste",
+          "????ta?",
+          "???ta?",
+          "???�a?",
+          "e?sa?",
+          "",
+          "e?ta?",
+          "??�aste",
+          "e?ste",
+          "???ta?"
+        ],
+        "problemType": "IS_VERB_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "?�???",
+          "?�???a",
+          "?s???",
+          "?�???a",
+          "?ta?",
+          "?ta?e",
+          "?�asta?",
+          "?�aste",
+          "?sasta?",
+          "?saste",
+          "??ta?",
+          "??ta?e",
+          "??t??sa?",
+          "??�???",
+          "??�???a",
+          "??s???",
+          "??s???a",
+          "???ta?",
+          "??�asta?",
+          "??�aste",
+          "??sasta?",
+          "??saste",
+          "???ta?",
+          "???ta?e",
+          "??a",
+          "??e?",
+          "??e",
+          "??a�e",
+          "??ate",
+          "a?"
+        ],
+        "problemType": "IS_VERB_AND_ENDS_WITH"
+      },
+      {
+        "descriptions": [
+          "??",
+          "??sa",
+          "??",
+          "e??",
+          "e?sa",
+          "??"
+        ],
+        "problemType": "IS_PARTICIPLE_AND_ENDS_WITH"
+      }
+    ],
+    [
+      {
+        "descriptions": [
+          "a",
+          "a?t?",
+          "d?s"
+        ],
+        "problemType": "IS_ADJ_AND_STARTS_WITH"
+      },
+      {
+        "descriptions": [
+          "?pe?",
+          "?p?",
+          "?ata"
+        ],
+        "problemType": "IS_NOUN_OR_ADJ_AND_STARTS_WITH"
+      },
+      {
+        "descriptions": [
+          "?pe?",
+          "?p?"
+        ],
+        "problemType": "IS_VERB_AND_STARTS_WITH"
+      },
+      {
+        "descriptions": [
+          "d?",
+          "t??",
+          "p??t?",
+          "a?t?",
+          "p???",
+          "�????",
+          "????",
+          "?�?"
+        ],
+        "problemType": "STARTS_WITH"
+      },
+      {
+        "descriptions": [
+          "a?a",
+          "a?t?",
+          "ap?",
+          "d?a",
+          "e?s",
+          "e?",
+          "e?",
+          "e?",
+          "ep?",
+          "?ata",
+          "�eta",
+          "pa?a",
+          "pe??",
+          "p??",
+          "p??s",
+          "s??"
+        ],
+        "problemType": "IS_VERB_AND_STARTS_WITH"
+      },
+      {
+        "descriptions": [
+          "????",
+          "�?s?",
+          "???ts?",
+          "?e?t?"
+        ],
+        "problemType": "IS_VERB_AND_STARTS_WITH"
+      }
+    ]
+  ],
+  "language": "EN"
+}
