@@ -1,8 +1,6 @@
 package ilearnrw.prototype.application;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,11 +11,8 @@ import java.util.Vector;
 
 import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.prototype.application.ConsoleMenu.IConsoleMenuAction;
-import ilearnrw.textclassification.Word;
-import ilearnrw.textclassification.english.EnglishWord;
+import ilearnrw.user.problems.EnglishProblems;
 import ilearnrw.user.problems.GreekProblems;
-import ilearnrw.user.problems.ProblemDefinitionIndex;
-import ilearnrw.user.problems.Problems;
 
 import ilearnrw.datalogger.IProfileAccessUpdater;
 import ilearnrw.datalogger.ILoginProvider;

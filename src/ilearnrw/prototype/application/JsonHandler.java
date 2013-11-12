@@ -41,7 +41,6 @@ public class JsonHandler {
 		try {
 			JsonReader reader = new JsonReader(new FileReader(path));
 			obj = gson.fromJson(reader, type);
-			System.out.println(obj);
 			reader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
