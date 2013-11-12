@@ -1,5 +1,7 @@
 package ilearnrw.textclassification.tests;
 
+import ilearnrw.datalogger.UserStore;
+import ilearnrw.prototype.application.Program;
 import ilearnrw.textclassification.Classifier;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
@@ -8,24 +10,26 @@ import ilearnrw.textclassification.tests.panels.HeatMapPanel;
 import ilearnrw.textclassification.tests.panels.TextPanel;
 import ilearnrw.textclassification.tests.panels.UserSeveritiesHeatMapPanel;
 import ilearnrw.user.User;
+import ilearnrw.user.profile.UserSeverities;
 import ilearnrw.utils.LanguageCode;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTabbedPane;
-import javax.swing.JToolBar;
-import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
-import java.awt.Color;
 import java.util.HashMap;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.JToolBar;
+import javax.swing.border.EmptyBorder;
 
 public class TextMetricsTest extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -41,10 +45,35 @@ public class TextMetricsTest extends JFrame {
 	private User user;
 	private boolean firstTime = true;
 
+	private static UserStore mUserStore = null;
+	final class UserListBoxWrapper {
+		public UserListBoxWrapper(User u) {
+			user = u;
+		}
+		public int getUserId() { return user.getUserId(); }
+		@Override
+		public String toString() {
+			return user.getDetails().getUsername();
+		}
+		User user;
+	};
+	private JComboBox<UserListBoxWrapper> userCombobox = new JComboBox<UserListBoxWrapper>();
+
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		try {
+			/* Load the user database.*/
+			String databaseFile = Program.getStringArg("--db", args);
+			mUserStore = new UserStore(databaseFile);
+			/* We have to auth as admin to access the database.*/
+			mUserStore.authenticateAdmin("ilearn");
+		} catch (Exception e) {
+			/* Could not load any users, no point to continue.*/
+			e.printStackTrace();
+			return;
+		}
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -56,14 +85,49 @@ public class TextMetricsTest extends JFrame {
 			}
 		});
 	}
+	
 
 	/**
 	 * Create the frame.
 	 */
 	public TextMetricsTest() {
-		user = new User(1);
-		user.getProfile().getUserSeveritiesToProblems().loadTestGreekProblems();
+
+		/*Fill the user ComboBox*/
+		try {
+			for( User u : mUserStore.getAllUsers() )
+				userCombobox.addItem(new UserListBoxWrapper(u));
 			
+			/*Select the first user.*/
+			user = mUserStore.getAllUsers().get(0);
+			userCombobox.setSelectedIndex(0);
+		} catch (Exception ex){
+			ex.printStackTrace();
+		}
+		userCombobox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				/* Selected user has changed*/
+				UserListBoxWrapper selectedUser = (UserListBoxWrapper) userCombobox.getSelectedItem();
+				if(selectedUser.getUserId() == user.getUserId())
+					/*Same as already selected*/
+					return;
+
+				/* Store any changes to user*/
+				mUserStore.update(user);
+				try {
+					/* Change user to reflect the new user.
+					 * Note, we get the user fresh from the UserStore
+					 * and do not reuse the one stored in the ComboBox.
+					 */
+					for( User u : mUserStore.getAllUsers() )
+						if(u.getUserId() == selectedUser.getUserId() )
+							user = u;
+					userSeveritiesPanel.setUser(user);
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
 		setTitle( "iLearnRW Demo Application" );
 		setSize( 300, 200 );
 		setBackground( Color.gray );
@@ -95,6 +159,8 @@ public class TextMetricsTest extends JFrame {
 		
 		JToolBar toolBar = new JToolBar();
 		contentPane.add(toolBar, BorderLayout.NORTH);
+		
+		toolBar.add(userCombobox);
 		
 		JButton exitButton = new JButton("Exit");
 		exitButton.addMouseListener(new MouseAdapter() {

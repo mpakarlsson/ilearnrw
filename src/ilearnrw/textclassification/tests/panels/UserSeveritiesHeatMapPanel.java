@@ -26,9 +26,14 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 	
 	public void setUser(User user){
 		this.user = user;
+		draw();
+		test();
 	}
 	
+	
 	private void setValues(){
+		if(user == null)
+			return;
 		for (int i=0;i<multi.length;i++){
 			for (int j=0;j<multi[i].length;j++){
 				if (multi[i][j] != -1)
@@ -39,7 +44,12 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 	
 	public void draw(){
 		this.data = user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities();
-		heatMap = new JTable(data.length,data[0].length+2);
+		int biggestArray = 0;
+		for(int[] l : data)
+			if( l.length > biggestArray)
+				biggestArray=l.length;
+
+		heatMap = new JTable(data.length,biggestArray + 2);
 		heatMap.setShowGrid(false);
 		
 		messagesLabel = new JLabel("hello");
@@ -93,11 +103,21 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 	}
 	
 	private void createMatrix(){
+
+		int biggestArray = 0;
+		for(int[] l : data)
+			if( l.length > biggestArray)
+				biggestArray=l.length;
+		
+		
+		
 		multi = new int[data.length][lengthsMax()+2];
 		for (int i=0;i<multi.length;i++){
 			int sum = 0;
-			for (int j=multi[0].length-1;j>1;j--){
-				if (j>=data[i].length+2)
+			for (int j=0; j < biggestArray + 2;j++){
+				if( j == 0 || j == 1 )
+					continue;
+				if (j >= data[i].length+2)
 					multi[i][j] = -1;
 				else{
 					multi[i][j] = data[i][j-2];

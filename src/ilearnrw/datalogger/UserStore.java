@@ -31,7 +31,7 @@ import ilearnrw.user.profile.UserSeveritiesToProblems;
  * Implements a CRUD interface for users and save/load functions to
  * store the data persistently.
  */
-class UserStore implements ILoginProvider, IUserAdministration {
+public class UserStore implements ILoginProvider, IUserAdministration {
 	
 	private ArrayList<User> mLoadedUsers;
 	private static String mFilePath; //!< The complete path to the file to read/write the user information from/to.
@@ -227,7 +227,9 @@ class UserStore implements ILoginProvider, IUserAdministration {
 		{
 			if( u.getDetails().getUsername().equals(username) )
 				if( u.getDetails().checkPassword(password)){
-					u.getProfile().getUserSeveritiesToProblems().loadTestGreekProblems();
+
+				if( u.getProfile().getUserSeveritiesToProblems().getUserSeverities() == null )
+						u.getProfile().getUserSeveritiesToProblems().loadTestGreekProblems();
 					return deepCopy(u);
 				}
 		}
@@ -305,8 +307,11 @@ class UserStore implements ILoginProvider, IUserAdministration {
 	public List<User> getAllUsers() throws AuthenticationException {
 		checkAdminAuth();
 		List<User> ret = new ArrayList<User>();
-		for( User u : mLoadedUsers )
+		for( User u : mLoadedUsers ) {
+			if( u.getProfile().getUserSeveritiesToProblems().getUserSeverities() == null )
+				u.getProfile().getUserSeveritiesToProblems().loadTestGreekProblems();
 			ret.add(deepCopy(u));
+		}
 		return ret;
 	}
 }
