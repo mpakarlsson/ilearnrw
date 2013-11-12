@@ -57,7 +57,7 @@ public class TextMetricsTest extends JFrame {
 		}
 		User user;
 	};
-	private JComboBox<UserListBoxWrapper> userCombobox = new JComboBox<UserListBoxWrapper>();
+	private JComboBox userCombobox = new JComboBox();
 
 	/**
 	 * Launch the application.
@@ -123,6 +123,8 @@ public class TextMetricsTest extends JFrame {
 						if(u.getUserId() == selectedUser.getUserId() )
 							user = u;
 					userSeveritiesPanel.setUser(user);
+					System.out.println(user.getDetails().getUsername());
+					System.out.println(user.getProfile().getUserSeveritiesToProblems().toString());
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
