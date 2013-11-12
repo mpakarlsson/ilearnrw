@@ -1,6 +1,6 @@
 package ilearnrw.textclassification.english;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 import ilearnrw.prototype.application.Program;
 import ilearnrw.textclassification.Word;
@@ -26,7 +26,7 @@ public class EnglishWord extends Word {
         
         protected void syllabism(){
                 if(Program.getDictionary().containsKey(word)){
-                        Vector<String> data = Program.getDictionary().get(word);
+                        ArrayList<String> data = Program.getDictionary().get(word);
                         numSyllables = Integer.parseInt(data.get(1));
                 } else {
                         numSyllables = countVowels();
