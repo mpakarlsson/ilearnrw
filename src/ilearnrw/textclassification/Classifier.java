@@ -31,6 +31,9 @@ public class Classifier {
 	public double getDifficulty(){
 		return this.getAgeFK()/100+userProblemsToText.getSDW()/text.getNumberOfWords()+this.getLSI();
 	}
+	public String getDifficultyToString(){
+		return ""+this.getAgeFK()+"/"+100+"+"+userProblemsToText.getSDW()+"/"+text.getNumberOfWords()+"+"+this.getLSI();
+	}
 	
 	/*
 	 * Flesch–Kincaid
@@ -101,7 +104,7 @@ public class Classifier {
 	}
 	
 	private double getSC(){
-		return (text.getNumberOfParagraphs() / text.getNumberOfWords()) * 10;
+		return ((double)text.getNumberOfParagraphs() / text.getNumberOfWords()) * 10;
 	}
 	
 	

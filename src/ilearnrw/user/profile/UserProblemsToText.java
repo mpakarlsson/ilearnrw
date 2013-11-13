@@ -67,6 +67,7 @@ public class UserProblemsToText implements Serializable {
 			int appearences = entry.getValue();
 			wprobs.insertWord(w);
 			ArrayList<WordProblemInfo> probs = wprobs.getMatchedProbs();
+			SDW = 0;
 			for (WordProblemInfo x : probs){
 				double t = this.updateValue(x.getPosI(), x.getPosJ(), entry.getValue());
 				if (!wordsWeights.containsKey(w)){

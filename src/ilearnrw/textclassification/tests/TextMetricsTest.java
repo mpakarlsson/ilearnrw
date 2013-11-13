@@ -29,6 +29,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 public class TextMetricsTest extends JFrame {
@@ -92,6 +93,13 @@ public class TextMetricsTest extends JFrame {
 	 */
 	public TextMetricsTest() {
 
+		try { 
+	        UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"); 
+	    } 
+	    catch(Exception e){ 
+	    }
+		
+		
 		/*Fill the user ComboBox*/
 		try {
 			for( User u : mUserStore.getAllUsers() )
@@ -238,31 +246,35 @@ public class TextMetricsTest extends JFrame {
 
 		res = res + "<br>Longest Sentence Length:"+txt.getLongestSentenceLength();
 
-		res = res + "<br>Average Words per Sentence:"+txt.getWordsPerSentence();
+		res = res + "<br>Average Words per Sentence:"+String.format("%.2f",txt.getWordsPerSentence());
 
-		res = res + "<br>Average Syllables per Word:"+txt.getSyllablesPerWord();
+		res = res + "<br>Average Syllables per Word:"+String.format("%.2f",txt.getSyllablesPerWord());
 
-		res = res + "<br>Average Word Length:"+txt.getAverageWordLength();
+		res = res + "<br>Average Word Length:"+String.format("%.2f",txt.getAverageWordLength());
 
-		res = res + "<br>Average Longest Word Length:"+txt.getAverageLongestWordLength();
+		res = res + "<br>Average Longest Word Length:"+String.format("%.2f",txt.getAverageLongestWordLength());
 		
 		res = res + "<br><br>Readability Tests<br>";
 
-		res = res + "<br>Flesch:"+txt.flesch();
+		res = res + "<br>Flesch:"+String.format("%.2f",txt.flesch());
 
-		res = res + "<br>Flesch-Kincaid:"+txt.fleschKincaid();
+		res = res + "<br>Flesch-Kincaid:"+String.format("%.2f",txt.fleschKincaid());
 
-		res = res + "<br>Automated:"+txt.automated();
+		res = res + "<br>Automated:"+String.format("%.2f",txt.automated());
 		
-		res = res + "<br>Coleman-Liau:"+txt.colemanLiau();
+		res = res + "<br>Coleman-Liau:"+String.format("%.2f",txt.colemanLiau());
 
-		res = res + "<br>SMOG:"+txt.smog();
+		res = res + "<br>SMOG:"+String.format("%.2f",txt.smog());
 		
-		res = res + "<br>Gunning FOG:"+txt.gunningFog();
+		res = res + "<br>Gunning FOG:"+String.format("%.2f",txt.gunningFog());
 		
-		res = res + "<br>Dale-Chall:"+txt.daleChall();
+		res = res + "<br>Dale-Chall:"+String.format("%.2f",txt.daleChall());
 		
-		res = res + "<br>iLearnRW:"+cls.getDifficulty();
+		res = res + "<br>  --------------------";
+		
+		res = res + "<br>Formula:"+cls.getDifficultyToString();
+		
+		res = res + "<br>iLearnRW:"+String.format("%.2f",cls.getDifficulty());
 		
 		HashMap<Word, Integer> hs = txt.getWordsFreq();
 		

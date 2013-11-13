@@ -186,8 +186,12 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
             	c.setBackground(new Color(170, 255-20*((12*multi[row][column])/sumsMax()), 255-((12*multi[row][column])/sumsMax())));                        
             else if (multi[row][column]==-1)
             	c.setBackground(Color.white); 
-            else
-            	c.setBackground(new Color(170, 255-20*((12*multi[row][column])/matrixMax()), 255-((12*multi[row][column])/matrixMax())));                        
+            else{
+            	if (matrixMax() == 0)
+            		c.setBackground(new Color(170, 255-20*((12*multi[row][column])/1), 255-((12*multi[row][column])/1)));
+            	else
+            		c.setBackground(new Color(170, 255-20*((12*multi[row][column])/matrixMax()), 255-((12*multi[row][column])/matrixMax())));
+            	}                     
 
             return c;
         };
