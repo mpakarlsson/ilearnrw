@@ -1,39 +1,39 @@
 {
   "problemsIndex": [
     {
-      "URI": "Syllable Division",
+      "URI": "Syllable division",
       "type": {
-        "url": "syllable division"
+        "url": "Syllable division"
       }
     },
     {
-      "URI": "Consonants",
+      "URI": "Vowel sounds",
       "type": {
-        "url": "phonemes"
+        "url": "Vowel sounds"
       }
     },
     {
-      "URI": "Vowels",
+      "URI": "Suffixing",
       "type": {
-        "url": "phonemes"
-      }
-    },
-    {
-      "URI": "Derivational",
-      "type": {
-        "url": "suffixing"
-      }
-    },
-    {
-      "URI": "Inflectional/Grammatical",
-      "type": {
-        "url": "suffixing"
+        "url": "Suffixing"
       }
     },
     {
       "URI": "Prefixing",
       "type": {
-        "url": "prefixing"
+        "url": "Prefixing"
+      }
+    },
+    {
+      "URI": "Phon-Graph",
+      "type": {
+        "url": "Phon-Graph"
+      }
+    },
+    {
+      "URI": "Letter Patterns",
+      "type": {
+        "url": "Letter Patterns"
       }
     }
   ],
