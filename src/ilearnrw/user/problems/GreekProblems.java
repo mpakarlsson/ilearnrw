@@ -201,9 +201,9 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 				problemDefinitionIndex.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH, 
 						new String[]{"ος", "ο", "ας", "α", "ης", "η", "α", "η", "ο"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH, 
-						new String[]{"ος", "ο", "ας", "α", "ης", "η", "α", "η", "ο"}, problemIndexPosition, i++);
+						new String[]{"οι", "ους", "ες", "εις", "α"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH, 
-						new String[]{"ου", "ων", "", "ες", "ων", "εις", "εων", "ες", "ών", "", "ων", "ου", "ων"}, problemIndexPosition, i++);
+						new String[]{"ου", "ων", "ες", "ων", "εις", "εων", "ες", "ών", "ων", "ου", "ων"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH, 
 						new String[]{"ες", "ε", "άς", "ά", "ούς", "ού", "ού", "ι", "ον", "ος", "ας", "α", "υ"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH, 

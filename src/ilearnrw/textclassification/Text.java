@@ -13,13 +13,14 @@ public class Text implements TextAPI{
 	private LanguageCode lc;
 
 	private int numberOfTotalWords, numberOfDistinctWords, numberOfSentences, numberOfSyllables, numberOfBigSentences,
-		longestWordLength, longestSentenceLength, numberOfPolysyllabicWords, numberOfLettersAndNumbers;
+		longestWordLength, longestSentenceLength, numberOfPolysyllabicWords, numberOfLettersAndNumbers, numberOfParagraphs;
 	private double averageWordLength, averageLongestWordLength;
 	
 	public Text(String text, LanguageCode lc){
 		this.lc = lc;
 		this.text = text;
 		splitSentences();
+		calculateParagraphs();
 		wordsFreq = new HashMap<Word, Integer>();
 		metrics();
 	}
@@ -68,6 +69,10 @@ public class Text implements TextAPI{
 		return numberOfLettersAndNumbers;
 	}
 
+	public int getNumberOfParagraphs(){
+		return numberOfParagraphs;
+	}
+
 	public double getWordsPerSentence(){
 		return (double)numberOfTotalWords/numberOfSentences;
 	}
@@ -89,12 +94,16 @@ public class Text implements TextAPI{
 	}
 	
 	private void splitSentences(){
-		//question: ´εχω αλλαγή πρότασης στα (...) και (:) ?
 		String tmp[] = text.trim().split("((\\.)*(\\.)\\s)|((\\!)*(\\!)\\s)|((\\;)*(\\;)\\s)|((\\?)*(\\?)\\s)");
 		sentences = new Sentence[tmp.length];
 		for (int i=0;i<tmp.length; i++){
 			sentences[i] = new Sentence(tmp[i], lc);
 		}
+	}
+	
+	private void calculateParagraphs(){
+		String tmp[] = text.trim().split("((\\\n)*(\\\n)\\s)");
+		numberOfParagraphs = tmp.length;
 	}
 	
 	private void metrics(){

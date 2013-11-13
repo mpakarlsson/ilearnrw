@@ -124,8 +124,6 @@ public class TextMetricsTest extends JFrame {
 						if(u.getUserId() == selectedUser.getUserId() )
 							user = u;
 					userSeveritiesPanel.setUser(user);
-					System.out.println(user.getDetails().getUsername());
-					System.out.println(user.getProfile().getUserSeveritiesToProblems().toString());
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
@@ -180,7 +178,6 @@ public class TextMetricsTest extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				String str = textPanel.getText();
 				txt = new Text(str, lc);
-				textPanel.setResultsText(testTextMetrics());
 				if (firstTime){
 					runTheClassifier();
 					heatMapPanel.draw();
@@ -192,6 +189,7 @@ public class TextMetricsTest extends JFrame {
 					heatMapPanel.draw();
 					heatMapPanel.test();
 				}
+				textPanel.setResultsText(testTextMetrics());
 			}
 		});
 		toolBar.add(goButton);
@@ -220,7 +218,9 @@ public class TextMetricsTest extends JFrame {
 	private String testTextMetrics(){
 		String res = "<html> <p style=\"font-size:10px; font-weight:bold;\">";
 		
-		res = res + "Number of sentences:"+txt.getNumberOfSentences();
+		res = res + "Number of paragraphs:"+txt.getNumberOfParagraphs();
+		
+		res = res + "<br>Number of sentences:"+txt.getNumberOfSentences();
 
 		res = res + "<br>Number of words:"+txt.getNumberOfWords();
 		
@@ -261,6 +261,8 @@ public class TextMetricsTest extends JFrame {
 		res = res + "<br>Gunning FOG:"+txt.gunningFog();
 		
 		res = res + "<br>Dale-Chall:"+txt.daleChall();
+		
+		res = res + "<br>iLearnRW:"+cls.getDifficulty();
 		
 		HashMap<Word, Integer> hs = txt.getWordsFreq();
 		

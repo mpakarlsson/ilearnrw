@@ -44,6 +44,10 @@ public class UserTextCounters implements Serializable {
 		counters[i][j]++;
 	}
 
+	public void increaseValue(int i, int j, int val) {
+		counters[i][j] += val;
+	}
+
 	public int getValue(int i, int j) {
 		return counters[i][j];
 	}

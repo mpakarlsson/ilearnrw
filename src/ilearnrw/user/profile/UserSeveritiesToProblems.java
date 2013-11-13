@@ -40,7 +40,6 @@ public class UserSeveritiesToProblems implements Serializable {
 		GreekProblems greekProbs = (GreekProblems)handler.fromJson(GreekProblems.class);
 		//System.out.println(greekProbs.getAllProblems().toString());
 		
-		
 		//GreekProblems greekProbs = new GreekProblems();
 		initialize(greekProbs.getAllProblems());
 		Random rand = new Random();
