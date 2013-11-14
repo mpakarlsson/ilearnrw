@@ -14,6 +14,7 @@ import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.prototype.application.ConsoleMenu.IConsoleMenuAction;
 import ilearnrw.textclassification.english.EnglishWord;
 import ilearnrw.textclassification.greek.GreekWord;
+import ilearnrw.user.problems.EnglishProblems;
 
 import ilearnrw.datalogger.IProfileAccessUpdater;
 import ilearnrw.datalogger.ILoginProvider;
@@ -241,7 +242,7 @@ public class Program {
 			EnglishWord d5 = new EnglishWord("agriculture");
 			EnglishWord d6 = new EnglishWord("hedge");
 			
-			
+			EnglishProblems pr = new EnglishProblems();
 			ConsoleMenu mnu = new ConsoleMenu(System.out, System.in, "iLearnRW - Main menu", 
 					new IConsoleMenuAction[] {
 						new DatabaseManager("Manage datalogger database"),

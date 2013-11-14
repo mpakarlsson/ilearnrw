@@ -181,11 +181,6 @@ public class EnglishWord extends Word {
     				}
     			}
     			
-    			
-    			
-    			int buildToPosition = positionWord + longestItem;
-    			int j = 0;
-    			boolean applied = false;
     			String longestWord = "";
     			int currWordLen = 0;
     			
@@ -198,7 +193,6 @@ public class EnglishWord extends Word {
     						currWordLen = currWord.length();
     						longestWord = w;
     					}
-    					//System.out.println(currWord);
     				}
     			}
     			if(!longestWord.isEmpty()){
