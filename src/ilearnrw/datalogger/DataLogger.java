@@ -227,7 +227,7 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 
 	@Override
 	public boolean setUserProblemMatrix(UserSeveritiesToProblems problemsMatrix) {
-		mUser.getProfile().setProblemsMatrix(problemsMatrix);
+		mUser.getProfile().setUserSeveritiesToProblems(problemsMatrix);
 		setDirty();
 		return true;
 	}

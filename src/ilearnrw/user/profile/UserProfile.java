@@ -49,8 +49,8 @@ public class UserProfile implements Serializable {
 		return userSeveritiesToProblems;
 	}
 
-	public void setProblemsMatrix(UserSeveritiesToProblems problemsMatrix) {
-		this.userSeveritiesToProblems = problemsMatrix;
+	public void setUserSeveritiesToProblems(UserSeveritiesToProblems userSeveritiesToProblems) {
+		this.userSeveritiesToProblems = userSeveritiesToProblems;
 	}
 
 	public UserPreferences getPreferences() {
