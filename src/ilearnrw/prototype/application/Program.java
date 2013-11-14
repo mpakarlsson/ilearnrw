@@ -222,27 +222,15 @@ public class Program {
 			sDataLogger.loadUserStore(databaseFile);
 			sDataLogger.loadUserActions(databaseFile);
 			
-			ArrayList<EnglishWord> ew = new ArrayList<EnglishWord>();
-			Iterator it = sDictionary.entrySet().iterator();
-			while(it.hasNext()){
-				Map.Entry pairs = (Map.Entry<String, ArrayList<String>>)it.next();
-				ArrayList<String> list = (ArrayList<String>)pairs.getValue();
-				
-				ew.add(new EnglishWord(list.get(0)));
-			}
+//			ArrayList<EnglishWord> ew = new ArrayList<EnglishWord>();
+//			Iterator it = sDictionary.entrySet().iterator();
+//			while(it.hasNext()){
+//				Map.Entry pairs = (Map.Entry<String, ArrayList<String>>)it.next();
+//				ArrayList<String> list = (ArrayList<String>)pairs.getValue();
+//				
+//				ew.add(new EnglishWord(list.get(0)));
+//			}
 			
-			//GreekWord a = new GreekWord("Ακούσατε");
-			EnglishWord b = new EnglishWord("defend");
-			EnglishWord b2 = new EnglishWord("African-American");
-			EnglishWord c = new EnglishWord("youth"); // how to solve?
-			EnglishWord d = new EnglishWord("abstractest");
-			EnglishWord d2 = new EnglishWord("Christianity");
-			EnglishWord d3 = new EnglishWord("Jew");
-			EnglishWord d4 = new EnglishWord("PC");
-			EnglishWord d5 = new EnglishWord("agriculture");
-			EnglishWord d6 = new EnglishWord("hedge");
-			
-			EnglishProblems pr = new EnglishProblems();
 			ConsoleMenu mnu = new ConsoleMenu(System.out, System.in, "iLearnRW - Main menu", 
 					new IConsoleMenuAction[] {
 						new DatabaseManager("Manage datalogger database"),

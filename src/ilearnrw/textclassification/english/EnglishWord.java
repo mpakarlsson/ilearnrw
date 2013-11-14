@@ -37,7 +37,7 @@ public class EnglishWord extends Word {
                     else
                     	syllables = syllabify(word, ipa);
 
-                    System.out.println(Arrays.asList(syllables).toString());
+                    //System.out.println(Arrays.asList(syllables).toString());
             } else {
                     numSyllables = countVowels();
             }
