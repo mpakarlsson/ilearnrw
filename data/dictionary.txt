@@ -26,7 +26,7 @@ Chinese|Chinese|2|32334|tʃaɪ.ˈniːz
 Chinese's|Chinese|2|32334|tʃaɪ.ˈniːzɪz 
 Christian|Christian|2|30726|ˈkrɪs.tʃən 
 Christian's|Christian|2|30726|ˈkrɪs.tʃənz 
-Christianity|Christianity|5|6312|ˌkrɪ.stɪ.ˈæ.nɪ.ti 
+Christianity|Christianity|5|6312|ˌkrɪ.stɪ.ˈæ.nɪ.tɪ 
 Christians|Christian|2|30726|ˈkrɪs.tʃənz 
 Christmas|Christmas|2|28046|ˈkrɪ.sməs 
 Christmas's|Christmas|2|28046|ˈkrɪ.sməsɪz 
@@ -6820,7 +6820,7 @@ healing|heal|2|5797|ˈhiːl.ɪŋ
 heals|heal|1|5797|hiːlz 
 health|health|1|117762|helθ 
 health's|health|1|117762|ˈhelθs 
-health-care|health-care|1||ˈhelθˌker 
+health-care|health-care|1|5001|ˈhelθˌker 
 healthier|healthy|2|26009|ˈhel.θɪə 
 healthiest|healthy|2|5001|ˈhel.θɪɪst 
 healthily|healthy|3|5001|ˈhel.θɪ.li 
@@ -9192,7 +9192,6 @@ mystery's|mystery|3|14211|ˈmɪ.stə.riz
 myth|myth|1|10161|mɪθ 
 myth's|myth|1|10161|mɪθs 
 myths|myth|1|10161|mɪθs 
-n't|n't|1||nt 
 nail|nail|1|8255|neɪl 
 nail's|nail|1|8255|neɪlz 
 nailed|nail|1|8255|neɪld 
@@ -9469,7 +9468,7 @@ nutrients|nutrient|2|5426|ˈnjuː.trɪənts
 nuts|nut|1|9605|nʌts 
 nutted|nut|2|9605|ˈnʌ.tɪd 
 nutting|nut|2|9605|ˈnʌt.ɪŋ 
-o'clock|o'clock|2||ə.ˈklɒk 
+o'clock|o'clock|2|5001|ə.ˈklɒk 
 oak|oak|1|5938|əʊk 
 oak's|oak|1|5938|ˈoks 
 oaks|oak|1|5938|əʊks 

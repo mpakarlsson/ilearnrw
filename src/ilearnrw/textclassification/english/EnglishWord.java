@@ -1,6 +1,7 @@
 package ilearnrw.textclassification.english;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 
 import ilearnrw.prototype.application.Program;
@@ -35,9 +36,8 @@ public class EnglishWord extends Word {
                     	syllables = new String[] {"<"};
                     else
                     	syllables = syllabify(word, ipa);
-                    
-                    
-                    System.out.println(syllables);
+
+                    System.out.println(Arrays.asList(syllables).toString());
             } else {
                     numSyllables = countVowels();
             }
@@ -102,14 +102,15 @@ public class EnglishWord extends Word {
             return numVowels;
     }
     
-    	private String[] syllabify(String word, String phonetics){
-    	Map<String, ArrayList<String>> ssl = Program.getSoundToSpellingList();
+	private String[] syllabify(String word, String phonetics){
+    	Map<String, ArrayList<String>> ssl = Program.getSoundToSpellingList();    	
     	String tempPhon = phonetics;
     	String tempWord = "";
-    	int positionPhonetics = 0;
-    	int positionWord = 0;
-    	int numHyphens = 0;
-
+    	int positionWord = 0, numHyphens = 0;
+    	if(word.contains("-")){
+    		return word.split("-");
+    	}
+    	
     	tempPhon = tempPhon.replace(".", "-");
     	/**
 		 * Remove stress symbols
@@ -124,30 +125,59 @@ public class EnglishWord extends Word {
     		
     		if(c.trim().isEmpty()) continue;
     		
-    		if(c.equals("d") && i+1<len){
-    			String nextChar = Character.toString(tempPhon.charAt(i+1));
-    			
-    			// ʒ - http://www.fileformat.info/info/unicode/char/0292/index.htm
-    			if(nextChar.equals("\u0292"))
-    				c = c.concat(nextChar);
-    		}
+    		int inc = c.length();
+    		c = checkNextCharacter(c, tempPhon, i);
+    		inc = c.length() - inc;
+    		i += inc;
+    		
     		
     		if(ssl.containsKey(c)){
     			ArrayList<String> symbolItems = ssl.get(c);
     			ArrayList<String> items = new ArrayList<String>();
+    			
+    			ArrayList<String> words = new ArrayList<String>();
+    			
     			int longestItem = 0;
     			String largestItem = "";
     			for(String item : symbolItems){
     				int length = item.length();
-    				if(positionWord + length < word.length()){
-	    				String part = (word.replace("-", "")).substring(positionWord, positionWord + length);
-	        				if(item.equals(part.toLowerCase())){
-	        					items.add(item);
-	        					if(length > longestItem){
-	        						longestItem = length;
-	        						largestItem = item;
-	    						}
-	        				}
+    				if(positionWord + length - 1 < word.length()){
+	    				String part = (word.replace("-", "")).substring(positionWord, positionWord + length).toLowerCase();
+	    				String previousPart = part;
+	    				if(positionWord!=0)
+	    					previousPart = (word.replace("-", "")).substring(positionWord - 1, positionWord + length - 1).toLowerCase();
+        				
+	    				if(item.equals(part)){
+	    					words.add(tempWord.concat(item));
+        					items.add(item);
+        					if(length > longestItem){
+        						longestItem = length;
+        						largestItem = item;
+    						}
+        				} else if(item.equals(previousPart)){        					
+        					int pos = tempWord.length();
+        					for(int k = tempWord.length() - 1; k>0; k--){
+        						char ch = tempWord.charAt(k);
+        						if(ch != '-'){
+        							pos = k;
+        							break;
+        						}
+        					}
+        					
+        					String start = tempWord.substring(0, pos);
+        					String end = "";
+        					try{
+        						end = tempWord.substring(pos+item.length()-1, tempWord.length());
+        					}catch(Exception e){
+        						end = tempWord.substring(pos, tempWord.length());
+        					}
+        					words.add(start.concat(end).concat(item));
+        					items.add(item);
+        					if(length > longestItem){
+        						longestItem = length;
+        						largestItem = item;
+    						}
+        				}
     				}
     			}
     			
@@ -156,8 +186,26 @@ public class EnglishWord extends Word {
     			int buildToPosition = positionWord + longestItem;
     			int j = 0;
     			boolean applied = false;
+    			String longestWord = "";
+    			int currWordLen = 0;
     			
-    			while(j<items.size()){
+    			for(String w : words){
+    				String currWord = w.replace("-", "");
+    				String correctWord = (word.replace("-", "")).substring(0, currWord.length()).toLowerCase();
+    				
+    				if(currWord.equals(correctWord)){
+    					if(currWord.length() > currWordLen){
+    						currWordLen = currWord.length();
+    						longestWord = w;
+    					}
+    					//System.out.println(currWord);
+    				}
+    			}
+    			if(!longestWord.isEmpty()){
+	    			tempWord = longestWord;
+	    			positionWord += (currWordLen - positionWord);
+    			}
+    			/*while(j<items.size()){
     				String part = items.get(j);
     				if(part.equals(largestItem)){
     					tempWord = tempWord.concat(part);
@@ -183,7 +231,7 @@ public class EnglishWord extends Word {
 //        					j = -1;
 //        				}
     				j++;
-    			}
+    			}*/
     			
     		} else {
     			tempWord = tempWord.concat(c);
@@ -207,5 +255,64 @@ public class EnglishWord extends Word {
     			max = list.get(i).length();
     	}
     	return max;
+    }
+    
+    private String checkNextCharacter(String s, String word, int position){
+    	if(position+1 >= word.length())
+    		return s;
+    	
+    	String nextChar = Character.toString(word.charAt(position+1));
+    	
+    	// tʃ
+    	if(s.equals("t") && nextChar.equals("\u0283")){ return s.concat(nextChar); }
+    	// dʒ
+    	else if(s.equals("d") && nextChar.equals("\u0292")){ return s.concat(nextChar); }
+    	// iː
+    	else if(s.equals("i") && nextChar.equals("\u02D0")){ return s.concat(nextChar); }
+    	// uː
+    	else if(s.equals("u") && nextChar.equals("\u02D0")){ return s.concat(nextChar); }
+    	// eɪ
+    	else if(s.equals("e") && nextChar.equals("\u026A")){ return s.concat(nextChar); }
+    	// oʊ
+    	else if(s.equals("o") && nextChar.equals("\u028A")){ return s.concat(nextChar); }
+    	// ɔː
+    	else if(s.equals("\u0254") && nextChar.equals("\u02D0")){ return s.concat(nextChar); }
+    	// ɑː
+    	else if(s.equals("\u0251") && nextChar.equals("\u02D0")){ return s.concat(nextChar); }
+    	// aɪ
+    	else if(s.equals("a") && nextChar.equals("\u026A")){ return s.concat(nextChar); }
+    	// ɔɪ
+    	else if(s.equals("\u0254") && nextChar.equals("\u026A")){ return s.concat(nextChar); }
+    	// aʊ
+    	else if(s.equals("a") && nextChar.equals("\u028A")){ return s.concat(nextChar); }
+    	// ɑr
+    	else if(s.equals("\u0251") && nextChar.equals("r")){ return s.concat(nextChar); }
+    	// ɜr
+    	else if(s.equals("\u025C") && nextChar.equals("r")){ return s.concat(nextChar); }
+    	// ɛər
+    	else if(s.equals("\u025B") && nextChar.equals("\u0259")){
+    		if(position+2 >= word.length())
+    			return s;
+    		
+    		String n2Char = Character.toString(word.charAt(position + 2));
+    		if(n2Char.equals("r")){ return s.concat(nextChar).concat(n2Char); }
+    	} 
+    	// ɪər
+    	else if(s.equals("\u026A") && nextChar.equals("\u0259")){
+    		if(position+2 >= word.length())
+    			return s;
+    		
+    		String n2Char = Character.toString(word.charAt(position + 2));
+    		if(n2Char.equals("r")){ return s.concat(nextChar).concat(n2Char); }
+    	} 
+    	// juː
+    	else if(s.equals("j") && nextChar.equals("u")){
+    		if(position+2 >= word.length())
+    			return s;
+    		
+    		String n2Char = Character.toString(word.charAt(position + 2));
+    		if(n2Char.equals("\u02D0")){ return s.concat(nextChar).concat(n2Char); }
+    	}
+    	return s;
     }
 }

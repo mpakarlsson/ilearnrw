@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
@@ -86,6 +87,9 @@ public class Program {
 		
 		// Found at: http://en.wikipedia.org/wiki/English_orthography#Spelling_patterns
 		// some entries have been left out after discussing with language experts (e.g. "in some dialects"-items)
+		
+		ipa.put("e", new ArrayList<String>(Arrays.asList(new String[] {"e", "ea"})));
+		
 		
 		// Consonants
 		ipa.put("p", new ArrayList<String>(Arrays.asList(new String[] {"p", "pp", "gh"})));
@@ -216,15 +220,25 @@ public class Program {
 			// Initialize the DataLogger object
 			sDataLogger.loadUserStore(databaseFile);
 			sDataLogger.loadUserActions(databaseFile);
+			
+			ArrayList<EnglishWord> ew = new ArrayList<EnglishWord>();
+			Iterator it = sDictionary.entrySet().iterator();
+			while(it.hasNext()){
+				Map.Entry pairs = (Map.Entry<String, ArrayList<String>>)it.next();
+				ArrayList<String> list = (ArrayList<String>)pairs.getValue();
+				
+				ew.add(new EnglishWord(list.get(0)));
+			}
+			
 			//GreekWord a = new GreekWord("Ακούσατε");
 			EnglishWord b = new EnglishWord("defend");
 			EnglishWord b2 = new EnglishWord("African-American");
-			EnglishWord c = new EnglishWord("youth");
+			EnglishWord c = new EnglishWord("youth"); // how to solve?
 			EnglishWord d = new EnglishWord("abstractest");
 			EnglishWord d2 = new EnglishWord("Christianity");
 			EnglishWord d3 = new EnglishWord("Jew");
 			EnglishWord d4 = new EnglishWord("PC");
-			EnglishWord d5 = new EnglishWord("agriculture's");
+			EnglishWord d5 = new EnglishWord("agriculture");
 			EnglishWord d6 = new EnglishWord("hedge");
 			
 			
