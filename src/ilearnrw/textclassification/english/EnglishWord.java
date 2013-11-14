@@ -133,31 +133,39 @@ public class EnglishWord extends Word {
     		}
     		
     		if(ssl.containsKey(c)){
-    			ArrayList<String> availableItems = ssl.get(c);
-    			ArrayList<String> workingSets = new ArrayList<String>();
+    			ArrayList<String> symbolItems = ssl.get(c);
+    			ArrayList<String> items = new ArrayList<String>();
     			int longestItem = 0;
-    			
-    			for(String s : availableItems){
-    				String diff = tempWord.replace("-", "");
-    				//String subWord = word.substring(position - numHyphens, position + s.length() - numHyphens);
-//        				if(s.equals(subWord.toLowerCase())){
-//        					workingSets.add(s);
-//        					if(s.length() > longestItem)
-//        						longestItem = s.length();
-//        					
-//        				}
+    			String largestItem = "";
+    			for(String item : symbolItems){
+    				int length = item.length();
+    				if(positionWord + length < word.length()){
+	    				String part = (word.replace("-", "")).substring(positionWord, positionWord + length);
+	        				if(item.equals(part.toLowerCase())){
+	        					items.add(item);
+	        					if(length > longestItem){
+	        						longestItem = length;
+	        						largestItem = item;
+	    						}
+	        				}
+    				}
     			}
     			
-    			//int buildPosition = position + longestItem;
+    			
+    			
+    			int buildToPosition = positionWord + longestItem;
     			int j = 0;
     			boolean applied = false;
     			
-    			while(j<workingSets.size()){
-    				String part = workingSets.get(j);
-    				if(part.length() == longestItem){
+    			while(j<items.size()){
+    				String part = items.get(j);
+    				if(part.equals(largestItem)){
     					tempWord = tempWord.concat(part);
+    					
     					if(c.length()>1)
     						i+=c.length()-1;
+    					
+    					positionWord += longestItem;
     					applied = true;
     				}
     				
@@ -179,12 +187,13 @@ public class EnglishWord extends Word {
     			
     		} else {
     			tempWord = tempWord.concat(c);
-    			
+    			positionWord++;
     			// Hyphen '-'
-    			if(c.equals("\u002D"))
+    			if(c.equals("\u002D")){
     				numHyphens++;
+    				positionWord--;
+    			}
     		}
-    		//position++;
     	}
     	
     	return tempWord.split("-");

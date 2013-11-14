@@ -24,7 +24,7 @@ public class Program {
 	private static DataLogger sDataLogger = new DataLogger();
 	private static final Map<String, ArrayList<String>> sDictionary = LoadDictionary();
 	private static final ArrayList<String> sDaleChallList = LoadDaleChallList();
-	private static final Map<String, ArrayList<String>> sSoundToSpellingConsonant = SetupConsonantSoundToSpelling();
+	private static final Map<String, ArrayList<String>> sSoundToSpelling = SetupSoundToSpelling();
 	
 	public static Map<String, ArrayList<String>> LoadDictionary(){
 		/**
@@ -81,7 +81,7 @@ public class Program {
 		return words;
 	}
 	
-	public static Map<String, ArrayList<String>> SetupConsonantSoundToSpelling(){
+	public static Map<String, ArrayList<String>> SetupSoundToSpelling(){
 		Map<String, ArrayList<String>> ipa = new HashMap<String, ArrayList<String>>();
 		
 		// Found at: http://en.wikipedia.org/wiki/English_orthography#Spelling_patterns
@@ -93,7 +93,8 @@ public class Program {
 		ipa.put("t", new ArrayList<String>(Arrays.asList(new String[] {"t", "tt", "ed", "pt", "th", "ct"})));
 		ipa.put("d", new ArrayList<String>(Arrays.asList(new String[] {"d", "dd", "ed", "dh"})));
 		ipa.put("ɡ", new ArrayList<String>(Arrays.asList(new String[] {"g", "gg", "gue", "gh"})));
-		ipa.put("k", new ArrayList<String>(Arrays.asList(new String[] {"c", "k", "ck", "ch", "cc", "qu", "cqu", "cu", "que", "kk", "kh", "q", "x"})));
+		ipa.put("k", new ArrayList<String>(Arrays.asList(new String[] {"c", "k", "ck", "ch", "cc", "qu", "cqu", "cu", "que", 
+																			"kk", "kh", "q", "x"})));
 		ipa.put("m", new ArrayList<String>(Arrays.asList(new String[] {"m", "mm", "mb", "mn", "mh", "gm", "chm"})));
 		ipa.put("n", new ArrayList<String>(Arrays.asList(new String[] {"n", "nn", "kn", "gn", "pn", "nh", "cn", "mn"})));
 		ipa.put("ŋ", new ArrayList<String>(Arrays.asList(new String[] {"ng", "n", "ngue"})));
@@ -104,7 +105,8 @@ public class Program {
 		ipa.put("ð", new ArrayList<String>(Arrays.asList(new String[] {"th", "the"})));
 		ipa.put("s", new ArrayList<String>(Arrays.asList(new String[] {"s", "c", "ss", "sc", "st", "ps", "cc", "se", "ce"})));
 		ipa.put("z", new ArrayList<String>(Arrays.asList(new String[] {"s", "z", "x", "zz", "ss", "ze"})));
-		ipa.put("ʃ", new ArrayList<String>(Arrays.asList(new String[] {"sh", "ti", "ci", "ssi", "si", "ss", "ch", "s", "sci", "ce", "sch", "sc"})));
+		ipa.put("ʃ", new ArrayList<String>(Arrays.asList(new String[] {"sh", "ti", "ci", "ssi", "si", "ss", "ch", "s", "sci", "ce", 
+																			"sch", "sc"})));
 		ipa.put("ʒ", new ArrayList<String>(Arrays.asList(new String[] {"si", "s", "g", "z", "j", "ti"})));
 		ipa.put("tʃ", new ArrayList<String>(Arrays.asList(new String[] {"ch", "t", "tch", "ti", "c", "cc", "tsch", "cz"})));
 		ipa.put("dʒ", new ArrayList<String>(Arrays.asList(new String[] {"g", "j", "dg", "dge", "d", "di", "gi", "ge", "gg"})));
@@ -115,33 +117,48 @@ public class Program {
 		
 		
 		// Vowels
-		ipa.put("iː", new ArrayList<String>(Arrays.asList(new String[] {})));
-		ipa.put("ɪ", new ArrayList<String>(Arrays.asList(new String[] {"i", "y", "ui", "e", "ee", "ie", "o", "u", "a", "ei", "ee", "ia", "ea", "i...e", "ai", "ii", "oe"})));
-		ipa.put("uː", new ArrayList<String>(Arrays.asList(new String[] {})));
-		ipa.put("ʊ", new ArrayList<String>(Arrays.asList(new String[] {})));
-		ipa.put("eɪ", new ArrayList<String>(Arrays.asList(new String[] {})));
-		ipa.put("ə", new ArrayList<String>(Arrays.asList(new String[] {"a", "e", "o", "u", "ai", "ou", "eig", "y", "ah", "ough", "ae", "oi"})));
-		ipa.put("oʊ", new ArrayList<String>(Arrays.asList(new String[] {})));
-		ipa.put("ɛ", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("iː", new ArrayList<String>(Arrays.asList(new String[] {"e", "ea", "ee", "e...e", "ae", "ei", "i...e", "ie", "eo", "ie...e", 
+																			"ay", "ey", "i", "y", "oi", "ue", "ey", "a"})));
+		ipa.put("ɪ", new ArrayList<String>(Arrays.asList(new String[] {"i", "y", "ui", "e", "ee", "ie", "o", "u", "a", "ei", 
+																			"ee", "ia", "ea", "i...e", "ai", "ii", "oe"})));
+		ipa.put("uː", new ArrayList<String>(Arrays.asList(new String[] {"oo", "u", "o", "u...e", "ou", "ew", "ue", "o...e", "ui", "eu", "oeu", 
+																			"oe", "ough", "wo", "ioux", "ieu", "oup", "w", "u"})));
+		ipa.put("ʊ", new ArrayList<String>(Arrays.asList(new String[] {"oo", "u", "o", "oo...e", "or", "ou", "oul"})));
+		ipa.put("eɪ", new ArrayList<String>(Arrays.asList(new String[] {"a", "a...e", "aa", "ae", "ai", "ai...e", "aig", "aigh", "al", "ao", 
+																			"au", "ay", "e", "é", "e...e", "ae", "eg", "ei", "ei...e", "eig", 
+																			"eigh", "ee", "ée", "eh", "er", "es", "et", "ey", "ez", "ie", 
+																			"oeh", "ue", "uet"})));
+		ipa.put("ə", new ArrayList<String>(Arrays.asList(new String[] {"a", "e", "o", "u", "ai", "ou", "eig", "y", "ah", "ough", 
+																			"ae", "oi"})));
+		ipa.put("oʊ", new ArrayList<String>(Arrays.asList(new String[] {"o", "o...e", "oa", "ow", "ou", "oe", "oo", "eau", "oh", "ew", 
+																			"au", "aoh", "ough", "eo"})));
+		ipa.put("ɛ", new ArrayList<String>(Arrays.asList(new String[] {"e", "ea", "a", "ae", "ai", "ay", "ea...e", "ei", "eo", "ie", 
+																			"ieu", "u", "ue", "oe"})));
 		ipa.put("æ", new ArrayList<String>(Arrays.asList(new String[] { "a", "ai", "al", "au", "i"})));
-		ipa.put("ʌ", new ArrayList<String>(Arrays.asList(new String[] {})));
-		ipa.put("ɔː", new ArrayList<String>(Arrays.asList(new String[] {})));
-		ipa.put("ɒ", new ArrayList<String>(Arrays.asList(new String[] {})));
-		ipa.put("ɑː", new ArrayList<String>(Arrays.asList(new String[] {})));
-		ipa.put("aɪ", new ArrayList<String>(Arrays.asList(new String[] {})));
-		ipa.put("ɔɪ", new ArrayList<String>(Arrays.asList(new String[] {})));
-		ipa.put("aʊ", new ArrayList<String>(Arrays.asList(new String[] {})));
-		ipa.put("ɑr", new ArrayList<String>(Arrays.asList(new String[] {})));
-		ipa.put("ɛər", new ArrayList<String>(Arrays.asList(new String[] {})));
-		ipa.put("ɪər", new ArrayList<String>(Arrays.asList(new String[] {})));
-		ipa.put("ɜr", new ArrayList<String>(Arrays.asList(new String[] {})));
-		ipa.put("juː", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("ʌ", new ArrayList<String>(Arrays.asList(new String[] {"u", "o", "o...e", "eo", "ou", "oo", "wo"})));
+		ipa.put("ɔː", new ArrayList<String>(Arrays.asList(new String[] {"a", "au", "aw", "ough", "augh", "o", "oa", "oo", "al", "uo", 
+																			"u", "ao"})));
+		ipa.put("ɒ", new ArrayList<String>(Arrays.asList(new String[] {"o", "a", "eau", "ach", "au", "ou"})));
+		ipa.put("ɑː", new ArrayList<String>(Arrays.asList(new String[] {"a", "ah", "aa", "i"})));
+		ipa.put("aɪ", new ArrayList<String>(Arrays.asList(new String[] {"ae", "ai", "aie", "aille", "ais", "ay", "aye", "ei", "eigh", "ey", 
+																			"eye", "i", "i...e", "ia", "ie", "ic", "ig", "igh", "is", "oi",
+																			"ui", "uy", "uye", "y", "y...e", "ye"})));
+		ipa.put("ɔɪ", new ArrayList<String>(Arrays.asList(new String[] {"oi", "oy", "awy", "uoy", "oy...e", "eu"})));
+		ipa.put("aʊ", new ArrayList<String>(Arrays.asList(new String[] {"ou", "ow", "ough", "au", "ao"})));
+		ipa.put("ɑr", new ArrayList<String>(Arrays.asList(new String[] {"aar", "ar", "are", "arre", "ear", "er", "our", "uar", "arrh"})));
+		ipa.put("ɛər", new ArrayList<String>(Arrays.asList(new String[] {"aar", "aer", "air", "aire", "ar", "are", "ayer", "ayor", "ear", "eir", 
+																			"er", "ere", "err", "erre", "ey're", "e'er"})));
+		ipa.put("ɪər", new ArrayList<String>(Arrays.asList(new String[] {"ear", "eer", "eir", "eor", "ere", "ers", "e're", "ier", "iere", "ir" })));
+		ipa.put("ɜr", new ArrayList<String>(Arrays.asList(new String[] {"er", "or", "ur", "ir", "yr", "our", "ear", "err", "eur", "yrrh", 
+																			"ar", "oeu", "olo"})));
+		ipa.put("juː", new ArrayList<String>(Arrays.asList(new String[] {"u", "u...e", "eu", "ue", "iew", "eau", "ieu", "ueue", "ui", "ewe", 
+																			"ew"})));
 		
 		return ipa;
 	}
 	
 	public static Map<String, ArrayList<String>> getSoundToSpellingList(){
-		return sSoundToSpellingConsonant;
+		return sSoundToSpelling;
 	}
 	
 	public static Map<String, ArrayList<String>> getDictionary(){
@@ -200,15 +217,15 @@ public class Program {
 			sDataLogger.loadUserStore(databaseFile);
 			sDataLogger.loadUserActions(databaseFile);
 			//GreekWord a = new GreekWord("Ακούσατε");
-			//EnglishWord b = new EnglishWord("defend");
-			EnglishWord b = new EnglishWord("African-American");
-			//EnglishWord c = new EnglishWord("youth");
-			//EnglishWord d = new EnglishWord("abstractest");
-			//EnglishWord d2 = new EnglishWord("Christianity");
-			//EnglishWord d3 = new EnglishWord("Jew");
-			//EnglishWord d4 = new EnglishWord("PC");
-			//EnglishWord d5 = new EnglishWord("agriculture's");
-			//EnglishWord d6 = new EnglishWord("hedge");
+			EnglishWord b = new EnglishWord("defend");
+			EnglishWord b2 = new EnglishWord("African-American");
+			EnglishWord c = new EnglishWord("youth");
+			EnglishWord d = new EnglishWord("abstractest");
+			EnglishWord d2 = new EnglishWord("Christianity");
+			EnglishWord d3 = new EnglishWord("Jew");
+			EnglishWord d4 = new EnglishWord("PC");
+			EnglishWord d5 = new EnglishWord("agriculture's");
+			EnglishWord d6 = new EnglishWord("hedge");
 			
 			
 			ConsoleMenu mnu = new ConsoleMenu(System.out, System.in, "iLearnRW - Main menu", 
