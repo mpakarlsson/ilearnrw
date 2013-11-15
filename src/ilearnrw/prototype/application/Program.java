@@ -230,6 +230,7 @@ public class Program {
 //				
 //				ew.add(new EnglishWord(list.get(0)));
 //			}
+			EnglishProblems pr = new EnglishProblems();
 			
 			ConsoleMenu mnu = new ConsoleMenu(System.out, System.in, "iLearnRW - Main menu", 
 					new IConsoleMenuAction[] {

@@ -43,7 +43,7 @@
         "descriptions": [
           "Closed and Open syllables"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "X"
       },
       {
         "descriptions": [
@@ -85,181 +85,181 @@
         "descriptions": [
           "-ation"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "-otion"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "-ition"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "-ution"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "-action"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "-ection"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-iction"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-uction"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-ention"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-consonant le. -ble. Both as open and closed"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-consonant le. -fle. Both as open and closed"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-consonant le. -ple. Both as open and closed"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-consonant le. -tle. Both as open and closed"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-consonant le. -dle. Both as open and closed"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-consonant le. -kle. Both as open and closed"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-consonant le. -cle. Both as open and closed"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-consonant le. -gle. Both as open and closed"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-consonant le. -zle. Both as open and closed"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-consonant le. -stle. Both as open and closed"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-asion"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-usion"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-ision"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-osion"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-mission"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-ession"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-ussion"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-version"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-ulsion"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "-cian"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
       {
         "descriptions": [
         "3 syllables or higher"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "X"
       },
     ], 
     [
@@ -267,433 +267,433 @@
         "descriptions": [
           "i"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "a"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "o"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "i"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "e"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "u"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "vowel-r (ar)"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ee"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "or"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "y"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "y"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ie"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "i-consonant-e"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
         "a-consonant-e"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ay"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "er"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "oo"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "oo"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "o-consonant-e"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "u-consonant-e"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ea"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ea"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ou"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "igh"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "o"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ice"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ai"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ow"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ow"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "oa"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "o"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "e-consonant-e"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ir"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ur"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "wor"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "oi"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "oy"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ie"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "au"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "aw"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ore"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ew"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ue"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ear"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "y"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "y-consonant-e"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ou"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ei"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ei"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "eigh"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "our"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ar"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ui"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ui"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ey"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ey"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "oe"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "eu"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "eur"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ine"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ine"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ine"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "air"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "are"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ear"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ear"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "eer"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ere"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "ure"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "oor"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "our"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
           "a"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "CONTAINS"
       },    
     ], 
     [
@@ -1069,241 +1069,241 @@
         "descriptions": [
           "un-"
         ],
-        "problemType": "IS_NOUN_OR_ADJ_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
           "mis-"
         ],
-        "problemType": "IS_NOUN_OR_ADJ_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
           "under-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
           "over-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
           "ad-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
           "change rule, abb"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, acc"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, aff"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, agg"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, all"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, ann"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, app"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, arr"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, ass"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, att"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "con-"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
           "change rule, coll"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, corr"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, comm"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "in-"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
           "change rule, ill"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, imm"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, irr"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, im-"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, ir-"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "sub-"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
           "change rule, succ"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, suff"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, sugg"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, supp"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, summ"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, surr"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "dis-"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
           "change rule, diff"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "ob-"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
           "change rule, off"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, opp"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "change rule, occ"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "ex-"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
           "change rule, eff"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
     ], 
     [
@@ -1311,343 +1311,343 @@
         "descriptions": [
           "t"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "tt"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "-ed"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "p"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "pp"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "n"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "nn"
         ],
-        "problemType": "IS_PARTICIPLE_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "s"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "ss"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "c"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "d"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "dd"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "-ed"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "h"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "r"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "rr"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "m"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "mm"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "b"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "bb"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "l"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "ll"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "f"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "ff"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "ph"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "g"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "gg"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "k"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "c"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "ck"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "ng"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "nk"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "th"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "v"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "w"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "sh"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "s"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "ss"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "tion"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "tial"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "y"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "j"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "g"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "dg"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "qu"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "z"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "zz"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "s"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "se"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "ze"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "ch"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "tch"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "sion"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "sure"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "th"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "x (gz)"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
           "x (ks)"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "X"
       },
     ], 
     [
@@ -1655,757 +1655,757 @@
         "descriptions": [
          "-ip"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
        {
         "descriptions": [
          "-in"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
        {
         "descriptions": [
          "st-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
        {
         "descriptions": [
          "sp-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
        {
         "descriptions": [
          "sn-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "sm-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "-ad"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-and"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "de-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "-act"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "sc-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "cr-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "dr-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "pr-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "tr-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "str-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "spr-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "scr-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "-am"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-amp"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-im"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-vowel-b"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "br-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "-vowel-lt"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "bl-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "cl-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "pl-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "sl-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "spl-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "-vowel-ll"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-vowel-ss"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-vowel-ft"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-elf"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "fl-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "fr-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "-vowel-g"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "gl-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "gr-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "-vowel-k"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-vowel-lk"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "sk"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "-vowel-ng"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-vowel-nk"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "thank-/than-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "-ath"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-oth"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-ength"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-vowel-ck"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-ic"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-ve"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "sw-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "tw-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "dw-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "wa-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "swa-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "-vowel-sh"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "shr-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "-vowel-x"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-zz"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-vowel-ff"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-vowel-nch"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-arch"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-vowel-ce"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-vowel-nce"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "wh-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "-vowel-ge"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-vowel-rge"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-vowel-nge"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-vowel-dge"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "c- as (s)"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "sc-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "age"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "-ege"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-vowel-tch"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "ph"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "pph"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "ch-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "ch-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "kn-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "gn-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "gh-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "ps-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "rh-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "-mb"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-bt"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-mn"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "wr-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "-pt"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "st"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "gu-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "-gue"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "sc-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "pro-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "pre-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "que"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "sch-"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "STARTS_WITH"
       },
       {
         "descriptions": [
          "xc before l or e"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "-ayor"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-ayer"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "al-consonant"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "oh"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "-cial"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-tial"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "cqu"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "-ngue at word end"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "ol-consonant"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "quar-consonant"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "consonant-re at word end"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "ro"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "sci"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "scle"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "-sure"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "ti"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "ci"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "-zure"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "thr"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "CONTAINS"
       },
       {
         "descriptions": [
          "-nd"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-nt"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-nch"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-mp"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-ology"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-cise"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-dual"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-tual"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-sual"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
       {
         "descriptions": [
          "-tory"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "X"
       },
     ]
   ],
