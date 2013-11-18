@@ -1,8 +1,10 @@
 package ilearnrw.textclassification.english;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import ilearnrw.prototype.application.Program;
 import ilearnrw.textclassification.Word;
@@ -35,7 +37,7 @@ public class EnglishWord extends Word {
                     if(ipa.contains("<"))
                     	syllables = new String[] {"<"};
                     else
-                    	syllables = syllabify(word, ipa);
+                    	syllables = syllabify(word.toLowerCase(), ipa);
 
                     //System.out.println(Arrays.asList(syllables).toString());
             } else {
@@ -103,158 +105,241 @@ public class EnglishWord extends Word {
     }
     
 	private String[] syllabify(String word, String phonetics){
-    	Map<String, ArrayList<String>> ssl = Program.getSoundToSpellingList();    	
+    	Map<String, ArrayList<String>> ssl = Program.getSoundToSpellingList();   
     	String tempPhon = phonetics;
-    	String tempWord = "";
-    	int positionWord = 0, numHyphens = 0;
-    	if(word.contains("-")){
-    		return word.split("-");
-    	}
     	
-    	tempPhon = tempPhon.replace(".", "-");
     	/**
 		 * Remove stress symbols
 		 * primary stress -  http://www.fileformat.info/info/unicode/char/02c8/index.htm
 		 * secondary stress - http://www.fileformat.info/info/unicode/char/02cc/index.htm
 		 * */
-		tempPhon = tempPhon.replace("\u02C8", "");
+    	tempPhon = tempPhon.replace("\u02C8", "");
 		tempPhon = tempPhon.replace("\u02CC", "");
-    
-    	for(int i=0, len=tempPhon.length(); i<len; i++){
+    	
+    	System.out.println(word);
+    	
+    	//contribution ˌkɒn.trɪ.ˈbjuːʃ.ən
+    	//mission ˈmɪʃ.ən 
+    	// oversee
+    	
+    	if(word.equals("contribution")){
+    		int a =0;
+    		a++;
+    	}
+    	
+    	// Translation phase
+    	ArrayList<Map<String, ArrayList<Integer>>> possibleMatches = new ArrayList<Map<String,ArrayList<Integer>>>();
+    	
+    	for(int i = 0, len = tempPhon.length(); i < len; i++){
     		String c = Character.toString(tempPhon.charAt(i));
-    		
     		if(c.trim().isEmpty()) continue;
     		
     		int inc = c.length();
-    		c = checkNextCharacter(c, tempPhon, i);
+    		c = getCharacterCombination(c, tempPhon, i);
     		inc = c.length() - inc;
     		i += inc;
     		
-    		
     		if(ssl.containsKey(c)){
+    			
+    			Map<String, ArrayList<Integer>> charPositions = new HashMap<String, ArrayList<Integer>>();
     			ArrayList<String> symbolItems = ssl.get(c);
-    			ArrayList<String> items = new ArrayList<String>();
-    			
-    			ArrayList<String> words = new ArrayList<String>();
-    			
-    			int longestItem = 0;
-    			String largestItem = "";
-    			for(String item : symbolItems){
-    				int length = item.length();
-    				if(positionWord + length - 1 < word.length()){
-	    				String part = (word.replace("-", "")).substring(positionWord, positionWord + length).toLowerCase();
-	    				String previousPart = part;
-	    				if(positionWord!=0)
-	    					previousPart = (word.replace("-", "")).substring(positionWord - 1, positionWord + length - 1).toLowerCase();
-        				
-	    				if(item.equals(part)){
-	    					words.add(tempWord.concat(item));
-        					items.add(item);
-        					if(length > longestItem){
-        						longestItem = length;
-        						largestItem = item;
-    						}
-        				} else if(item.equals(previousPart)){        					
-        					int pos = tempWord.length();
-        					for(int k = tempWord.length() - 1; k>0; k--){
-        						char ch = tempWord.charAt(k);
-        						if(ch != '-'){
-        							pos = k;
-        							break;
-        						}
-        					}
-        					
-        					String start = tempWord.substring(0, pos);
-        					String end = "";
-        					try{
-        						end = tempWord.substring(pos+item.length()-1, tempWord.length());
-        					}catch(Exception e){
-        						end = tempWord.substring(pos, tempWord.length());
-        					}
-        					words.add(start.concat(end).concat(item));
-        					items.add(item);
-        					if(length > longestItem){
-        						longestItem = length;
-        						largestItem = item;
-    						}
-        				}
-    				}
-    			}
-    			
-    			String longestWord = "";
-    			int currWordLen = 0;
-    			
-    			for(String w : words){
-    				String currWord = w.replace("-", "");
-    				String correctWord = (word.replace("-", "")).substring(0, currWord.length()).toLowerCase();
-    				
-    				if(currWord.equals(correctWord)){
-    					if(currWord.length() > currWordLen){
-    						currWordLen = currWord.length();
-    						longestWord = w;
-    					}
-    				}
-    			}
-    			if(!longestWord.isEmpty()){
-	    			tempWord = longestWord;
-	    			positionWord += (currWordLen - positionWord);
-    			}
-    			/*while(j<items.size()){
-    				String part = items.get(j);
-    				if(part.equals(largestItem)){
-    					tempWord = tempWord.concat(part);
+    			for(String item : symbolItems){    				
+    				int j = 0;
+    				while((j=(word.indexOf(item, j)+1)) > 0){
+    					if(charPositions.get(item) == null)
+    						charPositions.put(item, new ArrayList<Integer>());
     					
-    					if(c.length()>1)
-    						i+=c.length()-1;
-    					
-    					positionWord += longestItem;
-    					applied = true;
-    				}
-    				
-    				//String a = word.substring(0, buildPosition - numHyphens);
-    				String diff = tempWord.replace("-", "");
-//        				if(!diff.equals(a.toLowerCase()) && applied){
-//        					String ws = workingSets.get(j);
-//        					if(ws.length() == longestItem){
-//        						tempWord = tempWord.substring(0, tempWord.length() - ws.length());
-//        						workingSets.remove(j);
-//        						applied = false;
-//        					}
-//        					longestItem = getMax(workingSets);
-//        					//buildPosition = longestItem + position;
-//        					j = -1;
-//        				}
-    				j++;
-    			}*/
+    					if(c.equals("k") && item.equals("x"))
+    					{
+    						if(i+1<len)
+    						{ 
+								String nextChar = Character.toString(tempPhon.charAt(i+1));
+	    				    	
+    							if(nextChar.equals("s")) i++;
+    							
+    							if(nextChar.equals(".")){
+	    							if(i+2<len){
+	    								nextChar = Character.toString(tempPhon.charAt(i+2));
+	    								if(nextChar.equals("s")){
+	    									String start = tempPhon.substring(0, i+1);
+	    									String end = tempPhon.substring(i+3, tempPhon.length());
+	    									tempPhon = start.concat("s.").concat(end);
+	    									i++;
+	    								}
+	    							}
+    							}
+    							
+    						}
+    					}    					
+						charPositions.get(item).add(j);
+    				}	
+    			}
+    			possibleMatches.add(charPositions);    			
     			
     		} else {
-    			tempWord = tempWord.concat(c);
-    			positionWord++;
-    			// Hyphen '-'
-    			if(c.equals("\u002D")){
-    				numHyphens++;
-    				positionWord--;
+    			Map<String, ArrayList<Integer>> map = new HashMap<String, ArrayList<Integer>>();
+    			
+    			if(c.equals("."))
+    				map.put(".", new ArrayList<Integer>());
+    			
+    			possibleMatches.add(map);    			
+    		}
+    	}
+    	
+    	
+    	// Removing phase
+    	for(int i = 0; i < possibleMatches.size(); i++)
+    	{
+    		Map<String,ArrayList<Integer>> map = possibleMatches.get(i);
+    		
+    		if(map.isEmpty() || map.containsKey(".")) continue;
+    		if(i+1>=possibleMatches.size()) 
+    			continue;
+    		
+    		Map<String,ArrayList<Integer>> nextMap = possibleMatches.get(i+1);
+    		
+    		Iterator<Entry<String, ArrayList<Integer>>> it = map.entrySet().iterator();
+    		while(it.hasNext())
+    		{
+    			Entry<String, ArrayList<Integer>> pairs = (Map.Entry<String, ArrayList<Integer>>)it.next();
+    			
+    			Iterator<Entry<String, ArrayList<Integer>>> it2 = nextMap.entrySet().iterator();
+    			Map<String, Integer> removeMap = new HashMap<String, Integer>();
+    			while(it2.hasNext())
+    			{
+    				Entry<String, ArrayList<Integer>> nextPairs = (Map.Entry<String, ArrayList<Integer>>)it2.next();
+    				
+    				String key1 = pairs.getKey().toString();
+					String key2 = nextPairs.getKey().toString();
+					String str = key1.concat(key2);
+    				for(Integer value : pairs.getValue())
+    					for(Integer value2 : nextPairs.getValue())
+    						if(value+1 == value2)
+    							if(!word.contains(str))
+    							{
+    								str = key1.concat(key2.substring(1));
+    								if(!word.contains(str) || key2.length() > 0)
+    									removeMap.put(key2, i+1);
+    							}
+    			}
+    			if(!removeMap.isEmpty())
+    			{
+    				Iterator itr = removeMap.entrySet().iterator();
+    				while(itr.hasNext()){
+    					Entry<String, Integer> p = (Map.Entry<String, Integer>)itr.next();
+    					possibleMatches.get(i+1).remove(p.getKey());
+    				}
+    				
+					possibleMatches.remove(i+1);
     			}
     		}
     	}
     	
-    	return tempWord.split("-");
-    }
-    
-    
-    private int getMax(ArrayList<String> list){
-    	int max = 0;
-    	for(int i=0; i<list.size(); i++){
-    		if(list.get(i).length() > max)
-    			max = list.get(i).length();
+    	
+
+    	// Connecting phase
+    	String buildWord = "";
+    	int minimum = -1;
+    	int keyLength = -1;
+
+    	for(int i = 0; i < possibleMatches.size(); i++){
+    		Map<String, ArrayList<Integer>> map = possibleMatches.get(i);
+    		
+    		if(map.isEmpty()){
+    			buildWord = buildWord.concat("*");
+    			continue;
+    		}
+    		
+    		Iterator<Entry<String, ArrayList<Integer>>> it = map.entrySet().iterator();
+			String correctKey = "";
+			int earliestPosition = Integer.MAX_VALUE;
+			boolean setValue = false;
+			
+    		while(it.hasNext()){
+    			@SuppressWarnings("unchecked")
+				Entry<String, ArrayList<Integer>> pairs = (Map.Entry<String, ArrayList<Integer>>)it.next();
+    			
+				if(pairs.getKey().equals(".")){
+					buildWord = buildWord.concat(("-"));
+					continue;
+				}
+				
+				ArrayList<Integer> list = (ArrayList<Integer>)pairs.getValue();
+				Object key = pairs.getKey();
+				for(Integer pos : list){					
+					if((pos < earliestPosition) && (pos > minimum)){
+						earliestPosition = pos;
+						correctKey = key.toString();
+						keyLength = correctKey.length();
+						setValue = true;
+					}
+					if((pos==earliestPosition) && (key.toString().length() > correctKey.length()))
+						correctKey = key.toString();
+				}
+    		}
+    		buildWord = buildWord.concat(correctKey);
+    		if(setValue)
+    			minimum = earliestPosition + keyLength - 1;
     	}
-    	return max;
+
+    	if(word.equals("oversee")){
+    		int asd =1; asd++;
+    		}
+    	
+    	// Building phase
+    	int lookup = 0;
+    	String finalWord = "";
+    	for(int i = 0; i < word.length(); i++){
+    		boolean taken = false;
+    		char cw = word.charAt(i), cb;
+    		cb = lookup < buildWord.length() ? buildWord.charAt(lookup) : '_';
+
+    		while(cb == '-'){
+    			char next;
+    			if(lookup+1 < buildWord.length()){
+    				next = buildWord.charAt(lookup+1);
+    				if(next != cw){
+    					finalWord += cw;
+    					taken = true;
+    					break;
+    				}
+    			}
+    			if(!finalWord.isEmpty())
+    				finalWord += cb;
+    			
+    			cb = lookup+1 < buildWord.length() ? buildWord.charAt(++lookup) : '_';
+    		}
+    		
+    		if(cb == '*'){
+    			finalWord += cw;
+    			taken = true;
+    			++lookup;
+    		}
+    		
+    		if(cw == cb)
+    		{
+    			finalWord += cb;
+    			++lookup;
+    		} else if(!taken)
+    			finalWord += cw;
+    	}
+    	System.out.println(finalWord);
+    	return finalWord.split("-");
     }
     
-    private String checkNextCharacter(String s, String word, int position){
+    private String getCharacterCombination(String s, String word, int position){
     	if(position+1 >= word.length())
     		return s;
     	
+    	boolean isConsonant = (s.equals("p") ||
+    			s.equals("b") || s.equals("t") || s.equals("d") ||
+    			s.equals("ɡ") || s.equals("k") || s.equals("m") || 
+    			s.equals("n") || s.equals("ŋ") || s.equals("r") ||
+    			s.equals("f") || s.equals("v") || s.equals("θ") ||
+    			s.equals("ð") || s.equals("s") || s.equals("z") || 
+    			s.equals("ʃ") || s.equals("ʒ") || s.equals("h") ||
+    			s.equals("j") || s.equals("l") || s.equals("w"));
+	
     	String nextChar = Character.toString(word.charAt(position+1));
     	
     	// tʃ
@@ -298,7 +383,7 @@ public class EnglishWord extends Word {
     		
     		String n2Char = Character.toString(word.charAt(position + 2));
     		if(n2Char.equals("r")){ return s.concat(nextChar).concat(n2Char); }
-    	} 
+    	}
     	// juː
     	else if(s.equals("j") && nextChar.equals("u")){
     		if(position+2 >= word.length())
@@ -307,6 +392,10 @@ public class EnglishWord extends Word {
     		String n2Char = Character.toString(word.charAt(position + 2));
     		if(n2Char.equals("\u02D0")){ return s.concat(nextChar).concat(n2Char); }
     	}
+    	// combine all letters with ː
+    	else if(nextChar.equals("\u02D0")){ return s.concat(nextChar); }
+    	// combine letters with ʊ
+    	else if(!isConsonant && nextChar.equals("\u028A")){ return s.concat(nextChar); }
     	return s;
     }
 }

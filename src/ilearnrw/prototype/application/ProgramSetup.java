@@ -69,10 +69,7 @@ public class ProgramSetup {
 		Map<String, ArrayList<String>> ipa = new HashMap<String, ArrayList<String>>();
 		
 		// Found at: http://en.wikipedia.org/wiki/English_orthography#Spelling_patterns
-		// some entries have been left out after discussing with language experts (e.g. "in some dialects"-items)
-		
-		ipa.put("e", new ArrayList<String>(Arrays.asList(new String[] {"e", "ea"})));
-		
+		// some entries have been left out after discussing with language experts (e.g. "in some dialects"-items)		
 		
 		// Consonants
 		ipa.put("p", new ArrayList<String>(Arrays.asList(new String[] {"p", "pp", "gh"})));
@@ -104,7 +101,7 @@ public class ProgramSetup {
 		
 		
 		// Vowels
-		ipa.put("iː", new ArrayList<String>(Arrays.asList(new String[] {"e", "ea", "ee", "e...e", "ae", "ei", "i...e", "ie", "eo", "ie...e", 
+		/*ipa.put("iː", new ArrayList<String>(Arrays.asList(new String[] {"e", "ea", "ee", "e...e", "ae", "ei", "i...e", "ie", "eo", "ie...e", 
 																			"ay", "ey", "i", "y", "oi", "ue", "ey", "a"})));
 		ipa.put("ɪ", new ArrayList<String>(Arrays.asList(new String[] {"i", "y", "ui", "e", "ee", "ie", "o", "u", "a", "ei", 
 																			"ee", "ia", "ea", "i...e", "ai", "ii", "oe"})));
@@ -138,9 +135,31 @@ public class ProgramSetup {
 		ipa.put("ɪər", new ArrayList<String>(Arrays.asList(new String[] {"ear", "eer", "eir", "eor", "ere", "ers", "e're", "ier", "iere", "ir" })));
 		ipa.put("ɜr", new ArrayList<String>(Arrays.asList(new String[] {"er", "or", "ur", "ir", "yr", "our", "ear", "err", "eur", "yrrh", 
 																			"ar", "oeu", "olo"})));
-		ipa.put("juː", new ArrayList<String>(Arrays.asList(new String[] {"u", "u...e", "eu", "ue", "iew", "eau", "ieu", "ueue", "ui", "ewe", 
+		ipa.put("juː", new ArrayList<String>(Arrays.asList(new String[] {"u", "u...e", "eu", "ue", "iew", "eau", "ieu", "ueue", "ui", "ewe", 	
 																			"ew"})));
+		*/
 		
+		ipa.put("iː", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("ɪ", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("uː", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("ʊ", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("eɪ", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("ə", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("oʊ", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("ɛ", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("æ", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("ʌ", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("ɔː", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("ɒ", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("ɑː", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("aɪ", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("ɔɪ", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("aʊ", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("ɑr", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("ɛər", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("ɪər", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("ɜr", new ArrayList<String>(Arrays.asList(new String[] {})));
+		ipa.put("juː", new ArrayList<String>(Arrays.asList(new String[]{})));
 		return ipa;
 	}
 }

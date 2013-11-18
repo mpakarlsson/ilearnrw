@@ -89,14 +89,24 @@ public class Program {
 			sDataLogger.loadUserStore(databaseFile);
 			sDataLogger.loadUserActions(databaseFile);
 			
-//			ArrayList<EnglishWord> ew = new ArrayList<EnglishWord>();
-//			Iterator it = sDictionary.entrySet().iterator();
-//			while(it.hasNext()){
-//				Map.Entry pairs = (Map.Entry<String, ArrayList<String>>)it.next();
-//				ArrayList<String> list = (ArrayList<String>)pairs.getValue();
-//				
-//				ew.add(new EnglishWord(list.get(0)));
-//			}
+			
+			
+			EnglishWord w = new EnglishWord("excommunication");
+			
+			//EnglishWord w1 = new EnglishWord("hedge");
+			//EnglishWord w2 = new EnglishWord("deck");
+			EnglishWord w3 = new EnglishWord("youth");
+			EnglishWord w4 = new EnglishWord("competitor");
+			EnglishWord w5 = new EnglishWord("gnome");
+			
+			ArrayList<EnglishWord> ew = new ArrayList<EnglishWord>();
+			Iterator it = sDictionary.entrySet().iterator();
+			while(it.hasNext()){
+				Map.Entry pairs = (Map.Entry<String, ArrayList<String>>)it.next();
+				ArrayList<String> list = (ArrayList<String>)pairs.getValue();
+				
+				ew.add(new EnglishWord(list.get(0)));
+			}
 			
 			ConsoleMenu mnu = new ConsoleMenu(System.out, System.in, "iLearnRW - Main menu", 
 					new IConsoleMenuAction[] {
