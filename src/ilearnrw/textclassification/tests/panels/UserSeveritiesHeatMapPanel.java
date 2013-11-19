@@ -8,6 +8,7 @@ import java.awt.Component;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -70,7 +71,6 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 		if( messagesLabel != null )
 			this.remove(messagesLabel);
 
-
 		heatMap = new JTable(data.length,lengthsMax() + 2);
 		heatMap.setShowGrid(false);
 
@@ -79,7 +79,7 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new BorderLayout(0, 0));
 
-		this.add(heatMap, BorderLayout.CENTER);
+		this.add(new JScrollPane(heatMap), BorderLayout.CENTER);
 
 		this.add(messagesLabel, BorderLayout.SOUTH);
 		
@@ -172,12 +172,12 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
             if (column==0)
             	c.setBackground(new Color(170, 255-20*((12*multi[row][column])/sumsMax()), 255-((12*multi[row][column])/sumsMax())));                        
             else if (multi[row][column]==-1)
-            	c.setBackground(Color.white); 
+            	c.setBackground(new Color(210, 210, 210)); 
             else{
             	if (matrixMax() == 0)
-            		c.setBackground(new Color(170, 255-20*((12*multi[row][column])/1), 255-((12*multi[row][column])/1)));
+            		c.setBackground(new Color(255, 235, 235));
             	else
-            		c.setBackground(new Color(170, 255-20*((12*multi[row][column])/matrixMax()), 255-((12*multi[row][column])/matrixMax())));
+            		c.setBackground(new Color(255, 240-20*((12*multi[row][column])/matrixMax()), 240-20*((12*multi[row][column])/matrixMax())));
             	}                     
 
             return c;

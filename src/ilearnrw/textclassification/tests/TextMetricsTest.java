@@ -6,6 +6,7 @@ import ilearnrw.textclassification.Classifier;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordVsProblems;
+import ilearnrw.textclassification.tests.panels.FilesExplorerPanel;
 import ilearnrw.textclassification.tests.panels.HeatMapPanel;
 import ilearnrw.textclassification.tests.panels.SmallHeatMapPanel;
 import ilearnrw.textclassification.tests.panels.TextPanel;
@@ -43,6 +44,7 @@ public class TextMetricsTest extends JFrame {
 	private JPanel contentPane;
 	private	JTabbedPane tabbedPane;
 	private TextPanel textPanel;
+	private FilesExplorerPanel explorerPanel;
 	private	HeatMapPanel heatMapPanel;
 	private	UserSeveritiesHeatMapPanel userSeveritiesPanel;
 	private User user;
@@ -152,6 +154,7 @@ public class TextMetricsTest extends JFrame {
 		textPanel = new TextPanel(user);
 		heatMapPanel = new HeatMapPanel();
 		userSeveritiesPanel = new UserSeveritiesHeatMapPanel(user);
+		explorerPanel = new FilesExplorerPanel();
 		
 		contentPane.add(textPanel, BorderLayout.CENTER);
 		
@@ -159,6 +162,7 @@ public class TextMetricsTest extends JFrame {
 		tabbedPane = new JTabbedPane();
 		tabbedPane.addTab( "Text", textPanel );
 		tabbedPane.addTab( "Heat Map", heatMapPanel );
+		tabbedPane.addTab( "Explorer", explorerPanel );
 		tabbedPane.addTab( "User Severities", userSeveritiesPanel );
 		
 		// TODO change the 2 following rows / send them inside the UserSeveritiesHeatMapPanel class

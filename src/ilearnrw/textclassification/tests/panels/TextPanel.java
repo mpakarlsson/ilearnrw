@@ -6,17 +6,19 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextPane;
+import javax.swing.ScrollPaneLayout;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.TableColumn;
 import javax.swing.JTable;
 
 public class TextPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
-	private JTextPane mainText, resultsText;
+	private JTextPane mainText;
 	private JTable resultsTable;
 	private JScrollPane scrollPane;
 	private SmallHeatMapPanel smallHeat;
@@ -28,7 +30,6 @@ public class TextPanel extends JPanel{
 	public TextPanel(User user) {
 		super();
 		mainText = new JTextPane();
-		resultsText = new JTextPane();
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new BorderLayout(0, 0));
 		JPanel panel = new JPanel();
@@ -43,10 +44,6 @@ public class TextPanel extends JPanel{
         mainText = new JTextPane();
         JScrollPane jsp = new JScrollPane(mainText);
         splitPane.setLeftComponent(jsp);
-        
-        resultsText = new JTextPane();
-        resultsText.setEditable(false);
-        resultsText.setBackground(Color.lightGray);
 
         //resultsText.setContentType("text/html");
         //resultsText.setText("Paste Your Text to The Left.<br>Switch Language if needed.");
@@ -65,29 +62,20 @@ public class TextPanel extends JPanel{
         splitPane_1.setLeftComponent(scrollPane);
 
 
-        JSplitPane splitPane_2 = new JSplitPane();
-        splitPane_2.setResizeWeight(0.40);
-        splitPane_2.setOrientation(JSplitPane.VERTICAL_SPLIT);
-        splitPane_1.setRightComponent(splitPane_2);
-        
-        splitPane_2.setRightComponent(resultsText);
-        
-        smallHeat = new SmallHeatMapPanel(user, resultsText);
+		JPanel scrpanel = new JPanel();
+		scrpanel.setLayout(new GridLayout(1,1));
+		splitPane_1.setRightComponent(scrpanel);
+
+        smallHeat = new SmallHeatMapPanel(user);
         smallHeat.draw();
         smallHeat.test();
-        splitPane_2.setLeftComponent(smallHeat);
-	}
-	
-	public JTextPane getResultsText() {
-		return resultsText;
+
+        scrpanel.add(smallHeat);
+
 	}
 	
 	public SmallHeatMapPanel getSmallHeatMapPanel() {
 		return smallHeat;
-	}
-
-	public void setResultsText(JTextPane resultsText) {
-		this.resultsText = resultsText;
 	}
 
 	public void setResultsTable(String str[][]){
@@ -107,10 +95,6 @@ public class TextPanel extends JPanel{
 
 	public String getText(){
 		return this.mainText.getText();
-	}
-	
-	public void setResultsText(String str){
-		this.resultsText.setText(str);
 	}
 	
 	private void createTable(){

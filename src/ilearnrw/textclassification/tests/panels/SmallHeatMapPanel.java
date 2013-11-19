@@ -6,6 +6,8 @@ import ilearnrw.user.User;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.GridLayout;
+
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextPane;
@@ -23,21 +25,25 @@ public class SmallHeatMapPanel extends JPanel {
 	private boolean first;
 	private CellRenderer renderer;
 
-	public SmallHeatMapPanel(User user, JTextPane resultsText) {
+	public SmallHeatMapPanel(User user) {
 		this.data = user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities();
 		//formatValues();
-		this.resultsText = resultsText;
+
+        resultsText = new JTextPane();
+        resultsText.setEditable(false);
+        resultsText.setBackground(Color.lightGray);
+        
 		heatMap = new JTable(data.length,lengthsMax());
 		renderer = new CellRenderer();
 		heatMap.setDefaultRenderer(Object.class, renderer);
 		heatMap.setShowGrid(false);
 
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
-		this.setLayout(new BorderLayout(0, 0));
+		this.setLayout(new GridLayout(2,1));
 
-		this.add(resultsText, BorderLayout.SOUTH);
+		this.add(heatMap);
 
-		this.add(heatMap, BorderLayout.CENTER);
+		this.add(resultsText);
 		formatMatrix();
 		first = true;
 	}
@@ -145,14 +151,14 @@ public class SmallHeatMapPanel extends JPanel {
             	c.setBackground(Color.black);
             }
             if (multi[row][column]==-1)
-            	c.setBackground(new Color(166, 166, 166)); 
+            	c.setBackground(new Color(210, 210, 210)); 
             else{
             	if (matrixMax() == 0){
             		c.setBackground(new Color(255, 235, 235));
             	
             	}
             	else{
-            		c.setBackground(new Color(255, 240-20*((12*multi[row][column])/matrixMax()), 240-((12*multi[row][column])/matrixMax())));
+            		c.setBackground(new Color(255, 240-20*((12*multi[row][column])/matrixMax()), 240-20*((12*multi[row][column])/matrixMax())));
             	}  
             }
             return c;
