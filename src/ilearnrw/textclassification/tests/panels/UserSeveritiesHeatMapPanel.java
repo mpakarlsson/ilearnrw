@@ -64,11 +64,6 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 	
 	public void draw(){
 		this.data = user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities();
-		int biggestArray = 0;
-		for(int[] l : data)
-			if( l.length > biggestArray)
-				biggestArray=l.length;
-
 		
 		if( heatMap != null )
 			this.remove(heatMap);
@@ -76,7 +71,7 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 			this.remove(messagesLabel);
 
 
-		heatMap = new JTable(data.length,biggestArray + 2);
+		heatMap = new JTable(data.length,lengthsMax() + 2);
 		heatMap.setShowGrid(false);
 
 		messagesLabel = new JLabel("hello");
@@ -131,18 +126,10 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 	}
 	
 	private void createMatrix(){
-
-		int biggestArray = 0;
-		for(int[] l : data)
-			if( l.length > biggestArray)
-				biggestArray=l.length;
-		
-		
-		
 		multi = new int[data.length][lengthsMax()+2];
 		for (int i=0;i<multi.length;i++){
 			int sum = 0;
-			for (int j=0; j < biggestArray + 2;j++){
+			for (int j=0; j < lengthsMax() + 2;j++){
 				if( j == 0 || j == 1 )
 					continue;
 				if (j >= data[i].length+2)

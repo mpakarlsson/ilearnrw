@@ -45,7 +45,7 @@ public class ProblemDefinition implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ProblemDefinition [URI=" + URI + ", type=" + type + "]\n";
+		return "Problem Definition:\nURI:" + URI + type.toString();
 	}
 
 }
