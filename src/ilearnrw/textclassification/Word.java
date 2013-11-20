@@ -25,7 +25,7 @@ public class Word {
 		type = WordType.Unknown;
 		cvForm = "";
 		phonetics = "";
-		lc = LanguageCode.GR;
+		lc = null;
 	}
 		
 	public String getWord() {

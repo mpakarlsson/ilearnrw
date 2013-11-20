@@ -47,7 +47,7 @@ public class UserSeveritiesToProblems implements Serializable {
 		for (int i=0;i<problems.getIndexLength(); i++){
 			userSeverities.setWorkingIndex(i, rand.nextInt(problems.getRowLength(i)));
 			for (int j=0; j<userSeverities.getSeverityLength(i); j++){
-				userSeverities.setSeverity(i, j, rand.nextInt(3)+1);
+				userSeverities.setSeverity(i, j, rand.nextInt(4));
 			}
 		}
 	}
@@ -63,7 +63,7 @@ public class UserSeveritiesToProblems implements Serializable {
 		for (int i=0;i<problems.getIndexLength(); i++){
 			userSeverities.setWorkingIndex(i, rand.nextInt(problems.getRowLength(i)));
 			for (int j=0; j<userSeverities.getSeverityLength(i); j++){
-				userSeverities.setSeverity(i, j, rand.nextInt(3)+1);
+				userSeverities.setSeverity(i, j, rand.nextInt(4));
 			}
 		}
 	}

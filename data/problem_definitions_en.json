@@ -260,7 +260,7 @@
         "3 syllables or higher"
         ],
         "problemType": "X"
-      },
+      }
     ], 
     [
       {
@@ -694,7 +694,7 @@
           "a"
         ],
         "problemType": "CONTAINS"
-      },    
+      }   
     ], 
     [
       {
@@ -1062,7 +1062,7 @@
           "[add rule] -ment"
         ],
         "problemType": "CONTAINS"
-      },
+      }
     ], 
     [
       {
@@ -1304,7 +1304,7 @@
           "change rule, eff"
         ],
         "problemType": "X"
-      },
+      }
     ], 
     [
       {
@@ -1648,7 +1648,7 @@
           "x (ks)"
         ],
         "problemType": "X"
-      },
+      }
     ], 
     [
       {
@@ -2406,7 +2406,7 @@
          "-tory"
         ],
         "problemType": "X"
-      },
+      }
     ]
   ],
   "language": "EN"

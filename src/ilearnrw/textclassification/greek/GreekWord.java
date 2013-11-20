@@ -3,6 +3,7 @@ import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordType;
 import ilearnrw.textclassification.speller.GreekSpeller;
 import ilearnrw.textclassification.speller.Speller;
+import ilearnrw.utils.LanguageCode;
 
 public class GreekWord extends Word{
 	
@@ -11,6 +12,7 @@ public class GreekWord extends Word{
 	
 	public GreekWord(String word){
 		super(word);
+		super.lc = LanguageCode.GR;
 		checkType();
 		syllabism();
 		createCVForm();

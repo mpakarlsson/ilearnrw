@@ -69,7 +69,6 @@ public class SmallHeatMapPanel extends JPanel {
 	}
 	
 	private void formatValues(){
-		System.out.println("dfasdf::data[1][1]");
 		data[0][0] = 0;
 		for (int i=0;i<data.length;i++){
 			for (int j=0;j<data[i].length;j++){

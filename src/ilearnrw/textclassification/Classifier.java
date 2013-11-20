@@ -1,11 +1,7 @@
 package ilearnrw.textclassification;
 
-import java.util.ArrayList;
-import java.util.Map;
-
 import ilearnrw.user.User;
 import ilearnrw.user.profile.UserProblemsToText;
-import ilearnrw.user.profile.UserSeveritiesToProblems;
 
 public class Classifier {
 
@@ -21,7 +17,6 @@ public class Classifier {
 		this.user = user;
 		this.text = text;
 		this.userProblemsToText = new UserProblemsToText(user, text);
-
 		//for (Map.Entry<Word,Double> entry : userProblemsToText.getWordsWeights().entrySet()) {
 		//	System.out.println(entry.getKey()+" :: "+entry.getValue());
 		//}

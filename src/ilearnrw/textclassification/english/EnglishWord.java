@@ -8,6 +8,7 @@ import org.junit.rules.TemporaryFolder;
 import ilearnrw.prototype.application.Program;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordType;
+import ilearnrw.utils.LanguageCode;
 
 
 public class EnglishWord extends Word {
@@ -22,6 +23,7 @@ public class EnglishWord extends Word {
     	setupLists();
     	
         super.word = word;
+		super.lc = LanguageCode.EN;
         checkType();
         syllabism();
         super.word = super.word.toLowerCase();

@@ -100,7 +100,6 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 	
 	public void draw(){
 		this.data = copyMatrix(user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities());
-		
 		heatMap.setRowHeight(60);
 		createMatrix();
 		setValues();

@@ -39,6 +39,7 @@ public class TextMetricsTest extends JFrame {
 	private Classifier cls;
 
 	private JPanel contentPane;
+	private JLabel languageLabel;
 	private	JTabbedPane tabbedPane;
 	private TextPanel textPanel;
 	private FilesExplorerPanel explorerPanel;
@@ -131,6 +132,9 @@ public class TextMetricsTest extends JFrame {
 					for( User u : mUserStore.getAllUsers() )
 						if(u.getUserId() == selectedUser.getUserId() )
 							user = u;
+					lc = user.getProfile().getLanguage();
+					//languageLabel = new JLabel(" Language | GR | ");
+					updateLanguageLabel();
 					userSeveritiesPanel.setUser(user);
 					explorerPanel.setUser(user);
 				} catch (Exception ex) {
@@ -192,34 +196,29 @@ public class TextMetricsTest extends JFrame {
 		});
 		toolBar.add(goButton);
 
-		lc = LanguageCode.GR;
-		final JLabel languageLabel = new JLabel(" Text Language | GR | ");
+		lc = user.getProfile().getLanguage();
+		languageLabel = new JLabel(" Language | GR | ");
+		updateLanguageLabel();
 		toolBar.add(languageLabel);
-		
-		JButton switchLanguageButton = new JButton("Switch Language");
-		switchLanguageButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if (lc == LanguageCode.GR){
-					lc = LanguageCode.EN;
-					languageLabel.setText(" Text Language | EN | ");
-				}
-				else{
-					lc = LanguageCode.GR;
-					languageLabel.setText(" Text Language | GR | ");
-				}
-			}
-		});
-		toolBar.add(switchLanguageButton);
+	}
+	
+	private void updateLanguageLabel(){
+		if (lc == LanguageCode.EN){
+			languageLabel.setText(" Language | EN | ");
+		}
+		else{
+			languageLabel.setText(" Language | GR | ");
+		}
 	}
 	
 	private String[][] testTextMetrics(){
 		
 		HashMap<Word, Integer> hs = txt.getWordsFreq();
+		System.out.println("Text Language -- "+txt.getLanguageCode());
 		
 		Object tmp[] = hs.keySet().toArray();
 		Word w = (Word)tmp[0];
-		System.out.println(w.toString());
+		System.out.println(w.toString()+ " -- "+w.getLanguageCode());
 		WordVsProblems wp = new WordVsProblems(w.getLanguageCode());
 		wp.insertWord(w);
 		System.out.println(wp.toString());
