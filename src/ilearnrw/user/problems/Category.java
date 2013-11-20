@@ -24,7 +24,7 @@ public class Category implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Category [category url=" + url + "]";
+		return "Category :" + url + "\n";
 	}
 	
 	public boolean isSubCategory(Category c){

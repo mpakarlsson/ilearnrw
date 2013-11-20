@@ -6,11 +6,11 @@ import ilearnrw.textclassification.Classifier;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordVsProblems;
+import ilearnrw.textclassification.tests.panels.FilesExplorerPanel;
 import ilearnrw.textclassification.tests.panels.HeatMapPanel;
 import ilearnrw.textclassification.tests.panels.TextPanel;
 import ilearnrw.textclassification.tests.panels.UserSeveritiesHeatMapPanel;
 import ilearnrw.user.User;
-import ilearnrw.user.profile.UserSeverities;
 import ilearnrw.utils.LanguageCode;
 
 import java.awt.BorderLayout;
@@ -41,10 +41,10 @@ public class TextMetricsTest extends JFrame {
 	private JPanel contentPane;
 	private	JTabbedPane tabbedPane;
 	private TextPanel textPanel;
-	private	HeatMapPanel heatMapPanel;
+	private FilesExplorerPanel explorerPanel;
+	//private	HeatMapPanel heatMapPanel;
 	private	UserSeveritiesHeatMapPanel userSeveritiesPanel;
 	private User user;
-	private boolean firstTime = true;
 
 	private static UserStore mUserStore = null;
 	final class UserListBoxWrapper {
@@ -146,9 +146,9 @@ public class TextMetricsTest extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		
-		textPanel = new TextPanel();
-		heatMapPanel = new HeatMapPanel();
+
+		textPanel = new TextPanel(user);
+		//heatMapPanel = new HeatMapPanel();
 		userSeveritiesPanel = new UserSeveritiesHeatMapPanel(user);
 		
 		contentPane.add(textPanel, BorderLayout.CENTER);
@@ -156,14 +156,16 @@ public class TextMetricsTest extends JFrame {
 
 		tabbedPane = new JTabbedPane();
 		tabbedPane.addTab( "Text", textPanel );
-		tabbedPane.addTab( "Heat Map", heatMapPanel );
+		//tabbedPane.addTab( "Heat Map", heatMapPanel );
+		explorerPanel = new FilesExplorerPanel(tabbedPane, textPanel);
+		tabbedPane.addTab( "Explorer", explorerPanel );
 		tabbedPane.addTab( "User Severities", userSeveritiesPanel );
 		
 		// TODO change the 2 following rows / send them inside the UserSeveritiesHeatMapPanel class
 		userSeveritiesPanel.draw();
 		userSeveritiesPanel.test();
 
-		contentPane.add( tabbedPane, BorderLayout.CENTER );
+		contentPane.add(tabbedPane, BorderLayout.CENTER );
 		
 		
 		JToolBar toolBar = new JToolBar();
@@ -186,18 +188,14 @@ public class TextMetricsTest extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				String str = textPanel.getText();
 				txt = new Text(str, lc);
-				if (firstTime){
-					runTheClassifier();
-					heatMapPanel.draw();
-					heatMapPanel.test();
-					firstTime = false;
-				}
-				else{
-					runTheClassifier();
-					heatMapPanel.draw();
-					heatMapPanel.test();
-				}
-				textPanel.setResultsText(testTextMetrics());
+				
+				runTheClassifier();
+				//heatMapPanel.draw();
+				//heatMapPanel.test();
+				//textPanel.getSmallHeatMapPanel().draw();
+				textPanel.getSmallHeatMapPanel().test();
+				//textPanel.setResultsText(testTextMetrics());
+				textPanel.setResultsTable(testTextMetrics());
 			}
 		});
 		toolBar.add(goButton);
@@ -223,58 +221,7 @@ public class TextMetricsTest extends JFrame {
 		toolBar.add(switchLanguageButton);
 	}
 	
-	private String testTextMetrics(){
-		String res = "<html> <p style=\"font-size:10px; font-weight:bold;\">";
-		
-		res = res + "Number of paragraphs:"+txt.getNumberOfParagraphs();
-		
-		res = res + "<br>Number of sentences:"+txt.getNumberOfSentences();
-
-		res = res + "<br>Number of words:"+txt.getNumberOfWords();
-		
-		res = res + "<br>Number of Distinct Words:"+txt.getNumberOfDistinctWords();
-
-		res = res + "<br>Number of Syllables:"+txt.getNumberOfSyllables();
-
-		res = res + "<br>Number of Big Sentences (>=15 words):"+txt.getNumberOfBigSentences();
-
-		res = res + "<br>Number of Polysyllabic Words (>=3 syllables):"+txt.getNumberOfPolysyllabicWords();
-		
-		res = res + "<br>Total Number of Letters and Numbers:"+txt.getNumberOfLettersAndNumbers();
-		
-		res = res + "<br>Longest Word Length:"+txt.getLongestWordLength();
-
-		res = res + "<br>Longest Sentence Length:"+txt.getLongestSentenceLength();
-
-		res = res + "<br>Average Words per Sentence:"+String.format("%.2f",txt.getWordsPerSentence());
-
-		res = res + "<br>Average Syllables per Word:"+String.format("%.2f",txt.getSyllablesPerWord());
-
-		res = res + "<br>Average Word Length:"+String.format("%.2f",txt.getAverageWordLength());
-
-		res = res + "<br>Average Longest Word Length:"+String.format("%.2f",txt.getAverageLongestWordLength());
-		
-		res = res + "<br><br>Readability Tests<br>";
-
-		res = res + "<br>Flesch:"+String.format("%.2f",txt.flesch());
-
-		res = res + "<br>Flesch-Kincaid:"+String.format("%.2f",txt.fleschKincaid());
-
-		res = res + "<br>Automated:"+String.format("%.2f",txt.automated());
-		
-		res = res + "<br>Coleman-Liau:"+String.format("%.2f",txt.colemanLiau());
-
-		res = res + "<br>SMOG:"+String.format("%.2f",txt.smog());
-		
-		res = res + "<br>Gunning FOG:"+String.format("%.2f",txt.gunningFog());
-		
-		res = res + "<br>Dale-Chall:"+String.format("%.2f",txt.daleChall());
-		
-		res = res + "<br>  --------------------";
-		
-		res = res + "<br>Formula:"+cls.getDifficultyToString();
-		
-		res = res + "<br>iLearnRW:"+String.format("%.2f",cls.getDifficulty());
+	private String[][] testTextMetrics(){
 		
 		HashMap<Word, Integer> hs = txt.getWordsFreq();
 		
@@ -284,15 +231,41 @@ public class TextMetricsTest extends JFrame {
 		WordVsProblems wp = new WordVsProblems(w.getLanguageCode());
 		wp.insertWord(w);
 		System.out.println(wp.toString());
+		//return res;
 		
-		res = res+"</p></html>";
-		return res;
+		String[][] data = {
+				{"# Paragraphs", ""+txt.getNumberOfParagraphs()},
+				{"# Sentences:", ""+txt.getNumberOfSentences()},
+				{"# Words:", ""+txt.getNumberOfWords()},
+				{"# Distinct Words", ""+txt.getNumberOfDistinctWords()},
+				{"# Syllables:", ""+txt.getNumberOfSyllables()},
+				{"# Big Sentences (>=15 words)", ""+txt.getNumberOfBigSentences()},
+				{"# Polysyllabic Words (>=3 syllables)", ""+txt.getNumberOfPolysyllabicWords()},
+				{"# Letters and Numbers", ""+txt.getNumberOfLettersAndNumbers()},
+				{"Longest Word Length", ""+txt.getLongestWordLength()},
+				{"Longest Sentence Length", ""+txt.getLongestSentenceLength()},
+				{"Avg Words per Sentence", String.format("%.2f",txt.getWordsPerSentence())},
+				{"Avg Syllables per Word", String.format("%.2f",txt.getSyllablesPerWord())},
+				{"Avg Word Length", String.format("%.2f",txt.getAverageWordLength())},
+				{"Avg Longest Word Length", String.format("%.2f",txt.getAverageLongestWordLength())},
+				{"Flesch", String.format("%.2f",txt.flesch())},
+				{"Flesch-Kincaid", String.format("%.2f",txt.fleschKincaid())},
+				{"Automated", String.format("%.2f",txt.automated())},
+				{"Coleman-Liau", String.format("%.2f",txt.colemanLiau())},
+				{"SMOG", String.format("%.2f",txt.smog())},
+				{"Gunning FOG", String.format("%.2f",txt.gunningFog())},
+				{"Dale-Chall", String.format("%.2f",txt.daleChall())},
+				{"Formula", cls.getDifficultyToString()},
+				{"iLearnRW", String.format("%.2f",cls.getDifficulty())}
+		};
+		return data;
 	}
 	
 	public void runTheClassifier(){
 		Text t = new Text(textPanel.getText(), lc);
 		cls = new Classifier(user, t);
-		heatMapPanel.setClassifier(cls);
+		//heatMapPanel.setClassifier(cls);
+		textPanel.getSmallHeatMapPanel().setClassifier(cls);
 		cls.test();
 		//return cls.getUserProblemsToText().getUserCounters().getCounters();
 	}

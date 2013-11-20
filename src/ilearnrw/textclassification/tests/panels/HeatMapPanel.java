@@ -39,7 +39,7 @@ public class HeatMapPanel extends JPanel {
 	
 	public void draw(){
 		this.data = classifier.getUserProblemsToText().getUserCounters().getCounters();
-		heatMap = new JTable(data.length,data[0].length+2);
+		heatMap = new JTable(data.length,lengthsMax()+2);
 		heatMap.setShowGrid(false);
 		
 		messagesLabel = new JLabel("hello");
@@ -56,11 +56,11 @@ public class HeatMapPanel extends JPanel {
 	}
 	
 	public void test(){
-		heatMap.repaint();
 		createMatrix();
 		setValues();
 		
 		heatMap.setDefaultRenderer(Object.class, new CellRenderer());
+		heatMap.repaint();
 	}
 	
 	private int matrixMax(){

@@ -30,11 +30,11 @@ public class ProblemDescription implements Serializable{
 	
 	@Override
 	public String toString(){
-		String res = "{ problem type: "+problemType+", description:";
+		String res = "|--Problem Description: \n  |--Problem Type:"+problemType+"\n  |--Problem Contains:";
 		for (int i=0; i<descriptions.length-1; i++){
 			res = res + descriptions[i]+" ,";
 		}
-		res = res + descriptions[descriptions.length-1]+" }";
+		res = res + descriptions[descriptions.length-1]+"\n";
 		return res;
 	}
 
