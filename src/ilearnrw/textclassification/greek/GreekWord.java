@@ -28,7 +28,6 @@ public class GreekWord extends Word{
 		s.performSpelling();
 		syllables = s.getTokensArray();
 		numSyllables = syllables.length;
-		System.out.println(s.toString());
 	}
 	
 	protected char upperCharToCV(char x){

@@ -22,9 +22,9 @@ public class Classifier {
 		this.text = text;
 		this.userProblemsToText = new UserProblemsToText(user, text);
 
-		for (Map.Entry<Word,Double> entry : userProblemsToText.getWordsWeights().entrySet()) {
-			System.out.println(entry.getKey()+" :: "+entry.getValue());
-		}
+		//for (Map.Entry<Word,Double> entry : userProblemsToText.getWordsWeights().entrySet()) {
+		//	System.out.println(entry.getKey()+" :: "+entry.getValue());
+		//}
 	}
 	
 	//formula :: ((top of Age range + bottom of Age Range)/2)/100 + SDW / NW + LSI
