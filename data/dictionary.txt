@@ -5213,6 +5213,7 @@ exclusiveness|exclusive|3|7402|ɪk.ˈskluː.sɪv
 exclusiveness's|exclusive|3|7402|ɪk.ˈskluː.sɪvz 
 exclusivenesses|exclusive|1|7402|<exclusivenesses> 
 exclusives|exclusive|3|7402|ɪk.ˈskluː.sɪvz 
+excommunication|communication|6|5001|ˌek.skə.ˌmjuː.nɪˈk.eɪʃ.ən
 excuse|excuse|2|8722|ɪk.ˈskjuːz 
 excused|excuse|2|8722|ɪk.ˈskjuːzd 
 excuses|excuse|3|8722|ɪk.ˈskjuː.zɪz 
@@ -6415,6 +6416,7 @@ glove's|glove|1|10218|ɡlʌvz
 gloved|glove|1|10218|ɡlʌvd 
 gloves|glove|1|10218|ɡlʌvz 
 gloving|glove|1|10218|<gloving> 
+gnome|gnome|1|5001|nəʊm
 go|go|1|1151045|ɡəʊ 
 go's|go|1|1151045|ɡəʊz 
 goal|goal|1|58728|ɡəʊl 
