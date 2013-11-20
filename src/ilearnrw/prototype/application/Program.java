@@ -90,6 +90,10 @@ public class Program {
 			sDataLogger.loadUserActions(databaseFile);
 			
 			
+			EnglishWord st = new EnglishWord("stegosaurus");
+			EnglishWord st1 = new EnglishWord("lemma");
+			EnglishWord st2 = new EnglishWord("astrological");
+			
 			
 			EnglishWord w = new EnglishWord("excommunication");
 			
@@ -105,7 +109,7 @@ public class Program {
 				Map.Entry pairs = (Map.Entry<String, ArrayList<String>>)it.next();
 				ArrayList<String> list = (ArrayList<String>)pairs.getValue();
 				
-				ew.add(new EnglishWord(list.get(0)));
+				ew.add(new EnglishWord(pairs.getKey().toString()));
 			}
 			
 			ConsoleMenu mnu = new ConsoleMenu(System.out, System.in, "iLearnRW - Main menu", 

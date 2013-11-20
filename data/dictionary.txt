@@ -5213,7 +5213,7 @@ exclusiveness|exclusive|3|7402|ɪk.ˈskluː.sɪv
 exclusiveness's|exclusive|3|7402|ɪk.ˈskluː.sɪvz 
 exclusivenesses|exclusive|1|7402|<exclusivenesses> 
 exclusives|exclusive|3|7402|ɪk.ˈskluː.sɪvz 
-excommunication|communication|5|5001|ˌek.skə.ˌmjuː.nɪˈk.eɪʃ.ən
+excommunication|communication|6|5001|ˌek.skə.ˌmjuː.nɪˈk.eɪʃ.ən
 excuse|excuse|2|8722|ɪk.ˈskjuːz 
 excused|excuse|2|8722|ɪk.ˈskjuːzd 
 excuses|excuse|3|8722|ɪk.ˈskjuː.zɪz 
