@@ -159,7 +159,8 @@ public class SmallHeatMapPanel extends JPanel {
 		if (classifier == null) 
 			return res;
 		if (j<data[i].length){
-			res = classifier.getUser().getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
+			res = multi[i][j]+" times\n";
+			res = res+ classifier.getUser().getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
 			res = res+classifier.getUser().getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j).toString();
 		}
 		return res;

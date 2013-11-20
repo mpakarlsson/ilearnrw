@@ -132,6 +132,7 @@ public class TextMetricsTest extends JFrame {
 						if(u.getUserId() == selectedUser.getUserId() )
 							user = u;
 					userSeveritiesPanel.setUser(user);
+					explorerPanel.setUser(user);
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
@@ -155,10 +156,10 @@ public class TextMetricsTest extends JFrame {
 		
 
 		tabbedPane = new JTabbedPane();
-		tabbedPane.addTab( "Text", textPanel );
+		tabbedPane.addTab( "Text & Metrics", textPanel );
 		//tabbedPane.addTab( "Heat Map", heatMapPanel );
-		explorerPanel = new FilesExplorerPanel(tabbedPane, textPanel);
-		tabbedPane.addTab( "Explorer", explorerPanel );
+		explorerPanel = new FilesExplorerPanel(user, tabbedPane, textPanel, this);
+		tabbedPane.addTab( "File Explorer", explorerPanel );
 		tabbedPane.addTab( "User Severities", userSeveritiesPanel );
 		
 		// TODO change the 2 following rows / send them inside the UserSeveritiesHeatMapPanel class
@@ -186,16 +187,7 @@ public class TextMetricsTest extends JFrame {
 		goButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String str = textPanel.getText();
-				txt = new Text(str, lc);
-				
-				runTheClassifier();
-				//heatMapPanel.draw();
-				//heatMapPanel.test();
-				//textPanel.getSmallHeatMapPanel().draw();
-				textPanel.getSmallHeatMapPanel().test();
-				//textPanel.setResultsText(testTextMetrics());
-				textPanel.setResultsTable(testTextMetrics());
+				classifierResults();
 			}
 		});
 		toolBar.add(goButton);
@@ -261,13 +253,25 @@ public class TextMetricsTest extends JFrame {
 		return data;
 	}
 	
+	public void classifierResults(){
+		String str = textPanel.getText();
+		txt = new Text(str, lc);
+		
+		runTheClassifier();
+		//heatMapPanel.draw();
+		//heatMapPanel.test();
+		//textPanel.getSmallHeatMapPanel().draw();
+		textPanel.getSmallHeatMapPanel().test();
+		//textPanel.setResultsText(testTextMetrics());
+		textPanel.setResultsTable(testTextMetrics());
+	}
+	
 	public void runTheClassifier(){
 		Text t = new Text(textPanel.getText(), lc);
 		cls = new Classifier(user, t);
 		//heatMapPanel.setClassifier(cls);
 		textPanel.getSmallHeatMapPanel().setClassifier(cls);
 		cls.test();
-		//return cls.getUserProblemsToText().getUserCounters().getCounters();
 	}
 
 }

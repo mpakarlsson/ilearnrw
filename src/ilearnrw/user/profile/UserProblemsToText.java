@@ -61,21 +61,25 @@ public class UserProblemsToText implements Serializable {
 				}
 			}
 		}*/
-		
+
+		SDW = 0;
+		//get all words along with the number times it appeared inside the text
 		for (Map.Entry<Word,Integer> entry : text.getWordsFreq().entrySet()) {
 			Word w = entry.getKey();
 			int appearences = entry.getValue();
+			//find the points of the problem map that the word matches 
 			wprobs.insertWord(w);
 			ArrayList<WordProblemInfo> probs = wprobs.getMatchedProbs();
-			SDW = 0;
+			//count the problems for each word
 			for (WordProblemInfo x : probs){
 				double t = this.updateValue(x.getPosI(), x.getPosJ(), entry.getValue());
 				if (!wordsWeights.containsKey(w)){
 					wordsWeights.put(entry.getKey(), appearences*t - (appearences-1)*0.25);
-					SDW += appearences*t - (appearences-1)*0.25;
+					SDW += appearences*t;// - (appearences-1)*0.25;
 				}
 			}
 		}
+		System.out.println(SDW);
 	}
 
 	
