@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import ilearnrw.user.User;
 import ilearnrw.user.profile.UserProfile;
 import ilearnrw.user.profile.UserSeveritiesToProblems;
+import ilearnrw.utils.LanguageCode;
 /**
  * @brief The UserStore is used to create and store user objects persistantly.
  * 
@@ -249,13 +250,14 @@ public class UserStore implements ILoginProvider, IUserAdministration {
 	}
 
 	@Override
-	public User createUser(String username, String password)
+	public User createUser(String username, String password, LanguageCode lc)
 			throws AuthenticationException {
 		checkAdminAuth();
 
 		User u = create();
 		u.getDetails().setUsername(username);
 		u.getDetails().setPassword(password);
+		u.getDetails().setLanguage(lc);
 		return update(u);
 	}
 
@@ -309,7 +311,10 @@ public class UserStore implements ILoginProvider, IUserAdministration {
 		List<User> ret = new ArrayList<User>();
 		for( User u : mLoadedUsers ) {
 			if( u.getProfile().getUserSeveritiesToProblems().getUserSeverities() == null )
-				u.getProfile().getUserSeveritiesToProblems().loadTestGreekProblems();
+				if(u.getDetails().getLanguage() == LanguageCode.GR)
+					u.getProfile().getUserSeveritiesToProblems().loadTestGreekProblems();
+				else
+					u.getProfile().getUserSeveritiesToProblems().loadTestEnglishProblems();
 			ret.add(deepCopy(u));
 		}
 		return ret;

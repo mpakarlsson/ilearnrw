@@ -6,6 +6,7 @@ import ilearnrw.prototype.application.ConsoleMenu.*;
 import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.prototype.application.ConsoleMenuAction;
 import ilearnrw.user.User;
+import ilearnrw.utils.LanguageCode;
 
 public class DatabaseManager extends ConsoleMenuAction {
 
@@ -71,6 +72,7 @@ public class DatabaseManager extends ConsoleMenuAction {
 								menu.out().print(Integer.toString(u.getUserId()) + "\t");
 								menu.out().print(u.getDetails().getUsername() + "\t");
 								menu.out().print(Boolean.toString(u.getDetails().hasPassword()) + "\t");
+								menu.out().print(u.getDetails().getLanguage().toString() + "\t");
 								menu.out().println();
 							}
 						}catch(AuthenticationException ex){}
@@ -84,7 +86,18 @@ public class DatabaseManager extends ConsoleMenuAction {
 						try{
 							menu.out().print("Enter username: ");
 							String userName = menu.in().next();
-							userAdmin.createUser(userName, "defaultPassword");
+							
+							menu.out().print("Choose a language: ");
+							String lang = "";
+
+							menu.out().println("Select language: ");
+							menu.out().println("1. English");
+							menu.out().println("2. Greek");
+							lang = menu.in().next();
+							
+							LanguageCode lc =  lang.equals("1") ? LanguageCode.EN : LanguageCode.GR;
+							userAdmin.createUser(userName, "defaultPassword", lc);
+							
 						}catch(AuthenticationException ex){}
 						return EConsoleMenuActionResult.showThisMenuAgain;
 					}

@@ -1,6 +1,7 @@
 package ilearnrw.user.profile;
 
 import ilearnrw.prototype.application.JsonHandler;
+import ilearnrw.user.problems.EnglishProblems;
 import ilearnrw.user.problems.GreekProblems;
 import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
@@ -34,7 +35,7 @@ public class UserSeveritiesToProblems implements Serializable {
 
 	}
 	
-	// TODO: eliminate this function and replace with db fetches!!!
+	// TODO: eliminate these functions and replace with db fetches!!!
 	public void loadTestGreekProblems(){
 		JsonHandler handler = new JsonHandler("data/problem_definitions_greece.json", true);
 		GreekProblems greekProbs = (GreekProblems)handler.fromJson(GreekProblems.class);
@@ -49,7 +50,22 @@ public class UserSeveritiesToProblems implements Serializable {
 				userSeverities.setSeverity(i, j, rand.nextInt(3)+1);
 			}
 		}
+	}
+	
+	public void loadTestEnglishProblems(){
+		JsonHandler handler = new JsonHandler("data/problem_definitions_en.json", true);
+		EnglishProblems enProbs = (EnglishProblems)handler.fromJson(EnglishProblems.class);
+		//System.out.println(greekProbs.getAllProblems().toString());
 		
+		//GreekProblems greekProbs = new GreekProblems();
+		initialize(enProbs.getAllProblems());
+		Random rand = new Random();
+		for (int i=0;i<problems.getIndexLength(); i++){
+			userSeverities.setWorkingIndex(i, rand.nextInt(problems.getRowLength(i)));
+			for (int j=0; j<userSeverities.getSeverityLength(i); j++){
+				userSeverities.setSeverity(i, j, rand.nextInt(3)+1);
+			}
+		}
 	}
 
 	public ProblemDefinitionIndex getProblems(){

@@ -6,6 +6,7 @@ import static org.hamcrest.CoreMatchers.*;
 import ilearnrw.datalogger.IUserAdministration.AuthenticationException;
 import ilearnrw.user.User;
 import ilearnrw.user.UserDetails;
+import ilearnrw.utils.LanguageCode;
 
 import java.io.File;
 import java.io.IOException;
@@ -97,7 +98,7 @@ public class UserStoreTest {
 		User testUser = null;
 		try { 
 			userStore.authenticateAdmin(PASSWORD);
-			testUser = userStore.createUser("albin", "rawr");
+			testUser = userStore.createUser("albin", "rawr", LanguageCode.EN);
 		} catch (AuthenticationException e) {e.printStackTrace();}
 		String name = testUser.getDetails().getUsername();
 		testUser.setDetails(new UserDetails("sture", 2, user.getDetails().getLanguage()));
@@ -141,7 +142,7 @@ public class UserStoreTest {
 		int id = 0;
 		try {
 			userStore.authenticateAdmin(PASSWORD);
-			id = userStore.createUser("daniel", "test").getUserId();
+			id = userStore.createUser("daniel", "test", LanguageCode.EN).getUserId();
 		} catch (AuthenticationException e) {e.printStackTrace();}
 		
 		User tempUser5 = userStore.getUser("daniel", "test");
@@ -163,10 +164,10 @@ public class UserStoreTest {
 	public void testCreateUser() throws AuthenticationException{
 		
 		exception.expect(AuthenticationException.class);
-		userStore.createUser("Peter", "tolo");
+		userStore.createUser("Peter", "tolo", LanguageCode.EN);
 		
 		userStore.authenticateAdmin(PASSWORD);
-		User tempUser6 = userStore.createUser("Peter", "tolo");
+		User tempUser6 = userStore.createUser("Peter", "tolo", LanguageCode.EN);
 		assertNotNull(tempUser6);
 		assertThat(tempUser6.getDetails().getUsername(), is("Peter"));
 		
@@ -176,7 +177,7 @@ public class UserStoreTest {
 	public void testUpdatePassword(){
 		try {
 			userStore.authenticateAdmin(PASSWORD);
-			userStore.createUser("mattias", "test");
+			userStore.createUser("mattias", "test", LanguageCode.EN);
 			
 			assertNull(userStore.updatePassword("qwerty", "ytrewq"));
 			
@@ -192,7 +193,7 @@ public class UserStoreTest {
 		
 		try {
 			userStore.authenticateAdmin(PASSWORD);
-			userStore.createUser("richard", "inkognito");
+			userStore.createUser("richard", "inkognito", LanguageCode.EN);
 			
 			assertNull(userStore.changeUsername("qwerty", "ytrewq"));
 			
@@ -208,7 +209,7 @@ public class UserStoreTest {
 	public void testDeleteUser(){
 		try {
 			userStore.authenticateAdmin(PASSWORD);
-			userStore.createUser("theodore", "best");
+			userStore.createUser("theodore", "best", LanguageCode.EN);
 			
 			assertFalse(userStore.deleteUser("qwerty"));
 			assertTrue(userStore.deleteUser("theodore"));
@@ -225,7 +226,7 @@ public class UserStoreTest {
 	public void testGetAllUsers(){
 		try {
 			userStore.authenticateAdmin(PASSWORD);
-			userStore.createUser("william", "fireemblem");
+			userStore.createUser("william", "fireemblem", LanguageCode.EN);
 			
 			List<User> userList = userStore.getAllUsers();
 			

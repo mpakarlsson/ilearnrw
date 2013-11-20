@@ -3,6 +3,7 @@ package ilearnrw.datalogger;
 import java.util.List;
 
 import ilearnrw.user.User;
+import ilearnrw.utils.LanguageCode;
 
 /** \brief Provides User administration tasks.
  */
@@ -36,7 +37,7 @@ public interface IUserAdministration {
      * @param password
      * @return The new User.
      */
-    User createUser(String username, String password) throws AuthenticationException;
+    User createUser(String username, String password, LanguageCode lc) throws AuthenticationException;
 
     User updatePassword(String username, String newPassword) throws AuthenticationException;
 
