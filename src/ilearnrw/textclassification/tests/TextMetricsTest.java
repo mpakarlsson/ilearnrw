@@ -8,11 +8,9 @@ import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordVsProblems;
 import ilearnrw.textclassification.tests.panels.FilesExplorerPanel;
 import ilearnrw.textclassification.tests.panels.HeatMapPanel;
-import ilearnrw.textclassification.tests.panels.SmallHeatMapPanel;
 import ilearnrw.textclassification.tests.panels.TextPanel;
 import ilearnrw.textclassification.tests.panels.UserSeveritiesHeatMapPanel;
 import ilearnrw.user.User;
-import ilearnrw.user.profile.UserSeverities;
 import ilearnrw.utils.LanguageCode;
 
 import java.awt.BorderLayout;
@@ -30,7 +28,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.JTable;
 import javax.swing.JToolBar;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
@@ -45,10 +42,9 @@ public class TextMetricsTest extends JFrame {
 	private	JTabbedPane tabbedPane;
 	private TextPanel textPanel;
 	private FilesExplorerPanel explorerPanel;
-	private	HeatMapPanel heatMapPanel;
+	//private	HeatMapPanel heatMapPanel;
 	private	UserSeveritiesHeatMapPanel userSeveritiesPanel;
 	private User user;
-	private boolean firstTime = true;
 
 	private static UserStore mUserStore = null;
 	final class UserListBoxWrapper {
@@ -152,16 +148,16 @@ public class TextMetricsTest extends JFrame {
 		setContentPane(contentPane);
 
 		textPanel = new TextPanel(user);
-		heatMapPanel = new HeatMapPanel();
+		//heatMapPanel = new HeatMapPanel();
 		userSeveritiesPanel = new UserSeveritiesHeatMapPanel(user);
-		explorerPanel = new FilesExplorerPanel();
 		
 		contentPane.add(textPanel, BorderLayout.CENTER);
 		
 
 		tabbedPane = new JTabbedPane();
 		tabbedPane.addTab( "Text", textPanel );
-		tabbedPane.addTab( "Heat Map", heatMapPanel );
+		//tabbedPane.addTab( "Heat Map", heatMapPanel );
+		explorerPanel = new FilesExplorerPanel(tabbedPane, textPanel);
 		tabbedPane.addTab( "Explorer", explorerPanel );
 		tabbedPane.addTab( "User Severities", userSeveritiesPanel );
 		
@@ -194,8 +190,8 @@ public class TextMetricsTest extends JFrame {
 				txt = new Text(str, lc);
 				
 				runTheClassifier();
-				heatMapPanel.draw();
-				heatMapPanel.test();
+				//heatMapPanel.draw();
+				//heatMapPanel.test();
 				//textPanel.getSmallHeatMapPanel().draw();
 				textPanel.getSmallHeatMapPanel().test();
 				//textPanel.setResultsText(testTextMetrics());
@@ -268,7 +264,7 @@ public class TextMetricsTest extends JFrame {
 	public void runTheClassifier(){
 		Text t = new Text(textPanel.getText(), lc);
 		cls = new Classifier(user, t);
-		heatMapPanel.setClassifier(cls);
+		//heatMapPanel.setClassifier(cls);
 		textPanel.getSmallHeatMapPanel().setClassifier(cls);
 		cls.test();
 		//return cls.getUserProblemsToText().getUserCounters().getCounters();

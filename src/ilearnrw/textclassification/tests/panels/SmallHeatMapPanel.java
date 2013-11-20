@@ -9,6 +9,8 @@ import java.awt.Component;
 import java.awt.GridLayout;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.JTable;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
@@ -18,7 +20,7 @@ public class SmallHeatMapPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private JTable heatMap;
-	private JTextPane resultsText;
+	private JTextPane descriptionsText;
 	private Classifier classifier;
 	private int[][] data;
 	private int[][] multi;
@@ -26,12 +28,16 @@ public class SmallHeatMapPanel extends JPanel {
 	private CellRenderer renderer;
 
 	public SmallHeatMapPanel(User user) {
-		this.data = user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities();
-		//formatValues();
+		this.data = copyMatrix(user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities());
+		for (int i=0;i<data.length;i++){
+			for (int j=0;j<data[i].length;j++){
+				data[i][j] = 0;
+			}
+		}
 
-        resultsText = new JTextPane();
-        resultsText.setEditable(false);
-        resultsText.setBackground(Color.lightGray);
+        descriptionsText = new JTextPane();
+        descriptionsText.setEditable(false);
+        descriptionsText.setBackground(Color.lightGray);
         
 		heatMap = new JTable(data.length,lengthsMax());
 		renderer = new CellRenderer();
@@ -39,34 +45,46 @@ public class SmallHeatMapPanel extends JPanel {
 		heatMap.setShowGrid(false);
 
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
-		this.setLayout(new GridLayout(2,1));
+		this.setLayout(new GridLayout(1,1));
+		
+		JSplitPane splitPane = new JSplitPane();
+		splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
+		this.add(splitPane, BorderLayout.CENTER);
+        splitPane.setResizeWeight(0.77);
+        
+		splitPane.setLeftComponent(new JScrollPane(heatMap));
+        
+		splitPane.setRightComponent(descriptionsText);
 
-		this.add(heatMap);
+		//this.add(heatMap);
 
-		this.add(resultsText);
+		//this.add(descriptionsText);
 		formatMatrix();
 		first = true;
 	}
 	
 	public void setClassifier(Classifier classifier){
 		this.classifier = classifier;
-		this.data = classifier.getUserProblemsToText().getUserCounters().getCounters();
+		this.data = copyMatrix(classifier.getUserProblemsToText().getUserCounters().getCounters());
 	}
 	
 	private void formatValues(){
+		System.out.println("dfasdf::data[1][1]");
+		data[0][0] = 0;
 		for (int i=0;i<data.length;i++){
 			for (int j=0;j<data[i].length;j++){
-				data[i][j] = 0;
+				data[0][0] = 0;
 			}
 		}
 	}
 	
 	public void draw(){
 		if (!first)
-			this.data = classifier.getUserProblemsToText().getUserCounters().getCounters();
-		else
+			this.data = copyMatrix(classifier.getUserProblemsToText().getUserCounters().getCounters());
+		else{
 			first = false;
-
+			//formatValues();
+		}
 	}
 	
 	public void test(){
@@ -77,6 +95,17 @@ public class SmallHeatMapPanel extends JPanel {
 
 		heatMap.repaint();
 		heatMap.revalidate();
+	}
+	
+	private int[][] copyMatrix(int p[][]){
+		int tmp[][] = new int[p.length][];
+		for (int i=0;i<p.length;i++){
+			tmp[i] = new int[p[i].length];
+			for (int j=0;j<p[i].length;j++){
+				tmp[i][j] = p[i][j];
+			}
+		}
+		return tmp;
 	}
 	
 	private int matrixMax(){
@@ -147,7 +176,7 @@ public class SmallHeatMapPanel extends JPanel {
             Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             if (hasFocus){
             	// TODO add a window that displays problem description here!
-            	resultsText.setText(displayCellInfo(row, column));
+            	descriptionsText.setText(displayCellInfo(row, column));
             	c.setBackground(Color.black);
             }
             if (multi[row][column]==-1)

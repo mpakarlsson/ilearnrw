@@ -3,15 +3,13 @@ package ilearnrw.textclassification.tests.panels;
 import ilearnrw.user.User;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.GridLayout;
 
-import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextPane;
-import javax.swing.ScrollPaneLayout;
+
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.TableColumn;
 import javax.swing.JTable;
@@ -95,6 +93,11 @@ public class TextPanel extends JPanel{
 
 	public String getText(){
 		return this.mainText.getText();
+	}
+	
+
+	public void testMethod(String str){
+		mainText.setText(str);
 	}
 	
 	private void createTable(){

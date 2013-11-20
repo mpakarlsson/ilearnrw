@@ -5,25 +5,60 @@ import ilearnrw.user.profile.UserSeverities;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.GridLayout;
 
-import javax.swing.JLabel;
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.JTable;
+import javax.swing.JTextPane;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableCellRenderer;
 
 public class UserSeveritiesHeatMapPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private JTable heatMap;
-	private JLabel messagesLabel;
+	private JTextPane descriptionsText;
 	private User user;
 	private int[][] data;
 	private int[][] multi;
+	private CellRenderer renderer;
+	private boolean first = true;
 
 	public UserSeveritiesHeatMapPanel(User user){
 		this.user = user;
+
+		this.data = copyMatrix(user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities());
+
+        descriptionsText = new JTextPane();
+        descriptionsText.setEditable(false);
+        descriptionsText.setBackground(Color.lightGray);
+        
+		heatMap = new JTable(data.length,lengthsMax());
+		renderer = new CellRenderer();
+		heatMap.setDefaultRenderer(Object.class, renderer);
+		heatMap.setShowGrid(false);
+
+		this.setBorder(new EmptyBorder(5, 5, 5, 5));
+		this.setLayout(new GridLayout(1,1));
+		
+		JSplitPane splitPane = new JSplitPane();
+		splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
+		this.add(splitPane, BorderLayout.CENTER);
+        splitPane.setResizeWeight(0.77);
+        
+		splitPane.setLeftComponent(new JScrollPane(heatMap));
+        
+		splitPane.setRightComponent(descriptionsText);
+
+		//this.add(new JScrollPane(heatMap));
+
+		//this.add(descriptionsText);
+		first = true;
 	}
 	
 	public void setUser(User user){
@@ -36,14 +71,14 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 			return;
 		UserSeverities severities = user.getProfile().getUserSeveritiesToProblems().getUserSeverities();
 		for (int i=0;i<multi.length;i++){
-			for (int j=2;j<multi[i].length;j++){
+			for (int j=0;j<multi[i].length;j++){
 				Object o = heatMap.getValueAt(i, j);
 				if( o != null )
 				{
 					try{
-					severities.setSeverity(i, j-2, (Integer) o);
+					severities.setSeverity(i, j, (Integer) o);
 					} catch( Exception ex ) {
-						severities.setSeverity(i, j-2, Integer.parseInt((String) o));
+						severities.setSeverity(i, j, Integer.parseInt((String) o));
 					}
 				}
 			}
@@ -64,42 +99,45 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 	}
 	
 	public void draw(){
-		this.data = user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities();
+		this.data = copyMatrix(user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities());
 		
-		if( heatMap != null )
-			this.remove(heatMap);
-		if( messagesLabel != null )
-			this.remove(messagesLabel);
+		heatMap.setRowHeight(60);
+		createMatrix();
+		setValues();
 
-		heatMap = new JTable(data.length,lengthsMax() + 2);
+		heatMap.setDefaultRenderer(Object.class, renderer);
+
+		heatMap.repaint();
+		heatMap.revalidate();
+		
+		/*if( heatMap != null )
+			this.remove(heatMap);
+		if( descriptionsText != null )
+			this.remove(descriptionsText);
+
+		heatMap = new JTable(data.length,lengthsMax());
 		heatMap.setShowGrid(false);
 
-		messagesLabel = new JLabel("hello");
+		descriptionsText = new JTextPane();
 
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new BorderLayout(0, 0));
 
 		this.add(new JScrollPane(heatMap), BorderLayout.CENTER);
 
-		this.add(messagesLabel, BorderLayout.SOUTH);
+		this.add(descriptionsText, BorderLayout.SOUTH);
 		
-		heatMap.setRowHeight(80);
+		heatMap.setRowHeight(80);*/
 
 	}
 	
 	public void test(){
-		heatMap.repaint();
-		createMatrix();
-		setValues();
-		heatMap.repaint();
-		
-		heatMap.setDefaultRenderer(Object.class, new CellRenderer());
 	}
 	
 	private int matrixMax(){
-		int max = multi[0][2];
+		int max = multi[0][0];
 		for (int i=0;i<multi.length;i++){
-			for (int j=2;j<multi[0].length;j++){
+			for (int j=0;j<multi[0].length;j++){
 				if (multi[i][j] > max)
 					max = multi[i][j];
 			}
@@ -126,39 +164,47 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 	}
 	
 	private void createMatrix(){
-		multi = new int[data.length][lengthsMax()+2];
+		multi = new int[data.length][lengthsMax()];
 		for (int i=0;i<multi.length;i++){
-			int sum = 0;
-			for (int j=0; j < lengthsMax() + 2;j++){
-				if( j == 0 || j == 1 )
-					continue;
-				if (j >= data[i].length+2)
+			for (int j=0; j < lengthsMax();j++){
+				if (j >= data[i].length)
 					multi[i][j] = -1;
-				else{
-					multi[i][j] = data[i][j-2];
-					sum += data[i][j-2];
-				}
+				else
+					multi[i][j] = data[i][j];
 			}
-			multi[i][0] = user.getProfile().getUserSeveritiesToProblems().getWorkingIndex(i);
-			multi[i][1] = -1;
 		}
 	}
 	
 	private String displayCellInfo(int i, int j){
 		String res = "null";
-		if (j==0){
+		//if (j==0){
+		//	res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
+		//}
+		if (j<data[i].length){
 			res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
-		}
-		else if (j>1 && j<data[i].length+2){
-			res = user.getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j-2).toString();
+			res = res + user.getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j).toString();
 		}
 		return res;
+	}
+	
+	private int[][] copyMatrix(int p[][]){
+		int tmp[][] = new int[p.length][];
+		for (int i=0;i<p.length;i++){
+			tmp[i] = new int[p[i].length];
+			for (int j=0;j<p[i].length;j++){
+				tmp[i][j] = p[i][j];
+			}
+		}
+		return tmp;
 	}
 	
 	
 	private class CellRenderer extends DefaultTableCellRenderer {
 
 		private static final long serialVersionUID = 1L;
+		Border unselectedBorder = null;
+		Border selectedBorder = null;
+		boolean isBordered = false;
 
 		@Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, 
@@ -166,19 +212,36 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
             Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             if (hasFocus){
             	// TODO add a window that displays problem description here!
-            	messagesLabel.setText(displayCellInfo(row, column));
+            	descriptionsText.setText(displayCellInfo(row, column));
             	c.setBackground(Color.black);
             }
-            if (column==0)
-            	c.setBackground(new Color(170, 255-20*((12*multi[row][column])/sumsMax()), 255-((12*multi[row][column])/sumsMax())));                        
-            else if (multi[row][column]==-1)
+            if (multi[row][column]==-1)
             	c.setBackground(new Color(210, 210, 210)); 
             else{
             	if (matrixMax() == 0)
             		c.setBackground(new Color(255, 235, 235));
             	else
             		c.setBackground(new Color(255, 240-20*((12*multi[row][column])/matrixMax()), 240-20*((12*multi[row][column])/matrixMax())));
-            	}                     
+            	}                 
+            
+            isBordered = user.getProfile().getUserSeveritiesToProblems().getWorkingIndex(row) == column;
+            
+            if (isBordered) {
+				if (isSelected) {
+					if (selectedBorder == null) {
+						selectedBorder = BorderFactory.createMatteBorder(2,5,2,5, Color.black);
+					}
+					setBorder(selectedBorder);
+				}
+				else {
+					if (unselectedBorder == null) {
+						unselectedBorder = BorderFactory.createMatteBorder(2,5,2,5, Color.black);
+					}
+					setBorder(unselectedBorder);
+				}
+			}
+
+			setToolTipText(displayCellInfo(row, column));
 
             return c;
         };

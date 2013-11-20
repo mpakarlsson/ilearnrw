@@ -1,20 +1,48 @@
 package ilearnrw.textclassification.tests.panels;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.JTextPane;
 import javax.swing.table.AbstractTableModel;
 
 public class FilesExplorerPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 
-	public FilesExplorerPanel() {
+	public FilesExplorerPanel(final JTabbedPane tabbedPane, final TextPanel textPanel) {
 		super();
-		JTable table = new JTable(new MonModel());
+		final JTable table = new JTable(new MonModel());
+		table.addMouseListener(new MouseAdapter() {
+			   public void mouseClicked(MouseEvent e) {
+				      if (e.getClickCount() == 2) {
+				    	  MonModel mm = (MonModel)table.getModel();
+				    	  JTable target = (JTable)e.getSource();
+				    	  int row = target.getSelectedRow();
+				    	  int column = target.getSelectedColumn();
+				    	  tabbedPane.setSelectedIndex(0);
+				    	  String text = "";
+				    	  try {
+				    		  text = new Scanner( new File("data/"+mm.getFileName(row)), "UTF-8" ).useDelimiter("\\A").next();
+				    	  } catch (FileNotFoundException e1) {
+				    		  // TODO Auto-generated catch block
+				    		  e1.printStackTrace();
+				    	  }
+				    	  textPanel.testMethod(text);
+				      }
+				   }
+				});
+		
 		this.setLayout(new GridLayout(1,1));
 		this.add(new JScrollPane(table));
 	}
@@ -23,15 +51,12 @@ public class FilesExplorerPanel extends JPanel{
 	private class MonModel extends AbstractTableModel {
 		private static final long serialVersionUID = 1L;
 		private ArrayList<IlearnFile> l;
-	    private final String[] columnNames = new String[]{"Longitude", "Latitude"};
+	    private final String[] columnNames = new String[]{"File Name", "Score"};
 
 	    public MonModel() {
 	        super();
 	        l = new ArrayList<IlearnFile>();
 
-	        l.add(new IlearnFile("first", 79.95));
-	        l.add(new IlearnFile("second", 73.90));
-	        l.add(new IlearnFile("third", 9.295));
 	        loadFiles();
 	    }
 
@@ -41,7 +66,7 @@ public class FilesExplorerPanel extends JPanel{
 	    }
 
 	    public int getColumnCount() {
-	        return 2;
+	        return columnNames.length;
 	    }
 
 	    public int getRowCount() {
@@ -56,6 +81,10 @@ public class FilesExplorerPanel extends JPanel{
 	            return l.get(rowIndex).getIlearnScore();
 	        }
 	        return null;
+	    }
+	    
+	    public String getFileName(int i){
+	    	return l.get(i).getName();
 	    }
 		
 		private void loadFiles(){
