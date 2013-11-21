@@ -20,6 +20,8 @@ public class TextPanel extends JPanel{
 	private JTable resultsTable;
 	private JScrollPane scrollPane;
 	private SmallHeatMapPanel smallHeat;
+	private JPanel scrpanel;
+	private JSplitPane splitPane_1;
 
 	public TextPanel() {
 		
@@ -46,7 +48,7 @@ public class TextPanel extends JPanel{
         //resultsText.setContentType("text/html");
         //resultsText.setText("Paste Your Text to The Left.<br>Switch Language if needed.");
         
-        JSplitPane splitPane_1 = new JSplitPane();
+        splitPane_1 = new JSplitPane();
         splitPane_1.setResizeWeight(0.40);
         splitPane_1.setOrientation(JSplitPane.VERTICAL_SPLIT);
         panel.add(splitPane_1);
@@ -60,7 +62,7 @@ public class TextPanel extends JPanel{
         splitPane_1.setLeftComponent(scrollPane);
 
 
-		JPanel scrpanel = new JPanel();
+		scrpanel = new JPanel();
 		scrpanel.setLayout(new GridLayout(1,1));
 		splitPane_1.setRightComponent(scrpanel);
 
@@ -72,8 +74,29 @@ public class TextPanel extends JPanel{
 
 	}
 	
+	public void reset(User user){
+
+		mainText.setText("");
+		resetResultsTable();
+		scrpanel = new JPanel();
+		scrpanel.setLayout(new GridLayout(1,1));
+		splitPane_1.setRightComponent(scrpanel);
+        smallHeat = new SmallHeatMapPanel(user);
+        smallHeat.draw();
+        smallHeat.test();
+
+        scrpanel.add(smallHeat);
+	}
+	
 	public SmallHeatMapPanel getSmallHeatMapPanel() {
 		return smallHeat;
+	}
+
+	public void resetResultsTable(){
+		for (int i=0;i<resultsTable.getRowCount();i++){
+			//this.resultsTable.setValueAt("", i, 0);
+			this.resultsTable.setValueAt("", i, 1);
+		}
 	}
 
 	public void setResultsTable(String str[][]){

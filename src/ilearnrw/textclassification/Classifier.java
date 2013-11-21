@@ -27,7 +27,9 @@ public class Classifier {
 		return this.getAgeFK()/100+userProblemsToText.getSDW()/text.getNumberOfWords()+this.getLSI();
 	}
 	public String getDifficultyToString(){
-		return ""+this.getAgeFK()+"/"+100+"+"+userProblemsToText.getSDW()+"/"+text.getNumberOfWords()+"+"+this.getLSI();
+		return ""+this.getAgeFK()+"/"+100+"+"+
+				String.format("%.2f",userProblemsToText.getSDW())+"/"+text.getNumberOfWords()+
+				"+"+String.format("%.2f",this.getLSI());
 	}
 	
 	/*

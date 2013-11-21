@@ -26,6 +26,7 @@ public class SmallHeatMapPanel extends JPanel {
 	private int[][] multi;
 	private boolean first;
 	private CellRenderer renderer;
+	private JSplitPane splitPane;
 
 	public SmallHeatMapPanel(User user) {
 		this.data = copyMatrix(user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities());

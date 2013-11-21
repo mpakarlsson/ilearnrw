@@ -135,6 +135,7 @@ public class TextMetricsTest extends JFrame {
 						if(u.getUserId() == selectedUser.getUserId() )
 							user = u;
 					updateLanguageLabel();
+					textPanel.reset(user);
 					userSeveritiesPanel.setUser(user);
 					explorerPanel.setUser(user);
 				} catch (Exception ex) {
@@ -200,7 +201,10 @@ public class TextMetricsTest extends JFrame {
 		toolBar.add(languageLabel);
 	}
 	
-	private void updateLanguageLabel(){
+	private boolean updateLanguageLabel(){
+		boolean result = false;
+		if (lc == null || lc!=user.getDetails().getLanguage())
+			result = true;
 		lc = user.getDetails().getLanguage();
 		if (lc == LanguageCode.EN){
 			languageLabel.setText(" Language | EN | ");
@@ -208,6 +212,7 @@ public class TextMetricsTest extends JFrame {
 		else{
 			languageLabel.setText(" Language | GR | ");
 		}
+		return result;
 	}
 	
 	private String[][] testTextMetrics(){

@@ -37,7 +37,7 @@ public class UserProblemsToText implements Serializable {
 	}
 	
 	public UserProblemsToText(User user, Text text){
-		if (text.getLanguageCode() != user.getProfile().getLanguage())
+		if (text.getLanguageCode() != user.getDetails().getLanguage())
 			return;
 		this.userSeveritiesToProblems = user.getProfile().getUserSeveritiesToProblems();
 		this.text = text;

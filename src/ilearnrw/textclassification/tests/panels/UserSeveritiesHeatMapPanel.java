@@ -27,6 +27,7 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 	private int[][] data;
 	private int[][] multi;
 	private CellRenderer renderer;
+	private JSplitPane splitPane;
 	private boolean first = true;
 
 	public UserSeveritiesHeatMapPanel(User user){
@@ -46,7 +47,7 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new GridLayout(1,1));
 		
-		JSplitPane splitPane = new JSplitPane();
+		splitPane = new JSplitPane();
 		splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		this.add(splitPane, BorderLayout.CENTER);
         splitPane.setResizeWeight(0.77);
@@ -63,6 +64,17 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 	
 	public void setUser(User user){
 		this.user = user;
+
+		this.data = copyMatrix(user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities());
+		heatMap = new JTable(data.length,lengthsMax());
+		renderer = new CellRenderer();
+		heatMap.setDefaultRenderer(Object.class, renderer);
+		heatMap.setShowGrid(false);
+
+		this.setBorder(new EmptyBorder(5, 5, 5, 5));
+		this.setLayout(new GridLayout(1,1));
+		splitPane.setLeftComponent(new JScrollPane(heatMap));
+		
 		draw();
 		test();
 	}
