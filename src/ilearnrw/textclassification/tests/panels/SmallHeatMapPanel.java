@@ -184,11 +184,14 @@ public class SmallHeatMapPanel extends JPanel {
             	c.setBackground(new Color(210, 210, 210)); 
             else{
             	if (matrixMax() == 0){
-            		c.setBackground(new Color(255, 235, 235));
+            		c.setBackground(new Color(255, 250, 250));
             	
             	}
+            	else if (multi[row][column]==0){
+            		c.setBackground(new Color(255, 255, 255));
+            	}
             	else{
-            		c.setBackground(new Color(255, 240-20*((12*multi[row][column])/matrixMax()), 240-20*((12*multi[row][column])/matrixMax())));
+            		c.setBackground(new Color(255, 255-((255*multi[row][column])/matrixMax()), 255-((255*multi[row][column])/matrixMax())));
             	}  
             }
             return c;
