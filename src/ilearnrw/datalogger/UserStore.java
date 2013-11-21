@@ -258,6 +258,10 @@ public class UserStore implements ILoginProvider, IUserAdministration {
 		u.getDetails().setUsername(username);
 		u.getDetails().setPassword(password);
 		u.getDetails().setLanguage(lc);
+		if(u.getDetails().getLanguage() == LanguageCode.GR)
+			u.getProfile().getUserSeveritiesToProblems().loadTestGreekProblems();
+		else
+			u.getProfile().getUserSeveritiesToProblems().loadTestEnglishProblems();
 		return update(u);
 	}
 

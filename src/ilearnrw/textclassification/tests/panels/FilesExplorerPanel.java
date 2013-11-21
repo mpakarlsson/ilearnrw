@@ -137,7 +137,9 @@ public class FilesExplorerPanel extends JPanel{
 				if (listOfFiles[i].isFile()){
 					files = listOfFiles[i].getName();
 					if (files.endsWith(".txt") || files.endsWith(".TXT")){
-						l.add(new IlearnFile(files));
+						IlearnFile file = new IlearnFile(files);
+						if (file.suitable())
+							l.add(file);
 					}
 				}
 			}
@@ -149,6 +151,7 @@ public class FilesExplorerPanel extends JPanel{
 	    private int numberOfWords;
 	    private double Flesch, FleschKincaid, Automated, ColemanLiau, 
 	    SMOG, gunningFOG, DaleChall, iLearnRW;
+	    private boolean isSuitableToTheUser;
 
 		public IlearnFile(String name) {
 	        this.name = name;
@@ -163,19 +166,25 @@ public class FilesExplorerPanel extends JPanel{
 	    		  // TODO Auto-generated catch block
 	    		  e1.printStackTrace();
 	    	  }
-	  		Text t = new Text(text, findLanguage(text));
-			Classifier cls = new Classifier(user, t);
-			cls.test();
-			numberOfWords = t.getNumberOfWords();
-			Flesch = t.flesch();
-			FleschKincaid = t.fleschKincaid();
-			Automated = t.automated();
-			ColemanLiau = t.colemanLiau(); 
-		    SMOG = t.smog();
-		    gunningFOG = t.gunningFog();
-		    DaleChall = t.daleChall();
-		    iLearnRW = cls.getDifficulty();
+	    	  LanguageCode lan = findLanguage(text);
+	    	  isSuitableToTheUser = lan == user.getDetails().getLanguage();
+	    	  Text t = new Text(text, lan);
+	    	  Classifier cls = new Classifier(user, t);
+	    	  cls.test();
+	    	  numberOfWords = t.getNumberOfWords();
+	    	  Flesch = t.flesch();
+	    	  FleschKincaid = t.fleschKincaid();
+	    	  Automated = t.automated();
+	    	  ColemanLiau = t.colemanLiau(); 
+	    	  SMOG = t.smog();
+	    	  gunningFOG = t.gunningFog();
+	    	  DaleChall = t.daleChall();
+	    	  iLearnRW = cls.getDifficulty();
 	    }
+
+		public boolean suitable() {
+			return isSuitableToTheUser;
+		}
 
 		public int getNumberOfWords() {
 			return numberOfWords;
