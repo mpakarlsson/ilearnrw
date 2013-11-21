@@ -167,7 +167,7 @@ public class FilesExplorerPanel extends JPanel{
 	    		  e1.printStackTrace();
 	    	  }
 	    	  LanguageCode lan = findLanguage(text);
-	    	  isSuitableToTheUser = lan == user.getProfile().getLanguage();
+	    	  isSuitableToTheUser = lan == user.getDetails().getLanguage();
 	    	  Text t = new Text(text, lan);
 	    	  Classifier cls = new Classifier(user, t);
 	    	  cls.test();

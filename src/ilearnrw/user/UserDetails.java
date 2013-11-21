@@ -154,13 +154,5 @@ public class UserDetails implements Serializable {
 	public void setLanguage(LanguageCode language) {
 		this.language = language;
 	}
-	/**
-	 * 
-	 * @param the language code as a enum item
-	 */
-	public void setLanguage(byte languageCode) {
-		this.language = languageCode==LanguageCode.getEnglishCode() ?
-				LanguageCode.EN:LanguageCode.GR;
-	}
 	
 }

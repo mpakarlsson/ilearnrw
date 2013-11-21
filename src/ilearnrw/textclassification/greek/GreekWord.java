@@ -16,6 +16,7 @@ public class GreekWord extends Word{
 		checkType();
 		syllabism();
 		createCVForm();
+		//System.out.println(syllables.toString());
 	}
 
 	protected void checkType(){

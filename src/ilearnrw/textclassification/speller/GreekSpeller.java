@@ -543,6 +543,16 @@ public class GreekSpeller implements Speller{
 		this.vowels.add("ώ");		
 
 		/* Vowels for checking undue diphthogs */
+		// TODO check if it works!
+		this.unduesVowels.add("α");
+		this.unduesVowels.add("ε");
+		this.unduesVowels.add("η");	
+		this.unduesVowels.add("ι");
+		this.unduesVowels.add("ο");
+		this.unduesVowels.add("υ");
+		this.unduesVowels.add("ω");
+		//chris' input ends
+		
 		this.unduesVowels.add("ά");
 		this.unduesVowels.add("έ");
 		this.unduesVowels.add("ή");

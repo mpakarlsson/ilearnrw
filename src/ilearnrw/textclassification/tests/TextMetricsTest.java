@@ -99,7 +99,8 @@ public class TextMetricsTest extends JFrame {
 	    } 
 	    catch(Exception e){ 
 	    }
-		
+
+		languageLabel = new JLabel();
 		
 		/*Fill the user ComboBox*/
 		try {
@@ -109,6 +110,7 @@ public class TextMetricsTest extends JFrame {
 			/*Select the first user.*/
 			user = mUserStore.getAllUsers().get(0);
 			userCombobox.setSelectedIndex(0);
+			updateLanguageLabel();
 		} catch (Exception ex){
 			ex.printStackTrace();
 		}
@@ -132,8 +134,6 @@ public class TextMetricsTest extends JFrame {
 					for( User u : mUserStore.getAllUsers() )
 						if(u.getUserId() == selectedUser.getUserId() )
 							user = u;
-					lc = user.getProfile().getLanguage();
-					//languageLabel = new JLabel(" Language | GR | ");
 					updateLanguageLabel();
 					userSeveritiesPanel.setUser(user);
 					explorerPanel.setUser(user);
@@ -196,13 +196,12 @@ public class TextMetricsTest extends JFrame {
 		});
 		toolBar.add(goButton);
 
-		lc = user.getProfile().getLanguage();
-		languageLabel = new JLabel(" Language | GR | ");
 		updateLanguageLabel();
 		toolBar.add(languageLabel);
 	}
 	
 	private void updateLanguageLabel(){
+		lc = user.getDetails().getLanguage();
 		if (lc == LanguageCode.EN){
 			languageLabel.setText(" Language | EN | ");
 		}
