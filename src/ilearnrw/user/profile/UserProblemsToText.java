@@ -23,6 +23,7 @@ public class UserProblemsToText implements Serializable {
 	private UserTextCounters userCounters;
 	private HashMap<Word, Double> wordsWeights;
 	private double SDW;
+	private int totalHits, userHits;
 	
 	// TODO fix the threshold to a valua that the experts want!
 	int threshold = 0;//the threshold for a severity so that the corresponding problem will be counted in the matrix
@@ -34,6 +35,7 @@ public class UserProblemsToText implements Serializable {
 		this.wprobs = null;
 		this.wordsWeights = null;
 		SDW = 0;
+		totalHits = 0;
 	}
 	
 	public UserProblemsToText(User user, Text text){
@@ -54,16 +56,9 @@ public class UserProblemsToText implements Serializable {
 	}	
 	
 	public void initialize(){
-		/*for (Sentence sen : text.getSentences()){
-			for (Word w : sen.getWords()){
-				wprobs.insertWord(w);
-				ArrayList<WordProblemInfo> probs = wprobs.getMatchedProbs();
-				for (WordProblemInfo x : probs){
-					this.increaseValue(x.getPosI(), x.getPosJ());
-				}
-			}
-		}*/
 
+		userHits = 0;
+		totalHits = 0;
 		SDW = 0;
 		//get all words along with the number times it appeared inside the text
 		for (Map.Entry<Word,Integer> entry : text.getWordsFreq().entrySet()) {
@@ -72,16 +67,17 @@ public class UserProblemsToText implements Serializable {
 			//find the points of the problem map that the word matches 
 			wprobs.insertWord(w);
 			ArrayList<WordProblemInfo> probs = wprobs.getMatchedProbs();
+			totalHits += probs.size();
 			//count the problems for each word
 			for (WordProblemInfo x : probs){
 				double t = this.updateValue(x.getPosI(), x.getPosJ(), entry.getValue());
+				userHits += t>0 ? 1:0;
 				if (!wordsWeights.containsKey(w)){
 					wordsWeights.put(entry.getKey(), appearences*t - (appearences-1)*0.25);
 					SDW += appearences*t;// - (appearences-1)*0.25;
 				}
 			}
 		}
-		System.out.println(SDW);
 	}
 
 	
@@ -107,6 +103,22 @@ public class UserProblemsToText implements Serializable {
 
 	public void setSDW(double sDW) {
 		SDW = sDW;
+	}
+
+	public int getTotalHits() {
+		return totalHits;
+	}
+
+	public void setTotalHits(int totalHits) {
+		this.totalHits = totalHits;
+	}
+
+	public int getUserHits() {
+		return userHits;
+	}
+
+	public void setUserHits(int userHits) {
+		this.userHits = userHits;
 	}
 
 	public void setValue(int i, int j, int value) {

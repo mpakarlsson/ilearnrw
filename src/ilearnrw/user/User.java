@@ -26,7 +26,7 @@ public class User implements Serializable {
 	
 	public User(LanguageCode lc) {
 		this.userId = -1;
-		this.profile = new UserProfile(lc);
+		this.profile = new UserProfile();
 		this.details = new UserDetails(lc);
 		this.oldSessions = new ArrayList<UserSession>();
 		this.session = new ArrayList<UserSession>();

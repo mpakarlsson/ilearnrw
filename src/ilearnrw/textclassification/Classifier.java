@@ -109,18 +109,6 @@ public class Classifier {
 		userProblemsToText = new UserProblemsToText(user, text);
 	}
 	
-	/*public void test(){
-		for (Sentence sen : text.getSentences()){
-			for (Word w : sen.getWords()){
-				wprobs.insertWord(w);
-				ArrayList<WordProblemInfo> probs = wprobs.getMatchedProbs();
-				for (WordProblemInfo x : probs){
-					userProblemsToText.increaseValue(x.getPosI(), x.getPosJ());
-				}
-			}
-		}
-	}*/
-	
 	
 	/*
 	SDW (Sum of Difficult Words)

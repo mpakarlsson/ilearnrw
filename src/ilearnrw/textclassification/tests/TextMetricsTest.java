@@ -6,6 +6,8 @@ import ilearnrw.textclassification.Classifier;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordVsProblems;
+import ilearnrw.textclassification.english.EnglishWord;
+import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.textclassification.tests.panels.FilesExplorerPanel;
 import ilearnrw.textclassification.tests.panels.HeatMapPanel;
 import ilearnrw.textclassification.tests.panels.TextPanel;
@@ -192,10 +194,20 @@ public class TextMetricsTest extends JFrame {
 		goButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				classifierResults();
+				if (!textPanel.getText().trim().isEmpty())
+					classifierResults();
 			}
 		});
 		toolBar.add(goButton);
+		
+		JButton clearButton = new JButton("Clear");
+		clearButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				textPanel.reset(user);
+			}
+		});
+		toolBar.add(clearButton);
 
 		updateLanguageLabel();
 		toolBar.add(languageLabel);
@@ -215,6 +227,20 @@ public class TextMetricsTest extends JFrame {
 		return result;
 	}
 	
+	public void classifierResults(){
+		String str = textPanel.getText();
+		txt = new Text(str, lc);
+		
+		runTextClassifier();
+		textPanel.getSmallHeatMapPanel().test();
+		if (textPanelIsWord()){
+			textPanel.setResultsTable(testWordMetrics());
+		}
+		else{
+			textPanel.setResultsTable(testTextMetrics());
+		}
+	}
+	
 	private String[][] testTextMetrics(){
 		
 		HashMap<Word, Integer> hs = txt.getWordsFreq();
@@ -226,7 +252,6 @@ public class TextMetricsTest extends JFrame {
 		WordVsProblems wp = new WordVsProblems(w.getLanguageCode());
 		wp.insertWord(w);
 		System.out.println(wp.toString());
-		//return res;
 		
 		String[][] data = {
 				{"# Paragraphs", ""+txt.getNumberOfParagraphs()},
@@ -256,20 +281,47 @@ public class TextMetricsTest extends JFrame {
 		return data;
 	}
 	
-	public void classifierResults(){
-		String str = textPanel.getText();
-		txt = new Text(str, lc);
+	private String[][] testWordMetrics(){
 		
-		runTheClassifier();
-		//heatMapPanel.draw();
-		//heatMapPanel.test();
-		//textPanel.getSmallHeatMapPanel().draw();
-		textPanel.getSmallHeatMapPanel().test();
-		//textPanel.setResultsText(testTextMetrics());
-		textPanel.setResultsTable(testTextMetrics());
+		HashMap<Word, Integer> hs = txt.getWordsFreq();
+		System.out.println("Text Language -- "+txt.getLanguageCode());
+		
+		Object tmp[] = hs.keySet().toArray();
+		Word w = (Word)tmp[0];
+		System.out.println(w.toString()+ " -- "+w.getLanguageCode());
+		WordVsProblems wp = new WordVsProblems(w.getLanguageCode());
+		wp.insertWord(w);
+		System.out.println(wp.toString());
+		
+		String[][] data = {
+				{"Word:", ""+w.toString()},
+				{"Word Language", findLanguage(textPanel.getText()) == LanguageCode.GR?"Greek":"English"},
+				{"User Compatible", findLanguage(textPanel.getText()) == user.getDetails().getLanguage()?"True":"False"},
+				{"# Letters:", ""+w.getLength()},
+				{"# Syllables:", ""+w.getNumberOfSyllables()},
+				{"Phonetics:", ""+w.getPhonetics()},
+				{"Syllables:", ""+w.getWordInToSyllables()},
+				{"CV Form:", ""+w.getCVForm()},
+				{"Total Hits:", ""+cls.getUserProblemsToText().getTotalHits()},
+				{"User Hits:", ""+cls.getUserProblemsToText().getUserHits()},
+				{"Word Difficutly:", "???"},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""}
+		};
+		return data;
 	}
 	
-	public void runTheClassifier(){
+	public void runTextClassifier(){
 		Text t = new Text(textPanel.getText(), lc);
 		cls = new Classifier(user, t);
 		//heatMapPanel.setClassifier(cls);
@@ -277,4 +329,35 @@ public class TextMetricsTest extends JFrame {
 		cls.test();
 	}
 
+	private boolean textPanelIsWord(){
+		String t = textPanel.getText().trim();
+		return !t.contains(" ");		
+	}
+	
+	private LanguageCode findLanguage(String text){
+		char[] lowerCase = {'α', 'β', 'γ', 
+	    		'δ', 'ε', 'ζ', 'η', 'θ', 
+	    		'ι', 'κ', 'λ', 'μ', 'ν', 
+	    		'ξ', 'ο', 'π', 'ρ', 'σ', 
+	    		'τ', 'υ', 'φ', 'χ', 'ψ', 
+	    		'ω', 'ά', 'έ', 'ή', 'ί', 
+	    		'ό', 'ύ', 'ώ', 'ϊ', 'ϋ', 
+	    		'ΐ','ΰ', 'ς'};
+	    char[] upperCase = {'Α', 'Β', 'Γ', 
+	    		'Δ', 'Ε', 'Ζ', 'Η', 'Θ', 
+	    		'Ι', 'Κ', 'Λ', 'Μ', 'Ν', 
+	    		'Ξ', 'Ο', 'Π', 'Ρ', 'Σ', 
+	    		'Τ', 'Υ', 'Φ', 'Χ', 'Ψ', 
+	    		'Ω', 'Ά', 'Έ', 'Ή', 'Ί', 
+	    		'Ό', 'Ύ', 'Ώ', 'Ϊ', 'Ϋ' };
+	    for (char c : lowerCase){
+	    	if (text.contains(""+c))
+	    		return LanguageCode.GR;
+	    }
+	    for (char c : upperCase){
+	    	if (text.contains(""+c))
+	    		return LanguageCode.GR;
+	    }
+	    return LanguageCode.EN;
+	}
 }

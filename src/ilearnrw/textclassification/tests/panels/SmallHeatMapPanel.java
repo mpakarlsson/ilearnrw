@@ -131,7 +131,7 @@ public class SmallHeatMapPanel extends JPanel {
 	private void formatMatrix(){
 		multi = new int[data.length][lengthsMax()];
 		for (int i=0;i<multi.length;i++){
-			for (int j=0;j<multi[0].length;j++){
+			for (int j=0;j<multi[i].length;j++){
 				if (j>=data[i].length)
 					multi[i][j] = -1;
 				else{
@@ -144,7 +144,7 @@ public class SmallHeatMapPanel extends JPanel {
 	private void createMatrix(){
 		multi = new int[data.length][lengthsMax()];
 		for (int i=0;i<multi.length;i++){
-			for (int j=0;j<multi[0].length;j++){
+			for (int j=0;j<multi[i].length;j++){
 				if (j>=data[i].length)
 					multi[i][j] = -1;
 				else{

@@ -44,21 +44,13 @@ public class TextPanel extends JPanel{
         mainText = new JTextPane();
         JScrollPane jsp = new JScrollPane(mainText);
         splitPane.setLeftComponent(jsp);
-
-        //resultsText.setContentType("text/html");
-        //resultsText.setText("Paste Your Text to The Left.<br>Switch Language if needed.");
         
         splitPane_1 = new JSplitPane();
         splitPane_1.setResizeWeight(0.40);
         splitPane_1.setOrientation(JSplitPane.VERTICAL_SPLIT);
         panel.add(splitPane_1);
         
-        resultsTable = new JTable();
         createTable();
-        TableColumn column = resultsTable.getColumnModel().getColumn(1);
-        column.setPreferredWidth(resultsTable.getWidth()/4);
-        scrollPane = new JScrollPane(resultsTable);
-        resultsTable.setFillsViewportHeight(true);
         splitPane_1.setLeftComponent(scrollPane);
 
 
@@ -75,7 +67,6 @@ public class TextPanel extends JPanel{
 	}
 	
 	public void reset(User user){
-
 		mainText.setText("");
 		resetResultsTable();
 		scrpanel = new JPanel();
@@ -153,6 +144,9 @@ public class TextPanel extends JPanel{
 		};
 
 		resultsTable = new JTable(data, columnNames);
+        TableColumn column = resultsTable.getColumnModel().getColumn(1);
+        column.setPreferredWidth(resultsTable.getWidth()/4);
+        scrollPane = new JScrollPane(resultsTable);
+        resultsTable.setFillsViewportHeight(true);
 	}
-
 }
