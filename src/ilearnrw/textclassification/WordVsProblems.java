@@ -177,6 +177,12 @@ public class WordVsProblems {
 				String endType = pt.toString().substring(pt.toString().lastIndexOf("_")+1, pt.toString().length()).toLowerCase();
 				wpi.setProblemInfo(i, j, matcher.patternEqualsPronunciation(pd, word, endType));
 				break;
+			case SYLLABLE_PATTERN:
+			case SUFFIX_PATTERN:
+				break;
+			case SYLLABLE_COUNT:
+				wpi.setProblemInfo(i, j, matcher.syllableCount(pd, word));
+				break;
 		default:
 			break;
 		}
