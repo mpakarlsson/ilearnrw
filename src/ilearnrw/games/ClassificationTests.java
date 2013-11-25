@@ -17,6 +17,5 @@ public class ClassificationTests {
 				"της - πρέπει κάτι να κάνουν και οι άλλοι.", LanguageCode.GR);
 		//System.out.println(t.getSentences()[0].getWord(0));
 		Classifier cls = new Classifier(user, t);
-		cls.test();
 	}
 }

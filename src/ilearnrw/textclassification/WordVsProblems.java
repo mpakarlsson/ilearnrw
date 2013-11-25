@@ -1,10 +1,14 @@
 package ilearnrw.textclassification;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
 
+<<<<<<< HEAD
 import ilearnrw.languagetools.greek.GreekPartOfSpeech;
 import ilearnrw.user.problems.EnglishProblems;
+=======
+import ilearnrw.languagetools.LanguageAnalyzerAPI;
+import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
+>>>>>>> 5344a74d166d7bc77e7c734b2869fdc0a1104576
 import ilearnrw.user.problems.GreekProblems;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemType;
@@ -18,18 +22,27 @@ public class WordVsProblems {
 	private ArrayList<WordProblemInfo> matchedProbs;
 	private Problems prs;
 	private LanguageCode lc;
+	private LanguageAnalyzerAPI languageAnalyser;
 	
 	public WordVsProblems(LanguageCode lc) {
-		Problems prs = new Problems();
+		prs = new Problems();
 		this.lc = lc;
 				
 		switch (lc) {
 		case GR:
 			prs = new GreekProblems();
+			languageAnalyser = new GreekLanguageAnalyzer();
 			break;
 		case EN:
 			// TODO prs = new EnglishProblems();
+<<<<<<< HEAD
 			prs = new EnglishProblems();
+=======
+			prs = new GreekProblems();
+			this.theProblems = prs.getAllProblems();
+			// TODO add here the English analyzer!!!
+			languageAnalyser = new GreekLanguageAnalyzer();
+>>>>>>> 5344a74d166d7bc77e7c734b2869fdc0a1104576
 			break;
 		}
 		this.theProblems = prs.getAllProblems();
@@ -44,6 +57,7 @@ public class WordVsProblems {
 	}
 	
 	public void checkWordAgainstMatrix(){
+		languageAnalyser.setWord(word);
 		for (int i=0;i<theProblems.getIndexLength(); i++){
 			for (int j=0;j<theProblems.getRowLength(i); j++){
 				if (wordMatches(i, j).getFound()){
@@ -80,7 +94,6 @@ public class WordVsProblems {
 		//ask the problem type
 		ProblemType pt = theProblems.getProblemDescription(i, j).getProblemType();
 		StringMatchesInfo matcher = new StringMatchesInfo();
-		
 		switch (pt){
 			case EQUALS:
 				wpi.setProblemInfo(i, j, matcher.equals(pd, word));
@@ -89,35 +102,35 @@ public class WordVsProblems {
 				wpi.setProblemInfo(i, j, matcher.contains(pd, word));
 				break;
 			case IS_NOUN_OR_ADJ_AND_ENDS_WITH:
-				if (GreekPartOfSpeech.isNoun(word) || GreekPartOfSpeech.isAdj(word))
+				if (languageAnalyser.isNoun() || languageAnalyser.isAdj())
 					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
 				break;
 			case IS_NOUN_AND_ENDS_WITH:
-				if (GreekPartOfSpeech.isNoun(word))
+				if (languageAnalyser.isNoun())
 					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
 				break;
 			case IS_ADJ_AND_ENDS_WITH:
-				if (GreekPartOfSpeech.isAdj(word))
+				if (languageAnalyser.isAdj())
 					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
 				break;
 			case IS_VERB_AND_ENDS_WITH:
-				if (GreekPartOfSpeech.isVerb(word))
+				if (languageAnalyser.isVerb())
 					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
 				break;
 			case IS_PARTICIPLE_AND_ENDS_WITH:
-				if (GreekPartOfSpeech.isParticiple(word))
+				if (languageAnalyser.isParticiple())
 					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
 				break;
 			case IS_NOUN_OR_ADJ_AND_STARTS_WITH:
-				if (GreekPartOfSpeech.isNoun(word) || GreekPartOfSpeech.isAdj(word))
+				if (languageAnalyser.isNoun() || languageAnalyser.isAdj())
 					wpi.setProblemInfo(i, j, matcher.startsWith(pd, word));
 				break;
 			case IS_ADJ_AND_STARTS_WITH:
-				if (GreekPartOfSpeech.isAdj(word))
+				if (languageAnalyser.isAdj())
 					wpi.setProblemInfo(i, j, matcher.startsWith(pd, word));
 				break;
 			case IS_VERB_AND_STARTS_WITH:
-				if (GreekPartOfSpeech.isVerb(word))
+				if (languageAnalyser.isVerb())
 					wpi.setProblemInfo(i, j, matcher.startsWith(pd, word));
 				break;
 			case TWO_SYL_WORD_INITIAL_PHONEME:

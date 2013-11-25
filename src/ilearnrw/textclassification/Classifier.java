@@ -105,11 +105,6 @@ public class Classifier {
 	}
 	
 	
-	public void test(){
-		userProblemsToText = new UserProblemsToText(user, text);
-	}
-	
-	
 	/*
 	SDW (Sum of Difficult Words)
 
