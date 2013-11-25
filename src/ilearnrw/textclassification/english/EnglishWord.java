@@ -21,7 +21,6 @@ public class EnglishWord extends Word {
     //We put inside only lower case words
     public EnglishWord(String word) {   	
     	setupLists();
-    	
         super.word = word;
 		super.lc = LanguageCode.EN;
         checkType();
@@ -29,16 +28,21 @@ public class EnglishWord extends Word {
         super.word = super.word.toLowerCase();
         createCVForm();
         
-        if(Program.getDictionary().containsKey(word)){
-                frequency = Double.parseDouble(Program.getDictionary().get(word).get(2));
+
+        
+        if(Program.getDictionary().containsKey(super.word)){
+        	phonetics =  Program.getDictionary().get(super.word).get(3);
+            frequency = Double.parseDouble(Program.getDictionary().get(super.word).get(2));
         } else
-                frequency = 5001;
+            frequency = 5001;
     }
 
     
     protected void syllabism(){
-        if(Program.getDictionary().containsKey(word)){
+        if(Program.getDictionary().containsKey(word) || Program.getDictionary().containsKey(word.toLowerCase())){
                 ArrayList<String> data = Program.getDictionary().get(word);
+                if(data==null)
+                	data = Program.getDictionary().get(word.toLowerCase());
                 numSyllables = Integer.parseInt(data.get(1));
                 
                 String ipa = data.get(3);

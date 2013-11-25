@@ -261,1393 +261,1397 @@
         ],
         "problemType": "X"
       }
-    ], 
+    ],
+    //Vowel Sounds 
     [
       {
         "descriptions": [
-          "i"
+          "i-ɪ"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "a"
+          "a-æ"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "o"
+          "o-ɒ"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "i"
+          "i-aɪ"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "e"
+          "e-e"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "u"
+          "u-ʌ"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "vowel-r (ar)"
+          "ar-ɑː"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "ee"
+          "ee-iː"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "or"
+          "or-ɔː"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-         "y"
+         "y-i"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "LETTER_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "y-aɪ"
+        ],
+        "problemType": "LETTER_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ie-aɪ"
+        ],
+        "problemType": "LETTER_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "i_C_e-aɪ"
+        ],
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+      },
+      {
+        "descriptions": [
+        "a_C_e-eɪ"
+        ],
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+      },
+      {
+        "descriptions": [
+          "ay-eɪ"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "er-ə"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "oo-uː"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "oo-ʊ"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "o_C_e-əʊ"
+        ],
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+      },
+      {
+        "descriptions": [
+          "u_C_e-juː"
+        ],
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+      },
+      {
+        "descriptions": [
+          "ea-iː"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ea-e"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ou-aʊ"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "igh-aɪ"
+        ],
+        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "o-ʌ"
+        ],
+        "problemType": "LETTER_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ice-ɪs"
+        ],
+        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ai-eɪ"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ow-əʊ"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ow-aʊ"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "oa-əʊ"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "o-əʊ"
+        ],
+        "problemType": "LETTER_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "e_C_e-iː"
+        ],
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+      },
+      {
+        "descriptions": [
+          "ir-ɜː"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ur-ɜː"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "wor-wɜː"
+        ],
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+      },
+      {
+        "descriptions": [
+          "oi-ɔɪ"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "oy-ɔɪ"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ie-iː"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "au-ɔː"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "aw-ɔː"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ore-ɔː"
+        ],
+        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ew-juː"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ue-uː"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ear-ɜː"
+        ],
+        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "y-ɪ"
+        ],
+        "problemType": "LETTER_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "y_C_e-aɪ"
+        ],
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+      },
+      {
+        "descriptions": [
+          "ou-aʊ"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ei-iː"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ei-eɪ"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "eigh-eɪ"
+        ],
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+      },
+      {
+        "descriptions": [
+          "our-ə"
+        ],
+        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ar-ə"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ui-uː"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ui-ɪ"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ey-iː"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ey-eɪ"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "oe-əʊ"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "eu-juː"
+        ],
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "eur-ə"
+        ],
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+      },
+      {
+        "descriptions": [
+          "ine-aɪn"
+        ],
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+      },
+      {
+        "descriptions": [
+          "ine-ʒɪn"
+        ],
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+      },
+      {
+        "descriptions": [
+          "ine-iːn"
+        ],
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+      },
+      {
+        "descriptions": [
+          "air-eə"
+        ],
+        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "are-eə"
+        ],
+        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ear-eə"
+        ],
+        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ear-ɪə"
+        ],
+        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "eer-ɪə"
+        ],
+        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ere-ɪə"
+        ],
+        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "ure-ʊə"
+        ],
+        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "oor-ʊə"
+        ],
+        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "our-ʊə"
+        ],
+        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+      },
+      {
+        "descriptions": [
+          "a-ɒ"
+        ],
+        "problemType": "LETTER_EQUALS_PHONEME"
+      }   
+    ], 
+    //SUFFIX
+    [
+      {
+        "descriptions": [
+          "s"
+        ],
+        "problemType": "SUFFIX_ADD"
+      },
+      {
+        "descriptions": [
+          "ed"
+        ],
+        "problemType": "SUFFIX_ADD"
+      },
+      {
+        "descriptions": [
+          "es"
+        ],
+        "problemType": "SUFFIX_ADD"
+      },
+      {
+        "descriptions": [
+          "less"
+        ],
+        "problemType": "SUFFIX_ADD"
+      },
+      {
+        "descriptions": [
+          "ness"
+        ],
+        "problemType": "SUFFIX_ADD"
+      },
+      {
+        "descriptions": [
+          "en"
+        ],
+        "problemType": "SUFFIX_ADD"
+      },
+      {
+        "descriptions": [
+          "ing"
+        ],
+        "problemType": "SUFFIX_ADD"
+      },
+      {
+        "descriptions": [
+          "ful"
+        ],
+        "problemType": "SUFFIX_ADD"
+      },
+      {
+        "descriptions": [
+          "ish"
+        ],
+        "problemType": "SUFFIX_ADD"
+      },
+      {
+        "descriptions": [
+          "ist"
+        ],
+        "problemType": "SUFFIX_ADD"
+      },
+      {
+        "descriptions": [
+          "ing"
+        ],
+        "problemType": "SUFFIX_DOUBLE"
+      },
+      {
+        "descriptions": [
+          "ed"
+        ],
+        "problemType": "SUFFIX_DOUBLE"
+      },
+      {
+        "descriptions": [
+          "en"
+        ],
+        "problemType": "SUFFIX_DOUBLE"
+      },
+      {
+        "descriptions": [
+          "ish"
+        ],
+        "problemType": "SUFFIX_DOUBLE"
       },
       {
         "descriptions": [
           "y"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_ADD"
       },
       {
         "descriptions": [
-          "ie"
+          "y"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_DOUBLE"
       },
       {
         "descriptions": [
-          "i-consonant-e"
+          "ly"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_ADD"
       },
       {
         "descriptions": [
-        "a-consonant-e"
+          "ity"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_CHANGE"
       },
       {
         "descriptions": [
-          "ay"
+          "ility"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_CHANGE"
+      },
+      {
+        "descriptions": [
+          "ty"
+        ],
+        "problemType": "SUFFIX_ADD"
+      },
+      {
+        "descriptions": [
+          "ing"
+        ],
+        "problemType": "SUFFIX_DROP"
+      },
+      {
+        "descriptions": [
+          "ed"
+        ],
+        "problemType": "SUFFIX_DROP"
+      },
+      {
+        "descriptions": [
+          "y"
+        ],
+        "problemType": "SUFFIX_DROP"
+      },
+      {
+        "descriptions": [
+          "en"
+        ],
+        "problemType": "SUFFIX_DROP"
       },
       {
         "descriptions": [
           "er"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_ADD"
       },
       {
         "descriptions": [
-          "oo"
+          "er"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_DROP"
       },
       {
         "descriptions": [
-          "oo"
+          "er"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_DOUBLE"
       },
       {
         "descriptions": [
-          "o-consonant-e"
+          "ed-d"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_ADD"
       },
       {
         "descriptions": [
-          "u-consonant-e"
+          "ed-d"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_DROP"
       },
       {
         "descriptions": [
-          "ea"
+          "ed-d"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_DOUBLE"
       },
       {
         "descriptions": [
-          "ea"
+          "ed-t"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_ADD"
       },
       {
         "descriptions": [
-          "ou"
+          "ed-t"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_DROP"
       },
       {
         "descriptions": [
-          "igh"
+          "ed-t"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_DOUBLE"
       },
       {
         "descriptions": [
-          "o"
+          "est"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_ADD"
       },
       {
         "descriptions": [
-          "ice"
+          "est"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_DROP"
       },
       {
         "descriptions": [
-          "ai"
+          "est"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_DOUBLE"
       },
       {
         "descriptions": [
-          "ow"
+          "al"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_ADD"
       },
       {
         "descriptions": [
-          "ow"
+          "al"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_DROP"
       },
       {
         "descriptions": [
-          "oa"
+          "es"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_CHANGE"
       },
       {
         "descriptions": [
-          "o"
+          "ed"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_CHANGE"
       },
       {
         "descriptions": [
-          "e-consonant-e"
+          "ly"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_CHANGE"
       },
       {
         "descriptions": [
-          "ir"
+          "ness"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_CHANGE"
       },
       {
         "descriptions": [
-          "ur"
+          "ful"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_CHANGE"
       },
       {
         "descriptions": [
-          "wor"
+          "less"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_CHANGE"
       },
       {
         "descriptions": [
-          "oi"
+          "er"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_CHANGE"
       },
       {
         "descriptions": [
-          "oy"
+          "est"
         ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ie"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "au"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "aw"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ore"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ew"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ue"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ear"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "y"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "y-consonant-e"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ou"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ei"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ei"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "eigh"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "our"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ar"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ui"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ui"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ey"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ey"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "oe"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "eu"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "eur"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ine"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ine"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ine"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "air"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "are"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ear"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ear"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "eer"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ere"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "ure"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "oor"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "our"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "a"
-        ],
-        "problemType": "CONTAINS"
-      }   
-    ], 
-    [
-      {
-        "descriptions": [
-          "[add rule] -s"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[add rule] -ed"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[add rule] -es"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[add rule] -less"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[add rule] -ness"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[add rule] -en"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[add rule] -ing"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[add rule] -ful"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[add rule] -ish"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[add rule] -ist"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[doubling rule] -ing"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[doubling rule] -ed"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[double rule] -en"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[double rule] -ish"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[add rule] -y"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[double rule] -y"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[add rule] -ly"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[change rule] -ity"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[change rule] -ility"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[add rule] -ty"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[drop rule] -ing"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[drop rule] -ed"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[drop rule] -y"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[drop rule] -en"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[add rule] -er"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[drop rule] -er"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[double rule] -er"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[add rule] -ed (d)"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[drop rule] -ed (d)"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[double rule] -ed (d)"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[add rule] -ed (t)"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[drop rule] -ed (t)"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[double rule] -ed (t)"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[add rule] -est"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[drop rule] -est"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[double rule] -est"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[add rule] -al"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[drop rule] -al"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[change rule] -es"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[change rule] -ed"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[change rule] -ly"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[change rule] -ness"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[change rule] -ful"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[change rule] -less"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[change rule] -er"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
-          "[change rule] -est"
-        ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_CHANGE"
       },
       {
         "descriptions": [
           "For words longer than one syllable: [double rule] if syllable before suffix stressed but [add rule] if first syllable stressed. Suffix -ing"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_STRESS_PATTERN"
       },
       {
         "descriptions": [
           "For words longer than one syllable: [double rule] if syllable before suffix stressed but [add rule] if first syllable stressed. Suffix -ed"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_STRESS_PATTERN"
       },
       {
         "descriptions": [
-          "[add rule] -ous"
+          "ous"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_ADD"
       },
       {
         "descriptions": [
-          "[drop rule] -ous"
+          "ous"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_DROP"
       },
       {
         "descriptions": [
-          "[change rule] -ous"
+          "ous"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_CHANGE"
       },
       {
         "descriptions": [
-          "[change rule] -tious"
+          "tious"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_CHANGE"
       },
       {
         "descriptions": [
-          "[change rule] -cious"
+          "cious"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_CHANGE"
       },
       {
         "descriptions": [
-          "[change rule] -ious"
+          "ious"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_CHANGE"
       },
       {
         "descriptions": [
-          "[change rule] -uous"
+          "uous"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_CHANGE"
       },
       {
         "descriptions": [
-          "[add rule] -or"
+          "or"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_ADD"
       },
       {
         "descriptions": [
-          "[drop rule] -or"
+          "or"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_DROP"
       },
       {
         "descriptions": [
-          "[add rule] -able"
+          "able"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_ADD"
       },
       {
         "descriptions": [
-          "[drop rule] -able"
+          "able"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_DROP"
       },
       {
         "descriptions": [
-          "[change rule] -able"
+          "able"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_CHANGE"
       },
       {
         "descriptions": [
-          "[add rule] -ment"
+          "ment"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "SUFFIX_ADD"
       }
     ], 
+    //PREFIX
     [
       {
         "descriptions": [
-          "un-"
+          "un"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PREFIX"
       },
       {
         "descriptions": [
-          "mis-"
+          "mis"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PREFIX"
       },
       {
         "descriptions": [
-          "under-"
+          "under"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PREFIX"
       },
       {
         "descriptions": [
-          "over-"
+          "over"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PREFIX"
       },
       {
         "descriptions": [
-          "ad-"
+          "ad"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, abb"
+          "abb"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, acc"
+          "acc"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, aff"
+          "aff"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, agg"
+          "agg"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, all"
+          "all"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, ann"
+          "ann"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, app"
+          "app"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, arr"
+          "arr"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, ass"
+          "ass"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, att"
+          "att"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "con-"
+          "con"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, coll"
+          "coll"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, corr"
+          "corr"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, comm"
+          "comm"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "in-"
+          "in"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, ill"
+          "ill"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, imm"
+          "imm"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, irr"
+          "irr"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, im-"
+          "im"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, ir-"
+          "ir"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "sub-"
+          "sub"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, succ"
+          "succ"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, suff"
+          "suff"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, sugg"
+          "sugg"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, supp"
+          "supp"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, summ"
+          "summ"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, surr"
+          "surr"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "dis-"
+          "dis"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, diff"
+          "diff"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "ob-"
+          "ob"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, off"
+          "off"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, opp"
+          "opp"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, occ"
+          "occ"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "ex-"
+          "ex"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PREFIX_GROUP"
       },
       {
         "descriptions": [
-          "change rule, eff"
+          "eff"
         ],
-        "problemType": "X"
+        "problemType": "PREFIX_GROUP"
       }
-    ], 
-    [
+    ],
+    //PHON-GRAPH 
+    [ 
       {
         "descriptions": [
-          "t"
+          "t-t"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "tt"
+          "tt-t"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "-ed"
+          "ed-t"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-          "p"
+          "p-p"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "pp"
+          "pp-p"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "n"
+          "n-n"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "nn"
+          "nn-n"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "s"
+          "s-s"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "ss"
+          "ss-s"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "c"
+          "c-s"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "d"
+          "d-d"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "dd"
+          "dd-d"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "-ed"
+          "ed-d"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-          "h"
+          "h-h"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "r"
+          "r-r"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "rr"
+          "rr-r"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "m"
+          "m-m"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "mm"
+          "mm-m"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "b"
+          "b-b"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "bb"
+          "bb-b"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "l"
+          "l-l"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "ll"
+          "ll-l"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "f"
+          "f-f"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "ff"
+          "ff-f"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "ph"
+          "ph-f"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "g"
+          "g-g"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "gg"
+          "gg-g"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "k"
+          "k-k"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "c"
+          "c-k"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "ck"
+          "ck-k"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "ng"
+          "ng-ŋ"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "nk"
+          "nk-ŋk"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "th"
+          "th-θ"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "v"
+          "v-v"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "w"
+          "w-w"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "sh"
+          "sh-ʃ"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "s"
+          "s-ʃ"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "ss"
+          "ss-ʃ"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "tion"
+          "tion-ʃən"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-          "tial"
+          "tial-ʃəl"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-          "y"
+          "y-j"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "j"
+          "j-dʒ"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "g"
+          "g-dʒ"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "dg"
+          "dg-dʒ"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "qu"
+          "qu-k"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "z"
+          "z-z"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "zz"
+          "zz-z"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "s"
+          "s-z"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "se"
+          "se-z"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "ze"
+          "ze-z"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "ch"
+          "ch-tʃ"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "tch"
+          "tch-tʃ"
         ],
-        "problemType": "X"
+        "problemType": "TRIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "sion"
+          "sion-ʒən"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-          "sure"
+          "sure-ʒə"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-          "th"
+          "th-ð"
         ],
-        "problemType": "X"
+        "problemType": "DIGRAPH_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "x (gz)"
+          "x-ɡz"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       },
       {
         "descriptions": [
-          "x (ks)"
+          "x-ks"
         ],
-        "problemType": "X"
+        "problemType": "LETTER_EQUALS_PHONEME"
       }
     ], 
     [

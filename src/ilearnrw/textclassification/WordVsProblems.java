@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 
 import ilearnrw.languagetools.greek.GreekPartOfSpeech;
+import ilearnrw.user.problems.EnglishProblems;
 import ilearnrw.user.problems.GreekProblems;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemType;
@@ -28,8 +29,7 @@ public class WordVsProblems {
 			break;
 		case EN:
 			// TODO prs = new EnglishProblems();
-			prs = new GreekProblems();
-			this.theProblems = prs.getAllProblems();
+			prs = new EnglishProblems();
 			break;
 		}
 		this.theProblems = prs.getAllProblems();
@@ -144,6 +144,38 @@ public class WordVsProblems {
 				break;
 			case CONTAINS_PHONEME:
 				wpi.setProblemInfo(i, j, matcher.containsPhoneme(pd, word));
+				break;
+				// English language
+				// TODO: Fix to be more complex, discuss with language experts
+			case SUFFIX_ADD: 
+			case SUFFIX_DROP:
+			case SUFFIX_CHANGE:
+			case SUFFIX_DOUBLE:
+			case SUFFIX_STRESS_PATTERN: // FIX THIS TO DO AS THE JSON OBJECT TELLS IT
+				wpi.setProblemInfo(i, j, matcher.endsWithSuffix(pd, word));
+				break;
+				
+			// TODO: Fix to be more complex, discuss with language experts
+			case PREFIX: 
+			case PREFIX_GROUP:
+				wpi.setProblemInfo(i, j, matcher.startsWithPrefix(pd, word));
+				break;
+			
+				// TODO: Fix to be more complex, discuss with language experts		
+			case LETTER_EQUALS_PHONEME: 
+			case DIGRAPH_EQUALS_PHONEME:
+			case TRIGRAPH_EQUALS_PHONEME:
+				String startType = pt.toString().substring(0, pt.toString().indexOf("_")).toLowerCase();
+				wpi.setProblemInfo(i, j, matcher.equalsPhoneme(pd, word, startType));
+				break;
+			
+			// TODO: Fix to be more complex, discuss with language experts
+			case PATTERN_EQUALS_PRONUNCIATION_CONTAINS:
+			case PATTERN_EQUALS_PRONUNCIATION_BEGINS:
+			case PATTERN_EQUALS_PRONUNCIATION_ENDS:
+				String endType = pt.toString().substring(pt.toString().lastIndexOf("_"), pt.toString().length()).toLowerCase();
+				wpi.setProblemInfo(i, j, matcher.equalsPhoneme(pd, word, endType));
+				break;
 		default:
 			break;
 		}

@@ -63,6 +63,7 @@ public class UserProblemsToText implements Serializable {
 		//get all words along with the number times it appeared inside the text
 		for (Map.Entry<Word,Integer> entry : text.getWordsFreq().entrySet()) {
 			Word w = entry.getKey();
+
 			int appearences = entry.getValue();
 			//find the points of the problem map that the word matches 
 			wprobs.insertWord(w);

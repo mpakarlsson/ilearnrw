@@ -29,7 +29,7 @@ public class ProgramSetup {
 				String line = null;
 				while ((line = reader.readLine()) != null) {
 					String[] parts = line.split("\\|");
-
+					
 					ArrayList<String> temp = new ArrayList<String>();
 					for(int i=1; i<parts.length; i++){							
 						temp.add(parts[i]);

@@ -16,7 +16,7 @@ public class Text implements TextAPI{
 		longestWordLength, longestSentenceLength, numberOfPolysyllabicWords, numberOfLettersAndNumbers, numberOfParagraphs;
 	private double averageWordLength, averageLongestWordLength;
 	
-	public Text(String text, LanguageCode lc){
+	public Text(String text, LanguageCode lc){	
 		this.lc = lc;
 		this.text = text;
 		splitSentences();
