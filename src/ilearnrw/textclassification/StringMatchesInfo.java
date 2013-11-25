@@ -180,14 +180,17 @@ public class StringMatchesInfo {
 		// TODO: Fix -> ignore phonetics if word is not in the dictionary
 		if(ipa==null)
 			for(String s : str)
-				if(w.getWord().contains(s))
+				if(w.getWord().contains(s.split("-")[0]))
 					return new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length());
+				else 
+					return null;
 		
-		
+	
 		for(String s : str){
 			String[] values = s.split("-");
 			String difficulty = values[0];
 			String transcription = values[1];
+			
 			
 			if(w.getWord().contains(difficulty) && w.getPhonetics().contains(transcription)){
 				//boolean isValid = checkEqualsPhoneme(w.getWord(), w.getPhonetics(), difficulty, transcription);
@@ -207,8 +210,10 @@ public class StringMatchesInfo {
 		// TODO: Fix -> ignore phonetics if word is not in the dictionary
 		if(ipa==null)
 			for(String s : str)
-				if(w.getWord().contains(s))
+				if(w.getWord().contains(s.split("-")[0]))
 					return new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length());
+				else 
+					return null;
 		
 		for(String s : str){
 			String[] values = s.split("-");

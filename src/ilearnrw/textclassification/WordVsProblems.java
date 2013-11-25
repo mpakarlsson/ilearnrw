@@ -2,13 +2,10 @@ package ilearnrw.textclassification;
 
 import java.util.ArrayList;
 
-<<<<<<< HEAD
-import ilearnrw.languagetools.greek.GreekPartOfSpeech;
+
 import ilearnrw.user.problems.EnglishProblems;
-=======
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
->>>>>>> 5344a74d166d7bc77e7c734b2869fdc0a1104576
 import ilearnrw.user.problems.GreekProblems;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemType;
@@ -34,15 +31,9 @@ public class WordVsProblems {
 			languageAnalyser = new GreekLanguageAnalyzer();
 			break;
 		case EN:
-			// TODO prs = new EnglishProblems();
-<<<<<<< HEAD
 			prs = new EnglishProblems();
-=======
-			prs = new GreekProblems();
-			this.theProblems = prs.getAllProblems();
 			// TODO add here the English analyzer!!!
 			languageAnalyser = new GreekLanguageAnalyzer();
->>>>>>> 5344a74d166d7bc77e7c734b2869fdc0a1104576
 			break;
 		}
 		this.theProblems = prs.getAllProblems();
@@ -186,8 +177,8 @@ public class WordVsProblems {
 			case PATTERN_EQUALS_PRONUNCIATION_CONTAINS:
 			case PATTERN_EQUALS_PRONUNCIATION_BEGINS:
 			case PATTERN_EQUALS_PRONUNCIATION_ENDS:
-				String endType = pt.toString().substring(pt.toString().lastIndexOf("_"), pt.toString().length()).toLowerCase();
-				wpi.setProblemInfo(i, j, matcher.equalsPhoneme(pd, word, endType));
+				String endType = pt.toString().substring(pt.toString().lastIndexOf("_")+1, pt.toString().length()).toLowerCase();
+				wpi.setProblemInfo(i, j, matcher.patternEqualsPronunciation(pd, word, endType));
 				break;
 		default:
 			break;
