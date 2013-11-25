@@ -1,5 +1,6 @@
 package ilearnrw.textclassification.tests.panels;
 
+import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.textclassification.Classifier;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.tests.TextMetricsTest;
@@ -7,11 +8,18 @@ import ilearnrw.user.User;
 import ilearnrw.utils.LanguageCode;
 
 import java.awt.GridLayout;
+import java.awt.List;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.Map;
 import java.util.Scanner;
 
 import javax.swing.JPanel;
@@ -25,10 +33,15 @@ public class FilesExplorerPanel extends JPanel{
 	private final String path = "texts/";
 	private User user;
 	private JTable table;
+	private LanguageAnalyzerAPI languageAnalyzer;
+	// TODO remove the following
+	private String unknown = "";
 	
-	public FilesExplorerPanel(User user, final JTabbedPane tabbedPane, final TextPanel textPanel, final TextMetricsTest metrics) {
+	public FilesExplorerPanel(User user, final JTabbedPane tabbedPane, final TextPanel textPanel, 
+			final TextMetricsTest metrics, LanguageAnalyzerAPI languageAnalyzer) {
 		super();
 		this.user = user;
+		this.languageAnalyzer = languageAnalyzer;
 		table = new JTable(new MonModel());
 		table.setAutoCreateRowSorter(true);
 		table.getColumnModel().getColumn(0).setPreferredWidth(3*table.getColumnModel().getColumn(1).getPreferredWidth());
@@ -48,6 +61,7 @@ public class FilesExplorerPanel extends JPanel{
 				    		  e1.printStackTrace();
 				    	  }
 				    	  textPanel.testMethod(text);
+				    	  textPanel.testMethod(unknown);
 				    	  metrics.classifierResults();
 				      }
 				   }
@@ -56,8 +70,18 @@ public class FilesExplorerPanel extends JPanel{
 		this.setLayout(new GridLayout(1,1));
 		this.add(new JScrollPane(table));
 	}
-
 	
+	
+	public LanguageAnalyzerAPI getLanguageAnalyzer() {
+		return languageAnalyzer;
+	}
+
+
+	public void setLanguageAnalyzer(LanguageAnalyzerAPI languageAnalyzer) {
+		this.languageAnalyzer = languageAnalyzer;
+	}
+
+
 	public void setUser(User user){
 		this.user = user;
 		table.setModel(new MonModel());
@@ -143,8 +167,34 @@ public class FilesExplorerPanel extends JPanel{
 					}
 				}
 			}
+			HashMap<String, Integer> test = languageAnalyzer.getUnknownWords();
+			Map<String, Integer> t = sortByValue(test);
+			unknown = "";
+			for (Map.Entry<String,Integer> entry : t.entrySet()) {
+				String key = entry.getKey();
+				int value = entry.getValue();
+				unknown = unknown +"\n"+key+"  "+value;
+			}
+			unknown = unknown +"\nΣύνολο:"+t.size();
 		}
 	}
+	
+	private Map<String, Integer> sortByValue(Map<String, Integer> map) {
+		LinkedList<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(map.entrySet());
+
+        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
+
+            public int compare(Map.Entry<String, Integer> m1, Map.Entry<String, Integer> m2) {
+                return (m2.getValue()).compareTo(m1.getValue());
+            }
+        });
+
+        Map<String, Integer> result = new LinkedHashMap<String, Integer>();
+        for (Map.Entry<String, Integer> entry : list) {
+            result.put(entry.getKey(), entry.getValue());
+        }
+        return result;
+    }
 	
 	private class IlearnFile {
 	    private String name;
@@ -169,7 +219,7 @@ public class FilesExplorerPanel extends JPanel{
 	    	  LanguageCode lan = findLanguage(text);
 	    	  isSuitableToTheUser = lan == user.getDetails().getLanguage();
 	    	  Text t = new Text(text, lan);
-	    	  Classifier cls = new Classifier(user, t);
+	    	  Classifier cls = new Classifier(user, t, languageAnalyzer);
 	    	  numberOfWords = t.getNumberOfWords();
 	    	  Flesch = t.flesch();
 	    	  FleschKincaid = t.fleschKincaid();

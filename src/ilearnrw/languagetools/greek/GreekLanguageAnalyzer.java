@@ -1,15 +1,21 @@
 package ilearnrw.languagetools.greek;
 
 
+import java.util.HashMap;
+
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.textclassification.Word;
+import ilearnrw.utils.LanguageCode;
 
 public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 	private GreekDictionary dictionary;
-	private boolean isNoun, isAdj, isVerb, isParticiple; 
-	
+	private boolean isNoun, isAdj, isVerb, isParticiple;
+	private HashMap<String, Integer> unknownWords;
+
+
 	public GreekLanguageAnalyzer() {
 		dictionary = new GreekDictionary();
+		unknownWords = new HashMap<String, Integer>();
 	}
 	
 
@@ -21,6 +27,9 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 			isAdj = false;
 			isVerb = false;
 			isParticiple = false;
+			if (w!=null && !w.toString().isEmpty())
+				this.unknownWords.put(w.toString(), unknownWords.containsKey(w.toString())?
+						unknownWords.get(w.toString())+1:1);
 			
 		}
 		else{
@@ -30,6 +39,16 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 			isParticiple = de.getExtras().contains("μετοχή");
 		}
 		
+	}
+
+	@Override
+	public HashMap<String, Integer> getUnknownWords() {
+		return unknownWords;
+	}
+
+
+	public void setUnknownWords(HashMap<String, Integer> unknownWords) {
+		this.unknownWords = unknownWords;
 	}
 
 	@Override
@@ -50,6 +69,12 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 	@Override
 	public boolean isParticiple() {
 		return isParticiple;
+	}
+
+
+	@Override
+	public LanguageCode getLanguageCode() {
+		return LanguageCode.GR;
 	}
 
 

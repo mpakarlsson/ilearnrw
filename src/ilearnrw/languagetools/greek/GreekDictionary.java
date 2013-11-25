@@ -12,6 +12,7 @@ import java.util.Hashtable;
 public class GreekDictionary {
 	private final String path = "data/";
 	private Dictionary<String, DictionaryEntry> entries;
+	int i=0;
 
 	public GreekDictionary() {
 		this.entries = new Hashtable<String, DictionaryEntry>();
@@ -53,17 +54,22 @@ public class GreekDictionary {
 				String test = strLine;
 
 		        String[] result = test.split("\\\t");
-		        if (result.length<4)
+		        if (result.length<3 && result[0]!=null && !result[0].isEmpty()){
+		        	//System.out.println("Greek Dictionary"+ ++i+" "+result[0]);
+		    	}
+		        if (result.length<3)
 		        	continue;
 
 		    	String word, lemma, partOfSpeech;
 		    	word = result[0].toLowerCase().trim();
 		    	lemma = result[1].toLowerCase().trim();
 		    	partOfSpeech = result[2].toLowerCase().trim();
-		    	result = result[3].split("\\,");
-		    	ArrayList<String> extras = new ArrayList<String>();
-		        for(String s : result){
-		        	extras.add(s.toLowerCase().trim());
+	        	ArrayList<String> extras = new ArrayList<String>();
+		        if (result.length>=4){
+		        	result = result[3].split("\\,");
+		        	for(String s : result){
+		        		extras.add(s.toLowerCase().trim());
+		        	}
 		        }
 		        DictionaryEntry entry = new DictionaryEntry(lemma, partOfSpeech, extras);
 		        add(word, entry);

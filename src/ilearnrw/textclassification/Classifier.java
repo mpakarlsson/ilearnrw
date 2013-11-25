@@ -1,5 +1,6 @@
 package ilearnrw.textclassification;
 
+import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.user.User;
 import ilearnrw.user.profile.UserProblemsToText;
 
@@ -8,18 +9,17 @@ public class Classifier {
 	private User user;
 	private UserProblemsToText userProblemsToText;
 	private Text text;
+	private LanguageAnalyzerAPI languageAnalyzer;
 	
 	public Classifier(){
 		
 	}
 			
-	public Classifier(User user, Text text) {
+	public Classifier(User user, Text text, LanguageAnalyzerAPI languageAnalyzer) {
 		this.user = user;
 		this.text = text;
-		this.userProblemsToText = new UserProblemsToText(user, text);
-		//for (Map.Entry<Word,Double> entry : userProblemsToText.getWordsWeights().entrySet()) {
-		//	System.out.println(entry.getKey()+" :: "+entry.getValue());
-		//}
+		this.languageAnalyzer = languageAnalyzer;
+		this.userProblemsToText = new UserProblemsToText(user, text, languageAnalyzer);
 	}
 	
 	//formula :: ((top of Age range + bottom of Age Range)/2)/100 + SDW / NW + LSI

@@ -16,7 +16,7 @@ public class Word {
 	}
 			
 	public Word(String word){
-		word = word.replaceAll("(\\«)|(\\»)|(\\()|(\\))|(\\{)|(\\})|(\\[)|(\\])|(\\<)|(\\>)|(\\=)|(\\%)|(\\€)|(\\$)", "");
+		word = word.replaceAll("(\\«)|(\\*)|(\\»)|(\\()|(\\))|(\\{)|(\\})|(\\[)|(\\])|(\\<)|(\\>)|(\\=)|(\\%)|(\\€)|(\\$)", "");
 		this.word = word.toLowerCase();
 		//all initializations must go here!!!
 		

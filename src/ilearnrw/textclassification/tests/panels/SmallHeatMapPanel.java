@@ -26,7 +26,6 @@ public class SmallHeatMapPanel extends JPanel {
 	private int[][] multi;
 	private boolean first;
 	private CellRenderer renderer;
-	private JSplitPane splitPane;
 
 	public SmallHeatMapPanel(User user) {
 		this.data = copyMatrix(user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities());
@@ -48,14 +47,17 @@ public class SmallHeatMapPanel extends JPanel {
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new GridLayout(1,1));
 		
-		JSplitPane splitPane = new JSplitPane();
-		splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
-		this.add(splitPane, BorderLayout.CENTER);
-        splitPane.setResizeWeight(0.77);
-        
-		splitPane.setLeftComponent(new JScrollPane(heatMap));
-        
-		splitPane.setRightComponent(descriptionsText);
+		JPanel panel = new JPanel();
+		//JSplitPane splitPane = new JSplitPane();
+        panel.setLayout(new GridLayout(2,1));
+		//splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
+		this.add(panel, BorderLayout.CENTER);
+		//this.add(splitPane, BorderLayout.CENTER);
+        //splitPane.setResizeWeight(0.5);
+        panel.add(new JScrollPane(heatMap));
+		//splitPane.setLeftComponent(new JScrollPane(heatMap));
+        panel.add(descriptionsText);
+		//splitPane.setRightComponent(descriptionsText);
 
 		//this.add(heatMap);
 

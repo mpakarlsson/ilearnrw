@@ -1,5 +1,6 @@
 package ilearnrw.user.profile;
 
+import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordProblemInfo;
@@ -22,6 +23,7 @@ public class UserProblemsToText implements Serializable {
 	private HashMap<Word, Double> wordsWeights;
 	private double SDW;
 	private int totalHits, userHits;
+	private LanguageAnalyzerAPI languageAnalyser;
 	
 	// TODO fix the threshold to a valua that the experts want!
 	int threshold = 0;//the threshold for a severity so that the corresponding problem will be counted in the matrix
@@ -36,12 +38,14 @@ public class UserProblemsToText implements Serializable {
 		totalHits = 0;
 	}
 	
-	public UserProblemsToText(User user, Text text){
-		if (text.getLanguageCode() != user.getDetails().getLanguage())
+	public UserProblemsToText(User user, Text text, LanguageAnalyzerAPI languageAnalyser){
+		if (text.getLanguageCode() != user.getDetails().getLanguage() || 
+				languageAnalyser.getLanguageCode() != user.getDetails().getLanguage() || 
+				languageAnalyser.getLanguageCode() != text.getLanguageCode())
 			return;
 		this.userSeveritiesToProblems = user.getProfile().getUserSeveritiesToProblems();
 		this.text = text;
-		wprobs = new WordVsProblems(text.getLanguageCode());
+		wprobs = new WordVsProblems(languageAnalyser);
 		wordsWeights = new HashMap<Word, Double>();
 		int n = userSeveritiesToProblems.getNumerOfRows();
 		

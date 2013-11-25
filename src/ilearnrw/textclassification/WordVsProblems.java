@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import ilearnrw.user.problems.EnglishProblems;
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
-import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
 import ilearnrw.user.problems.GreekProblems;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemType;
@@ -21,19 +20,17 @@ public class WordVsProblems {
 	private LanguageCode lc;
 	private LanguageAnalyzerAPI languageAnalyser;
 	
-	public WordVsProblems(LanguageCode lc) {
+	public WordVsProblems(LanguageAnalyzerAPI languageAnalyser) {
 		prs = new Problems();
-		this.lc = lc;
+		this.lc = languageAnalyser.getLanguageCode();
+		this.languageAnalyser = languageAnalyser;
 				
 		switch (lc) {
 		case GR:
 			prs = new GreekProblems();
-			languageAnalyser = new GreekLanguageAnalyzer();
 			break;
 		case EN:
 			prs = new EnglishProblems();
-			// TODO add here the English analyzer!!!
-			languageAnalyser = new GreekLanguageAnalyzer();
 			break;
 		}
 		this.theProblems = prs.getAllProblems();

@@ -1,6 +1,9 @@
 package ilearnrw.textclassification.tests;
 
 import ilearnrw.datalogger.UserStore;
+import ilearnrw.languagetools.LanguageAnalyzerAPI;
+import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
+import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
 import ilearnrw.prototype.application.Program;
 import ilearnrw.textclassification.Classifier;
 import ilearnrw.textclassification.Text;
@@ -12,6 +15,7 @@ import ilearnrw.textclassification.tests.panels.FilesExplorerPanel;
 import ilearnrw.textclassification.tests.panels.HeatMapPanel;
 import ilearnrw.textclassification.tests.panels.TextPanel;
 import ilearnrw.textclassification.tests.panels.UserSeveritiesHeatMapPanel;
+import ilearnrw.textclassification.tests.panels.WordPanel;
 import ilearnrw.user.User;
 import ilearnrw.utils.LanguageCode;
 
@@ -44,8 +48,10 @@ public class TextMetricsTest extends JFrame {
 	private JLabel languageLabel;
 	private	JTabbedPane tabbedPane;
 	private TextPanel textPanel;
+	private WordPanel wordPanel;
 	private FilesExplorerPanel explorerPanel;
-	//private	HeatMapPanel heatMapPanel;
+	private GreekLanguageAnalyzer greekAnalyzer;
+	private EnglishLanguageAnalyzer englishAnalyzer;
 	private	UserSeveritiesHeatMapPanel userSeveritiesPanel;
 	private User user;
 
@@ -102,6 +108,9 @@ public class TextMetricsTest extends JFrame {
 	    catch(Exception e){ 
 	    }
 
+		greekAnalyzer = new GreekLanguageAnalyzer();
+		englishAnalyzer = new EnglishLanguageAnalyzer();
+
 		languageLabel = new JLabel();
 		
 		/*Fill the user ComboBox*/
@@ -138,6 +147,7 @@ public class TextMetricsTest extends JFrame {
 							user = u;
 					updateLanguageLabel();
 					textPanel.reset(user);
+					wordPanel.reset(user);
 					userSeveritiesPanel.setUser(user);
 					explorerPanel.setUser(user);
 				} catch (Exception ex) {
@@ -156,7 +166,7 @@ public class TextMetricsTest extends JFrame {
 		setContentPane(contentPane);
 
 		textPanel = new TextPanel(user);
-		//heatMapPanel = new HeatMapPanel();
+		wordPanel = new WordPanel(user);
 		userSeveritiesPanel = new UserSeveritiesHeatMapPanel(user);
 		
 		contentPane.add(textPanel, BorderLayout.CENTER);
@@ -164,8 +174,9 @@ public class TextMetricsTest extends JFrame {
 
 		tabbedPane = new JTabbedPane();
 		tabbedPane.addTab( "Text & Metrics", textPanel );
+		tabbedPane.addTab( "Word & Metrics", wordPanel );
 		//tabbedPane.addTab( "Heat Map", heatMapPanel );
-		explorerPanel = new FilesExplorerPanel(user, tabbedPane, textPanel, this);
+		explorerPanel = new FilesExplorerPanel(user, tabbedPane, textPanel, this, getLanguageAnalyzer(user));
 		tabbedPane.addTab( "File Explorer", explorerPanel );
 		tabbedPane.addTab( "User Severities", userSeveritiesPanel );
 		
@@ -205,6 +216,7 @@ public class TextMetricsTest extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				textPanel.reset(user);
+				wordPanel.reset(user);
 			}
 		});
 		toolBar.add(clearButton);
@@ -322,11 +334,18 @@ public class TextMetricsTest extends JFrame {
 	
 	public void runTextClassifier(){
 		Text t = new Text(textPanel.getText(), lc);
-		cls = new Classifier(user, t);
+		cls = new Classifier(user, t, getLanguageAnalyzer(user));
 		//heatMapPanel.setClassifier(cls);
 		textPanel.getSmallHeatMapPanel().setClassifier(cls);
 	}
 
+	private LanguageAnalyzerAPI getLanguageAnalyzer(User user){
+		if (user.getDetails().getLanguage() == LanguageCode.GR)
+			return greekAnalyzer;
+		else 
+			return englishAnalyzer;
+	}
+	
 	private boolean textPanelIsWord(){
 		String t = textPanel.getText().trim();
 		return !t.contains(" ");		
