@@ -207,6 +207,12 @@ public class StringMatchesInfo {
 		
 		String ipa = w.getPhonetics();
 		
+		for(String s: str){
+			String[] sarr = s.split("-");
+			if(sarr.length==1)
+				return null;
+		}
+		
 		// TODO: Fix -> ignore phonetics if word is not in the dictionary
 		if(ipa==null)
 			for(String s : str)
@@ -231,6 +237,12 @@ public class StringMatchesInfo {
 					return new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length());
 			} 
 		}
+		return null;
+	}
+	
+	public StringMatchesInfo syllableCount(String str[], Word w){
+		if(w.getSyllables().length>=3)
+			return new StringMatchesInfo(w.getWord(), 0, w.getWord().length());
 		return null;
 	}
 	

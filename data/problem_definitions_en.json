@@ -38,228 +38,229 @@
     }
   ],
   "problems": [
-    [
+   // Syllable division
+    [ 
       {
         "descriptions": [
           "Closed and Open syllables"
         ],
-        "problemType": "X"
+        "problemType": "SYLLABLE_PATTERN"
       },
       {
         "descriptions": [
           "vc/cv"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "SYLLABLE_PATTERN"
       },
       {
         "descriptions": [
           "v/cv"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "SYLLABLE_PATTERN"
       },
       {
         "descriptions": [
           "v/v"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "SYLLABLE_PATTERN"
       },
       {
         "descriptions": [
           "vc/v"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "SYLLABLE_PATTERN"
       },
       {
         "descriptions": [
           "qu as vc/cv, v/cv and v/v"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "SYLLABLE_PATTERN"
       },
       {
         "descriptions": [
           "-ture as vc/cv, v/cv and vc/v"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "SYLLABLE_PATTERN"
       },
       {
         "descriptions": [
-          "-ation"
+          "ation-eɪʃən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-          "-otion"
+          "otion-əʊʃən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-          "-ition"
+          "ition-ɪʃən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-          "-ution"
+          "ution-uːʃən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-          "-action"
+          "action-ækʃən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-          "-ection"
+          "ection-ekʃən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-iction"
+        "iction-ɪkʃən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-uction"
+        "uction-ʌkʃən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-ention"
+        "ention-enʃən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-consonant le. -ble. Both as open and closed"
+        "ble-bəl"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-consonant le. -fle. Both as open and closed"
+        "fle-fəl"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-consonant le. -ple. Both as open and closed"
+        "ple-pəl"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-consonant le. -tle. Both as open and closed"
+        "tle-təl"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-consonant le. -dle. Both as open and closed"
+        "dle-dəl"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-consonant le. -kle. Both as open and closed"
+        "kle-kəl"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-consonant le. -cle. Both as open and closed"
+        "cle-kəl"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-consonant le. -gle. Both as open and closed"
+        "gle-ɡəl"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-consonant le. -zle. Both as open and closed"
+        "zle-zəl"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-consonant le. -stle. Both as open and closed"
+        "stle-səl"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-asion"
+        "asion-eɪʒən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-usion"
+        "usion-uːʒən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-ision"
+        "ision-ɪʒən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-osion"
+        "osion-əʊʒən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-mission"
+        "mission-mɪʃən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-ession"
+        "ession-eʃən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-ussion"
+        "ussion-ʌʃən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-version"
+        "version-vɜːʃən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-ulsion"
+        "ulsion-ʌlʃən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
-        "-cian"
+        "cian-ʃən"
         ],
-        "problemType": "X"
+        "problemType": "SUFFIX_PATTERN"
       },
       {
         "descriptions": [
         "3 syllables or higher"
         ],
-        "problemType": "X"
+        "problemType": "SYLLABLE_COUNT"
       }
     ],
     //Vowel Sounds 
@@ -1654,762 +1655,773 @@
         "problemType": "LETTER_EQUALS_PHONEME"
       }
     ], 
+    // Letter Patterns
     [
       {
         "descriptions": [
-         "-ip"
+         "ip-ɪp"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
        {
         "descriptions": [
-         "-in"
+         "in-ɪn"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
        {
         "descriptions": [
-         "st-"
+         "st-st"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
        {
         "descriptions": [
-         "sp-"
+         "sp-sp"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
        {
         "descriptions": [
-         "sn-"
+         "sn-sn"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "sm-"
+         "sm-sm"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "-ad"
+         "ad-æd"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-and"
+         "and-ænd"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "de-"
+         "de-de"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "-act"
+         "act-ækt"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "sc-"
+         "sc-sk"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "cr-"
+         "cr-kr"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "dr-"
+         "dr-dr"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "pr-"
+         "pr-pr"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "tr-"
+         "tr-tr"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "str-"
+         "str-str"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "spr-"
+         "spr-spr"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "scr-"
+         "scr-skr"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "-am"
+         "am-æm"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-amp"
+         "amp-æmp"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-im"
+         "im-ɪm"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-vowel-b"
+         "_V_b-b"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "br-"
+         "br-br"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "-vowel-lt"
+         "_V_lt-lt"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "bl-"
+         "bl-bl"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "cl-"
+         "cl-kl"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "pl-"
+         "pl-pl"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "sl-"
+         "sl-sl"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "spl-"
+         "spl-spl"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "-vowel-ll"
+         "_V_ll-l"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-vowel-ss"
+         "_V_ss-s"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-vowel-ft"
+         "_V_ft-ft"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-elf"
+         "elf-elf"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "fl-"
+         "fl-fl"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "fr-"
+         "fr-fr"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "-vowel-g"
+         "_V_g-g"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "gl-"
+         "gl-gl"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "gr-"
+         "gr-gr"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "-vowel-k"
+         "_V_sk-sk"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-vowel-lk"
+         "_V_lk-lk"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "sk"
+         "sk-sk"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "-vowel-ng"
+         "_V_ng-ŋ"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-vowel-nk"
+         "_V_nk-ŋk"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "thank-/than-"
+         "thank-θæŋk",
+         "than-ðæn"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "-ath"
+         "ath-ɑːθ"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-oth"
+         "oth-ɒθ"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-ength"
+         "ength-eŋθ"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-vowel-ck"
+         "_V_ck-k"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-ic"
+         "ic-ɪk"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-ve"
+         "ve-v"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "sw-"
+         "sw-sw"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "tw-"
+         "tw-tw"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "dw-"
+         "dw-dw"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "wa-"
+         "wa-wɒ"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "swa-"
+         "swa-swɒ"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "-vowel-sh"
+         "_V_sh-ʃ"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "shr-"
+         "shr-ʃr"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "-vowel-x"
+         "_V_x-ks"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-zz"
+         "zz-z"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-vowel-ff"
+         "_V_ff-f"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-vowel-nch"
+         "_V_nch-ntʃ"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-arch"
+         "arch-tʃ"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-vowel-ce"
+         "_V_ce-ɪs"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-vowel-nce"
+         "_V_nce-ns"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "wh-"
+         "wh-w"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "-vowel-ge"
+         "_V_ge-dʒ"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-vowel-rge"
+         "_V_rge-dʒ"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-vowel-nge"
+         "_V_nge-ndʒ"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-vowel-dge"
+         "_V_dge-dʒ"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "c- as (s)"
+         "c-s"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "sc-"
+         "sc-s"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "age"
+         "age-ɪdʒ"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "-ege"
+         "ege-ɪdʒ"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-vowel-tch"
+         "_V_tch-tʃ"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "ph"
+         "ph-f"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "pph"
+         "pph-f"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "ch-"
+         "ch-k"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "ch-"
+         "ch-ʃ"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "kn-"
+         "kn-n"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "gn-"
+         "gn-n"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "gh-"
+         "gh-g"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "ps-"
+         "ps-s"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "rh-"
+         "rh-r"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "-mb"
+         "mb-m"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-bt"
+         "bt-t"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-mn"
+         "mn-m"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "wr-"
+         "wr-r"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "-pt"
+         "pt-pt"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "st"
+         "st-s"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "gu-"
+         "gu-g"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "-gue"
+         "gue-g"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "sc-"
+         "sc-s"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "pro-"
+         "pro-prə"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "pre-"
+         "pre-prɪ"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "que"
+         "que-k"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "sch-"
+         "sch-sk"
         ],
-        "problemType": "STARTS_WITH"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [
-         "xc before l or e"
+         "xc-ksk"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "-ayor"
+         "xc-ks"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "-ayer"
+         "ayor-eə"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "al-consonant"
+         "ayer-eɪə"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
+      // TODO: FIX THIS ELEMENT LINE 392 profileV5.xlsx
       {
         "descriptions": [
-         "oh"
+         "al_C_"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "-cial"
+         "oh-əʊ"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "-tial"
+         "cial-ʃəl"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "cqu"
+         "tial-ʃəl"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-ngue at word end"
+         "cqu-kwa"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "ol-consonant"
+         "ngue-ŋ"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
+      // TODO : FIX THIS ELEMENT LINE 398 profileV5.xlsx
       {
         "descriptions": [
-         "quar-consonant"
+         "ol_C_-əʊ"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
+       // TODO : FIX THIS ELEMENT LINE 399 profileV5.xlsx
       {
         "descriptions": [
-         "consonant-re at word end"
+         "quar_C_-kwɒ,kwɔː"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "ro"
+         "_C_re-tə"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "sci"
+         "ro-ra,rə"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "scle"
+         "sci-saɪ"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "-sure"
+         "scle-səl"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "ti"
+         "sure-ʒə"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "ci"
+         "ti-ʃ"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "-zure"
+         "ci-ʃ"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "thr"
+         "zure-ʒə"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-nd"
+         "thr-θr"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
       },
       {
         "descriptions": [
-         "-nt"
+         "nd-nd"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-nch"
+         "nt-nt"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-mp"
+         "nch-ntʃ"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-ology"
+         "mp-mp"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-cise"
+         "ology-ɒlədʒi"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-dual"
+         "cise-saɪz"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-tual"
+         "dual-dʒʊə"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-sual"
+         "tual-tʃʊəl"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       },
       {
         "descriptions": [
-         "-tory"
+         "sual-ʒuəl"
         ],
-        "problemType": "X"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+      },
+      {
+        "descriptions": [
+         "tory-str̩i"
+        ],
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
       }
     ]
   ],
