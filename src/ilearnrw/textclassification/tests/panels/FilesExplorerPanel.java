@@ -170,7 +170,6 @@ public class FilesExplorerPanel extends JPanel{
 	    	  isSuitableToTheUser = lan == user.getDetails().getLanguage();
 	    	  Text t = new Text(text, lan);
 	    	  Classifier cls = new Classifier(user, t);
-	    	  cls.test();
 	    	  numberOfWords = t.getNumberOfWords();
 	    	  Flesch = t.flesch();
 	    	  FleschKincaid = t.fleschKincaid();

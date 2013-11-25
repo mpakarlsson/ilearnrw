@@ -242,7 +242,7 @@ public class TextMetricsTest extends JFrame {
 	}
 	
 	private String[][] testTextMetrics(){
-		
+		/*
 		HashMap<Word, Integer> hs = txt.getWordsFreq();
 		System.out.println("Text Language -- "+txt.getLanguageCode());
 		
@@ -252,7 +252,7 @@ public class TextMetricsTest extends JFrame {
 		WordVsProblems wp = new WordVsProblems(w.getLanguageCode());
 		wp.insertWord(w);
 		System.out.println(wp.toString());
-		
+		*/
 		String[][] data = {
 				{"# Paragraphs", ""+txt.getNumberOfParagraphs()},
 				{"# Sentences:", ""+txt.getNumberOfSentences()},
@@ -284,15 +284,14 @@ public class TextMetricsTest extends JFrame {
 	private String[][] testWordMetrics(){
 		
 		HashMap<Word, Integer> hs = txt.getWordsFreq();
-		System.out.println("Text Language -- "+txt.getLanguageCode());
 		
 		Object tmp[] = hs.keySet().toArray();
 		Word w = (Word)tmp[0];
-		System.out.println(w.toString()+ " -- "+w.getLanguageCode());
+		/*System.out.println(w.toString()+ " -- "+w.getLanguageCode());
 		WordVsProblems wp = new WordVsProblems(w.getLanguageCode());
 		wp.insertWord(w);
 		System.out.println(wp.toString());
-		
+		*/
 		String[][] data = {
 				{"Word:", ""+w.toString()},
 				{"Word Language", findLanguage(textPanel.getText()) == LanguageCode.GR?"Greek":"English"},
@@ -326,7 +325,6 @@ public class TextMetricsTest extends JFrame {
 		cls = new Classifier(user, t);
 		//heatMapPanel.setClassifier(cls);
 		textPanel.getSmallHeatMapPanel().setClassifier(cls);
-		cls.test();
 	}
 
 	private boolean textPanelIsWord(){

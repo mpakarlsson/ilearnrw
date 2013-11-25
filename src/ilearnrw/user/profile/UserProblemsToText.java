@@ -1,7 +1,5 @@
 package ilearnrw.user.profile;
 
-
-import ilearnrw.textclassification.Sentence;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordProblemInfo;
