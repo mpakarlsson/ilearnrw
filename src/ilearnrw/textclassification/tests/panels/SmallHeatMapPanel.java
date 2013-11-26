@@ -15,6 +15,7 @@ import javax.swing.JTable;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableColumn;
 
 public class SmallHeatMapPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -40,21 +41,32 @@ public class SmallHeatMapPanel extends JPanel {
         descriptionsText.setBackground(Color.lightGray);
         
 		heatMap = new JTable(data.length,lengthsMax());
+		for (int i=0;i<lengthsMax(); i++)
+			heatMap.getTableHeader().getColumnModel().getColumn(i).setHeaderValue(""+(i+1));
+		
 		renderer = new CellRenderer();
 		heatMap.setDefaultRenderer(Object.class, renderer);
-		heatMap.setShowGrid(false);
+		heatMap.setRowHeight(25);
+		heatMap.setAutoResizeMode( JTable.AUTO_RESIZE_OFF );
+		TableColumn column = null;
+	    for (int i = 0; i < heatMap.getColumnCount(); i++) {
+	        column = heatMap.getColumnModel().getColumn(i);
+	        column.setPreferredWidth(25);
+	    }  
+		//heatMap.setShowGrid(false);
 
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new GridLayout(1,1));
 		
 		JPanel panel = new JPanel();
 		//JSplitPane splitPane = new JSplitPane();
-        panel.setLayout(new GridLayout(2,1));
+        panel.setLayout(new GridLayout(1,2));
 		//splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		this.add(panel, BorderLayout.CENTER);
 		//this.add(splitPane, BorderLayout.CENTER);
         //splitPane.setResizeWeight(0.5);
-        panel.add(new JScrollPane(heatMap));
+        JScrollPane scrollPane = new JScrollPane(heatMap);
+        panel.add(scrollPane);
 		//splitPane.setLeftComponent(new JScrollPane(heatMap));
         panel.add(descriptionsText);
 		//splitPane.setRightComponent(descriptionsText);

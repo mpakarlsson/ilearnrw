@@ -22,11 +22,14 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Scanner;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableColumn;
 
 public class FilesExplorerPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
@@ -43,6 +46,12 @@ public class FilesExplorerPanel extends JPanel{
 		this.user = user;
 		this.languageAnalyzer = languageAnalyzer;
 		table = new JTable(new MonModel());
+		
+		DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+		rightRenderer.setHorizontalAlignment( JLabel.RIGHT );
+		for (int i=1;i<table.getColumnCount(); i++)
+			table.getColumnModel().getColumn(i).setCellRenderer( rightRenderer );
+		
 		table.setAutoCreateRowSorter(true);
 		table.getColumnModel().getColumn(0).setPreferredWidth(3*table.getColumnModel().getColumn(1).getPreferredWidth());
 		table.addMouseListener(new MouseAdapter() {
@@ -61,7 +70,7 @@ public class FilesExplorerPanel extends JPanel{
 				    		  e1.printStackTrace();
 				    	  }
 				    	  textPanel.testMethod(text);
-				    	  textPanel.testMethod(unknown);
+				    	  System.out.println(unknown);
 				    	  metrics.classifierResults();
 				      }
 				   }
@@ -91,8 +100,8 @@ public class FilesExplorerPanel extends JPanel{
 	private class MonModel extends AbstractTableModel {
 		private static final long serialVersionUID = 1L;
 		private ArrayList<IlearnFile> l;
-	    private final String[] columnNames = new String[]{"File Name", "# Words", "Flesch", 
-	    		"Flesch-Kincaid", "Automated", "Coleman-Liau", "SMOG", "Gunning FOG", "Dale-Chall", "iLearnRW"};
+	    private final String[] columnNames = new String[]{"File Name", "Words", "Total Hits", "Difficult Words", 
+	    		"Big Sentences", "Words per Sentence", "Flesch-Kincaid", "Dale-Chall", "iLearnRW"};
 
 	    public MonModel() {
 	        super();
@@ -121,27 +130,24 @@ public class FilesExplorerPanel extends JPanel{
 	            return l.get(rowIndex).getNumberOfWords();
 	        }
 	        else if(columnIndex==2){
-	            return l.get(rowIndex).getFlesch();
+	            return l.get(rowIndex).getTotalHits();
 	        }
 	        else if(columnIndex==3){
-	            return l.get(rowIndex).getFleschKincaid();
+	            return l.get(rowIndex).getNumberOfDifficultWords();
 	        }
 	        else if(columnIndex==4){
-	            return l.get(rowIndex).getAutomated();
+	            return l.get(rowIndex).getNumberOfBigSentences();
 	        }
 	        else if(columnIndex==5){
-	            return l.get(rowIndex).getColemanLiau();
+	            return l.get(rowIndex).getAvgWordsPerSentence();
 	        }
 	        else if(columnIndex==6){
-	            return l.get(rowIndex).getSMOG();
+	            return l.get(rowIndex).getFleschKincaid();
 	        }
 	        else if(columnIndex==7){
-	            return l.get(rowIndex).getGunningFOG();
-	        }
-	        else if(columnIndex==8){
 	            return l.get(rowIndex).getDaleChall();
 	        }
-	        else if(columnIndex==9){
+	        else if(columnIndex==8){
 	            return l.get(rowIndex).getiLearnRW();
 	        }
 	        return null;
@@ -169,17 +175,21 @@ public class FilesExplorerPanel extends JPanel{
 			}
 			HashMap<String, Integer> test = languageAnalyzer.getUnknownWords();
 			Map<String, Integer> t = sortByValue(test);
-			unknown = "";
-			for (Map.Entry<String,Integer> entry : t.entrySet()) {
-				String key = entry.getKey();
-				int value = entry.getValue();
-				unknown = unknown +"\n"+key+"  "+value;
+			if (t!=null){
+				unknown = "";
+				for (Map.Entry<String,Integer> entry : t.entrySet()) {
+					String key = entry.getKey();
+					int value = entry.getValue();
+					unknown = unknown +"\n"+key+"  "+value;
+				}
+				unknown = unknown +"\nΣύνολο:"+t.size();
 			}
-			unknown = unknown +"\nΣύνολο:"+t.size();
 		}
 	}
 	
 	private Map<String, Integer> sortByValue(Map<String, Integer> map) {
+		if (map==null)
+			return null;
 		LinkedList<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(map.entrySet());
 
         Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
@@ -197,10 +207,14 @@ public class FilesExplorerPanel extends JPanel{
     }
 	
 	private class IlearnFile {
-	    private String name;
-	    private int numberOfWords;
-	    private double Flesch, FleschKincaid, Automated, ColemanLiau, 
-	    SMOG, gunningFOG, DaleChall, iLearnRW;
+
+		private String name;
+	    private int numberOfWords, totalHits, numberOfDifficultWords, numberOfBigSentences;
+		public void setNumberOfDifficultWords(int numberOfDifficultWords) {
+			this.numberOfDifficultWords = numberOfDifficultWords;
+		}
+
+		private double FleschKincaid, DaleChall, iLearnRW, avgWordsPerSentence;
 	    private boolean isSuitableToTheUser;
 
 		public IlearnFile(String name) {
@@ -221,14 +235,13 @@ public class FilesExplorerPanel extends JPanel{
 	    	  Text t = new Text(text, lan);
 	    	  Classifier cls = new Classifier(user, t, languageAnalyzer);
 	    	  numberOfWords = t.getNumberOfWords();
-	    	  Flesch = t.flesch();
+	    	  numberOfDifficultWords = cls.getDiffWords();
+	    	  totalHits = cls.getUserHits();
+	    	  numberOfBigSentences = t.getNumberOfBigSentences();
 	    	  FleschKincaid = t.fleschKincaid();
-	    	  Automated = t.automated();
-	    	  ColemanLiau = t.colemanLiau(); 
-	    	  SMOG = t.smog();
-	    	  gunningFOG = t.gunningFog();
 	    	  DaleChall = t.daleChall();
 	    	  iLearnRW = cls.getDifficulty();
+	    	  avgWordsPerSentence = t.getWordsPerSentence();
 	    }
 
 		public boolean suitable() {
@@ -242,13 +255,17 @@ public class FilesExplorerPanel extends JPanel{
 		public void setNumberOfWords(int numberOfWords) {
 			this.numberOfWords = numberOfWords;
 		}
-	    
-	    public String getFlesch() {
-			return String.format("%.2f",Flesch);
+
+		public int getNumberOfDifficultWords() {
+			return numberOfDifficultWords;
+		}
+		
+	    public int getNumberOfBigSentences() {
+			return numberOfBigSentences;
 		}
 
-		public void setFlesch(double flesch) {
-			Flesch = flesch;
+		public void setNumberOfBigSentences(int numberOfBigSentences) {
+			this.numberOfBigSentences = numberOfBigSentences;
 		}
 
 		public String getFleschKincaid() {
@@ -259,36 +276,28 @@ public class FilesExplorerPanel extends JPanel{
 			FleschKincaid = fleschKincaid;
 		}
 
-		public String getAutomated() {
-			return String.format("%.2f",Automated);
+	    public int getTotalHits() {
+			return totalHits;
 		}
 
-		public void setAutomated(double automated) {
-			Automated = automated;
+		public void setTotalHits(int totalHits) {
+			this.totalHits = totalHits;
 		}
 
-		public String getColemanLiau() {
-			return String.format("%.2f",ColemanLiau);
+		public String getAvgWordsPerSentence() {
+			return String.format("%.2f",avgWordsPerSentence);
 		}
 
-		public void setColemanLiau(double colemanLiau) {
-			ColemanLiau = colemanLiau;
+		public void setAvgWordsPerSentence(double avgWordsPerSentence) {
+			this.avgWordsPerSentence = avgWordsPerSentence;
 		}
 
-		public String getSMOG() {
-			return String.format("%.2f",SMOG);
+		public boolean isSuitableToTheUser() {
+			return isSuitableToTheUser;
 		}
 
-		public void setSMOG(double sMOG) {
-			SMOG = sMOG;
-		}
-
-		public String getGunningFOG() {
-			return String.format("%.2f",gunningFOG);
-		}
-
-		public void setGunningFOG(double gunningFOG) {
-			this.gunningFOG = gunningFOG;
+		public void setSuitableToTheUser(boolean isSuitableToTheUser) {
+			this.isSuitableToTheUser = isSuitableToTheUser;
 		}
 
 		public String getDaleChall() {

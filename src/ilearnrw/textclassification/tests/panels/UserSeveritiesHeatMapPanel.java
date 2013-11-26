@@ -16,7 +16,7 @@ import javax.swing.JTextPane;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumn;
 
 public class UserSeveritiesHeatMapPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -40,6 +40,9 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
         descriptionsText.setBackground(Color.lightGray);
         
 		heatMap = new JTable(data.length,lengthsMax());
+		for (int i=0;i<lengthsMax(); i++)
+			heatMap.getTableHeader().getColumnModel().getColumn(i).setHeaderValue(""+(i+1));
+		
 		renderer = new CellRenderer();
 		heatMap.setDefaultRenderer(Object.class, renderer);
 		heatMap.setShowGrid(false);
@@ -52,7 +55,8 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 		this.add(splitPane, BorderLayout.CENTER);
         splitPane.setResizeWeight(0.77);
         
-		splitPane.setLeftComponent(new JScrollPane(heatMap));
+        JScrollPane scrollPane = new JScrollPane(heatMap);
+		splitPane.setLeftComponent(scrollPane);
         
 		splitPane.setRightComponent(descriptionsText);
 
@@ -67,13 +71,18 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 
 		this.data = copyMatrix(user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities());
 		heatMap = new JTable(data.length,lengthsMax());
+		for (int i=0;i<lengthsMax(); i++)
+			heatMap.getTableHeader().getColumnModel().getColumn(i).setHeaderValue(""+(i+1)); 
+		
 		renderer = new CellRenderer();
 		heatMap.setDefaultRenderer(Object.class, renderer);
 		heatMap.setShowGrid(false);
 
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new GridLayout(1,1));
-		splitPane.setLeftComponent(new JScrollPane(heatMap));
+		
+		JScrollPane scrollPane = new JScrollPane(heatMap);
+		splitPane.setLeftComponent(scrollPane);
 		
 		draw();
 		test();
@@ -112,7 +121,13 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 	
 	public void draw(){
 		this.data = copyMatrix(user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities());
-		heatMap.setRowHeight(60);
+		heatMap.setRowHeight(45);
+		heatMap.setAutoResizeMode( JTable.AUTO_RESIZE_OFF );
+		TableColumn column = null;
+	    for (int i = 0; i < heatMap.getColumnCount(); i++) {
+	        column = heatMap.getColumnModel().getColumn(i);
+	        column.setPreferredWidth(45);
+	    }  
 		createMatrix();
 		setValues();
 

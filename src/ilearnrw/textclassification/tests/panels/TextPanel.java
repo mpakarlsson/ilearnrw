@@ -21,7 +21,7 @@ public class TextPanel extends JPanel{
 	private JScrollPane scrollPane;
 	private SmallHeatMapPanel smallHeat;
 	private JPanel scrpanel;
-	private JSplitPane splitPane_1;
+	private JSplitPane splitPaneUpDown;
 
 	public TextPanel() {
 		
@@ -29,34 +29,37 @@ public class TextPanel extends JPanel{
 	
 	public TextPanel(User user) {
 		super();
-		mainText = new JTextPane();
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new BorderLayout(0, 0));
 		JPanel panel = new JPanel();
+
+		splitPaneUpDown = new JSplitPane();
+		splitPaneUpDown.setOrientation(JSplitPane.VERTICAL_SPLIT);
+		splitPaneUpDown.setDividerLocation(700);
 		
 		JSplitPane splitPane = new JSplitPane();
-		this.add(splitPane, BorderLayout.CENTER);
-        splitPane.setResizeWeight(0.77);
+		splitPaneUpDown.setLeftComponent(splitPane);
+		this.add(splitPaneUpDown, BorderLayout.CENTER);
+		splitPane.setDividerLocation(700);
         
 		splitPane.setRightComponent(panel);
         panel.setLayout(new GridLayout(1,1));
         
         mainText = new JTextPane();
+		mainText.setEditable(false);
         JScrollPane jsp = new JScrollPane(mainText);
         splitPane.setLeftComponent(jsp);
         
-        splitPane_1 = new JSplitPane();
-        splitPane_1.setResizeWeight(0.40);
-        splitPane_1.setOrientation(JSplitPane.VERTICAL_SPLIT);
-        panel.add(splitPane_1);
-        
         createTable();
-        splitPane_1.setLeftComponent(scrollPane);
+        panel.add(scrollPane);
+        
+        //splitPane_1.setLeftComponent(scrollPane);
 
 
 		scrpanel = new JPanel();
 		scrpanel.setLayout(new GridLayout(1,1));
-		splitPane_1.setRightComponent(scrpanel);
+
+		splitPaneUpDown.setRightComponent(scrpanel);
 
         smallHeat = new SmallHeatMapPanel(user);
         smallHeat.draw();
@@ -71,12 +74,14 @@ public class TextPanel extends JPanel{
 		resetResultsTable();
 		scrpanel = new JPanel();
 		scrpanel.setLayout(new GridLayout(1,1));
-		splitPane_1.setRightComponent(scrpanel);
+		//splitPane_1.setRightComponent(scrpanel);
         smallHeat = new SmallHeatMapPanel(user);
         smallHeat.draw();
         smallHeat.test();
 
         scrpanel.add(smallHeat);
+		splitPaneUpDown.setRightComponent(scrpanel);
+		splitPaneUpDown.setDividerLocation(700);
 	}
 	
 	public SmallHeatMapPanel getSmallHeatMapPanel() {
@@ -115,7 +120,7 @@ public class TextPanel extends JPanel{
 	}
 	
 	private void createTable(){
-		String[] columnNames = {"one", "two"};
+		String[] columnNames = {"Property", "Value"};
 
 		Object[][] data = {
 				{"# Paragraphs", "-"},
@@ -123,24 +128,24 @@ public class TextPanel extends JPanel{
 				{"# Words:", "-"},
 				{"# Distinct Words", "-"},
 				{"# Syllables:", "-"},
-				{"# Big Sentences (>=15 words)", "-"},
-				{"# Polysyllabic Words (>=3 syllables)", "-"},
-				{"# Letters and Numbers", "-"},
-				{"Longest Word Length", "-"},
-				{"Longest Sentence Length", "-"},
-				{"Avg Words per Sentence", "-"},
-				{"Avg Syllables per Word", "-"},
-				{"Avg Word Length", "-"},
-				{"Avg Longest Word Length", "-"},
-				{"Flesch", "-"},
-				{"Flesch-Kincaid", "-"},
-				{"Automated", "-"},
-				{"Coleman-Liau", "-"},
-				{"SMOG", "-"},
-				{"Gunning FOG", "-"},
-				{"Dale-Chall", "-"},
-				{"Formula", "-"},
-				{"iLearnRW", "-"}
+				{"# Big Sentences:", "-"},
+				{"# Polysyllabic Words:", "-"},
+				{"# Letters and Numbers:", "-"},
+				{"Longest Word Length:", "-"},
+				{"Longest Sentence Length:", "-"},
+				{"Avg Words per Sentence:", "-"},
+				{"Avg Syllables per Word:", "-"},
+				{"Avg Word Length:", "-"},
+				{"Avg Longest Word Length:", "-"},
+				{"Flesch:", "-"},
+				{"Flesch-Kincaid:", "-"},
+				{"Automated:", "-"},
+				{"Coleman-Liau:", "-"},
+				{"SMOG:", "-"},
+				{"Gunning FOG:", "-"},
+				{"Dale-Chall:", "-"},
+				{"Formula:", "-"},
+				{"iLearnRW:", "-"}
 		};
 
 		resultsTable = new JTable(data, columnNames);

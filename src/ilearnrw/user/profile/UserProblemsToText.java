@@ -22,7 +22,7 @@ public class UserProblemsToText implements Serializable {
 	private UserTextCounters userCounters;
 	private HashMap<Word, Double> wordsWeights;
 	private double SDW;
-	private int totalHits, userHits;
+	private int totalHits, userHits, diffWords;
 	private LanguageAnalyzerAPI languageAnalyser;
 	
 	// TODO fix the threshold to a valua that the experts want!
@@ -36,6 +36,7 @@ public class UserProblemsToText implements Serializable {
 		this.wordsWeights = null;
 		SDW = 0;
 		totalHits = 0;
+		diffWords = 0;
 	}
 	
 	public UserProblemsToText(User user, Text text, LanguageAnalyzerAPI languageAnalyser){
@@ -62,10 +63,11 @@ public class UserProblemsToText implements Serializable {
 		userHits = 0;
 		totalHits = 0;
 		SDW = 0;
+		diffWords = 0;
 		//get all words along with the number times it appeared inside the text
 		for (Map.Entry<Word,Integer> entry : text.getWordsFreq().entrySet()) {
 			Word w = entry.getKey();
-
+			boolean isDifficult = false;
 			int appearences = entry.getValue();
 			//find the points of the problem map that the word matches 
 			wprobs.insertWord(w);
@@ -74,12 +76,17 @@ public class UserProblemsToText implements Serializable {
 			//count the problems for each word
 			for (WordProblemInfo x : probs){
 				double t = this.updateValue(x.getPosI(), x.getPosJ(), entry.getValue());
-				userHits += t>0 ? 1:0;
+				if (t>0){
+					userHits++;
+					isDifficult = true;
+				}
 				if (!wordsWeights.containsKey(w)){
 					wordsWeights.put(entry.getKey(), appearences*t - (appearences-1)*0.25);
 					SDW += appearences*t;// - (appearences-1)*0.25;
 				}
 			}
+			if (isDifficult)
+				diffWords++;
 		}
 	}
 
@@ -98,6 +105,10 @@ public class UserProblemsToText implements Serializable {
 
 	public void setWordsWeights(HashMap<Word, Double> wordsWeights) {
 		this.wordsWeights = wordsWeights;
+	}
+
+	public int getDiffWords() {
+		return diffWords;
 	}
 
 	public double getSDW() {

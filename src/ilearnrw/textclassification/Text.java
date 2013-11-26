@@ -102,7 +102,7 @@ public class Text implements TextAPI{
 	}
 	
 	private void calculateParagraphs(){
-		String tmp[] = text.trim().split("((\\\n)*(\\\n)\\s)");
+		String tmp[] = text.trim().split("((\\n\\n)*(\\\n)\\s)");
 		numberOfParagraphs = tmp.length;
 	}
 	

@@ -202,6 +202,12 @@ public class StringMatchesInfo {
 		return null;
 	}
 	
+	public StringMatchesInfo syllableCount(String str[], Word w){
+		if(w.getSyllables().length>=3)
+			return new StringMatchesInfo(w.getWord(), 0, w.getWord().length());
+		return null;
+	}
+	
 	public StringMatchesInfo patternEqualsPronunciation(String str[], Word w, String type){
 		//_C_ _V_
 		
@@ -237,12 +243,6 @@ public class StringMatchesInfo {
 					return new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length());
 			} 
 		}
-		return null;
-	}
-	
-	public StringMatchesInfo syllableCount(String str[], Word w){
-		if(w.getSyllables().length>=3)
-			return new StringMatchesInfo(w.getWord(), 0, w.getWord().length());
 		return null;
 	}
 	

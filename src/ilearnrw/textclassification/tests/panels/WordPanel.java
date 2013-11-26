@@ -1,6 +1,8 @@
 package ilearnrw.textclassification.tests.panels;
 
 import ilearnrw.user.User;
+import ilearnrw.utils.LanguageCode;
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 
@@ -20,8 +22,7 @@ public class WordPanel extends JPanel{
 	private JScrollPane scrollPane;
 	private SmallHeatMapPanel smallHeat;
 	private JPanel scrpanel;
-	private JPanel panel;
-	//private JSplitPane splitPane_1;
+	private JSplitPane splitPaneUpDown;
 
 	public WordPanel() {
 		
@@ -29,37 +30,37 @@ public class WordPanel extends JPanel{
 	
 	public WordPanel(User user) {
 		super();
-		mainText = new JTextPane();
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new BorderLayout(0, 0));
+		JPanel panel = new JPanel();
+
+		splitPaneUpDown = new JSplitPane();
+		splitPaneUpDown.setOrientation(JSplitPane.VERTICAL_SPLIT);
+		splitPaneUpDown.setDividerLocation(700);
 		
 		JSplitPane splitPane = new JSplitPane();
-		this.add(splitPane, BorderLayout.CENTER);
-        splitPane.setResizeWeight(0.5);
+		splitPaneUpDown.setLeftComponent(splitPane);
+		this.add(splitPaneUpDown, BorderLayout.CENTER);
+		splitPane.setDividerLocation(700);
         
+		splitPane.setRightComponent(panel);
+        panel.setLayout(new GridLayout(1,1));
         
         mainText = new JTextPane();
+		mainText.setEditable(false);
         JScrollPane jsp = new JScrollPane(mainText);
-		JPanel panel2 = new JPanel();
-        panel2.setLayout(new GridLayout(2,1));
-		createTable();
-		panel2.add(jsp);
-		panel2.add(scrollPane);
-        splitPane.setLeftComponent(panel2);
-
-        panel = new JPanel();
-        panel.setLayout(new GridLayout(1,1));
-		splitPane.setRightComponent(panel);
-        //splitPane_1 = new JSplitPane();
-        //splitPane_1.setResizeWeight(0.40);
-        //splitPane_1.setOrientation(JSplitPane.VERTICAL_SPLIT);
-        //panel.add(splitPane_1);
+        splitPane.setLeftComponent(jsp);
+        
+        createTable();
+        panel.add(scrollPane);
+        
+        //splitPane_1.setLeftComponent(scrollPane);
 
 
 		scrpanel = new JPanel();
 		scrpanel.setLayout(new GridLayout(1,1));
-		//splitPane_1.setRightComponent(scrpanel);
-		panel.add(scrpanel);
+
+		splitPaneUpDown.setRightComponent(scrpanel);
 
         smallHeat = new SmallHeatMapPanel(user);
         smallHeat.draw();
@@ -74,14 +75,14 @@ public class WordPanel extends JPanel{
 		resetResultsTable();
 		scrpanel = new JPanel();
 		scrpanel.setLayout(new GridLayout(1,1));
-		panel.removeAll();
-		panel.add(scrpanel);
 		//splitPane_1.setRightComponent(scrpanel);
         smallHeat = new SmallHeatMapPanel(user);
         smallHeat.draw();
         smallHeat.test();
 
         scrpanel.add(smallHeat);
+		splitPaneUpDown.setRightComponent(scrpanel);
+		splitPaneUpDown.setDividerLocation(700);
 	}
 	
 	public SmallHeatMapPanel getSmallHeatMapPanel() {
@@ -123,29 +124,29 @@ public class WordPanel extends JPanel{
 		String[] columnNames = {"one", "two"};
 
 		Object[][] data = {
-				{"# Paragraphs", "-"},
-				{"# Sentences:", "-"},
-				{"# Words:", "-"},
-				{"# Distinct Words", "-"},
+				{"Word:", "-"},
+				{"Word Language", "-"},
+				{"User Compatible", "-"},
+				{"# Letters:", "-"},
 				{"# Syllables:", "-"},
-				{"# Big Sentences (>=15 words)", "-"},
-				{"# Polysyllabic Words (>=3 syllables)", "-"},
-				{"# Letters and Numbers", "-"},
-				{"Longest Word Length", "-"},
-				{"Longest Sentence Length", "-"},
-				{"Avg Words per Sentence", "-"},
-				{"Avg Syllables per Word", "-"},
-				{"Avg Word Length", "-"},
-				{"Avg Longest Word Length", "-"},
-				{"Flesch", "-"},
-				{"Flesch-Kincaid", "-"},
-				{"Automated", "-"},
-				{"Coleman-Liau", "-"},
-				{"SMOG", "-"},
-				{"Gunning FOG", "-"},
-				{"Dale-Chall", "-"},
-				{"Formula", "-"},
-				{"iLearnRW", "-"}
+				{"Phonetics:", "-"},
+				{"Syllables:", "-"},
+				{"CV Form:", "-"},
+				{"Total Hits:", "-"},
+				{"User Hits:", "-"},
+				{"Word Difficutly:", "???"},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""},
+				{"", ""}
 		};
 
 		resultsTable = new JTable(data, columnNames);

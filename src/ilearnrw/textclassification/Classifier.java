@@ -150,4 +150,12 @@ OR
 		this.user = user;
 	}
 
+	public int getUserHits() {
+		return this.userProblemsToText.getUserHits();
+	}
+
+	public int getDiffWords() {
+		return this.userProblemsToText.getDiffWords();
+	}
+
 }

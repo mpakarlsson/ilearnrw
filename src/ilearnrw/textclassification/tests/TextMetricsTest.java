@@ -21,6 +21,7 @@ import ilearnrw.utils.LanguageCode;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -102,11 +103,11 @@ public class TextMetricsTest extends JFrame {
 	 */
 	public TextMetricsTest() {
 
-		try { 
+		/*try { 
 	        UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"); 
 	    } 
 	    catch(Exception e){ 
-	    }
+	    }*/
 
 		greekAnalyzer = new GreekLanguageAnalyzer();
 		englishAnalyzer = new EnglishLanguageAnalyzer();
@@ -149,6 +150,7 @@ public class TextMetricsTest extends JFrame {
 					textPanel.reset(user);
 					wordPanel.reset(user);
 					userSeveritiesPanel.setUser(user);
+					explorerPanel.setLanguageAnalyzer(getLanguageAnalyzer(user));
 					explorerPanel.setUser(user);
 				} catch (Exception ex) {
 					ex.printStackTrace();
@@ -178,7 +180,7 @@ public class TextMetricsTest extends JFrame {
 		//tabbedPane.addTab( "Heat Map", heatMapPanel );
 		explorerPanel = new FilesExplorerPanel(user, tabbedPane, textPanel, this, getLanguageAnalyzer(user));
 		tabbedPane.addTab( "File Explorer", explorerPanel );
-		tabbedPane.addTab( "User Severities", userSeveritiesPanel );
+		tabbedPane.addTab( "User Profile", userSeveritiesPanel );
 		
 		// TODO change the 2 following rows / send them inside the UserSeveritiesHeatMapPanel class
 		userSeveritiesPanel.draw();
@@ -190,8 +192,6 @@ public class TextMetricsTest extends JFrame {
 		JToolBar toolBar = new JToolBar();
 		contentPane.add(toolBar, BorderLayout.NORTH);
 		
-		toolBar.add(userCombobox);
-		
 		JButton exitButton = new JButton("Exit");
 		exitButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -200,6 +200,7 @@ public class TextMetricsTest extends JFrame {
 			}
 		});
 		toolBar.add(exitButton);
+		toolBar.addSeparator();
 		
 		JButton goButton = new JButton("Calculate");
 		goButton.addMouseListener(new MouseAdapter() {
@@ -221,8 +222,10 @@ public class TextMetricsTest extends JFrame {
 		});
 		toolBar.add(clearButton);
 
-		updateLanguageLabel();
-		toolBar.add(languageLabel);
+		toolBar.addSeparator();
+		
+		toolBar.add(new JLabel("Select User:"));
+		toolBar.add(userCombobox);
 	}
 	
 	private boolean updateLanguageLabel(){
