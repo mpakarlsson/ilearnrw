@@ -22,7 +22,7 @@ public class UserProblemsToText implements Serializable {
 	private UserTextCounters userCounters;
 	private HashMap<Word, Double> wordsWeights;
 	private double SDW;
-	private int totalHits, userHits, diffWords;
+	private int totalHits, userHits, diffWords, veryDiffWords;
 	private LanguageAnalyzerAPI languageAnalyser;
 	
 	// TODO fix the threshold to a valua that the experts want!
@@ -37,6 +37,7 @@ public class UserProblemsToText implements Serializable {
 		SDW = 0;
 		totalHits = 0;
 		diffWords = 0;
+		veryDiffWords = 0;
 	}
 	
 	public UserProblemsToText(User user, Text text, LanguageAnalyzerAPI languageAnalyser){
@@ -64,6 +65,7 @@ public class UserProblemsToText implements Serializable {
 		totalHits = 0;
 		SDW = 0;
 		diffWords = 0;
+		veryDiffWords = 0;
 		//get all words along with the number times it appeared inside the text
 		for (Map.Entry<Word,Integer> entry : text.getWordsFreq().entrySet()) {
 			Word w = entry.getKey();
@@ -74,8 +76,10 @@ public class UserProblemsToText implements Serializable {
 			ArrayList<WordProblemInfo> probs = wprobs.getMatchedProbs();
 			totalHits += probs.size();
 			//count the problems for each word
+			double veryDifficultFlag = 0;
 			for (WordProblemInfo x : probs){
 				double t = this.updateValue(x.getPosI(), x.getPosJ(), entry.getValue());
+				veryDifficultFlag += t;
 				if (t>0){
 					userHits++;
 					isDifficult = true;
@@ -87,6 +91,8 @@ public class UserProblemsToText implements Serializable {
 			}
 			if (isDifficult)
 				diffWords++;
+			if (veryDifficultFlag>1.5)
+				veryDiffWords++;
 		}
 	}
 
@@ -109,6 +115,10 @@ public class UserProblemsToText implements Serializable {
 
 	public int getDiffWords() {
 		return diffWords;
+	}
+
+	public int getVeryDiffWords() {
+		return veryDiffWords;
 	}
 
 	public double getSDW() {

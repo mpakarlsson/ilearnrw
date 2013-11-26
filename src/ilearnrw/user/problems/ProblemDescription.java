@@ -28,6 +28,15 @@ public class ProblemDescription implements Serializable{
 		return false;
 	}
 	
+	public String getDescriptionsTosString(){
+		String res ="";
+		for (int i=0; i<descriptions.length-1; i++){
+			res = res + descriptions[i]+" ,";
+		}
+		res = res + descriptions[descriptions.length-1];
+		return res;
+	}
+	
 	@Override
 	public String toString(){
 		String res = "|--Problem Description: \n  |--Problem Type:"+problemType+"\n  |--Problem Contains:";

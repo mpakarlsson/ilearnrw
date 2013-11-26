@@ -168,7 +168,7 @@ public class TextMetricsTest extends JFrame {
 		setContentPane(contentPane);
 
 		textPanel = new TextPanel(user);
-		wordPanel = new WordPanel(user);
+		wordPanel = new WordPanel(user, this);
 		userSeveritiesPanel = new UserSeveritiesHeatMapPanel(user);
 		
 		contentPane.add(textPanel, BorderLayout.CENTER);
@@ -207,7 +207,7 @@ public class TextMetricsTest extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (!textPanel.getText().trim().isEmpty())
-					classifierResults();
+					classifierResults(true);
 			}
 		});
 		toolBar.add(goButton);
@@ -242,16 +242,21 @@ public class TextMetricsTest extends JFrame {
 		return result;
 	}
 	
-	public void classifierResults(){
-		String str = textPanel.getText();
+	public void classifierResults(boolean isWord){
+		String str;
+		if (isWord)
+			str = wordPanel.getText();
+		else
+			str = textPanel.getText();
 		txt = new Text(str, lc);
 		
-		runTextClassifier();
-		textPanel.getSmallHeatMapPanel().test();
-		if (textPanelIsWord()){
-			textPanel.setResultsTable(testWordMetrics());
+		runTextClassifier(isWord);
+		if (isWord){
+			wordPanel.getSmallHeatMapPanel().test();
+			wordPanel.setResultsTable(testWordMetrics());
 		}
 		else{
+			textPanel.getSmallHeatMapPanel().test();
 			textPanel.setResultsTable(testTextMetrics());
 		}
 	}
@@ -269,6 +274,31 @@ public class TextMetricsTest extends JFrame {
 		System.out.println(wp.toString());
 		*/
 		String[][] data = {
+				{"# Paragraphs", ""+txt.getNumberOfParagraphs(), 
+					"Longest Word Length:", ""+txt.getLongestWordLength(), 
+					"Flesch:", String.format("%.2f",txt.flesch())},
+				{"# Sentences:", ""+txt.getNumberOfSentences(), 
+						"Longest Sentence Length:", ""+txt.getLongestSentenceLength(), 
+						"Flesch-Kincaid:", String.format("%.2f",txt.fleschKincaid())},
+				{"# Words:", ""+txt.getNumberOfWords(), 
+							"Avg Words per Sentence:", String.format("%.2f",txt.getWordsPerSentence()), 
+							"Automated:", String.format("%.2f",txt.automated())},
+				{"# Distinct Words", ""+txt.getNumberOfDistinctWords(), 
+					"Avg Syllables per Word:", String.format("%.2f",txt.getSyllablesPerWord()), 
+					"Coleman-Liau:", String.format("%.2f",txt.colemanLiau())},
+				{"# Syllables:", ""+txt.getNumberOfSyllables(), 
+					"Avg Word Length:", String.format("%.2f",txt.getAverageWordLength()), 
+					"SMOG:", String.format("%.2f",txt.smog())},
+				{"# Big Sentences:", ""+txt.getNumberOfBigSentences(), 
+					"Avg Longest Word Length:", String.format("%.2f",txt.getAverageLongestWordLength()), 
+					"Gunning FOG:", String.format("%.2f",txt.gunningFog())},
+				{"# Polysyllabic Words:", ""+txt.getNumberOfPolysyllabicWords(), 
+					"", "", 
+					"Dale-Chall:", String.format("%.2f",txt.daleChall())},
+				{"# Letters and Numbers:", ""+txt.getNumberOfLettersAndNumbers(), 
+					"Formula:", cls.getDifficultyToString(), 
+					"iLearnRW:", String.format("%.2f",cls.getDifficulty())}
+				/*
 				{"# Paragraphs", ""+txt.getNumberOfParagraphs()},
 				{"# Sentences:", ""+txt.getNumberOfSentences()},
 				{"# Words:", ""+txt.getNumberOfWords()},
@@ -291,7 +321,7 @@ public class TextMetricsTest extends JFrame {
 				{"Gunning FOG", String.format("%.2f",txt.gunningFog())},
 				{"Dale-Chall", String.format("%.2f",txt.daleChall())},
 				{"Formula", cls.getDifficultyToString()},
-				{"iLearnRW", String.format("%.2f",cls.getDifficulty())}
+				{"iLearnRW", String.format("%.2f",cls.getDifficulty())}*/
 		};
 		return data;
 	}
@@ -309,8 +339,8 @@ public class TextMetricsTest extends JFrame {
 		*/
 		String[][] data = {
 				{"Word:", ""+w.toString()},
-				{"Word Language", findLanguage(textPanel.getText()) == LanguageCode.GR?"Greek":"English"},
-				{"User Compatible", findLanguage(textPanel.getText()) == user.getDetails().getLanguage()?"True":"False"},
+				{"Word Language", findLanguage(wordPanel.getText()) == LanguageCode.GR?"Greek":"English"},
+				{"User Compatible", findLanguage(wordPanel.getText()) == user.getDetails().getLanguage()?"True":"False"},
 				{"# Letters:", ""+w.getLength()},
 				{"# Syllables:", ""+w.getNumberOfSyllables()},
 				{"Phonetics:", ""+w.getPhonetics()},
@@ -335,11 +365,18 @@ public class TextMetricsTest extends JFrame {
 		return data;
 	}
 	
-	public void runTextClassifier(){
-		Text t = new Text(textPanel.getText(), lc);
-		cls = new Classifier(user, t, getLanguageAnalyzer(user));
-		//heatMapPanel.setClassifier(cls);
-		textPanel.getSmallHeatMapPanel().setClassifier(cls);
+	public void runTextClassifier(boolean isWord){
+		if (isWord){
+			Text t = new Text(wordPanel.getText(), lc);
+			cls = new Classifier(user, t, getLanguageAnalyzer(user));
+			wordPanel.getSmallHeatMapPanel().setClassifier(cls);
+		}
+		else{
+			Text t = new Text(textPanel.getText(), lc);
+			cls = new Classifier(user, t, getLanguageAnalyzer(user));
+			//heatMapPanel.setClassifier(cls);
+			textPanel.getSmallHeatMapPanel().setClassifier(cls);
+		}
 	}
 
 	private LanguageAnalyzerAPI getLanguageAnalyzer(User user){
@@ -347,11 +384,6 @@ public class TextMetricsTest extends JFrame {
 			return greekAnalyzer;
 		else 
 			return englishAnalyzer;
-	}
-	
-	private boolean textPanelIsWord(){
-		String t = textPanel.getText().trim();
-		return !t.contains(" ");		
 	}
 	
 	private LanguageCode findLanguage(String text){

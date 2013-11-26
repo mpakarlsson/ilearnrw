@@ -9,7 +9,7 @@ public class ProblemDefinitionIndex implements Serializable, ProblemDefinitionIn
 	private ProblemDefinition problemsIndex[];
 	private ProblemDescription problems[][];
 
-	LanguageCode language;
+	private LanguageCode language;
 
 	public ProblemDefinitionIndex() {
 		problemsIndex = null;

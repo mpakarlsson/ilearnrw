@@ -158,4 +158,8 @@ OR
 		return this.userProblemsToText.getDiffWords();
 	}
 
+	public int getVeryDiffWords() {
+		return this.userProblemsToText.getVeryDiffWords();
+	}
+
 }

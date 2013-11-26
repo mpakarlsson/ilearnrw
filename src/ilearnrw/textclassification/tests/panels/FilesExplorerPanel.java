@@ -71,7 +71,7 @@ public class FilesExplorerPanel extends JPanel{
 				    	  }
 				    	  textPanel.testMethod(text);
 				    	  System.out.println(unknown);
-				    	  metrics.classifierResults();
+				    	  metrics.classifierResults(false);
 				      }
 				   }
 				});
@@ -100,8 +100,8 @@ public class FilesExplorerPanel extends JPanel{
 	private class MonModel extends AbstractTableModel {
 		private static final long serialVersionUID = 1L;
 		private ArrayList<IlearnFile> l;
-	    private final String[] columnNames = new String[]{"File Name", "Words", "Total Hits", "Difficult Words", 
-	    		"Big Sentences", "Words per Sentence", "Flesch-Kincaid", "Dale-Chall", "iLearnRW"};
+	    private final String[] columnNames = new String[]{"File Name", "Words", "Difficult Words", "Very Difficult Words", 
+	    		"Paragraphs", "Big Sentences", "Words per Sentence", "Flesch-Kincaid", "Dale-Chall", "iLearnRW"};
 
 	    public MonModel() {
 	        super();
@@ -112,6 +112,15 @@ public class FilesExplorerPanel extends JPanel{
 	    @Override
 	    public String getColumnName(int column) {
 	        return columnNames[column];
+	    }
+
+	    @Override
+	    public Class getColumnClass(int column) {
+	        if (column == 0) {
+	            return String.class;
+	        } else {
+	            return Double.class;
+	        }
 	    }
 
 	    public int getColumnCount() {
@@ -130,25 +139,28 @@ public class FilesExplorerPanel extends JPanel{
 	            return l.get(rowIndex).getNumberOfWords();
 	        }
 	        else if(columnIndex==2){
-	            return l.get(rowIndex).getTotalHits();
-	        }
-	        else if(columnIndex==3){
 	            return l.get(rowIndex).getNumberOfDifficultWords();
 	        }
+	        else if(columnIndex==3){
+	            return l.get(rowIndex).getNumberOfVeryDifficultWords();
+	        }
 	        else if(columnIndex==4){
-	            return l.get(rowIndex).getNumberOfBigSentences();
+	            return l.get(rowIndex).getNumberOfParagraphs();
 	        }
 	        else if(columnIndex==5){
-	            return l.get(rowIndex).getAvgWordsPerSentence();
+	            return l.get(rowIndex).getNumberOfBigSentences();
 	        }
 	        else if(columnIndex==6){
-	            return l.get(rowIndex).getFleschKincaid();
+	            return Double.parseDouble(l.get(rowIndex).getAvgWordsPerSentence());
 	        }
 	        else if(columnIndex==7){
-	            return l.get(rowIndex).getDaleChall();
+	            return Double.parseDouble(l.get(rowIndex).getFleschKincaid());
 	        }
 	        else if(columnIndex==8){
-	            return l.get(rowIndex).getiLearnRW();
+	            return Double.parseDouble(l.get(rowIndex).getDaleChall());
+	        }
+	        else if(columnIndex==9){
+	            return Double.parseDouble(l.get(rowIndex).getiLearnRW());
 	        }
 	        return null;
 	    }
@@ -180,7 +192,7 @@ public class FilesExplorerPanel extends JPanel{
 				for (Map.Entry<String,Integer> entry : t.entrySet()) {
 					String key = entry.getKey();
 					int value = entry.getValue();
-					unknown = unknown +"\n"+key+"  "+value;
+					unknown = unknown +"\n"+key;//+"  "+value;
 				}
 				unknown = unknown +"\nΣύνολο:"+t.size();
 			}
@@ -209,7 +221,8 @@ public class FilesExplorerPanel extends JPanel{
 	private class IlearnFile {
 
 		private String name;
-	    private int numberOfWords, totalHits, numberOfDifficultWords, numberOfBigSentences;
+	    private int numberOfWords, totalHits, numberOfDifficultWords, numberOfVeryDifficultWords, 
+	    numberOfParagraphs, numberOfBigSentences;
 		public void setNumberOfDifficultWords(int numberOfDifficultWords) {
 			this.numberOfDifficultWords = numberOfDifficultWords;
 		}
@@ -236,8 +249,10 @@ public class FilesExplorerPanel extends JPanel{
 	    	  Classifier cls = new Classifier(user, t, languageAnalyzer);
 	    	  numberOfWords = t.getNumberOfWords();
 	    	  numberOfDifficultWords = cls.getDiffWords();
+	    	  numberOfVeryDifficultWords = cls.getVeryDiffWords();
 	    	  totalHits = cls.getUserHits();
 	    	  numberOfBigSentences = t.getNumberOfBigSentences();
+	    	  numberOfParagraphs = t.getNumberOfParagraphs();
 	    	  FleschKincaid = t.fleschKincaid();
 	    	  DaleChall = t.daleChall();
 	    	  iLearnRW = cls.getDifficulty();
@@ -258,6 +273,14 @@ public class FilesExplorerPanel extends JPanel{
 
 		public int getNumberOfDifficultWords() {
 			return numberOfDifficultWords;
+		}
+
+		public int getNumberOfVeryDifficultWords() {
+			return numberOfVeryDifficultWords;
+		}
+		
+	    public int getNumberOfParagraphs() {
+			return numberOfParagraphs;
 		}
 		
 	    public int getNumberOfBigSentences() {

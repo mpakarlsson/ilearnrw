@@ -5,12 +5,16 @@ import ilearnrw.user.User;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextPane;
 
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 import javax.swing.JTable;
 
@@ -22,6 +26,8 @@ public class TextPanel extends JPanel{
 	private SmallHeatMapPanel smallHeat;
 	private JPanel scrpanel;
 	private JSplitPane splitPaneUpDown;
+	private JPanel panel;
+	private JSplitPane splitPane;
 
 	public TextPanel() {
 		
@@ -31,16 +37,16 @@ public class TextPanel extends JPanel{
 		super();
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new BorderLayout(0, 0));
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 
 		splitPaneUpDown = new JSplitPane();
 		splitPaneUpDown.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		splitPaneUpDown.setDividerLocation(700);
 		
-		JSplitPane splitPane = new JSplitPane();
+		splitPane = new JSplitPane();
 		splitPaneUpDown.setLeftComponent(splitPane);
 		this.add(splitPaneUpDown, BorderLayout.CENTER);
-		splitPane.setDividerLocation(700);
+		splitPane.setDividerLocation(500);
         
 		splitPane.setRightComponent(panel);
         panel.setLayout(new GridLayout(1,1));
@@ -49,9 +55,6 @@ public class TextPanel extends JPanel{
 		mainText.setEditable(false);
         JScrollPane jsp = new JScrollPane(mainText);
         splitPane.setLeftComponent(jsp);
-        
-        createTable();
-        panel.add(scrollPane);
         
         //splitPane_1.setLeftComponent(scrollPane);
 
@@ -65,7 +68,12 @@ public class TextPanel extends JPanel{
         smallHeat.draw();
         smallHeat.test();
 
-        scrpanel.add(smallHeat);
+        
+        createTable();
+        //panel.add(scrollPane);
+        //scrpanel.add(smallHeat);
+        panel.add(smallHeat);
+        scrpanel.add(scrollPane);
 
 	}
 	
@@ -79,7 +87,12 @@ public class TextPanel extends JPanel{
         smallHeat.draw();
         smallHeat.test();
 
-        scrpanel.add(smallHeat);
+        panel = new JPanel();
+		splitPane.setDividerLocation(500);
+		splitPane.setRightComponent(panel);
+        panel.setLayout(new GridLayout(1,1));
+        panel.add(smallHeat);
+        scrpanel.add(scrollPane);
 		splitPaneUpDown.setRightComponent(scrpanel);
 		splitPaneUpDown.setDividerLocation(700);
 	}
@@ -90,15 +103,19 @@ public class TextPanel extends JPanel{
 
 	public void resetResultsTable(){
 		for (int i=0;i<resultsTable.getRowCount();i++){
-			//this.resultsTable.setValueAt("", i, 0);
-			this.resultsTable.setValueAt("", i, 1);
+			for (int j=1; j<resultsTable.getColumnCount(); j+=2){
+				//this.resultsTable.setValueAt("", i, 0);
+				this.resultsTable.setValueAt("", i, j);
+			}
 		}
 	}
 
 	public void setResultsTable(String str[][]){
 		for (int i=0;i<(str.length<resultsTable.getRowCount()?str.length:resultsTable.getRowCount());i++){
-			this.resultsTable.setValueAt(str[i][0], i, 0);
-			this.resultsTable.setValueAt(str[i][1], i, 1);
+			for (int j=0;j<(str[i].length<resultsTable.getColumnCount()?str[i].length:resultsTable.getColumnCount());j++){
+				this.resultsTable.setValueAt(" "+str[i][j]+" ", i, j);
+				//this.resultsTable.setValueAt(str[i][1], i, 1);
+			}
 		}
 	}
 
@@ -120,38 +137,36 @@ public class TextPanel extends JPanel{
 	}
 	
 	private void createTable(){
-		String[] columnNames = {"Property", "Value"};
+		String[] columnNames = {"Property", "Value", "Property", "Value", "Test", "Value"};
 
 		Object[][] data = {
-				{"# Paragraphs", "-"},
-				{"# Sentences:", "-"},
-				{"# Words:", "-"},
-				{"# Distinct Words", "-"},
-				{"# Syllables:", "-"},
-				{"# Big Sentences:", "-"},
-				{"# Polysyllabic Words:", "-"},
-				{"# Letters and Numbers:", "-"},
-				{"Longest Word Length:", "-"},
-				{"Longest Sentence Length:", "-"},
-				{"Avg Words per Sentence:", "-"},
-				{"Avg Syllables per Word:", "-"},
-				{"Avg Word Length:", "-"},
-				{"Avg Longest Word Length:", "-"},
-				{"Flesch:", "-"},
-				{"Flesch-Kincaid:", "-"},
-				{"Automated:", "-"},
-				{"Coleman-Liau:", "-"},
-				{"SMOG:", "-"},
-				{"Gunning FOG:", "-"},
-				{"Dale-Chall:", "-"},
-				{"Formula:", "-"},
-				{"iLearnRW:", "-"}
+				{" # Paragraphs", "- ", " Longest Word Length:", "- ", " Flesch:", "- "},
+				{" # Sentences:", "- ", " Longest Sentence Length:", "- ", " Flesch-Kincaid:", "- "},
+				{" # Words:", "- ", " Avg Words per Sentence:", "- ", " Automated:", "- "},
+				{" # Distinct Words", "- ", " Avg Syllables per Word:", "- ", " Coleman-Liau:", "- "},
+				{" # Syllables:", "- ", " Avg Word Length:", "- ", " SMOG:", "- "},
+				{" # Big Sentences:", "- ", " Avg Longest Word Length:", "- ", " Gunning FOG:", "- "},
+				{" # Polysyllabic Words:", "- ", "", "", " Dale-Chall:", "- "},
+				{" # Letters and Numbers:", "- ", " Formula:", "- ", " iLearnRW:", "- "}
 		};
 
 		resultsTable = new JTable(data, columnNames);
-        TableColumn column = resultsTable.getColumnModel().getColumn(1);
-        column.setPreferredWidth(resultsTable.getWidth()/4);
+		
+		DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+		rightRenderer.setHorizontalAlignment( JLabel.RIGHT );
+		for (int i=0;i<resultsTable.getColumnCount(); i+=2){
+			resultsTable.getColumnModel().getColumn(i+1).setCellRenderer( rightRenderer );
+			resultsTable.getColumnModel().getColumn(i+1).setPreferredWidth(60);
+		}
+		resultsTable.getColumnModel().getColumn(0).setPreferredWidth(170);
+		resultsTable.getColumnModel().getColumn(2).setPreferredWidth(200);
+		resultsTable.getColumnModel().getColumn(4).setPreferredWidth(140);
+		
+        //TableColumn column = resultsTable.getColumnModel().getColumn(1);
+        //column.setPreferredWidth(resultsTable.getWidth()/4);
+        resultsTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        
         scrollPane = new JScrollPane(resultsTable);
-        resultsTable.setFillsViewportHeight(true);
+        //resultsTable.setFillsViewportHeight(true);
 	}
 }

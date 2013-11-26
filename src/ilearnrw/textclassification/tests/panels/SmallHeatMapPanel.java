@@ -60,7 +60,7 @@ public class SmallHeatMapPanel extends JPanel {
 		
 		JPanel panel = new JPanel();
 		//JSplitPane splitPane = new JSplitPane();
-        panel.setLayout(new GridLayout(1,2));
+        panel.setLayout(new GridLayout(2,1));
 		//splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		this.add(panel, BorderLayout.CENTER);
 		//this.add(splitPane, BorderLayout.CENTER);
@@ -172,10 +172,19 @@ public class SmallHeatMapPanel extends JPanel {
 		String res = "null";
 		if (classifier == null) 
 			return res;
+		User user = classifier.getUser();
+		//if (j==0){
+		//	res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
+		//}
 		if (j<data[i].length){
-			res = multi[i][j]+" times\n";
-			res = res+ classifier.getUser().getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
-			res = res+classifier.getUser().getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j).toString();
+			res = "Problem Title:"+user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).getType().getUrl();
+			if (!user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).getURI().
+					equalsIgnoreCase(user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).getType().getUrl()))
+				res = res + ", Targeted Area:"+user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).getURI();
+			//res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
+			res = res + "\nMatching word characteristics:"+user.getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j).getProblemType();
+			res = res + " {"+user.getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j).getDescriptionsTosString()+"}";
+			res = res + " \nFound "+multi[i][j]+" times\n";
 		}
 		return res;
 	}
@@ -205,7 +214,7 @@ public class SmallHeatMapPanel extends JPanel {
             		c.setBackground(new Color(255, 255, 255));
             	}
             	else{
-            		c.setBackground(new Color(255, 255-((255*multi[row][column])/matrixMax()), 255-((255*multi[row][column])/matrixMax())));
+            		c.setBackground(new Color(255, 240-24*((10*multi[row][column])/matrixMax()), 240-24*((10*multi[row][column])/matrixMax())));
             	}  
             }
             return c;

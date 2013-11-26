@@ -203,12 +203,19 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 	
 	private String displayCellInfo(int i, int j){
 		String res = "null";
+		if (user == null) 
+			return res;
 		//if (j==0){
 		//	res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
 		//}
 		if (j<data[i].length){
-			res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
-			res = res + user.getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j).toString();
+			res = "Problem Title:"+user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).getType().getUrl();
+			if (!user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).getURI().
+					equalsIgnoreCase(user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).getType().getUrl()))
+				res = res + ", Targeted Area:"+user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).getURI();
+			//res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
+			res = res + "\nMatching word characteristics:"+user.getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j).getProblemType();
+			res = res + " {"+user.getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j).getDescriptionsTosString()+"}";
 		}
 		return res;
 	}
