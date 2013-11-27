@@ -75,8 +75,7 @@ public class Word {
 	}
 	
 	public String getWordInToPhonemes(){
-		String res = "-";
-		return res;
+		return phonetics;
 	}
 		
 	@Override

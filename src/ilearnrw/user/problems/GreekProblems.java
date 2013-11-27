@@ -277,45 +277,45 @@ import ilearnrw.utils.LanguageCode;
 			{
 				int i=0;
 				problemDefinitionIndex.setProblemDescription(ProblemType.TWO_SYL_WORD_INITIAL_PHONEME, 
-						new String[]{"/sp/", "/st/", "/sk/"}, problemIndexPosition, i++);
+						new String[]{"sp", "st", "sk"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.TWO_SYL_WORD_INITIAL_PHONEME, 
-						new String[]{"/pr/","/tr/","/kr/"}, problemIndexPosition, i++);
+						new String[]{"pr","tr","kr"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.TWO_SYL_WORD_INITIAL_PHONEME, 
-						new String[]{"/gr/", "/dr/", "/br/"}, problemIndexPosition, i++);
+						new String[]{"gr", "dr", "br"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.TWO_SYL_WORD_INITIAL_PHONEME, 
-						new String[]{"/fr/", "/ðr/", "/χr/", "/vr/", "/γr/", "/θr/"}, problemIndexPosition, i++);
+						new String[]{"fr", "ðr", "χr", "vr", "γr", "θr"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.TWO_SYL_WORD_INITIAL_PHONEME, 
-						new String[]{"/spr/", "/skr/", "/str/", "/sfr/"}, problemIndexPosition, i++);
+						new String[]{"spr", "skr", "str", "sfr"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.THREE_SYL_WORD_INITIAL_PHONEME, 
-						new String[]{"/sp/", "/st/", "/sk/"}, problemIndexPosition, i++);
+						new String[]{"sp", "st", "sk"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.THREE_SYL_WORD_INITIAL_PHONEME, 
-						new String[]{"/pr/", "/tr/", "/kr/"}, problemIndexPosition, i++);
+						new String[]{"pr", "tr", "kr"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.THREE_SYL_WORD_INITIAL_PHONEME, 
-						new String[]{"/gr/", "/dr/", "/br/"}, problemIndexPosition, i++);
+						new String[]{"gr", "dr", "br"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.THREE_SYL_WORD_INITIAL_PHONEME, 
-						new String[]{"/fr/", "/ðr/", "/χr/", "/vr/", "/γr/", "/θr/"}, problemIndexPosition, i++);
+						new String[]{"fr", "ðr", "χr", "vr", "γr", "θr"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.THREE_SYL_WORD_INITIAL_PHONEME, 
-						new String[]{"/spr/", "/skr/", "/str/", "/sfr/"}, problemIndexPosition, i++);
+						new String[]{"spr", "skr", "str", "sfr"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.TWO_SYL_WORD_INTERNAL_PHONEME, 
-						new String[]{"/sp/", "/st/", "/sk/"}, problemIndexPosition, i++);
+						new String[]{"sp", "st", "sk"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.TWO_SYL_WORD_INTERNAL_PHONEME, 
-						new String[]{"/pr/", "/tr/", "/kr/"}, problemIndexPosition, i++);
+						new String[]{"pr", "tr", "kr"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.TWO_SYL_WORD_INTERNAL_PHONEME, 
-						new String[]{"/gr/", "/dr/", "/br/"}, problemIndexPosition, i++);
+						new String[]{"gr", "dr", "br"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.TWO_SYL_WORD_INTERNAL_PHONEME, 
-						new String[]{"/fr/", "/ðr/", "/χr/", "/vr/", "/γr/", "/θr/"}, problemIndexPosition, i++);
+						new String[]{"fr", "ðr", "χr", "vr", "γr", "θr"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.TWO_SYL_WORD_INTERNAL_PHONEME, 
-						new String[]{"/spr/", "/skr/", "/str/", "/sfr/"}, problemIndexPosition, i++);
+						new String[]{"spr", "skr", "str", "sfr"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.THREE_SYL_WORD_INTERNAL_PHONEME, 
-						new String[]{"/sp/", "/st/", "/sk/"}, problemIndexPosition, i++);
+						new String[]{"sp", "st", "sk"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.THREE_SYL_WORD_INTERNAL_PHONEME, 
-						new String[]{"/pr/", "/tr/", "/kr/"}, problemIndexPosition, i++);
+						new String[]{"pr", "tr", "kr"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.THREE_SYL_WORD_INTERNAL_PHONEME, 
-						new String[]{"/gr/", "/dr/", "/br/"}, problemIndexPosition, i++);
+						new String[]{"gr", "dr", "br"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.THREE_SYL_WORD_INTERNAL_PHONEME, 
-						new String[]{"/fr/", "/ðr/", "/χr/", "/vr/", "/γr/", "/θr/"}, problemIndexPosition, i++);
+						new String[]{"fr", "ðr", "χr", "vr", "γr", "θr"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.THREE_SYL_WORD_INTERNAL_PHONEME, 
-						new String[]{"/spr/", "/skr/", "/str/", "/sfr/"}, problemIndexPosition, i++);
+						new String[]{"spr", "skr", "str", "sfr"}, problemIndexPosition, i++);
 			//}
 			
 			//Irregular (7 problems)

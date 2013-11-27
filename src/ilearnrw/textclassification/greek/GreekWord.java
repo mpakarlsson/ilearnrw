@@ -1,8 +1,9 @@
 package ilearnrw.textclassification.greek;
+import ilearnrw.languagetools.greek.GreekPhonetics;
+import ilearnrw.languagetools.greek.GreekSpeller;
+import ilearnrw.languagetools.greek.Speller;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordType;
-import ilearnrw.textclassification.speller.GreekSpeller;
-import ilearnrw.textclassification.speller.Speller;
 import ilearnrw.utils.LanguageCode;
 
 public class GreekWord extends Word{
@@ -16,7 +17,8 @@ public class GreekWord extends Word{
 		checkType();
 		syllabism();
 		createCVForm();
-		//System.out.println(syllables.toString());
+		createPhonetics();
+		//System.out.println(word);
 	}
 
 	protected void checkType(){
@@ -70,7 +72,8 @@ public class GreekWord extends Word{
 	}
 	
 	private void createPhonetics(){
-		//read the word, and calculate its phonetic transcription
+		GreekPhonetics gp = new GreekPhonetics(this.word);
+		phonetics = gp.getResult();
 	}
 	
 }

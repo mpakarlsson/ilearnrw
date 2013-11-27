@@ -1,5 +1,7 @@
 package ilearnrw.textclassification.tests;
 
+import ilearnrw.languagetools.greek.GreekPhonetics;
+import ilearnrw.textclassification.Sentence;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
 import ilearnrw.utils.LanguageCode;
@@ -17,6 +19,17 @@ import java.util.Scanner;
 public class GreekWordGenerator {
 
 	public static void main(String a[]) {
+		GreekPhonetics gp = new GreekPhonetics("εκ");
+		System.out.println(gp.getResult());
+		Text t = new Text("Νιγκ", LanguageCode.GR);
+		Sentence s[] = t.getSentences();
+		for (Sentence ss : s){
+			Word w[] = ss.getWords();
+			for(Word ww : w){
+				//System.out.println(w.toString());
+			}
+		}
+		/*
 		String path = "texts/";
 		String[] files = { "deyteraDim2.txt", "deyteraGym2.txt",
 				"ekthDhm2.txt", "pempthDhm.txt", "prwthDhm.txt", "prwthDhm3.txt",
@@ -57,7 +70,7 @@ public class GreekWordGenerator {
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}
+		}*/
 	}
 
 	static public void setContents(File aFile, String aContents)

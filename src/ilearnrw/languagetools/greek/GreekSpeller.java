@@ -1,4 +1,4 @@
-package ilearnrw.textclassification.speller;
+package ilearnrw.languagetools.greek;
 /*
  * GreekSpeller.java
  *
