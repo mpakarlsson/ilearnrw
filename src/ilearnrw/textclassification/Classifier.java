@@ -142,6 +142,14 @@ OR
 		this.userProblemsToText = userProblemsToText;
 	}
 
+	public boolean calculateProblematicWords() {
+		return this.userProblemsToText.calculateProblematicWords();
+	}
+
+	public void calculateProblematicWords(boolean calculateProblematicWords) {
+		this.userProblemsToText.calculateProblematicWords(calculateProblematicWords);
+	}
+
 	public User getUser() {
 		return user;
 	}

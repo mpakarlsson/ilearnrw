@@ -3,6 +3,7 @@ package ilearnrw.textclassification.tests.panels;
 import ilearnrw.user.User;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
@@ -165,6 +166,7 @@ public class TextPanel extends JPanel{
         //TableColumn column = resultsTable.getColumnModel().getColumn(1);
         //column.setPreferredWidth(resultsTable.getWidth()/4);
         resultsTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        resultsTable.setAlignmentX(Component.CENTER_ALIGNMENT);
         
         scrollPane = new JScrollPane(resultsTable);
         //resultsTable.setFillsViewportHeight(true);

@@ -1,6 +1,7 @@
 package ilearnrw.user.profile;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
+import ilearnrw.textclassification.ProblematicWords;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordProblemInfo;
@@ -23,13 +24,16 @@ public class UserProblemsToText implements Serializable {
 	private HashMap<Word, Double> wordsWeights;
 	private double SDW;
 	private int totalHits, userHits, diffWords, veryDiffWords;
-	private LanguageAnalyzerAPI languageAnalyser;
-	
+	private boolean calculateProblematicWords;
+	private ProblematicWords problematicWords;
+
 	// TODO fix the threshold to a valua that the experts want!
 	int threshold = 0;//the threshold for a severity so that the corresponding problem will be counted in the matrix
 	
 	public UserProblemsToText(){
 		this.userSeveritiesToProblems = null;
+		this.problematicWords = null;
+		this.calculateProblematicWords = true;
 		this.userCounters = null;
 		this.text = null;
 		this.wprobs = null;
@@ -46,6 +50,8 @@ public class UserProblemsToText implements Serializable {
 				languageAnalyser.getLanguageCode() != text.getLanguageCode())
 			return;
 		this.userSeveritiesToProblems = user.getProfile().getUserSeveritiesToProblems();
+		this.calculateProblematicWords = true;
+		this.problematicWords = new ProblematicWords(userSeveritiesToProblems);
 		this.text = text;
 		wprobs = new WordVsProblems(languageAnalyser);
 		wordsWeights = new HashMap<Word, Double>();
@@ -83,6 +89,8 @@ public class UserProblemsToText implements Serializable {
 				if (t>0){
 					userHits++;
 					isDifficult = true;
+					if (calculateProblematicWords)
+						problematicWords.addWord(x.getPosI(), x.getPosJ(), w);
 				}
 				if (!wordsWeights.containsKey(w)){
 					wordsWeights.put(entry.getKey(), appearences*t - (appearences-1)*0.25);
@@ -103,6 +111,22 @@ public class UserProblemsToText implements Serializable {
 
 	public void setText(Text text) {
 		this.text = text;
+	}
+	
+	public ProblematicWords getProblematicWords() {
+		return problematicWords;
+	}
+
+	public void setProblematicWords(ProblematicWords problematic) {
+		this.problematicWords = problematic;
+	}
+
+	public boolean calculateProblematicWords() {
+		return calculateProblematicWords;
+	}
+
+	public void calculateProblematicWords(boolean calculateProblematicWords) {
+		this.calculateProblematicWords = calculateProblematicWords;
 	}
 
 	public HashMap<Word, Double> getWordsWeights() {

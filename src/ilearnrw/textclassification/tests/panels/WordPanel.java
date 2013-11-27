@@ -34,7 +34,7 @@ public class WordPanel extends JPanel{
 	private JButton goButton;
 	private JTable resultsTable;
 	private JScrollPane scrollPane;
-	private SmallHeatMapPanel smallHeat;
+	private WordHeatMapPanel smallHeat;
 	private JPanel scrpanel;
 	private JPanel panel;
 	private JPanel wordPanel, wordAndResultsPanel;;
@@ -98,7 +98,7 @@ public class WordPanel extends JPanel{
 
 		//mainManel.setRightComponent(scrpanel);
 
-        smallHeat = new SmallHeatMapPanel(user);
+        smallHeat = new WordHeatMapPanel(user);
         smallHeat.draw();
         smallHeat.test();
 
@@ -116,7 +116,7 @@ public class WordPanel extends JPanel{
 		scrpanel = new JPanel();
 		scrpanel.setLayout(new GridLayout(1,1));
 		//splitPane_1.setRightComponent(scrpanel);
-        smallHeat = new SmallHeatMapPanel(user);
+        smallHeat = new WordHeatMapPanel(user);
         smallHeat.draw();
         smallHeat.test();
 
@@ -130,7 +130,7 @@ public class WordPanel extends JPanel{
 		//mainManel.setDividerLocation(700);
 	}
 	
-	public SmallHeatMapPanel getSmallHeatMapPanel() {
+	public WordHeatMapPanel getSmallHeatMapPanel() {
 		return smallHeat;
 	}
 

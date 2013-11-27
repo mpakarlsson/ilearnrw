@@ -4,17 +4,18 @@ import ilearnrw.prototype.application.JsonHandler;
 import ilearnrw.user.problems.Category;
 import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
+import ilearnrw.utils.LanguageCode;
 
 
 	public class GreekProblems extends Problems{
 
 		public GreekProblems() {
-			JsonHandler handler = new JsonHandler("data/problem_definitions_greece.json", true);
-			problemDefinitionIndex = (ProblemDefinitionIndex) handler.fromJson(ProblemDefinitionIndex.class);
+			//JsonHandler handler = new JsonHandler("data/problem_definitions_greece.json", true);
+			//problemDefinitionIndex = (ProblemDefinitionIndex) handler.fromJson(ProblemDefinitionIndex.class);
 			
 			//three problems
-			//problemDefinitionIndex = new ProblemDefinitionIndex(9, LanguageCode.GR);	
-			//initialize();
+			problemDefinitionIndex = new ProblemDefinitionIndex(8, LanguageCode.GR);	
+			initialize();
 
 		}
 		
@@ -269,8 +270,8 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 			
 			//Regular:Consonant clusters (20 problems)
 			problemIndexPosition = 6;
-			problemLength = 20;
-			prob = new ProblemDefinition("Regular:Consonant clusters", cat);
+			problemLength = 27;
+			prob = new ProblemDefinition("Regular/Irregular:Consonant clusters", cat);
 			problemDefinitionIndex.setProblemDefinition(prob, problemIndexPosition);
 			problemDefinitionIndex.constructProblemRow(problemIndexPosition, problemLength);
 			{
@@ -315,16 +316,16 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 						new String[]{"/fr/", "/ðr/", "/χr/", "/vr/", "/γr/", "/θr/"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.THREE_SYL_WORD_INTERNAL_PHONEME, 
 						new String[]{"/spr/", "/skr/", "/str/", "/sfr/"}, problemIndexPosition, i++);
-			}
+			//}
 			
 			//Irregular (7 problems)
-			problemIndexPosition = 7;
-			problemLength = 7;
-			prob = new ProblemDefinition("Irregular", cat);
-			problemDefinitionIndex.setProblemDefinition(prob, problemIndexPosition);
-			problemDefinitionIndex.constructProblemRow(problemIndexPosition, problemLength);
-			{
-				int i=0;
+			//problemIndexPosition = 7;
+			//problemLength = 7;
+			//prob = new ProblemDefinition("Irregular", cat);
+			//problemDefinitionIndex.setProblemDefinition(prob, problemIndexPosition);
+			//problemDefinitionIndex.constructProblemRow(problemIndexPosition, problemLength);
+			//{
+			//	int i=0;
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
 						new String[]{"ευ"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
@@ -343,7 +344,7 @@ import ilearnrw.user.problems.ProblemDefinitionIndex;
 
 			cat = new Category("Grammar/Function Words");
 			//B.8 Grammar/Function Words (10 problems)
-			problemIndexPosition = 8;
+			problemIndexPosition = 7;
 			problemLength = 10;
 			prob = new ProblemDefinition("Grammar/Function Words", cat);
 			problemDefinitionIndex.setProblemDefinition(prob, problemIndexPosition);

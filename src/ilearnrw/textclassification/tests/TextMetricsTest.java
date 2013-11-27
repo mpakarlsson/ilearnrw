@@ -1,5 +1,6 @@
 package ilearnrw.textclassification.tests;
 
+import ilearnrw.datalogger.IUserAdministration.AuthenticationException;
 import ilearnrw.datalogger.UserStore;
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
@@ -202,16 +203,6 @@ public class TextMetricsTest extends JFrame {
 		toolBar.add(exitButton);
 		toolBar.addSeparator();
 		
-		JButton goButton = new JButton("Calculate");
-		goButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				if (!textPanel.getText().trim().isEmpty())
-					classifierResults(true);
-			}
-		});
-		toolBar.add(goButton);
-		
 		JButton clearButton = new JButton("Clear");
 		clearButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -221,6 +212,27 @@ public class TextMetricsTest extends JFrame {
 			}
 		});
 		toolBar.add(clearButton);
+		
+		JButton goButton = new JButton("Save User");
+		goButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (tabbedPane.getTitleAt(tabbedPane.getSelectedIndex()).equals("User Profile")){
+					userSeveritiesPanel.updateUser();
+					/* Store any changes to user*/
+					mUserStore.update(user);
+					try {
+						for( User u : mUserStore.getAllUsers() )
+							if(u.getUserId() == user.getUserId() )
+								user = u;
+					} catch (AuthenticationException e1) {
+						e1.printStackTrace();
+					}
+					userSeveritiesPanel.setUser(user);
+				}
+			}
+		});
+		toolBar.add(goButton);
 
 		toolBar.addSeparator();
 		

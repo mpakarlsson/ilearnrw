@@ -59,7 +59,10 @@ public class HeatMapPanel extends JPanel {
 		createMatrix();
 		setValues();
 		
-		heatMap.setDefaultRenderer(Object.class, new CellRenderer());
+		CellRenderer cr = new CellRenderer();
+    	cr.setHorizontalAlignment( JLabel.CENTER );
+		heatMap.setDefaultRenderer(Integer.class, cr);
+		
 		heatMap.repaint();
 	}
 	

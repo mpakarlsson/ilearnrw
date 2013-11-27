@@ -10,13 +10,14 @@ import java.awt.GridLayout;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.JTable;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 
-public class SmallHeatMapPanel extends JPanel {
+public class WordHeatMapPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private JTable heatMap;
@@ -27,7 +28,7 @@ public class SmallHeatMapPanel extends JPanel {
 	private boolean first;
 	private CellRenderer renderer;
 
-	public SmallHeatMapPanel(User user) {
+	public WordHeatMapPanel(User user) {
 		this.data = copyMatrix(user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities());
 		for (int i=0;i<data.length;i++){
 			for (int j=0;j<data[i].length;j++){
@@ -37,7 +38,7 @@ public class SmallHeatMapPanel extends JPanel {
 
         descriptionsText = new JTextPane();
         descriptionsText.setEditable(false);
-        //descriptionsText.setBackground(Color.lightGray);
+        descriptionsText.setBackground(Color.lightGray);
         
 		heatMap = new JTable(data.length,lengthsMax());
 		for (int i=0;i<lengthsMax(); i++)
@@ -67,7 +68,7 @@ public class SmallHeatMapPanel extends JPanel {
         JScrollPane scrollPane = new JScrollPane(heatMap);
         panel.add(scrollPane);
 		//splitPane.setLeftComponent(new JScrollPane(heatMap));
-        panel.add(new JScrollPane(descriptionsText));
+        panel.add(descriptionsText);
 		//splitPane.setRightComponent(descriptionsText);
 
 		//this.add(heatMap);
@@ -92,7 +93,6 @@ public class SmallHeatMapPanel extends JPanel {
 	}
 	
 	public void draw(){
-		descriptionsText.setText("");
 		if (!first)
 			this.data = copyMatrix(classifier.getUserProblemsToText().getUserCounters().getCounters());
 		else{
@@ -103,7 +103,7 @@ public class SmallHeatMapPanel extends JPanel {
 	
 	public void test(){
 		createMatrix();
-		descriptionsText.setText("");
+		//setValues();
 
 		heatMap.setDefaultRenderer(Object.class, renderer);
 
@@ -185,9 +185,7 @@ public class SmallHeatMapPanel extends JPanel {
 			res = res + "\nMatching word characteristics:"+user.getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j).getProblemType();
 			res = res + " {"+user.getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j).getDescriptionsTosString()+"}";
 			res = res + " \nFound "+multi[i][j]+" times\n";
-			res = res + " \nWords With Problem: "+classifier.getUserProblemsToText().getProblematicWords().getWordList(i, j).toString();
 		}
-		//System.out.println(classifier.getUserProblemsToText().getProblematicWords().getWordList(i, j).toString());
 		return res;
 	}
 	

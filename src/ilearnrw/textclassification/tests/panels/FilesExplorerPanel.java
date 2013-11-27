@@ -7,6 +7,9 @@ import ilearnrw.textclassification.tests.TextMetricsTest;
 import ilearnrw.user.User;
 import ilearnrw.utils.LanguageCode;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.List;
 import java.awt.event.MouseAdapter;
@@ -22,6 +25,9 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Scanner;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -76,10 +82,44 @@ public class FilesExplorerPanel extends JPanel{
 				   }
 				});
 		
-		this.setLayout(new GridLayout(1,1));
-		this.add(new JScrollPane(table));
+		this.setLayout(new BorderLayout());
+		this.add(new JScrollPane(table), BorderLayout.CENTER);
+		
+		addLegentPanel();
+
+		//this.add(new JLabel("asdf asdf "), BorderLayout.SOUTH);
 	}
 	
+	
+	private void addLegentPanel(){
+		Object rowData[][] = { { "NW: words", "NDW: Difficut Words", "NVDW: Very Difficult Words"},
+            { "NP: Paragraphs", "BS: Big Sentences (>=15 Words)", "WpS: Words per Sentence"},
+			{"F-K: Flesch-Kincaid", "D-C: Dale-Chall", "iLRW: iLearnRW WARD"}
+		};
+		Object columnNames[] = { "Column One", "Column Two", "Column Three" };
+		JTable legent = new JTable(rowData, columnNames);
+		Dimension d = legent.getPreferredSize();
+		d.width = 700;
+		legent.setPreferredScrollableViewportSize(d);
+		legent.setShowGrid(false);
+		legent.setTableHeader(null);
+		legent.setOpaque(false);
+		((DefaultTableCellRenderer)legent.getDefaultRenderer(Object.class)).setOpaque(false);
+		JPanel legentPanel = new JPanel();
+		legentPanel.add(new JScrollPane(legent));
+		
+
+        JPanel thePanel = new JPanel();
+        thePanel .setLayout(new BoxLayout(thePanel , BoxLayout.PAGE_AXIS));
+        JLabel legentLabel = new JLabel("Legent");
+        thePanel.add(legentLabel);
+        legentLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        thePanel.add(Box.createRigidArea(new Dimension(0,5)));
+        thePanel.add(legentPanel);
+		
+		
+		this.add(thePanel, BorderLayout.SOUTH);
+	}
 	
 	public LanguageAnalyzerAPI getLanguageAnalyzer() {
 		return languageAnalyzer;
@@ -100,8 +140,8 @@ public class FilesExplorerPanel extends JPanel{
 	private class MonModel extends AbstractTableModel {
 		private static final long serialVersionUID = 1L;
 		private ArrayList<IlearnFile> l;
-	    private final String[] columnNames = new String[]{"File Name", "Words", "Difficult Words", "Very Difficult Words", 
-	    		"Paragraphs", "Big Sentences", "Words per Sentence", "Flesch-Kincaid", "Dale-Chall", "iLearnRW"};
+	    private final String[] columnNames = new String[]{"File Name", "NW", "NDW", "NVDW", 
+	    		"NP", "NBS", "WpS", "F-K", "D-C", "iLRW"};
 
 	    public MonModel() {
 	        super();
@@ -223,10 +263,6 @@ public class FilesExplorerPanel extends JPanel{
 		private String name;
 	    private int numberOfWords, totalHits, numberOfDifficultWords, numberOfVeryDifficultWords, 
 	    numberOfParagraphs, numberOfBigSentences;
-		public void setNumberOfDifficultWords(int numberOfDifficultWords) {
-			this.numberOfDifficultWords = numberOfDifficultWords;
-		}
-
 		private double FleschKincaid, DaleChall, iLearnRW, avgWordsPerSentence;
 	    private boolean isSuitableToTheUser;
 
@@ -240,13 +276,13 @@ public class FilesExplorerPanel extends JPanel{
 	    	  try {
 	    		  text = new Scanner( new File(path+name), "UTF-8" ).useDelimiter("\\A").next();
 	    	  } catch (FileNotFoundException e1) {
-	    		  // TODO Auto-generated catch block
 	    		  e1.printStackTrace();
 	    	  }
 	    	  LanguageCode lan = findLanguage(text);
 	    	  isSuitableToTheUser = lan == user.getDetails().getLanguage();
 	    	  Text t = new Text(text, lan);
 	    	  Classifier cls = new Classifier(user, t, languageAnalyzer);
+	    	  cls.calculateProblematicWords(false);
 	    	  numberOfWords = t.getNumberOfWords();
 	    	  numberOfDifficultWords = cls.getDiffWords();
 	    	  numberOfVeryDifficultWords = cls.getVeryDiffWords();
@@ -289,6 +325,10 @@ public class FilesExplorerPanel extends JPanel{
 
 		public void setNumberOfBigSentences(int numberOfBigSentences) {
 			this.numberOfBigSentences = numberOfBigSentences;
+		}
+
+		public void setNumberOfDifficultWords(int numberOfDifficultWords) {
+			this.numberOfDifficultWords = numberOfDifficultWords;
 		}
 
 		public String getFleschKincaid() {
