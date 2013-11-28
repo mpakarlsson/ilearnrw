@@ -138,7 +138,7 @@ public class StringMatchesInfo {
 	public StringMatchesInfo containsPattern(String str[], Word w){
 		String ws = w.getCVForm();
 		for (int i=0;i<str.length;i++){
-			if (ws.startsWith(str[i])){
+			if (ws.contains(str[i])){
 				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
 			}
 		}

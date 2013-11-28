@@ -115,27 +115,29 @@ public class TextMetricsTest extends JFrame {
 		
 		/*Fill the user ComboBox*/
 		try {
-			for( User u : mUserStore.getAllUsers() ){
-			/*Random rand = new Random();
-				ProblemDefinitionIndex problems = u.getProfile().getUserSeveritiesToProblems().getProblems();
-				UserSeverities userSeverities = u.getProfile().getUserSeveritiesToProblems().getUserSeverities();
-				for (int i=0;i<problems.getIndexLength(); i++){
-					int wi = rand.nextInt(problems.getRowLength(i));
-					userSeverities.setWorkingIndex(i, wi);
-					for (int j=0; j<userSeverities.getSeverityLength(i); j++){
-						if (j<wi/2)
-							userSeverities.setSeverity(i, j, rand.nextInt(2));
-						else if(j<wi)
-							userSeverities.setSeverity(i, j, rand.nextInt(3));
-						else if (j<userSeverities.getSeverityLength(i)/2)
-							userSeverities.setSeverity(i, j, rand.nextInt(4));
-						else 
-							userSeverities.setSeverity(i, j,  rand.nextInt(3)+1);
+			/*for( User u : mUserStore.getAllUsers() ){
+				if (u.getDetails().getUsername().equals("greek_few_problems")){
+					Random rand = new Random();
+					ProblemDefinitionIndex problems = u.getProfile().getUserSeveritiesToProblems().getProblems();
+					UserSeverities userSeverities = u.getProfile().getUserSeveritiesToProblems().getUserSeverities();
+					for (int i=0;i<problems.getIndexLength(); i++){
+						int wi = 2*problems.getRowLength(i)/3 + rand.nextInt(3);
+						userSeverities.setWorkingIndex(i, wi);
+						for (int j=0; j<userSeverities.getSeverityLength(i); j++){
+							if (j<wi/2)
+								userSeverities.setSeverity(i, j, 0);// rand.nextInt(2));
+							else if(j<wi)
+								userSeverities.setSeverity(i, j, 1);// rand.nextInt(3));
+							else if (j<(wi+userSeverities.getSeverityLength(i))/2)
+								userSeverities.setSeverity(i, j, 2);// rand.nextInt(4));
+							else 
+								userSeverities.setSeverity(i, j, 3);//  rand.nextInt(3)+1);
+						}
 					}
-				}*/
+				}
 
 				mUserStore.update(u);
-			}
+			}*/
 			for( User u : mUserStore.getAllUsers() )
 				userCombobox.addItem(new UserListBoxWrapper(u));
 				
