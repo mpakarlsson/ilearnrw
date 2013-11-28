@@ -12,6 +12,7 @@ import ilearnrw.utils.LanguageCode;
 public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 	//private GreekDictionaryLoader dictionary;
 	private GreekDictionary dictionary;
+	private GreekDictionary soundsSimilarDictionary;
 	private GreekWord word;
 	//private HashMap<String, Integer> unknownWords;
 
@@ -19,6 +20,7 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 	public GreekLanguageAnalyzer() {
 		GreekDictionaryLoader gl = new GreekDictionaryLoader();
 		dictionary = new GreekDictionary(gl.getGreekWords());
+		soundsSimilarDictionary = new GreekDictionary(gl.getSimilarSoundGreekWords());
 		//dictionary = new GreekDictionaryLoader();
 		//unknownWords = new HashMap<String, Integer>();
 	}
@@ -72,7 +74,7 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 			String target = phonems.replaceAll(phA, "*");
 			target = target.replaceAll(phB, "*");
 			
-			for (GreekWord x : dictionary.getGreekWords()){
+			for (GreekWord x : soundsSimilarDictionary.getGreekWords()){
 				if (x.equals(this.word) || (x.getWordInToPhonemes()).equals(this.word.getWordInToPhonemes()))
 					continue;
 				String temp = x.getWordInToPhonemes().replaceAll(phA, "*");

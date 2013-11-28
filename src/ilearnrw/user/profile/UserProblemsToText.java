@@ -1,6 +1,7 @@
 package ilearnrw.user.profile;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
+import ilearnrw.languagetools.greek.GreekDictionary;
 import ilearnrw.textclassification.ProblematicWords;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
@@ -26,6 +27,9 @@ public class UserProblemsToText implements Serializable {
 	private int totalHits, userHits, diffWords, veryDiffWords;
 	private boolean calculateProblematicWords;
 	private ProblematicWords problematicWords;
+
+	// TODO remove this dictionary!
+	private GreekDictionary gDic = new GreekDictionary();
 
 	// TODO fix the threshold to a valua that the experts want!
 	int threshold = 0;//the threshold for a severity so that the corresponding problem will be counted in the matrix
@@ -53,7 +57,7 @@ public class UserProblemsToText implements Serializable {
 		this.calculateProblematicWords = true;
 		this.problematicWords = new ProblematicWords(userSeveritiesToProblems);
 		this.text = text;
-		wprobs = new WordVsProblems(languageAnalyser);
+		wprobs = new WordVsProblems(languageAnalyser, gDic);
 		wordsWeights = new HashMap<Word, Double>();
 		int n = userSeveritiesToProblems.getNumerOfRows();
 		
@@ -63,6 +67,9 @@ public class UserProblemsToText implements Serializable {
 			userCounters.constructRow(i, userSeveritiesToProblems.getRowLength(i));
 		}
 		this.initialize();
+		for (Word w : gDic.getGreekWords()){
+			System.out.println(w.toString());
+		}
 	}	
 	
 	public void initialize(){
@@ -73,6 +80,7 @@ public class UserProblemsToText implements Serializable {
 		diffWords = 0;
 		veryDiffWords = 0;
 		//get all words along with the number times it appeared inside the text
+		int i = 0;
 		for (Map.Entry<Word,Integer> entry : text.getWordsFreq().entrySet()) {
 			Word w = entry.getKey();
 			boolean isDifficult = false;

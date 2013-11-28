@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class GreekWordGenerator {
 
 	public static void main(String a[]) {
-		GreekPhonetics gp = new GreekPhonetics("καλημέρα χώμα κόμμα");
+		/*GreekPhonetics gp = new GreekPhonetics("καλημέρα χώμα κόμμα");
 		System.out.println(gp.getResult());
 		Text t = new Text("Νιγκ", LanguageCode.GR);
 		Sentence s[] = t.getSentences();
@@ -33,7 +33,6 @@ public class GreekWordGenerator {
 		String y = tt.replaceAll("e", "*");
 		y = y.replaceAll("l", "*");
 		System.out.println(y);
-		/*
 		String path = "texts/";
 		String[] files = { "deyteraDim2.txt", "deyteraGym2.txt",
 				"ekthDhm2.txt", "pempthDhm.txt", "prwthDhm.txt", "prwthDhm3.txt",
@@ -41,6 +40,9 @@ public class GreekWordGenerator {
 				"deyteraDim.txt", "deyteraGym.txt", "deyteraGym3.txt", "ekthDhm.txt",
 				"pempthDhm2.txt", "pempthDhm3.txt", "prwthDhm2.txt", "prwthGym2.txt",
 				"tetarthDhm.txt","prwthGym3.txt", "trithDhm2.txt" };
+		*/
+		String path = "data/";
+		String[] files = { "greek_sound_similarity.txt" };
 		String text = "";
 		try {
 			HashMap<String, Integer> words = new HashMap<String, Integer>();
@@ -60,21 +62,21 @@ public class GreekWordGenerator {
 				String result = "";
 				String w = (String)x;
 				if (!w.matches(".*\\d.*"))
-					result = result+(++i)+" = "+w;//+"\n";
+					result = result+w;//+"\n";
 
 				System.out.println(result);
-				try {
-					setContents(new File(path+"GreekWords.txt"), result);
-				} catch (IOException e) {
+				//try {
+					//setContents(new File(path+"GreekSoundSimilarity.txt"), result);
+				//} catch (IOException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+					//e.printStackTrace();
+				//}
 			}
 			
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}*/
+		}
 	}
 
 	static public void setContents(File aFile, String aContents)

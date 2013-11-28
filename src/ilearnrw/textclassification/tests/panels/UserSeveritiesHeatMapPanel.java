@@ -257,8 +257,7 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
             		c.setBackground(new Color(255, 240-20*((12*multi[row][column])/matrixMax()), 240-20*((12*multi[row][column])/matrixMax())));
             	}                 
             
-            isBordered = user.getProfile().getUserSeveritiesToProblems().getWorkingIndex(row) == column;
-            
+            isBordered = user.getProfile().getUserSeveritiesToProblems().getWorkingIndex(row) == column;            
             if (isBordered) {
 				if (isSelected) {
 					if (selectedBorder == null) {

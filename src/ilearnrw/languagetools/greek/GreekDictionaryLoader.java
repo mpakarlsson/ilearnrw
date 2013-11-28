@@ -1,28 +1,36 @@
 package ilearnrw.languagetools.greek;
 
+import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordType;
 import ilearnrw.textclassification.greek.GreekWord;
+import ilearnrw.utils.LanguageCode;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Scanner;
 
 public class GreekDictionaryLoader {
 	private final String path = "data/";
 	private Dictionary<String, DictionaryEntry> entries;
 	ArrayList<GreekWord> greekWords;
+	ArrayList<GreekWord> similarSoundGreekWords;
 	int i=0;
 
 	public GreekDictionaryLoader() {
 		this.entries = new Hashtable<String, DictionaryEntry>();
 		greekWords = new ArrayList<GreekWord>();
+		similarSoundGreekWords = new ArrayList<GreekWord>();
 		readDic();
+		readSoundDic();
 	}
 	
 	public Dictionary<String, DictionaryEntry> getEntries() {
@@ -31,6 +39,15 @@ public class GreekDictionaryLoader {
 
 	public void setEntries(Dictionary<String, DictionaryEntry> entries) {
 		this.entries = entries;
+	}
+
+	public ArrayList<GreekWord> getSimilarSoundGreekWords() {
+		return similarSoundGreekWords;
+	}
+
+	public void setSimilarSoundGreekWords(
+			ArrayList<GreekWord> similarSoundGreekWords) {
+		this.similarSoundGreekWords = similarSoundGreekWords;
 	}
 
 	public ArrayList<GreekWord> getGreekWords() {
@@ -102,6 +119,36 @@ public class GreekDictionaryLoader {
 		//int i=0;
 		//for (Word w:greekWords)
 			//System.out.println((++i)+" "+w.toString()+" "+w.getPhonetics()+" "+w.getType());
+	}
+	
+	private void readSoundDic(){
+		String path = "data/";
+		String[] files = { "greek_sound_similarity.txt" };
+		String text = "";
+		try {
+			HashMap<String, Integer> words = new HashMap<String, Integer>();
+			for (String fName : files){
+				text = new Scanner(new File(path + fName), "UTF-8").useDelimiter("\\A").next();
+				Text txt = new Text(text, LanguageCode.GR);
+				HashMap<Word, Integer> tmp = txt.getWordsFreq();
+				Object obj[] = tmp.keySet().toArray();
+				for (Object x : obj){
+					String w = ((Word) x).toString();
+					words.put(w,0);
+				}
+			}
+			Object obj[] = words.keySet().toArray();
+			int i = 0;
+			for (Object x : obj){
+				GreekWord gw = new GreekWord((String)x);
+				//System.out.println("sound "+gw.toString());
+				similarSoundGreekWords.add(gw);
+			}
+			
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 	
 	private WordType partOfSpeech(String pos, ArrayList<String> ext){

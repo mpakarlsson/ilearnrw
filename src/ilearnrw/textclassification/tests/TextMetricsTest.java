@@ -14,6 +14,9 @@ import ilearnrw.textclassification.tests.panels.TextPanel;
 import ilearnrw.textclassification.tests.panels.UserSeveritiesHeatMapPanel;
 import ilearnrw.textclassification.tests.panels.WordPanel;
 import ilearnrw.user.User;
+import ilearnrw.user.problems.ProblemDefinitionIndex;
+import ilearnrw.user.profile.UserSeverities;
+import ilearnrw.user.profile.UserSeveritiesToProblems;
 import ilearnrw.utils.LanguageCode;
 
 import java.awt.BorderLayout;
@@ -24,6 +27,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.HashMap;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -111,9 +115,30 @@ public class TextMetricsTest extends JFrame {
 		
 		/*Fill the user ComboBox*/
 		try {
+			for( User u : mUserStore.getAllUsers() ){
+			/*Random rand = new Random();
+				ProblemDefinitionIndex problems = u.getProfile().getUserSeveritiesToProblems().getProblems();
+				UserSeverities userSeverities = u.getProfile().getUserSeveritiesToProblems().getUserSeverities();
+				for (int i=0;i<problems.getIndexLength(); i++){
+					int wi = rand.nextInt(problems.getRowLength(i));
+					userSeverities.setWorkingIndex(i, wi);
+					for (int j=0; j<userSeverities.getSeverityLength(i); j++){
+						if (j<wi/2)
+							userSeverities.setSeverity(i, j, rand.nextInt(2));
+						else if(j<wi)
+							userSeverities.setSeverity(i, j, rand.nextInt(3));
+						else if (j<userSeverities.getSeverityLength(i)/2)
+							userSeverities.setSeverity(i, j, rand.nextInt(4));
+						else 
+							userSeverities.setSeverity(i, j,  rand.nextInt(3)+1);
+					}
+				}*/
+
+				mUserStore.update(u);
+			}
 			for( User u : mUserStore.getAllUsers() )
 				userCombobox.addItem(new UserListBoxWrapper(u));
-			
+				
 			/*Select the first user.*/
 			user = mUserStore.getAllUsers().get(0);
 			userCombobox.setSelectedIndex(0);

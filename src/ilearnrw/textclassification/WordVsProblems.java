@@ -3,8 +3,12 @@ package ilearnrw.textclassification;
 import java.util.ArrayList;
 
 
+
+
+import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.user.problems.EnglishProblems;
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
+import ilearnrw.languagetools.greek.GreekDictionary;
 import ilearnrw.user.problems.GreekProblems;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemType;
@@ -20,7 +24,11 @@ public class WordVsProblems {
 	private LanguageCode lc;
 	private LanguageAnalyzerAPI languageAnalyser;
 	
-	public WordVsProblems(LanguageAnalyzerAPI languageAnalyser) {
+	// TODO remove this dictionary!
+	private GreekDictionary gDic;
+	
+	public WordVsProblems(LanguageAnalyzerAPI languageAnalyser, GreekDictionary gDic) {
+		this.gDic = gDic;
 		prs = new Problems();
 		this.lc = languageAnalyser.getLanguageCode();
 		this.languageAnalyser = languageAnalyser;
@@ -145,6 +153,8 @@ public class WordVsProblems {
 				break;
 			case SOUND_SIMILARITY:
 				wpi.setProblemInfo(i, j, matcher.soundSimilarity(pd, word));
+				//if (wpi.getFound())
+					//gDic.getGreekWords().add((GreekWord)word);
 				break;
 			case CONTAINS_PHONEME:
 				wpi.setProblemInfo(i, j, matcher.containsPhoneme(pd, word));
