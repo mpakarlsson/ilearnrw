@@ -14,17 +14,19 @@ public class GreekWord extends Word{
 	public GreekWord(String word){
 		super(word);
 		super.lc = LanguageCode.GR;
-		checkType();
 		syllabism();
 		createCVForm();
 		createPhonetics();
 		//System.out.println(word);
 	}
-
-	protected void checkType(){
-		//if (isVerb(word))...
-		//...
-		type = WordType.Unknown;
+	
+	public GreekWord(String word, WordType wt){
+		super(word, wt);
+		super.lc = LanguageCode.GR;
+		syllabism();
+		createCVForm();
+		createPhonetics();
+		//System.out.println(word);
 	}
 	
 	protected void syllabism(){

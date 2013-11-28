@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class GreekWordGenerator {
 
 	public static void main(String a[]) {
-		GreekPhonetics gp = new GreekPhonetics("εκ");
+		GreekPhonetics gp = new GreekPhonetics("καλημέρα χώμα κόμμα");
 		System.out.println(gp.getResult());
 		Text t = new Text("Νιγκ", LanguageCode.GR);
 		Sentence s[] = t.getSentences();
@@ -29,6 +29,10 @@ public class GreekWordGenerator {
 				//System.out.println(w.toString());
 			}
 		}
+		String tt = "hello my friends";
+		String y = tt.replaceAll("e", "*");
+		y = y.replaceAll("l", "*");
+		System.out.println(y);
 		/*
 		String path = "texts/";
 		String[] files = { "deyteraDim2.txt", "deyteraGym2.txt",

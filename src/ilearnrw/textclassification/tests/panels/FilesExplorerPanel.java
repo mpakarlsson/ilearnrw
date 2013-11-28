@@ -76,7 +76,7 @@ public class FilesExplorerPanel extends JPanel{
 				    		  e1.printStackTrace();
 				    	  }
 				    	  textPanel.testMethod(text);
-				    	  System.out.println(unknown);
+				    	  //System.out.println(unknown);
 				    	  metrics.classifierResults(false);
 				      }
 				   }
@@ -225,7 +225,8 @@ public class FilesExplorerPanel extends JPanel{
 					}
 				}
 			}
-			HashMap<String, Integer> test = languageAnalyzer.getUnknownWords();
+			// TODO open here to check the unknown words!!!
+			/*HashMap<String, Integer> test = languageAnalyzer.getUnknownWords();
 			Map<String, Integer> t = sortByValue(test);
 			if (t!=null){
 				unknown = "";
@@ -235,7 +236,7 @@ public class FilesExplorerPanel extends JPanel{
 					unknown = unknown +"\n"+key;//+"  "+value;
 				}
 				unknown = unknown +"\nΣύνολο:"+t.size();
-			}
+			}*/
 		}
 	}
 	

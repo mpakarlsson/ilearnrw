@@ -3,6 +3,7 @@ package ilearnrw.languagetools;
 import java.util.HashMap;
 
 import ilearnrw.textclassification.Word;
+import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.utils.LanguageCode;
 
 public interface LanguageAnalyzerAPI {
@@ -12,6 +13,7 @@ public interface LanguageAnalyzerAPI {
 	public boolean isVerb();
 	public boolean isParticiple();
 	public LanguageCode getLanguageCode();
-	public HashMap<String, Integer> getUnknownWords();
+	public Word getSimilarSoundWord(String phA, String phB);
+	//public HashMap<String, Integer> getUnknownWords();
 
 }

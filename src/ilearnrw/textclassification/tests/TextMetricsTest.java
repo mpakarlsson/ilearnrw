@@ -9,11 +9,7 @@ import ilearnrw.prototype.application.Program;
 import ilearnrw.textclassification.Classifier;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
-import ilearnrw.textclassification.WordVsProblems;
-import ilearnrw.textclassification.english.EnglishWord;
-import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.textclassification.tests.panels.FilesExplorerPanel;
-import ilearnrw.textclassification.tests.panels.HeatMapPanel;
 import ilearnrw.textclassification.tests.panels.TextPanel;
 import ilearnrw.textclassification.tests.panels.UserSeveritiesHeatMapPanel;
 import ilearnrw.textclassification.tests.panels.WordPanel;
@@ -22,7 +18,6 @@ import ilearnrw.utils.LanguageCode;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,7 +32,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
-import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 public class TextMetricsTest extends JFrame {
@@ -77,7 +71,7 @@ public class TextMetricsTest extends JFrame {
 	public static void main(String[] args) {
 		try {
 			/* Load the user database.*/
-			String databaseFile = Program.getStringArg("--db", args);
+			String databaseFile = "the_users";//Program.getStringArg("--db", args);
 			mUserStore = new UserStore(databaseFile);
 			/* We have to auth as admin to access the database.*/
 			mUserStore.authenticateAdmin("ilearn");
@@ -211,10 +205,20 @@ public class TextMetricsTest extends JFrame {
 				wordPanel.reset(user);
 			}
 		});
-		toolBar.add(clearButton);
+		toolBar.add(clearButton);  
 		
-		JButton goButton = new JButton("Save User");
-		goButton.addMouseListener(new MouseAdapter() {
+        JButton goButton = new JButton("Calculate");
+        goButton.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                        if (!textPanel.getText().trim().isEmpty())
+                                classifierResults(false);
+                }
+        });
+        toolBar.add(goButton);
+		
+		JButton saveButton = new JButton("Save User");
+		saveButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (tabbedPane.getTitleAt(tabbedPane.getSelectedIndex()).equals("User Profile")){
@@ -232,7 +236,7 @@ public class TextMetricsTest extends JFrame {
 				}
 			}
 		});
-		toolBar.add(goButton);
+		toolBar.add(saveButton);
 
 		toolBar.addSeparator();
 		

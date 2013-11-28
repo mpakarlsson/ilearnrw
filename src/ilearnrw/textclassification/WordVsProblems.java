@@ -81,7 +81,7 @@ public class WordVsProblems {
 		String pd[] = theProblems.getProblemDescription(i, j).getDescriptions();
 		//ask the problem type
 		ProblemType pt = theProblems.getProblemDescription(i, j).getProblemType();
-		StringMatchesInfo matcher = new StringMatchesInfo();
+		StringMatchesInfo matcher = new StringMatchesInfo(languageAnalyser);
 		switch (pt){
 			case EQUALS:
 				wpi.setProblemInfo(i, j, matcher.equals(pd, word));
@@ -142,6 +142,9 @@ public class WordVsProblems {
 				break;
 			case CONTAINS_PATTERN:
 				wpi.setProblemInfo(i, j, matcher.containsPattern(pd, word));
+				break;
+			case SOUND_SIMILARITY:
+				wpi.setProblemInfo(i, j, matcher.soundSimilarity(pd, word));
 				break;
 			case CONTAINS_PHONEME:
 				wpi.setProblemInfo(i, j, matcher.containsPhoneme(pd, word));

@@ -476,8 +476,11 @@ public class GreekPhonetics {
             if (t.equals("i")){
                 tempResult[k] = replaceI(k);
             }
-            else
+            else{
                 tempResult[k] = t;
+                if (k>0 && tempResult[k-1].equals(t))
+                	tempResult[k-1] = "*";
+            }
             tmpStart = k+1;
         }
     }

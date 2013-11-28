@@ -27,9 +27,26 @@ public class Word {
 		phonetics = "";
 		lc = null;
 	}
+	
+	public Word(String word, WordType wt){
+		word = word.replaceAll("(\\«)|(\\*)|(\\»)|(\\()|(\\))|(\\{)|(\\})|(\\[)|(\\])|(\\<)|(\\>)|(\\=)|(\\%)|(\\€)|(\\$)", "");
+		this.word = word.toLowerCase();
+		//all initializations must go here!!!
+
+		numSyllables = 0;
+		frequency = 0;
+		type = wt;
+		cvForm = "";
+		phonetics = "";
+		lc = null;
+	}
 		
 	public String getWord() {
 		return word;
+	}
+	
+	public void setType(WordType x) {
+		this.type = x;
 	}
 	
 	public WordType getType() {
@@ -94,4 +111,19 @@ public class Word {
 		return word.hashCode();
 	}
 
+	public boolean isNoun() {
+		return this.type == WordType.Noun;
+	}
+
+	public boolean isAdj() {
+		return this.type == WordType.Adjective;
+	}
+
+	public boolean isVerb() {
+		return this.type == WordType.Verb;
+	}
+
+	public boolean isParticiple() {
+		return this.type == WordType.Participle;
+	}
 }

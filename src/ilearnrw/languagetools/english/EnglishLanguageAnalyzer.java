@@ -48,7 +48,7 @@ public class EnglishLanguageAnalyzer implements LanguageAnalyzerAPI{
 	}
 
 	@Override
-	public HashMap<String, Integer> getUnknownWords() {
+	public Word getSimilarSoundWord(String phA, String phB) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -1,7 +1,10 @@
 package ilearnrw.textclassification;
 
+import ilearnrw.languagetools.LanguageAnalyzerAPI;
+import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
 import ilearnrw.prototype.application.Program;
 import ilearnrw.textclassification.english.EnglishWord;
+import ilearnrw.textclassification.greek.GreekWord;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,10 +12,13 @@ import java.util.Map;
 
 public class StringMatchesInfo {
 
+	private LanguageAnalyzerAPI languageAnalyser;
+	
 	private String what;
 	private int start, end;
 	
-	public StringMatchesInfo() {
+	public StringMatchesInfo(LanguageAnalyzerAPI languageAnalyser) {
+		this.languageAnalyser = languageAnalyser;
 		what = null;
 		start = -1;
 		end = -1;
@@ -134,6 +140,18 @@ public class StringMatchesInfo {
 		for (int i=0;i<str.length;i++){
 			if (ws.startsWith(str[i])){
 				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
+			}
+		}
+		return null;
+	}
+
+	public StringMatchesInfo soundSimilarity(String str[], Word w){
+		languageAnalyser.setWord(w);
+		for (int i=0;i<str.length;i++){
+			String[] parts = str[i].split("-");
+			GreekWord r = (GreekWord)languageAnalyser.getSimilarSoundWord(parts[0], parts[1]);
+			if (r!=null){
+				return new StringMatchesInfo(str[i], 0, w.toString().length());
 			}
 		}
 		return null;

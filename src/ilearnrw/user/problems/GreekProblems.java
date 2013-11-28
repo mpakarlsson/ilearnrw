@@ -85,30 +85,30 @@ import ilearnrw.utils.LanguageCode;
 			problemDefinitionIndex.constructProblemRow(problemIndexPosition, problemLength);
 			{
 				int i=0;
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
-						new String[]{"/t/-/d/","/p/-/b/"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
-						new String[]{"/k/-/p/","/k/-/t/"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
-						new String[]{"/m/-/n/"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
-						new String[]{"/θ/-/ð/","/f/-/v/", "/χ/-/γ/"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
-						new String[]{"/k/-/γ/","/k/-/χ/"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
-						new String[]{"/s/-/z/"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
-						new String[]{"/l/-/r/"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
-						new String[]{"/ð/-/v/","/f/-/θ/","/f/-/v/","/θ/-/ð/"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
-						new String[]{"/kt/-/pt/"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
-						new String[]{"/ks/-/ps/","/ks/-/sk/","/ps/-/sp/"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
-						new String[]{"/ðr/-/θr/","/fr/-/χr/"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PHONEME, 
-						new String[]{"/χθ/-/fθ/"}, problemIndexPosition, i++);
+				problemDefinitionIndex.setProblemDescription(ProblemType.SOUND_SIMILARITY, 
+						new String[]{"t-d","p-b"}, problemIndexPosition, i++);
+				problemDefinitionIndex.setProblemDescription(ProblemType.SOUND_SIMILARITY, 
+						new String[]{"k-p","k-t"}, problemIndexPosition, i++);
+				problemDefinitionIndex.setProblemDescription(ProblemType.SOUND_SIMILARITY, 
+						new String[]{"m-n"}, problemIndexPosition, i++);
+				problemDefinitionIndex.setProblemDescription(ProblemType.SOUND_SIMILARITY, 
+						new String[]{"θ-ð","f-v", "χ-γ"}, problemIndexPosition, i++);
+				problemDefinitionIndex.setProblemDescription(ProblemType.SOUND_SIMILARITY, 
+						new String[]{"k-γ","k-χ"}, problemIndexPosition, i++);
+				problemDefinitionIndex.setProblemDescription(ProblemType.SOUND_SIMILARITY, 
+						new String[]{"s-z"}, problemIndexPosition, i++);
+				problemDefinitionIndex.setProblemDescription(ProblemType.SOUND_SIMILARITY, 
+						new String[]{"l-r"}, problemIndexPosition, i++);
+				problemDefinitionIndex.setProblemDescription(ProblemType.SOUND_SIMILARITY, 
+						new String[]{"ð-v","f-θ","f-v","θ-ð"}, problemIndexPosition, i++);
+				problemDefinitionIndex.setProblemDescription(ProblemType.SOUND_SIMILARITY, 
+						new String[]{"kt-pt"}, problemIndexPosition, i++);
+				problemDefinitionIndex.setProblemDescription(ProblemType.SOUND_SIMILARITY, 
+						new String[]{"ks-ps","ks-sk","ps-sp"}, problemIndexPosition, i++);
+				problemDefinitionIndex.setProblemDescription(ProblemType.SOUND_SIMILARITY, 
+						new String[]{"ðr-θr","fr-χr"}, problemIndexPosition, i++);
+				problemDefinitionIndex.setProblemDescription(ProblemType.SOUND_SIMILARITY, 
+						new String[]{"χθ-fθ"}, problemIndexPosition, i++);
 			}
 
 			//B.3 Phonemes: Vowels (6 problems)

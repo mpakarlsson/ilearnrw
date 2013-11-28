@@ -53,7 +53,7 @@ public class TextPanel extends JPanel{
         panel.setLayout(new GridLayout(1,1));
         
         mainText = new JTextPane();
-		mainText.setEditable(false);
+		//mainText.setEditable(false);
         JScrollPane jsp = new JScrollPane(mainText);
         splitPane.setLeftComponent(jsp);
         

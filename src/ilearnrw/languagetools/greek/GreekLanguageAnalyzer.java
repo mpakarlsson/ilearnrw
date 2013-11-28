@@ -5,23 +5,29 @@ import java.util.HashMap;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.textclassification.Word;
+import ilearnrw.textclassification.WordType;
+import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.utils.LanguageCode;
 
 public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
+	//private GreekDictionaryLoader dictionary;
 	private GreekDictionary dictionary;
-	private boolean isNoun, isAdj, isVerb, isParticiple;
-	private HashMap<String, Integer> unknownWords;
+	private GreekWord word;
+	//private HashMap<String, Integer> unknownWords;
 
 
 	public GreekLanguageAnalyzer() {
-		dictionary = new GreekDictionary();
-		unknownWords = new HashMap<String, Integer>();
+		GreekDictionaryLoader gl = new GreekDictionaryLoader();
+		dictionary = new GreekDictionary(gl.getGreekWords());
+		//dictionary = new GreekDictionaryLoader();
+		//unknownWords = new HashMap<String, Integer>();
 	}
 	
 
 	@Override
 	public void setWord(Word w) {
-		DictionaryEntry de = this.dictionary.getValue(w.toString());
+		this.word = (GreekWord)w;
+		/*DictionaryEntry de = this.dictionary.getValue(w.toString());
 		if (de == null){
 			isNoun = false;
 			isAdj = false;
@@ -37,10 +43,13 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 			isAdj = de.getPartOfSpeech().equals("επίθετο");
 			isVerb = de.getPartOfSpeech().equals("ρήμα");
 			isParticiple = de.getExtras().contains("μετοχή");
-		}
-		
+		}*/
+		if (dictionary.contains(word))
+			word.setType((dictionary.get(word)).getType());
+		else word.setType(WordType.Unknown);
 	}
 
+	/*
 	@Override
 	public HashMap<String, Integer> getUnknownWords() {
 		return unknownWords;
@@ -49,26 +58,53 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 
 	public void setUnknownWords(HashMap<String, Integer> unknownWords) {
 		this.unknownWords = unknownWords;
+	}*/
+	
+	//returns the word that has the same phonetic transcription as the this.word 
+	//except the parts phA  phB which may be replaced in the same position of the two words
+
+	@Override
+	public GreekWord getSimilarSoundWord(String phA, String phB){
+		String phonems = this.word.getWordInToPhonemes();
+		if (!phonems.contains(phA) && !phonems.contains(phB))
+			return null;
+		else {
+			String target = phonems.replaceAll(phA, "*");
+			target = target.replaceAll(phB, "*");
+			
+			for (GreekWord x : dictionary.getGreekWords()){
+				if (x.equals(this.word) || (x.getWordInToPhonemes()).equals(this.word.getWordInToPhonemes()))
+					continue;
+				String temp = x.getWordInToPhonemes().replaceAll(phA, "*");
+				temp = temp.replaceAll(phB, "*");
+				if (temp.equals(target)){
+					//System.out.println(x.toString() +" -- " + this.word.toString());
+					//System.out.println(temp +" -- " + target);
+					return x;
+				}
+			}
+			return null;
+		}
 	}
 
 	@Override
 	public boolean isNoun() {
-		return isNoun;
+		return this.word.getType() == WordType.Noun;
 	}
 
 	@Override
 	public boolean isAdj() {
-		return isAdj;
+		return this.word.getType() == WordType.Adjective;
 	}
 
 	@Override
 	public boolean isVerb() {
-		return isVerb;
+		return this.word.getType() == WordType.Verb;
 	}
 
 	@Override
 	public boolean isParticiple() {
-		return isParticiple;
+		return this.word.getType() == WordType.Participle;
 	}
 
 
