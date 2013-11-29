@@ -50,18 +50,7 @@ public class FilesExplorerPanel extends JPanel{
 	
 	public FilesExplorerPanel(User user, final JTabbedPane tabbedPane, final TextPanel textPanel, 
 			final TextMetricsTest metrics, LanguageAnalyzerAPI languageAnalyzer) {
-		super();
-		
-
-	    JFrame frame = new JFrame("Test");
-
-	    ImageIcon loading = new ImageIcon("data/ajax-loader.gif");
-	    frame.add(new JLabel("", loading, JLabel.CENTER));
-
-	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    frame.setSize(400, 300);
-	    frame.setVisible(true);
-		
+		super();		
 		this.user = user;
 		this.languageAnalyzer = languageAnalyzer;
 		table = new JTable(new MonModel());
@@ -99,9 +88,6 @@ public class FilesExplorerPanel extends JPanel{
 		this.add(new JScrollPane(table), BorderLayout.CENTER);
 		
 		addLegentPanel();
-
-	    frame.setVisible(false);
-	    frame = null;
 		//this.add(new JLabel("asdf asdf "), BorderLayout.SOUTH);
 	}
 	

@@ -9,6 +9,7 @@ import ilearnrw.prototype.application.Program;
 import ilearnrw.textclassification.Classifier;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
+import ilearnrw.textclassification.tests.panels.BackgroundImageJFrame;
 import ilearnrw.textclassification.tests.panels.FilesExplorerPanel;
 import ilearnrw.textclassification.tests.panels.TextPanel;
 import ilearnrw.textclassification.tests.panels.UserSeveritiesHeatMapPanel;

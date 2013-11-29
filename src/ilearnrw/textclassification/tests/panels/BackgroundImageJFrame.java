@@ -3,7 +3,7 @@ package ilearnrw.textclassification.tests.panels;
 import javax.swing.*;
 
 import java.awt.*;
-public class BackgroundImageJFrame extends JFrame{
+public class BackgroundImageJFrame extends JFrame implements Runnable{
 	private static final long serialVersionUID = 1L;
 	public BackgroundImageJFrame(){
 		this.setUndecorated(true);
@@ -18,7 +18,7 @@ public class BackgroundImageJFrame extends JFrame{
 		background.setLayout(new FlowLayout());
 
 	    ImageIcon loading = new ImageIcon("data/ajax-loader.gif");
-	    background.add(new JLabel("loading... ", loading, JLabel.CENTER), BorderLayout.CENTER);
+	    background.add(new JLabel("loading... ", loading, JLabel.CENTER));
 	    this.pack();
 	}
 
@@ -28,5 +28,11 @@ public class BackgroundImageJFrame extends JFrame{
     }
 	public static void main(String args[]){
 		new BackgroundImageJFrame();
+	}
+
+	@Override
+	public void run() {
+		new BackgroundImageJFrame();
+		
 	}
 }

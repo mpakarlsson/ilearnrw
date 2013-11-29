@@ -8,6 +8,7 @@ import ilearnrw.textclassification.tests.panels.BackgroundImageJFrame;
 import ilearnrw.utils.LanguageCode;
 
 
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -25,6 +26,9 @@ public class GreekWordGenerator {
 	private static String path = "data/";
 
 	public static void main(String a[]) throws Exception {
+		BackgroundImageJFrame bk = new BackgroundImageJFrame();
+		System.out.println("open");
+		bk.dispose();
 	    //frame.setVisible(false);
 	    //frame = null;
 		/*GreekPhonetics gp = new GreekPhonetics("καλημέρα χώμα κόμμα");
