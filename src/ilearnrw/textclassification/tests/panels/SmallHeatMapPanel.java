@@ -26,6 +26,7 @@ public class SmallHeatMapPanel extends JPanel {
 	private int[][] multi;
 	private boolean first;
 	private CellRenderer renderer;
+	private int colorMode = 0;
 
 	public SmallHeatMapPanel(User user) {
 		this.data = copyMatrix(user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities());
@@ -40,6 +41,7 @@ public class SmallHeatMapPanel extends JPanel {
         //descriptionsText.setBackground(Color.lightGray);
         
 		heatMap = new JTable(data.length,lengthsMax());
+
 		for (int i=0;i<lengthsMax(); i++)
 			heatMap.getTableHeader().getColumnModel().getColumn(i).setHeaderValue(""+(i+1));
 		
@@ -75,6 +77,14 @@ public class SmallHeatMapPanel extends JPanel {
 		//this.add(descriptionsText);
 		formatMatrix();
 		first = true;
+	}
+
+	public int getColorMode() {
+		return colorMode;
+	}
+
+	public void setColorMode(int colorMode) {
+		this.colorMode = colorMode;
 	}
 	
 	public void setClassifier(Classifier classifier){
@@ -209,20 +219,28 @@ public class SmallHeatMapPanel extends JPanel {
             	c.setBackground(new Color(210, 210, 210)); 
             else{
             	if (matrixMax() == 0){
-            		c.setBackground(Color.getHSBColor((float)0.4,(float)0.75,(float)0.9));
-            		//c.setBackground(new Color(255, 250, 250));
+            		if (colorMode == 0)
+                		c.setBackground(new Color(255, 250, 250));
+            		else
+            			c.setBackground(Color.getHSBColor((float)0.4,(float)0.75,(float)0.9));
             	
             	}
             	else if (multi[row][column]==0){
-            		c.setBackground(Color.getHSBColor((float)0.4,(float)0.75,(float)0.9));//new Color(255, 255, 255));
+            		if (colorMode == 0)
+                		c.setBackground(new Color(255, 255, 255));
+            		else
+            			c.setBackground(Color.getHSBColor((float)0.4,(float)0.75,(float)0.9));
             	}
             	else{
-            		c.setBackground(ConvertTotalToRgb(matrixMax(), multi[row][column]));
-            		//c.setBackground(new Color(255, 240-24*((10*multi[row][column])/matrixMax()), 240-24*((10*multi[row][column])/matrixMax())));
+            		if (colorMode == 0)
+            			c.setBackground(new Color(255, 220-11*((20*multi[row][column])/matrixMax()), 220-11*((20*multi[row][column])/matrixMax())));
+            		else
+            			c.setBackground(ConvertTotalToRgb(matrixMax(), multi[row][column]));
             	}  
             }
             return c;
         };
+        
 	}
 	
 	public Color ConvertTotalToRgb(int range, int cell){

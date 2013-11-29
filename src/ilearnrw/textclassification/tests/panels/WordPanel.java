@@ -109,6 +109,14 @@ public class WordPanel extends JPanel{
         scrpanel.add(scrollPane);
 
 	}
+
+	public int getColorMode() {
+		return smallHeat.getColorMode();
+	}
+
+	public void setColorMode(int colorMode) {
+		smallHeat.setColorMode(colorMode);
+	}
 	
 	public void reset(User user){
 		word.setText("");
@@ -183,7 +191,7 @@ public class WordPanel extends JPanel{
 				{"CV Form:", "-"},//+w.getCVForm()},
 				{"Total Hits:", "-"},//+cls.getUserProblemsToText().getTotalHits()},
 				{"User Hits:", "-"},//+cls.getUserProblemsToText().getUserHits()},
-				{"Word Difficutly:", "???"}
+				{"Word Score:", "-"}
 		};
 
 		resultsTable = new JTable(data, columnNames);

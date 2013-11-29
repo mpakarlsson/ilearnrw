@@ -24,11 +24,7 @@ public class WordVsProblems {
 	private LanguageCode lc;
 	private LanguageAnalyzerAPI languageAnalyser;
 	
-	// TODO remove this dictionary!
-	private GreekDictionary gDic;
-	
-	public WordVsProblems(LanguageAnalyzerAPI languageAnalyser, GreekDictionary gDic) {
-		this.gDic = gDic;
+	public WordVsProblems(LanguageAnalyzerAPI languageAnalyser) {
 		prs = new Problems();
 		this.lc = languageAnalyser.getLanguageCode();
 		this.languageAnalyser = languageAnalyser;

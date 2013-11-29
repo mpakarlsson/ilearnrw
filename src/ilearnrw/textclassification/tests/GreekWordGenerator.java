@@ -1,11 +1,12 @@
 package ilearnrw.textclassification.tests;
 
 import ilearnrw.languagetools.greek.GreekPhonetics;
+import ilearnrw.languagetools.greek.GreekSpeller;
 import ilearnrw.textclassification.Sentence;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
-import ilearnrw.textclassification.tests.panels.BackgroundImageJFrame;
 import ilearnrw.utils.LanguageCode;
+
 
 
 
@@ -15,20 +16,29 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-import java.util.HashMap;
-import java.util.Scanner;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 public class GreekWordGenerator {
 	private static String path = "data/";
 
 	public static void main(String a[]) throws Exception {
-		BackgroundImageJFrame bk = new BackgroundImageJFrame();
-		System.out.println("open");
-		bk.dispose();
+
+		String w = "κομπρεσέρ";
+		GreekSpeller gs = new GreekSpeller(w);
+		gs.performSpelling();
+		for (String s : gs.getTokens())
+			System.out.print(s+"-");
+		System.out.println();
+		w = "κομπιούτερ";
+		gs = new GreekSpeller(w);
+		gs.performSpelling();
+		for (String s : gs.getTokens())
+			System.out.print(s+"-");
+		System.out.println();
+		w = "για";
+		gs = new GreekSpeller(w);
+		gs.performSpelling();
+		for (String s : gs.getTokens())
+			System.out.print(s+"-");
 	    //frame.setVisible(false);
 	    //frame = null;
 		/*GreekPhonetics gp = new GreekPhonetics("καλημέρα χώμα κόμμα");
@@ -53,7 +63,7 @@ public class GreekWordGenerator {
 				"pempthDhm2.txt", "pempthDhm3.txt", "prwthDhm2.txt", "prwthGym2.txt",
 				"tetarthDhm.txt","prwthGym3.txt", "trithDhm2.txt" };
 		*/
-		String[] files = { "greek_sound_similarity.txt" };
+		/*String[] files = { "greek_sound_similarity.txt" };
 		String text = "";
 		try {
 			HashMap<String, Integer> words = new HashMap<String, Integer>();
@@ -87,7 +97,7 @@ public class GreekWordGenerator {
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}
+		}*/
 	}
 
 	static public void setContents(File aFile, String aContents)

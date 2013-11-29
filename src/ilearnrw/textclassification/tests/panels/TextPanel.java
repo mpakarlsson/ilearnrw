@@ -77,6 +77,14 @@ public class TextPanel extends JPanel{
         scrpanel.add(scrollPane);
 
 	}
+
+	public int getColorMode() {
+		return smallHeat.getColorMode();
+	}
+
+	public void setColorMode(int colorMode) {
+		smallHeat.setColorMode(colorMode);
+	}
 	
 	public void reset(User user){
 		mainText.setText("");
@@ -147,8 +155,8 @@ public class TextPanel extends JPanel{
 				{" # Distinct Words", "- ", " Avg Syllables per Word:", "- ", " Coleman-Liau:", "- "},
 				{" # Syllables:", "- ", " Avg Word Length:", "- ", " SMOG:", "- "},
 				{" # Big Sentences:", "- ", " Avg Longest Word Length:", "- ", " Gunning FOG:", "- "},
-				{" # Polysyllabic Words:", "- ", "", "", " Dale-Chall:", "- "},
-				{" # Letters and Numbers:", "- ", " Formula:", "- ", " iLearnRW:", "- "}
+				{" # Polysyllabic Words:", "- ", "", "", " iLearnRW:", "- "},
+				{" # Letters and Numbers:", "- ", "", "- ", " Text Score:", "- "}
 		};
 
 		resultsTable = new JTable(data, columnNames);

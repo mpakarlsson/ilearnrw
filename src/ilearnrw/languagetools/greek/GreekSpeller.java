@@ -100,7 +100,7 @@ public class GreekSpeller implements Speller{
 		}
 	
 		/** Apply first traversal **/
-		this.firstTraverse(tokens); 
+		this.firstTraverse(tokens);
 	
 		/** reverse to second traversal **/
 		for (int i=this.firstTraversal.size()-1; i>=0; i--){
@@ -144,10 +144,17 @@ public class GreekSpeller implements Speller{
      * Applies trivial rule
      */
     private void applyTrivialRule(){
-		if (this.secondTraversal.size()>0){
+		/*if (this.secondTraversal.size()>0){
 		    if (this.secondTraversal.get(0).equals("ς")|| 
 		    		this.secondTraversal.get(0).equals("σ") || 
 		    		this.secondTraversal.get(0).equals("ν")){
+		    	this.dataHolder = this.secondTraversal.get(0);
+		    	this.secondTraversal.remove(0);
+		    }
+		}*/
+    	// TODO check if it works
+		if (this.secondTraversal.size()>0){
+		    if (this.consonants.contains(this.secondTraversal.get(0))){
 		    	this.dataHolder = this.secondTraversal.get(0);
 		    	this.secondTraversal.remove(0);
 		    }
@@ -207,7 +214,7 @@ public class GreekSpeller implements Speller{
     /**
      * Recursive method: Second Traverse.
      */
-    private void secondTraverse(){         
+    private void secondTraverse(){   
     	/** Base **/
 		if (this.secondTraversal.size()==0){
 		    return;
@@ -686,7 +693,6 @@ public class GreekSpeller implements Speller{
 
     /**
      * Returns the hyphen syllable
-     * TODO: Description
      * @param tokens
      * @return
      */

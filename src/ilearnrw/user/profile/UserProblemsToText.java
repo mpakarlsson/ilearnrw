@@ -23,13 +23,10 @@ public class UserProblemsToText implements Serializable {
 	private UserSeveritiesToProblems userSeveritiesToProblems;
 	private UserTextCounters userCounters;
 	private HashMap<Word, Double> wordsWeights;
-	private double SDW;
-	private int totalHits, userHits, diffWords, veryDiffWords;
+	private double SDW, Tscore;
+	private int totalHits, userHits, diffWords, veryDiffWords, Wscore;
 	private boolean calculateProblematicWords;
 	private ProblematicWords problematicWords;
-
-	// TODO remove this dictionary!
-	private GreekDictionary gDic = new GreekDictionary();
 
 	// TODO fix the threshold to a valua that the experts want!
 	int threshold = 0;//the threshold for a severity so that the corresponding problem will be counted in the matrix
@@ -46,6 +43,8 @@ public class UserProblemsToText implements Serializable {
 		totalHits = 0;
 		diffWords = 0;
 		veryDiffWords = 0;
+		Wscore = 0;
+		Tscore = 0;
 	}
 	
 	public UserProblemsToText(User user, Text text, LanguageAnalyzerAPI languageAnalyser){
@@ -57,7 +56,7 @@ public class UserProblemsToText implements Serializable {
 		this.calculateProblematicWords = true;
 		this.problematicWords = new ProblematicWords(userSeveritiesToProblems);
 		this.text = text;
-		wprobs = new WordVsProblems(languageAnalyser, gDic);
+		wprobs = new WordVsProblems(languageAnalyser);
 		wordsWeights = new HashMap<Word, Double>();
 		int n = userSeveritiesToProblems.getNumerOfRows();
 		
@@ -67,9 +66,6 @@ public class UserProblemsToText implements Serializable {
 			userCounters.constructRow(i, userSeveritiesToProblems.getRowLength(i));
 		}
 		this.initialize();
-		for (Word w : gDic.getGreekWords()){
-			System.out.println(w.toString());
-		}
 	}	
 	
 	public void initialize(){
@@ -79,8 +75,9 @@ public class UserProblemsToText implements Serializable {
 		SDW = 0;
 		diffWords = 0;
 		veryDiffWords = 0;
+		Wscore = 0;
+		Tscore = 0;
 		//get all words along with the number times it appeared inside the text
-		int i = 0;
 		for (Map.Entry<Word,Integer> entry : text.getWordsFreq().entrySet()) {
 			Word w = entry.getKey();
 			boolean isDifficult = false;
@@ -90,26 +87,28 @@ public class UserProblemsToText implements Serializable {
 			ArrayList<WordProblemInfo> probs = wprobs.getMatchedProbs();
 			totalHits += probs.size();
 			//count the problems for each word
-			double veryDifficultFlag = 0;
+			Wscore = 0;
 			for (WordProblemInfo x : probs){
-				double t = this.updateValue(x.getPosI(), x.getPosJ(), entry.getValue());
-				veryDifficultFlag += t;
+				if (calculateProblematicWords)
+					problematicWords.addWord(x.getPosI(), x.getPosJ(), w);
+				int t = this.updateValue(x.getPosI(), x.getPosJ(), entry.getValue());
+				Wscore += t;
 				if (t>0){
 					userHits++;
 					isDifficult = true;
-					if (calculateProblematicWords)
-						problematicWords.addWord(x.getPosI(), x.getPosJ(), w);
 				}
 				if (!wordsWeights.containsKey(w)){
 					wordsWeights.put(entry.getKey(), appearences*t - (appearences-1)*0.25);
 					SDW += appearences*t;// - (appearences-1)*0.25;
 				}
 			}
+			Tscore += ((appearences+1)/2.0)*Wscore;
 			if (isDifficult)
 				diffWords++;
-			if (veryDifficultFlag>1.5)
+			if (Wscore>5)
 				veryDiffWords++;
 		}
+		//Tscore = Tscore;/text.getNumberOfSentences();
 	}
 
 	
@@ -121,6 +120,22 @@ public class UserProblemsToText implements Serializable {
 		this.text = text;
 	}
 	
+	public double getTscore() {
+		return Tscore;
+	}
+
+	public void setTscore(double tscore) {
+		Tscore = tscore;
+	}
+
+	public double getWscore() {
+		return Wscore;
+	}
+
+	public void setWscore(int wscore) {
+		Wscore = wscore;
+	}
+
 	public ProblematicWords getProblematicWords() {
 		return problematicWords;
 	}
@@ -181,11 +196,11 @@ public class UserProblemsToText implements Serializable {
 		userCounters.setValue(i, j, value);
 	}
 
-	public double updateValue(int i, int j, int oneValue) {
+	public int updateValue(int i, int j, int oneValue) {
 		//against severities: 0 --> 0; 1 --> 0.3; 2 --> 0.6; 3 --> 1
 		if (userSeveritiesToProblems.getSeverity(i, j)>threshold)
 			userCounters.increaseValue(i, j, oneValue);
-		switch (userSeveritiesToProblems.getSeverity(i, j)) {
+		/*switch (userSeveritiesToProblems.getSeverity(i, j)) {
 		case 3:
 			return 1;
 		case 2:
@@ -194,7 +209,8 @@ public class UserProblemsToText implements Serializable {
 			return 0.3;
 		default:
 			return 0;
-		}
+		}*/
+		return userSeveritiesToProblems.getSeverity(i, j);
 	}
 
 	public double getwordWeight(Word w){

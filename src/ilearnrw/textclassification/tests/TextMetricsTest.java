@@ -9,7 +9,6 @@ import ilearnrw.prototype.application.Program;
 import ilearnrw.textclassification.Classifier;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
-import ilearnrw.textclassification.tests.panels.BackgroundImageJFrame;
 import ilearnrw.textclassification.tests.panels.FilesExplorerPanel;
 import ilearnrw.textclassification.tests.panels.TextPanel;
 import ilearnrw.textclassification.tests.panels.UserSeveritiesHeatMapPanel;
@@ -27,8 +26,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Random;
+import java.util.Scanner;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -194,6 +196,9 @@ public class TextMetricsTest extends JFrame {
 		textPanel = new TextPanel(user);
 		wordPanel = new WordPanel(user, this);
 		userSeveritiesPanel = new UserSeveritiesHeatMapPanel(user);
+		userSeveritiesPanel.setColorMode(getColorMode());
+		textPanel.setColorMode(getColorMode());
+		wordPanel.setColorMode(getColorMode());
 		
 		contentPane.add(textPanel, BorderLayout.CENTER);
 		
@@ -339,10 +344,10 @@ public class TextMetricsTest extends JFrame {
 					"Gunning FOG:", String.format("%.2f",txt.gunningFog())},
 				{"# Polysyllabic Words:", ""+txt.getNumberOfPolysyllabicWords(), 
 					"", "", 
-					"Dale-Chall:", String.format("%.2f",txt.daleChall())},
+					"iLearnRW:", String.format("%.2f",cls.getDifficulty())},
 				{"# Letters and Numbers:", ""+txt.getNumberOfLettersAndNumbers(), 
-					"Formula:", cls.getDifficultyToString(), 
-					"iLearnRW:", String.format("%.2f",cls.getDifficulty())}
+					"", "", 
+					"Text Score:", String.format("%.2f",cls.getUserProblemsToText().getTscore())}
 				/*
 				{"# Paragraphs", ""+txt.getNumberOfParagraphs()},
 				{"# Sentences:", ""+txt.getNumberOfSentences()},
@@ -393,7 +398,7 @@ public class TextMetricsTest extends JFrame {
 				{"CV Form:", ""+w.getCVForm()},
 				{"Total Hits:", ""+cls.getUserProblemsToText().getTotalHits()},
 				{"User Hits:", ""+cls.getUserProblemsToText().getUserHits()},
-				{"Word Difficutly:", "???"},
+				{"Word Score:", ""+cls.getUserProblemsToText().getWscore()},
 				{"", ""},
 				{"", ""},
 				{"", ""},
@@ -456,5 +461,18 @@ public class TextMetricsTest extends JFrame {
 	    		return LanguageCode.GR;
 	    }
 	    return LanguageCode.EN;
+	}
+	
+	private int getColorMode(){
+  	  String t = "";
+  	  try {
+  		  t = new Scanner( new File("params/colors.txt")).useDelimiter("\\A").next();
+  	  } catch (FileNotFoundException e1) {
+  		  System.out.println(e1.toString());
+  		  return 0;
+  	  }
+  	  if (t.contains("1"))
+  		  return 1;
+  	  return 0;
 	}
 }

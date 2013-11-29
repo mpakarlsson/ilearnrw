@@ -16,6 +16,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -55,7 +56,7 @@ public class FilesExplorerPanel extends JPanel{
 		this.languageAnalyzer = languageAnalyzer;
 		table = new JTable(new MonModel());
 		
-		DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+		CellRenderer rightRenderer = new CellRenderer();
 		rightRenderer.setHorizontalAlignment( JLabel.RIGHT );
 		for (int i=1;i<table.getColumnCount(); i++)
 			table.getColumnModel().getColumn(i).setCellRenderer( rightRenderer );
@@ -68,13 +69,13 @@ public class FilesExplorerPanel extends JPanel{
 				    	  MonModel mm = (MonModel)table.getModel();
 				    	  JTable target = (JTable)e.getSource();
 				    	  int row = target.getSelectedRow();
-				    	  //int column = target.getSelectedColumn();
+				    	  int ttt = table.convertRowIndexToModel(row);
+
 				    	  tabbedPane.setSelectedIndex(0);
 				    	  String text = "";
 				    	  try {
-				    		  text = new Scanner( new File(path+mm.getFileName(row)), "UTF-8" ).useDelimiter("\\A").next();
+				    		  text = new Scanner( new File(path+mm.getFileName(ttt)), "UTF-8" ).useDelimiter("\\A").next();
 				    	  } catch (FileNotFoundException e1) {
-				    		  // TODO Auto-generated catch block
 				    		  e1.printStackTrace();
 				    	  }
 				    	  textPanel.testMethod(text);
@@ -95,7 +96,7 @@ public class FilesExplorerPanel extends JPanel{
 	private void addLegentPanel(){
 		Object rowData[][] = { { "#W: words", "#DW: Difficut Words", "#VDW: Very Difficult Words"},
             { "#P: Paragraphs", "#BS: Big Sentences (>=15 Words)", "WpS: Words per Sentence"},
-			{"F-K: Flesch-Kincaid", "D-C: Dale-Chall", "iLRW: iLearnRW WARD"}
+			{"F-K: Flesch-Kincaid", "iLRW: iLearnRW WARD", "TS: Text Score"}
 		};
 		Object columnNames[] = { "Column One", "Column Two", "Column Three" };
 		JTable legent = new JTable(rowData, columnNames);
@@ -142,7 +143,7 @@ public class FilesExplorerPanel extends JPanel{
 		private static final long serialVersionUID = 1L;
 		private ArrayList<IlearnFile> l;
 	    private final String[] columnNames = new String[]{"File Name", "#W", "#DW", "#VDW", 
-	    		"#P", "#BS", "WpS", "F-K", "D-C", "iLRW"};
+	    		"#P", "#BS", "WpS", "F-K", "iLRW", "TS"};
 
 	    public MonModel() {
 	        super();
@@ -192,16 +193,20 @@ public class FilesExplorerPanel extends JPanel{
 	            return l.get(rowIndex).getNumberOfBigSentences();
 	        }
 	        else if(columnIndex==6){
-	            return Double.parseDouble(l.get(rowIndex).getAvgWordsPerSentence());
+	            //return l.get(rowIndex).getAvgWordsPerSentenceFormat();
+	        	return l.get(rowIndex).getAvgWordsPerSentence();
 	        }
 	        else if(columnIndex==7){
-	            return Double.parseDouble(l.get(rowIndex).getFleschKincaid());
+	            //return l.get(rowIndex).getFleschKincaidFormat();
+	        	return l.get(rowIndex).getFleschKincaid();
 	        }
 	        else if(columnIndex==8){
-	            return Double.parseDouble(l.get(rowIndex).getDaleChall());
+	            //return l.get(rowIndex).getiLearnRWFormat();
+	        	return l.get(rowIndex).getiLearnRW();
 	        }
 	        else if(columnIndex==9){
-	            return Double.parseDouble(l.get(rowIndex).getiLearnRW());
+	            //return l.get(rowIndex).getTextScoreFormat();
+	        	return l.get(rowIndex).getTextScore();
 	        }
 	        return null;
 	    }
@@ -265,7 +270,7 @@ public class FilesExplorerPanel extends JPanel{
 		private String name;
 	    private int numberOfWords, totalHits, numberOfDifficultWords, numberOfVeryDifficultWords, 
 	    numberOfParagraphs, numberOfBigSentences;
-		private double FleschKincaid, DaleChall, iLearnRW, avgWordsPerSentence;
+		private double FleschKincaid, textScore, iLearnRW, avgWordsPerSentence;
 	    private boolean isSuitableToTheUser;
 
 		public IlearnFile(String name) {
@@ -292,7 +297,7 @@ public class FilesExplorerPanel extends JPanel{
 	    	  numberOfBigSentences = t.getNumberOfBigSentences();
 	    	  numberOfParagraphs = t.getNumberOfParagraphs();
 	    	  FleschKincaid = t.fleschKincaid();
-	    	  DaleChall = t.daleChall();
+	    	  textScore = cls.getUserProblemsToText().getTscore();
 	    	  iLearnRW = cls.getDifficulty();
 	    	  avgWordsPerSentence = t.getWordsPerSentence();
 	    }
@@ -333,7 +338,11 @@ public class FilesExplorerPanel extends JPanel{
 			this.numberOfDifficultWords = numberOfDifficultWords;
 		}
 
-		public String getFleschKincaid() {
+		public double getFleschKincaid() {
+			return FleschKincaid;
+		}
+
+		public String getFleschKincaidFormat() {
 			return String.format("%.2f",FleschKincaid);
 		}
 
@@ -349,7 +358,11 @@ public class FilesExplorerPanel extends JPanel{
 			this.totalHits = totalHits;
 		}
 
-		public String getAvgWordsPerSentence() {
+		public double getAvgWordsPerSentence() {
+			return avgWordsPerSentence;
+		}
+
+		public String getAvgWordsPerSentenceFormat() {
 			return String.format("%.2f",avgWordsPerSentence);
 		}
 
@@ -365,15 +378,23 @@ public class FilesExplorerPanel extends JPanel{
 			this.isSuitableToTheUser = isSuitableToTheUser;
 		}
 
-		public String getDaleChall() {
-			return String.format("%.2f",DaleChall);
+		public double getTextScore() {
+			return textScore;
 		}
 
-		public void setDaleChall(double daleChall) {
-			DaleChall = daleChall;
+		public String getTextScoreFormat() {
+			return String.format("%.2f",textScore);
 		}
 
-		public String getiLearnRW() {
+		public void setTextScore(double textScore) {
+			textScore = textScore;
+		}
+
+		public double getiLearnRW() {
+			return iLearnRW;
+		}
+
+		public String getiLearnRWFormat() {
 			return String.format("%.2f",iLearnRW);
 		}
 
@@ -415,5 +436,21 @@ public class FilesExplorerPanel extends JPanel{
 		    }
 		    return LanguageCode.EN;
 		}
+	}
+	
+
+	private class CellRenderer extends DefaultTableCellRenderer {
+		@Override
+	    public void setValue(Object value) {
+	        DecimalFormat doub = new DecimalFormat("0.00");
+	        DecimalFormat integ = new DecimalFormat("0");
+		      if ((value != null) && (value instanceof Integer)) {
+	                value = integ.format(value);
+		      } 
+		      else if ((value != null) && (value instanceof Number)) {
+	                value = doub.format(value);
+		      } 
+		      super.setValue(value);
+	    }
 	}
 }

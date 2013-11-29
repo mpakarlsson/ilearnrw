@@ -28,7 +28,7 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 	private int[][] multi;
 	private CellRenderer renderer;
 	private JSplitPane splitPane;
-	private boolean first = true;
+	private int colorMode = 0;
 
 	public UserSeveritiesHeatMapPanel(User user){
 		this.user = user;
@@ -60,10 +60,14 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
         
 		splitPane.setRightComponent(descriptionsText);
 
-		//this.add(new JScrollPane(heatMap));
+	}
 
-		//this.add(descriptionsText);
-		first = true;
+	public int getColorMode() {
+		return colorMode;
+	}
+
+	public void setColorMode(int colorMode) {
+		this.colorMode = colorMode;
 	}
 	
 	public void setUser(User user){
@@ -254,8 +258,10 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
             	if (matrixMax() == 0)
             		c.setBackground(new Color(255, 235, 235));
             	else
-            		c.setBackground(ConvertTotalToRgb(matrixMax(), multi[row][column]));
-            		//c.setBackground(ConvertTotalToRgb(matrixMax(), multi[row][column]));
+            		if (colorMode==0) 
+            			c.setBackground(new Color(255, 220-11*((20*multi[row][column])/matrixMax()), 220-11*((20*multi[row][column])/matrixMax())));
+            		else
+            			c.setBackground(ConvertTotalToRgb(matrixMax(), multi[row][column]));
             	}                 
             
             isBordered = user.getProfile().getUserSeveritiesToProblems().getWorkingIndex(row) == column;            
