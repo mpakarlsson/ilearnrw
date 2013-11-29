@@ -254,7 +254,8 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
             	if (matrixMax() == 0)
             		c.setBackground(new Color(255, 235, 235));
             	else
-            		c.setBackground(new Color(255, 240-20*((12*multi[row][column])/matrixMax()), 240-20*((12*multi[row][column])/matrixMax())));
+            		c.setBackground(ConvertTotalToRgb(matrixMax(), multi[row][column]));
+            		//c.setBackground(ConvertTotalToRgb(matrixMax(), multi[row][column]));
             	}                 
             
             isBordered = user.getProfile().getUserSeveritiesToProblems().getWorkingIndex(row) == column;            
@@ -277,6 +278,12 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 
             return c;
         };
+	}
+	
+	public Color ConvertTotalToRgb(int range, int cell){
+	    float h = (float)0.2-((float)0.2)*(cell/(float)range);
+	    Color c = Color.getHSBColor(h,(float)0.75,(float)0.9);
+	    return c;
 	}
 
 }

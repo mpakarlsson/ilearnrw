@@ -29,6 +29,7 @@ import java.awt.event.MouseEvent;
 import java.util.HashMap;
 import java.util.Random;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -40,6 +41,7 @@ import javax.swing.border.EmptyBorder;
 
 public class TextMetricsTest extends JFrame {
 	private static final long serialVersionUID = 1L;
+	private static String path = "data/";
 	private LanguageCode lc;
 	private Text txt;
 	private Classifier cls;
@@ -101,7 +103,6 @@ public class TextMetricsTest extends JFrame {
 	 * Create the frame.
 	 */
 	public TextMetricsTest() {
-
 		/*try { 
 	        UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"); 
 	    } 

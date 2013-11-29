@@ -4,6 +4,7 @@ import ilearnrw.languagetools.greek.GreekPhonetics;
 import ilearnrw.textclassification.Sentence;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
+import ilearnrw.textclassification.tests.panels.BackgroundImageJFrame;
 import ilearnrw.utils.LanguageCode;
 
 
@@ -16,9 +17,16 @@ import java.io.Writer;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class GreekWordGenerator {
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
-	public static void main(String a[]) {
+public class GreekWordGenerator {
+	private static String path = "data/";
+
+	public static void main(String a[]) throws Exception {
+	    //frame.setVisible(false);
+	    //frame = null;
 		/*GreekPhonetics gp = new GreekPhonetics("καλημέρα χώμα κόμμα");
 		System.out.println(gp.getResult());
 		Text t = new Text("Νιγκ", LanguageCode.GR);
@@ -41,7 +49,6 @@ public class GreekWordGenerator {
 				"pempthDhm2.txt", "pempthDhm3.txt", "prwthDhm2.txt", "prwthGym2.txt",
 				"tetarthDhm.txt","prwthGym3.txt", "trithDhm2.txt" };
 		*/
-		String path = "data/";
 		String[] files = { "greek_sound_similarity.txt" };
 		String text = "";
 		try {

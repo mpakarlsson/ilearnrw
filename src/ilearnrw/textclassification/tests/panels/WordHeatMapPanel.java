@@ -207,18 +207,27 @@ public class WordHeatMapPanel extends JPanel {
             	c.setBackground(new Color(210, 210, 210)); 
             else{
             	if (matrixMax() == 0){
-            		c.setBackground(new Color(255, 250, 250));
+            		c.setBackground(Color.getHSBColor((float)0.4,(float)0.75,(float)0.9));
+            		//c.setBackground(new Color(255, 250, 250));
             	
             	}
             	else if (multi[row][column]==0){
-            		c.setBackground(new Color(255, 255, 255));
+            		c.setBackground(Color.getHSBColor((float)0.4,(float)0.75,(float)0.9));//new Color(255, 255, 255));
             	}
             	else{
-            		c.setBackground(new Color(255, 240-24*((10*multi[row][column])/matrixMax()), 240-24*((10*multi[row][column])/matrixMax())));
+            		c.setBackground(ConvertTotalToRgb(matrixMax(), multi[row][column]));
+            		//c.setBackground(new Color(255, 240-24*((10*multi[row][column])/matrixMax()), 240-24*((10*multi[row][column])/matrixMax())));
             	}  
             }
             return c;
         };
 	}
+	
+	public Color ConvertTotalToRgb(int range, int cell){
+	    float h = (float)0.2-((float)0.2)*(cell/(float)range);
+	    Color c = Color.getHSBColor(h,(float)0.75,(float)0.9);
+	    return c;
+	}
+
 
 }
