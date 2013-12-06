@@ -5,7 +5,7 @@ import ilearnrw.user.UserDetails;
 import ilearnrw.user.UserPreferences;
 import ilearnrw.user.UserSession;
 import ilearnrw.user.problems.ProblemDefinition;
-import ilearnrw.user.profile.UserSeveritiesToProblems;
+import ilearnrw.user.profile.UserProblems;
 import ilearnrw.utils.LanguageCode;
 
 /** \brief Interface to update profiles in the iLearnRW system.
@@ -117,7 +117,7 @@ public interface IProfileAccessUpdater {
      *         to the user profile.
      *
      */
-    boolean setUserProblemMatrix(UserSeveritiesToProblems problemMatrix);
+    boolean setUserProblemMatrix(UserProblems problemMatrix);
     
     /** \brief Sets the userlanguage.
     */

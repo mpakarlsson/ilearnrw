@@ -55,8 +55,8 @@
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="ilearnrw.user.profile.UserSeveritiesToProblems" project="ilearnrw" 
-    file="/ilearnrw/src/ilearnrw/user/profile/UserSeveritiesToProblems.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="7" language="java" name="ilearnrw.user.profile.UserProblems" project="ilearnrw" 
+    file="/ilearnrw/src/ilearnrw/user/profile/UserProblems.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="796" y="338"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      

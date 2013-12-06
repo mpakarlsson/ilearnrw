@@ -20,7 +20,7 @@ public class UserProblemsToText implements Serializable {
 
 	private Text text;
 	private WordVsProblems wprobs;
-	private UserSeveritiesToProblems userSeveritiesToProblems;
+	private UserProblems userSeveritiesToProblems;
 	private UserTextCounters userCounters;
 	private HashMap<Word, Double> wordsWeights;
 	private double SDW, Tscore;
@@ -52,7 +52,7 @@ public class UserProblemsToText implements Serializable {
 				languageAnalyser.getLanguageCode() != user.getDetails().getLanguage() || 
 				languageAnalyser.getLanguageCode() != text.getLanguageCode())
 			return;
-		this.userSeveritiesToProblems = user.getProfile().getUserSeveritiesToProblems();
+		this.userSeveritiesToProblems = user.getProfile().getUserProblems();
 		this.calculateProblematicWords = true;
 		this.problematicWords = new ProblematicWords(userSeveritiesToProblems);
 		this.text = text;
@@ -224,11 +224,11 @@ public class UserProblemsToText implements Serializable {
 		return userCounters.getValue(i, j);
 	}
 
-	public UserSeveritiesToProblems getUserSeveritiesToProblems(){
+	public UserProblems getUserSeveritiesToProblems(){
 		return userSeveritiesToProblems;
 	}
 
-	public void setUserSeveritiesToProblems(UserSeveritiesToProblems userS2P) {
+	public void setUserSeveritiesToProblems(UserProblems userS2P) {
 		this.userSeveritiesToProblems = userS2P;
 	}	
 	

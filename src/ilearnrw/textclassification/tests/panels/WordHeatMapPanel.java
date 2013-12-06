@@ -30,7 +30,7 @@ public class WordHeatMapPanel extends JPanel {
 	private int colorMode = 0;
 
 	public WordHeatMapPanel(User user) {
-		this.data = copyMatrix(user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities());
+		this.data = copyMatrix(user.getProfile().getUserProblems().getUserSeverities().getSeverities());
 		for (int i=0;i<data.length;i++){
 			for (int j=0;j<data[i].length;j++){
 				data[i][j] = 0;
@@ -186,13 +186,13 @@ public class WordHeatMapPanel extends JPanel {
 		//	res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
 		//}
 		if (j<data[i].length){
-			res = "Problem Title:"+user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).getType().getUrl();
-			if (!user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).getURI().
-					equalsIgnoreCase(user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).getType().getUrl()))
-				res = res + ", Targeted Area:"+user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).getURI();
+			res = "Problem Title:"+user.getProfile().getUserProblems().getProblemDefinition(i).getType().getUrl();
+			if (!user.getProfile().getUserProblems().getProblemDefinition(i).getURI().
+					equalsIgnoreCase(user.getProfile().getUserProblems().getProblemDefinition(i).getType().getUrl()))
+				res = res + ", Targeted Area:"+user.getProfile().getUserProblems().getProblemDefinition(i).getURI();
 			//res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
-			res = res + "\nMatching word characteristics:"+user.getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j).getProblemType();
-			res = res + " {"+user.getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j).getDescriptionsTosString()+"}";
+			res = res + "\nMatching word characteristics:"+user.getProfile().getUserProblems().getProblemDescription(i, j).getProblemType();
+			res = res + " {"+user.getProfile().getUserProblems().getProblemDescription(i, j).getDescriptionsTosString()+"}";
 			res = res + " \nFound "+multi[i][j]+" times\n";
 		}
 		return res;

@@ -1,8 +1,10 @@
 package ilearnrw.textclassification;
 
+import java.io.Serializable;
+
 import ilearnrw.utils.LanguageCode;
 
-public class Word {
+public class Word implements Serializable{
 	protected String word;
 	protected WordType type;
 	protected String[] syllables;

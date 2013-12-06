@@ -115,10 +115,10 @@ public class HeatMapPanel extends JPanel {
 	private String displayCellInfo(int i, int j){
 		String res = "null";
 		if (j==0){
-			res = classifier.getUser().getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
+			res = classifier.getUser().getProfile().getUserProblems().getProblemDefinition(i).toString();
 		}
 		else if (j>1 && j<data[i].length+2){
-			res = classifier.getUser().getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j-2).toString();
+			res = classifier.getUser().getProfile().getUserProblems().getProblemDescription(i, j-2).toString();
 		}
 		return res;
 	}

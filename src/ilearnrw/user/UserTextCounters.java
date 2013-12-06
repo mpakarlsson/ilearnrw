@@ -1,7 +1,7 @@
 package ilearnrw.user;
 
 
-import ilearnrw.user.profile.UserSeveritiesToProblems;
+import ilearnrw.user.profile.UserProblems;
 
 import java.io.Serializable;
 
@@ -19,7 +19,7 @@ public class UserTextCounters implements Serializable {
 		counters = new int[length][];
 	}
 
-	public UserTextCounters(UserSeveritiesToProblems usp){
+	public UserTextCounters(UserProblems usp){
 		counters = new int[usp.getNumerOfRows()][];
 		for (int i=0;i<usp.getNumerOfRows(); i++){
 			counters[i] = new int[usp.getRowLength(i)];

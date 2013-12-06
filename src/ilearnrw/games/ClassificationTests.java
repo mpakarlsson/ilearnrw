@@ -14,7 +14,7 @@ public class ClassificationTests {
 	public static void main(String args[]){
 		greekAnalyzer = new GreekLanguageAnalyzer();
 		User user = new User(1);
-		user.getProfile().getUserSeveritiesToProblems().loadTestGreekProblems();
+		user.getProfile().getUserProblems().loadTestGreekProblems();
 		//System.out.println(user.getProfile().getSeveritiesToProblemsMatrix().toString());s
 		Text t = new Text("Επαναλαμβάνω ότι αυτά πρέπει να τα ξεχάσει, δηλαδή να μην ποντάρει πάνω τους. " +
 				"Μακάρι π.χ για τον Ολυμπιακό ο Μήτρογλου να βάλει πέντε γκολ: όμως πριν ξεκινήσει το ματς " +

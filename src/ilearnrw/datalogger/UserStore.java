@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 import ilearnrw.user.User;
 import ilearnrw.user.profile.UserProfile;
-import ilearnrw.user.profile.UserSeveritiesToProblems;
+import ilearnrw.user.profile.UserProblems;
 import ilearnrw.utils.LanguageCode;
 /**
  * @brief The UserStore is used to create and store user objects persistantly.
@@ -229,8 +229,8 @@ public class UserStore implements ILoginProvider, IUserAdministration {
 			if( u.getDetails().getUsername().equals(username) )
 				if( u.getDetails().checkPassword(password)){
 
-				if( u.getProfile().getUserSeveritiesToProblems().getUserSeverities() == null )
-						u.getProfile().getUserSeveritiesToProblems().loadTestGreekProblems();
+				if( u.getProfile().getUserProblems().getUserSeverities() == null )
+						u.getProfile().getUserProblems().loadTestGreekProblems();
 					return deepCopy(u);
 				}
 		}
@@ -259,9 +259,9 @@ public class UserStore implements ILoginProvider, IUserAdministration {
 		u.getDetails().setPassword(password);
 		u.getDetails().setLanguage(lc);
 		if(u.getDetails().getLanguage() == LanguageCode.GR)
-			u.getProfile().getUserSeveritiesToProblems().loadTestGreekProblems();
+			u.getProfile().getUserProblems().loadTestGreekProblems();
 		else
-			u.getProfile().getUserSeveritiesToProblems().loadTestEnglishProblems();
+			u.getProfile().getUserProblems().loadTestEnglishProblems();
 		return update(u);
 	}
 
@@ -314,11 +314,11 @@ public class UserStore implements ILoginProvider, IUserAdministration {
 		checkAdminAuth();
 		List<User> ret = new ArrayList<User>();
 		for( User u : mLoadedUsers ) {
-			if( u.getProfile().getUserSeveritiesToProblems().getUserSeverities() == null )
+			if( u.getProfile().getUserProblems().getUserSeverities() == null )
 				if(u.getDetails().getLanguage() == LanguageCode.GR)
-					u.getProfile().getUserSeveritiesToProblems().loadTestGreekProblems();
+					u.getProfile().getUserProblems().loadTestGreekProblems();
 				else
-					u.getProfile().getUserSeveritiesToProblems().loadTestEnglishProblems();
+					u.getProfile().getUserProblems().loadTestEnglishProblems();
 			ret.add(deepCopy(u));
 		}
 		return ret;

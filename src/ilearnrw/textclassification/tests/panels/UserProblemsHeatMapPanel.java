@@ -1,13 +1,24 @@
 package ilearnrw.textclassification.tests.panels;
+import ilearnrw.textclassification.Word;
+import ilearnrw.textclassification.greek.GreekWord;
+import ilearnrw.textclassification.tests.panels.userproblems.TrickyWordsPanel;
 import ilearnrw.user.User;
 import ilearnrw.user.profile.UserSeverities;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
@@ -18,7 +29,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 
-public class UserSeveritiesHeatMapPanel extends JPanel {
+public class UserProblemsHeatMapPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private JTable heatMap;
@@ -26,14 +37,19 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 	private User user;
 	private int[][] data;
 	private int[][] multi;
+	private ArrayList<Word> trickyWords;
 	private CellRenderer renderer;
 	private JSplitPane splitPane;
 	private int colorMode = 0;
+	private JPanel upperPanel;
+	private TrickyWordsPanel trickyPanel;
+	private JButton addButton, removeButton;
 
-	public UserSeveritiesHeatMapPanel(User user){
+	public UserProblemsHeatMapPanel(User user){
 		this.user = user;
 
-		this.data = copyMatrix(user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities());
+		this.data = copyMatrix(user.getProfile().getUserProblems().getUserSeverities().getSeverities());
+		this.trickyWords = user.getProfile().getUserProblems().getTrickyWords();
 
         descriptionsText = new JTextPane();
         descriptionsText.setEditable(false);
@@ -54,9 +70,16 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 		splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
 		this.add(splitPane, BorderLayout.CENTER);
         splitPane.setResizeWeight(0.77);
-        
-        JScrollPane scrollPane = new JScrollPane(heatMap);
-		splitPane.setLeftComponent(scrollPane);
+		
+		upperPanel = new JPanel(new BorderLayout());
+		JScrollPane scrollPane = new JScrollPane(heatMap);
+		upperPanel.add(scrollPane, BorderLayout.CENTER);
+
+		ArrayList<Word> tmp = user.getProfile().getUserProblems().getTrickyWords();
+        trickyPanel = new TrickyWordsPanel(tmp.toArray());
+
+        upperPanel.add(trickyPanel, BorderLayout.PAGE_END);
+		splitPane.setLeftComponent(upperPanel);
         
 		splitPane.setRightComponent(descriptionsText);
 
@@ -73,7 +96,7 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 	public void setUser(User user){
 		this.user = user;
 
-		this.data = copyMatrix(user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities());
+		this.data = copyMatrix(user.getProfile().getUserProblems().getUserSeverities().getSeverities());
 		heatMap = new JTable(data.length,lengthsMax());
 		for (int i=0;i<lengthsMax(); i++)
 			heatMap.getTableHeader().getColumnModel().getColumn(i).setHeaderValue(""+(i+1)); 
@@ -85,8 +108,15 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new GridLayout(1,1));
 		
+		upperPanel = new JPanel(new BorderLayout());
 		JScrollPane scrollPane = new JScrollPane(heatMap);
-		splitPane.setLeftComponent(scrollPane);
+		upperPanel.add(scrollPane, BorderLayout.CENTER);
+
+		ArrayList<Word> tmp = user.getProfile().getUserProblems().getTrickyWords();
+        trickyPanel = new TrickyWordsPanel(tmp.toArray());
+
+        upperPanel.add(trickyPanel, BorderLayout.PAGE_END);
+		splitPane.setLeftComponent(upperPanel);
 		
 		draw();
 		test();
@@ -94,7 +124,7 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 	public void updateUser() {
 		if(user == null)
 			return;
-		UserSeverities severities = user.getProfile().getUserSeveritiesToProblems().getUserSeverities();
+		UserSeverities severities = user.getProfile().getUserProblems().getUserSeverities();
 		for (int i=0;i<multi.length;i++){
 			for (int j=0;j<multi[i].length;j++){
 				Object o = heatMap.getValueAt(i, j);
@@ -108,7 +138,8 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 				}
 			}
 		}
-		user.getProfile().getUserSeveritiesToProblems().setUserSeverities(severities);
+		user.getProfile().getUserProblems().setUserSeverities(severities);
+		user.getProfile().getUserProblems().setTrickyWords(trickyPanel.getWords());
 	}
 	
 	
@@ -124,7 +155,7 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 	}
 	
 	public void draw(){
-		this.data = copyMatrix(user.getProfile().getUserSeveritiesToProblems().getUserSeverities().getSeverities());
+		this.data = copyMatrix(user.getProfile().getUserProblems().getUserSeverities().getSeverities());
 		heatMap.setRowHeight(45);
 		heatMap.setAutoResizeMode( JTable.AUTO_RESIZE_OFF );
 		TableColumn column = null;
@@ -213,13 +244,13 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
 		//	res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
 		//}
 		if (j<data[i].length){
-			res = "Problem Title:"+user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).getType().getUrl();
-			if (!user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).getURI().
-					equalsIgnoreCase(user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).getType().getUrl()))
-				res = res + ", Targeted Area:"+user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).getURI();
+			res = "Problem Title:"+user.getProfile().getUserProblems().getProblemDefinition(i).getType().getUrl();
+			if (!user.getProfile().getUserProblems().getProblemDefinition(i).getURI().
+					equalsIgnoreCase(user.getProfile().getUserProblems().getProblemDefinition(i).getType().getUrl()))
+				res = res + ", Targeted Area:"+user.getProfile().getUserProblems().getProblemDefinition(i).getURI();
 			//res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
-			res = res + "\nMatching word characteristics:"+user.getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j).getProblemType();
-			res = res + " {"+user.getProfile().getUserSeveritiesToProblems().getProblemDescription(i, j).getDescriptionsTosString()+"}";
+			res = res + "\nMatching word characteristics:"+user.getProfile().getUserProblems().getProblemDescription(i, j).getProblemType();
+			res = res + " {"+user.getProfile().getUserProblems().getProblemDescription(i, j).getDescriptionsTosString()+"}";
 		}
 		return res;
 	}
@@ -264,7 +295,7 @@ public class UserSeveritiesHeatMapPanel extends JPanel {
             			c.setBackground(ConvertTotalToRgb(matrixMax(), multi[row][column]));
             	}                 
             
-            isBordered = user.getProfile().getUserSeveritiesToProblems().getWorkingIndex(row) == column;            
+            isBordered = user.getProfile().getUserProblems().getWorkingIndex(row) == column;            
             if (isBordered) {
 				if (isSelected) {
 					if (selectedBorder == null) {

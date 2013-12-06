@@ -22,27 +22,11 @@ public class GreekWordGenerator {
 
 	public static void main(String a[]) throws Exception {
 
-		String w = "κομπρεσέρ";
-		GreekSpeller gs = new GreekSpeller(w);
-		gs.performSpelling();
-		for (String s : gs.getTokens())
-			System.out.print(s+"-");
-		System.out.println();
-		w = "κομπιούτερ";
-		gs = new GreekSpeller(w);
-		gs.performSpelling();
-		for (String s : gs.getTokens())
-			System.out.print(s+"-");
-		System.out.println();
-		w = "για";
-		gs = new GreekSpeller(w);
-		gs.performSpelling();
-		for (String s : gs.getTokens())
-			System.out.print(s+"-");
+		GreekPhonetics gp = new GreekPhonetics("για να μη γκουλής ζβήσι μηρικά αρχεία απ τουν φάκελου ");
+		System.out.println(gp.getResult());
 	    //frame.setVisible(false);
 	    //frame = null;
-		/*GreekPhonetics gp = new GreekPhonetics("καλημέρα χώμα κόμμα");
-		System.out.println(gp.getResult());
+		/*
 		Text t = new Text("Νιγκ", LanguageCode.GR);
 		Sentence s[] = t.getSentences();
 		for (Sentence ss : s){

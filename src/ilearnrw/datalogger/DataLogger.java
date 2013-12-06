@@ -79,7 +79,7 @@ import ilearnrw.user.UserDetails;
 import ilearnrw.user.UserPreferences;
 import ilearnrw.user.UserSession;
 import ilearnrw.user.problems.ProblemDefinition;
-import ilearnrw.user.profile.UserSeveritiesToProblems;
+import ilearnrw.user.profile.UserProblems;
 import ilearnrw.utils.LanguageCode;
 
 
@@ -226,8 +226,8 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 	}
 
 	@Override
-	public boolean setUserProblemMatrix(UserSeveritiesToProblems problemsMatrix) {
-		mUser.getProfile().setUserSeveritiesToProblems(problemsMatrix);
+	public boolean setUserProblemMatrix(UserProblems problemsMatrix) {
+		mUser.getProfile().setProblems(problemsMatrix);
 		setDirty();
 		return true;
 	}

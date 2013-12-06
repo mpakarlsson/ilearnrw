@@ -28,7 +28,7 @@ public class UserProblems extends ConsoleMenuAction {
 				new ConsoleMenuAction("List problem definitions") {
 					@Override
 					public EConsoleMenuActionResult onSelected(ConsoleMenu menu) {
-						menu.out().print(mUser.getProfile().getUserSeveritiesToProblems().toString());
+						menu.out().print(mUser.getProfile().getUserProblems().toString());
 
 						return EConsoleMenuActionResult.showThisMenuAgain;
 					}

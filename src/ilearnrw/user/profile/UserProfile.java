@@ -8,30 +8,30 @@ import java.io.Serializable;
 public class UserProfile implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private UserSeveritiesToProblems userSeveritiesToProblems;
+	private UserProblems userProblems;
 	private UserPreferences preferences;
 	
-	public UserProfile(UserSeveritiesToProblems problemsMatrix, UserPreferences preferences) {
-		this.userSeveritiesToProblems = problemsMatrix;
+	public UserProfile(UserProblems problemsMatrix, UserPreferences preferences) {
+		this.userProblems = problemsMatrix;
 		this.preferences = preferences;
 	}
 	
 	public UserProfile() {
-		this.userSeveritiesToProblems = new UserSeveritiesToProblems();//has to set the problems to default values;
+		this.userProblems = new UserProblems();//has to set the problems to default values;
 		this.preferences = new UserPreferences();//has to set the preferences to default values;
 	}
 	
 	public UserProfile(int userId) {
-		this.userSeveritiesToProblems = new UserSeveritiesToProblems();//userId);//has to set the problems to default values;
+		this.userProblems = new UserProblems();//userId);//has to set the problems to default values;
 		this.preferences = new UserPreferences(userId);//has to set the preferences to default values;
 	}
 
-	public UserSeveritiesToProblems getUserSeveritiesToProblems() {
-		return userSeveritiesToProblems;
+	public UserProblems getUserProblems() {
+		return userProblems;
 	}
 
-	public void setUserSeveritiesToProblems(UserSeveritiesToProblems userSeveritiesToProblems) {
-		this.userSeveritiesToProblems = userSeveritiesToProblems;
+	public void setProblems(UserProblems userProblems) {
+		this.userProblems = userProblems;
 	}
 
 	public UserPreferences getPreferences() {

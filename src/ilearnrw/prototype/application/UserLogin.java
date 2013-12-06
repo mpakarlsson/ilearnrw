@@ -50,7 +50,7 @@ public class UserLogin extends ConsoleMenuAction {
 		
 		menu.out().println("User successfully logged in: " + user.getDetails().getUsername());
 		
-		String problemsMatrix = user.getProfile().getUserSeveritiesToProblems().toString();
+		String problemsMatrix = user.getProfile().getUserProblems().toString();
 
 		menu.out().println(problemsMatrix);
 		

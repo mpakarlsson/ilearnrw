@@ -76,7 +76,7 @@ public class GreekDictionaryLoader {
 		FileInputStream fstream;
 		try {
 			fstream = new FileInputStream(path+"greek_dictionary.txt");
-			BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+			BufferedReader br = new BufferedReader(new InputStreamReader(fstream, "UTF-8"));
 
 			String strLine;
 
@@ -85,9 +85,9 @@ public class GreekDictionaryLoader {
 				String test = strLine;
 
 		        String[] result = test.split("\\\t");
-		        if (result.length<3 && result[0]!=null && !result[0].isEmpty()){
-		        	//System.out.println("Greek Dictionary"+ ++i+" "+result[0]);
-		    	}
+		        /*if (result.length<3 && result[0]!=null && !result[0].isEmpty()){
+		        	System.out.println("Greek Dictionary"+ ++i+" "+result[0]);
+		    	}*/
 		        if (result.length<3)
 		        	continue;
 

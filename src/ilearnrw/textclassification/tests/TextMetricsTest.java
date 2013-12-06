@@ -11,12 +11,12 @@ import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.tests.panels.FilesExplorerPanel;
 import ilearnrw.textclassification.tests.panels.TextPanel;
-import ilearnrw.textclassification.tests.panels.UserSeveritiesHeatMapPanel;
+import ilearnrw.textclassification.tests.panels.UserProblemsHeatMapPanel;
 import ilearnrw.textclassification.tests.panels.WordPanel;
 import ilearnrw.user.User;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.profile.UserSeverities;
-import ilearnrw.user.profile.UserSeveritiesToProblems;
+import ilearnrw.user.profile.UserProblems;
 import ilearnrw.utils.LanguageCode;
 
 import java.awt.BorderLayout;
@@ -57,7 +57,7 @@ public class TextMetricsTest extends JFrame {
 	private FilesExplorerPanel explorerPanel;
 	private GreekLanguageAnalyzer greekAnalyzer;
 	private EnglishLanguageAnalyzer englishAnalyzer;
-	private	UserSeveritiesHeatMapPanel userSeveritiesPanel;
+	private	UserProblemsHeatMapPanel userProblemsPanel;
 	private User user;
 
 	private static UserStore mUserStore = null;
@@ -161,7 +161,7 @@ public class TextMetricsTest extends JFrame {
 					/*Same as already selected*/
 					return;
 
-				userSeveritiesPanel.updateUser();
+				userProblemsPanel.updateUser();
 				/* Store any changes to user*/
 				mUserStore.update(user);
 				try {
@@ -175,7 +175,7 @@ public class TextMetricsTest extends JFrame {
 					updateLanguageLabel();
 					textPanel.reset(user);
 					wordPanel.reset(user);
-					userSeveritiesPanel.setUser(user);
+					userProblemsPanel.setUser(user);
 					explorerPanel.setLanguageAnalyzer(getLanguageAnalyzer(user));
 					explorerPanel.setUser(user);
 				} catch (Exception ex) {
@@ -195,8 +195,8 @@ public class TextMetricsTest extends JFrame {
 
 		textPanel = new TextPanel(user);
 		wordPanel = new WordPanel(user, this);
-		userSeveritiesPanel = new UserSeveritiesHeatMapPanel(user);
-		userSeveritiesPanel.setColorMode(getColorMode());
+		userProblemsPanel = new UserProblemsHeatMapPanel(user);
+		userProblemsPanel.setColorMode(getColorMode());
 		textPanel.setColorMode(getColorMode());
 		wordPanel.setColorMode(getColorMode());
 		
@@ -209,11 +209,11 @@ public class TextMetricsTest extends JFrame {
 		//tabbedPane.addTab( "Heat Map", heatMapPanel );
 		explorerPanel = new FilesExplorerPanel(user, tabbedPane, textPanel, this, getLanguageAnalyzer(user));
 		tabbedPane.addTab( "File Explorer", explorerPanel );
-		tabbedPane.addTab( "User Profile", userSeveritiesPanel );
+		tabbedPane.addTab( "User Profile", userProblemsPanel );
 		
 		// TODO change the 2 following rows / send them inside the UserSeveritiesHeatMapPanel class
-		userSeveritiesPanel.draw();
-		userSeveritiesPanel.test();
+		userProblemsPanel.draw();
+		userProblemsPanel.test();
 
 		contentPane.add(tabbedPane, BorderLayout.CENTER );
 		
@@ -256,7 +256,7 @@ public class TextMetricsTest extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				if (tabbedPane.getTitleAt(tabbedPane.getSelectedIndex()).equals("User Profile")){
-					userSeveritiesPanel.updateUser();
+					userProblemsPanel.updateUser();
 					/* Store any changes to user*/
 					mUserStore.update(user);
 					try {
@@ -266,7 +266,7 @@ public class TextMetricsTest extends JFrame {
 					} catch (AuthenticationException e1) {
 						e1.printStackTrace();
 					}
-					userSeveritiesPanel.setUser(user);
+					userProblemsPanel.setUser(user);
 				}
 			}
 		});

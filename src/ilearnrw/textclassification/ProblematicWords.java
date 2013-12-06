@@ -1,11 +1,11 @@
 package ilearnrw.textclassification;
 
-import ilearnrw.user.profile.UserSeveritiesToProblems;
+import ilearnrw.user.profile.UserProblems;
 
 public class ProblematicWords {
 	private WordsList table[][];
 
-	public ProblematicWords(UserSeveritiesToProblems userSeveritiesToProblems) {
+	public ProblematicWords(UserProblems userSeveritiesToProblems) {
 		int n = userSeveritiesToProblems.getNumerOfRows();
 		table = new WordsList[n][];
 		

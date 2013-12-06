@@ -1,6 +1,7 @@
 package ilearnrw.user.profile;
 
 import ilearnrw.prototype.application.JsonHandler;
+import ilearnrw.textclassification.Word;
 import ilearnrw.user.problems.EnglishProblems;
 import ilearnrw.user.problems.GreekProblems;
 import ilearnrw.user.problems.ProblemDefinition;
@@ -9,19 +10,25 @@ import ilearnrw.user.problems.ProblemDescription;
 import ilearnrw.user.problems.Problems;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Random;
 
-public class UserSeveritiesToProblems implements Serializable {
+public class UserProblems implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private ProblemDefinitionIndex problems;
 	private UserSeverities userSeverities;
+	private ArrayList<Word> trickyWords;
 	
-	public UserSeveritiesToProblems(){
+	public UserProblems(){
+		problems = new ProblemDefinitionIndex();
+		userSeverities = new UserSeverities();
+		setTrickyWords(new ArrayList<Word>());
 	}
 	
-	public UserSeveritiesToProblems(ProblemDefinitionIndex theProblems){
+	public UserProblems(ProblemDefinitionIndex theProblems){
 		initialize(theProblems);
+		setTrickyWords(new ArrayList<Word>());
 	}
 	
 	private void initialize(ProblemDefinitionIndex theProblems){
@@ -81,6 +88,28 @@ public class UserSeveritiesToProblems implements Serializable {
 
 	public int getSeverity(int i, int j) {
 		return userSeverities.getSeverity(i,j);
+	}
+
+	public ArrayList<Word> getTrickyWords() {
+		return trickyWords;
+	}
+
+	public void setTrickyWords(ArrayList<Word> trickyWords) {
+		this.trickyWords = trickyWords;
+	}
+
+	public void addTrickyWord(Word trickyWord) {
+		if (!this.trickyWords.contains(trickyWord))
+			this.trickyWords.add(trickyWord);
+	}
+
+	public boolean removeTrickyWord(Word trickyWord) {
+		if (!this.trickyWords.contains(trickyWord))
+			return false;
+		else {
+			this.trickyWords.remove(trickyWord);
+			return true;
+		}
 	}
 
 	public int getWorkingIndex(int i) {
