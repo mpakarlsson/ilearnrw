@@ -120,12 +120,13 @@ public class TextMetricsTest extends JFrame {
 		/*Fill the user ComboBox*/
 		try {
 			/*for( User u : mUserStore.getAllUsers() ){
-				if (u.getDetails().getUsername().equals("greek_few_problems")){
+				if (u.getDetails().getUsername().equals("greek_many_problems") || 
+						u.getDetails().getUsername().equals("english_many_problems")){
 					Random rand = new Random();
-					ProblemDefinitionIndex problems = u.getProfile().getUserSeveritiesToProblems().getProblems();
-					UserSeverities userSeverities = u.getProfile().getUserSeveritiesToProblems().getUserSeverities();
+					ProblemDefinitionIndex problems = u.getProfile().getUserProblems().getProblems();
+					UserSeverities userSeverities = u.getProfile().getUserProblems().getUserSeverities();
 					for (int i=0;i<problems.getIndexLength(); i++){
-						int wi = 2*problems.getRowLength(i)/3 + rand.nextInt(3);
+						int wi = problems.getRowLength(i)/3 + rand.nextInt(3);
 						userSeverities.setWorkingIndex(i, wi);
 						for (int j=0; j<userSeverities.getSeverityLength(i); j++){
 							if (j<wi/2)
@@ -348,30 +349,6 @@ public class TextMetricsTest extends JFrame {
 				{"# Letters and Numbers:", ""+txt.getNumberOfLettersAndNumbers(), 
 					"", "", 
 					"Text Score:", String.format("%.2f",cls.getUserProblemsToText().getTscore())}
-				/*
-				{"# Paragraphs", ""+txt.getNumberOfParagraphs()},
-				{"# Sentences:", ""+txt.getNumberOfSentences()},
-				{"# Words:", ""+txt.getNumberOfWords()},
-				{"# Distinct Words", ""+txt.getNumberOfDistinctWords()},
-				{"# Syllables:", ""+txt.getNumberOfSyllables()},
-				{"# Big Sentences (>=15 words)", ""+txt.getNumberOfBigSentences()},
-				{"# Polysyllabic Words (>=3 syllables)", ""+txt.getNumberOfPolysyllabicWords()},
-				{"# Letters and Numbers", ""+txt.getNumberOfLettersAndNumbers()},
-				{"Longest Word Length", ""+txt.getLongestWordLength()},
-				{"Longest Sentence Length", ""+txt.getLongestSentenceLength()},
-				{"Avg Words per Sentence", String.format("%.2f",txt.getWordsPerSentence())},
-				{"Avg Syllables per Word", String.format("%.2f",txt.getSyllablesPerWord())},
-				{"Avg Word Length", String.format("%.2f",txt.getAverageWordLength())},
-				{"Avg Longest Word Length", String.format("%.2f",txt.getAverageLongestWordLength())},
-				{"Flesch", String.format("%.2f",txt.flesch())},
-				{"Flesch-Kincaid", String.format("%.2f",txt.fleschKincaid())},
-				{"Automated", String.format("%.2f",txt.automated())},
-				{"Coleman-Liau", String.format("%.2f",txt.colemanLiau())},
-				{"SMOG", String.format("%.2f",txt.smog())},
-				{"Gunning FOG", String.format("%.2f",txt.gunningFog())},
-				{"Dale-Chall", String.format("%.2f",txt.daleChall())},
-				{"Formula", cls.getDifficultyToString()},
-				{"iLearnRW", String.format("%.2f",cls.getDifficulty())}*/
 		};
 		return data;
 	}

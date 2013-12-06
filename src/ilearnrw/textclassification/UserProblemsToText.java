@@ -1,14 +1,10 @@
-package ilearnrw.user.profile;
+package ilearnrw.textclassification;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.languagetools.greek.GreekDictionary;
-import ilearnrw.textclassification.ProblematicWords;
-import ilearnrw.textclassification.Text;
-import ilearnrw.textclassification.Word;
-import ilearnrw.textclassification.WordProblemInfo;
-import ilearnrw.textclassification.WordVsProblems;
 import ilearnrw.user.User;
 import ilearnrw.user.UserTextCounters;
+import ilearnrw.user.profile.UserProblems;
 
 import java.io.Serializable;
 import java.util.ArrayList;

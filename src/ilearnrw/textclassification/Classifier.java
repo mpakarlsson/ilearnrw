@@ -2,7 +2,6 @@ package ilearnrw.textclassification;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.user.User;
-import ilearnrw.user.profile.UserProblemsToText;
 
 public class Classifier {
 
