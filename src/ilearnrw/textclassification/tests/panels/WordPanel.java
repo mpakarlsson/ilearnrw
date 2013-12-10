@@ -191,7 +191,9 @@ public class WordPanel extends JPanel{
 				{"CV Form:", "-"},//+w.getCVForm()},
 				{"Total Hits:", "-"},//+cls.getUserProblemsToText().getTotalHits()},
 				{"User Hits:", "-"},//+cls.getUserProblemsToText().getUserHits()},
-				{"Word Score:", "-"}
+				{"Word Score:", "-"},
+				{"is Difficult:", "-"},
+				{"is Very Difficult:", "-"}
 		};
 
 		resultsTable = new JTable(data, columnNames);

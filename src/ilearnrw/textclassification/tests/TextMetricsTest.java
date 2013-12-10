@@ -376,18 +376,8 @@ public class TextMetricsTest extends JFrame {
 				{"Total Hits:", ""+cls.getUserProblemsToText().getTotalHits()},
 				{"User Hits:", ""+cls.getUserProblemsToText().getUserHits()},
 				{"Word Score:", ""+cls.getUserProblemsToText().getWscore()},
-				{"", ""},
-				{"", ""},
-				{"", ""},
-				{"", ""},
-				{"", ""},
-				{"", ""},
-				{"", ""},
-				{"", ""},
-				{"", ""},
-				{"", ""},
-				{"", ""},
-				{"", ""}
+				{"is Difficult:", ""+(cls.getUserProblemsToText().getWscore()>0)},
+				{"is Very Difficult:", ""+(cls.getUserProblemsToText().getWscore()>5)}
 		};
 		return data;
 	}
