@@ -96,7 +96,7 @@ public class FilesExplorerPanel extends JPanel{
 	private void addLegentPanel(){
 		Object rowData[][] = { { "#W: words", "#DW: Difficut Words", "#VDW: Very Difficult Words"},
             { "#P: Paragraphs", "#BS: Big Sentences (>=15 Words)", "WpS: Words per Sentence"},
-			{"F-K: Flesch-Kincaid", "iLRW: iLearnRW WARD", "TS: Text Score"}
+			{"F-K: Flesch-Kincaid", "TS: Text Score", ""}
 		};
 		Object columnNames[] = { "Column One", "Column Two", "Column Three" };
 		JTable legent = new JTable(rowData, columnNames);
@@ -143,7 +143,7 @@ public class FilesExplorerPanel extends JPanel{
 		private static final long serialVersionUID = 1L;
 		private ArrayList<IlearnFile> l;
 	    private final String[] columnNames = new String[]{"File Name", "#W", "#DW", "#VDW", 
-	    		"#P", "#BS", "WpS", "F-K", "iLRW", "TS"};
+	    		"#P", "#BS", "WpS", "F-K", "TS"};
 
 	    public MonModel() {
 	        super();
@@ -201,10 +201,6 @@ public class FilesExplorerPanel extends JPanel{
 	        	return l.get(rowIndex).getFleschKincaid();
 	        }
 	        else if(columnIndex==8){
-	            //return l.get(rowIndex).getiLearnRWFormat();
-	        	return l.get(rowIndex).getiLearnRW();
-	        }
-	        else if(columnIndex==9){
 	            //return l.get(rowIndex).getTextScoreFormat();
 	        	return l.get(rowIndex).getTextScore();
 	        }

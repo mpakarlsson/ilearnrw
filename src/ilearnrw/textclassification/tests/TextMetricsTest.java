@@ -119,14 +119,14 @@ public class TextMetricsTest extends JFrame {
 		
 		/*Fill the user ComboBox*/
 		try {
-			/*for( User u : mUserStore.getAllUsers() ){
-				if (u.getDetails().getUsername().equals("greek_many_problems") || 
-						u.getDetails().getUsername().equals("english_many_problems")){
+			for( User u : mUserStore.getAllUsers() ){
+				if (u.getDetails().getUsername().equals("greek_few_problems")){
+						//|| u.getDetails().getUsername().equals("english_many_problems")){
 					Random rand = new Random();
 					ProblemDefinitionIndex problems = u.getProfile().getUserProblems().getProblems();
 					UserSeverities userSeverities = u.getProfile().getUserProblems().getUserSeverities();
 					for (int i=0;i<problems.getIndexLength(); i++){
-						int wi = problems.getRowLength(i)/3 + rand.nextInt(3);
+						int wi = 2*problems.getRowLength(i)/3 + rand.nextInt(1);
 						userSeverities.setWorkingIndex(i, wi);
 						for (int j=0; j<userSeverities.getSeverityLength(i); j++){
 							if (j<wi/2)
@@ -142,7 +142,7 @@ public class TextMetricsTest extends JFrame {
 				}
 
 				mUserStore.update(u);
-			}*/
+			}
 			for( User u : mUserStore.getAllUsers() )
 				userCombobox.addItem(new UserListBoxWrapper(u));
 				
