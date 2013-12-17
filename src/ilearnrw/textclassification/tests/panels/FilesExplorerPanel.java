@@ -1,17 +1,16 @@
 package ilearnrw.textclassification.tests.panels;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
-import ilearnrw.textclassification.Classifier;
 import ilearnrw.textclassification.Text;
+import ilearnrw.textclassification.TextClassificationResults;
+import ilearnrw.textclassification.UserProblemsToText;
 import ilearnrw.textclassification.tests.TextMetricsTest;
-import ilearnrw.user.User;
+import ilearnrw.user.profile.UserProfile;
 import ilearnrw.utils.LanguageCode;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.awt.List;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -20,7 +19,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -28,9 +26,6 @@ import java.util.Scanner;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -38,21 +33,20 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableColumn;
 
 public class FilesExplorerPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private final String path = "texts/";
-	private User user;
+	private UserProfile userProfile;
 	private JTable table;
 	private LanguageAnalyzerAPI languageAnalyzer;
 	// TODO remove the following
 	private String unknown = "";
 	
-	public FilesExplorerPanel(User user, final JTabbedPane tabbedPane, final TextPanel textPanel, 
+	public FilesExplorerPanel(UserProfile userProfile, final JTabbedPane tabbedPane, final TextPanel textPanel, 
 			final TextMetricsTest metrics, LanguageAnalyzerAPI languageAnalyzer) {
 		super();		
-		this.user = user;
+		this.userProfile = userProfile;
 		this.languageAnalyzer = languageAnalyzer;
 		table = new JTable(new MonModel());
 		
@@ -133,8 +127,8 @@ public class FilesExplorerPanel extends JPanel{
 	}
 
 
-	public void setUser(User user){
-		this.user = user;
+	public void setUser(UserProfile userProfile){
+		this.userProfile = userProfile;
 		table.setModel(new MonModel());
 		//table.fireTableDataChanged();
 	}
@@ -282,20 +276,24 @@ public class FilesExplorerPanel extends JPanel{
 	    		  e1.printStackTrace();
 	    	  }
 	    	  LanguageCode lan = findLanguage(text);
-	    	  isSuitableToTheUser = lan == user.getDetails().getLanguage();
-	    	  Text t = new Text(text, lan);
-	    	  Classifier cls = new Classifier(user, t, languageAnalyzer);
-	    	  cls.calculateProblematicWords(false);
-	    	  numberOfWords = t.getNumberOfWords();
-	    	  numberOfDifficultWords = cls.getDiffWords();
-	    	  numberOfVeryDifficultWords = cls.getVeryDiffWords();
-	    	  totalHits = cls.getUserHits();
-	    	  numberOfBigSentences = t.getNumberOfBigSentences();
-	    	  numberOfParagraphs = t.getNumberOfParagraphs();
-	    	  FleschKincaid = t.fleschKincaid();
-	    	  textScore = cls.getUserProblemsToText().getTscore();
-	    	  iLearnRW = cls.getDifficulty();
-	    	  avgWordsPerSentence = t.getWordsPerSentence();
+	    	  isSuitableToTheUser = lan == userProfile.getLanguage();
+	    	  if (!isSuitableToTheUser)
+	    		  return;
+	    	  //Text t = new Text(text, lan);
+	    	  //Classifier cls = new Classifier(userProfile, t, languageAnalyzer);
+	    	  UserProblemsToText upt = new UserProblemsToText(userProfile, new Text(text, lan), languageAnalyzer);
+	    	  upt.calculateProblematicWords(false);
+	    	  TextClassificationResults tcr = upt.getTextClassificationResults();
+	    	  numberOfWords = tcr.getNumberOfTotalWords();
+	    	  numberOfDifficultWords = tcr.getDiffWords();
+	    	  numberOfVeryDifficultWords = tcr.getVeryDiffWords();
+	    	  totalHits = tcr.getUserHits();
+	    	  numberOfBigSentences = tcr.getNumberOfBigSentences();
+	    	  numberOfParagraphs = tcr.getNumberOfParagraphs();
+	    	  FleschKincaid = tcr.getFleschKincaid();
+	    	  textScore = tcr.getTscore();
+	    	  iLearnRW = 0;
+	    	  avgWordsPerSentence = tcr.getAverageWordsPerSentence();
 	    }
 
 		public boolean suitable() {

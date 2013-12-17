@@ -36,20 +36,16 @@ public class UserDetails implements Serializable {
 	 */
 	private byte[] mPasswordSalt;
 
-	private LanguageCode language;
-	
 	public UserDetails(String username, int password, LanguageCode language) {
 		this.username = username;
 		mPasswordHash = null;
 		mPasswordSalt = null;
-		this.language = language;
 	}
 	
 	public UserDetails(LanguageCode language) {
 		this.username = "username";
 		mPasswordHash = null;
 		mPasswordSalt = null;
-		this.language = language;
 	}
 	
 	public UserDetails(int userId) {
@@ -57,7 +53,6 @@ public class UserDetails implements Serializable {
 		this.username = "username";
 		mPasswordHash = null;
 		mPasswordSalt = null;
-		this.language = LanguageCode.GR;
 	}
 	
 	
@@ -142,17 +137,6 @@ public class UserDetails implements Serializable {
 	{
 		mPasswordHash = hash;
 		mPasswordSalt = salt;
-	}
-	
-	public LanguageCode getLanguage() {
-		return language;
-	}
-	/**
-	 * 
-	 * @param the language code as a enum item
-	 */
-	public void setLanguage(LanguageCode language) {
-		this.language = language;
 	}
 	
 }

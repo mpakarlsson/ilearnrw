@@ -4,8 +4,10 @@ import ilearnrw.datalogger.IUserAdministration.AuthenticationException;
 import ilearnrw.datalogger.UserStore;
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
-import ilearnrw.textclassification.Classifier;
+import ilearnrw.textclassification.TextClassificationResults;
+import ilearnrw.textclassification.WordClassificationResults;
 import ilearnrw.textclassification.Text;
+import ilearnrw.textclassification.UserProblemsToText;
 import ilearnrw.user.User;
 import ilearnrw.utils.LanguageCode;
 
@@ -38,7 +40,7 @@ public class MustGoToServer {
 		// TODO again, server side calls to select a user!
 		try {
 			for (User u : mUserStore.getAllUsers()) {
-				if (u.getDetails().getLanguage() == lan)
+				if (u.getProfile().getLanguage() == lan)
 					user = u;
 			}
 		} catch (AuthenticationException e) {
@@ -56,13 +58,13 @@ public class MustGoToServer {
 
 		// TODO next four lines must go server side!
 		LanguageAnalyzerAPI languageAnalyzer = new GreekLanguageAnalyzer();
-		Text t = new Text(text, lan);
-		Classifier cls = new Classifier(user, t, languageAnalyzer);
-		cls.calculateProblematicWords(false);
+		UserProblemsToText upt = new UserProblemsToText(user.getProfile(), new Text(text, lan), languageAnalyzer);
+		upt.calculateProblematicWords(false);
+		TextClassificationResults cr = upt.getTextClassificationResults();
 
 		// use the results locally!
-		int numberOfWords = t.getNumberOfWords();
-		double textScore = cls.getUserProblemsToText().getTscore();
+		int numberOfWords = cr.getNumberOfTotalWords();
+		double textScore = cr.getTscore();
 		System.out.println("Number Of Words:" + numberOfWords);
 		System.out.println("Text Score:" + textScore);
 

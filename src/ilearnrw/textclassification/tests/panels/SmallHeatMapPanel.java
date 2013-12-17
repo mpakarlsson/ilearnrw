@@ -1,7 +1,7 @@
 package ilearnrw.textclassification.tests.panels;
 
-import ilearnrw.textclassification.Classifier;
-import ilearnrw.user.User;
+import ilearnrw.textclassification.TextClassificationResults;
+import ilearnrw.user.profile.UserProfile;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -21,15 +21,17 @@ public class SmallHeatMapPanel extends JPanel {
 	
 	private JTable heatMap;
 	private JTextPane descriptionsText;
-	private Classifier classifier;
+	private TextClassificationResults classifier;
+	private UserProfile userProfile;
 	private int[][] data;
 	private int[][] multi;
 	private boolean first;
 	private CellRenderer renderer;
 	private int colorMode = 0;
 
-	public SmallHeatMapPanel(User user) {
-		this.data = copyMatrix(user.getProfile().getUserProblems().getUserSeverities().getSeverities());
+	public SmallHeatMapPanel(UserProfile userProfile) {
+		this.userProfile = userProfile;
+		this.data = copyMatrix(userProfile.getUserProblems().getUserSeverities().getSeverities());
 		for (int i=0;i<data.length;i++){
 			for (int j=0;j<data[i].length;j++){
 				data[i][j] = 0;
@@ -87,24 +89,15 @@ public class SmallHeatMapPanel extends JPanel {
 		this.colorMode = colorMode;
 	}
 	
-	public void setClassifier(Classifier classifier){
+	public void setClassifier(TextClassificationResults classifier){
 		this.classifier = classifier;
-		this.data = copyMatrix(classifier.getUserProblemsToText().getUserCounters().getCounters());
-	}
-	
-	private void formatValues(){
-		data[0][0] = 0;
-		for (int i=0;i<data.length;i++){
-			for (int j=0;j<data[i].length;j++){
-				data[0][0] = 0;
-			}
-		}
+		this.data = copyMatrix(classifier.getUserCounters().getCounters());
 	}
 	
 	public void draw(){
 		descriptionsText.setText("");
 		if (!first)
-			this.data = copyMatrix(classifier.getUserProblemsToText().getUserCounters().getCounters());
+			this.data = copyMatrix(classifier.getUserCounters().getCounters());
 		else{
 			first = false;
 			//formatValues();
@@ -182,20 +175,19 @@ public class SmallHeatMapPanel extends JPanel {
 		String res = "null";
 		if (classifier == null) 
 			return res;
-		User user = classifier.getUser();
 		//if (j==0){
 		//	res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
 		//}
 		if (j<data[i].length){
-			res = "Problem Title:"+user.getProfile().getUserProblems().getProblemDefinition(i).getType().getUrl();
-			if (!user.getProfile().getUserProblems().getProblemDefinition(i).getURI().
-					equalsIgnoreCase(user.getProfile().getUserProblems().getProblemDefinition(i).getType().getUrl()))
-				res = res + ", Targeted Area:"+user.getProfile().getUserProblems().getProblemDefinition(i).getURI();
+			res = "Problem Title:"+userProfile.getUserProblems().getProblemDefinition(i).getType().getUrl();
+			if (!userProfile.getUserProblems().getProblemDefinition(i).getURI().
+					equalsIgnoreCase(userProfile.getUserProblems().getProblemDefinition(i).getType().getUrl()))
+				res = res + ", Targeted Area:"+userProfile.getUserProblems().getProblemDefinition(i).getURI();
 			//res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
-			res = res + "\nMatching word characteristics:"+user.getProfile().getUserProblems().getProblemDescription(i, j).getProblemType();
-			res = res + " {"+user.getProfile().getUserProblems().getProblemDescription(i, j).getDescriptionsTosString()+"}";
+			res = res + "\nMatching word characteristics:"+userProfile.getUserProblems().getProblemDescription(i, j).getProblemType();
+			res = res + " {"+userProfile.getUserProblems().getProblemDescription(i, j).getDescriptionsTosString()+"}";
 			res = res + " \nFound "+multi[i][j]+" times\n";
-			res = res + " \nWords With Problem: "+classifier.getUserProblemsToText().getProblematicWords().getWordList(i, j).toString();
+			res = res + " \nWords With Problem: "+classifier.getProblematicWords().getWordList(i, j).toString();
 		}
 		//System.out.println(classifier.getUserProblemsToText().getProblematicWords().getWordList(i, j).toString());
 		return res;

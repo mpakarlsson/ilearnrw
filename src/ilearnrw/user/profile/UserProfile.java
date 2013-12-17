@@ -10,7 +10,9 @@ public class UserProfile implements Serializable {
 
 	private UserProblems userProblems;
 	private UserPreferences preferences;
-	
+
+	private LanguageCode language;
+
 	public UserProfile(UserProblems problemsMatrix, UserPreferences preferences) {
 		this.userProblems = problemsMatrix;
 		this.preferences = preferences;
@@ -41,7 +43,13 @@ public class UserProfile implements Serializable {
 	public void setPreferences(UserPreferences preferences) {
 		this.preferences = preferences;
 	}
-
 	
+	public LanguageCode getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(LanguageCode language) {
+		this.language = language;
+	}
 
 }

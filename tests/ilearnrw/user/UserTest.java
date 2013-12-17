@@ -43,7 +43,6 @@ public class UserTest {
 	public void testGetDetails(){
 		UserDetails details = user.getDetails();
 		assertEquals("Karl", details.getUsername());
-		assertEquals(LanguageCode.EN, details.getLanguage());
 	}
 	
 	@Test
@@ -51,9 +50,7 @@ public class UserTest {
 		UserDetails userDetails = user.getDetails();
 		
 		userDetails.setUsername("Eric");
-		userDetails.setLanguage(LanguageCode.EN);
 		
 		assertEquals("Eric", userDetails.getUsername());
-		assertEquals(LanguageCode.EN, userDetails.getLanguage());
 	}
 }

@@ -5,6 +5,7 @@ import ilearnrw.languagetools.greek.GreekDictionary;
 import ilearnrw.user.User;
 import ilearnrw.user.UserTextCounters;
 import ilearnrw.user.profile.UserProblems;
+import ilearnrw.user.profile.UserProfile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -43,12 +44,12 @@ public class UserProblemsToText implements Serializable {
 		Tscore = 0;
 	}
 	
-	public UserProblemsToText(User user, Text text, LanguageAnalyzerAPI languageAnalyser){
-		if (text.getLanguageCode() != user.getDetails().getLanguage() || 
-				languageAnalyser.getLanguageCode() != user.getDetails().getLanguage() || 
+	public UserProblemsToText(UserProfile userProfile, Text text, LanguageAnalyzerAPI languageAnalyser){
+		if (text.getLanguageCode() != userProfile.getLanguage() || 
+				languageAnalyser.getLanguageCode() != userProfile.getLanguage() || 
 				languageAnalyser.getLanguageCode() != text.getLanguageCode())
 			return;
-		this.userSeveritiesToProblems = user.getProfile().getUserProblems();
+		this.userSeveritiesToProblems = userProfile.getUserProblems();
 		this.calculateProblematicWords = true;
 		this.problematicWords = new ProblematicWords(userSeveritiesToProblems);
 		this.text = text;
@@ -56,7 +57,6 @@ public class UserProblemsToText implements Serializable {
 		wordScores = new HashMap<Word, Integer>();
 		int 
 		n = userSeveritiesToProblems.getNumerOfRows();
-		
 		userCounters = new UserTextCounters(n);
 		
 		for (int i=0; i<n; i++){
@@ -111,6 +111,50 @@ public class UserProblemsToText implements Serializable {
 		//Tscore = Tscore;/text.getNumberOfSentences();
 	}
 
+	public TextClassificationResults getTextClassificationResults(){
+		TextClassificationResults cr = new TextClassificationResults();
+		if (userSeveritiesToProblems==null || text==null){
+			System.out.println(text.toString());
+			return null;			
+		}
+
+		//user problems to text
+		cr.setWordScores(getWordScores());
+		cr.setSDW(getSDW());
+		cr.setTscore(getTscore());
+		cr.setTotalHits(getTotalHits());
+		cr.setUserHits(getUserHits());
+		cr.setDiffWords(getDiffWords());
+		cr.setVeryDiffWords(getVeryDiffWords());
+		cr.setProblematicWords(getProblematicWords());
+		cr.setUserCounters(getUserCounters());
+		
+		//text
+		cr.setNumberOfTotalWords(text.getNumberOfWords());
+		cr.setNumberOfDistinctWords(text.getNumberOfDistinctWords());
+		cr.setNumberOfSentences(text.getNumberOfSentences());
+		cr.setNumberOfSyllables(text.getNumberOfSyllables());
+		cr.setNumberOfBigSentences(text.getNumberOfBigSentences());
+		cr.setLongestWordLength(text.getLongestWordLength());
+		cr.setLongestSentenceLength(text.getLongestSentenceLength());
+		cr.setNumberOfPolysyllabicWords(text.getNumberOfPolysyllabicWords());
+		cr.setNumberOfLettersAndNumbers(text.getNumberOfLettersAndNumbers());
+		cr.setNumberOfParagraphs(text.getNumberOfParagraphs());
+		cr.setAverageWordLength(text.getAverageWordLength());
+		cr.setAverageLongestWordLength(text.getAverageLongestWordLength());
+		cr.setAverageWordsPerSentence(text.getWordsPerSentence());
+		cr.setAverageSyllablesPerWord(text.getSyllablesPerWord());
+		cr.setFlesch(text.flesch());
+		cr.setFleschKincaid(text.fleschKincaid());
+		cr.setAutomated(text.automated());
+		cr.setColemanLiau(text.colemanLiau());
+		cr.setSmog(text.smog());
+		cr.setGunningFog(text.gunningFog());
+		cr.setDaleChall(text.daleChall());
+		cr.setLc(text.getLanguageCode());
+		cr.setWordsFreq(text.getWordsFreq());
+		return cr;
+	}
 	
 	public Text getText() {
 		return text;

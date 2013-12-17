@@ -234,8 +234,8 @@ public class DataLogger implements IProfileAccessUpdater, ILoginProvider, IDataL
 
 	@Override
 	public boolean setUserLanguage(LanguageCode language) {
-		if(language != mUser.getDetails().getLanguage()){
-			mUser.getDetails().setLanguage(language);
+		if(language != mUser.getProfile().getLanguage()){
+			mUser.getProfile().setLanguage(language);
 			setDirty();
 			return true;
 		}

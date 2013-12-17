@@ -257,8 +257,8 @@ public class UserStore implements ILoginProvider, IUserAdministration {
 		User u = create();
 		u.getDetails().setUsername(username);
 		u.getDetails().setPassword(password);
-		u.getDetails().setLanguage(lc);
-		if(u.getDetails().getLanguage() == LanguageCode.GR)
+		u.getProfile().setLanguage(lc);
+		if(u.getProfile().getLanguage() == LanguageCode.GR)
 			u.getProfile().getUserProblems().loadTestGreekProblems();
 		else
 			u.getProfile().getUserProblems().loadTestEnglishProblems();
@@ -315,7 +315,7 @@ public class UserStore implements ILoginProvider, IUserAdministration {
 		List<User> ret = new ArrayList<User>();
 		for( User u : mLoadedUsers ) {
 			if( u.getProfile().getUserProblems().getUserSeverities() == null )
-				if(u.getDetails().getLanguage() == LanguageCode.GR)
+				if(u.getProfile().getLanguage() == LanguageCode.GR)
 					u.getProfile().getUserProblems().loadTestGreekProblems();
 				else
 					u.getProfile().getUserProblems().loadTestEnglishProblems();

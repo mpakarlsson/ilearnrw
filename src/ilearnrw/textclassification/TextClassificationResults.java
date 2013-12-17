@@ -7,14 +7,14 @@ package ilearnrw.textclassification;
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.user.User;
 import ilearnrw.user.UserTextCounters;
+import ilearnrw.user.profile.UserProfile;
 import ilearnrw.utils.LanguageCode;
 
 import java.util.HashMap;
 
-public class ClassificationResults {
+public class TextClassificationResults {
 
 	//user problems to text
-	private HashMap<Word, Integer> wordsScores;
 	private double SDW, Tscore;
 	private int totalHits, userHits, diffWords, veryDiffWords;
 	private ProblematicWords problematicWords;
@@ -29,10 +29,13 @@ public class ClassificationResults {
 	private LanguageCode lc;
 	private HashMap<Word, Integer> wordsFreq;	
 	
-	public ClassificationResults(User user, Text text, LanguageAnalyzerAPI languageAnalyzer) {
+	public TextClassificationResults(){
+	}
+	
+	/*
+	public ClassificationResults(UserProfile userProfile, Text text, LanguageAnalyzerAPI languageAnalyzer) {
 		//user problems to text
-		UserProblemsToText userProblemsToText = new UserProblemsToText(user, text, languageAnalyzer);
-		wordsScores = userProblemsToText.getWordScores();
+		UserProblemsToText userProblemsToText = new UserProblemsToText(userProfile, text, languageAnalyzer);
 		SDW = userProblemsToText.getSDW();
 		Tscore = userProblemsToText.getTscore();
 		totalHits = userProblemsToText.getTotalHits();
@@ -67,205 +70,262 @@ public class ClassificationResults {
 		daleChall = text.daleChall();
 		lc = text.getLanguageCode();
 		wordsFreq = text.getWordsFreq();
-	}
+	}*/
 	
-	/**
-	 * @return the wordsFreq
-	 */
-	public HashMap<Word, Integer> getWordsFreq() {
-		return wordsFreq;
-	}
-	/**
-	 * @return the problematicWords
-	 */
-	public ProblematicWords getProblematicWords() {
-		return problematicWords;
-	}
-	/**
-	 * @return the userCounters
-	 */
-	public UserTextCounters getUserCounters() {
-		return userCounters;
-	}
-	/**
-	 * @return the wordScores
-	 */
-	public HashMap<Word, Integer> getWordScores() {
-		return wordScores;
-	}
-	/**
-	 * @return the lc
-	 */
-	public LanguageCode getLc() {
-		return lc;
-	}
-	/**
-	 * @return the numberOfTotalWords
-	 */
-	public int getNumberOfTotalWords() {
-		return numberOfTotalWords;
-	}
-	/**
-	 * @return the numberOfDistinctWords
-	 */
-	public int getNumberOfDistinctWords() {
-		return numberOfDistinctWords;
-	}
-	/**
-	 * @return the numberOfSentences
-	 */
-	public int getNumberOfSentences() {
-		return numberOfSentences;
-	}
-	/**
-	 * @return the numberOfSyllables
-	 */
-	public int getNumberOfSyllables() {
-		return numberOfSyllables;
-	}
-	/**
-	 * @return the numberOfBigSentences
-	 */
-	public int getNumberOfBigSentences() {
-		return numberOfBigSentences;
-	}
-	/**
-	 * @return the longestWordLength
-	 */
-	public int getLongestWordLength() {
-		return longestWordLength;
-	}
-	/**
-	 * @return the longestSentenceLength
-	 */
-	public int getLongestSentenceLength() {
-		return longestSentenceLength;
-	}
-	/**
-	 * @return the numberOfPolysyllabicWords
-	 */
-	public int getNumberOfPolysyllabicWords() {
-		return numberOfPolysyllabicWords;
-	}
-	/**
-	 * @return the numberOfLettersAndNumbers
-	 */
-	public int getNumberOfLettersAndNumbers() {
-		return numberOfLettersAndNumbers;
-	}
-	/**
-	 * @return the numberOfParagraphs
-	 */
-	public int getNumberOfParagraphs() {
-		return numberOfParagraphs;
-	}
-	/**
-	 * @return the averageWordLength
-	 */
-	public double getAverageWordLength() {
-		return averageWordLength;
-	}
-	/**
-	 * @return the averageLongestWordLength
-	 */
-	public double getAverageLongestWordLength() {
-		return averageLongestWordLength;
-	}
-	/**
-	 * @return the averageWordsPerSentence
-	 */
-	public double getAverageWordsPerSentence() {
-		return averageWordsPerSentence;
-	}
-	/**
-	 * @return the averageSyllablesPerWord
-	 */
-	public double getAverageSyllablesPerWord() {
-		return averageSyllablesPerWord;
-	}
-	/**
-	 * @return the flesch
-	 */
-	public double getFlesch() {
-		return flesch;
-	}
-	/**
-	 * @return the fleschKincaid
-	 */
-	public double getFleschKincaid() {
-		return fleschKincaid;
-	}
-	/**
-	 * @return the automated
-	 */
-	public double getAutomated() {
-		return automated;
-	}
-	/**
-	 * @return the colemanLiau
-	 */
-	public double getColemanLiau() {
-		return colemanLiau;
-	}
-	/**
-	 * @return the smog
-	 */
-	public double getSmog() {
-		return smog;
-	}
-	/**
-	 * @return the gunningFog
-	 */
-	public double getGunningFog() {
-		return gunningFog;
-	}
-	/**
-	 * @return the daleChall
-	 */
-	public double getDaleChall() {
-		return daleChall;
-	}
-	/**
-	 * @return the wordsWeights
-	 */
-	public HashMap<Word, Integer> getWordsScores() {
-		return wordsScores;
-	}
-	/**
-	 * @return the sDW
-	 */
 	public double getSDW() {
 		return SDW;
 	}
-	/**
-	 * @return the tscore
-	 */
+
+	public void setSDW(double sDW) {
+		SDW = sDW;
+	}
+
 	public double getTscore() {
 		return Tscore;
 	}
-	/**
-	 * @return the totalHits
-	 */
+
+	public void setTscore(double tscore) {
+		Tscore = tscore;
+	}
+
 	public int getTotalHits() {
 		return totalHits;
 	}
-	/**
-	 * @return the userHits
-	 */
+
+	public void setTotalHits(int totalHits) {
+		this.totalHits = totalHits;
+	}
+
 	public int getUserHits() {
 		return userHits;
 	}
-	/**
-	 * @return the diffWords
-	 */
+
+	public void setUserHits(int userHits) {
+		this.userHits = userHits;
+	}
+
 	public int getDiffWords() {
 		return diffWords;
 	}
-	/**
-	 * @return the veryDiffWords
-	 */
+
+	public void setDiffWords(int diffWords) {
+		this.diffWords = diffWords;
+	}
+
 	public int getVeryDiffWords() {
 		return veryDiffWords;
+	}
+
+	public void setVeryDiffWords(int veryDiffWords) {
+		this.veryDiffWords = veryDiffWords;
+	}
+
+	public ProblematicWords getProblematicWords() {
+		return problematicWords;
+	}
+
+	public void setProblematicWords(ProblematicWords problematicWords) {
+		this.problematicWords = problematicWords;
+	}
+
+	public UserTextCounters getUserCounters() {
+		return userCounters;
+	}
+
+	public void setUserCounters(UserTextCounters userCounters) {
+		this.userCounters = userCounters;
+	}
+
+	public HashMap<Word, Integer> getWordScores() {
+		return wordScores;
+	}
+
+	public void setWordScores(HashMap<Word, Integer> wordScores) {
+		this.wordScores = wordScores;
+	}
+
+	public int getNumberOfTotalWords() {
+		return numberOfTotalWords;
+	}
+
+	public void setNumberOfTotalWords(int numberOfTotalWords) {
+		this.numberOfTotalWords = numberOfTotalWords;
+	}
+
+	public int getNumberOfDistinctWords() {
+		return numberOfDistinctWords;
+	}
+
+	public void setNumberOfDistinctWords(int numberOfDistinctWords) {
+		this.numberOfDistinctWords = numberOfDistinctWords;
+	}
+
+	public int getNumberOfSentences() {
+		return numberOfSentences;
+	}
+
+	public void setNumberOfSentences(int numberOfSentences) {
+		this.numberOfSentences = numberOfSentences;
+	}
+
+	public int getNumberOfSyllables() {
+		return numberOfSyllables;
+	}
+
+	public void setNumberOfSyllables(int numberOfSyllables) {
+		this.numberOfSyllables = numberOfSyllables;
+	}
+
+	public int getNumberOfBigSentences() {
+		return numberOfBigSentences;
+	}
+
+	public void setNumberOfBigSentences(int numberOfBigSentences) {
+		this.numberOfBigSentences = numberOfBigSentences;
+	}
+
+	public int getLongestWordLength() {
+		return longestWordLength;
+	}
+
+	public void setLongestWordLength(int longestWordLength) {
+		this.longestWordLength = longestWordLength;
+	}
+
+	public int getLongestSentenceLength() {
+		return longestSentenceLength;
+	}
+
+	public void setLongestSentenceLength(int longestSentenceLength) {
+		this.longestSentenceLength = longestSentenceLength;
+	}
+
+	public int getNumberOfPolysyllabicWords() {
+		return numberOfPolysyllabicWords;
+	}
+
+	public void setNumberOfPolysyllabicWords(int numberOfPolysyllabicWords) {
+		this.numberOfPolysyllabicWords = numberOfPolysyllabicWords;
+	}
+
+	public int getNumberOfLettersAndNumbers() {
+		return numberOfLettersAndNumbers;
+	}
+
+	public void setNumberOfLettersAndNumbers(int numberOfLettersAndNumbers) {
+		this.numberOfLettersAndNumbers = numberOfLettersAndNumbers;
+	}
+
+	public int getNumberOfParagraphs() {
+		return numberOfParagraphs;
+	}
+
+	public void setNumberOfParagraphs(int numberOfParagraphs) {
+		this.numberOfParagraphs = numberOfParagraphs;
+	}
+
+	public double getAverageWordLength() {
+		return averageWordLength;
+	}
+
+	public void setAverageWordLength(double averageWordLength) {
+		this.averageWordLength = averageWordLength;
+	}
+
+	public double getAverageLongestWordLength() {
+		return averageLongestWordLength;
+	}
+
+	public void setAverageLongestWordLength(double averageLongestWordLength) {
+		this.averageLongestWordLength = averageLongestWordLength;
+	}
+
+	public double getAverageWordsPerSentence() {
+		return averageWordsPerSentence;
+	}
+
+	public void setAverageWordsPerSentence(double averageWordsPerSentence) {
+		this.averageWordsPerSentence = averageWordsPerSentence;
+	}
+
+	public double getAverageSyllablesPerWord() {
+		return averageSyllablesPerWord;
+	}
+
+	public void setAverageSyllablesPerWord(double averageSyllablesPerWord) {
+		this.averageSyllablesPerWord = averageSyllablesPerWord;
+	}
+
+	public double getFlesch() {
+		return flesch;
+	}
+
+	public void setFlesch(double flesch) {
+		this.flesch = flesch;
+	}
+
+	public double getFleschKincaid() {
+		return fleschKincaid;
+	}
+
+	public void setFleschKincaid(double fleschKincaid) {
+		this.fleschKincaid = fleschKincaid;
+	}
+
+	public double getAutomated() {
+		return automated;
+	}
+
+	public void setAutomated(double automated) {
+		this.automated = automated;
+	}
+
+	public double getColemanLiau() {
+		return colemanLiau;
+	}
+
+	public void setColemanLiau(double colemanLiau) {
+		this.colemanLiau = colemanLiau;
+	}
+
+	public double getSmog() {
+		return smog;
+	}
+
+	public void setSmog(double smog) {
+		this.smog = smog;
+	}
+
+	public double getGunningFog() {
+		return gunningFog;
+	}
+
+	public void setGunningFog(double gunningFog) {
+		this.gunningFog = gunningFog;
+	}
+
+	public double getDaleChall() {
+		return daleChall;
+	}
+
+	public void setDaleChall(double daleChall) {
+		this.daleChall = daleChall;
+	}
+
+	public LanguageCode getLc() {
+		return lc;
+	}
+
+	public void setLc(LanguageCode lc) {
+		this.lc = lc;
+	}
+
+	public HashMap<Word, Integer> getWordsFreq() {
+		return wordsFreq;
+	}
+
+	public void setWordsFreq(HashMap<Word, Integer> wordsFreq) {
+		this.wordsFreq = wordsFreq;
 	}
 	
 
