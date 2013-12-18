@@ -13,7 +13,8 @@ public class UserProfile implements Serializable {
 
 	private LanguageCode language;
 
-	public UserProfile(UserProblems problemsMatrix, UserPreferences preferences) {
+	public UserProfile(LanguageCode language, UserProblems problemsMatrix, UserPreferences preferences) {
+		this.language = language;
 		this.userProblems = problemsMatrix;
 		this.preferences = preferences;
 	}

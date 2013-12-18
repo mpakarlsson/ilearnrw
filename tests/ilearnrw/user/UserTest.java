@@ -25,7 +25,7 @@ public class UserTest {
 	
 	@BeforeClass
 	public static void runOnceBeforeAnything(){
-		UserProfile profile = new UserProfile(null, null);
+		UserProfile profile = new UserProfile(null, null, null);
 		user = new User(1, profile, null, null);
 	}
 	
