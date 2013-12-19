@@ -27,19 +27,24 @@ public class UserProblems implements Serializable {
 	}
 	
 	public UserProblems(ProblemDefinitionIndex theProblems){
-		initialize(theProblems);
+		initialize(theProblems, true);
+		setTrickyWords(new ArrayList<Word>());
+	}
+	public UserProblems(ProblemDefinitionIndex theProblems, boolean initializeUserSeveruties) {
+		initialize(theProblems, initializeUserSeveruties);
 		setTrickyWords(new ArrayList<Word>());
 	}
 	
-	private void initialize(ProblemDefinitionIndex theProblems){
+	private void initialize(ProblemDefinitionIndex theProblems, boolean initializeUserSeverities){
 		this.problems = theProblems;
 		userSeverities = new UserSeverities(theProblems.getIndexLength());
 		
-		int idxLen = theProblems.getIndexLength();
-		for (int i=0; i<idxLen; i++){
-			userSeverities.constructRow(i, theProblems.getRowLength(i));
+		if(initializeUserSeverities) {
+			int idxLen = theProblems.getIndexLength();
+			for (int i=0; i<idxLen; i++){
+				userSeverities.constructRow(i, theProblems.getRowLength(i));
+			}
 		}
-
 	}
 	
 	// TODO: eliminate these functions and replace with db fetches!!!
