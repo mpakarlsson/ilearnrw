@@ -58,21 +58,22 @@ import ilearnrw.utils.LanguageCode;
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
 						new String[]{"ιά","ειά"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
-						new String[]{"ιά","ία"}, problemIndexPosition, i++);
+						new String[]{"ία"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
-						new String[]{"αί","αΐ", "εί","εΐ","οί","οΐ"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
-						new String[]{"αί","άι","οί","όι"}, problemIndexPosition, i++);
+						new String[]{"αΐ", "εΐ","οΐ"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
 						new String[]{"άι","όι"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
-						new String[]{"αι","αϊ","οι","οϊ","ει","εϊ"}, problemIndexPosition, i++);
+						new String[]{"άι","όι"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
-						new String[]{"ου","οϋ","ού","οΰ"}, problemIndexPosition, i++);
+						new String[]{"αϊ","οϊ","εϊ"}, problemIndexPosition, i++);
+				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
+						new String[]{"οϋ","οΰ"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
 						new String[]{"αυ","αϋ","αύ","αΰ"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
-						new String[]{"εύω"}, problemIndexPosition, i++);
+						new String[]{"εύω", "εύεις", "εύει", "εύουμε", "εύετε", "εύουν", 
+						"ευα", "ευες", "ευαν", "ευαμε", "ευατε", "ευαν"}, problemIndexPosition, i++);
 			}
 			
 
@@ -156,7 +157,7 @@ import ilearnrw.utils.LanguageCode;
                                 new String[]{"άκλα","άρα","αράς","αρόνα",
                                 "αρος","ούκλα"}, problemIndexPosition, i++);
                 problemDefinitionIndex.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH,
-                                new String[]{"άς","έας","ιάς","δόρος","άρης",
+                                new String[]{"έας","ιάς","δόρος","άρης",//"άς",
                                 "ιάρης","ιέρης", "ιέρα","ίτης","ιώτης","ίστας","ιστής","ίστρια",
                                 "της","τής","τρια","τισσα","τζής","τζού","τίας","τορας"}, problemIndexPosition, i++);
                 problemDefinitionIndex.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH,
@@ -327,9 +328,9 @@ import ilearnrw.utils.LanguageCode;
 			//{
 			//	int i=0;
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
-						new String[]{"ευ"}, problemIndexPosition, i++);
+						new String[]{"ευ", "εύ"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
-						new String[]{"αυ"}, problemIndexPosition, i++);
+						new String[]{"αυ", "αύ"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
 						new String[]{"εϋ"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 

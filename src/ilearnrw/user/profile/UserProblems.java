@@ -54,7 +54,7 @@ public class UserProblems implements Serializable {
 		//System.out.println(greekProbs.getAllProblems().toString());
 		
 		GreekProblems greekProbs = new GreekProblems();
-		initialize(greekProbs.getAllProblems());
+		//initialize(greekProbs.getAllProblems());
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){
 			userSeverities.setWorkingIndex(i, rand.nextInt(problems.getRowLength(i)));
@@ -70,7 +70,7 @@ public class UserProblems implements Serializable {
 		//System.out.println(greekProbs.getAllProblems().toString());
 		
 		//GreekProblems greekProbs = new GreekProblems();
-		initialize(enProbs.getAllProblems());
+		//initialize(enProbs.getAllProblems());
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){
 			userSeverities.setWorkingIndex(i, rand.nextInt(problems.getRowLength(i)));
