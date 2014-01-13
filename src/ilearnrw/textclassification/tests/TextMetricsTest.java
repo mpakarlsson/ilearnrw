@@ -5,18 +5,22 @@ import ilearnrw.datalogger.UserStore;
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
 import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
-import ilearnrw.prototype.application.Program;
-import ilearnrw.textclassification.Classifier;
+import ilearnrw.textclassification.TextClassificationResults;
 import ilearnrw.textclassification.Text;
+import ilearnrw.textclassification.UserProblemsToText;
+import ilearnrw.textclassification.UserProblemsToWord;
 import ilearnrw.textclassification.Word;
+import ilearnrw.textclassification.WordClassificationResults;
+import ilearnrw.textclassification.english.EnglishWord;
+import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.textclassification.tests.panels.FilesExplorerPanel;
 import ilearnrw.textclassification.tests.panels.TextPanel;
 import ilearnrw.textclassification.tests.panels.UserProblemsHeatMapPanel;
 import ilearnrw.textclassification.tests.panels.WordPanel;
 import ilearnrw.user.User;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
+import ilearnrw.user.profile.UserProfile;
 import ilearnrw.user.profile.UserSeverities;
-import ilearnrw.user.profile.UserProblems;
 import ilearnrw.utils.LanguageCode;
 
 import java.awt.BorderLayout;
@@ -28,11 +32,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -44,10 +46,11 @@ import javax.swing.border.EmptyBorder;
 
 public class TextMetricsTest extends JFrame {
 	private static final long serialVersionUID = 1L;
-	private static String path = "data/";
 	private LanguageCode lc;
-	private Text txt;
-	private Classifier cls;
+	private UserProblemsToText upt;
+	private UserProblemsToWord upw;
+	private TextClassificationResults tcr;
+	private WordClassificationResults wcr;
 
 	private JPanel contentPane;
 	private JLabel languageLabel;
@@ -120,13 +123,12 @@ public class TextMetricsTest extends JFrame {
 		/*Fill the user ComboBox*/
 		try {
 			/*for( User u : mUserStore.getAllUsers() ){
-				if (u.getDetails().getUsername().equals("greek_many_problems") || 
-						u.getDetails().getUsername().equals("english_many_problems")){
+				if (u.getDetails().getUsername().contains("_Inter")){
 					Random rand = new Random();
 					ProblemDefinitionIndex problems = u.getProfile().getUserProblems().getProblems();
 					UserSeverities userSeverities = u.getProfile().getUserProblems().getUserSeverities();
 					for (int i=0;i<problems.getIndexLength(); i++){
-						int wi = problems.getRowLength(i)/3 + rand.nextInt(3);
+						int wi =2*problems.getRowLength(i)/4 + rand.nextInt(1);
 						userSeverities.setWorkingIndex(i, wi);
 						for (int j=0; j<userSeverities.getSeverityLength(i); j++){
 							if (j<wi/2)
@@ -143,6 +145,7 @@ public class TextMetricsTest extends JFrame {
 
 				mUserStore.update(u);
 			}*/
+			
 			for( User u : mUserStore.getAllUsers() )
 				userCombobox.addItem(new UserListBoxWrapper(u));
 				
@@ -174,11 +177,11 @@ public class TextMetricsTest extends JFrame {
 						if(u.getUserId() == selectedUser.getUserId() )
 							user = u;
 					updateLanguageLabel();
-					textPanel.reset(user);
-					wordPanel.reset(user);
+					textPanel.reset(user.getProfile());
+					wordPanel.reset(user.getProfile());
 					userProblemsPanel.setUser(user);
-					explorerPanel.setLanguageAnalyzer(getLanguageAnalyzer(user));
-					explorerPanel.setUser(user);
+					explorerPanel.setLanguageAnalyzer(getLanguageAnalyzer(user.getProfile()));
+					explorerPanel.setUser(user.getProfile());
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
@@ -194,8 +197,8 @@ public class TextMetricsTest extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 
-		textPanel = new TextPanel(user);
-		wordPanel = new WordPanel(user, this);
+		textPanel = new TextPanel(user.getProfile());
+		wordPanel = new WordPanel(user.getProfile(), this);
 		userProblemsPanel = new UserProblemsHeatMapPanel(user);
 		userProblemsPanel.setColorMode(getColorMode());
 		textPanel.setColorMode(getColorMode());
@@ -208,7 +211,7 @@ public class TextMetricsTest extends JFrame {
 		tabbedPane.addTab( "Text & Metrics", textPanel );
 		tabbedPane.addTab( "Word & Metrics", wordPanel );
 		//tabbedPane.addTab( "Heat Map", heatMapPanel );
-		explorerPanel = new FilesExplorerPanel(user, tabbedPane, textPanel, this, getLanguageAnalyzer(user));
+		explorerPanel = new FilesExplorerPanel(user.getProfile(), tabbedPane, textPanel, this, getLanguageAnalyzer(user.getProfile()));
 		tabbedPane.addTab( "File Explorer", explorerPanel );
 		tabbedPane.addTab( "User Profile", userProblemsPanel );
 		
@@ -236,8 +239,8 @@ public class TextMetricsTest extends JFrame {
 		clearButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				textPanel.reset(user);
-				wordPanel.reset(user);
+				textPanel.reset(user.getProfile());
+				wordPanel.reset(user.getProfile());
 			}
 		});
 		toolBar.add(clearButton);  
@@ -281,9 +284,9 @@ public class TextMetricsTest extends JFrame {
 	
 	private boolean updateLanguageLabel(){
 		boolean result = false;
-		if (lc == null || lc!=user.getDetails().getLanguage())
+		if (lc == null || lc!=user.getProfile().getLanguage())
 			result = true;
-		lc = user.getDetails().getLanguage();
+		lc = user.getProfile().getLanguage();
 		if (lc == LanguageCode.EN){
 			languageLabel.setText(" Language | EN | ");
 		}
@@ -293,14 +296,7 @@ public class TextMetricsTest extends JFrame {
 		return result;
 	}
 	
-	public void classifierResults(boolean isWord){
-		String str;
-		if (isWord)
-			str = wordPanel.getText();
-		else
-			str = textPanel.getText();
-		txt = new Text(str, lc);
-		
+	public void classifierResults(boolean isWord){		
 		runTextClassifier(isWord);
 		if (isWord){
 			wordPanel.getSmallHeatMapPanel().test();
@@ -325,79 +321,75 @@ public class TextMetricsTest extends JFrame {
 		System.out.println(wp.toString());
 		*/
 		String[][] data = {
-				{"# Paragraphs", ""+txt.getNumberOfParagraphs(), 
-					"Longest Word Length:", ""+txt.getLongestWordLength(), 
-					"Flesch:", String.format("%.2f",txt.flesch())},
-				{"# Sentences:", ""+txt.getNumberOfSentences(), 
-						"Longest Sentence Length:", ""+txt.getLongestSentenceLength(), 
-						"Flesch-Kincaid:", String.format("%.2f",txt.fleschKincaid())},
-				{"# Words:", ""+txt.getNumberOfWords(), 
-							"Avg Words per Sentence:", String.format("%.2f",txt.getWordsPerSentence()), 
-							"Automated:", String.format("%.2f",txt.automated())},
-				{"# Distinct Words", ""+txt.getNumberOfDistinctWords(), 
-					"Avg Syllables per Word:", String.format("%.2f",txt.getSyllablesPerWord()), 
-					"Coleman-Liau:", String.format("%.2f",txt.colemanLiau())},
-				{"# Syllables:", ""+txt.getNumberOfSyllables(), 
-					"Avg Word Length:", String.format("%.2f",txt.getAverageWordLength()), 
-					"SMOG:", String.format("%.2f",txt.smog())},
-				{"# Big Sentences:", ""+txt.getNumberOfBigSentences(), 
-					"Avg Longest Word Length:", String.format("%.2f",txt.getAverageLongestWordLength()), 
-					"Gunning FOG:", String.format("%.2f",txt.gunningFog())},
-				{"# Polysyllabic Words:", ""+txt.getNumberOfPolysyllabicWords(), 
+				{"# Paragraphs", ""+tcr.getNumberOfParagraphs(), 
+					"Longest Word Length:", ""+tcr.getLongestWordLength(), 
+					"Flesch:", String.format("%.2f",tcr.getFlesch())},
+				{"# Sentences:", ""+tcr.getNumberOfSentences(), 
+						"Longest Sentence Length:", ""+tcr.getLongestSentenceLength(), 
+						"Flesch-Kincaid:", String.format("%.2f",tcr.getFleschKincaid())},
+				{"# Words:", ""+tcr.getNumberOfTotalWords(), 
+							"Avg Words per Sentence:", String.format("%.2f",tcr.getAverageWordsPerSentence()), 
+							"Automated:", String.format("%.2f",tcr.getAutomated())},
+				{"# Distinct Words", ""+tcr.getNumberOfDistinctWords(), 
+					"Avg Syllables per Word:", String.format("%.2f",tcr.getAverageSyllablesPerWord()), 
+					"Coleman-Liau:", String.format("%.2f",tcr.getColemanLiau())},
+				{"# Syllables:", ""+tcr.getNumberOfSyllables(), 
+					"Avg Word Length:", String.format("%.2f",tcr.getAverageWordLength()), 
+					"SMOG:", String.format("%.2f",tcr.getSmog())},
+				{"# Big Sentences:", ""+tcr.getNumberOfBigSentences(), 
+					"Avg Longest Word Length:", String.format("%.2f",tcr.getAverageLongestWordLength()), 
+					"Gunning FOG:", String.format("%.2f",tcr.getGunningFog())},
+				{"# Polysyllabic Words:", ""+tcr.getNumberOfPolysyllabicWords(), 
 					"", "", 
-					"iLearnRW:", String.format("%.2f",cls.getDifficulty())},
-				{"# Letters and Numbers:", ""+txt.getNumberOfLettersAndNumbers(), 
+					""},
+				{"# Letters and Numbers:", ""+tcr.getNumberOfLettersAndNumbers(), 
 					"", "", 
-					"Text Score:", String.format("%.2f",cls.getUserProblemsToText().getTscore())}
+					"Text Score:", String.format("%.2f",tcr.getTscore())}
 		};
 		return data;
 	}
 	
 	private String[][] testWordMetrics(){
-		
-		HashMap<Word, Integer> hs = txt.getWordsFreq();
-		
-		Object tmp[] = hs.keySet().toArray();
-		Word w = (Word)tmp[0];
-		/*System.out.println(w.toString()+ " -- "+w.getLanguageCode());
-		WordVsProblems wp = new WordVsProblems(w.getLanguageCode());
-		wp.insertWord(w);
-		System.out.println(wp.toString());
-		*/
 		String[][] data = {
-				{"Word:", ""+w.toString()},
+				{"Word:", ""+wcr.getWord()},
 				{"Word Language", findLanguage(wordPanel.getText()) == LanguageCode.GR?"Greek":"English"},
-				{"User Compatible", findLanguage(wordPanel.getText()) == user.getDetails().getLanguage()?"True":"False"},
-				{"# Letters:", ""+w.getLength()},
-				{"# Syllables:", ""+w.getNumberOfSyllables()},
-				{"Phonetics:", ""+w.getPhonetics()},
-				{"Syllables:", ""+w.getWordInToSyllables()},
-				{"CV Form:", ""+w.getCVForm()},
-				{"Total Hits:", ""+cls.getUserProblemsToText().getTotalHits()},
-				{"User Hits:", ""+cls.getUserProblemsToText().getUserHits()},
-				{"Word Score:", ""+cls.getUserProblemsToText().getWscore()},
-				{"is Difficult:", ""+(cls.getUserProblemsToText().getWscore()>0)},
-				{"is Very Difficult:", ""+(cls.getUserProblemsToText().getWscore()>5)}
+				{"User Compatible", findLanguage(wordPanel.getText()) == user.getProfile().getLanguage()?"True":"False"},
+				{"# Letters:", ""+wcr.getLength()},
+				{"# Syllables:", ""+wcr.getNumberOfSyllables()},
+				{"Phonetics:", ""+wcr.getPhonetics()},
+				{"Syllables:", ""+wcr.getWordInSyllables()},
+				{"CV Form:", ""+wcr.getCvForm()},
+				{"Total Hits:", ""+wcr.getTotalHits()},
+				{"User Hits:", ""+wcr.getUserHits()},
+				{"Word Score:", ""+wcr.getWscore()},
+				{"is Difficult:", ""+wcr.isDifficult()},
+				{"is Very Difficult:", ""+wcr.isVeryDifficult()}
 		};
 		return data;
 	}
 	
 	public void runTextClassifier(boolean isWord){
 		if (isWord){
-			Text t = new Text(wordPanel.getText(), lc);
-			cls = new Classifier(user, t, getLanguageAnalyzer(user));
-			wordPanel.getSmallHeatMapPanel().setClassifier(cls);
+			Word ww;
+			if (lc==LanguageCode.GR)
+				ww = new GreekWord(wordPanel.getText());
+			else 
+				ww = new EnglishWord(wordPanel.getText());
+			
+			upw = new UserProblemsToWord(user.getProfile(), ww, getLanguageAnalyzer(user.getProfile()));
+			wcr = upw.getWordClassificationResults();
+			wordPanel.getSmallHeatMapPanel().setClassifier(wcr);
 		}
 		else{
-			Text t = new Text(textPanel.getText(), lc);
-			cls = new Classifier(user, t, getLanguageAnalyzer(user));
-			//heatMapPanel.setClassifier(cls);
-			textPanel.getSmallHeatMapPanel().setClassifier(cls);
+			upt = new UserProblemsToText(user.getProfile(), new Text(textPanel.getText(), lc), 
+					getLanguageAnalyzer(user.getProfile()));
+			tcr = upt.getTextClassificationResults();
+			textPanel.getSmallHeatMapPanel().setClassifier(tcr);
 		}
 	}
 
-	private LanguageAnalyzerAPI getLanguageAnalyzer(User user){
-		if (user.getDetails().getLanguage() == LanguageCode.GR)
+	private LanguageAnalyzerAPI getLanguageAnalyzer(UserProfile userProfile){
+		if (userProfile.getLanguage() == LanguageCode.GR)
 			return greekAnalyzer;
 		else 
 			return englishAnalyzer;

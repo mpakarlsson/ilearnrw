@@ -2,10 +2,11 @@ package ilearnrw.textclassification;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.user.User;
+import ilearnrw.user.profile.UserProfile;
 
 public class Classifier {
 
-	private User user;
+	private UserProfile userProfile;
 	private UserProblemsToText userProblemsToText;
 	private Text text;
 	private LanguageAnalyzerAPI languageAnalyzer;
@@ -14,11 +15,11 @@ public class Classifier {
 		
 	}
 			
-	public Classifier(User user, Text text, LanguageAnalyzerAPI languageAnalyzer) {
-		this.user = user;
+	public Classifier(UserProfile userProfile, Text text, LanguageAnalyzerAPI languageAnalyzer) {
+		this.userProfile = userProfile;
 		this.text = text;
 		this.languageAnalyzer = languageAnalyzer;
-		this.userProblemsToText = new UserProblemsToText(user, text, languageAnalyzer);
+		this.userProblemsToText = new UserProblemsToText(userProfile, text, languageAnalyzer);
 	}
 	
 	//formula :: ((top of Age range + bottom of Age Range)/2)/100 + SDW / NW + LSI
@@ -149,12 +150,12 @@ OR
 		this.userProblemsToText.calculateProblematicWords(calculateProblematicWords);
 	}
 
-	public User getUser() {
-		return user;
+	public UserProfile getUserProfile() {
+		return userProfile;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(UserProfile userProfile) {
+		this.userProfile = userProfile;
 	}
 
 	public int getUserHits() {

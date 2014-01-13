@@ -25,7 +25,7 @@ public class UserTest {
 	
 	@BeforeClass
 	public static void runOnceBeforeAnything(){
-		UserProfile profile = new UserProfile(null, null);
+		UserProfile profile = new UserProfile(null, null, null);
 		user = new User(1, profile, null, null);
 	}
 	
@@ -43,7 +43,6 @@ public class UserTest {
 	public void testGetDetails(){
 		UserDetails details = user.getDetails();
 		assertEquals("Karl", details.getUsername());
-		assertEquals(LanguageCode.EN, details.getLanguage());
 	}
 	
 	@Test
@@ -51,9 +50,7 @@ public class UserTest {
 		UserDetails userDetails = user.getDetails();
 		
 		userDetails.setUsername("Eric");
-		userDetails.setLanguage(LanguageCode.EN);
 		
 		assertEquals("Eric", userDetails.getUsername());
-		assertEquals(LanguageCode.EN, userDetails.getLanguage());
 	}
 }

@@ -107,7 +107,10 @@ public class ProblemDefinitionIndex implements Serializable, ProblemDefinitionIn
 		for (int i=0; i<problemsIndex.length; i++){
 			res = res + problemsIndex[i] + " ] : |";
 			for (int j=0; j<problems[i].length; j++){
-				res = res + problems[i][j].toString() + " | ";
+				if (problems[i][j] != null)
+					res = res + problems[i][j].toString() + " | ";
+				else
+					res = res + "null" + " | ";
 			}
 			res = res + "\n";
 		}

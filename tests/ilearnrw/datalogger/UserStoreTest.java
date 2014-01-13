@@ -101,7 +101,7 @@ public class UserStoreTest {
 			testUser = userStore.createUser("albin", "rawr", LanguageCode.EN);
 		} catch (AuthenticationException e) {e.printStackTrace();}
 		String name = testUser.getDetails().getUsername();
-		testUser.setDetails(new UserDetails("sture", 2, user.getDetails().getLanguage()));
+		testUser.setDetails(new UserDetails("sture", 2, user.getProfile().getLanguage()));
 		
 		User tempUser3 = userStore.update(testUser);
 		assertThat(tempUser3.getDetails().getUsername(), not(name));

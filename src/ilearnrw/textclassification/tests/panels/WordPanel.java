@@ -2,7 +2,7 @@ package ilearnrw.textclassification.tests.panels;
 
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.tests.TextMetricsTest;
-import ilearnrw.user.User;
+import ilearnrw.user.profile.UserProfile;
 import ilearnrw.utils.LanguageCode;
 
 import java.awt.BorderLayout;
@@ -44,7 +44,7 @@ public class WordPanel extends JPanel{
 		
 	}
 	
-	public WordPanel(User user, final TextMetricsTest metrics) {
+	public WordPanel(UserProfile userProfile, final TextMetricsTest metrics) {
 		super();
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new BorderLayout(0, 0));
@@ -98,7 +98,7 @@ public class WordPanel extends JPanel{
 
 		//mainManel.setRightComponent(scrpanel);
 
-        smallHeat = new WordHeatMapPanel(user);
+        smallHeat = new WordHeatMapPanel(userProfile);
         smallHeat.draw();
         smallHeat.test();
 
@@ -118,13 +118,13 @@ public class WordPanel extends JPanel{
 		smallHeat.setColorMode(colorMode);
 	}
 	
-	public void reset(User user){
+	public void reset(UserProfile userProfile){
 		word.setText("");
 		resetResultsTable();
 		scrpanel = new JPanel();
 		scrpanel.setLayout(new GridLayout(1,1));
 		//splitPane_1.setRightComponent(scrpanel);
-        smallHeat = new WordHeatMapPanel(user);
+        smallHeat = new WordHeatMapPanel(userProfile);
         smallHeat.draw();
         smallHeat.test();
 

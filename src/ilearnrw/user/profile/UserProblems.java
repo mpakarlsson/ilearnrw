@@ -11,6 +11,7 @@ import ilearnrw.user.problems.Problems;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class UserProblems implements Serializable {
@@ -27,19 +28,24 @@ public class UserProblems implements Serializable {
 	}
 	
 	public UserProblems(ProblemDefinitionIndex theProblems){
-		initialize(theProblems);
+		initialize(theProblems, true);
+		setTrickyWords(new ArrayList<Word>());
+	}
+	public UserProblems(ProblemDefinitionIndex theProblems, boolean initializeUserSeveruties) {
+		initialize(theProblems, initializeUserSeveruties);
 		setTrickyWords(new ArrayList<Word>());
 	}
 	
-	private void initialize(ProblemDefinitionIndex theProblems){
+	private void initialize(ProblemDefinitionIndex theProblems, boolean initializeUserSeverities){
 		this.problems = theProblems;
 		userSeverities = new UserSeverities(theProblems.getIndexLength());
 		
-		int idxLen = theProblems.getIndexLength();
-		for (int i=0; i<idxLen; i++){
-			userSeverities.constructRow(i, theProblems.getRowLength(i));
+		if(initializeUserSeverities) {
+			int idxLen = theProblems.getIndexLength();
+			for (int i=0; i<idxLen; i++){
+				userSeverities.constructRow(i, theProblems.getRowLength(i));
+			}
 		}
-
 	}
 	
 	// TODO: eliminate these functions and replace with db fetches!!!
@@ -49,7 +55,7 @@ public class UserProblems implements Serializable {
 		//System.out.println(greekProbs.getAllProblems().toString());
 		
 		GreekProblems greekProbs = new GreekProblems();
-		initialize(greekProbs.getAllProblems());
+		//initialize(greekProbs.getAllProblems());
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){
 			userSeverities.setWorkingIndex(i, rand.nextInt(problems.getRowLength(i)));
@@ -65,7 +71,7 @@ public class UserProblems implements Serializable {
 		//System.out.println(greekProbs.getAllProblems().toString());
 		
 		//GreekProblems greekProbs = new GreekProblems();
-		initialize(enProbs.getAllProblems());
+		//initialize(enProbs.getAllProblems());
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){
 			userSeverities.setWorkingIndex(i, rand.nextInt(problems.getRowLength(i)));

@@ -7,6 +7,8 @@ import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
 import ilearnrw.rest.AuthenticatedRestClient;
 import ilearnrw.textclassification.Classifier;
 import ilearnrw.textclassification.Text;
+import ilearnrw.textclassification.TextClassificationResults;
+import ilearnrw.textclassification.UserProblemsToText;
 import ilearnrw.user.User;
 import ilearnrw.utils.LanguageCode;
 
@@ -15,6 +17,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
+
+import com.google.gson.Gson;
 
 public class MustGoToServer {
 	private static String filename = "texts/deyteraDim2.txt";
@@ -40,41 +44,52 @@ public class MustGoToServer {
 		AuthenticatedRestClient restClient = new AuthenticatedRestClient();
 		List<User> users = null;
 		try {
-			restClient.authenticate("admin", "admin");
+			//restClient.authenticate("admin", "admin");
 			users = restClient.getAllUsers();
 		} catch (IOException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 
-		//for (User u : mUserStore.getAllUsers()) {
+		// TODO again, server side calls to select a user!
 		for (User u : users) {
-			if (u.getDetails().getLanguage() == lan)
-			{
+			System.out.println("id: " + u.getUserId() + ", language: " + u.getProfile().getLanguage());
+			if (u.getProfile().getLanguage() == lan)
 				user = u;
-				System.out.println(user.getUserId());
-			}
 		}
 
-//		// read the file locally
-//		String text = "";
-//		try {
-//			text = new Scanner(new File(filename), "UTF-8").useDelimiter("\\A").next();
-//		} catch (FileNotFoundException e1) {
-//			e1.printStackTrace();
-//		}
-//
-//		// TODO next four lines must go server side!
+		Gson gson = new Gson();
+		System.out.println("User:" + gson.toJson(user));
+		
+		//user.getProfile().getUserProblems().loadTestGreekProblems();
+		// read the file locally
+		String text = "";
+		try {
+			text = new Scanner(new File(filename), "UTF-8").useDelimiter("\\A").next();
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		}
+
+		// TODO next four lines must go server side!
 //		LanguageAnalyzerAPI languageAnalyzer = new GreekLanguageAnalyzer();
-//		Text t = new Text(text, lan);
-//		Classifier cls = new Classifier(user, t, languageAnalyzer);
-//		cls.calculateProblematicWords(false);
-//
-//		// use the results locally!
-//		int numberOfWords = t.getNumberOfWords();
-//		double textScore = cls.getUserProblemsToText().getTscore();
-//		System.out.println("Number Of Words:" + numberOfWords);
-//		System.out.println("Text Score:" + textScore);
+//		UserProblemsToText upt = new UserProblemsToText(user.getProfile(), new Text(text, lan), languageAnalyzer);
+//		upt.calculateProblematicWords(false);
+//		TextClassificationResults cr = upt.getTextClassificationResults();
+		System.out.println("Text:" + text);
+		TextClassificationResults cr = null;
+		try {
+			cr = restClient.classifyText(user, text);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		// use the results locally!
+		int numberOfWords = cr.getNumberOfTotalWords();
+		double textScore = cr.getTscore();
+		System.out.println("Number Of Words:" + numberOfWords);
+		System.out.println("Text Score:" + textScore);
+		System.out.println("Coleman Liau:" + cr.getColemanLiau());
+		System.out.println("Flesch Kincaid:" + cr.getFleschKincaid());
 
 	}
 

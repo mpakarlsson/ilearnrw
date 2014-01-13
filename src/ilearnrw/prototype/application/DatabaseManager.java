@@ -72,7 +72,7 @@ public class DatabaseManager extends ConsoleMenuAction {
 								menu.out().print(Integer.toString(u.getUserId()) + "\t");
 								menu.out().print(u.getDetails().getUsername() + "\t");
 								menu.out().print(Boolean.toString(u.getDetails().hasPassword()) + "\t");
-								menu.out().print(u.getDetails().getLanguage().toString() + "\t");
+								menu.out().print(u.getProfile().getLanguage().toString() + "\t");
 								menu.out().println();
 							}
 						}catch(AuthenticationException ex){}

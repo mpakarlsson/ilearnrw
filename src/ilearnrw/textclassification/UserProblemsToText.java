@@ -5,6 +5,7 @@ import ilearnrw.languagetools.greek.GreekDictionary;
 import ilearnrw.user.User;
 import ilearnrw.user.UserTextCounters;
 import ilearnrw.user.profile.UserProblems;
+import ilearnrw.user.profile.UserProfile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,13 +19,13 @@ public class UserProblemsToText implements Serializable {
 	private WordVsProblems wprobs;
 	private UserProblems userSeveritiesToProblems;
 	private UserTextCounters userCounters;
-	private HashMap<Word, Double> wordsWeights;
+	private HashMap<Word, Integer> wordScores;
 	private double SDW, Tscore;
 	private int totalHits, userHits, diffWords, veryDiffWords, Wscore;
 	private boolean calculateProblematicWords;
 	private ProblematicWords problematicWords;
 
-	// TODO fix the threshold to a valua that the experts want!
+	// TODO fix the threshold to a value that the experts want!
 	int threshold = 0;//the threshold for a severity so that the corresponding problem will be counted in the matrix
 	
 	public UserProblemsToText(){
@@ -34,7 +35,7 @@ public class UserProblemsToText implements Serializable {
 		this.userCounters = null;
 		this.text = null;
 		this.wprobs = null;
-		this.wordsWeights = null;
+		this.wordScores = null;
 		SDW = 0;
 		totalHits = 0;
 		diffWords = 0;
@@ -43,19 +44,19 @@ public class UserProblemsToText implements Serializable {
 		Tscore = 0;
 	}
 	
-	public UserProblemsToText(User user, Text text, LanguageAnalyzerAPI languageAnalyser){
-		if (text.getLanguageCode() != user.getDetails().getLanguage() || 
-				languageAnalyser.getLanguageCode() != user.getDetails().getLanguage() || 
+	public UserProblemsToText(UserProfile userProfile, Text text, LanguageAnalyzerAPI languageAnalyser){
+		if (text.getLanguageCode() != userProfile.getLanguage() || 
+				languageAnalyser.getLanguageCode() != userProfile.getLanguage() || 
 				languageAnalyser.getLanguageCode() != text.getLanguageCode())
 			return;
-		this.userSeveritiesToProblems = user.getProfile().getUserProblems();
+		this.userSeveritiesToProblems = userProfile.getUserProblems();
 		this.calculateProblematicWords = true;
 		this.problematicWords = new ProblematicWords(userSeveritiesToProblems);
 		this.text = text;
 		wprobs = new WordVsProblems(languageAnalyser);
-		wordsWeights = new HashMap<Word, Double>();
-		int n = userSeveritiesToProblems.getNumerOfRows();
-		
+		wordScores = new HashMap<Word, Integer>();
+		int 
+		n = userSeveritiesToProblems.getNumerOfRows();
 		userCounters = new UserTextCounters(n);
 		
 		for (int i=0; i<n; i++){
@@ -93,10 +94,13 @@ public class UserProblemsToText implements Serializable {
 					userHits++;
 					isDifficult = true;
 				}
-				if (!wordsWeights.containsKey(w)){
-					wordsWeights.put(entry.getKey(), appearences*t - (appearences-1)*0.25);
+				if (!wordScores.containsKey(w)){
+					//wordScores.put(entry.getKey(), appearences*t - (appearences-1)*0.25);
 					SDW += appearences*t;// - (appearences-1)*0.25;
 				}
+			}
+			if (!wordScores.containsKey(w)){
+				wordScores.put(entry.getKey(), Wscore);
 			}
 			Tscore += ((appearences+1)/2.0)*Wscore;
 			if (isDifficult)
@@ -107,6 +111,50 @@ public class UserProblemsToText implements Serializable {
 		//Tscore = Tscore;/text.getNumberOfSentences();
 	}
 
+	public TextClassificationResults getTextClassificationResults(){
+		TextClassificationResults cr = new TextClassificationResults();
+		if (userSeveritiesToProblems==null || text==null){
+			System.out.println(text.toString());
+			return null;			
+		}
+
+		//user problems to text
+		cr.setWordScores(getWordScores());
+		cr.setSDW(getSDW());
+		cr.setTscore(getTscore());
+		cr.setTotalHits(getTotalHits());
+		cr.setUserHits(getUserHits());
+		cr.setDiffWords(getDiffWords());
+		cr.setVeryDiffWords(getVeryDiffWords());
+		cr.setProblematicWords(getProblematicWords());
+		cr.setUserCounters(getUserCounters());
+		
+		//text
+		cr.setNumberOfTotalWords(text.getNumberOfWords());
+		cr.setNumberOfDistinctWords(text.getNumberOfDistinctWords());
+		cr.setNumberOfSentences(text.getNumberOfSentences());
+		cr.setNumberOfSyllables(text.getNumberOfSyllables());
+		cr.setNumberOfBigSentences(text.getNumberOfBigSentences());
+		cr.setLongestWordLength(text.getLongestWordLength());
+		cr.setLongestSentenceLength(text.getLongestSentenceLength());
+		cr.setNumberOfPolysyllabicWords(text.getNumberOfPolysyllabicWords());
+		cr.setNumberOfLettersAndNumbers(text.getNumberOfLettersAndNumbers());
+		cr.setNumberOfParagraphs(text.getNumberOfParagraphs());
+		cr.setAverageWordLength(text.getAverageWordLength());
+		cr.setAverageLongestWordLength(text.getAverageLongestWordLength());
+		cr.setAverageWordsPerSentence(text.getWordsPerSentence());
+		cr.setAverageSyllablesPerWord(text.getSyllablesPerWord());
+		cr.setFlesch(text.flesch());
+		cr.setFleschKincaid(text.fleschKincaid());
+		cr.setAutomated(text.automated());
+		cr.setColemanLiau(text.colemanLiau());
+		cr.setSmog(text.smog());
+		cr.setGunningFog(text.gunningFog());
+		cr.setDaleChall(text.daleChall());
+		cr.setLc(text.getLanguageCode());
+		cr.setWordsFreq(text.getWordsFreq());
+		return cr;
+	}
 	
 	public Text getText() {
 		return text;
@@ -148,12 +196,12 @@ public class UserProblemsToText implements Serializable {
 		this.calculateProblematicWords = calculateProblematicWords;
 	}
 
-	public HashMap<Word, Double> getWordsWeights() {
-		return wordsWeights;
+	public HashMap<Word, Integer> getWordScores() {
+		return wordScores;
 	}
 
-	public void setWordsWeights(HashMap<Word, Double> wordsWeights) {
-		this.wordsWeights = wordsWeights;
+	public void setWordScores(HashMap<Word, Integer> wordsWeights) {
+		this.wordScores = wordsWeights;
 	}
 
 	public int getDiffWords() {
@@ -209,9 +257,9 @@ public class UserProblemsToText implements Serializable {
 		return userSeveritiesToProblems.getSeverity(i, j);
 	}
 
-	public double getwordWeight(Word w){
-		if (!wordsWeights.containsKey(w)){
-			return wordsWeights.get(w);
+	public double getwordScore(Word w){
+		if (!wordScores.containsKey(w)){
+			return wordScores.get(w);
 		}
 		else return 0;
 	}

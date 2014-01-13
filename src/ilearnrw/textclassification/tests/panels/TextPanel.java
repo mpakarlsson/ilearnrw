@@ -1,6 +1,6 @@
 package ilearnrw.textclassification.tests.panels;
 
-import ilearnrw.user.User;
+import ilearnrw.user.profile.UserProfile;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -34,7 +34,7 @@ public class TextPanel extends JPanel{
 		
 	}
 	
-	public TextPanel(User user) {
+	public TextPanel(UserProfile userProfile) {
 		super();
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new BorderLayout(0, 0));
@@ -65,7 +65,7 @@ public class TextPanel extends JPanel{
 
 		splitPaneUpDown.setRightComponent(scrpanel);
 
-        smallHeat = new SmallHeatMapPanel(user);
+        smallHeat = new SmallHeatMapPanel(userProfile);
         smallHeat.draw();
         smallHeat.test();
 
@@ -86,13 +86,13 @@ public class TextPanel extends JPanel{
 		smallHeat.setColorMode(colorMode);
 	}
 	
-	public void reset(User user){
+	public void reset(UserProfile userProfile){
 		mainText.setText("");
 		resetResultsTable();
 		scrpanel = new JPanel();
 		scrpanel.setLayout(new GridLayout(1,1));
 		//splitPane_1.setRightComponent(scrpanel);
-        smallHeat = new SmallHeatMapPanel(user);
+        smallHeat = new SmallHeatMapPanel(userProfile);
         smallHeat.draw();
         smallHeat.test();
 
