@@ -90,6 +90,20 @@ public class MustGoToServer {
 		System.out.println("Text Score:" + textScore);
 		System.out.println("Coleman Liau:" + cr.getColemanLiau());
 		System.out.println("Flesch Kincaid:" + cr.getFleschKincaid());
+		
+		
+		//english text
+		text = "classify this please thank you";
+		System.out.println("Text:" + text);
+		try {
+			cr = restClient.classifyText(user, text);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("Number Of Words:" + cr.getNumberOfTotalWords());
+		System.out.println("Text Score:" + cr.getTscore());
+		System.out.println("Coleman Liau:" + cr.getColemanLiau());
+		System.out.println("Flesch Kincaid:" + cr.getFleschKincaid());
 
 	}
 
