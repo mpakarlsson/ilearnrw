@@ -40,19 +40,19 @@ import ilearnrw.utils.LanguageCode;
 						new String[]{"-v-cv-"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PATTERN, 
 						new String[]{"-cv-vc-"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PATTERN, 
+				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT, 
 						new String[]{"-vc-cv-"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PATTERN, 
+				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT, 
 						new String[]{"-cvc-cv-"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PATTERN, 
+				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT, 
 						new String[]{"-cv-ccv-"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PATTERN, 
+				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT, 
 						new String[]{"-ccv-cv-"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PATTERN, 
+				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT, 
 						new String[]{"-ccvc-cv-"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PATTERN, 
+				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT, 
 						new String[]{"-cv-cccv-"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PATTERN, 
+				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT, 
 						new String[]{"-v-cccv-"}, problemIndexPosition, i++);
 				
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 

@@ -63,13 +63,17 @@ public class GreekWord extends Word{
 	}
 	
 	protected void createCVForm(){
-		cvForm = "-";
-		for (int i=0;i<syllables.length;i++){
-			String tmp = syllables[i].toUpperCase();
-			for (int j=0;j<tmp.length();j++){
-				cvForm = cvForm+upperCharToCV(tmp.charAt(j));
+		GreekPhonetics gp = new GreekPhonetics(word);
+		int k=0;
+		char ph[] = gp.getCVphonetics();
+		for (String x : syllables){
+			int len = x.trim().length();
+			for (int i=k; i<len+k; i++){
+				if (ph[i] != '*')
+					cvForm += ph[i];
 			}
-			cvForm = cvForm+"-";
+			cvForm += "-";
+			k = len+k;
 		}
 	}
 	

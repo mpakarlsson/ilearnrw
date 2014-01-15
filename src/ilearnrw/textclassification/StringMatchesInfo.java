@@ -145,6 +145,25 @@ public class StringMatchesInfo {
 		return null;
 	}
 
+	public StringMatchesInfo containsPatternOrEndsWithExtraConsonant(String str[], Word w){
+		String ws = w.getCVForm();
+		for (int i=0;i<str.length;i++){
+			if (ws.contains(str[i])){
+				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
+			}
+		}
+		for (int i=0;i<str.length;i++){
+			String newStr = "";
+			for (int k=0; k<str[i].length()-1;k++)
+				newStr = newStr +str[i].charAt(k);
+			newStr = newStr + "c-";
+			if (ws.endsWith(newStr)){
+				return new StringMatchesInfo(newStr, ws.lastIndexOf(newStr), ws.lastIndexOf(newStr)+newStr.length());
+			}
+		}
+		return null;
+	}
+
 	public StringMatchesInfo soundSimilarity(String str[], Word w){
 		languageAnalyser.setWord(w);
 		for (int i=0;i<str.length;i++){

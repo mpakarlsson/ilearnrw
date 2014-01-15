@@ -7,7 +7,8 @@ public class GreekPhonetics {
 
     private String word;
     private String tempResult[];
-    private String result;
+    private char CVphonetics[];
+	private String result;
     private ArrayList<String> resultInCells;
    
     private final String makez[] = {"γ", "β", "δ", "ζ", "λ", "μ", "ν", "ρ", "τζ", "μπ", "ντ", "γκ"};
@@ -30,6 +31,9 @@ public class GreekPhonetics {
     		"o", "á", "é", "í", "í", 
     		"ό", "í", "ό", "i", "i", 
     		"í", "í", "s"};
+	
+	private final String[] vowelPhonetics = 
+		{"a", "e", "i", "o", "á", "é", "j", "í", "ό", "i", "ε", "u", "ú"};
    
     /** Creates a new instance of GreekPhonetics */
     public GreekPhonetics() {
@@ -43,8 +47,8 @@ public class GreekPhonetics {
         resultInCells = new ArrayList<String>();
         this.result = "";
         convert();
+        cvPhonetics();
     }
-   
    
    
     public String getWord() {
@@ -76,18 +80,32 @@ public class GreekPhonetics {
         this.resultInCells = resultInCells;
     }
 
+    /**
+	 * @return the cVphonetics
+	 */
+	public char[] getCVphonetics() {
+		return CVphonetics;
+	}
+
+	/**
+	 * @param cVphonetics the cVphonetics to set
+	 */
+	public void setCVphonetics(char[] cVphonetics) {
+		CVphonetics = cVphonetics;
+	}
 
     private void convert(){
+        int n = word.trim().length();
+        tempResult = new String[n];
     	if (word.length()<1){
     		result = "";
     		return;
     	}
     	else if (word.length()==1){
     		singleChar();
+    		tempResult[0] = result;
     		return;
     	}
-        int n = word.trim().length();
-        tempResult = new String[n];
         for (int i=0;i<tempResult.length; i++)
             tempResult[i] = "#";
         convertTwoOrThreeConsonants();
@@ -111,6 +129,40 @@ public class GreekPhonetics {
             }
         }
 
+    }
+    
+    public void cvPhonetics(){
+    	if (tempResult == null){
+    		CVphonetics = null;
+    		return;
+    	}
+        this.CVphonetics = new char[tempResult.length];
+        for (int i=0; i<CVphonetics.length; i++)
+        	CVphonetics[i] = ' ';
+        for (int i=0; i<tempResult.length; i++){
+        	if (CVphonetics[i] == 'v' || CVphonetics[i] == 'c')
+        		continue;
+        	if (hasTwoVowelsTogether(i)){
+        		CVphonetics[i] = 'v';
+        		CVphonetics[i+1] = 'v';
+        		continue;
+        	}
+        	if (tempResult[i].equals("ç") && word.charAt(i) == 'ι'){
+        		CVphonetics[i] = 'v';
+        		continue;
+        	}
+        	if (tempResult[i].equals("#") || tempResult[i].equals("*")){
+        		CVphonetics[i] = '*';
+        		continue;
+        	}
+        	CVphonetics[i] = 'c';
+        	for (String x : vowelPhonetics){
+        		if (tempResult[i].equals(x)){
+        			CVphonetics[i] = 'v';
+        			break;
+        		}
+            }
+        }
     }
     
     public void singleChar(){
@@ -137,34 +189,7 @@ public class GreekPhonetics {
         replaceTwoConsonants("γχ", "ŋχ");
         replaceTwoConsonants("κζ", "gz");
         replaceTwoConsonants("τσ", "ts");
-        /*tmpStart = 0;
-        while (tmpStart < n && word.substring(tmpStart).contains("γχ")){
-            int k = word.indexOf("γχ", tmpStart);
-            tempResult[k] = "ŋχ";
-            tempResult[k+1] = "*";
-            tmpStart = k+2;
-        }
-        tmpStart = 0;
-        while (tmpStart < n && word.substring(tmpStart).contains("σλ")){
-            int k = word.indexOf("σλ", tmpStart);
-            tempResult[k] = "zl";
-            tempResult[k+1] = "*";
-            tmpStart = k+2;
-        }
-        tmpStart = 0;
-        while (tmpStart < n && word.substring(tmpStart).contains("κζ")){
-            int k = word.indexOf("κζ", tmpStart);
-            tempResult[k] = "gz";
-            tempResult[k+1] = "*";
-            tmpStart = k+2;
-        }
-        tmpStart = 0;
-        while (tmpStart < n && word.substring(tmpStart).contains("τσ")){
-            int k = word.indexOf("τσ", tmpStart);
-            tempResult[k] = "ts";
-            tempResult[k+1] = "*";
-            tmpStart = k+2;
-        }*/
+        
         tmpStart = 0;
         while (tmpStart < n && word.substring(tmpStart).contains("ντ")){
             int k = word.indexOf("ντ", tmpStart);
@@ -611,4 +636,34 @@ public class GreekPhonetics {
         return false;
     }
 
+    private boolean hasTwoVowelsTogether(int i){
+        //("αυ", "av", "af");
+        //("αύ", "av", "áf");
+        //("ευ", "ev", "ef");
+        //("εύ", "ev", "éf");
+        //("ηυ", "iv", "if");
+        //("ηύ", "ív", "íf");
+    	if (tempResult == null || word == null || word.length()<=i+1 || i<0)
+    		return false;
+    	if ((tempResult[i].equals("av") || tempResult[i].equals("af")) 
+      			 && word.charAt(i) == 'α' && word.charAt(i+1) == 'υ')
+      		return true;
+       	if ((tempResult[i].equals("av") || tempResult[i].equals("áf")) 
+      			 && word.charAt(i) == 'α' && word.charAt(i+1) == 'ύ')
+       		return true;
+    	if ((tempResult[i].equals("ev") || tempResult[i].equals("ef")) 
+     			 && word.charAt(i) == 'ε' && word.charAt(i+1) == 'υ')
+     		return true;
+      	if ((tempResult[i].equals("ev") || tempResult[i].equals("éf")) 
+     			 && word.charAt(i) == 'ε' && word.charAt(i+1) == 'ύ')
+     		return true;
+    	if ((tempResult[i].equals("iv") || tempResult[i].equals("if")) 
+     			 && word.charAt(i) == 'η' && word.charAt(i+1) == 'υ')
+     		return true;
+      	if ((tempResult[i].equals("iv") || tempResult[i].equals("íf")) 
+     			 && word.charAt(i) == 'η' && word.charAt(i+1) == 'ύ')
+     		return true;
+      	return false;
+    }
+    
 }

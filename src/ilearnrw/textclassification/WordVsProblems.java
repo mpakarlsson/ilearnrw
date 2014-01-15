@@ -147,6 +147,9 @@ public class WordVsProblems {
 			case CONTAINS_PATTERN:
 				wpi.setProblemInfo(i, j, matcher.containsPattern(pd, word));
 				break;
+			case CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT:
+				wpi.setProblemInfo(i, j, matcher.containsPatternOrEndsWithExtraConsonant(pd, word));
+				break;
 			case SOUND_SIMILARITY:
 				wpi.setProblemInfo(i, j, matcher.soundSimilarity(pd, word));
 				//if (wpi.getFound())
