@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Dictionary;
@@ -19,20 +20,43 @@ import java.util.Hashtable;
 import java.util.Scanner;
 
 public class GreekDictionaryLoader {
-	private final String path = "data/";
 	private Dictionary<String, DictionaryEntry> entries;
 	ArrayList<GreekWord> greekWords;
 	ArrayList<GreekWord> similarSoundGreekWords;
+	InputStream greekDictionary;
+	InputStream greekSoundDictionary;
 	int i=0;
 
 	public GreekDictionaryLoader() {
 		this.entries = new Hashtable<String, DictionaryEntry>();
 		greekWords = new ArrayList<GreekWord>();
 		similarSoundGreekWords = new ArrayList<GreekWord>();
+		loadLocalDictionaries();
 		readDic();
 		readSoundDic();
 	}
 	
+	private void loadLocalDictionaries() {
+		try {
+			greekDictionary = new FileInputStream("data/greek_dictionary.txt");
+			greekSoundDictionary = new FileInputStream("data/greek_dictionary.txt");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public GreekDictionaryLoader(InputStream greekDictionary,
+			InputStream greekSoundDictionary) {
+		this.entries = new Hashtable<String, DictionaryEntry>();
+		greekWords = new ArrayList<GreekWord>();
+		similarSoundGreekWords = new ArrayList<GreekWord>();
+		this.greekDictionary = greekDictionary;
+		this.greekSoundDictionary = greekSoundDictionary;
+		readDic();
+		readSoundDic();
+	}
+
 	public Dictionary<String, DictionaryEntry> getEntries() {
 		return entries;
 	}
@@ -75,8 +99,8 @@ public class GreekDictionaryLoader {
 		// Open the file
 		FileInputStream fstream;
 		try {
-			fstream = new FileInputStream(path+"greek_dictionary.txt");
-			BufferedReader br = new BufferedReader(new InputStreamReader(fstream, "UTF-8"));
+			
+			BufferedReader br = new BufferedReader(new InputStreamReader(greekDictionary, "UTF-8"));
 
 			String strLine;
 
@@ -122,32 +146,21 @@ public class GreekDictionaryLoader {
 	}
 	
 	private void readSoundDic(){
-		String path = "data/";
-		String[] files = { "greek_sound_similarity.txt" };
 		String text = "";
-		try {
-			HashMap<String, Integer> words = new HashMap<String, Integer>();
-			for (String fName : files){
-				text = new Scanner(new File(path + fName), "UTF-8").useDelimiter("\\A").next();
-				Text txt = new Text(text, LanguageCode.GR);
-				HashMap<Word, Integer> tmp = txt.getWordsFreq();
-				Object obj[] = tmp.keySet().toArray();
-				for (Object x : obj){
-					String w = ((Word) x).toString();
-					words.put(w,0);
-				}
-			}
-			Object obj[] = words.keySet().toArray();
-			int i = 0;
-			for (Object x : obj){
-				GreekWord gw = new GreekWord((String)x);
-				//System.out.println("sound "+gw.toString());
-				similarSoundGreekWords.add(gw);
-			}
-			
-		} catch (FileNotFoundException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+		HashMap<String, Integer> words = new HashMap<String, Integer>();
+		text = new Scanner(greekSoundDictionary, "UTF-8").useDelimiter("\\A").next();
+		Text txt = new Text(text, LanguageCode.GR);
+		HashMap<Word, Integer> tmp = txt.getWordsFreq();
+		Object obj[] = tmp.keySet().toArray();
+		for (Object x : obj){
+			String w = ((Word) x).toString();
+			words.put(w,0);
+		}
+		Object obj2[] = words.keySet().toArray();
+		for (Object x2 : obj2){
+			GreekWord gw = new GreekWord((String)x2);
+			//System.out.println("sound "+gw.toString());
+			similarSoundGreekWords.add(gw);
 		}
 	}
 	
