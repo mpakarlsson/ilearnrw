@@ -83,7 +83,7 @@ public class TextMetricsTest extends JFrame {
 	public static void main(String[] args) {
 		try {
 			/* Load the user database.*/
-			String databaseFile = "the_users";//Program.getStringArg("--db", args);
+			String databaseFile = "the_new_users";//Program.getStringArg("--db", args);
 			mUserStore = new UserStore(databaseFile);
 			/* We have to auth as admin to access the database.*/
 			mUserStore.authenticateAdmin("ilearn");
@@ -122,7 +122,7 @@ public class TextMetricsTest extends JFrame {
 		
 		/*Fill the user ComboBox*/
 		try {
-			/*for( User u : mUserStore.getAllUsers() ){
+			for( User u : mUserStore.getAllUsers() ){
 				if (u.getDetails().getUsername().contains("_Inter")){
 					Random rand = new Random();
 					ProblemDefinitionIndex problems = u.getProfile().getUserProblems().getProblems();
@@ -144,7 +144,7 @@ public class TextMetricsTest extends JFrame {
 				}
 
 				mUserStore.update(u);
-			}*/
+			}
 			
 			for( User u : mUserStore.getAllUsers() )
 				userCombobox.addItem(new UserListBoxWrapper(u));

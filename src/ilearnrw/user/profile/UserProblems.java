@@ -50,12 +50,12 @@ public class UserProblems implements Serializable {
 	
 	// TODO: eliminate these functions and replace with db fetches!!!
 	public void loadTestGreekProblems(){
-		JsonHandler handler = new JsonHandler("data/problem_definitions_greece.json", true);
+		//JsonHandler handler = new JsonHandler("data/problem_definitions_greece.json", true);
 		//GreekProblems greekProbs = (GreekProblems)handler.fromJson(GreekProblems.class);
 		//System.out.println(greekProbs.getAllProblems().toString());
 		
 		GreekProblems greekProbs = new GreekProblems();
-		//initialize(greekProbs.getAllProblems());
+		initialize(greekProbs.getAllProblems(), true);
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){
 			userSeverities.setWorkingIndex(i, rand.nextInt(problems.getRowLength(i)));
@@ -71,7 +71,7 @@ public class UserProblems implements Serializable {
 		//System.out.println(greekProbs.getAllProblems().toString());
 		
 		//GreekProblems greekProbs = new GreekProblems();
-		//initialize(enProbs.getAllProblems());
+		initialize(enProbs.getAllProblems(), true);
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){
 			userSeverities.setWorkingIndex(i, rand.nextInt(problems.getRowLength(i)));
