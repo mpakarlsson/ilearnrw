@@ -97,16 +97,33 @@ public class WordVsProblems {
 				if (languageAnalyser.isNoun() || languageAnalyser.isAdj())
 					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
 				break;
+			case IS_BIG_NOUN_OR_ADJ_AND_ENDS_WITH:
+				if (word.getNumberOfSyllables()>=3 && 
+				(languageAnalyser.isNoun() || languageAnalyser.isAdj()))
+					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
+				break;
 			case IS_NOUN_AND_ENDS_WITH:
 				if (languageAnalyser.isNoun())
+					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
+				break;
+			case IS_BIG_NOUN_AND_ENDS_WITH:
+				if (word.getNumberOfSyllables()>=3 && languageAnalyser.isNoun())
 					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
 				break;
 			case IS_ADJ_AND_ENDS_WITH:
 				if (languageAnalyser.isAdj())
 					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
 				break;
+			case IS_BIG_ADJ_AND_ENDS_WITH:
+				if (word.getNumberOfSyllables()>=3 && languageAnalyser.isAdj())
+					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
+				break;
 			case IS_VERB_AND_ENDS_WITH:
 				if (languageAnalyser.isVerb())
+					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
+				break;
+			case IS_BIG_VERB_AND_ENDS_WITH:
+				if (word.getNumberOfSyllables()>=3 && languageAnalyser.isVerb())
 					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
 				break;
 			case IS_PARTICIPLE_AND_ENDS_WITH:
@@ -146,6 +163,12 @@ public class WordVsProblems {
 				break;
 			case CONTAINS_PATTERN:
 				wpi.setProblemInfo(i, j, matcher.containsPattern(pd, word));
+				break;
+			case CONTAINS_LETTERS_ON_CONSEQUTIVE_SYLLABLES:
+				wpi.setProblemInfo(i, j, matcher.containsLettersOnConsequtiveSyllables(pd, word));
+				break;
+			case CONTAINS_LETTERS_ON_SAME_SYLLABLES:
+				wpi.setProblemInfo(i, j, matcher.containsLettersOnSameSyllable(pd, word));
 				break;
 			case CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT:
 				wpi.setProblemInfo(i, j, matcher.containsPatternOrEndsWithExtraConsonant(pd, word));

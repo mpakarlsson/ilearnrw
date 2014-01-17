@@ -119,6 +119,8 @@ public class GreekSpeller implements Speller{
 		}  
 	
 		this.postprocess(result);
+		if (result.size() == 0)
+			this.result.add(this.stringToSpell);
     }
     /**
      * Returns the tokens of spelling.

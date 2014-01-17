@@ -61,9 +61,9 @@ import ilearnrw.utils.LanguageCode;
 						new String[]{"ία"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
 						new String[]{"αΐ", "εΐ","οΐ"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
+				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_LETTERS_ON_CONSEQUTIVE_SYLLABLES, 
 						new String[]{"άι","όι"}, problemIndexPosition, i++);
-				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
+				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS_LETTERS_ON_SAME_SYLLABLES, 
 						new String[]{"άι","όι"}, problemIndexPosition, i++);
 				problemDefinitionIndex.setProblemDescription(ProblemType.CONTAINS, 
 						new String[]{"αϊ","οϊ","εϊ"}, problemIndexPosition, i++);
@@ -149,45 +149,45 @@ import ilearnrw.utils.LanguageCode;
 			problemDefinitionIndex.constructProblemRow(problemIndexPosition, problemLength);
 			{
 				int i=0;
-                problemDefinitionIndex.setProblemDescription(ProblemType.IS_NOUN_OR_ADJ_AND_ENDS_WITH,
+                problemDefinitionIndex.setProblemDescription(ProblemType.IS_BIG_NOUN_OR_ADJ_AND_ENDS_WITH,
                                 new String[]{"άκι","άκης","άκος","ίτσα",
                                 "κας","οπούλα","όπουλο","ούδι","ούλα","ούλης","ούλης","ούλα","ούλικο",
                                 "ούτσικος","ούτσικη","ούτσικο"}, problemIndexPosition, i++);
-                problemDefinitionIndex.setProblemDescription(ProblemType.IS_NOUN_OR_ADJ_AND_ENDS_WITH,
+                problemDefinitionIndex.setProblemDescription(ProblemType.IS_BIG_NOUN_OR_ADJ_AND_ENDS_WITH,
                                 new String[]{"άκλα","άρα","αράς","αρόνα",
                                 "αρος","ούκλα"}, problemIndexPosition, i++);
-                problemDefinitionIndex.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH,
+                problemDefinitionIndex.setProblemDescription(ProblemType.IS_BIG_NOUN_AND_ENDS_WITH,
                                 new String[]{"έας","ιάς","δόρος","άρης",//"άς",
                                 "ιάρης","ιέρης", "ιέρα","ίτης","ιώτης","ίστας","ιστής","ίστρια",
                                 "της","τής","τρια","τισσα","τζής","τζού","τίας","τορας"}, problemIndexPosition, i++);
-                problemDefinitionIndex.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH,
+                problemDefinitionIndex.setProblemDescription(ProblemType.IS_BIG_NOUN_AND_ENDS_WITH,
                                 new String[]{"είο","ιά","ία","ικο","δικο"}, problemIndexPosition, i++);
-                problemDefinitionIndex.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH,
+                problemDefinitionIndex.setProblemDescription(ProblemType.IS_BIG_NOUN_AND_ENDS_WITH,
                                 new String[]{"έας","ερό","ιέρα","τήρας","τήρι","τήριο",
                                 "τρα","της"}, problemIndexPosition, i++);
-                problemDefinitionIndex.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH,
+                problemDefinitionIndex.setProblemDescription(ProblemType.IS_BIG_NOUN_AND_ENDS_WITH,
                                 new String[]{"άδα","εια","ίλα","ιλίκι","μάρα","οσύνη",
                                 "ούρα","σιά","ξιά","ότητα","ύτητα"}, problemIndexPosition, i++);
-                problemDefinitionIndex.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH,
+                problemDefinitionIndex.setProblemDescription(ProblemType.IS_BIG_NOUN_AND_ENDS_WITH,
                                 new String[]{"ί","ιά"}, problemIndexPosition, i++);
-                problemDefinitionIndex.setProblemDescription(ProblemType.IS_NOUN_AND_ENDS_WITH,
+                problemDefinitionIndex.setProblemDescription(ProblemType.IS_BIG_NOUN_AND_ENDS_WITH,
                                 new String[]{"άλα","εία","ειά","εια","ση","ξη","ψη",
                                 "ία","σιά","ψιά","ξιά","ματιά","σιμο","ξιμο","ψιμο","αμα","ημα","ωμα","σμα",
                                 "γμα","μός","ητό","ατό","κτό","χτό","φτό","πτό"}, problemIndexPosition, i++);
-                problemDefinitionIndex.setProblemDescription(ProblemType.IS_ADJ_AND_ENDS_WITH,
+                problemDefinitionIndex.setProblemDescription(ProblemType.IS_BIG_ADJ_AND_ENDS_WITH,
                                 new String[]{"ικός","ική","ικό","σιμος","σιμη","σιμο",
                                 "ιάρης","ιάρα","άρικο","ερός","ερή","ερό","τός","τή","τό","άτος","άτη","άτο",
                                 "ινος","ινη","ινο","ιακός","ιακή","ιακό","ανός","ανή","ανό","ούρης","ούρα",
                                 "ούρικο"}, problemIndexPosition, i++);
-                problemDefinitionIndex.setProblemDescription(ProblemType.IS_ADJ_AND_ENDS_WITH,
+                problemDefinitionIndex.setProblemDescription(ProblemType.IS_BIG_ADJ_AND_ENDS_WITH,
                                 new String[]{"ίστικος","ίστικη","ίστικο","ήσιος","ήσια","ήσιο",
                                 "λέος","λέα","λέο","αίος","αία","αίο","ωπός","ωπή","ωπό","ένιος","ένια","ένιο",
                                 "τέος","τέα","τέο","ώδης","ώδες"}, problemIndexPosition, i++);
-                problemDefinitionIndex.setProblemDescription(ProblemType.IS_VERB_AND_ENDS_WITH,
+                problemDefinitionIndex.setProblemDescription(ProblemType.IS_BIG_VERB_AND_ENDS_WITH,
                                 new String[]{"ίζω","άζω","ιάζω","αίνω","ώνω","ύνω","εύω","άρω"}, problemIndexPosition, i++);
-                problemDefinitionIndex.setProblemDescription(ProblemType.IS_VERB_AND_ENDS_WITH,
+                problemDefinitionIndex.setProblemDescription(ProblemType.IS_BIG_VERB_AND_ENDS_WITH,
                                 new String[]{"βολώ","λογώ","ποιώ"}, problemIndexPosition, i++);
-                problemDefinitionIndex.setProblemDescription(ProblemType.IS_ADJ_AND_ENDS_WITH,
+                problemDefinitionIndex.setProblemDescription(ProblemType.IS_BIG_ADJ_AND_ENDS_WITH,
                                 new String[]{"ειδής","ειδές","μελής","μελές",
                                 "ετής","ετές"}, problemIndexPosition, i++);
 			}

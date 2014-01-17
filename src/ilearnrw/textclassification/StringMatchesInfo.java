@@ -85,6 +85,38 @@ public class StringMatchesInfo {
 		return null;
 	}
 	
+	public StringMatchesInfo containsLettersOnConsequtiveSyllables(String str[], Word w){
+		String syl[] = w.getSyllables();
+		for (int i=0;i<str.length;i++){
+			String fp = ""+str[i].charAt(0);
+			String sp = str[i].substring(1);
+			int start = syl[0].length();
+			for (int j=0;j<syl.length-1;j++){
+				if (syl[j].endsWith(fp) && syl[j+1].startsWith(sp)){
+					return new StringMatchesInfo(str[i], start-1, start-1+sp.length());
+				}
+				start += syl[j].length();
+			}
+		}
+		return null;
+	}
+	
+	public StringMatchesInfo containsLettersOnSameSyllable(String str[], Word w){
+		String ws = w.getWord();
+		String syl[] = w.getSyllables();
+		for (int i=0;i<str.length;i++){
+			int start = syl[0].length();
+			for (int j=0;j<syl.length-1;j++){
+				if (syl[j].contains(str[i])){
+					return new StringMatchesInfo(str[i], 
+							ws.indexOf(str[i], start-1), ws.indexOf(str[i], start-1)+str[i].length());
+				}
+				start += syl[j].length();
+			}
+		}
+		return null;
+	}
+	
 	public StringMatchesInfo endsWith(String str[], Word w){
 		String ws = w.getWord();
 		for (int i=0;i<str.length;i++){
