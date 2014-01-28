@@ -41,8 +41,8 @@ public class AuthenticatedRestClient {
 		connection.setRequestProperty ("Authorization", basicAuth);
 		if (post)
 		{
-	        connection.setRequestMethod("POST");        
-	        connection.setRequestProperty("Content-Type","text/plain");
+	        connection.setRequestMethod("POST");
+	        connection.setRequestProperty("Content-Type","text/plain;charset=UTF-8");
 	        connection.setRequestProperty("Content-Length",String.valueOf(postArgs.toString().getBytes("UTF-8").length)); 
 	        //connection.setRequestProperty("User-Agent","Profile/MIDP-2.0 Configuration/CLDC-1.1");
 	        //connection.setRequestProperty("Accept-Charset","UTF-8;q=0.7,*;q=0.7");
@@ -63,6 +63,11 @@ public class AuthenticatedRestClient {
 		return bReader.readLine();
 	}
 	
+	String request(String urlString) throws IOException
+	{
+		return request(urlString, false, null);
+	}
+	
 	public <T extends Object> T requestObj(String urlString, Class<T> type, boolean post, String postArgs) throws IOException
 	{
 		Gson gson = new Gson();
@@ -78,13 +83,6 @@ public class AuthenticatedRestClient {
 		return gson.fromJson(result, type);
 	}
 	
-	private List<String> requestListOfStrings(String urlString) throws IOException {
-		Gson gson = new Gson();
-		String result = request(urlString, false, null);
-		Type typeOfListOfStrings =  new TypeToken<List<String>>() {}.getType();
-		return gson.fromJson(result, typeOfListOfStrings);
-	}
-	
 	public void authenticate(String username, String pass) throws IOException
 	{
 		String authURL = String.format("/user/auth?username=%s&pass=%s" , username, pass);
@@ -95,17 +93,19 @@ public class AuthenticatedRestClient {
 	public List<User> getAllUsers() throws IOException
 	{
 		List<User> users = new ArrayList<User>();
-		List<String> userIds = requestListOfStrings("/profile/list");
-		for (String id : userIds)
-		{
+//		String userIds = request("/user/list");
+//		Type collectionType = new TypeToken<List<User>>(){}.getType();
+//		Collection<Integer> ints2 = gson.fromJson(json, collectionType);
+//		for (String id : userIds)
+//		{
 //			UserProblems problems = requestObj(String.format("/profile/problems?userId=%s", id), UserProblems.class);
 //			UserPreferences preferences = requestObj(String.format("/profile/preferences?userId=%s", id), UserPreferences.class);
 //			UserProfile profile = new UserProfile(language, problems, preferences);
-			UserProfile profile = requestObj(String.format("/profile?userId=%s", id), UserProfile.class);
-			UserDetails details = requestObj(String.format("/profile/details?userId=%s", id), UserDetails.class);
-			User user = new User(Integer.parseInt(id), profile, details, new ArrayList<UserSession>());
-			users.add(user);
-		}
+//			UserProfile profile = requestObj(String.format("/profile?userId=%s", id), UserProfile.class);
+//			UserDetails details = requestObj(String.format("/profile/details?userId=%s", id), UserDetails.class);
+//			User user = new User(Integer.parseInt(id), profile, details, new ArrayList<UserSession>());
+//			users.add(user);
+//		}
 		return users;
 	}
 	

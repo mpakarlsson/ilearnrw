@@ -25,15 +25,6 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 		//dictionary = new GreekDictionaryLoader();
 		//unknownWords = new HashMap<String, Integer>();
 	}
-	
-
-	public GreekLanguageAnalyzer(InputStream greekDictionary,
-			InputStream greekSoundDictionary) {
-		GreekDictionaryLoader gl = new GreekDictionaryLoader(greekDictionary, greekSoundDictionary);
-		dictionary = new GreekDictionary(gl.getGreekWords());
-		soundsSimilarDictionary = new GreekDictionary(gl.getSimilarSoundGreekWords());
-	}
-
 
 	@Override
 	public void setWord(Word w) {

@@ -1,6 +1,7 @@
 package ilearnrw.user.profile;
 
 import ilearnrw.prototype.application.JsonHandler;
+import ilearnrw.resource.ResourceLoader.Type;
 import ilearnrw.textclassification.Word;
 import ilearnrw.user.problems.EnglishProblems;
 import ilearnrw.user.problems.GreekProblems;
@@ -22,7 +23,7 @@ public class UserProblems implements Serializable {
 	private ArrayList<Word> trickyWords;
 	
 	public UserProblems(){
-		problems = new ProblemDefinitionIndex();
+		problems = null;//new ProblemDefinitionIndex();
 		userSeverities = new UserSeverities();
 		setTrickyWords(new ArrayList<Word>());
 	}
@@ -65,8 +66,8 @@ public class UserProblems implements Serializable {
 		}
 	}
 	
-	public void loadTestEnglishProblems(){
-		JsonHandler handler = new JsonHandler("data/problem_definitions_en.json", true);
+	public void loadTestEnglishProblems() {
+		JsonHandler handler = new JsonHandler(Type.DATA, "problem_definitions_en.json", true);
 		EnglishProblems enProbs = (EnglishProblems)handler.fromJson(EnglishProblems.class);
 		//System.out.println(greekProbs.getAllProblems().toString());
 		

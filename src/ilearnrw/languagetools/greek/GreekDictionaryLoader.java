@@ -1,5 +1,7 @@
 package ilearnrw.languagetools.greek;
 
+import ilearnrw.resource.ResourceLoader;
+import ilearnrw.resource.ResourceLoader.Type;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordType;
@@ -31,30 +33,14 @@ public class GreekDictionaryLoader {
 		this.entries = new Hashtable<String, DictionaryEntry>();
 		greekWords = new ArrayList<GreekWord>();
 		similarSoundGreekWords = new ArrayList<GreekWord>();
-		loadLocalDictionaries();
+		loadDictionaries();
 		readDic();
 		readSoundDic();
 	}
 	
-	private void loadLocalDictionaries() {
-		try {
-			greekDictionary = new FileInputStream("data/greek_dictionary.txt");
-			greekSoundDictionary = new FileInputStream("data/greek_dictionary.txt");
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	public GreekDictionaryLoader(InputStream greekDictionary,
-			InputStream greekSoundDictionary) {
-		this.entries = new Hashtable<String, DictionaryEntry>();
-		greekWords = new ArrayList<GreekWord>();
-		similarSoundGreekWords = new ArrayList<GreekWord>();
-		this.greekDictionary = greekDictionary;
-		this.greekSoundDictionary = greekSoundDictionary;
-		readDic();
-		readSoundDic();
+	private void loadDictionaries() {
+		greekDictionary = ResourceLoader.getInstance().getInputStream(Type.DATA, "greek_dictionary.txt");
+		greekSoundDictionary = ResourceLoader.getInstance().getInputStream(Type.DATA, "greek_sound_similarity.txt");
 	}
 
 	public Dictionary<String, DictionaryEntry> getEntries() {
