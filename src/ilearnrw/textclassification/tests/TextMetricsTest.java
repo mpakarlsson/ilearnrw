@@ -123,7 +123,7 @@ public class TextMetricsTest extends JFrame {
 		/*Fill the user ComboBox*/
 		try {
 			for( User u : mUserStore.getAllUsers() ){
-				if (u.getDetails().getUsername().contains("_Inter")){
+				/*if (u.getDetails().getUsername().contains("_Inter")){
 					Random rand = new Random();
 					ProblemDefinitionIndex problems = u.getProfile().getUserProblems().getProblems();
 					UserSeverities userSeverities = u.getProfile().getUserProblems().getUserSeverities();
@@ -141,7 +141,7 @@ public class TextMetricsTest extends JFrame {
 								userSeverities.setSeverity(i, j, 3);//  rand.nextInt(3)+1);
 						}
 					}
-				}
+				}*/
 
 				mUserStore.update(u);
 			}
