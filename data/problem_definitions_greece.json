@@ -37,13 +37,7 @@
       }
     },
     {
-      "URI": "Regular:Consonant clusters",
-      "type": {
-        "url": "grapheme/phoneme correspondence"
-      }
-    },
-    {
-      "URI": "Irregular",
+      "URI": "Regular/Irregular:Consonant clusters",
       "type": {
         "url": "grapheme/phoneme correspondence"
       }
@@ -85,43 +79,43 @@
         "descriptions": [
           "-vc-cv-"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT"
       },
       {
         "descriptions": [
           "-cvc-cv-"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT"
       },
       {
         "descriptions": [
           "-cv-ccv-"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT"
       },
       {
         "descriptions": [
           "-ccv-cv-"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT"
       },
       {
         "descriptions": [
           "-ccvc-cv-"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT"
       },
       {
         "descriptions": [
           "-cv-cccv-"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT"
       },
       {
         "descriptions": [
           "-v-cccv-"
         ],
-        "problemType": "CONTAINS_PATTERN"
+        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT"
       },
       {
         "descriptions": [
@@ -132,54 +126,43 @@
       },
       {
         "descriptions": [
-          "ιά",
           "ία"
         ],
         "problemType": "CONTAINS"
       },
       {
         "descriptions": [
-          "αί",
           "αΐ",
-          "εί",
           "εΐ",
-          "οί",
           "οΐ"
         ],
         "problemType": "CONTAINS"
       },
       {
         "descriptions": [
-          "αί",
           "άι",
-          "οί",
           "όι"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "CONTAINS_LETTERS_ON_CONSEQUTIVE_SYLLABLES"
       },
       {
         "descriptions": [
           "άι",
           "όι"
         ],
-        "problemType": "CONTAINS"
+        "problemType": "CONTAINS_LETTERS_ON_SAME_SYLLABLES"
       },
       {
         "descriptions": [
-          "αι",
           "αϊ",
-          "οι",
           "οϊ",
-          "ει",
           "εϊ"
         ],
         "problemType": "CONTAINS"
       },
       {
         "descriptions": [
-          "ου",
           "οϋ",
-          "ού",
           "οΰ"
         ],
         "problemType": "CONTAINS"
@@ -195,7 +178,18 @@
       },
       {
         "descriptions": [
-          "εύω"
+          "εύω",
+          "εύεις",
+          "εύει",
+          "εύουμε",
+          "εύετε",
+          "εύουν",
+          "ευα",
+          "ευες",
+          "ευαν",
+          "ευαμε",
+          "ευατε",
+          "ευαν"
         ],
         "problemType": "CONTAINS"
       }
@@ -203,86 +197,86 @@
     [
       {
         "descriptions": [
-          "/t/-/d/",
-          "/p/-/b/"
+          "t-d",
+          "p-b"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "SOUND_SIMILARITY"
       },
       {
         "descriptions": [
-          "/k/-/p/",
-          "/k/-/t/"
+          "k-p",
+          "k-t"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "SOUND_SIMILARITY"
       },
       {
         "descriptions": [
-          "/m/-/n/"
+          "m-n"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "SOUND_SIMILARITY"
       },
       {
         "descriptions": [
-          "/θ/-/ð/",
-          "/f/-/v/",
-          "/χ/-/γ/"
+          "θ-ð",
+          "f-v",
+          "χ-γ"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "SOUND_SIMILARITY"
       },
       {
         "descriptions": [
-          "/k/-/γ/",
-          "/k/-/χ/"
+          "k-γ",
+          "k-χ"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "SOUND_SIMILARITY"
       },
       {
         "descriptions": [
-          "/s/-/z/"
+          "s-z"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "SOUND_SIMILARITY"
       },
       {
         "descriptions": [
-          "/l/-/r/"
+          "l-r"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "SOUND_SIMILARITY"
       },
       {
         "descriptions": [
-          "/ð/-/v/",
-          "/f/-/θ/",
-          "/f/-/v/",
-          "/θ/-/ð/"
+          "ð-v",
+          "f-θ",
+          "f-v",
+          "θ-ð"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "SOUND_SIMILARITY"
       },
       {
         "descriptions": [
-          "/kt/-/pt/"
+          "kt-pt"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "SOUND_SIMILARITY"
       },
       {
         "descriptions": [
-          "/ks/-/ps/",
-          "/ks/-/sk/",
-          "/ps/-/sp/"
+          "ks-ps",
+          "ks-sk",
+          "ps-sp"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "SOUND_SIMILARITY"
       },
       {
         "descriptions": [
-          "/ðr/-/θr/",
-          "/fr/-/χr/"
+          "ðr-θr",
+          "fr-χr"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "SOUND_SIMILARITY"
       },
       {
         "descriptions": [
-          "/χθ/-/fθ/"
+          "χθ-fθ"
         ],
-        "problemType": "CONTAINS_PHONEME"
+        "problemType": "SOUND_SIMILARITY"
       }
     ],
     [
@@ -343,7 +337,7 @@
           "ούτσικη",
           "ούτσικο"
         ],
-        "problemType": "IS_NOUN_OR_ADJ_AND_ENDS_WITH"
+        "problemType": "IS_BIG_NOUN_OR_ADJ_AND_ENDS_WITH"
       },
       {
         "descriptions": [
@@ -354,11 +348,10 @@
           "αρος",
           "ούκλα"
         ],
-        "problemType": "IS_NOUN_OR_ADJ_AND_ENDS_WITH"
+        "problemType": "IS_BIG_NOUN_OR_ADJ_AND_ENDS_WITH"
       },
       {
         "descriptions": [
-          "άς",
           "έας",
           "ιάς",
           "δόρος",
@@ -380,7 +373,7 @@
           "τίας",
           "τορας"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "IS_BIG_NOUN_AND_ENDS_WITH"
       },
       {
         "descriptions": [
@@ -390,7 +383,7 @@
           "ικο",
           "δικο"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "IS_BIG_NOUN_AND_ENDS_WITH"
       },
       {
         "descriptions": [
@@ -403,7 +396,7 @@
           "τρα",
           "της"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "IS_BIG_NOUN_AND_ENDS_WITH"
       },
       {
         "descriptions": [
@@ -419,14 +412,14 @@
           "ότητα",
           "ύτητα"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "IS_BIG_NOUN_AND_ENDS_WITH"
       },
       {
         "descriptions": [
           "ί",
           "ιά"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "IS_BIG_NOUN_AND_ENDS_WITH"
       },
       {
         "descriptions": [
@@ -458,7 +451,7 @@
           "φτό",
           "πτό"
         ],
-        "problemType": "IS_NOUN_AND_ENDS_WITH"
+        "problemType": "IS_BIG_NOUN_AND_ENDS_WITH"
       },
       {
         "descriptions": [
@@ -493,7 +486,7 @@
           "ούρα",
           "ούρικο"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "IS_BIG_ADJ_AND_ENDS_WITH"
       },
       {
         "descriptions": [
@@ -521,7 +514,7 @@
           "ώδης",
           "ώδες"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "IS_BIG_ADJ_AND_ENDS_WITH"
       },
       {
         "descriptions": [
@@ -534,7 +527,7 @@
           "εύω",
           "άρω"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "IS_BIG_VERB_AND_ENDS_WITH"
       },
       {
         "descriptions": [
@@ -542,7 +535,7 @@
           "λογώ",
           "ποιώ"
         ],
-        "problemType": "IS_VERB_AND_ENDS_WITH"
+        "problemType": "IS_BIG_VERB_AND_ENDS_WITH"
       },
       {
         "descriptions": [
@@ -553,7 +546,7 @@
           "ετής",
           "ετές"
         ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
+        "problemType": "IS_BIG_ADJ_AND_ENDS_WITH"
       }
     ],
     [
@@ -636,6 +629,7 @@
           "ού",
           "ούδων",
           "ούς",
+          "",
           "ούδων",
           "ιού",
           "ιών",
@@ -706,6 +700,7 @@
           "ιοί",
           "ιές",
           "ιά",
+          "",
           "είς",
           "ή"
         ],
@@ -824,6 +819,7 @@
           "ιόνται",
           "ιούμαι",
           "είσαι",
+          "",
           "είται",
           "ούμαστε",
           "είστε",
@@ -949,191 +945,191 @@
     [
       {
         "descriptions": [
-          "/sp/",
-          "/st/",
-          "/sk/"
+          "sp",
+          "st",
+          "sk"
         ],
         "problemType": "TWO_SYL_WORD_INITIAL_PHONEME"
       },
       {
         "descriptions": [
-          "/pr/",
-          "/tr/",
-          "/kr/"
+          "pr",
+          "tr",
+          "kr"
         ],
         "problemType": "TWO_SYL_WORD_INITIAL_PHONEME"
       },
       {
         "descriptions": [
-          "/gr/",
-          "/dr/",
-          "/br/"
+          "gr",
+          "dr",
+          "br"
         ],
         "problemType": "TWO_SYL_WORD_INITIAL_PHONEME"
       },
       {
         "descriptions": [
-          "/fr/",
-          "/ðr/",
-          "/χr/",
-          "/vr/",
-          "/γr/",
-          "/θr/"
+          "fr",
+          "ðr",
+          "χr",
+          "vr",
+          "γr",
+          "θr"
         ],
         "problemType": "TWO_SYL_WORD_INITIAL_PHONEME"
       },
       {
         "descriptions": [
-          "/spr/",
-          "/skr/",
-          "/str/",
-          "/sfr/"
+          "spr",
+          "skr",
+          "str",
+          "sfr"
         ],
         "problemType": "TWO_SYL_WORD_INITIAL_PHONEME"
       },
       {
         "descriptions": [
-          "/sp/",
-          "/st/",
-          "/sk/"
+          "sp",
+          "st",
+          "sk"
         ],
         "problemType": "THREE_SYL_WORD_INITIAL_PHONEME"
       },
       {
         "descriptions": [
-          "/pr/",
-          "/tr/",
-          "/kr/"
+          "pr",
+          "tr",
+          "kr"
         ],
         "problemType": "THREE_SYL_WORD_INITIAL_PHONEME"
       },
       {
         "descriptions": [
-          "/gr/",
-          "/dr/",
-          "/br/"
+          "gr",
+          "dr",
+          "br"
         ],
         "problemType": "THREE_SYL_WORD_INITIAL_PHONEME"
       },
       {
         "descriptions": [
-          "/fr/",
-          "/ðr/",
-          "/χr/",
-          "/vr/",
-          "/γr/",
-          "/θr/"
+          "fr",
+          "ðr",
+          "χr",
+          "vr",
+          "γr",
+          "θr"
         ],
         "problemType": "THREE_SYL_WORD_INITIAL_PHONEME"
       },
       {
         "descriptions": [
-          "/spr/",
-          "/skr/",
-          "/str/",
-          "/sfr/"
+          "spr",
+          "skr",
+          "str",
+          "sfr"
         ],
         "problemType": "THREE_SYL_WORD_INITIAL_PHONEME"
       },
       {
         "descriptions": [
-          "/sp/",
-          "/st/",
-          "/sk/"
+          "sp",
+          "st",
+          "sk"
         ],
         "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME"
       },
       {
         "descriptions": [
-          "/pr/",
-          "/tr/",
-          "/kr/"
+          "pr",
+          "tr",
+          "kr"
         ],
         "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME"
       },
       {
         "descriptions": [
-          "/gr/",
-          "/dr/",
-          "/br/"
+          "gr",
+          "dr",
+          "br"
         ],
         "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME"
       },
       {
         "descriptions": [
-          "/fr/",
-          "/ðr/",
-          "/χr/",
-          "/vr/",
-          "/γr/",
-          "/θr/"
+          "fr",
+          "ðr",
+          "χr",
+          "vr",
+          "γr",
+          "θr"
         ],
         "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME"
       },
       {
         "descriptions": [
-          "/spr/",
-          "/skr/",
-          "/str/",
-          "/sfr/"
+          "spr",
+          "skr",
+          "str",
+          "sfr"
         ],
         "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME"
       },
       {
         "descriptions": [
-          "/sp/",
-          "/st/",
-          "/sk/"
+          "sp",
+          "st",
+          "sk"
         ],
         "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME"
       },
       {
         "descriptions": [
-          "/pr/",
-          "/tr/",
-          "/kr/"
+          "pr",
+          "tr",
+          "kr"
         ],
         "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME"
       },
       {
         "descriptions": [
-          "/gr/",
-          "/dr/",
-          "/br/"
+          "gr",
+          "dr",
+          "br"
         ],
         "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME"
       },
       {
         "descriptions": [
-          "/fr/",
-          "/ðr/",
-          "/χr/",
-          "/vr/",
-          "/γr/",
-          "/θr/"
+          "fr",
+          "ðr",
+          "χr",
+          "vr",
+          "γr",
+          "θr"
         ],
         "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME"
       },
       {
         "descriptions": [
-          "/spr/",
-          "/skr/",
-          "/str/",
-          "/sfr/"
+          "spr",
+          "skr",
+          "str",
+          "sfr"
         ],
         "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME"
-      }
-    ],
-    [
+      },
       {
         "descriptions": [
-          "ευ"
+          "ευ",
+          "εύ"
         ],
         "problemType": "CONTAINS"
       },
       {
         "descriptions": [
-          "αυ"
+          "αυ",
+          "αύ"
         ],
         "problemType": "CONTAINS"
       },
