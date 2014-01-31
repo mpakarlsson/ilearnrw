@@ -11,7 +11,7 @@ import ilearnrw.utils.LanguageCode;
 	public class GreekProblems extends Problems{
 
 		public GreekProblems() {
-			JsonHandler handler = new JsonHandler(Type.DATA, "data/problem_definitions_greece.json", true);
+			JsonHandler handler = new JsonHandler(Type.DATA, "problem_definitions_greece.json", true);
 			problemDefinitionIndex = (ProblemDefinitionIndex) handler.fromJson(ProblemDefinitionIndex.class);
 			System.err.println("problemDefinitionIndex");
 			//three problems
