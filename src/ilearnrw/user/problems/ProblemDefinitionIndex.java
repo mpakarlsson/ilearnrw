@@ -63,7 +63,9 @@ public class ProblemDefinitionIndex implements Serializable, ProblemDefinitionIn
 	}
 	
 	public int getIndexLength(){
-		return problemsIndex.length;
+		if (problemsIndex != null)
+			return problemsIndex.length;
+		return 0;
 	}
 	
 	public void setIndexLength(int length){
@@ -107,7 +109,10 @@ public class ProblemDefinitionIndex implements Serializable, ProblemDefinitionIn
 		for (int i=0; i<problemsIndex.length; i++){
 			res = res + problemsIndex[i] + " ] : |";
 			for (int j=0; j<problems[i].length; j++){
-				res = res + problems[i][j].toString() + " | ";
+				if (problems[i][j] != null)
+					res = res + problems[i][j].toString() + " | ";
+				else
+					res = res + "null" + " | ";
 			}
 			res = res + "\n";
 		}

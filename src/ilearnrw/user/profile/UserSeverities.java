@@ -11,7 +11,6 @@ public class UserSeverities implements Serializable {
 	public UserSeverities() {
 		indices = null;
 		severities = null;
-
 	}
 
 	public UserSeverities(int length) {

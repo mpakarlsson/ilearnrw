@@ -1,6 +1,7 @@
 package ilearnrw.languagetools.greek;
 
 
+import java.io.InputStream;
 import java.util.HashMap;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
@@ -24,7 +25,6 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 		//dictionary = new GreekDictionaryLoader();
 		//unknownWords = new HashMap<String, Integer>();
 	}
-	
 
 	@Override
 	public void setWord(Word w) {
