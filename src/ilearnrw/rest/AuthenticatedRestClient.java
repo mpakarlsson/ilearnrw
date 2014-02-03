@@ -4,7 +4,9 @@ import ilearnrw.textclassification.TextClassificationResults;
 import ilearnrw.textclassification.Word;
 import ilearnrw.user.User;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
+import ilearnrw.user.problems.Problems;
 import ilearnrw.user.profile.UserProblems;
+import ilearnrw.user.profile.UserProfile;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,6 +35,7 @@ public class AuthenticatedRestClient {
 	String authenticationUrl = "/user/auth";
 	String problemDefinitionUrl = "/profile/problemDefinitions";
 	String listUserUrl = "/user/list";
+	String userProfileUrl = "/profile";
 	String classifyTextUrl = "/text/classify";
 	Authentication authentication = null;
 	
@@ -69,15 +72,17 @@ public class AuthenticatedRestClient {
 		} catch (IOException e) {
 			try {
 				String errorString = new BufferedReader(new InputStreamReader(connection.getErrorStream(), "UTF-8")).readLine();
-				JsonElement jelement = new JsonParser().parse(errorString);
-			    String errorMessage = jelement.getAsJsonObject().get("developerMessage").getAsString();
-				System.out.println(errorMessage + " for URL " + request.getUrl());
-			} catch (UnsupportedEncodingException e1) {
-				e1.printStackTrace();
-			} catch (IOException e1) {
-				e1.printStackTrace();
+				try {
+					JsonElement jelement = new JsonParser().parse(errorString);
+					String errorMessage = jelement.getAsJsonObject().get("developerMessage").getAsString();
+					System.out.println(errorMessage + " for URL " + request.getUrl());
+				} catch (Exception e1) {
+					System.out.println(errorString);
+					e1.printStackTrace();
+				}
+			} catch (Exception e2) {
+				e.printStackTrace();
 			}
-//			e.printStackTrace();
 		}
 		return response;
 	}
@@ -101,22 +106,22 @@ public class AuthenticatedRestClient {
 	
 	public void fetchUserProblems(User user)
 	{
-		if (user.getProfile().getUserProblems() == null)
+		if (user.getProfile() == null)
 			return;
 		Map<String, String> argMap = new HashMap<String, String>();
 		argMap.put("userId", String.valueOf(user.getUserId()));
 		Request request = new Request(problemDefinitionUrl, authentication, argMap);
-		ProblemDefinitionIndex problems = requestObj(request, ProblemDefinitionIndex.class);
-		user.getProfile().getUserProblems().setProblems(problems);
+		Problems problems = requestObj(request, Problems.class);
+		user.getProfile().getUserProblems().setProblems(problems.getProblemDefinitionIndex());
 	}
 	
 	public void fetchUserProfile(User user)
 	{
 		Map<String, String> argMap = new HashMap<String, String>();
 		argMap.put("userId", String.valueOf(user.getUserId()));
-		Request request = new Request("/profile", authentication, argMap);
-		UserProblems userProblems = requestObj(request, UserProblems.class);
-		user.getProfile().setProblems(userProblems);
+		Request request = new Request(userProfileUrl , authentication, argMap);
+		UserProfile userProfile = requestObj(request, UserProfile.class);
+		user.setProfile(userProfile);
 	}
 	
 	public List<User> getAllUsers()
@@ -130,8 +135,12 @@ public class AuthenticatedRestClient {
 		List<User> users = gson.fromJson(result, collectionType);
 		for (User user : users)
 		{
+			Gson gson2 = new Gson();
+			System.out.println(gson2.toJson(user));
 			fetchUserProfile(user);
+			System.out.println(gson2.toJson(user));
 			fetchUserProblems(user);
+			System.out.println(gson2.toJson(user));
 		}
 		return users;
 	}
@@ -152,7 +161,5 @@ public class AuthenticatedRestClient {
 		rClient.authenticate("admin", "admin");
 		System.out.println(rClient.authentication.auth);
 		List<User> users = rClient.getAllUsers();
-		for (User user : users)
-			System.out.println(user.getUserId() + " " + user.getDetails().getUsername() + " " + user.getProfile().getLanguage());
 	}
 }

@@ -54,6 +54,7 @@ public class MustGoToServer {
 
 		Gson gson = new Gson();
 		System.out.println("User:" + gson.toJson(user));
+		System.out.println("User:" + gson.toJson(users.get(0)));
 		
 		//user.getProfile().getUserProblems().loadTestGreekProblems();
 		// read the file locally

@@ -13,7 +13,7 @@ public class Problems {
 		
 	}
 	
-	public ProblemDefinitionIndex getAllProblems(){
+	public ProblemDefinitionIndex getProblemDefinitionIndex(){
 		return problemDefinitionIndex;
 	}
 
