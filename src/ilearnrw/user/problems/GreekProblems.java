@@ -13,7 +13,6 @@ import ilearnrw.utils.LanguageCode;
 		public GreekProblems() {
 			JsonHandler handler = new JsonHandler(Type.DATA, "problem_definitions_greece.json", true);
 			problemDefinitionIndex = (ProblemDefinitionIndex) handler.fromJson(ProblemDefinitionIndex.class);
-			System.err.println("problemDefinitionIndex");
 			//three problems
 			//problemDefinitionIndex = new ProblemDefinitionIndex(8, LanguageCode.GR);	
 			//initialize();

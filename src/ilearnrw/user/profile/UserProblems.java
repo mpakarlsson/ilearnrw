@@ -49,7 +49,6 @@ public class UserProblems implements Serializable {
 		}
 	}
 	
-	// TODO: eliminate these functions and replace with db fetches!!!
 	public void loadTestGreekProblems(){
 		//JsonHandler handler = new JsonHandler("data/problem_definitions_greece.json", true);
 		//GreekProblems greekProbs = (GreekProblems)handler.fromJson(GreekProblems.class);
@@ -59,9 +58,18 @@ public class UserProblems implements Serializable {
 		initialize(greekProbs.getAllProblems(), true);
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){
-			userSeverities.setWorkingIndex(i, rand.nextInt(problems.getRowLength(i)));
+			int wi =2*problems.getRowLength(i)/4 + rand.nextInt(1);
+			userSeverities.setSystemIndex(i, wi);
+			userSeverities.setTeacherIndex(i, wi);
 			for (int j=0; j<userSeverities.getSeverityLength(i); j++){
-				userSeverities.setSeverity(i, j, 0);//rand.nextInt(4));
+				if (j<wi/2)
+					userSeverities.setSeverity(i, j, 0);// rand.nextInt(2));
+				else if(j<wi)
+					userSeverities.setSeverity(i, j, 1);// rand.nextInt(3));
+				else if (j<(wi+userSeverities.getSeverityLength(i))/2)
+					userSeverities.setSeverity(i, j, 2);// rand.nextInt(4));
+				else 
+					userSeverities.setSeverity(i, j, 3);//  rand.nextInt(3)+1);
 			}
 		}
 	}
@@ -75,9 +83,18 @@ public class UserProblems implements Serializable {
 		initialize(enProbs.getAllProblems(), true);
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){
-			userSeverities.setWorkingIndex(i, rand.nextInt(problems.getRowLength(i)));
+			int wi =2*problems.getRowLength(i)/4 + rand.nextInt(1);
+			userSeverities.setSystemIndex(i, wi);
+			userSeverities.setTeacherIndex(i, wi);
 			for (int j=0; j<userSeverities.getSeverityLength(i); j++){
-				userSeverities.setSeverity(i, j, rand.nextInt(4));
+				if (j<wi/2)
+					userSeverities.setSeverity(i, j, 0);// rand.nextInt(2));
+				else if(j<wi)
+					userSeverities.setSeverity(i, j, 1);// rand.nextInt(3));
+				else if (j<(wi+userSeverities.getSeverityLength(i))/2)
+					userSeverities.setSeverity(i, j, 2);// rand.nextInt(4));
+				else 
+					userSeverities.setSeverity(i, j, 3);//  rand.nextInt(3)+1);
 			}
 		}
 	}
@@ -119,8 +136,12 @@ public class UserProblems implements Serializable {
 		}
 	}
 
-	public int getWorkingIndex(int i) {
-		return userSeverities.getWorkingIndex(i);
+	public int getSystemIndex(int i) {
+		return userSeverities.getSystemIndex(i);
+	}
+
+	public int getTeacherIndex(int i) {
+		return userSeverities.getTeacherIndex(i);
 	}
 	
 	public int getNumerOfRows() {

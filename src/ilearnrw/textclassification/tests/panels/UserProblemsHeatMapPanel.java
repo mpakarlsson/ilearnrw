@@ -295,7 +295,7 @@ public class UserProblemsHeatMapPanel extends JPanel {
             			c.setBackground(ConvertTotalToRgb(matrixMax(), multi[row][column]));
             	}                 
             
-            isBordered = user.getProfile().getUserProblems().getWorkingIndex(row) == column;            
+            isBordered = user.getProfile().getUserProblems().getSystemIndex(row) == column;            
             if (isBordered) {
 				if (isSelected) {
 					if (selectedBorder == null) {
@@ -309,8 +309,7 @@ public class UserProblemsHeatMapPanel extends JPanel {
 					}
 					setBorder(unselectedBorder);
 				}
-			}
-
+			} 
 			setToolTipText(displayCellInfo(row, column));
 
             return c;

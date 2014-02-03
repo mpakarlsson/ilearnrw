@@ -6,7 +6,9 @@ import ilearnrw.utils.LanguageCode;
 
 public class ProblemDefinitionIndex implements Serializable, ProblemDefinitionIndexApi {
     private static final long serialVersionUID = 1L;
+    // problemsIndex contains the description of each category
 	private ProblemDefinition problemsIndex[];
+	// the problems matrix contains all possible problems for a language
 	private ProblemDescription problems[][];
 
 	private LanguageCode language;
