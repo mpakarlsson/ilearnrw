@@ -28,6 +28,10 @@ public class UserProblems implements Serializable {
 		setTrickyWords(new ArrayList<Word>());
 	}
 	
+	public void setProblems(ProblemDefinitionIndex problems) {
+		this.problems = problems;
+	}
+
 	public UserProblems(ProblemDefinitionIndex theProblems){
 		initialize(theProblems, true);
 		setTrickyWords(new ArrayList<Word>());

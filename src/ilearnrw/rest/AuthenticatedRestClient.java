@@ -3,124 +3,156 @@ package ilearnrw.rest;
 import ilearnrw.textclassification.TextClassificationResults;
 import ilearnrw.textclassification.Word;
 import ilearnrw.user.User;
-import ilearnrw.user.UserDetails;
-import ilearnrw.user.UserPreferences;
-import ilearnrw.user.UserSession;
+import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.profile.UserProblems;
-import ilearnrw.user.profile.UserProfile;
-import ilearnrw.utils.LanguageCode;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
 public class AuthenticatedRestClient {
 	HttpURLConnection connection;
 
 	String baseURL = "http://localhost:8080/test";
+	String authenticationUrl = "/user/auth";
+	String problemDefinitionUrl = "/profile/problemDefinitions";
+	String listUserUrl = "/user/list";
+	String classifyTextUrl = "/text/classify";
 	Authentication authentication = null;
 	
-	String request(String urlString, boolean post, String postArgs) throws IOException
+	String request(Request request)
 	{
-		URL url = new URL(baseURL + urlString);
-		connection = (HttpURLConnection) url.openConnection();
-		//encoding of api:api
-		String basicAuth = "Basic YXBpOmFwaQ==";
-		connection.setRequestProperty ("Authorization", basicAuth);
-		if (post)
-		{
-	        connection.setRequestMethod("POST");
-	        connection.setRequestProperty("Content-Type","text/plain;charset=UTF-8");
-	        connection.setRequestProperty("Content-Length",String.valueOf(postArgs.toString().getBytes("UTF-8").length)); 
-	        //connection.setRequestProperty("User-Agent","Profile/MIDP-2.0 Configuration/CLDC-1.1");
-	        //connection.setRequestProperty("Accept-Charset","UTF-8;q=0.7,*;q=0.7");
-	        //connection.setRequestProperty("Accept-Encoding","gzip, deflate");
-	        //connection.setRequestProperty("Accept","text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5");
-
-			//connection.setDoInput(true);
-			connection.setDoOutput(true);
-			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream(),"UTF-8");
-			out.write(postArgs);
-            out.close();
+		String response = null;
+		try {
+			URL url = new URL(baseURL + request.getUrl());
+			connection = (HttpURLConnection) url.openConnection();
+			//encoding of api:api
+			String basicAuth = "Basic YXBpOmFwaQ==";
+			connection.setRequestProperty ("Authorization", basicAuth);
+			if (request.usesPost())
+			{
+			    connection.setRequestMethod("POST");
+			    connection.setRequestProperty("Content-Type","text/plain;charset=UTF-8");
+			    connection.setRequestProperty("Content-Length",String.valueOf(request.getPostBody().getBytes("UTF-8").length));
+				connection.setDoOutput(true);
+				OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream(),"UTF-8");
+				out.write(request.getPostBody());
+			    out.close();
+			}
+			else
+				connection.connect();
+			int responseCode = connection.getResponseCode();
+			System.out.println("Response code: " + responseCode);
+			response = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8")).readLine();
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (ProtocolException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			try {
+				String errorString = new BufferedReader(new InputStreamReader(connection.getErrorStream(), "UTF-8")).readLine();
+				JsonElement jelement = new JsonParser().parse(errorString);
+			    String errorMessage = jelement.getAsJsonObject().get("developerMessage").getAsString();
+				System.out.println(errorMessage + " for URL " + request.getUrl());
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+//			e.printStackTrace();
 		}
-		else
-			connection.connect();
-		int responseCode = connection.getResponseCode();
-		System.out.println("Response code: " + responseCode);
-		BufferedReader bReader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
-		return bReader.readLine();
+		return response;
 	}
 	
-	String request(String urlString) throws IOException
-	{
-		return request(urlString, false, null);
-	}
-	
-	public <T extends Object> T requestObj(String urlString, Class<T> type, boolean post, String postArgs) throws IOException
+	public <T extends Object> T requestObj(Request request, Class<T> type)
 	{
 		Gson gson = new Gson();
-		String result = request(urlString, post, postArgs);
-		System.out.println(result);
+		String result = request(request);
 		return gson.fromJson(result, type);
 	}
 	
-	public <T extends Object> T requestObj(String urlString, Class<T> type) throws IOException
+	public void authenticate(String username, String pass)
 	{
-		Gson gson = new Gson();
-		String result = request(urlString, false, null);
-		return gson.fromJson(result, type);
-	}
-	
-	public void authenticate(String username, String pass) throws IOException
-	{
-		String authURL = String.format("/user/auth?username=%s&pass=%s" , username, pass);
-		Authentication obj = requestObj(authURL, Authentication.class);
+		Map<String, String> argMap = new HashMap<String, String>();
+		argMap.put("username", username);
+		argMap.put("pass", pass);
+		Request request = new Request(authenticationUrl, argMap);
+		Authentication obj = requestObj(request, Authentication.class);
 		authentication = obj;
 	}
 	
-	public List<User> getAllUsers() throws IOException
+	public void fetchUserProblems(User user)
 	{
-		List<User> users = new ArrayList<User>();
-//		String userIds = request("/user/list");
-//		Type collectionType = new TypeToken<List<User>>(){}.getType();
-//		Collection<Integer> ints2 = gson.fromJson(json, collectionType);
-//		for (String id : userIds)
-//		{
-//			UserProblems problems = requestObj(String.format("/profile/problems?userId=%s", id), UserProblems.class);
-//			UserPreferences preferences = requestObj(String.format("/profile/preferences?userId=%s", id), UserPreferences.class);
-//			UserProfile profile = new UserProfile(language, problems, preferences);
-//			UserProfile profile = requestObj(String.format("/profile?userId=%s", id), UserProfile.class);
-//			UserDetails details = requestObj(String.format("/profile/details?userId=%s", id), UserDetails.class);
-//			User user = new User(Integer.parseInt(id), profile, details, new ArrayList<UserSession>());
-//			users.add(user);
-//		}
-		return users;
+		if (user.getProfile().getUserProblems() == null)
+			return;
+		Map<String, String> argMap = new HashMap<String, String>();
+		argMap.put("userId", String.valueOf(user.getUserId()));
+		Request request = new Request(problemDefinitionUrl, authentication, argMap);
+		ProblemDefinitionIndex problems = requestObj(request, ProblemDefinitionIndex.class);
+		user.getProfile().getUserProblems().setProblems(problems);
 	}
 	
-	public TextClassificationResults classifyText(User user, String text) throws IOException
+	public void fetchUserProfile(User user)
 	{
-		String urlString = String.format("/text/classify/%s", String.valueOf(user.getUserId()));
+		Map<String, String> argMap = new HashMap<String, String>();
+		argMap.put("userId", String.valueOf(user.getUserId()));
+		Request request = new Request("/profile", authentication, argMap);
+		UserProblems userProblems = requestObj(request, UserProblems.class);
+		user.getProfile().setProblems(userProblems);
+	}
+	
+	public List<User> getAllUsers()
+	{
+		Request request = new Request(listUserUrl, authentication);
+		Type collectionType = new TypeToken<List<User>>(){}.getType();
+		GsonBuilder gsonBuilder = new GsonBuilder();
+		gsonBuilder.registerTypeAdapter(User.class, new UserDeserializer());
+		Gson gson = gsonBuilder.create();
+		String result = request(request);
+		List<User> users = gson.fromJson(result, collectionType);
+		for (User user : users)
+		{
+			fetchUserProfile(user);
+			fetchUserProblems(user);
+		}
+		return users;
+	}
+
+	public TextClassificationResults classifyText(User user, String text)
+	{
+		Map<String, String> argMap = new HashMap<String, String>();
+		argMap.put("userId", String.valueOf(user.getUserId()));
+		Request request = new Request(classifyTextUrl, authentication, argMap, text);
 		Gson gson = new GsonBuilder().registerTypeAdapter(Word.class, new WordDeserializer()).create();
-		String result = request(urlString, true, text);
+		String result = request(request);
 		System.out.println(result);
 		return gson.fromJson(result, TextClassificationResults.class);
 	}
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		AuthenticatedRestClient rClient = new AuthenticatedRestClient();
 		rClient.authenticate("admin", "admin");
 		System.out.println(rClient.authentication.auth);
+		List<User> users = rClient.getAllUsers();
+		for (User user : users)
+			System.out.println(user.getUserId() + " " + user.getDetails().getUsername() + " " + user.getProfile().getLanguage());
 	}
 }

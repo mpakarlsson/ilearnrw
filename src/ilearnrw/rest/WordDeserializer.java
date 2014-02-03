@@ -13,6 +13,6 @@ class WordDeserializer implements JsonDeserializer<Word>
 {
     public Word deserialize(JsonElement json, Type typeOfT,
         JsonDeserializationContext context) throws JsonParseException {
-        return new Word(json.getAsString());
+        return new Word(json.toString());
     }
 }
