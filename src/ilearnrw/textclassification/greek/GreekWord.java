@@ -1,7 +1,10 @@
 package ilearnrw.textclassification.greek;
+import java.util.ArrayList;
+
 import ilearnrw.languagetools.greek.GreekPhonetics;
 import ilearnrw.languagetools.greek.GreekSpeller;
 import ilearnrw.languagetools.greek.Speller;
+import ilearnrw.textclassification.GraphemePhonemePair;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordType;
 import ilearnrw.utils.LanguageCode;
@@ -17,6 +20,7 @@ public class GreekWord extends Word{
 		syllabism();
 		createCVForm();
 		createPhonetics();
+		createGraphemePhonemePairs();
 		//System.out.println(word);
 	}
 	
@@ -26,6 +30,7 @@ public class GreekWord extends Word{
 		syllabism();
 		createCVForm();
 		createPhonetics();
+		createGraphemePhonemePairs();
 		//System.out.println(word);
 	}
 	
@@ -80,6 +85,23 @@ public class GreekWord extends Word{
 	private void createPhonetics(){
 		GreekPhonetics gp = new GreekPhonetics(this.word);
 		phonetics = gp.getResult();
+	}
+	
+	private void createGraphemePhonemePairs(){
+		GreekPhonetics gp = new GreekPhonetics(this.word);
+		String correspondance[] = gp.getCorrespondanceMatrix();
+		graphemesPhonemes = new ArrayList<GraphemePhonemePair>();
+		String gr = "", ph = "";
+		int i=0;
+		while (i<this.word.length()){
+			gr = "" + word.charAt(i);
+			ph = correspondance[i];
+			while (++i<this.word.length() && correspondance[i] == "*"){
+				gr = gr + word.charAt(i);
+			}
+			if (ph != "" && gr != "")
+				graphemesPhonemes.add(new GraphemePhonemePair(gr, ph));
+		}
 	}
 	
 }

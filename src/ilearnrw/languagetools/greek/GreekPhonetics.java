@@ -53,7 +53,6 @@ public class GreekPhonetics {
         this("");
     }
 
-
     /** Creates a new instance of GreekPhonetics */
     public GreekPhonetics(String word) {
         this.word = word;
@@ -76,6 +75,11 @@ public class GreekPhonetics {
 
     public String getResult() {
         return result;
+    }
+
+
+    public String[] getCorrespondanceMatrix() {
+        return tempResult;
     }
 
 
@@ -478,8 +482,9 @@ public class GreekPhonetics {
             }
             else
                 tempResult[k] = "l";
-            if (k>0 && tempResult[k-1].equals("l"))
-                tempResult[k-1]="*";
+            if (k>0 && tempResult[k-1].equals("l")){
+                tempResult[k]="*";
+            }
             tmpStart = k+1;
         }
 
@@ -498,7 +503,7 @@ public class GreekPhonetics {
             else
                 tempResult[k] = "n";
             if (k>0 && tempResult[k-1].equals("n")){
-                tempResult[k-1]="*";
+                tempResult[k]="*";
             }
             tmpStart = k+1;
         }
@@ -519,7 +524,7 @@ public class GreekPhonetics {
             else{
                 tempResult[k] = t;
                 if (k>0 && tempResult[k-1].equals(t))
-                	tempResult[k-1] = "*";
+                	tempResult[k] = "*";
             }
             tmpStart = k+1;
         }

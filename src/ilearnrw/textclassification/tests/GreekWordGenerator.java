@@ -5,6 +5,7 @@ import ilearnrw.languagetools.greek.GreekSpeller;
 import ilearnrw.textclassification.Sentence;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
+import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.utils.LanguageCode;
 
 
@@ -22,8 +23,9 @@ public class GreekWordGenerator {
 
 	public static void main(String a[]) throws Exception {
 
-		GreekPhonetics gp = new GreekPhonetics("για να μη γκουλής ζβήσι μηρικά αρχεία απ τουν φάκελου ");
-		System.out.println(gp.getResult());
+		//GreekPhonetics gp = new GreekPhonetics("για να μη γκουλής ζβήσι μηρικά αρχεία απ τουν φάκελου ");
+		GreekWord x = new GreekWord("φωτιά");
+		System.out.println(x.getGraphemesPhonemes().toString());
 	    //frame.setVisible(false);
 	    //frame = null;
 		/*

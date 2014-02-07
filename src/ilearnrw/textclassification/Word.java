@@ -1,6 +1,7 @@
 package ilearnrw.textclassification;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import ilearnrw.utils.LanguageCode;
 
@@ -13,6 +14,7 @@ public class Word implements Serializable{
 	protected int numSyllables;
 	protected LanguageCode lc;
 	protected double frequency;
+	protected ArrayList<GraphemePhonemePair> graphemesPhonemes;
 	
 	public Word(){
 	}
@@ -28,6 +30,7 @@ public class Word implements Serializable{
 		cvForm = "";
 		phonetics = "";
 		lc = null;
+		graphemesPhonemes = null;
 	}
 	
 	public Word(String word, WordType wt){
@@ -41,6 +44,7 @@ public class Word implements Serializable{
 		cvForm = "";
 		phonetics = "";
 		lc = null;
+		graphemesPhonemes = new ArrayList<GraphemePhonemePair>();
 	}
 		
 	public String getWord() {
@@ -82,6 +86,10 @@ public class Word implements Serializable{
 	public LanguageCode getLanguageCode(){
 		return lc;
 	}
+	
+	public ArrayList<GraphemePhonemePair> getGraphemesPhonemes() {
+		return graphemesPhonemes;
+	}
 			
 	public String getWordInToSyllables(){
 		String res = "-";
@@ -96,7 +104,7 @@ public class Word implements Serializable{
 	public String getWordInToPhonemes(){
 		return phonetics;
 	}
-		
+
 	@Override
 	public boolean equals(Object x){
 		Word w = (Word)x;
