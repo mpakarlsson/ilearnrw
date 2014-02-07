@@ -5,10 +5,23 @@ import java.util.ArrayList;
 
 public class GreekPhonetics {
 
+	//contains the word
     private String word;
+    //contains the phonemes that correspond to each letter
+    //general rule : 
+    // in the i-th position contains the sound that corresponds to the i-th letter of the word
+    //exceptions:
+    // when two or more letters, e.g. in positions i, i+1 match to a single sound
+    // we put the phoneme to the i-th position
+    // then the i+1 position has no meaning for the phonemes
+    // then, we do tempResult[i+1] = "*"
     private String tempResult[];
+    //contains the cv phonetics
+    //it treats diphthongs as one letter
     private char CVphonetics[];
+    //the phonetics as a string
 	private String result;
+	//the phonetics as an arraylist (each cell contains a sound)
     private ArrayList<String> resultInCells;
    
     private final String makez[] = {"γ", "β", "δ", "ζ", "λ", "μ", "ν", "ρ", "τζ", "μπ", "ντ", "γκ"};
@@ -147,6 +160,8 @@ public class GreekPhonetics {
         		CVphonetics[i+1] = 'v';
         		continue;
         	}
+        	//phoneme ç has multiple interpretations, sometimes it comes from ι, 
+        	//all other times comes from consonants
         	if (tempResult[i].equals("ç") && word.charAt(i) == 'ι'){
         		CVphonetics[i] = 'v';
         		continue;
