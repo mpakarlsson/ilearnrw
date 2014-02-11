@@ -8,4 +8,16 @@ public enum LanguageCode {
 	public static byte getGreekCode(){
 		return 0;
 	}
+	
+	public static LanguageCode fromString(String languageCode) {
+		if (languageCode.compareToIgnoreCase("EN") == 0) {
+			return EN;
+		}
+		if (languageCode.compareToIgnoreCase("GR") == 0) {
+			return GR;
+		}
+		
+		// default is EN
+		return EN;
+	}
 }
