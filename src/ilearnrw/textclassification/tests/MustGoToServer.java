@@ -43,14 +43,8 @@ public class MustGoToServer {
 //		}
 		AuthenticatedRestClient restClient = new AuthenticatedRestClient();
 		List<User> users = null;
-		try {
-			//restClient.authenticate("admin", "admin");
-			users = restClient.getAllUsers();
-		} catch (IOException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
-
+		restClient.authenticate("admin", "admin");
+		users = restClient.getAllUsers();
 		// TODO again, server side calls to select a user!
 		for (User u : users) {
 			System.out.println("id: " + u.getUserId() + ", language: " + u.getProfile().getLanguage());
@@ -60,6 +54,7 @@ public class MustGoToServer {
 
 		Gson gson = new Gson();
 		System.out.println("User:" + gson.toJson(user));
+		System.out.println("User:" + gson.toJson(users.get(0)));
 		
 		//user.getProfile().getUserProblems().loadTestGreekProblems();
 		// read the file locally
@@ -77,11 +72,7 @@ public class MustGoToServer {
 //		TextClassificationResults cr = upt.getTextClassificationResults();
 		System.out.println("Text:" + text);
 		TextClassificationResults cr = null;
-		try {
-			cr = restClient.classifyText(user, text);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		cr = restClient.classifyText(user, text);
 
 		// use the results locally!
 		int numberOfWords = cr.getNumberOfTotalWords();
@@ -95,11 +86,7 @@ public class MustGoToServer {
 		//english text
 		text = "classify this please thank you";
 		System.out.println("Text:" + text);
-		try {
-			cr = restClient.classifyText(user, text);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		cr = restClient.classifyText(user, text);
 		System.out.println("Number Of Words:" + cr.getNumberOfTotalWords());
 		System.out.println("Text Score:" + cr.getTscore());
 		System.out.println("Coleman Liau:" + cr.getColemanLiau());

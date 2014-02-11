@@ -28,6 +28,10 @@ public class UserProblems implements Serializable {
 		setTrickyWords(new ArrayList<Word>());
 	}
 	
+	public void setProblems(ProblemDefinitionIndex problems) {
+		this.problems = problems;
+	}
+
 	public UserProblems(ProblemDefinitionIndex theProblems){
 		initialize(theProblems, true);
 		setTrickyWords(new ArrayList<Word>());
@@ -55,7 +59,7 @@ public class UserProblems implements Serializable {
 		//System.out.println(greekProbs.getAllProblems().toString());
 		
 		GreekProblems greekProbs = new GreekProblems();
-		initialize(greekProbs.getAllProblems(), true);
+		initialize(greekProbs.getProblemDefinitionIndex(), true);
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){
 			int wi =2*problems.getRowLength(i)/4 + rand.nextInt(1);
@@ -80,7 +84,7 @@ public class UserProblems implements Serializable {
 		//System.out.println(greekProbs.getAllProblems().toString());
 		
 		//GreekProblems greekProbs = new GreekProblems();
-		initialize(enProbs.getAllProblems(), true);
+		initialize(enProbs.getProblemDefinitionIndex(), true);
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){
 			int wi =2*problems.getRowLength(i)/4 + rand.nextInt(1);

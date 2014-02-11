@@ -37,7 +37,7 @@ public class WordVsProblems {
 			prs = new EnglishProblems();
 			break;
 		}
-		this.theProblems = prs.getAllProblems();
+		this.theProblems = prs.getProblemDefinitionIndex();
 	}
 
 	
