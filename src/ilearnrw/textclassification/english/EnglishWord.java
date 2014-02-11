@@ -22,7 +22,7 @@ public class EnglishWord extends Word {
     public EnglishWord(String word) {   	
     	setupLists();
         super.word = word;
-		super.lc = LanguageCode.EN;
+		super.languageCode = LanguageCode.EN;
         checkType();
         syllabism();
         super.word = super.word.toLowerCase();

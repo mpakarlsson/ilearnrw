@@ -24,8 +24,9 @@ public class GreekWordGenerator {
 	public static void main(String a[]) throws Exception {
 
 		//GreekPhonetics gp = new GreekPhonetics("για να μη γκουλής ζβήσι μηρικά αρχεία απ τουν φάκελου ");
-		GreekWord x = new GreekWord("φωτιά");
+		GreekWord x = new GreekWord("λέξη");
 		System.out.println(x.getGraphemesPhonemes().toString());
+		System.out.println("{"+x.getPhonetics()+"}");
 	    //frame.setVisible(false);
 	    //frame = null;
 		/*

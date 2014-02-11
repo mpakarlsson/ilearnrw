@@ -16,7 +16,7 @@ public class GreekWord extends Word{
 	
 	public GreekWord(String word){
 		super(word);
-		super.lc = LanguageCode.GR;
+		super.languageCode = LanguageCode.GR;
 		syllabism();
 		createCVForm();
 		createPhonetics();
@@ -26,7 +26,7 @@ public class GreekWord extends Word{
 	
 	public GreekWord(String word, WordType wt){
 		super(word, wt);
-		super.lc = LanguageCode.GR;
+		super.languageCode = LanguageCode.GR;
 		syllabism();
 		createCVForm();
 		createPhonetics();

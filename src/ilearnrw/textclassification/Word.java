@@ -12,10 +12,10 @@ public class Word implements Serializable{
 	protected String cvForm;
 	protected String phonetics;
 	protected int numSyllables;
-	protected LanguageCode lc;
+	protected LanguageCode languageCode;
 	protected double frequency;
 	protected ArrayList<GraphemePhonemePair> graphemesPhonemes;
-	
+	//@JsonIgnore
 	public Word(){
 	}
 			
@@ -29,7 +29,7 @@ public class Word implements Serializable{
 		type = WordType.Unknown;
 		cvForm = "";
 		phonetics = "";
-		lc = null;
+		languageCode = null;
 		graphemesPhonemes = null;
 	}
 	
@@ -43,7 +43,7 @@ public class Word implements Serializable{
 		type = wt;
 		cvForm = "";
 		phonetics = "";
-		lc = null;
+		languageCode = null;
 		graphemesPhonemes = new ArrayList<GraphemePhonemePair>();
 	}
 		
@@ -84,7 +84,7 @@ public class Word implements Serializable{
 	}
 	
 	public LanguageCode getLanguageCode(){
-		return lc;
+		return languageCode;
 	}
 	
 	public ArrayList<GraphemePhonemePair> getGraphemesPhonemes() {
