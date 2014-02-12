@@ -14,14 +14,14 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 	//private GreekDictionaryLoader dictionary;
 	private GreekDictionary dictionary;
 	private GreekDictionary soundsSimilarDictionary;
-	private GreekWord word;
+	private Word word;
 	//private HashMap<String, Integer> unknownWords;
 
 
 	public GreekLanguageAnalyzer() {
 		GreekDictionaryLoader gl = new GreekDictionaryLoader();
-		dictionary = new GreekDictionary(gl.getGreekWords());
-		soundsSimilarDictionary = new GreekDictionary(gl.getSimilarSoundGreekWords());
+		dictionary = new GreekDictionary(gl.getWords());
+		soundsSimilarDictionary = new GreekDictionary(gl.getSimilarSoundWords());
 		//dictionary = new GreekDictionaryLoader();
 		//unknownWords = new HashMap<String, Integer>();
 	}
@@ -66,18 +66,18 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 	//except the parts phA  phB which may be replaced in the same position of the two words
 
 	@Override
-	public GreekWord getSimilarSoundWord(String phA, String phB){
-		String phonems = this.word.getWordInToPhonemes();
+	public Word getSimilarSoundWord(String phA, String phB){
+		String phonems = this.word.getPhonetics();
 		if (!phonems.contains(phA) && !phonems.contains(phB))
 			return null;
 		else {
 			String target = phonems.replaceAll(phA, "*");
 			target = target.replaceAll(phB, "*");
 			
-			for (GreekWord x : soundsSimilarDictionary.getGreekWords()){
-				if (x.equals(this.word) || (x.getWordInToPhonemes()).equals(this.word.getWordInToPhonemes()))
+			for (Word x : soundsSimilarDictionary.getWords()){
+				if (x.equals(this.word) || (x.getPhonetics()).equals(this.word.getPhonetics()))
 					continue;
-				String temp = x.getWordInToPhonemes().replaceAll(phA, "*");
+				String temp = x.getPhonetics().replaceAll(phA, "*");
 				temp = temp.replaceAll(phB, "*");
 				if (temp.equals(target)){
 					//System.out.println(x.toString() +" -- " + this.word.toString());

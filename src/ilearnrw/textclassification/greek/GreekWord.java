@@ -70,6 +70,7 @@ public class GreekWord extends Word{
 	protected void createCVForm(){
 		GreekPhonetics gp = new GreekPhonetics(word);
 		int k=0;
+		cvForm += "-";
 		char ph[] = gp.getCVphonetics();
 		for (String x : syllables){
 			int len = x.trim().length();

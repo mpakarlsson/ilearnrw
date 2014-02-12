@@ -1,25 +1,26 @@
 package ilearnrw.languagetools.greek;
 
+import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.greek.GreekWord;
 
 import java.util.ArrayList;
 
 public class GreekDictionary {
-	ArrayList<GreekWord> greekWords;
+	ArrayList<Word> greekWords;
 
 	public GreekDictionary() {
-		greekWords = new ArrayList<GreekWord>();
+		greekWords = new ArrayList<Word>();
 	}
 
-	public GreekDictionary(ArrayList<GreekWord> gw) {
+	public GreekDictionary(ArrayList<Word> gw) {
 		greekWords = gw;
 	}
 
-	public ArrayList<GreekWord> getGreekWords() {
+	public ArrayList<Word> getWords() {
 		return greekWords;
 	}
 
-	public void setGreekWords(ArrayList<GreekWord> greekWords) {
+	public void setWords(ArrayList<Word> greekWords) {
 		this.greekWords = greekWords;
 	}
 
@@ -27,20 +28,25 @@ public class GreekDictionary {
 		return greekWords.isEmpty();
 	}
 
-	public boolean contains(GreekWord w){
+	public boolean contains(Word w){
 		return greekWords.contains(w);
 	}
 
-	public GreekWord get(int i){
+	public Word get(int i){
 		return greekWords.get(i);
 	}
 
-	public GreekWord get(GreekWord w){
-		for (GreekWord gw: greekWords){
+	public Word get(Word w){
+		for (Word gw: greekWords){
 			if (gw.equals(w))
 				return gw;
 		}
 		return null;
+	}
+	
+	public void loadWords(){
+		GreekDictionaryLoader gl = new GreekDictionaryLoader(false);
+		greekWords = gl.getWords();
 	}
 
 	public int size(){

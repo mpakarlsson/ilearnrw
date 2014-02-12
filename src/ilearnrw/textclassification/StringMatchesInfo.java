@@ -138,7 +138,7 @@ public class StringMatchesInfo {
 	}
 
 	public StringMatchesInfo containsPhoneme(String str[], Word w){
-		String ws = w.getWordInToPhonemes();
+		String ws = w.getPhonetics();
 		for (int i=0;i<str.length;i++){
 			if (ws.contains(str[i])){
 				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
@@ -148,7 +148,7 @@ public class StringMatchesInfo {
 	}
 
 	public StringMatchesInfo hasInternalPhoneme(String str[], Word w){
-		String ws = w.getWordInToPhonemes();
+		String ws = w.getPhonetics();
 		for (int i=0;i<str.length;i++){
 			if (ws.contains(str[i]) && !ws.startsWith(str[i])){
 				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
@@ -158,7 +158,7 @@ public class StringMatchesInfo {
 	}
 
 	public StringMatchesInfo startsWithPhoneme(String str[], Word w){
-		String ws = w.getWordInToPhonemes();
+		String ws = w.getPhonetics();
 		for (int i=0;i<str.length;i++){
 			if (ws.startsWith(str[i])){
 				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());

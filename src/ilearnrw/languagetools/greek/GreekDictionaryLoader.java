@@ -9,9 +9,6 @@ import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.utils.LanguageCode;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -23,19 +20,29 @@ import java.util.Scanner;
 
 public class GreekDictionaryLoader {
 	private Dictionary<String, DictionaryEntry> entries;
-	ArrayList<GreekWord> greekWords;
-	ArrayList<GreekWord> similarSoundGreekWords;
+	ArrayList<Word> greekWords;
+	ArrayList<Word> similarSoundGreekWords;
 	InputStream greekDictionary;
 	InputStream greekSoundDictionary;
 	int i=0;
 
 	public GreekDictionaryLoader() {
 		this.entries = new Hashtable<String, DictionaryEntry>();
-		greekWords = new ArrayList<GreekWord>();
-		similarSoundGreekWords = new ArrayList<GreekWord>();
+		greekWords = new ArrayList<Word>();
+		similarSoundGreekWords = new ArrayList<Word>();
 		loadDictionaries();
 		readDic();
 		readSoundDic();
+	}
+
+	public GreekDictionaryLoader(boolean getSimilarSoundWordsList) {
+		this.entries = new Hashtable<String, DictionaryEntry>();
+		greekWords = new ArrayList<Word>();
+		similarSoundGreekWords = new ArrayList<Word>();
+		loadDictionaries();
+		readDic();
+		if (getSimilarSoundWordsList)
+			readSoundDic();
 	}
 	
 	private void loadDictionaries() {
@@ -51,20 +58,20 @@ public class GreekDictionaryLoader {
 		this.entries = entries;
 	}
 
-	public ArrayList<GreekWord> getSimilarSoundGreekWords() {
+	public ArrayList<Word> getSimilarSoundWords() {
 		return similarSoundGreekWords;
 	}
 
-	public void setSimilarSoundGreekWords(
-			ArrayList<GreekWord> similarSoundGreekWords) {
+	public void setSimilarSoundWords(
+			ArrayList<Word> similarSoundGreekWords) {
 		this.similarSoundGreekWords = similarSoundGreekWords;
 	}
 
-	public ArrayList<GreekWord> getGreekWords() {
+	public ArrayList<Word> getWords() {
 		return greekWords;
 	}
 
-	public void setGreekWords(ArrayList<GreekWord> greekWords) {
+	public void setWords(ArrayList<Word> greekWords) {
 		this.greekWords = greekWords;
 	}
 
@@ -83,16 +90,18 @@ public class GreekDictionaryLoader {
 	
 	private void readDic(){
 		// Open the file
-		FileInputStream fstream;
 		try {
-			
 			BufferedReader br = new BufferedReader(new InputStreamReader(greekDictionary, "UTF-8"));
 
 			String strLine;
-
 			//Read File Line By Line
-			while ((strLine = br.readLine()) != null)   {
+			while ((strLine = br.readLine()) != null) {
 				String test = strLine;
+				if ((test.contains("#"))){
+					for (int i=0; i<100; i++)
+						System.err.println(test);
+					continue;
+				}
 
 		        String[] result = test.split("\\\t");
 		        /*if (result.length<3 && result[0]!=null && !result[0].isEmpty()){

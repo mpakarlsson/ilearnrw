@@ -21,7 +21,7 @@ public class Word implements Serializable{
 			
 	public Word(String word){
 		word = word.replaceAll("(\\«)|(\\*)|(\\»)|(\\()|(\\))|(\\{)|(\\})|(\\[)|(\\])|(\\<)|(\\>)|(\\=)|(\\%)|(\\€)|(\\$)", "");
-		this.word = word.toLowerCase();
+		this.word = word.toLowerCase().trim();
 		//all initializations must go here!!!
 		
 		numSyllables = 0;
@@ -99,10 +99,6 @@ public class Word implements Serializable{
 			res = res+"-";
 		}
 		return res;
-	}
-	
-	public String getWordInToPhonemes(){
-		return phonetics;
 	}
 
 	@Override
