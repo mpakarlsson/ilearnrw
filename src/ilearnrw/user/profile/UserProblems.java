@@ -13,6 +13,7 @@ import ilearnrw.user.problems.Problems;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class UserProblems implements Serializable {
@@ -20,7 +21,7 @@ public class UserProblems implements Serializable {
 
 	private ProblemDefinitionIndex problems;
 	private UserSeverities userSeverities;
-	private ArrayList<Word> trickyWords;
+	private List<Word> trickyWords;
 	
 	public UserProblems(){
 		problems = null;//new ProblemDefinitionIndex();
@@ -118,12 +119,12 @@ public class UserProblems implements Serializable {
 		return userSeverities.getSeverity(i,j);
 	}
 
-	public ArrayList<Word> getTrickyWords() {
+	public List<Word> getTrickyWords() {
 		return trickyWords;
 	}
 
-	public void setTrickyWords(ArrayList<Word> trickyWords) {
-		this.trickyWords = trickyWords;
+	public void setTrickyWords(List<Word> trickyWords2) {
+		this.trickyWords = trickyWords2;
 	}
 
 	public void addTrickyWord(Word trickyWord) {
