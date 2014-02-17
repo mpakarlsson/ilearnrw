@@ -13,6 +13,7 @@ import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -37,7 +38,7 @@ public class UserProblemsHeatMapPanel extends JPanel {
 	private User user;
 	private int[][] data;
 	private int[][] multi;
-	private ArrayList<Word> trickyWords;
+	private List<Word> trickyWords;
 	private CellRenderer renderer;
 	private JSplitPane splitPane;
 	private int colorMode = 0;
@@ -75,7 +76,7 @@ public class UserProblemsHeatMapPanel extends JPanel {
 		JScrollPane scrollPane = new JScrollPane(heatMap);
 		upperPanel.add(scrollPane, BorderLayout.CENTER);
 
-		ArrayList<Word> tmp = user.getProfile().getUserProblems().getTrickyWords();
+		List<Word> tmp = user.getProfile().getUserProblems().getTrickyWords();
         trickyPanel = new TrickyWordsPanel(tmp.toArray());
 
         upperPanel.add(trickyPanel, BorderLayout.PAGE_END);
@@ -112,7 +113,7 @@ public class UserProblemsHeatMapPanel extends JPanel {
 		JScrollPane scrollPane = new JScrollPane(heatMap);
 		upperPanel.add(scrollPane, BorderLayout.CENTER);
 
-		ArrayList<Word> tmp = user.getProfile().getUserProblems().getTrickyWords();
+		List<Word> tmp = user.getProfile().getUserProblems().getTrickyWords();
         trickyPanel = new TrickyWordsPanel(tmp.toArray());
 
         upperPanel.add(trickyPanel, BorderLayout.PAGE_END);
