@@ -1,26 +1,24 @@
 package ilearnrw.languagetools.greek;
 
+import ilearnrw.structs.sets.SortedTreeSet;
 import ilearnrw.textclassification.Word;
-import ilearnrw.textclassification.greek.GreekWord;
-
-import java.util.ArrayList;
 
 public class GreekDictionary {
-	ArrayList<Word> greekWords;
+	SortedTreeSet greekWords;
 
 	public GreekDictionary() {
-		greekWords = new ArrayList<Word>();
+		greekWords = new SortedTreeSet();
 	}
 
-	public GreekDictionary(ArrayList<Word> gw) {
+	public GreekDictionary(SortedTreeSet gw) {
 		greekWords = gw;
 	}
 
-	public ArrayList<Word> getWords() {
+	public SortedTreeSet getWords() {
 		return greekWords;
 	}
 
-	public void setWords(ArrayList<Word> greekWords) {
+	public void setWords(SortedTreeSet greekWords) {
 		this.greekWords = greekWords;
 	}
 
@@ -30,10 +28,6 @@ public class GreekDictionary {
 
 	public boolean contains(Word w){
 		return greekWords.contains(w);
-	}
-
-	public Word get(int i){
-		return greekWords.get(i);
 	}
 
 	public Word get(Word w){

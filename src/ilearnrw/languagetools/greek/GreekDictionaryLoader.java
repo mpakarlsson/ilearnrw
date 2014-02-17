@@ -2,6 +2,7 @@ package ilearnrw.languagetools.greek;
 
 import ilearnrw.resource.ResourceLoader;
 import ilearnrw.resource.ResourceLoader.Type;
+import ilearnrw.structs.sets.SortedTreeSet;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordType;
@@ -20,16 +21,16 @@ import java.util.Scanner;
 
 public class GreekDictionaryLoader {
 	private Dictionary<String, DictionaryEntry> entries;
-	ArrayList<Word> greekWords;
-	ArrayList<Word> similarSoundGreekWords;
+	SortedTreeSet greekWords;
+	SortedTreeSet similarSoundGreekWords;
 	InputStream greekDictionary;
 	InputStream greekSoundDictionary;
 	int i=0;
 
 	public GreekDictionaryLoader() {
 		this.entries = new Hashtable<String, DictionaryEntry>();
-		greekWords = new ArrayList<Word>();
-		similarSoundGreekWords = new ArrayList<Word>();
+		greekWords = new SortedTreeSet();
+		similarSoundGreekWords = new SortedTreeSet();
 		loadDictionaries();
 		readDic();
 		readSoundDic();
@@ -37,8 +38,8 @@ public class GreekDictionaryLoader {
 
 	public GreekDictionaryLoader(boolean getSimilarSoundWordsList) {
 		this.entries = new Hashtable<String, DictionaryEntry>();
-		greekWords = new ArrayList<Word>();
-		similarSoundGreekWords = new ArrayList<Word>();
+		greekWords = new SortedTreeSet();
+		similarSoundGreekWords = new SortedTreeSet();
 		loadDictionaries();
 		readDic();
 		if (getSimilarSoundWordsList)
@@ -58,20 +59,20 @@ public class GreekDictionaryLoader {
 		this.entries = entries;
 	}
 
-	public ArrayList<Word> getSimilarSoundWords() {
+	public SortedTreeSet getSimilarSoundWords() {
 		return similarSoundGreekWords;
 	}
 
 	public void setSimilarSoundWords(
-			ArrayList<Word> similarSoundGreekWords) {
+			SortedTreeSet similarSoundGreekWords) {
 		this.similarSoundGreekWords = similarSoundGreekWords;
 	}
 
-	public ArrayList<Word> getWords() {
+	public SortedTreeSet getWords() {
 		return greekWords;
 	}
 
-	public void setWords(ArrayList<Word> greekWords) {
+	public void setWords(SortedTreeSet greekWords) {
 		this.greekWords = greekWords;
 	}
 
@@ -98,15 +99,10 @@ public class GreekDictionaryLoader {
 			while ((strLine = br.readLine()) != null) {
 				String test = strLine;
 				if ((test.contains("#"))){
-					for (int i=0; i<100; i++)
-						System.err.println(test);
 					continue;
 				}
 
 		        String[] result = test.split("\\\t");
-		        /*if (result.length<3 && result[0]!=null && !result[0].isEmpty()){
-		        	System.out.println("Greek Dictionary"+ ++i+" "+result[0]);
-		    	}*/
 		        if (result.length<3)
 		        	continue;
 

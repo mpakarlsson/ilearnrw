@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import ilearnrw.utils.LanguageCode;
 
-public class Word implements Serializable{
+public class Word implements Serializable, Comparable{
 	protected String word;
 	protected WordType type;
 	protected String[] syllables;
@@ -131,5 +131,20 @@ public class Word implements Serializable{
 
 	public boolean isParticiple() {
 		return this.type == WordType.Participle;
+	}
+	
+	private String eliminateStartingSymbols(){
+		int i=0;
+		while (i<word.length() && (word.charAt(i) == '\'' || word.charAt(i) == '`' || word.charAt(i) == '΄')){
+			i++;
+		}
+		return word.substring(i);
+	}
+
+	@Override
+	public int compareTo(Object o) {
+		Word w = (Word)o;
+		//String theWord = w.getWord();
+		return (this.eliminateStartingSymbols()).compareTo(w.eliminateStartingSymbols());
 	}
 }
