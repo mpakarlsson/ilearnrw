@@ -9,12 +9,13 @@ public class Problems {
 		this.problemDefinitionIndex = problemDefinitionIndex;
 	}
 	
-	public void getProblem(int idx){
-		
-	}
-	
 	public ProblemDefinitionIndex getProblemDefinitionIndex(){
 		return problemDefinitionIndex;
+	}
+	
+	public void setProblemDefinitionIndex(
+			ProblemDefinitionIndex problemDefinitionIndex) {
+		this.problemDefinitionIndex = problemDefinitionIndex;
 	}
 
 }

@@ -22,11 +22,7 @@ public class UserDeserializer implements JsonDeserializer<User> {
 		int id = jobject.get("id").getAsInt(); //User
 		String username = jobject.get("username").getAsString(); //UserDetails
 		String language = jobject.get("language").getAsString(); //UserProfile
-		LanguageCode lc;
-		if (language.equals("EN"))
-			lc = LanguageCode.EN;
-		else
-			lc = LanguageCode.GR;
+		LanguageCode lc = LanguageCode.fromString(language);
 	    return new User(id, new UserProfile(lc, null, null), new UserDetails(username, 0, null), null);
 	}
 

@@ -70,11 +70,6 @@ public class ProblemDefinitionIndex implements Serializable, ProblemDefinitionIn
 		return 0;
 	}
 	
-	public void setIndexLength(int length){
-		problemsIndex = new ProblemDefinition[length];
-		problems = new ProblemDescription[length][];
-	}
-	
 	public int getRowLength(int i){
 		return problems[i].length;
 	}

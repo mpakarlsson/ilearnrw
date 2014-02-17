@@ -7,6 +7,11 @@ public class ProblemDescription implements Serializable{
 	private String descriptions[];
 	private ProblemType problemType;
 	
+	public ProblemDescription()
+	{
+		//for JSON deserialization
+	}
+	
 	public ProblemDescription(ProblemType problemType, String[] descriptions) {
 		this.descriptions = descriptions;
 		this.problemType= problemType;
@@ -18,6 +23,14 @@ public class ProblemDescription implements Serializable{
 
 	public ProblemType getProblemType() {
 		return problemType;
+	}
+	
+	public void setDescriptions(String[] descriptions) {
+		this.descriptions = descriptions;
+	}
+
+	public void setProblemType(ProblemType problemType) {
+		this.problemType = problemType;
 	}
 	
 	public boolean isDescription(String x){
