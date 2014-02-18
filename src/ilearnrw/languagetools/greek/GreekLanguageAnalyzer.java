@@ -1,9 +1,5 @@
 package ilearnrw.languagetools.greek;
 
-
-import java.io.InputStream;
-import java.util.HashMap;
-
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordType;
@@ -19,9 +15,11 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 
 
 	public GreekLanguageAnalyzer() {
-		GreekDictionaryLoader gl = new GreekDictionaryLoader();
-		dictionary = new GreekDictionary(gl.getWords());
-		soundsSimilarDictionary = new GreekDictionary(gl.getSimilarSoundWords());
+		//GreekDictionaryLoader gl = new GreekDictionaryLoader();
+		GreekGenericDictionaryLoader ggl = new GreekGenericDictionaryLoader("greek_dictionary.txt");
+		dictionary = new GreekDictionary(ggl.getWords());
+		GreekLineByLineDictionaryLoader glld = new GreekLineByLineDictionaryLoader("greek_sound_similarity.txt");
+		soundsSimilarDictionary = new GreekDictionary(glld.getWords());
 		//dictionary = new GreekDictionaryLoader();
 		//unknownWords = new HashMap<String, Integer>();
 	}
@@ -29,42 +27,11 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 	@Override
 	public void setWord(Word w) {
 		this.word = (GreekWord)w;
-		/*DictionaryEntry de = this.dictionary.getValue(w.toString());
-		if (de == null){
-			isNoun = false;
-			isAdj = false;
-			isVerb = false;
-			isParticiple = false;
-			if (w!=null && !w.toString().isEmpty())
-				this.unknownWords.put(w.toString(), unknownWords.containsKey(w.toString())?
-						unknownWords.get(w.toString())+1:1);
-			
-		}
-		else{
-			isNoun = de.getPartOfSpeech().equals("ουσιαστικό");
-			isAdj = de.getPartOfSpeech().equals("επίθετο");
-			isVerb = de.getPartOfSpeech().equals("ρήμα");
-			isParticiple = de.getExtras().contains("μετοχή");
-		}*/
 		if (dictionary.contains(word))
 			word.setType((dictionary.get(word)).getType());
 		else word.setType(WordType.Unknown);
 	}
-
-	/*
-	@Override
-	public HashMap<String, Integer> getUnknownWords() {
-		return unknownWords;
-	}
-
-
-	public void setUnknownWords(HashMap<String, Integer> unknownWords) {
-		this.unknownWords = unknownWords;
-	}*/
 	
-	//returns the word that has the same phonetic transcription as the this.word 
-	//except the parts phA  phB which may be replaced in the same position of the two words
-
 	@Override
 	public Word getSimilarSoundWord(String phA, String phB){
 		String phonems = this.word.getPhonetics();
@@ -80,8 +47,6 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 				String temp = x.getPhonetics().replaceAll(phA, "*");
 				temp = temp.replaceAll(phB, "*");
 				if (temp.equals(target)){
-					//System.out.println(x.toString() +" -- " + this.word.toString());
-					//System.out.println(temp +" -- " + target);
 					return x;
 				}
 			}

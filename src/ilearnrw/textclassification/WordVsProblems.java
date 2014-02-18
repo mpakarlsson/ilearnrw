@@ -47,6 +47,13 @@ public class WordVsProblems {
 		
 		checkWordAgainstMatrix();
 	}
+	public ProblemDefinitionIndex getTheProblems() {
+		return theProblems;
+	}
+
+	public void setTheProblems(ProblemDefinitionIndex theProblems) {
+		this.theProblems = theProblems;
+	}
 	
 	public void checkWordAgainstMatrix(){
 		languageAnalyser.setWord(word);
