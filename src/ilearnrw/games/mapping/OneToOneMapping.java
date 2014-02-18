@@ -4,21 +4,22 @@ import ilearnrw.utils.LanguageCode;
 import java.util.ArrayList;
 
 public class OneToOneMapping {
-	private String englishProbs[] = {"Syllable Division",
+	public static OneToOneMapping mapping = new OneToOneMapping();
+	private static String englishProbs[] = {"Syllable Division",
 				"Vowel Sounds", "Suffixing", "Prefixing", 
 				"Phon-Graph", "Letter Patterns", "Letter Names", 
 				"Sight Words", "Confusing Letter Shapes"};
-	private String greekProbs[] = {"Syllable Division", 
+	private static String greekProbs[] = {"Syllable Division", 
 			"Phonemes:Consonants", "Phonemes:Vowels", 
 			"Suffixing:Derivational", "Suffixing:Inflectional/Grammatical",
 			"Prefixing", "Grapheme/Phoneme Correspondence", 
 			"Grammar/Function Words", "Word Recognition", 
 			"Letter Visual Similarity"};
-	private String apps[] = {"Mail Sorter", "WhackaMole", 
+	private static String apps[] = {"Mail Sorter", "WhackaMole", 
 			"Endless Runner", "Harvest", "Serenade Hero", 
 			"Moving Pathways", "Eye Exam", "Typing Train Dispatcher", 
 			"Drop Chop"};
-	private boolean appsProbsCorrespondanceEN[][] = 
+	private static boolean appsProbsCorrespondanceEN[][] = 
 		{
 			//syl div
 			{false, false, true, true, false, true, true, true, true},
@@ -40,7 +41,7 @@ public class OneToOneMapping {
 			{true, true, false, true, true, true, true, true, false}			
 		};
 	
-	private boolean appsProbsCorrespondanceGR[][] = 
+	private static boolean appsProbsCorrespondanceGR[][] = 
 		{
 			//syl div
 			{false, false, true, true, false, true, true, true, true},
@@ -63,16 +64,21 @@ public class OneToOneMapping {
 			//lett vis sim
 			{true, true, false, false, false, true, false, false, false}			
 		};
-	public OneToOneMapping(){
-		
+	
+	private OneToOneMapping(){	
 	}
-	public int getAppID(String appName){
+	
+	public static OneToOneMapping getInstance(){
+		return mapping;
+	}
+	
+	public static int getAppID(String appName){
 		for (int i=0; i<apps.length; i++)
 			if (apps[i].equals(appName))
 				return i;
 		return -1;
 	}
-	public int getProblemID(String probName, LanguageCode lan){
+	public static int getProblemID(String probName, LanguageCode lan){
 		if (lan == LanguageCode.EN){
 			for (int i=0; i<englishProbs.length; i++)
 				if (englishProbs[i].equals(probName))
@@ -85,7 +91,7 @@ public class OneToOneMapping {
 		}
 		return -1;
 	}
-	public ArrayList<Integer> getProblemRelatedApps(int probId, LanguageCode lan){
+	public static ArrayList<Integer> getProblemRelatedApps(int probId, LanguageCode lan){
 		ArrayList<Integer> res = new ArrayList<Integer>();
 		if (lan == LanguageCode.EN){
 			if (probId>appsProbsCorrespondanceEN.length)
@@ -103,11 +109,11 @@ public class OneToOneMapping {
 		}
 		return null;
 	}
-	public ArrayList<Integer> getProblemRelatedApps(String prob, LanguageCode lan){
+	public static ArrayList<Integer> getProblemRelatedApps(String prob, LanguageCode lan){
 		int id = getProblemID(prob, lan);
 		return getProblemRelatedApps(id, lan);
 	}
-	public ArrayList<String> getProblemRelatedAppsString(int probId, LanguageCode lan){
+	public static ArrayList<String> getProblemRelatedAppsString(int probId, LanguageCode lan){
 		ArrayList<String> res = new ArrayList<String>();
 		if (lan == LanguageCode.EN){
 			if (probId>appsProbsCorrespondanceEN.length)
@@ -125,7 +131,7 @@ public class OneToOneMapping {
 		}
 		return null;
 	}
-	public ArrayList<String> getProblemRelatedAppsString(String prob, LanguageCode lan){
+	public static ArrayList<String> getProblemRelatedAppsString(String prob, LanguageCode lan){
 		int id = getProblemID(prob, lan);
 		return getProblemRelatedAppsString(id, lan);
 	}
