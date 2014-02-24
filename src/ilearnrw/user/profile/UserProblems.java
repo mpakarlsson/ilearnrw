@@ -123,6 +123,7 @@ public class UserProblems implements Serializable {
 	}
 
 	public void setSeverity(int i, int j, int value) {
+		System.err.println("Here i am ("+i+", "+j+")");
 		if (problems.getProblemDefinition(i).getSeverityType().
 				equalsIgnoreCase("binary")){
 			if (value != 0)
