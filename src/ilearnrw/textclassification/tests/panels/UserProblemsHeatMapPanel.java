@@ -3,6 +3,7 @@ import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.textclassification.tests.panels.userproblems.TrickyWordsPanel;
 import ilearnrw.user.User;
+import ilearnrw.user.profile.UserProblems;
 import ilearnrw.user.profile.UserSeverities;
 
 import java.awt.BorderLayout;
@@ -124,6 +125,7 @@ public class UserProblemsHeatMapPanel extends JPanel {
 	public void updateUser() {
 		if(user == null)
 			return;
+		UserProblems probs = user.getProfile().getUserProblems();
 		UserSeverities severities = user.getProfile().getUserProblems().getUserSeverities();
 		for (int i=0;i<multi.length;i++){
 			for (int j=0;j<multi[i].length;j++){
@@ -131,9 +133,9 @@ public class UserProblemsHeatMapPanel extends JPanel {
 				if( o != null )
 				{
 					try{
-					severities.setSeverity(i, j, (Integer) o);
+					probs.setSeverity(i, j, (Integer) o);
 					} catch( Exception ex ) {
-						severities.setSeverity(i, j, Integer.parseInt((String) o));
+						probs.setSeverity(i, j, Integer.parseInt((String) o));
 					}
 				}
 			}

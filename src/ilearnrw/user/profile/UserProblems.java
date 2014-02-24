@@ -63,17 +63,17 @@ public class UserProblems implements Serializable {
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){
 			int wi =2*problems.getRowLength(i)/4 + rand.nextInt(1);
-			userSeverities.setSystemIndex(i, wi);
-			userSeverities.setTeacherIndex(i, wi);
+			this.setSystemIndex(i, wi);
+			this.setTeacherIndex(i, wi);
 			for (int j=0; j<userSeverities.getSeverityLength(i); j++){
 				if (j<wi/2)
-					userSeverities.setSeverity(i, j, 0);// rand.nextInt(2));
+					this.setSeverity(i, j, 0);// rand.nextInt(2));
 				else if(j<wi)
-					userSeverities.setSeverity(i, j, 1);// rand.nextInt(3));
+					this.setSeverity(i, j, 1);// rand.nextInt(3));
 				else if (j<(wi+userSeverities.getSeverityLength(i))/2)
-					userSeverities.setSeverity(i, j, 2);// rand.nextInt(4));
+					this.setSeverity(i, j, 2);// rand.nextInt(4));
 				else 
-					userSeverities.setSeverity(i, j, 3);//  rand.nextInt(3)+1);
+					this.setSeverity(i, j, 3);//  rand.nextInt(3)+1);
 			}
 		}
 	}
@@ -88,17 +88,17 @@ public class UserProblems implements Serializable {
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){
 			int wi =2*problems.getRowLength(i)/4 + rand.nextInt(1);
-			userSeverities.setSystemIndex(i, wi);
-			userSeverities.setTeacherIndex(i, wi);
+			this.setSystemIndex(i, wi);
+			this.setTeacherIndex(i, wi);
 			for (int j=0; j<userSeverities.getSeverityLength(i); j++){
 				if (j<wi/2)
-					userSeverities.setSeverity(i, j, 0);// rand.nextInt(2));
+					this.setSeverity(i, j, 0);// rand.nextInt(2));
 				else if(j<wi)
-					userSeverities.setSeverity(i, j, 1);// rand.nextInt(3));
+					this.setSeverity(i, j, 1);// rand.nextInt(3));
 				else if (j<(wi+userSeverities.getSeverityLength(i))/2)
-					userSeverities.setSeverity(i, j, 2);// rand.nextInt(4));
+					this.setSeverity(i, j, 2);// rand.nextInt(4));
 				else 
-					userSeverities.setSeverity(i, j, 3);//  rand.nextInt(3)+1);
+					this.setSeverity(i, j, 3);//  rand.nextInt(3)+1);
 			}
 		}
 	}
@@ -112,6 +112,29 @@ public class UserProblems implements Serializable {
 
 	public void setUserSeverities(UserSeverities userSeverities) {
 		this.userSeverities = userSeverities;
+	}
+
+	public void setSystemIndex(int i, int value) {
+		userSeverities.setSystemIndex(i, value);
+	}
+
+	public void setTeacherIndex(int i, int value) {
+		userSeverities.setTeacherIndex(i, value);
+	}
+
+	public void setSeverity(int i, int j, int value) {
+		if (problems.getProblemDefinition(i).getSeverityType().
+				equalsIgnoreCase("binary")){
+			if (value != 0)
+				value = 1;
+		}
+		else {
+			if (value < 0) 
+				value = 0;
+			if (value > 3)
+				value = 3;
+		}
+		userSeverities.setSeverity(i, j, value);
 	}
 
 	public int getSeverity(int i, int j) {

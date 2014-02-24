@@ -1,12 +1,10 @@
 package ilearnrw.user.problems;
 
-import ilearnrw.utils.IlearnException;
-
 import java.io.Serializable;
 
 public class ProblemDefinition implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String title, URI;
+	private String severityType, URI;
 	private Category type;
 
 	public ProblemDefinition() {
@@ -19,12 +17,12 @@ public class ProblemDefinition implements Serializable {
 		this.type = type;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getSeverityType() {
+		return severityType;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setSeverityType(String title) {
+		this.severityType = title;
 	}
 
 	public String getURI() {
