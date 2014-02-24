@@ -100,6 +100,9 @@ public class WordVsProblems {
 			case CONTAINS:
 				wpi.setProblemInfo(i, j, matcher.contains(pd, word));
 				break;
+			case VISUAL_SIMILARITY:
+				wpi.setProblemInfo(i, j, matcher.visualSimilarity(pd, word));
+				break;
 			case IS_NOUN_OR_ADJ_AND_ENDS_WITH:
 				if (languageAnalyser.isNoun() || languageAnalyser.isAdj())
 					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));

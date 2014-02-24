@@ -30,15 +30,14 @@ public class CollectDataForProblems {
 	}
 
 	public static void test(){
-
 		SortedTreeSet greekWords = new SortedTreeSet();
 		InputStream greekDictionary;
 		LanguageAnalyzerAPI languageAnalyser = new GreekLanguageAnalyzer();
 		WordVsProblems wp = new WordVsProblems(languageAnalyser);
 		ProblemDefinitionIndex probs = wp.getTheProblems();
 		FileData fd[][] = new FileData[probs.getIndexLength()][];
-		String path = "data/greek_problems_brute_force/";
-		boolean bruteForce = true;
+		String path = "data/greek_problems/";
+		boolean bruteForce = false;
 		for (int i=0;i<fd.length; i++){
 			fd[i] = new FileData[probs.getRowLength(i)];
 			for (int j=0;j<fd[i].length; j++){

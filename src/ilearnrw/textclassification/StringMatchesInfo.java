@@ -85,6 +85,16 @@ public class StringMatchesInfo {
 		return null;
 	}
 	
+	public StringMatchesInfo visualSimilarity(String str[], Word w){
+		String ws = w.getWordUnmodified();
+		for (int i=0;i<str.length;i++){
+			if (ws.contains(str[i])){
+				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
+			}
+		}
+		return null;
+	}
+	
 	public StringMatchesInfo containsLettersOnConsequtiveSyllables(String str[], Word w){
 		String syl[] = w.getSyllables();
 		for (int i=0;i<str.length;i++){

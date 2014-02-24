@@ -1251,70 +1251,68 @@
     [
       {
         "descriptions": [
-          "α-ο",
-          "ά-ο",
-          "α-ά",
-          "ά-ό"
+          "α",
+          "ά",
+          "ο",
+          "ό"
         ],
         "problemType": "VISUAL_SIMILARITY"
       },
       {
         "descriptions": [
-          "φ-β",
-          "φ-Θ",
-          "θ-β"
+          "φ",
+          "Θ",
+          "β"
         ],
         "problemType": "VISUAL_SIMILARITY"
       },
       {
         "descriptions": [
-          "ψ-ω",
-          "ψ-ώ"
+          "ψ",
+          "ω",
+          "ώ"
         ],
         "problemType": "VISUAL_SIMILARITY"
       },
       {
         "descriptions": [
-          "3-ε",
-          "3-έ",
-          "3-ξ",
-          "ε-ξ",
-          "έ-ξ"
+          "3",
+          "ε",
+          "έ",
+          "ξ"
         ],
         "problemType": "VISUAL_SIMILARITY"
       },
       {
         "descriptions": [
-          "κ-χ",
-          "κ-γ",
-          "κ-λ",
-          "χ-γ",
-          "χ-λ",
-          "γ-λ"
+          "κ",
+          "γ",
+          "λ",
+          "χ"
         ],
         "problemType": "VISUAL_SIMILARITY"
       },
       {
         "descriptions": [
-          "η-μ",
-          "ή-μ"
+          "η",
+          "ή",
+          "μ"
         ],
         "problemType": "VISUAL_SIMILARITY"
       },
       {
         "descriptions": [
-          "π-τ"
+          "π",
+          "τ"
         ],
         "problemType": "VISUAL_SIMILARITY"
       },
       {
         "descriptions": [
-          "δ-ρ",
-          "δ-σ",
-          "δ-6",
-          "ρ-σ",
-          "ρ-6",
-          "σ-6"
+          "δ",
+          "σ",
+          "ρ",
+          "6"
         ],
         "problemType": "VISUAL_SIMILARITY"
       }
