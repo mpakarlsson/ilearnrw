@@ -1,18 +1,9 @@
 package ilearnrw.textclassification;
 
 import java.util.ArrayList;
-
-
-
-
-import ilearnrw.textclassification.greek.GreekWord;
-import ilearnrw.user.problems.EnglishProblems;
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
-import ilearnrw.languagetools.greek.GreekDictionary;
-import ilearnrw.user.problems.GreekProblems;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemType;
-import ilearnrw.user.problems.Problems;
 import ilearnrw.utils.LanguageCode;
 
 public class WordVsProblems {
@@ -20,24 +11,13 @@ public class WordVsProblems {
 	private ProblemDefinitionIndex theProblems;
 	private Word word;
 	private ArrayList<WordProblemInfo> matchedProbs;
-	private Problems prs;
 	private LanguageCode lc;
 	private LanguageAnalyzerAPI languageAnalyser;
 	
 	public WordVsProblems(LanguageAnalyzerAPI languageAnalyser) {
-		prs = new Problems();
 		this.lc = languageAnalyser.getLanguageCode();
 		this.languageAnalyser = languageAnalyser;
-				
-		switch (lc) {
-		case GR:
-			prs = new GreekProblems();
-			break;
-		case EN:
-			prs = new EnglishProblems();
-			break;
-		}
-		this.theProblems = prs.getProblemDefinitionIndex();
+		this.theProblems = new ProblemDefinitionIndex(this.lc);
 	}
 
 	

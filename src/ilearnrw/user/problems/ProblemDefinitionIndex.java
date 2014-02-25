@@ -2,6 +2,8 @@ package ilearnrw.user.problems;
 
 import java.io.Serializable;
 
+import ilearnrw.prototype.application.JsonHandler;
+import ilearnrw.resource.ResourceLoader.Type;
 import ilearnrw.utils.LanguageCode;
 
 public class ProblemDefinitionIndex implements Serializable, ProblemDefinitionIndexApi {
@@ -22,6 +24,21 @@ public class ProblemDefinitionIndex implements Serializable, ProblemDefinitionIn
 		problemsIndex = new ProblemDefinition[length];
 		problems = new ProblemDescription[length][];
 		this.language = language;
+	}
+
+	public ProblemDefinitionIndex(LanguageCode language) {
+		ProblemDefinitionIndex tmp;
+		this.language = language;
+		if (language == LanguageCode.EN){
+			JsonHandler handler = new JsonHandler(Type.DATA, "problem_definitions_en.json", true);
+			tmp = (ProblemDefinitionIndex) handler.fromJson(ProblemDefinitionIndex.class);
+		}
+		else{
+			JsonHandler handler = new JsonHandler(Type.DATA, "problem_definitions_greece.json", true);
+			tmp = (ProblemDefinitionIndex) handler.fromJson(ProblemDefinitionIndex.class);
+		}
+		this.problemsIndex = tmp.getProblemsIndex();
+		this.problems = tmp.getProblems();
 	}
 	
 	public void setProblemDefinition(ProblemDefinition prob, int position){

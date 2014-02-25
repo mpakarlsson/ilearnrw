@@ -4,8 +4,6 @@ import ilearnrw.languagetools.DictionaryLoader;
 import ilearnrw.languagetools.WordDictionary;
 import ilearnrw.languagetools.greek.GreekDictionary;
 import ilearnrw.languagetools.greek.GreekGenericDictionaryLoader;
-import ilearnrw.user.problems.EnglishProblems;
-import ilearnrw.user.problems.GreekProblems;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.utils.LanguageCode;
 
@@ -16,7 +14,7 @@ public class ProblemsWordLists {
 		String path;
 		switch (lc) {
 		case GR:
-			probs = (new GreekProblems()).getProblemDefinitionIndex();
+			probs = new ProblemDefinitionIndex(lc);
 			path = "greek_problems/";
 			wordDictionary = new WordDictionary[probs.getIndexLength()][];
 			for (int i=0;i<wordDictionary.length; i++){
@@ -28,7 +26,7 @@ public class ProblemsWordLists {
 			}
 			break;
 		case EN:
-			probs = (new EnglishProblems()).getProblemDefinitionIndex();
+			probs = new ProblemDefinitionIndex(lc);
 			path = "english_problems/";
 			wordDictionary = new WordDictionary[probs.getIndexLength()][];
 			for (int i=0;i<wordDictionary.length; i++){

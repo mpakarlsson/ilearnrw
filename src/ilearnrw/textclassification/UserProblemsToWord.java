@@ -166,7 +166,7 @@ public class UserProblemsToWord  implements Serializable {
 
 	public int updateValue(int i, int j, int oneValue) {
 		//against severities: 0 --> 0; 1 --> 0.3; 2 --> 0.6; 3 --> 1
-		if (userSeveritiesToProblems.getSeverity(i, j)>0)
+		if (userSeveritiesToProblems.getUserSeverity(i, j)>0)
 			userCounters.increaseValue(i, j, oneValue);
 		/*switch (userSeveritiesToProblems.getSeverity(i, j)) {
 		case 3:
@@ -178,7 +178,7 @@ public class UserProblemsToWord  implements Serializable {
 		default:
 			return 0;
 		}*/
-		return userSeveritiesToProblems.getSeverity(i, j);
+		return userSeveritiesToProblems.getUserSeverity(i, j);
 	}
 	
 	public int getValue(int i, int j) {

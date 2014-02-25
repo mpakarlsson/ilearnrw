@@ -133,9 +133,9 @@ public class UserProblemsHeatMapPanel extends JPanel {
 				if( o != null )
 				{
 					try{
-					probs.setSeverity(i, j, (Integer) o);
+					probs.setUserSeverity(i, j, (Integer) o);
 					} catch( Exception ex ) {
-						probs.setSeverity(i, j, Integer.parseInt((String) o));
+						probs.setUserSeverity(i, j, Integer.parseInt((String) o));
 					}
 				}
 			}
