@@ -16,6 +16,6 @@ public class GreekDictionary extends WordDictionary{
 	
 	public void loadWords(){
 		GreekGenericDictionaryLoader gl = new GreekGenericDictionaryLoader("greek_dictionary.txt");
-		words = gl.getWords();
+		words = gl.getEntries();
 	}	
 }

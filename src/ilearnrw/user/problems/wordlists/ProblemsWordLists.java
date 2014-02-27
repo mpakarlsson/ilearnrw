@@ -21,7 +21,7 @@ public class ProblemsWordLists {
 				wordDictionary[i] = new WordDictionary[probs.getRowLength(i)];
 				for (int j=0;j<wordDictionary[i].length; j++){
 					GreekGenericDictionaryLoader ggl = new GreekGenericDictionaryLoader(path+"words_for_problem_"+i+"_"+j+"_"+"GR.txt");
-					wordDictionary[i][j] = new GreekDictionary(ggl.getWords());
+					wordDictionary[i][j] = new GreekDictionary(ggl.getEntries());
 				}
 			}
 			break;
@@ -33,7 +33,7 @@ public class ProblemsWordLists {
 				wordDictionary[i] = new WordDictionary[probs.getRowLength(i)];
 				for (int j=0;j<wordDictionary[i].length; j++){
 					DictionaryLoader ggl = new DictionaryLoader(path+"words_for_problem_"+i+"_"+j+"_"+"GR.txt");
-					wordDictionary[i][j] = new GreekDictionary(ggl.getWords());
+					wordDictionary[i][j] = new GreekDictionary(ggl.getEntries());
 				}
 			}
 			break;

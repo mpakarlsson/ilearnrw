@@ -43,8 +43,7 @@ public class GreekGenericDictionaryLoader extends DictionaryLoader {
 		        }
 		        DictionaryEntry entry = new DictionaryEntry(lemma, partOfSpeech, extras);
 				if (entry.isActive() && word!=null && !word.isEmpty())
-					words.add(new GreekWord(word, partOfSpeech(partOfSpeech, extras)));
-		        add(word, entry);
+					entries.add(new GreekWord(word, partOfSpeech(partOfSpeech, extras)));
 				// Print the content on the console
 				//System.out.println (strLine);
 			}

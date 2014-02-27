@@ -29,7 +29,7 @@ public class GreekLineByLineDictionaryLoader extends DictionaryLoader{
 		for (Object x2 : obj2){
 			GreekWord gw = new GreekWord((String)x2);
 			//System.out.println("sound "+gw.toString());
-			words.add(gw);
+			entries.add(gw);
 		}
 	}
 
