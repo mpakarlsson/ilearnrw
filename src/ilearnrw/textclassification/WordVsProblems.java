@@ -27,6 +27,14 @@ public class WordVsProblems {
 		
 		checkWordAgainstMatrix();
 	}
+
+	
+	public void insertWord(Word word, int i, int j) {
+		matchedProbs = new ArrayList<WordProblemInfo>();
+		this.word = word;
+		
+		checkWordAgainstMatrix(i, j);
+	}
 	public ProblemDefinitionIndex getTheProblems() {
 		return theProblems;
 	}
@@ -39,11 +47,45 @@ public class WordVsProblems {
 		languageAnalyser.setWord(word);
 		for (int i=0;i<theProblems.getIndexLength(); i++){
 			for (int j=0;j<theProblems.getRowLength(i); j++){
-				if (wordMatches(i, j).getFound()){
+				if (wordMatches(i, j).found()){
 					matchedProbs.add(wordMatches(i, j));
 				}
 			}
 		}
+	}
+	
+	public void checkWordAgainstMatrix(int i, int j){
+		languageAnalyser.setWord(word);
+		if (i<theProblems.getIndexLength() && 
+				j<theProblems.getRowLength(i)){
+				if (wordMatches(i, j).found()){
+					matchedProbs.add(wordMatches(i, j));
+				}
+		}
+	}
+	
+	public ArrayList<WordProblemInfo> getWordProblems(){
+		ArrayList<WordProblemInfo> mp = new ArrayList<WordProblemInfo>();
+		languageAnalyser.setWord(word);
+		for (int i=0;i<theProblems.getIndexLength(); i++){
+			for (int j=0;j<theProblems.getRowLength(i); j++){
+				if (wordMatches(i, j).found()){
+					mp.add(wordMatches(i, j));
+				}
+			}
+		}
+		return mp;
+	}
+	
+	public ArrayList<WordProblemInfo> getWordProblems(int i, int j){
+		ArrayList<WordProblemInfo> mp = new ArrayList<WordProblemInfo>();
+		languageAnalyser.setWord(word);
+		if (i<theProblems.getIndexLength() && j<theProblems.getRowLength(i)){
+				if (wordMatches(i, j).found()){
+					mp.add(wordMatches(i, j));
+				}
+			}
+		return mp;
 	}
 
 	public LanguageCode getLanguageCode() {
@@ -60,7 +102,7 @@ public class WordVsProblems {
 
 	public boolean containsPosition(int i, int j){
 		for (WordProblemInfo wpi : matchedProbs){
-			if (wpi.getPosI()==i && wpi.getPosJ()==j)
+			if (wpi.getCategory()==i && wpi.getIndex()==j)
 				return true;
 		}
 		return false;

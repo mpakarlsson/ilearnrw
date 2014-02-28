@@ -87,8 +87,8 @@ public class UserProblemsToText implements Serializable {
 			Wscore = 0;
 			for (WordProblemInfo x : probs){
 				if (calculateProblematicWords)
-					problematicWords.addWord(x.getPosI(), x.getPosJ(), w);
-				int t = this.updateValue(x.getPosI(), x.getPosJ(), entry.getValue());
+					problematicWords.addWord(x.getCategory(), x.getIndex(), w);
+				int t = this.updateValue(x.getCategory(), x.getIndex(), entry.getValue());
 				Wscore += t;
 				if (t>0){
 					userHits++;

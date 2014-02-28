@@ -10,32 +10,32 @@ public class StringMatchesInfo {
 
 	private static LanguageAnalyzerAPI languageAnalyser;
 	
-	private String what;
+	private String matchedPart;
 	private int start, end;
 	
 	public StringMatchesInfo(LanguageAnalyzerAPI la) {
 		languageAnalyser = la;
-		what = null;
+		matchedPart = null;
 		start = -1;
 		end = -1;
 	}
 
 	public StringMatchesInfo(String what, int start, int end) {
-		this.what = what;
+		this.matchedPart = what;
 		this.start = start;
 		this.end = end;
 	}
 
 	public boolean isMatched(){
-		return what != null && !what.isEmpty();
+		return matchedPart != null && !matchedPart.isEmpty();
 	}
 	
-	public String getWhat() {
-		return what;
+	public String getMatchedPart() {
+		return matchedPart;
 	}
 
-	public void setWhat(String what) {
-		this.what = what;
+	public void setMatchedPart(String what) {
+		this.matchedPart = what;
 	}
 
 	public int getStart() {
@@ -56,7 +56,7 @@ public class StringMatchesInfo {
 
 	@Override
 	public String toString() {
-		return "StringMatchesInfo [what=" + what + ", start=" + start
+		return "StringMatchesInfo [what=" + matchedPart + ", start=" + start
 				+ ", end=" + end + "]";
 	}
 

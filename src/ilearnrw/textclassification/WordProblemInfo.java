@@ -7,14 +7,14 @@ import ilearnrw.utils.LanguageCode;
 public class WordProblemInfo {
 
 	private LanguageCode lc;
-	private int posI, posJ;
+	private int category, index;
 	private ArrayList<StringMatchesInfo> matched;
 	private boolean found;
 	
 	public WordProblemInfo(LanguageCode lc) {
 		this.lc = lc;
-		this.posI = -1;
-		this.posJ = -1;
+		this.category = -1;
+		this.index = -1;
 		this.found = false;
 		this.matched = null;
 	}
@@ -22,40 +22,36 @@ public class WordProblemInfo {
 	public void setProblemInfo(int posI, int posJ, ArrayList<StringMatchesInfo> smi) {
 		if (smi!=null) {
 			this.found = true;
-			this.posI = posI;
-			this.posJ = posJ;
+			this.category = posI;
+			this.index = posJ;
 			this.matched = smi;
 		}
 		else 
 			this.found = false;
 	}
 
-	public LanguageCode getLanguageCode() {
+	public LanguageCode languageCode() {
 		return this.lc;
 	}
 
-	public int getPosI() {
-		return posI;
+	public int getCategory() {
+		return category;
 	}
 
-	public void setposI(int posI) {
-		this.posI = posI;
+	public void setCategtory(int posI) {
+		this.category = posI;
 	}
 
-	public int getPosJ() {
-		return posJ;
+	public int getIndex() {
+		return index;
 	}
 
-	public void setposJ(int posJ) {
-		this.posJ = posJ;
+	public void setIndex(int posJ) {
+		this.index = posJ;
 	}
 
-	public boolean getFound() {
+	public boolean found() {
 		return found;
-	}
-
-	public void setFound(boolean found) {
-		this.found = found;
 	}
 
 	public ArrayList<StringMatchesInfo> getMatched() {
@@ -68,7 +64,7 @@ public class WordProblemInfo {
 
 	@Override
 	public String toString() {
-		return "WordProblemInfo [problem:(" + posI + ", " + posJ + "), matched=" + matched + "]";
+		return "WordProblemInfo [problem:(" + category + ", " + index + "), matched=" + matched + "]";
 	}
 	
 

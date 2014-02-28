@@ -64,7 +64,7 @@ public class UserProblemsToWord  implements Serializable {
 		//count the problems for each word
 		Wscore = 0;
 		for (WordProblemInfo x : probs){
-			int t = this.updateValue(x.getPosI(), x.getPosJ(), 1);
+			int t = this.updateValue(x.getCategory(), x.getIndex(), 1);
 			Wscore += t;
 			if (t>0){
 				userHits++;
