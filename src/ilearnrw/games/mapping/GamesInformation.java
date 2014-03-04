@@ -4,8 +4,8 @@ import ilearnrw.utils.LanguageCode;
 
 import java.util.ArrayList;
 
-public class GamesProblemsMapping {
-	public static GamesProblemsMapping mapping = new GamesProblemsMapping();
+public class GamesInformation {
+	public static GamesInformation mapping = new GamesInformation();
 	private static String englishProbs[] = { "Syllable Division",
 			"Vowel Sounds", "Suffixing", "Prefixing", "Phon-Graph",
 			"Letter Patterns", "Letter Names", "Sight Words",
@@ -64,31 +64,32 @@ public class GamesProblemsMapping {
 	private static boolean appsInputsCorrespondance[][] = {
 			// "Mail Sorter"
 			{ true, true, false },
-			// "WhackaMole"
-			{ false, true, false },
 			// "Endless Runner"
 			{ false, true, false },
 			// "Harvest"
-			{ true, false, false },
+			{ false, true, false },
 			// "Serenade Hero"
 			{ false, false, true },
 			// "Moving Pathways"
-			{ true, false, true },
-			// "Eye Exam"
-			{ true, false, false },
-			// "Typing Train Dispatcher"
 			{ true, true, false },
 			// "Drop Chop"
-			{ false, true, true } };
+			{ false, true, false },
+			// "WhackaMole"
+			{ false, true, false },
+			// "Eye Exam"
+			{ false, true, false },
+			// "Typing Train Dispatcher"
+			{ false, true, false } };
 
-	private GamesProblemsMapping() {
+	private GamesInformation() {
 	}
 
-	public static GamesProblemsMapping getInstance() {
+	public static GamesInformation getInstance() {
 		return mapping;
 	}
 
 	public static int getAppID(String appName) {
+		System.err.println(appName);
 		for (int i = 0; i < apps.length; i++)
 			if (apps[i].equalsIgnoreCase(appName))
 				return i;
@@ -106,6 +107,33 @@ public class GamesProblemsMapping {
 					return i;
 		}
 		return -1;
+	}
+
+	public static ArrayList<Integer> getAppRelatedProblems(int appId,
+			LanguageCode lan) {
+		ArrayList<Integer> res = new ArrayList<Integer>();
+		if (lan == LanguageCode.EN) {
+			if (appId > appsProbsCorrespondanceEN[0].length)
+				return null;
+			for (int i = 0; i < appsProbsCorrespondanceEN[i].length; i++)
+				if (appsProbsCorrespondanceEN[i][appId])
+					res.add(i);
+		} else {
+			if (appId > appsProbsCorrespondanceGR.length)
+				return null;
+			for (int i = 0; i < appsProbsCorrespondanceGR[i].length; i++)
+				if (appsProbsCorrespondanceGR[i][appId])
+					res.add(i);
+		}
+		return null;
+	}
+
+	public static ArrayList<Integer> getAppRelatedProblems(String appName,
+			LanguageCode lan) {
+		int id = getAppID(appName);
+		if (id==-1)
+			return null;
+		return getProblemRelatedApps(id, lan);
 	}
 
 	public static ArrayList<Integer> getProblemRelatedApps(int probId,
@@ -161,21 +189,30 @@ public class GamesProblemsMapping {
 	public static boolean allowsLetters(int appId){
 		return appsInputsCorrespondance[appId][0];
 	}
-	public static boolean allowsLetters(String app){
-		return allowsLetters(getAppID(app));
+	public static boolean allowsLetters(String appName){
+		int id = getAppID(appName);
+		if (id==-1)
+			return false;
+		return allowsLetters(id);
 	}
 	
 	public static boolean allowsWors(int appId){
 		return appsInputsCorrespondance[appId][1];
 	}
-	public static boolean allowsWors(String app){
-		return allowsWors(getAppID(app));
+	public static boolean allowsWors(String appName){
+		int id = getAppID(appName);
+		if (id==-1)
+			return false;
+		return allowsWors(id);
 	}
 	
 	public static boolean allowsSentences(int appId){
 		return appsInputsCorrespondance[appId][2];
 	}
-	public static boolean allowsSentences(String app){
-		return allowsSentences(getAppID(app));
+	public static boolean allowsSentences(String appName){
+		int id = getAppID(appName);
+		if (id==-1)
+			return false;
+		return allowsSentences(id);
 	}
 }
