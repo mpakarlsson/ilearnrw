@@ -2,6 +2,7 @@ package ilearnrw.textclassification;
 
 import java.util.ArrayList;
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
+import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemType;
 import ilearnrw.utils.LanguageCode;
@@ -24,6 +25,16 @@ public class WordVsProblems {
 	public void insertWord(Word word) {
 		matchedProbs = new ArrayList<WordProblemInfo>();
 		this.word = word;
+		
+		if(word.languageCode == LanguageCode.EN){
+			if(EnglishLanguageAnalyzer.dictionary.getDictionary().containsKey(word.getWord()))
+				this.word = EnglishLanguageAnalyzer.dictionary.getDictionary().get(word.getWord());
+			
+
+			if(word.getWord().equals("ridge's")){
+				word=word;
+			}
+		}
 		
 		checkWordAgainstMatrix();
 	}
