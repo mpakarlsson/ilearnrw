@@ -80,8 +80,8 @@ public class CollectDataForProblems {
 					int lastProbs[] = new int[probs.getIndexLength()];
 					if (bruteForce){
 						for (WordProblemInfo pr : wpi){
-							int x = pr.getPosI();
-							int y = pr.getPosJ();
+							int x = pr.getCategory();
+							int y = pr.getIndex();
 							fd[x][y].data.add(test);
 						}
 					}
@@ -89,8 +89,8 @@ public class CollectDataForProblems {
 						for (int i=0;i<lastProbs.length; i++)
 							lastProbs[i] = -1;
 						for (WordProblemInfo pr : wpi){
-							int x = pr.getPosI();
-							int y = pr.getPosJ();
+							int x = pr.getCategory();
+							int y = pr.getIndex();
 							if (lastProbs[x]<y)
 								lastProbs[x] = y;
 						}
