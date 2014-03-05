@@ -89,7 +89,6 @@ public class GamesInformation {
 	}
 
 	public static int getAppID(String appName) {
-		System.err.println(appName);
 		for (int i = 0; i < apps.length; i++)
 			if (apps[i].equalsIgnoreCase(appName))
 				return i;
@@ -122,10 +121,11 @@ public class GamesInformation {
 			if (appId > appsProbsCorrespondanceGR.length)
 				return null;
 			for (int i = 0; i < appsProbsCorrespondanceGR[i].length; i++)
-				if (appsProbsCorrespondanceGR[i][appId])
+				if (appsProbsCorrespondanceGR[i][appId]){
 					res.add(i);
+				}
 		}
-		return null;
+		return res;
 	}
 
 	public static ArrayList<Integer> getAppRelatedProblems(String appName,

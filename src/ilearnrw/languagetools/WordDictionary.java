@@ -31,11 +31,7 @@ public class WordDictionary {
 	}
 
 	public Word get(Word w){
-		for (Word gw: words){
-			if (gw.equals(w))
-				return gw;
-		}
-		return null;
+		return words.subSet(w, true, w, true).first();
 	}
 	
 	//has to   be overridden!
