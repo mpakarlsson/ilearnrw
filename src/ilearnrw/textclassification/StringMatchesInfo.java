@@ -3,7 +3,6 @@ package ilearnrw.textclassification;
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.textclassification.greek.GreekWord;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class StringMatchesInfo {
 
@@ -418,9 +417,10 @@ public class StringMatchesInfo {
 						} else 
 							return null;
 					}
-					
-					result.add(new StringMatchesInfo(s, w.getWord().lastIndexOf(values[0]), w.getWord().lastIndexOf(values[0])+difficulty.length()));
-					return result;
+					if(w.getWord().endsWith(difficulty)){
+						result.add(new StringMatchesInfo(s, w.getWord().lastIndexOf(values[0]), w.getWord().lastIndexOf(values[0])+difficulty.length()));
+						return result;
+					}
 				}
 			} else if(type.equals("start")){
 				String tempPhon = w.getPhonetics();
