@@ -29,11 +29,6 @@ public class WordVsProblems {
 		if(word.languageCode == LanguageCode.EN){
 			if(EnglishLanguageAnalyzer.dictionary.getDictionary().containsKey(word.getWord()))
 				this.word = EnglishLanguageAnalyzer.dictionary.getDictionary().get(word.getWord());
-			
-
-			if(word.getWord().equals("ridge's")){
-				word=word;
-			}
 		}
 		
 		checkWordAgainstMatrix();
@@ -231,6 +226,7 @@ public class WordVsProblems {
 			case SUFFIX_CHANGE:
 			case SUFFIX_DOUBLE:
 			case SUFFIX_STRESS_PATTERN: // FIX THIS TO DO AS THE JSON OBJECT TELLS IT
+			case SUFFIX_PATTERN:
 				wpi.setProblemInfo(i, j, matcher.endsWithSuffix(pd, word));
 				break;
 				
@@ -256,7 +252,6 @@ public class WordVsProblems {
 				wpi.setProblemInfo(i, j, matcher.patternEqualsPronunciation(pd, word, endType));
 				break;
 			case SYLLABLE_PATTERN:
-			case SUFFIX_PATTERN:
 				break;
 			case SYLLABLE_COUNT:
 				wpi.setProblemInfo(i, j, matcher.syllableCount(pd, word));

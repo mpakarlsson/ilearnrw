@@ -1,8 +1,6 @@
 package ilearnrw.textclassification.english;
 
 import java.util.ArrayList;
-
-import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
 import ilearnrw.prototype.application.Program;
 import ilearnrw.textclassification.GraphemePhonemePair;
 import ilearnrw.textclassification.Word;
@@ -11,6 +9,7 @@ import ilearnrw.utils.LanguageCode;
 
 
 public class EnglishWord extends Word {
+	private static final long serialVersionUID = 1L;
 	ArrayList<String> cDigraphs;
 	ArrayList<String> cTrigraphs;
 	
@@ -326,35 +325,6 @@ public class EnglishWord extends Word {
 		}
 		
 		return word;
-	}
-	
-	private ArrayList<String> gatherPossible(String word, ArrayList<String> list, boolean prefix){	
-		ArrayList<String> options = new ArrayList<String>();
-		
-		for(String item : list){
-			if(item.length() < word.length()){
-				if(prefix){
-					if(!word.startsWith(item))
-						continue;
-				} else 
-					if(!word.endsWith(item))
-						continue;
-				
-				String part = prefix ? word.substring(item.length()) : word.substring(0, word.length() - item.length());
-				boolean valid = false;
-				
-				for(char c : part.toCharArray())
-					if(upperCharToCV(c) == 'v'){
-						valid = true;
-						break;
-					}
-				
-				if(valid)
-					options.add(item);
-			}
-		}
-		
-		return options;
 	}
 	
     private boolean checkDigraph(char c1, char c2){
