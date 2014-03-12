@@ -1,7 +1,11 @@
 package ilearnrw.textclassification;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
+import ilearnrw.textclassification.english.EnglishWord;
 import ilearnrw.textclassification.greek.GreekWord;
+import ilearnrw.user.problems.ProblemType;
+import ilearnrw.utils.LanguageCode;
+
 import java.util.ArrayList;
 
 public class StringMatchesInfo {
@@ -240,38 +244,38 @@ public class StringMatchesInfo {
 	}
 	
 	
-	public static ArrayList<StringMatchesInfo> endsWithSuffix(String str[], Word w){
+	public static ArrayList<StringMatchesInfo> endsWithSuffix(String str[], Word w, ProblemType pt){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String phonetics = w.getPhonetics();
+		String ASD = pt.toString();
+		if(w.getLanguageCode().equals(LanguageCode.EN)){
+			for(String s : str){
+				int pos = s.indexOf("-");
 
-		
-		for(String s : str){
-			int pos = s.indexOf("-");
-			
-			
-			if(pos != -1){
-				String[] values = s.split("-");
-				
-				// TODO: fix this temporary solution -> if no phonetics but word ends with suffix -> difficult word
-				if(phonetics == null){
-					if(w.getWord().endsWith(values[0])){
-						result.add(new StringMatchesInfo(s, w.getWord().indexOf(values[0]), w.getWord().lastIndexOf(values[0])+values[0].length()));
-						return result;
+				if(pos != -1){
+					String[] values = s.split("-");
+					
+					// TODO: fix this temporary solution -> if no phonetics but word ends with suffix -> difficult word
+					if(phonetics == null){
+						if(w.getWord().endsWith(values[0])){
+							result.add(new StringMatchesInfo(s, w.getWord().indexOf(values[0]), w.getWord().lastIndexOf(values[0])+values[0].length()));
+							return result;
+						}
+					} else {
+						String tempPhon = w.getPhonetics();
+						// remove stress, syllable dividers and vertical lines
+						tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
+						
+						if(w.getWord().endsWith(values[0]) && tempPhon.endsWith(values[1]) && !((EnglishWord)w).getSuffixType().equals("SUFFIX_NONE")){
+							result.add(new StringMatchesInfo(s, w.getWord().indexOf(values[0]), w.getWord().lastIndexOf(values[0])+values[0].length()));
+							return result;
+						}
 					}
 				} else {
-					String tempPhon = w.getPhonetics();
-					// remove stress, syllable dividers and vertical lines
-					tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
-					
-					if(w.getWord().endsWith(values[0]) && tempPhon.endsWith(values[1])){
-						result.add(new StringMatchesInfo(s, w.getWord().indexOf(values[0]), w.getWord().lastIndexOf(values[0])+values[0].length()));
+					if(w.getWord().endsWith(s) && pt.toString().equals(((EnglishWord)w).getSuffixType())){
+						result.add(new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length()));
 						return result;
 					}
-				}
-			} else {
-				if(w.getWord().endsWith(s)){
-					result.add(new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length()));
-					return result;
 				}
 			}
 		}

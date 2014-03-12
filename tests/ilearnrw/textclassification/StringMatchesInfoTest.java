@@ -29,33 +29,33 @@ public class StringMatchesInfoTest {
 		JsonHandler handler = new JsonHandler(Type.DATA, "problem_definitions_en.json", true);
 		pdIndex = (ProblemDefinitionIndex) handler.fromJson(ProblemDefinitionIndex.class);
 		
-		ew1 = new EnglishWord("absorbing", "əb.ˈzɔːb.ɪŋ", 
+		ew1 = new EnglishWord("absorbing", "əb.ˈzɔːb.ɪŋ", "absorb",
 				new ArrayList<GraphemePhonemePair>(createGraphemePhonemeList(new String[] {"a-ə", "b-b", "s-z", "or-ɔː", "b-b", "i-ɪ", "ng-ŋ"})),
-				3, 5001, WordType.Unknown);
+				"ing", "SUFFIX_ADD", 3, 5001, WordType.Unknown);
 		
-		ew2 = new EnglishWord("angle", "ˈæŋ.ɡəl", 
+		ew2 = new EnglishWord("angle", "ˈæŋ.ɡəl", "angle",
 				new ArrayList<GraphemePhonemePair>(createGraphemePhonemeList(new String[] {"a-æ", "n-ŋ", "g-ɡ", "le-əl"})),
-				2, 5001, WordType.Unknown);
+				"NULL", "SUFFIX_NONE", 2, 5001, WordType.Unknown);
 	
-		ew3 = new EnglishWord("balloon", "bə.ˈluːn", 
+		ew3 = new EnglishWord("balloon", "bə.ˈluːn", "balloon",
 				new ArrayList<GraphemePhonemePair>(createGraphemePhonemeList(new String[] {"b-b", "a-ə", "ll-l", "oo-uː", "n-n"})),
-				2, 5001, WordType.Unknown);
+				"NULL", "SUFFIX_NONE", 2, 5001, WordType.Unknown);
 		
-		ew4 = new EnglishWord("bee's", "biːz", 
+		ew4 = new EnglishWord("bee's", "biːz", "bee",
 				new ArrayList<GraphemePhonemePair>(createGraphemePhonemeList(new String[] {"b-b", "ee-iː", "'-", "s-z"})),
-				1, 5001, WordType.Unknown);
+				"'s", "SUFFIX_ADD", 1, 5001, WordType.Unknown);
 
-		ew5 = new EnglishWord("psychology", "saɪˈk.ɒ.lə.dʒi", 
+		ew5 = new EnglishWord("psychology", "saɪˈk.ɒ.lə.dʒi", "psychology",
 				new ArrayList<GraphemePhonemePair>(createGraphemePhonemeList(new String[] {"ps-s", "y-aɪ", "ch-k", "o-ɒ", "l-l", "o-ə", "g-dʒ", "y-i"})),
-				4, 5001, WordType.Unknown);
+				"NULL", "SUFFIX_NONE", 4, 5001, WordType.Unknown);
 	
-		ew6 = new EnglishWord("majority", "mə.ˈdʒɒ.rɪ.ti", 
+		ew6 = new EnglishWord("majority", "mə.ˈdʒɒ.rɪ.ti", "majority",
 				new ArrayList<GraphemePhonemePair>(createGraphemePhonemeList(new String[] {"m-m", "a-ə", "j-dʒ", "o-ɒ", "r-r", "i-ɪ", "t-t", "y-i"})),
-				2, 5001, WordType.Unknown);
+				"NULL", "SUFFIX_NONE", 2, 5001, WordType.Unknown);
 
-		ew7 = new EnglishWord("tablespoon", "ˈteɪ.bl.spuːn", 
+		ew7 = new EnglishWord("tablespoon", "ˈteɪ.bl.spuːn", "tablespoon",
 				new ArrayList<GraphemePhonemePair>(createGraphemePhonemeList(new String[] {"t-t", "a.e-eɪ", "b-b", "l-l", "s-s", "p-p", "oo-uː", "n-n"})),
-				3, 5001, WordType.Unknown);
+				"NULL", "SUFFIX_NONE", 3, 5001, WordType.Unknown);
 	}
 	
 	@AfterClass
@@ -82,7 +82,7 @@ public class StringMatchesInfoTest {
 						pt.equals(ProblemType.SUFFIX_CHANGE) || pt.equals(ProblemType.SUFFIX_DOUBLE) ||
 						pt.equals(ProblemType.SUFFIX_STRESS_PATTERN) || pt.equals(ProblemType.SUFFIX_PATTERN)){
 					
-					ArrayList<StringMatchesInfo> smiInfo = StringMatchesInfo.endsWithSuffix(new String[]{pd[0]}, ew1);
+					ArrayList<StringMatchesInfo> smiInfo = StringMatchesInfo.endsWithSuffix(new String[]{pd[0]}, ew1, pt);
 
 					if(pd[0].equals("ing"))
 						assertNotNull(smiInfo);
@@ -91,29 +91,29 @@ public class StringMatchesInfoTest {
 					
 					if(smiInfo != null) strMatchInfo1.add(smiInfo);
 					
-					smiInfo = StringMatchesInfo.endsWithSuffix(new String[]{pd[0]}, ew2);
+					smiInfo = StringMatchesInfo.endsWithSuffix(new String[]{pd[0]}, ew2, pt);
 					if(smiInfo != null) strMatchInfo2.add(smiInfo);
 					
-					smiInfo = StringMatchesInfo.endsWithSuffix(new String[]{pd[0]}, ew3);
+					smiInfo = StringMatchesInfo.endsWithSuffix(new String[]{pd[0]}, ew3, pt);
 					if(smiInfo != null) strMatchInfo3.add(smiInfo);
 					
-					smiInfo = StringMatchesInfo.endsWithSuffix(new String[]{pd[0]}, ew4);
+					smiInfo = StringMatchesInfo.endsWithSuffix(new String[]{pd[0]}, ew4, pt);
 					if(smiInfo != null) strMatchInfo4.add(smiInfo);
 					
-					smiInfo = StringMatchesInfo.endsWithSuffix(new String[]{pd[0]}, ew5);
+					smiInfo = StringMatchesInfo.endsWithSuffix(new String[]{pd[0]}, ew5, pt);
 					if(smiInfo != null) strMatchInfo5.add(smiInfo);
 					
-					smiInfo = StringMatchesInfo.endsWithSuffix(new String[]{pd[0]}, ew6);
+					smiInfo = StringMatchesInfo.endsWithSuffix(new String[]{pd[0]}, ew6, pt);
 					if(smiInfo != null) strMatchInfo6.add(smiInfo);
 					
-					smiInfo = StringMatchesInfo.endsWithSuffix(new String[]{pd[0]}, ew7);
+					smiInfo = StringMatchesInfo.endsWithSuffix(new String[]{pd[0]}, ew7, pt);
 					if(smiInfo != null) strMatchInfo7.add(smiInfo);
 					
 				}
 			}
 		}
 		assertEquals(3, strMatchInfo1.size());
-		assertEquals(1, strMatchInfo2.size());
+		assertEquals(0, strMatchInfo2.size());
 		assertEquals(0, strMatchInfo3.size());
 		assertEquals(1, strMatchInfo4.size());
 		assertEquals(3, strMatchInfo5.size());
@@ -248,9 +248,9 @@ public class StringMatchesInfoTest {
 		ArrayList<ArrayList<StringMatchesInfo>> strMatchInfo6 = new ArrayList<ArrayList<StringMatchesInfo>>();
 		ArrayList<ArrayList<StringMatchesInfo>> strMatchInfo7 = new ArrayList<ArrayList<StringMatchesInfo>>();
 		
-		EnglishWord tempWord = new EnglishWord("framework", "ˈfreɪm.wɜːk",
+		EnglishWord tempWord = new EnglishWord("framework", "ˈfreɪm.wɜːk", "framework",
 				new ArrayList<GraphemePhonemePair>(createGraphemePhonemeList(new String[]{"f-f", "r-r", "a.e-eɪ", "m-m", "w-w", "or-ɜː", "k-k"})),
-				3, 5001, WordType.Unknown);
+				"NULL", "SUFFIX_NONE", 3, 5001, WordType.Unknown);
 		
 		
 		ArrayList<ArrayList<StringMatchesInfo>> strMatchInfo8 = new ArrayList<ArrayList<StringMatchesInfo>>();

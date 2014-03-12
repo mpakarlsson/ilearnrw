@@ -10,6 +10,9 @@ import ilearnrw.utils.LanguageCode;
 
 public class EnglishWord extends Word {
 	private static final long serialVersionUID = 1L;
+	private String suffix;
+	private String suffixType;
+	private String stem;
 	ArrayList<String> cDigraphs;
 	ArrayList<String> cTrigraphs;
 	
@@ -26,10 +29,13 @@ public class EnglishWord extends Word {
         createCVForm();
             
         frequency = 5001;
+        setSuffix("");
+        setSuffixType("SUFFIX_NONE");
+        setStem("");
     }
 
     //We put inside only lower case words
-    public EnglishWord(String word, String phonetic, ArrayList<GraphemePhonemePair> phoneticList, int numSyllables, double frequency, WordType type) {
+    public EnglishWord(String word, String phonetic, String stem, ArrayList<GraphemePhonemePair> phoneticList, String suffix, String suffixType, int numSyllables, double frequency, WordType type) {
     	super(word, type);
     	setupLists();
     	wordUnmodified = word;
@@ -44,6 +50,9 @@ public class EnglishWord extends Word {
         
         this.frequency = frequency;
         
+        this.setSuffix(suffix);
+        this.setSuffixType(suffixType);
+        this.setStem(stem);
         createCVForm();
     }
 
@@ -127,6 +136,30 @@ public class EnglishWord extends Word {
             return numVowels;
     }
     
+	public String getStem() {
+		return stem;
+	}
+	
+	private void setStem(String stem) {
+		this.stem = stem;
+	}
+	
+	public String getSuffix() {
+		return suffix;
+	}
+
+	private void setSuffix(String suffix) {
+		this.suffix = suffix;
+	}
+
+	public String getSuffixType() {
+		return suffixType;
+	}
+
+	private void setSuffixType(String suffixType) {
+		this.suffixType = suffixType;
+	}
+
 	private String[] syllabify(String word){    	
     	String fword = word;
     	

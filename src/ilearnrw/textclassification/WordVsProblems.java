@@ -227,7 +227,7 @@ public class WordVsProblems {
 			case SUFFIX_DOUBLE:
 			case SUFFIX_STRESS_PATTERN: // FIX THIS TO DO AS THE JSON OBJECT TELLS IT
 			case SUFFIX_PATTERN:
-				wpi.setProblemInfo(i, j, matcher.endsWithSuffix(pd, word));
+				wpi.setProblemInfo(i, j, matcher.endsWithSuffix(pd, word, pt));
 				break;
 				
 			// TODO: Fix to be more complex, discuss with language experts

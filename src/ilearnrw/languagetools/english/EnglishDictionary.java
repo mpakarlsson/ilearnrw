@@ -47,6 +47,7 @@ public class EnglishDictionary {
 				ArrayList<GraphemePhonemePair> phoneticList;
 				int numChars, numPhons, numSyllables;
 				double frequency;
+				String suffixType, suffix;
 				// Add this when it's possible
 				// syllables
 				// partOfSpeech
@@ -80,14 +81,16 @@ public class EnglishDictionary {
 						phoneticList.add(pair);
 					}
 					
-					numPhons = Integer.parseInt(results[5]);
+					numPhons = Integer.parseInt(results[7]);
 				}
 				
-				numChars = Integer.parseInt(results[4]);
-				numSyllables = Integer.parseInt(results[6]);
-				frequency = Double.parseDouble(results[7]);
+				suffixType = results[4];
+				suffix = results[5];
+				numChars = Integer.parseInt(results[6]);
+				numSyllables = Integer.parseInt(results[8]);
+				frequency = Double.parseDouble(results[9]);
 				
-				EnglishWord w = new EnglishWord(word,phonetic, phoneticList, numSyllables, frequency, WordType.Unknown);
+				EnglishWord w = new EnglishWord(word, phonetic, stem, phoneticList, suffix, suffixType, numSyllables, frequency, WordType.Unknown);
 				
 				if(!dictionary.containsKey(word)){
 					dictionary.put(word, w);
