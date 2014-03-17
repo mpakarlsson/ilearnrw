@@ -9,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,11 +46,12 @@ public class EnglishDictionary {
 				
 				String word, stem, phonetic;
 				ArrayList<GraphemePhonemePair> phoneticList;
+				ArrayList<String> graphemeSyllables = new ArrayList<String>();
+				ArrayList<String> phoneticSyllables = new ArrayList<String>();
 				int numChars, numPhons, numSyllables;
 				double frequency;
 				String suffixType, suffix;
 				// Add this when it's possible
-				// syllables
 				// partOfSpeech
 				
 				
@@ -81,14 +83,17 @@ public class EnglishDictionary {
 						phoneticList.add(pair);
 					}
 					
-					numPhons = Integer.parseInt(results[7]);
+					numPhons = Integer.parseInt(results[9]);
 				}
 				
 				suffixType = results[4];
 				suffix = results[5];
-				numChars = Integer.parseInt(results[6]);
-				numSyllables = Integer.parseInt(results[8]);
-				frequency = Double.parseDouble(results[9]);
+				graphemeSyllables = new ArrayList<String>(Arrays.asList(results[6].split(",")));
+				phoneticSyllables = new ArrayList<String>(Arrays.asList(results[7].split(",")));
+				
+				numChars = Integer.parseInt(results[8]);
+				numSyllables = Integer.parseInt(results[10]);
+				frequency = Double.parseDouble(results[11]);
 				
 				EnglishWord w = new EnglishWord(word, phonetic, stem, phoneticList, suffix, suffixType, numSyllables, frequency, WordType.Unknown);
 				
