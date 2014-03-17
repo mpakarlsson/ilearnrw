@@ -51,12 +51,12 @@ public class UserSeverities implements Serializable {
 		severities[i][j] = value;
 	}
 
-	public int getNumberOfRows() {
-		return systemIndices.length;
-	}
-
 	public int getSeverity(int i, int j) {
 		return severities[i][j];
+	}
+
+	public int getNumberOfRows() {
+		return systemIndices.length;
 	}
 
 	public int getLength() {

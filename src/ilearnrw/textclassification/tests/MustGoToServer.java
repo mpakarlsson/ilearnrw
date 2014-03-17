@@ -3,18 +3,32 @@ package ilearnrw.textclassification.tests;
 import ilearnrw.datalogger.IUserAdministration.AuthenticationException;
 import ilearnrw.datalogger.UserStore;
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
+import ilearnrw.languagetools.greek.DictionaryEntry;
 import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
+import ilearnrw.resource.ResourceLoader;
+import ilearnrw.resource.ResourceLoader.Type;
 import ilearnrw.rest.AuthenticatedRestClient;
+import ilearnrw.structs.sets.SortedTreeSet;
 import ilearnrw.textclassification.Classifier;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.TextClassificationResults;
 import ilearnrw.textclassification.UserProblemsToText;
+import ilearnrw.textclassification.Word;
+import ilearnrw.textclassification.WordProblemInfo;
+import ilearnrw.textclassification.WordType;
+import ilearnrw.textclassification.WordVsProblems;
+import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.user.User;
+import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.utils.LanguageCode;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -26,7 +40,10 @@ public class MustGoToServer {
 	private static User user = null;
 	private static LanguageCode lan = LanguageCode.GR;
 
-	public static void main(String args[]) {
+	
+	public static void main(String args[]){	}
+
+	public static void prevmain(String args[]) {
 
 //		// TODO users must stored server side, not locally!
 //		try {

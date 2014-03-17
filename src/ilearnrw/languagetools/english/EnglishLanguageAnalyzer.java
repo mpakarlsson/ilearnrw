@@ -1,45 +1,46 @@
 package ilearnrw.languagetools.english;
 
-import java.util.HashMap;
-
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.textclassification.Word;
+import ilearnrw.textclassification.WordType;
+import ilearnrw.textclassification.english.EnglishWord;
 import ilearnrw.utils.LanguageCode;
 
 public class EnglishLanguageAnalyzer implements LanguageAnalyzerAPI{
-
+	
+	private Word word;
+	public static EnglishDictionary dictionary;
+	
 	public EnglishLanguageAnalyzer() {
-		// TODO Auto-generated constructor stub
+		dictionary = new EnglishDictionary("dictionary_english.csv");
 	}
 
 	@Override
 	public void setWord(Word w) {
-		// TODO Auto-generated method stub
-		
+		this.word = (EnglishWord)w;
+		if (dictionary.getDictionary().containsKey(word.getWord()))
+			word.setType((dictionary.getDictionary().get(word.getWord())).getType());
+		else word.setType(WordType.Unknown);
 	}
 
 	@Override
 	public boolean isNoun() {
-		// TODO Auto-generated method stub
-		return true;
+		return this.word.getType() == WordType.Noun;
 	}
 
 	@Override
 	public boolean isAdj() {
-		// TODO Auto-generated method stub
-		return true;
+		return this.word.getType() == WordType.Adjective;
 	}
 
 	@Override
 	public boolean isVerb() {
-		// TODO Auto-generated method stub
-		return true;
+		return this.word.getType() == WordType.Verb;
 	}
 
 	@Override
 	public boolean isParticiple() {
-		// TODO Auto-generated method stub
-		return true;
+		return this.word.getType() == WordType.Participle;
 	}
 
 	@Override

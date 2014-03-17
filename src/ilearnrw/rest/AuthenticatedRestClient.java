@@ -4,8 +4,6 @@ import ilearnrw.textclassification.TextClassificationResults;
 import ilearnrw.textclassification.Word;
 import ilearnrw.user.User;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
-import ilearnrw.user.problems.Problems;
-import ilearnrw.user.profile.UserProblems;
 import ilearnrw.user.profile.UserProfile;
 
 import java.io.BufferedReader;
@@ -111,8 +109,8 @@ public class AuthenticatedRestClient {
 		Map<String, String> argMap = new HashMap<String, String>();
 		argMap.put("userId", String.valueOf(user.getUserId()));
 		Request request = new Request(problemDefinitionUrl, authentication, argMap);
-		Problems problems = requestObj(request, Problems.class);
-		user.getProfile().getUserProblems().setProblems(problems.getProblemDefinitionIndex());
+		ProblemDefinitionIndex problems = requestObj(request, ProblemDefinitionIndex.class);
+		user.getProfile().getUserProblems().setProblems(problems);
 	}
 	
 	public void fetchUserProfile(User user)

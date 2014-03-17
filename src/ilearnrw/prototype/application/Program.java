@@ -14,7 +14,6 @@ import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.prototype.application.ConsoleMenu.IConsoleMenuAction;
 import ilearnrw.textclassification.english.EnglishWord;
 import ilearnrw.textclassification.greek.GreekWord;
-import ilearnrw.user.problems.EnglishProblems;
 
 import ilearnrw.datalogger.IProfileAccessUpdater;
 import ilearnrw.datalogger.ILoginProvider;

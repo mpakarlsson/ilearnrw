@@ -1,19 +1,14 @@
 package ilearnrw.user.profile;
 
-import ilearnrw.prototype.application.JsonHandler;
-import ilearnrw.resource.ResourceLoader.Type;
 import ilearnrw.textclassification.Word;
-import ilearnrw.user.problems.EnglishProblems;
-import ilearnrw.user.problems.GreekProblems;
 import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemDescription;
-import ilearnrw.user.problems.Problems;
-
+import ilearnrw.utils.LanguageCode;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+
 import java.util.Random;
 
 public class UserProblems implements Serializable {
@@ -25,6 +20,12 @@ public class UserProblems implements Serializable {
 	
 	public UserProblems(){
 		problems = null;//new ProblemDefinitionIndex();
+		userSeverities = new UserSeverities();
+		setTrickyWords(new ArrayList<Word>());
+	}
+	
+	public UserProblems(LanguageCode lc){
+		problems = new ProblemDefinitionIndex(lc);
 		userSeverities = new UserSeverities();
 		setTrickyWords(new ArrayList<Word>());
 	}
@@ -55,51 +56,41 @@ public class UserProblems implements Serializable {
 	}
 	
 	public void loadTestGreekProblems(){
-		//JsonHandler handler = new JsonHandler("data/problem_definitions_greece.json", true);
-		//GreekProblems greekProbs = (GreekProblems)handler.fromJson(GreekProblems.class);
-		//System.out.println(greekProbs.getAllProblems().toString());
-		
-		GreekProblems greekProbs = new GreekProblems();
-		initialize(greekProbs.getProblemDefinitionIndex(), true);
+		initialize(new ProblemDefinitionIndex(LanguageCode.GR), true);
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){
 			int wi =2*problems.getRowLength(i)/4 + rand.nextInt(1);
-			userSeverities.setSystemIndex(i, wi);
-			userSeverities.setTeacherIndex(i, wi);
+			this.setSystemIndex(i, wi);
+			this.setTeacherIndex(i, wi);
 			for (int j=0; j<userSeverities.getSeverityLength(i); j++){
 				if (j<wi/2)
-					userSeverities.setSeverity(i, j, 0);// rand.nextInt(2));
+					this.setUserSeverity(i, j, 0);// rand.nextInt(2));
 				else if(j<wi)
-					userSeverities.setSeverity(i, j, 1);// rand.nextInt(3));
+					this.setUserSeverity(i, j, 1);// rand.nextInt(3));
 				else if (j<(wi+userSeverities.getSeverityLength(i))/2)
-					userSeverities.setSeverity(i, j, 2);// rand.nextInt(4));
+					this.setUserSeverity(i, j, 2);// rand.nextInt(4));
 				else 
-					userSeverities.setSeverity(i, j, 3);//  rand.nextInt(3)+1);
+					this.setUserSeverity(i, j, 3);//  rand.nextInt(3)+1);
 			}
 		}
 	}
 	
 	public void loadTestEnglishProblems() {
-		JsonHandler handler = new JsonHandler(Type.DATA, "problem_definitions_en.json", true);
-		EnglishProblems enProbs = (EnglishProblems)handler.fromJson(EnglishProblems.class);
-		//System.out.println(greekProbs.getAllProblems().toString());
-		
-		//GreekProblems greekProbs = new GreekProblems();
-		initialize(enProbs.getProblemDefinitionIndex(), true);
+		initialize(new ProblemDefinitionIndex(LanguageCode.EN), true);
 		Random rand = new Random();
 		for (int i=0;i<problems.getIndexLength(); i++){
 			int wi =2*problems.getRowLength(i)/4 + rand.nextInt(1);
-			userSeverities.setSystemIndex(i, wi);
-			userSeverities.setTeacherIndex(i, wi);
+			this.setSystemIndex(i, wi);
+			this.setTeacherIndex(i, wi);
 			for (int j=0; j<userSeverities.getSeverityLength(i); j++){
 				if (j<wi/2)
-					userSeverities.setSeverity(i, j, 0);// rand.nextInt(2));
+					this.setUserSeverity(i, j, 0);// rand.nextInt(2));
 				else if(j<wi)
-					userSeverities.setSeverity(i, j, 1);// rand.nextInt(3));
+					this.setUserSeverity(i, j, 1);// rand.nextInt(3));
 				else if (j<(wi+userSeverities.getSeverityLength(i))/2)
-					userSeverities.setSeverity(i, j, 2);// rand.nextInt(4));
+					this.setUserSeverity(i, j, 2);// rand.nextInt(4));
 				else 
-					userSeverities.setSeverity(i, j, 3);//  rand.nextInt(3)+1);
+					this.setUserSeverity(i, j, 3);//  rand.nextInt(3)+1);
 			}
 		}
 	}
@@ -115,7 +106,30 @@ public class UserProblems implements Serializable {
 		this.userSeverities = userSeverities;
 	}
 
-	public int getSeverity(int i, int j) {
+	public void setSystemIndex(int i, int value) {
+		userSeverities.setSystemIndex(i, value);
+	}
+
+	public void setTeacherIndex(int i, int value) {
+		userSeverities.setTeacherIndex(i, value);
+	}
+
+	public void setUserSeverity(int i, int j, int value) {
+		if (problems.getProblemDefinition(i).getSeverityType().
+				equalsIgnoreCase("binary")){
+			if (value != 0)
+				value = 1;
+		}
+		else {
+			if (value < 0) 
+				value = 0;
+			if (value > 3)
+				value = 3;
+		}
+		userSeverities.setSeverity(i, j, value);
+	}
+
+	public int getUserSeverity(int i, int j) {
 		return userSeverities.getSeverity(i,j);
 	}
 

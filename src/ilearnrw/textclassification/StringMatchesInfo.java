@@ -1,45 +1,43 @@
 package ilearnrw.textclassification;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
-import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
-import ilearnrw.prototype.application.Program;
 import ilearnrw.textclassification.english.EnglishWord;
 import ilearnrw.textclassification.greek.GreekWord;
+import ilearnrw.user.problems.ProblemType;
+import ilearnrw.utils.LanguageCode;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
 
 public class StringMatchesInfo {
 
-	private LanguageAnalyzerAPI languageAnalyser;
+	private static LanguageAnalyzerAPI languageAnalyser;
 	
-	private String what;
+	private String matchedPart;
 	private int start, end;
 	
-	public StringMatchesInfo(LanguageAnalyzerAPI languageAnalyser) {
-		this.languageAnalyser = languageAnalyser;
-		what = null;
+	public StringMatchesInfo(LanguageAnalyzerAPI la) {
+		languageAnalyser = la;
+		matchedPart = null;
 		start = -1;
 		end = -1;
 	}
 
 	public StringMatchesInfo(String what, int start, int end) {
-		this.what = what;
+		this.matchedPart = what;
 		this.start = start;
 		this.end = end;
 	}
 
 	public boolean isMatched(){
-		return what != null && !what.isEmpty();
+		return matchedPart != null && !matchedPart.isEmpty();
 	}
 	
-	public String getWhat() {
-		return what;
+	public String getMatchedPart() {
+		return matchedPart;
 	}
 
-	public void setWhat(String what) {
-		this.what = what;
+	public void setMatchedPart(String what) {
+		this.matchedPart = what;
 	}
 
 	public int getStart() {
@@ -60,32 +58,49 @@ public class StringMatchesInfo {
 
 	@Override
 	public String toString() {
-		return "StringMatchesInfo [what=" + what + ", start=" + start
+		return "StringMatchesInfo [what=" + matchedPart + ", start=" + start
 				+ ", end=" + end + "]";
 	}
 
 	
-	public StringMatchesInfo equals(String str[], Word w){
+	public static ArrayList<StringMatchesInfo> equals(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getWord();
 		for (int i=0;i<str.length;i++){
 			if (ws.equals(str[i])){
-				return new StringMatchesInfo(str[i], 0, ws.length());
+			    result.add(new StringMatchesInfo(str[i], 0, ws.length()));
+				return result;
 			}
 		}
 		return null;
 	}
 	
-	public StringMatchesInfo contains(String str[], Word w){
+	public static ArrayList<StringMatchesInfo> contains(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getWord();
 		for (int i=0;i<str.length;i++){
 			if (ws.contains(str[i])){
-				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
+			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
+				return result;
 			}
 		}
 		return null;
 	}
 	
-	public StringMatchesInfo containsLettersOnConsequtiveSyllables(String str[], Word w){
+	public static ArrayList<StringMatchesInfo> visualSimilarity(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
+		String ws = w.getWordUnmodified();
+		for (int i=0;i<str.length;i++){
+			if (ws.contains(str[i])){
+			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
+				return result;
+			}
+		}
+		return null;
+	}
+	
+	public static ArrayList<StringMatchesInfo> containsLettersOnConsequtiveSyllables(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String syl[] = w.getSyllables();
 		for (int i=0;i<str.length;i++){
 			String fp = ""+str[i].charAt(0);
@@ -93,7 +108,8 @@ public class StringMatchesInfo {
 			int start = syl[0].length();
 			for (int j=0;j<syl.length-1;j++){
 				if (syl[j].endsWith(fp) && syl[j+1].startsWith(sp)){
-					return new StringMatchesInfo(str[i], start-1, start-1+sp.length());
+				    result.add(new StringMatchesInfo(str[i], start-1, start-1+sp.length()));
+					return result;
 				}
 				start += syl[j].length();
 			}
@@ -101,15 +117,17 @@ public class StringMatchesInfo {
 		return null;
 	}
 	
-	public StringMatchesInfo containsLettersOnSameSyllable(String str[], Word w){
+	public static ArrayList<StringMatchesInfo> containsLettersOnSameSyllable(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getWord();
 		String syl[] = w.getSyllables();
 		for (int i=0;i<str.length;i++){
 			int start = syl[0].length();
 			for (int j=0;j<syl.length-1;j++){
 				if (syl[j].contains(str[i])){
-					return new StringMatchesInfo(str[i], 
-							ws.indexOf(str[i], start-1), ws.indexOf(str[i], start-1)+str[i].length());
+				    result.add(new StringMatchesInfo(str[i], 
+						ws.indexOf(str[i], start-1), ws.indexOf(str[i], start-1)+str[i].length()));
+					return result;
 				}
 				start += syl[j].length();
 			}
@@ -117,71 +135,85 @@ public class StringMatchesInfo {
 		return null;
 	}
 	
-	public StringMatchesInfo endsWith(String str[], Word w){
+	public static ArrayList<StringMatchesInfo> endsWith(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getWord();
 		for (int i=0;i<str.length;i++){
 			if (ws.endsWith(str[i])){
-				return new StringMatchesInfo(str[i], ws.lastIndexOf(str[i]), ws.lastIndexOf(str[i])+str[i].length());
+			    result.add(new StringMatchesInfo(str[i], ws.lastIndexOf(str[i]), ws.lastIndexOf(str[i])+str[i].length()));
+				return result;
 			}
 		}
 		return null;
 	}
 	//or
-	public StringMatchesInfo startsWith(String str[], Word w){
+	public static ArrayList<StringMatchesInfo> startsWith(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getWord();
 		for (int i=0;i<str.length;i++){
 			if (ws.startsWith(str[i])){
-				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
+			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
+				return result;
 			}
 		}
 		return null;
 	}
 
-	public StringMatchesInfo containsPhoneme(String str[], Word w){
+	public static ArrayList<StringMatchesInfo> containsPhoneme(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getPhonetics();
 		for (int i=0;i<str.length;i++){
 			if (ws.contains(str[i])){
-				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
+			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
+				return result;
 			}
 		}
 		return null;
 	}
 
-	public StringMatchesInfo hasInternalPhoneme(String str[], Word w){
+	public static ArrayList<StringMatchesInfo> hasInternalPhoneme(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getPhonetics();
 		for (int i=0;i<str.length;i++){
 			if (ws.contains(str[i]) && !ws.startsWith(str[i])){
-				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
+			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
+				return result;
 			}
 		}
 		return null;
 	}
 
-	public StringMatchesInfo startsWithPhoneme(String str[], Word w){
+	public static ArrayList<StringMatchesInfo> startsWithPhoneme(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getPhonetics();
 		for (int i=0;i<str.length;i++){
 			if (ws.startsWith(str[i])){
-				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
+			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
+				return result;
 			}
 		}
 		return null;
 	}
 
-	public StringMatchesInfo containsPattern(String str[], Word w){
+	public static ArrayList<StringMatchesInfo> containsPattern(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getCVForm();
 		for (int i=0;i<str.length;i++){
 			if (ws.contains(str[i])){
-				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
+			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
+				return result;
 			}
 		}
 		return null;
 	}
 
-	public StringMatchesInfo containsPatternOrEndsWithExtraConsonant(String str[], Word w){
+	public static ArrayList<StringMatchesInfo> containsPatternOrEndsWithExtraConsonant(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getCVForm();
 		for (int i=0;i<str.length;i++){
 			if (ws.contains(str[i])){
-				return new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length());
+			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
+				return result;
 			}
 		}
 		for (int i=0;i<str.length;i++){
@@ -190,67 +222,88 @@ public class StringMatchesInfo {
 				newStr = newStr +str[i].charAt(k);
 			newStr = newStr + "c-";
 			if (ws.endsWith(newStr)){
-				return new StringMatchesInfo(newStr, ws.lastIndexOf(newStr), ws.lastIndexOf(newStr)+newStr.length());
+			    result.add(new StringMatchesInfo(newStr, ws.lastIndexOf(newStr), ws.lastIndexOf(newStr)+newStr.length()));
+				return result;
 			}
 		}
 		return null;
 	}
 
-	public StringMatchesInfo soundSimilarity(String str[], Word w){
+	public static ArrayList<StringMatchesInfo> soundSimilarity(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		languageAnalyser.setWord(w);
 		for (int i=0;i<str.length;i++){
 			String[] parts = str[i].split("-");
 			GreekWord r = (GreekWord)languageAnalyser.getSimilarSoundWord(parts[0], parts[1]);
 			if (r!=null){
-				return new StringMatchesInfo(str[i], 0, w.toString().length());
+			    result.add(new StringMatchesInfo(str[i], 0, w.toString().length()));
+				return result;
 			}
 		}
 		return null;
 	}
 	
 	
-	public StringMatchesInfo endsWithSuffix(String str[], Word w){
+	public static ArrayList<StringMatchesInfo> endsWithSuffix(String str[], Word w, ProblemType pt){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String phonetics = w.getPhonetics();
-		
-		for(String s : str){
-			int pos = s.indexOf("-");
-			if(pos != -1){
-				String[] values = s.split("-");
-				
-				// TODO: fix this temporary solution -> if no phonetics but word ends with suffix -> difficult word
-				if(phonetics == null){
-					if(values[0].endsWith(s))
-						return new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length());
-				} else { 
-					if(values[0].endsWith(s) && phonetics.endsWith(values[1]))
-						return new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length());
+		String ASD = pt.toString();
+		if(w.getLanguageCode().equals(LanguageCode.EN)){
+			for(String s : str){
+				int pos = s.indexOf("-");
+
+				if(pos != -1){
+					String[] values = s.split("-");
+					
+					// TODO: fix this temporary solution -> if no phonetics but word ends with suffix -> difficult word
+					if(phonetics == null){
+						if(w.getWord().endsWith(values[0])){
+							result.add(new StringMatchesInfo(s, w.getWord().indexOf(values[0]), w.getWord().lastIndexOf(values[0])+values[0].length()));
+							return result;
+						}
+					} else {
+						String tempPhon = w.getPhonetics();
+						// remove stress, syllable dividers and vertical lines
+						tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
+						
+						if(w.getWord().endsWith(values[0]) && tempPhon.endsWith(values[1]) && !((EnglishWord)w).getSuffixType().equals("SUFFIX_NONE")){
+							result.add(new StringMatchesInfo(s, w.getWord().indexOf(values[0]), w.getWord().lastIndexOf(values[0])+values[0].length()));
+							return result;
+						}
+					}
+				} else {
+					if(w.getWord().endsWith(s) && pt.toString().equals(((EnglishWord)w).getSuffixType())){
+						result.add(new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length()));
+						return result;
+					}
 				}
-			} else {
-				
-				if(w.getWord().endsWith(s))
-					return new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length());
 			}
-			
 		}
 		return null;
 	}
 	
-	public StringMatchesInfo startsWithPrefix(String str[], Word w){
+	public static ArrayList<StringMatchesInfo> startsWithPrefix(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		for(String s : str){
-			if(w.getWord().startsWith(s))
-				return new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length());
+			if(w.getWord().startsWith(s)){
+			    result.add(new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length()));
+				return result;
+			}
 		}
 		return null;
 	}
 	
-	public StringMatchesInfo equalsPhoneme(String str[], Word w, String type){
+	public static ArrayList<StringMatchesInfo> equalsPhoneme(String str[], Word w, String type){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ipa = w.getPhonetics();
 		
 		// TODO: Fix -> ignore phonetics if word is not in the dictionary
 		if(ipa==null)
 			for(String s : str)
-				if(w.getWord().contains(s.split("-")[0]))
-					return new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length());
+				if(w.getWord().contains(s.split("-")[0])){
+				    result.add(new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length()));
+				    return result;
+				}
 				else 
 					return null;
 		
@@ -260,41 +313,74 @@ public class StringMatchesInfo {
 			String difficulty = values[0];
 			String transcription = values[1];
 			
+			String tempPhon = w.getPhonetics();
+			// remove stress, syllable dividers and vertical lines
+			tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
 			
-			if(w.getWord().contains(difficulty) && w.getPhonetics().contains(transcription)){
-				//boolean isValid = checkEqualsPhoneme(w.getWord(), w.getPhonetics(), difficulty, transcription);
-				return new StringMatchesInfo(difficulty, w.getWord().indexOf(difficulty), w.getWord().indexOf(difficulty)+difficulty.length());
+			if(w.getWord().contains(difficulty) && tempPhon.contains(transcription)){			
+				int pos = wordContainsGraphemePhoneme(w, difficulty, transcription);
+				
+				if(pos != -1){
+					result.add(new StringMatchesInfo(difficulty, pos, pos+difficulty.length()));
+					return result;
+				}
 			}
 		}
-		// type = letter, digraph, trigraph
 		
 		return null;
 	}
 	
-	public StringMatchesInfo syllableCount(String str[], Word w){
-		if(w.getSyllables().length>=3)
-			return new StringMatchesInfo(w.getWord(), 0, w.getWord().length());
+	public static ArrayList<StringMatchesInfo> syllableCount(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
+		if(w.getSyllables().length>=3){
+		    result.add(new StringMatchesInfo(w.getWord(), 0, w.getWord().length()));
+		    return result;
+		}
 		return null;
 	}
 	
-	public StringMatchesInfo patternEqualsPronunciation(String str[], Word w, String type){
+	public static ArrayList<StringMatchesInfo> patternEqualsPronunciation(String str[], Word w, String type){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		//_C_ _V_
 		
 		String ipa = w.getPhonetics();
 		
+		// Problem doesn't contain an IPA? 
+		// al_C_ special case
 		for(String s: str){
 			String[] sarr = s.split("-");
-			if(sarr.length==1)
-				return null;
-		}
+			if(sarr.length==1){
+				String word = w.getWord();
 		
+				String shortStr = s.substring(0,s.indexOf("_C_"));				
+				
+				if(word.contains(shortStr)){
+					int ind = -1;
+					
+					while((ind=(word.indexOf(shortStr, ind)+1)) > 0){
+						if(ind+shortStr.length()-1<word.length())
+							if(!isVowel(word.charAt(ind+shortStr.length()-1))){
+								result.add(new StringMatchesInfo(s, word.indexOf(shortStr), ind+shortStr.length()));
+							}
+					}
+					
+					if(result.size()>0)
+						return result;
+					
+				}
+				return null;
+			}
+		}
+
 		// TODO: Fix -> ignore phonetics if word is not in the dictionary
 		if(ipa==null)
 			for(String s : str)
-				if(w.getWord().contains(s.split("-")[0]))
-					return new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length());
+				if(w.getWord().contains(s.split("-")[0])){
+				    result.add(new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length()));
+					return result;
+				}
 				else 
-					return null;
+					return null;		
 		
 		for(String s : str){
 			String[] values = s.split("-");
@@ -302,199 +388,185 @@ public class StringMatchesInfo {
 			String transcription = values[1];
 			
 			if(type.equals("contains")){
-				if(w.getWord().contains(difficulty) && w.getPhonetics().contains(transcription))
-					return new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length());
+				int pos = wordContainsGraphemePhoneme(w, difficulty, transcription);
+				if(pos != -1){
+					if(difficulty.contains("_C_") || difficulty.contains("_V_")){
+						result.add(new StringMatchesInfo(s, pos, pos+difficulty.length()-2));
+						return result;					
+					}
+					result.add(new StringMatchesInfo(s, pos, pos+difficulty.length()));
+					return result;
+				}
 			} else if(type.equals("ends")){
-				if(w.getWord().endsWith(difficulty) && w.getPhonetics().endsWith(transcription))
-					return new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length());
+				String tempPhon = w.getPhonetics();
+				// remove stress, syllable dividers and vertical lines
+				tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
+				
+				if(tempPhon.endsWith(transcription)){
+					String sVal = "";
+					if(difficulty.contains("_C_")){
+						sVal = difficulty.substring(3);
+						if(w.getWord().endsWith(sVal) && !isVowel(w.getWord().charAt(w.getWord().length()-sVal.length()-1))){
+							result.add(new StringMatchesInfo(s, w.getWord().length()-sVal.length()-1, w.getWord().length()));
+							return result;
+						} else 
+							return null;
+						
+						
+					}else if(difficulty.contains("_V_")){
+						sVal = difficulty.substring(3);
+						if(w.getWord().endsWith(sVal) && isVowel(w.getWord().charAt(w.getWord().length()-sVal.length()-1))){
+							result.add(new StringMatchesInfo(s, w.getWord().length()-sVal.length()-1, w.getWord().length()));
+							return result;
+						} else 
+							return null;
+					}
+					if(w.getWord().endsWith(difficulty)){
+						result.add(new StringMatchesInfo(s, w.getWord().lastIndexOf(values[0]), w.getWord().lastIndexOf(values[0])+difficulty.length()));
+						return result;
+					}
+				}
 			} else if(type.equals("start")){
-				if(w.getWord().startsWith(difficulty) && w.getPhonetics().startsWith(transcription))
-					return new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length());
+				String tempPhon = w.getPhonetics();
+				// remove stress, syllable dividers and vertical lines
+				tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
+				
+				if(w.getWord().startsWith(difficulty) && tempPhon.startsWith(transcription)){
+					result.add(new StringMatchesInfo(s, w.getWord().indexOf(values[0]), w.getWord().indexOf(values[0])+difficulty.length()));
+					return result;
+				}
 			} 
 		}
 		return null;
 	}
 	
-	private boolean checkEqualsPhoneme(String word, String phonetics, String difficulty, String phoneme){
+	private static int wordContainsGraphemePhoneme(Word word, String difficulty, String ipa){
+		ArrayList<GraphemePhonemePair> gpList = word.getGraphemesPhonemes();
 		
-	
-		// Remove syllables dividers, primary and secondary stress.
-		String tempPhon = phonetics.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").trim();
-		Map<String, ArrayList<String>> ssl = Program.getSoundToSpellingList();
-		ArrayList<ArrayList<String>> soundOptions = new ArrayList<ArrayList<String>>();
+		if(gpList == null)
+			return -1;
 
-		for(int i=0; i<tempPhon.length(); i++){
-			String cP = Character.toString(tempPhon.charAt(i));
-			
-			ArrayList<String> soundMeanings = ssl.get(cP);
-			if(soundMeanings==null || soundMeanings.isEmpty()){
-				soundOptions.add(new ArrayList<String>());
-				continue;
-			}
-			
-			for(String s : soundMeanings){
-				if(!word.contains(s))
-					soundMeanings.remove(s);
-			}
-			soundOptions.add(soundMeanings);
+		String value = "";
+		int specialDiff = 0;
+		
+		// If character contains unknown consonant or vowel character
+		if(difficulty.contains("_C_")){
+			specialDiff = 1;
+			value = difficulty.replace("_C_", ":");
 		}
+		else if(difficulty.contains("_V_")){
+			specialDiff = 2;
+			value = difficulty.replace("_V_", ":");
+		} else
+			value = difficulty;
 		
-		int availableSize = word.length();
-		int prevTaken = -1;
-		String buildWord = "";
-		int buildPos = 0;
-		int numberOfChars = 4;
-		for(int i=0; i<soundOptions.size(); i++){
-			ArrayList<String> options = soundOptions.get(i);
+		// take out firstChar in the problem pattern
+		String firstChar = Character.toString(value.charAt(0));		
+		int retPos = 0;
+		
+		// iterate over grapheme-phoneme list and try to find the pattern start
+		for (int i = 0; i < gpList.size(); i++) {
+			String grapheme = gpList.get(i).getGrapheme();
+			String phoneme = gpList.get(i).getPhoneme();
 			
-			int longest = 0;
-			String value = "";
-			for(int k=0; k<options.size(); k++){
-				String temp = options.get(k);
-				if(temp.length()>longest){
-					prevTaken = k;
-					longest = temp.length();
-					value = temp;
-				}
+			boolean firstVowelSkip = false;
+			
+			if(firstChar.equals(":")){
+				if(isVowel(grapheme.charAt(0)))
+					firstVowelSkip = true;
 			}
 			
-			boolean isEmpty = false;
-			if(value.isEmpty()){
-				if(numberOfChars+buildPos > word.length())
-					numberOfChars = word.length()- buildPos;
+			if(firstVowelSkip || (grapheme.startsWith(firstChar))){
+				int cnt = 0, rememberCnt = -1;
+				String bGr = firstChar, bPh = phoneme;
+				int patternPos = 1;
+				boolean isWrong = false;
+				String secondValue = "";
 				
-				isEmpty = true;
-				value = word.substring(buildPos, buildPos + numberOfChars);
-			}
-			
-			int j=0;
-			boolean isRemoved = false;
-			while((j=(word.indexOf(value, j)+1)) > 0){
-				if(j-1 > buildPos && buildPos+1-1 != j){
-					String subitem = word.substring(buildPos, j);
-					buildWord = buildWord.concat(value);
-					buildPos = buildWord.length();
-				} else {
-					int test = availableSize - value.length() - soundOptions.size() + i;
+				// found pattern start, iterate over 
+				while(i+cnt<gpList.size()){
+					String gr = gpList.get(i+cnt).getGrapheme();
+					int j = cnt==0 ? 1 : 0;
+					
+					if(cnt!=0)
+						bPh += gpList.get(i+cnt).getPhoneme();
 					
 					
-					//if(availableSize-(word.length()+j-1)-(options.size() ) >=0){
-					if(availableSize - value.length() + j - 1 - soundOptions.size()+j >= 0){
-						buildWord = buildWord.concat(value);
-						buildPos = buildWord.length();
-						availableSize -= value.length();
-					} else {
-
-						if(!isEmpty){
-							options.remove(prevTaken);
-							prevTaken = -1;
-							soundOptions.set(i, options);
-						}
-						
-						if(isEmpty)
-							numberOfChars--;
-						
-						i--;
-						isRemoved=true;
-						continue;
+					
+					if(gr.contains(".")){
+						secondValue = gr.substring(gr.indexOf(".")+1);
+						gr = gr.substring(0, gr.indexOf("."));
+						rememberCnt = cnt + 1;
 					}
 					
-				}
-			}
-			if(isRemoved) continue;
-			
-			
-		}
-		
-		
-//			if(soundMeanings==null || soundMeanings.isEmpty()){
-//				buildWord = buildWord.concat("*");
-//				continue;
-//			}
-			/*
-				if(!word.substring(buildPos, buildPos + cP.length()).equals(cP)){
-					if(buildWord.substring(buildWord.length()-cP.length(), buildWord.length()).equals(cP)){
-						int lastOption = soundOptions.size()-1;
-						ArrayList<String> data = soundOptions.get(lastOption);
-						String invalid = data.remove(prevTaken);
+					// iterate over grapheme characters to continue looking for pattern
+					for(;j<gr.length();j++){
+						String c = Character.toString(gr.charAt(j));
 						
-						int longest = 0;
-						String value = "";
-						for(int j=0; j<data.size(); j++){
-							String temp = data.get(j);
-							if(temp.length()>longest){
-								prevTaken = j;
-								longest = temp.length();
-								value = temp;
+						if(patternPos>=value.length()){
+							isWrong = true;
+							break;
+						}
+						
+						boolean isConsonant = true;
+						Character chAtPP = value.charAt(patternPos);
+						if(chAtPP==':'){
+							if(specialDiff==1){
+								if(isVowel(gr.charAt(j)))
+									isConsonant = false;
 							}
 						}
-						
-						buildWord = buildWord.substring(0, buildWord.length() - invalid.length());
-						buildWord = buildWord.concat(value);
-						buildPos = buildWord.length();
-						i--;
-						
-						soundOptions.set(lastOption, data);
-					}
-				} else {
-					buildWord = buildWord.concat("*");
-					buildPos = buildWord.length();
-				}
-				continue;
-				*/
 
+						if(c.equals(Character.toString(chAtPP)) || (specialDiff==1 && isConsonant && chAtPP == ':') || (specialDiff==2 && !isConsonant && chAtPP == ':')) {
+							bGr += gr.charAt(j);
+							patternPos++;
+							
+						} else{
+							isWrong = true;
+							break;
+						}
+					}
+					
+					if(!secondValue.isEmpty() && rememberCnt != -1 && cnt != rememberCnt-1 && !isWrong){
+						bGr += secondValue;
+						rememberCnt = -1;
+						secondValue = "";
+					}
+					
+					if(isWrong) break;
+
+					if(value.contains(":") && secondValue.isEmpty() && bPh.startsWith(ipa)){
+						int ind = value.indexOf(":");
+						
+						if(ind >= bGr.length()){
+							isWrong = true;
+							break;
+						}
+						
+						if(specialDiff == 1){
+							if(!isVowel(bGr.charAt(ind))){
+								String tempValue = value.replace(':', bGr.charAt(ind));
+								if(tempValue.equals(bGr))
+									return retPos;
+							}
+						}
+					}
+					else if(value.equals(bGr) && secondValue.isEmpty() && ipa.startsWith(bPh))
+						return retPos;
+					
+					cnt++;
+				}
+			}
 			
-//			
-//			int longest = 0;
-//			String value = "";
-//			for(int j=0; j<soundMeanings.size(); j++){
-//				String temp = soundMeanings.get(j);
-//				if(temp.length()>longest){
-//					prevTaken = j;
-//					longest = temp.length();
-//					value = temp;
-//				}
-//			}
-//				
-//				
-//				
-//			
-//			
-//
-//			if(!word.substring(buildPos, buildPos + value.length()).equals(value)){
-//				int j=0;
-//				while((j=(word.indexOf(value, j)+1)) > 0){
-//					if(j>buildPos){
-//						buildWord = buildWord.concat(word.substring(buildPos, j-1)).concat(value);
-//						buildPos = buildWord.length();
-//					}
-//				}
-//			} else {
-//				buildWord = buildWord.concat(value);
-//				buildPos = buildWord.length();
-//			}
-//		}
-//		
-		return false;
+			retPos += grapheme.contains(".") ? grapheme.length()-1 : grapheme.length();
+		}
+		
+		return -1;
+	}	
+
+	
+	private static boolean isVowel(char c){
+		return "AEIOUYaeiouy".indexOf(c) != -1;
 	}
-	
-	
-	
-	private char charToCV(char x){
-		// y = consonant at beginning of syllable, vowel everywhere else
-        switch (x){
-                case 'a':
-                case 'e':
-                case 'i':
-                case 'o':
-                case 'u':
-                case 'y':
-                    return 'v';
-                case '-':
-                	return '-';
-                default :                        	
-                    return 'c';
-        }
-    }
 
 }

@@ -83,7 +83,7 @@ public class TextMetricsTest extends JFrame {
 	public static void main(String[] args) {
 		try {
 			/* Load the user database.*/
-			String databaseFile = "the_new_users";//Program.getStringArg("--db", args);
+			String databaseFile = "the_users";//Program.getStringArg("--db", args);
 			mUserStore = new UserStore(databaseFile);
 			/* We have to auth as admin to access the database.*/
 			mUserStore.authenticateAdmin("ilearn");

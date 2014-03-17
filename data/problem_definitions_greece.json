@@ -2,50 +2,65 @@
   "problemsIndex": [
     {
       "URI": "Syllable Division",
+      "severityType": "zeroToThree",
       "type": {
         "url": "syllable division"
       }
     },
     {
       "URI": "Consonants",
+      "severityType": "zeroToThree",
       "type": {
         "url": "phonemes"
       }
     },
     {
       "URI": "Vowels",
+      "severityType": "zeroToThree",
       "type": {
         "url": "phonemes"
       }
     },
     {
       "URI": "Derivational",
+      "severityType": "zeroToThree",
       "type": {
         "url": "suffixing"
       }
     },
     {
       "URI": "Inflectional/Grammatical",
+      "severityType": "zeroToThree",
       "type": {
         "url": "suffixing"
       }
     },
     {
       "URI": "Prefixing",
+      "severityType": "zeroToThree",
       "type": {
         "url": "prefixing"
       }
     },
     {
       "URI": "Regular/Irregular:Consonant clusters",
+      "severityType": "zeroToThree",
       "type": {
         "url": "grapheme/phoneme correspondence"
       }
     },
     {
       "URI": "Grammar/Function Words",
+      "severityType": "zeroToThree",
       "type": {
         "url": "grammar/function words"
+      }
+    },
+    {
+      "URI": "Visual Similarity",
+      "severityType": "binary",
+      "type": {
+        "url": "visual similarity"
       }
     }
   ],
@@ -1231,6 +1246,75 @@
           "από"
         ],
         "problemType": "EQUALS"
+      }
+    ],
+    [
+      {
+        "descriptions": [
+          "α",
+          "ά",
+          "ο",
+          "ό"
+        ],
+        "problemType": "VISUAL_SIMILARITY"
+      },
+      {
+        "descriptions": [
+          "φ",
+          "Θ",
+          "β"
+        ],
+        "problemType": "VISUAL_SIMILARITY"
+      },
+      {
+        "descriptions": [
+          "ψ",
+          "ω",
+          "ώ"
+        ],
+        "problemType": "VISUAL_SIMILARITY"
+      },
+      {
+        "descriptions": [
+          "3",
+          "ε",
+          "έ",
+          "ξ"
+        ],
+        "problemType": "VISUAL_SIMILARITY"
+      },
+      {
+        "descriptions": [
+          "κ",
+          "γ",
+          "λ",
+          "χ"
+        ],
+        "problemType": "VISUAL_SIMILARITY"
+      },
+      {
+        "descriptions": [
+          "η",
+          "ή",
+          "μ"
+        ],
+        "problemType": "VISUAL_SIMILARITY"
+      },
+      {
+        "descriptions": [
+          "π",
+          "τ"
+        ],
+        "problemType": "VISUAL_SIMILARITY"
+      },
+      {
+        "descriptions": [
+          "δ",
+          "σ",
+          "ρ",
+          "6"
+        ],
+        "problemType": "VISUAL_SIMILARITY"
       }
     ]
   ],

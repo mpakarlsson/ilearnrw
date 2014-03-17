@@ -87,8 +87,8 @@ public class UserProblemsToText implements Serializable {
 			Wscore = 0;
 			for (WordProblemInfo x : probs){
 				if (calculateProblematicWords)
-					problematicWords.addWord(x.getPosI(), x.getPosJ(), w);
-				int t = this.updateValue(x.getPosI(), x.getPosJ(), entry.getValue());
+					problematicWords.addWord(x.getCategory(), x.getIndex(), w);
+				int t = this.updateValue(x.getCategory(), x.getIndex(), entry.getValue());
 				Wscore += t;
 				if (t>0){
 					userHits++;
@@ -242,7 +242,7 @@ public class UserProblemsToText implements Serializable {
 
 	public int updateValue(int i, int j, int oneValue) {
 		//against severities: 0 --> 0; 1 --> 0.3; 2 --> 0.6; 3 --> 1
-		if (userSeveritiesToProblems.getSeverity(i, j)>threshold)
+		if (userSeveritiesToProblems.getUserSeverity(i, j)>threshold)
 			userCounters.increaseValue(i, j, oneValue);
 		/*switch (userSeveritiesToProblems.getSeverity(i, j)) {
 		case 3:
@@ -254,7 +254,7 @@ public class UserProblemsToText implements Serializable {
 		default:
 			return 0;
 		}*/
-		return userSeveritiesToProblems.getSeverity(i, j);
+		return userSeveritiesToProblems.getUserSeverity(i, j);
 	}
 
 	public double getwordScore(Word w){

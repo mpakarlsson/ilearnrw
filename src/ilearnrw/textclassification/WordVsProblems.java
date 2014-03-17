@@ -1,18 +1,10 @@
 package ilearnrw.textclassification;
 
 import java.util.ArrayList;
-
-
-
-
-import ilearnrw.textclassification.greek.GreekWord;
-import ilearnrw.user.problems.EnglishProblems;
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
-import ilearnrw.languagetools.greek.GreekDictionary;
-import ilearnrw.user.problems.GreekProblems;
+import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemType;
-import ilearnrw.user.problems.Problems;
 import ilearnrw.utils.LanguageCode;
 
 public class WordVsProblems {
@@ -20,24 +12,13 @@ public class WordVsProblems {
 	private ProblemDefinitionIndex theProblems;
 	private Word word;
 	private ArrayList<WordProblemInfo> matchedProbs;
-	private Problems prs;
 	private LanguageCode lc;
 	private LanguageAnalyzerAPI languageAnalyser;
 	
 	public WordVsProblems(LanguageAnalyzerAPI languageAnalyser) {
-		prs = new Problems();
 		this.lc = languageAnalyser.getLanguageCode();
 		this.languageAnalyser = languageAnalyser;
-				
-		switch (lc) {
-		case GR:
-			prs = new GreekProblems();
-			break;
-		case EN:
-			prs = new EnglishProblems();
-			break;
-		}
-		this.theProblems = prs.getProblemDefinitionIndex();
+		this.theProblems = new ProblemDefinitionIndex(this.lc);
 	}
 
 	
@@ -45,18 +26,72 @@ public class WordVsProblems {
 		matchedProbs = new ArrayList<WordProblemInfo>();
 		this.word = word;
 		
+		if(word.languageCode == LanguageCode.EN){
+			if(EnglishLanguageAnalyzer.dictionary.getDictionary().containsKey(word.getWord()))
+				this.word = EnglishLanguageAnalyzer.dictionary.getDictionary().get(word.getWord());
+		}
+		
 		checkWordAgainstMatrix();
+	}
+
+	
+	public void insertWord(Word word, int i, int j) {
+		matchedProbs = new ArrayList<WordProblemInfo>();
+		this.word = word;
+		
+		checkWordAgainstMatrix(i, j);
+	}
+	public ProblemDefinitionIndex getTheProblems() {
+		return theProblems;
+	}
+
+	public void setTheProblems(ProblemDefinitionIndex theProblems) {
+		this.theProblems = theProblems;
 	}
 	
 	public void checkWordAgainstMatrix(){
 		languageAnalyser.setWord(word);
 		for (int i=0;i<theProblems.getIndexLength(); i++){
 			for (int j=0;j<theProblems.getRowLength(i); j++){
-				if (wordMatches(i, j).getFound()){
+				if (wordMatches(i, j).found()){
 					matchedProbs.add(wordMatches(i, j));
 				}
 			}
 		}
+	}
+	
+	public void checkWordAgainstMatrix(int i, int j){
+		languageAnalyser.setWord(word);
+		if (i<theProblems.getIndexLength() && 
+				j<theProblems.getRowLength(i)){
+				if (wordMatches(i, j).found()){
+					matchedProbs.add(wordMatches(i, j));
+				}
+		}
+	}
+	
+	public ArrayList<WordProblemInfo> getWordProblems(){
+		ArrayList<WordProblemInfo> mp = new ArrayList<WordProblemInfo>();
+		languageAnalyser.setWord(word);
+		for (int i=0;i<theProblems.getIndexLength(); i++){
+			for (int j=0;j<theProblems.getRowLength(i); j++){
+				if (wordMatches(i, j).found()){
+					mp.add(wordMatches(i, j));
+				}
+			}
+		}
+		return mp;
+	}
+	
+	public ArrayList<WordProblemInfo> getWordProblems(int i, int j){
+		ArrayList<WordProblemInfo> mp = new ArrayList<WordProblemInfo>();
+		languageAnalyser.setWord(word);
+		if (i<theProblems.getIndexLength() && j<theProblems.getRowLength(i)){
+				if (wordMatches(i, j).found()){
+					mp.add(wordMatches(i, j));
+				}
+			}
+		return mp;
 	}
 
 	public LanguageCode getLanguageCode() {
@@ -73,7 +108,7 @@ public class WordVsProblems {
 
 	public boolean containsPosition(int i, int j){
 		for (WordProblemInfo wpi : matchedProbs){
-			if (wpi.getPosI()==i && wpi.getPosJ()==j)
+			if (wpi.getCategory()==i && wpi.getIndex()==j)
 				return true;
 		}
 		return false;
@@ -92,6 +127,9 @@ public class WordVsProblems {
 				break;
 			case CONTAINS:
 				wpi.setProblemInfo(i, j, matcher.contains(pd, word));
+				break;
+			case VISUAL_SIMILARITY:
+				wpi.setProblemInfo(i, j, matcher.visualSimilarity(pd, word));
 				break;
 			case IS_NOUN_OR_ADJ_AND_ENDS_WITH:
 				if (languageAnalyser.isNoun() || languageAnalyser.isAdj())
@@ -188,7 +226,8 @@ public class WordVsProblems {
 			case SUFFIX_CHANGE:
 			case SUFFIX_DOUBLE:
 			case SUFFIX_STRESS_PATTERN: // FIX THIS TO DO AS THE JSON OBJECT TELLS IT
-				wpi.setProblemInfo(i, j, matcher.endsWithSuffix(pd, word));
+			case SUFFIX_PATTERN:
+				wpi.setProblemInfo(i, j, matcher.endsWithSuffix(pd, word, pt));
 				break;
 				
 			// TODO: Fix to be more complex, discuss with language experts
@@ -213,7 +252,6 @@ public class WordVsProblems {
 				wpi.setProblemInfo(i, j, matcher.patternEqualsPronunciation(pd, word, endType));
 				break;
 			case SYLLABLE_PATTERN:
-			case SUFFIX_PATTERN:
 				break;
 			case SYLLABLE_COUNT:
 				wpi.setProblemInfo(i, j, matcher.syllableCount(pd, word));
