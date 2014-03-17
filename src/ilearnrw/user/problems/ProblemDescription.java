@@ -41,7 +41,7 @@ public class ProblemDescription implements Serializable{
 		return false;
 	}
 	
-	public String getDescriptionsTosString(){
+	public String returnDescriptionsAsString(){
 		String res ="";
 		for (int i=0; i<descriptions.length-1; i++){
 			res = res + descriptions[i]+" ,";

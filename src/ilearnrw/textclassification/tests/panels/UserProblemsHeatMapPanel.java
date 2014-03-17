@@ -253,7 +253,7 @@ public class UserProblemsHeatMapPanel extends JPanel {
 				res = res + ", Targeted Area:"+user.getProfile().getUserProblems().getProblemDefinition(i).getURI();
 			//res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
 			res = res + "\nMatching word characteristics:"+user.getProfile().getUserProblems().getProblemDescription(i, j).getProblemType();
-			res = res + " {"+user.getProfile().getUserProblems().getProblemDescription(i, j).getDescriptionsTosString()+"}";
+			res = res + " {"+user.getProfile().getUserProblems().getProblemDescription(i, j).returnDescriptionsAsString()+"}";
 		}
 		return res;
 	}
