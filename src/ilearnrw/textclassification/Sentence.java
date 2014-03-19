@@ -72,6 +72,7 @@ public class Sentence {
 			}
 		}
 		else {
+			EnglishLanguageAnalyzer ea = new EnglishLanguageAnalyzer();
 			words = new EnglishWord[size];
 			int j = 0;
 			for (int i=0;i<theWords.length;i++){

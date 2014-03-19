@@ -1,5 +1,7 @@
 package ilearnrw.textclassification.tests;
 
+import ilearnrw.annotation.HtmlGenerator;
+import ilearnrw.annotation.TextPartsGenerator;
 import ilearnrw.languagetools.greek.GreekPhonetics;
 import ilearnrw.languagetools.greek.GreekSpeller;
 import ilearnrw.textclassification.Sentence;
@@ -17,6 +19,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Scanner;
 
 public class GreekWordGenerator {
 	private static String path = "data/";
@@ -24,9 +27,17 @@ public class GreekWordGenerator {
 	public static void main(String a[]) throws Exception {
 
 		//GreekPhonetics gp = new GreekPhonetics("για να μη γκουλής ζβήσι μηρικά αρχεία απ τουν φάκελου ");
-		GreekWord x = new GreekWord("λέξη");
+		/*GreekWord x = new GreekWord("λέξη");
 		System.out.println(x.getGraphemesPhonemes().toString());
-		System.out.println("{"+x.getPhonetics()+"}");
+		System.out.println("{"+x.getPhonetics()+"}");*/
+		String text = "asdf";
+
+		text = new Scanner(new File("texts/pempthDhm2.txt"), "UTF-8").useDelimiter("\\A").next();
+		
+		TextPartsGenerator t = new TextPartsGenerator(text);
+		System.out.println(t.getParagraph(0).toString());
+		HtmlGenerator tg = new HtmlGenerator(text, null, LanguageCode.GR);
+		//System.out.println(t.getUniqueWords().get(0).getUserSeveritiesOnWordProblems().toString());
 	    //frame.setVisible(false);
 	    //frame = null;
 		/*
@@ -42,7 +53,6 @@ public class GreekWordGenerator {
 		String y = tt.replaceAll("e", "*");
 		y = y.replaceAll("l", "*");
 		System.out.println(y);
-		String path = "texts/";
 		String[] files = { "deyteraDim2.txt", "deyteraGym2.txt",
 				"ekthDhm2.txt", "pempthDhm.txt", "prwthDhm.txt", "prwthDhm3.txt",
 				"prwthGym.txt", "tetarthDhm2.txt", "trithDhm.txt", "trithDhm3.txt",

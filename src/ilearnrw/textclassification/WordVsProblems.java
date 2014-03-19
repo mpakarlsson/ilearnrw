@@ -115,7 +115,7 @@ public class WordVsProblems {
 	}
 
 	private WordProblemInfo wordMatches(int i, int j){
-		WordProblemInfo wpi = new WordProblemInfo(word.getLanguageCode());
+		WordProblemInfo wpi = new WordProblemInfo();
 		//ask for the small strings that describe the problem
 		String pd[] = theProblems.getProblemDescription(i, j).getDescriptions();
 		//ask the problem type

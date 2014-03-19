@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width; user-scalable=0;" />
+    <title>
+      My HTML
+    </title>
+    <script src="jquery.min.js">
+    </script>
+    <script>
+      var jqGetElementText;
+
+      $().ready(function(){
+        //jQuery function
+        jqGetElementText = function( id )
+        {
+          return $('#'+id).text();
+        }
+        })
+
+        //javascript function
+        function jsSetText(id)
+        {
+          //Invoke jQuery Function
+          var t = jqGetElementText(id);
+          AndroidFunction.setText(t);
+        }
+
+        function isActiveIdInsideContainer(containerID, id) {
+          var elm = document.getElementById(id);
+          var parent = elm ? elm.parentNode : {};
+          var res = (parent.id && parent.id === containerID) ? elm : null;
+          if (res == null) {
+            return 0;
+            } else
+            return 1;
+          }
+
+          function isActiveId(id) {
+            var y = document.getElementById(id);
+            if (y == null)
+            return 0;
+            else
+            return 1;
+          }
+          function spanHighlight(id, color) {
+            var x = document.getElementById(id);
+            x.style.backgroundColor = color;
+          }
+
+          function passAndroidIsActive(id) {
+            AndroidFunction.getIsActive(isActiveId(id));
+          }
+
+          function showAndroidToast(toast) {
+            AndroidFunction.showToast(toast);
+          }
+
+          function jsSetActiveId(id) {
+            AndroidFunction.setActiveId(isActiveId(id));
+          }
+
+          function openAndroidDialog() {
+            AndroidFunction.openAndroidDialog();
+          }
+
+          function callFromActivity(msg){
+            document.getElementById("s2").innerHTML = msg;
+          }
+        </script>
+      </head>
+      <body>
+
+        ???
+
+
+      </body>
+    </html>
