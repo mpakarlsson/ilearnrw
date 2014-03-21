@@ -1,7 +1,5 @@
 package ilearnrw.annotation;
 
-import ilearnrw.utils.LanguageCode;
-
 import java.util.ArrayList;
 
 public class HtmlPartsGenerator {
