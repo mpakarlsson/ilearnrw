@@ -4,12 +4,12 @@ import ilearnrw.utils.LanguageCode;
 
 import java.util.ArrayList;
 
-public class TextPartsGenerator {
+public class HtmlPartsGenerator {
 	private String text;
-	private DetailedSentence sentences[][];
+	private HtmlSentence sentences[][];
 	private ArrayList<UserBasedAnnotatedWord> uniqueWords = new ArrayList<UserBasedAnnotatedWord>();
 
-	public TextPartsGenerator(String text){	
+	public HtmlPartsGenerator(String text){	
 		this.text = text;
 		initialize();
 	}
@@ -21,11 +21,11 @@ public class TextPartsGenerator {
 		return sentences.length;
 	}
 
-	public DetailedSentence[] getParagraph(int i){
+	public HtmlSentence[] getParagraph(int i){
 		return sentences[i];
 	}
 	
-	public DetailedSentence getSentence(int i, int j){
+	public HtmlSentence getSentence(int i, int j){
 		return sentences[i][j];
 	}
 	
@@ -35,12 +35,12 @@ public class TextPartsGenerator {
 	
 	private void initialize(){
 		String pars[] = text.trim().split("((\\n\\n)*(\\\n)\\s)");
-		sentences = new DetailedSentence[pars.length][];
+		sentences = new HtmlSentence[pars.length][];
 		for (int i=0;i<pars.length; i++){
 			String tmp[] = pars[i].trim().split("(?<=(\\.)*(\\.)\\s)|(?<=(\\!)*(\\!)\\s)|(?<=(\\;)*(\\;)\\s)|(?<=(\\?)*(\\?)\\s)");
-			sentences[i] = new DetailedSentence[tmp.length];
+			sentences[i] = new HtmlSentence[tmp.length];
 			for (int j=0;j<tmp.length; j++){
-				sentences[i][j] = new DetailedSentence(tmp[j]);
+				sentences[i][j] = new HtmlSentence(tmp[j]);
 			}
 		}
 	}

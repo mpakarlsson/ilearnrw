@@ -1,5 +1,9 @@
 package ilearnrw.annotation;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import ilearnrw.user.profile.UserProfile;
 import ilearnrw.utils.LanguageCode;
 
@@ -19,20 +23,41 @@ public class HtmlGenerator {
 	}
 	
 	private void createAll(){
-		TextPartsGenerator tp = new TextPartsGenerator(text);
+		HtmlPartsGenerator tp = new HtmlPartsGenerator(text);
+		String template = "";
 		int pn = tp.getParagraphsNumber();
+		int pId = 0, sId = 0, wId = 0;
+		this.html = "";
 		for (int i=0; i<pn; i++){
-			DetailedSentence s[] = tp.getParagraph(i);
+			this.html = this.html+"<p id = p"+(pId++)+">";
+			HtmlSentence s[] = tp.getParagraph(i);
 			for (int j=0;j<s.length; j++){
-				System.out.println(s[0].toString());
+				this.html = this.html+"<span id = s"+(sId++)+">";
+				for (int k=0; k<s[j].getNumberOfWords(); k++){
+					if (s[j].isWord(k)){
+						this.html = this.html+"<span id = w"+(wId++)+">";
+						this.html = this.html+s[j].getWord(k);
+						this.html = this.html+"</span>";
+					}
+					else 
+						this.html = this.html+s[j].getWord(k);
+					//s[j].isSymbols(k);
+				}
+				this.html = this.html+"</span>";
 			}
-			/*Word ws[] = sentences[i][j].getWords();
-			for (int k=0;k<ws.length;k++){
-				UserBasedAnnotatedWord uw = new UserBasedAnnotatedWord(ws[k]);
-				if (!uniqueWords.contains(uw))
-					uniqueWords.add(new UserBasedAnnotatedWord(ws[k], userProfile, wp));
-			}*/
+			this.html = this.html+"</p>";
 		}
+		try {
+			template = new Scanner(new File("data/html/template.html"), "UTF-8").useDelimiter("\\A").next();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		this.html = template.replace("???", this.html);
+		//this.html = template;
+	}
+
+	public String getHtml() {
+		return html;
 	}
 	
 }

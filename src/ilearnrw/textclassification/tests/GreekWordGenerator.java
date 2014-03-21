@@ -1,7 +1,7 @@
 package ilearnrw.textclassification.tests;
 
 import ilearnrw.annotation.HtmlGenerator;
-import ilearnrw.annotation.TextPartsGenerator;
+import ilearnrw.annotation.HtmlPartsGenerator;
 import ilearnrw.languagetools.greek.GreekPhonetics;
 import ilearnrw.languagetools.greek.GreekSpeller;
 import ilearnrw.textclassification.Sentence;
@@ -32,11 +32,11 @@ public class GreekWordGenerator {
 		System.out.println("{"+x.getPhonetics()+"}");*/
 		String text = "asdf";
 
-		text = new Scanner(new File("texts/pempthDhm2.txt"), "UTF-8").useDelimiter("\\A").next();
+		text = new Scanner(new File("texts/test.txt"), "UTF-8").useDelimiter("\\A").next();
 		
-		TextPartsGenerator t = new TextPartsGenerator(text);
-		System.out.println(t.getParagraph(0).toString());
+		HtmlPartsGenerator t = new HtmlPartsGenerator(text);
 		HtmlGenerator tg = new HtmlGenerator(text, null, LanguageCode.GR);
+		System.out.println(tg.getHtml());
 		//System.out.println(t.getUniqueWords().get(0).getUserSeveritiesOnWordProblems().toString());
 	    //frame.setVisible(false);
 	    //frame = null;
