@@ -12,7 +12,6 @@ public class EnglishWord extends Word {
 	private static final long serialVersionUID = 1L;
 	private String suffix;
 	private String suffixType;
-	private String stem;
 	ArrayList<String> cDigraphs;
 	ArrayList<String> cTrigraphs;
 	
@@ -31,7 +30,7 @@ public class EnglishWord extends Word {
         frequency = 5001;
         setSuffix("");
         setSuffixType("SUFFIX_NONE");
-        setStem("");
+        super.setStem("");
     }
 
     //We put inside only lower case words
@@ -52,7 +51,7 @@ public class EnglishWord extends Word {
         
         this.setSuffix(suffix);
         this.setSuffixType(suffixType);
-        this.setStem(stem);
+        super.setStem(stem);
         createCVForm();
     }
 
@@ -135,14 +134,6 @@ public class EnglishWord extends Word {
             
             return numVowels;
     }
-    
-	public String getStem() {
-		return stem;
-	}
-	
-	private void setStem(String stem) {
-		this.stem = stem;
-	}
 	
 	public String getSuffix() {
 		return suffix;

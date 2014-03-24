@@ -35,7 +35,7 @@ public class GreekWordGenerator {
 		text = new Scanner(new File("texts/test.txt"), "UTF-8").useDelimiter("\\A").next();
 		
 		HtmlPartsGenerator t = new HtmlPartsGenerator(text);
-		HtmlGenerator tg = new HtmlGenerator(text, null, LanguageCode.GR, "html/template.html");
+		HtmlGenerator tg = new HtmlGenerator(text, null, LanguageCode.EN, "html/template.html");
 		System.out.println(tg.getHtml());
 		//System.out.println(t.getUniqueWords().get(0).getUserSeveritiesOnWordProblems().toString());
 	    //frame.setVisible(false);

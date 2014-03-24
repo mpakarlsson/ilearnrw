@@ -1,5 +1,7 @@
 package ilearnrw.languagetools.english;
 
+import ilearnrw.resource.ResourceLoader;
+import ilearnrw.resource.ResourceLoader.Type;
 import ilearnrw.textclassification.GraphemePhonemePair;
 import ilearnrw.textclassification.WordType;
 import ilearnrw.textclassification.english.EnglishWord;
@@ -37,7 +39,8 @@ public class EnglishDictionary {
 	
 	private void loadDictionary(String fileName){
 		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("data/" + fileName), "UTF-8"));
+			BufferedReader br = new BufferedReader(
+					new InputStreamReader(ResourceLoader.getInstance().getInputStream(Type.DATA, fileName), "UTF-8"));
 
 			String strLine;
 			//Read File Line By Line

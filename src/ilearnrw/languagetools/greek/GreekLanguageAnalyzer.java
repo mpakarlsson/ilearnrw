@@ -73,7 +73,11 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 	public boolean isParticiple() {
 		return this.word.getType() == WordType.Participle;
 	}
-
+	
+	@Override
+	public Word getWord() {
+		return this.word;
+	}
 
 	@Override
 	public LanguageCode getLanguageCode() {

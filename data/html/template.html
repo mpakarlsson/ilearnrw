@@ -1,10 +1,13 @@
-<!DOCTYPE html>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN"
+    "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width; user-scalable=0;" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
     <title>
-      My HTML
+      Read Book
     </title>
     <script src="jquery.min.js">
     </script>
@@ -26,6 +29,13 @@
           var t = jqGetElementText(id);
           AndroidFunction.setText(t);
         }
+        
+        function sleep(miliseconds) {
+           var currentTime = new Date().getTime();
+
+           while (currentTime + miliseconds >= new Date().getTime()) {
+           }
+       }
 
         function isActiveIdInsideContainer(containerID, id) {
           var elm = document.getElementById(id);
@@ -45,6 +55,14 @@
             return 1;
           }
           function spanHighlight(id, color) {
+            //var x = document.getElementById(id);
+            //x.style.backgroundColor = color;
+            paint(id, color);
+            //sleep(2000);
+            jsSetText(id);
+            AndroidFunction.setComplete();
+          }
+          function paint(id, color) {
             var x = document.getElementById(id);
             x.style.backgroundColor = color;
           }
@@ -69,6 +87,14 @@
             document.getElementById("s2").innerHTML = msg;
           }
         </script>
+       
+        <style>
+		h1 {color:black; font-size:40px; font-family:Tahoma, Geneva, sans-serif;}
+		h2 {color:black; font-size:35px; font-family:Tahoma, Geneva, sans-serif;}
+		h3 {color:black; font-size:30px; font-family:Tahoma, Geneva, sans-serif;}
+		p {color:black; font-size:23px; font-family:Tahoma, Geneva, sans-serif;}
+	</style>
+
       </head>
       <body>
 

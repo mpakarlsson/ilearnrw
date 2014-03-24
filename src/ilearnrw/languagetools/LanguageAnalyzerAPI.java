@@ -8,6 +8,7 @@ import ilearnrw.utils.LanguageCode;
 
 public interface LanguageAnalyzerAPI {
 	public void setWord(Word w);
+	public Word getWord();
 	public boolean isNoun();
 	public boolean isAdj();
 	public boolean isVerb();

@@ -1,5 +1,8 @@
 package ilearnrw.annotation;
 
+import ilearnrw.languagetools.LanguageAnalyzerAPI;
+import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
+import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.SeverityOnWordProblemInfo;
 import ilearnrw.textclassification.WordProblemInfo;
@@ -15,6 +18,16 @@ public class UserBasedAnnotatedWord extends Word {
 	private WordVsProblems wp;
 	public UserBasedAnnotatedWord(Word w) {
 		super();
+		LanguageAnalyzerAPI la = null;
+		if (languageCode == languageCode.GR)
+			la = new GreekLanguageAnalyzer();
+		else
+			la = new EnglishLanguageAnalyzer();
+		this.wp = new WordVsProblems(la);
+		//la.setWord(w);
+		//w = la.getWord();
+		wp.insertWord(w);
+		w = wp.getWord();
 		super.word = w.getWord();
 		super.wordUnmodified = w.getWordUnmodified();
 		super.type = w.getType();
@@ -29,6 +42,17 @@ public class UserBasedAnnotatedWord extends Word {
 	}
 	public UserBasedAnnotatedWord(Word w, UserProfile userProfile, WordVsProblems wp) {
 		super();
+		/*LanguageAnalyzerAPI la = null;
+		if (languageCode == languageCode.GR)
+			la = new GreekLanguageAnalyzer();
+		else
+			la = new EnglishLanguageAnalyzer();
+		this.wp = new WordVsProblems(la);
+		la.setWord(w);
+		w = la.getWord();*/
+		this.wp = wp;
+		wp.insertWord(w);
+		w = wp.getWord();
 		super.word = w.getWord();
 		super.wordUnmodified = w.getWordUnmodified();
 		super.type = w.getType();
@@ -39,11 +63,21 @@ public class UserBasedAnnotatedWord extends Word {
 		super.languageCode = w.getLanguageCode();
 		super.frequency = w.getFrequency();
 		super.graphemesPhonemes = w.getGraphemesPhonemes();
-		this.wp = wp;
 		this.userSeveritiesOnWordProblems = getProblems(w, userProfile);
 	}
 	public UserBasedAnnotatedWord(Word w, int i, int j, UserProfile userProfile, WordVsProblems wp) {
 		super();
+		/*LanguageAnalyzerAPI la = null;
+		if (languageCode == languageCode.GR)
+			la = new GreekLanguageAnalyzer();
+		else
+			la = new EnglishLanguageAnalyzer();
+		this.wp = new WordVsProblems(la);
+		la.setWord(w);
+		w = la.getWord();*/
+		this.wp = wp;
+		wp.insertWord(w);
+		w = wp.getWord();
 		super.word = w.getWord();
 		super.wordUnmodified = w.getWordUnmodified();
 		super.type = w.getType();
@@ -54,7 +88,6 @@ public class UserBasedAnnotatedWord extends Word {
 		super.languageCode = w.getLanguageCode();
 		super.frequency = w.getFrequency();
 		super.graphemesPhonemes = w.getGraphemesPhonemes();
-		this.wp = wp;
 		this.userSeveritiesOnWordProblems = getProblems(w, i, j, userProfile);
 	}
 
