@@ -30,7 +30,6 @@ public class CollectDataForProblems {
 	}
 
 	public static void test(){
-		SortedTreeSet greekWords = new SortedTreeSet();
 		InputStream greekDictionary;
 		LanguageAnalyzerAPI languageAnalyser = new GreekLanguageAnalyzer();
 		WordVsProblems wp = new WordVsProblems(languageAnalyser);
