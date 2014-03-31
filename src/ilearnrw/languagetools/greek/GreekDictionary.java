@@ -10,6 +10,11 @@ public class GreekDictionary extends WordDictionary{
 		loadWords();
 	}
 
+	public GreekDictionary(String filename) {
+		super();
+		loadWords(filename);
+	}
+
 	public GreekDictionary(SortedTreeSet gw) {
 		super(gw);
 	}
@@ -18,6 +23,11 @@ public class GreekDictionary extends WordDictionary{
 	public void loadWords(){
 		GreekDictionaryLoader gl = new GreekDictionaryLoader("greekDictionary");
 		words = gl.getEntries();
-		System.err.println("hi i have "+words.size()+" words!");
+	}	
+
+	
+	public void loadWords(String filename){
+		GreekDictionaryLoader gl = new GreekDictionaryLoader(filename);
+		words = gl.getEntries();
 	}	
 }
