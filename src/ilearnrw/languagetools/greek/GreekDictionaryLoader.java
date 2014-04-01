@@ -21,11 +21,16 @@ public class GreekDictionaryLoader extends DictionaryLoader{
 			String line = null;
 			while((line=buf.readLine())!=null) {
 				String[] row = line.split(" ");
+				if (row.length == 1 && row[0]!=null && !row[0].isEmpty()){
+					entries.add(new GreekWord(row[0], WordType.Unknown));
+				}
+				if (row.length == 3){
+					GreekWord w = new GreekWord(row[0], partOfSpeech(row[1]));
+					w.setStem(row[2].trim());
+					entries.add(w);
+				}
 				if (row.length<3)
 					continue;
-				DictionaryEntry entry = new DictionaryEntry(row[2], row[1], null);
-				if (entry.isActive() && row[0]!=null && !row[0].isEmpty())
-					entries.add(new GreekWord(row[0], partOfSpeech(row[1])));
 			}
 			buf.close();
 		} catch (IOException e) {

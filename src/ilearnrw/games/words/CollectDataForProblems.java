@@ -23,27 +23,51 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class CollectDataForProblems {
+	static GreekDictionary gd;
+	static LanguageAnalyzerAPI languageAnalyser;
+	static WordVsProblems wp;
 
 	public static void main(String args[]) {
-		getProblematicWords(1, 3);
+		System.out.println("loading dictionary...");
+		gd = new GreekDictionary();
+		System.out.println("loading language analyser...");
+		languageAnalyser = new GreekLanguageAnalyzer(gd, null);
+		wp = new WordVsProblems(languageAnalyser);
+		for (int i = 8; i<20;i++)
+			getProblematicWords(0, i);
 	}
 
 	public static void getProblematicWords(int category, int index) {
-		GreekDictionary gd = new GreekDictionary();
-		LanguageAnalyzerAPI languageAnalyser = new GreekLanguageAnalyzer();
-		WordVsProblems wp = new WordVsProblems(languageAnalyser);
 		ProblemDefinitionIndex probs = wp.getTheProblems();
 		String path = "data/greek_collection_for_problems/";
 		FileData fd = new FileData(path + "words_for_problem_" + category + "_"
 				+ index + "_" + "GR.txt");
-		boolean bruteForce = true;
+		boolean bruteForce = false;
 		SortedTreeSet sts = gd.getWords();
-		System.out.println(sts.size());
-		int cnt = 0;
+		System.out.println("filling a list with words...");
+		System.out.println("filling an array with " + sts.size() + " words...");
+		Word allWords[] = new Word[sts.size()];
+		int ii = 0;
 		for (Word w : sts) {
-			System.out.println(w.toString());
+			allWords[ii++] = w;
+		}
+
+		Random rand = new Random();
+		ArrayList<Integer> tested = new ArrayList<Integer>();
+		ArrayList<Integer> passed = new ArrayList<Integer>();
+		int limit = 1000;
+		while (passed.size() < limit && tested.size()<110000) {
+			boolean found = false;
+			int next = rand.nextInt(allWords.length);
+			while (tested.contains(next)) {
+				next = rand.nextInt(allWords.length);
+				//System.out.println(next);
+			}
+			tested.add(next);
+			Word w = allWords[next];
 			wp.insertWord(w);
 			ArrayList<WordProblemInfo> wpi = wp.getMatchedProbs();
 			int lastProbs[] = new int[probs.getIndexLength()];
@@ -51,14 +75,18 @@ public class CollectDataForProblems {
 				for (WordProblemInfo pr : wpi) {
 					int x = pr.getCategory();
 					int y = pr.getIndex();
-					if (x == category && y == index)
-						fd.data.add(w.toString());
+					if (x == category && y == index) {
+						fd.data.add(w.toString() + " "
+								+ partOfSpeech(w.getType()) + " " + w.getStem());
+						// System.out.println(w.toString()+" "+partOfSpeech(w.getType())+" "+w.getStem());
+						found = true;
+					}
 				}
 			} else {
-				for (int i = 0; i < lastProbs.length; i++)
-					lastProbs[i] = -1;
+				for (int j = 0; j < lastProbs.length; j++)
+					lastProbs[j] = -1;
 				for (WordProblemInfo pr : wpi) {
-					if (pr != null){
+					if (pr != null) {
 						int x = pr.getCategory();
 						int y = pr.getIndex();
 						if (lastProbs[x] < y)
@@ -66,11 +94,16 @@ public class CollectDataForProblems {
 					}
 				}
 				if (lastProbs[category] == index) {
-					fd.data.add(w.toString());
+					fd.data.add(w.toString() + " " + partOfSpeech(w.getType())
+							+ " " + w.getStem());
+					// System.out.println(""+i+") "+w.toString());
+					found = true;
 				}
 			}
-			if (cnt++ > 5000)
-				break;
+			if (found) {
+				passed.add(next);
+				System.out.println(passed.size());
+			}
 		}
 
 		try {
@@ -90,6 +123,7 @@ public class CollectDataForProblems {
 					new FileOutputStream(path + "results.txt"), "UTF-8"));
 			try {
 				out.write(results);
+				System.err.println(results);
 			} finally {
 				out.close();
 			}
@@ -223,5 +257,17 @@ public class CollectDataForProblems {
 		if (ext.contains("μετοχή"))
 			return WordType.Participle;
 		return WordType.Unknown;
+	}
+
+	private static String partOfSpeech(WordType t) {
+		if (t == WordType.Noun)
+			return "ουσιαστικό";
+		if (t == WordType.Adjective)
+			return "επίθετο";
+		if (t == WordType.Verb)
+			return "ρήμα";
+		if (t == WordType.Participle)
+			return "μετοχή";
+		return "άγνωστο";
 	}
 }

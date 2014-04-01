@@ -20,6 +20,20 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 		soundsSimilarDictionary = new GreekDictionary(glld.getEntries());
 	}
 
+
+	public GreekLanguageAnalyzer(GreekDictionary dictionary, GreekDictionary soundsSimilarDictionary) {
+		if (dictionary != null)
+			this.dictionary = dictionary;
+		else 
+			this.dictionary = new GreekDictionary();
+		if (soundsSimilarDictionary != null)
+			this.soundsSimilarDictionary = soundsSimilarDictionary;
+		else{
+			GreekLineByLineDictionaryLoader glld = new GreekLineByLineDictionaryLoader("greek_sound_similarity.txt");
+			this.soundsSimilarDictionary = new GreekDictionary(glld.getEntries());
+		}
+	}
+
 	@Override
 	public void setWord(Word w) {
 		this.word = (GreekWord)w;
