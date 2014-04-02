@@ -36,8 +36,8 @@ public class CollectDataForProblems {
 		System.out.println("loading language analyser...");
 		languageAnalyser = new GreekLanguageAnalyzer(gd, null);
 		wp = new WordVsProblems(languageAnalyser);
-		for (int i = 8; i<20;i++)
-			getProblematicWords(0, i);
+		for (int i = 0; i<27;i++)
+			getProblematicWords(6, i);
 	}
 
 	public static void getProblematicWords(int category, int index) {
@@ -59,7 +59,7 @@ public class CollectDataForProblems {
 		ArrayList<Integer> tested = new ArrayList<Integer>();
 		ArrayList<Integer> passed = new ArrayList<Integer>();
 		int limit = 1000;
-		while (passed.size() < limit && tested.size()<110000) {
+		while (passed.size() < limit && tested.size()<120000) {
 			boolean found = false;
 			int next = rand.nextInt(allWords.length);
 			while (tested.contains(next)) {
@@ -80,6 +80,7 @@ public class CollectDataForProblems {
 								+ partOfSpeech(w.getType()) + " " + w.getStem());
 						// System.out.println(w.toString()+" "+partOfSpeech(w.getType())+" "+w.getStem());
 						found = true;
+						break;
 					}
 				}
 			} else {
@@ -89,14 +90,14 @@ public class CollectDataForProblems {
 					if (pr != null) {
 						int x = pr.getCategory();
 						int y = pr.getIndex();
-						if (lastProbs[x] < y)
+						if (lastProbs[x] < y && y<=index)
 							lastProbs[x] = y;
 					}
 				}
 				if (lastProbs[category] == index) {
 					fd.data.add(w.toString() + " " + partOfSpeech(w.getType())
 							+ " " + w.getStem());
-					// System.out.println(""+i+") "+w.toString());
+					//System.out.println(w.toString());
 					found = true;
 				}
 			}
