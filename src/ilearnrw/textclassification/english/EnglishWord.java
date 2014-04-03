@@ -34,13 +34,14 @@ public class EnglishWord extends Word {
     }
 
     //We put inside only lower case words
-    public EnglishWord(String word, String phonetic, String stem, ArrayList<GraphemePhonemePair> phoneticList, String suffix, String suffixType, int numSyllables, double frequency, WordType type) {
+    public EnglishWord(String word, String phonetic, String stem, ArrayList<GraphemePhonemePair> phoneticList, ArrayList<String> graphemeSyllables, String suffix, String suffixType, int numSyllables, double frequency, WordType type) {
     	super(word, type);
     	setupLists();
     	wordUnmodified = word;
 		super.languageCode = LanguageCode.EN;
         checkType();
-        syllabism();
+        //syllabism();
+        syllables = graphemeSyllables.toArray(new String[graphemeSyllables.size()]);
         super.word = word.toLowerCase();
         
         phonetics = phonetic;
