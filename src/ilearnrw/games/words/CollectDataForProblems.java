@@ -7,6 +7,7 @@ import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
 import ilearnrw.resource.ResourceLoader;
 import ilearnrw.resource.ResourceLoader.Type;
 import ilearnrw.structs.sets.SortedTreeSet;
+import ilearnrw.textclassification.GraphemePhonemePair;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordProblemInfo;
 import ilearnrw.textclassification.WordType;
@@ -36,77 +37,103 @@ public class CollectDataForProblems {
 		System.out.println("loading language analyser...");
 		languageAnalyser = new GreekLanguageAnalyzer(gd, null);
 		wp = new WordVsProblems(languageAnalyser);
-		for (int i = 0; i<27;i++)
-			getProblematicWords(6, i);
+		//for (int i = 0; i<20;i++)
+			getProblematicWords(1, 0, true);
+	}
+	
+	private static GreekDictionary getWordsWithPhonemeAtPosition(SortedTreeSet sts, int idx, String ph[]){
+		SortedTreeSet ws = new SortedTreeSet();
+		for (Word w : sts){
+			if (idx>=w.getGraphemesPhonemes().size())
+				continue;
+			GraphemePhonemePair tmp = (w.getGraphemesPhonemes()).get(idx);
+			if (tmp.getPhoneme().equals(ph[0]) || tmp.getPhoneme().equals(ph[1])){
+				ws.add(w);
+				System.out.println(w.toString());
+			}
+		}
+		return new GreekDictionary(ws);
 	}
 
-	public static void getProblematicWords(int category, int index) {
+	public static void getProblematicWords(int category, int index, boolean bruteForce) {
 		ProblemDefinitionIndex probs = wp.getTheProblems();
-		String path = "data/greek_collection_for_problems/";
+		String path = "data/greek_collection_for_problems/cat"+category+"/";
 		FileData fd = new FileData(path + "words_for_problem_" + category + "_"
 				+ index + "_" + "GR.txt");
-		boolean bruteForce = false;
 		SortedTreeSet sts = gd.getWords();
 		System.out.println("filling a list with words...");
-		System.out.println("filling an array with " + sts.size() + " words...");
-		Word allWords[] = new Word[sts.size()];
-		int ii = 0;
-		for (Word w : sts) {
-			allWords[ii++] = w;
-		}
-
-		Random rand = new Random();
-		ArrayList<Integer> tested = new ArrayList<Integer>();
-		ArrayList<Integer> passed = new ArrayList<Integer>();
-		int limit = 1000;
-		while (passed.size() < limit && tested.size()<120000) {
-			boolean found = false;
-			int next = rand.nextInt(allWords.length);
-			while (tested.contains(next)) {
-				next = rand.nextInt(allWords.length);
-				//System.out.println(next);
+		Word allWords[];
+		int reps = 1;
+		if (category == 1)
+			reps = 10;
+		for (int again = 0; again<reps; again++){
+			if (category == 1){
+				String str[] = probs.getProblemDescription(category, index).getDescriptions();
+				String[] parts = str[0].split("-");
+				gd = getWordsWithPhonemeAtPosition(sts, again, parts);
+				System.out.println("loading again language analyser...");
+				languageAnalyser = new GreekLanguageAnalyzer(gd, gd);
 			}
-			tested.add(next);
-			Word w = allWords[next];
-			wp.insertWord(w);
-			ArrayList<WordProblemInfo> wpi = wp.getMatchedProbs();
-			int lastProbs[] = new int[probs.getIndexLength()];
-			if (bruteForce) {
-				for (WordProblemInfo pr : wpi) {
-					int x = pr.getCategory();
-					int y = pr.getIndex();
-					if (x == category && y == index) {
-						fd.data.add(w.toString() + " "
-								+ partOfSpeech(w.getType()) + " " + w.getStem());
-						// System.out.println(w.toString()+" "+partOfSpeech(w.getType())+" "+w.getStem());
-						found = true;
-						break;
-					}
+			sts = gd.getWords();
+			System.out.println("filling an array with " + sts.size() + " words...");
+			allWords = new Word[sts.size()];
+			int ii = 0;
+			for (Word w : sts) {
+				allWords[ii++] = w;
+			}
+			
+			Random rand = new Random();
+			ArrayList<Integer> tested = new ArrayList<Integer>();
+			ArrayList<Integer> passed = new ArrayList<Integer>();
+			int limit = 1000;
+			while (passed.size() < limit && tested.size()<sts.size()-100) {
+				boolean found = false;
+				int next = rand.nextInt(allWords.length);
+				while (tested.contains(next)) {
+					next = rand.nextInt(allWords.length);
+					//System.out.println(next);
 				}
-			} else {
-				for (int j = 0; j < lastProbs.length; j++)
-					lastProbs[j] = -1;
-				for (WordProblemInfo pr : wpi) {
-					if (pr != null) {
+				tested.add(next);
+				Word w = allWords[next];
+				wp.insertWord(w);
+				ArrayList<WordProblemInfo> wpi = wp.getMatchedProbs();
+				int lastProbs[] = new int[probs.getIndexLength()];
+				if (bruteForce) {
+					for (WordProblemInfo pr : wpi) {
 						int x = pr.getCategory();
 						int y = pr.getIndex();
-						if (lastProbs[x] < y && y<=index)
-							lastProbs[x] = y;
+						if (x == category && y == index) {
+							fd.data.add(w.toString() + " "
+									+ partOfSpeech(w.getType()) + " " + w.getStem());
+							// System.out.println(w.toString()+" "+partOfSpeech(w.getType())+" "+w.getStem());
+							found = true;
+							break;
+						}
+					}
+				} else {
+					for (int j = 0; j < lastProbs.length; j++)
+						lastProbs[j] = -1;
+					for (WordProblemInfo pr : wpi) {
+						if (pr != null) {
+							int x = pr.getCategory();
+							int y = pr.getIndex();
+							if (lastProbs[x] < y && y<=index)
+								lastProbs[x] = y;
+						}
+					}
+					if (lastProbs[category] == index) {
+						fd.data.add(w.toString() + " " + partOfSpeech(w.getType())
+								+ " " + w.getStem());
+						//System.out.println(w.toString());
+						found = true;
 					}
 				}
-				if (lastProbs[category] == index) {
-					fd.data.add(w.toString() + " " + partOfSpeech(w.getType())
-							+ " " + w.getStem());
-					//System.out.println(w.toString());
-					found = true;
+				if (found && !passed.contains(next)) {
+					passed.add(next);
+					System.out.println(passed.size());
 				}
 			}
-			if (found) {
-				passed.add(next);
-				System.out.println(passed.size());
-			}
 		}
-
 		try {
 			System.out.println("start writing to files!");
 			String results = "";
