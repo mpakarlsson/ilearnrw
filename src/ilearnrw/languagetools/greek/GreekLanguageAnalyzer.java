@@ -15,13 +15,23 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 
 
 	public GreekLanguageAnalyzer() {
-		//GreekDictionaryLoader gl = new GreekDictionaryLoader();
-		GreekGenericDictionaryLoader ggl = new GreekGenericDictionaryLoader("greek_dictionary.txt");
-		dictionary = new GreekDictionary(ggl.getEntries());
+		dictionary = new GreekDictionary();
 		GreekLineByLineDictionaryLoader glld = new GreekLineByLineDictionaryLoader("greek_sound_similarity.txt");
 		soundsSimilarDictionary = new GreekDictionary(glld.getEntries());
-		//dictionary = new GreekDictionaryLoader();
-		//unknownWords = new HashMap<String, Integer>();
+	}
+
+
+	public GreekLanguageAnalyzer(GreekDictionary dictionary, GreekDictionary soundsSimilarDictionary) {
+		if (dictionary != null)
+			this.dictionary = dictionary;
+		else 
+			this.dictionary = new GreekDictionary();
+		if (soundsSimilarDictionary != null)
+			this.soundsSimilarDictionary = soundsSimilarDictionary;
+		else{
+			GreekLineByLineDictionaryLoader glld = new GreekLineByLineDictionaryLoader("greek_sound_similarity.txt");
+			this.soundsSimilarDictionary = new GreekDictionary(glld.getEntries());
+		}
 	}
 
 	@Override
@@ -73,7 +83,11 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 	public boolean isParticiple() {
 		return this.word.getType() == WordType.Participle;
 	}
-
+	
+	@Override
+	public Word getWord() {
+		return this.word;
+	}
 
 	@Override
 	public LanguageCode getLanguageCode() {

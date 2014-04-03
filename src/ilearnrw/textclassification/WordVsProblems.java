@@ -32,6 +32,7 @@ public class WordVsProblems {
 		}
 		
 		checkWordAgainstMatrix();
+		this.word.wordUnmodified = word.getWordUnmodified();
 	}
 
 	
@@ -40,6 +41,7 @@ public class WordVsProblems {
 		this.word = word;
 		
 		checkWordAgainstMatrix(i, j);
+		this.word.wordUnmodified = word.getWordUnmodified();
 	}
 	public ProblemDefinitionIndex getTheProblems() {
 		return theProblems;
@@ -94,6 +96,10 @@ public class WordVsProblems {
 		return mp;
 	}
 
+	public Word getWord() {
+		return this.word;
+	}
+
 	public LanguageCode getLanguageCode() {
 		return lc;
 	}
@@ -115,7 +121,7 @@ public class WordVsProblems {
 	}
 
 	private WordProblemInfo wordMatches(int i, int j){
-		WordProblemInfo wpi = new WordProblemInfo(word.getLanguageCode());
+		WordProblemInfo wpi = new WordProblemInfo();
 		//ask for the small strings that describe the problem
 		String pd[] = theProblems.getProblemDescription(i, j).getDescriptions();
 		//ask the problem type

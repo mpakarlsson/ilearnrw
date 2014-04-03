@@ -1,9 +1,13 @@
 package ilearnrw.prototype.application;
 
+import ilearnrw.resource.ResourceLoader;
+import ilearnrw.resource.ResourceLoader.Type;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -25,7 +29,8 @@ public class ProgramSetup {
 		
 		Map<String, ArrayList<String>> dict = new HashMap<String, ArrayList<String>>();		
 			try {
-				BufferedReader reader = new BufferedReader(new FileReader("data/dictionary.txt"));
+				BufferedReader reader = new BufferedReader(
+						new InputStreamReader(ResourceLoader.getInstance().getInputStream(Type.DATA, "dictionary.txt"), "UTF-8"));
 				String line = null;
 				while ((line = reader.readLine()) != null) {
 					String[] parts = line.split("\\|");
@@ -50,8 +55,9 @@ public class ProgramSetup {
 	public static ArrayList<String> LoadDaleChallList(){
 		ArrayList<String> words = new ArrayList<String>();
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader("data/dale-chall_word_list.txt"));
-		
+			BufferedReader reader = new BufferedReader(
+					new InputStreamReader(ResourceLoader.getInstance().getInputStream(Type.DATA, "dale-chall_word_list.txt"), "UTF-8"));
+					
 			String line = null;
 			while ((line = reader.readLine()) != null) {
 				words.add(line);

@@ -2,17 +2,12 @@ package ilearnrw.textclassification;
 
 import java.util.ArrayList;
 
-import ilearnrw.utils.LanguageCode;
-
 public class WordProblemInfo {
-
-	private LanguageCode lc;
-	private int category, index;
-	private ArrayList<StringMatchesInfo> matched;
-	private boolean found;
+	protected int category, index;
+	protected ArrayList<StringMatchesInfo> matched;
+	protected boolean found;
 	
-	public WordProblemInfo(LanguageCode lc) {
-		this.lc = lc;
+	public WordProblemInfo() {
 		this.category = -1;
 		this.index = -1;
 		this.found = false;
@@ -28,10 +23,6 @@ public class WordProblemInfo {
 		}
 		else 
 			this.found = false;
-	}
-
-	public LanguageCode languageCode() {
-		return this.lc;
 	}
 
 	public int getCategory() {

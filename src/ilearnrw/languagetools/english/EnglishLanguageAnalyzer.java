@@ -18,8 +18,10 @@ public class EnglishLanguageAnalyzer implements LanguageAnalyzerAPI{
 	@Override
 	public void setWord(Word w) {
 		this.word = (EnglishWord)w;
-		if (dictionary.getDictionary().containsKey(word.getWord()))
-			word.setType((dictionary.getDictionary().get(word.getWord())).getType());
+		if (dictionary.getDictionary().containsKey(word.getWord())){
+			word = dictionary.getDictionary().get(word.getWord());
+			//word.setType((dictionary.getDictionary().get(word.getWord())).getType());
+		}
 		else word.setType(WordType.Unknown);
 	}
 
@@ -46,6 +48,11 @@ public class EnglishLanguageAnalyzer implements LanguageAnalyzerAPI{
 	@Override
 	public LanguageCode getLanguageCode() {
 		return LanguageCode.EN;
+	}
+	
+	@Override
+	public Word getWord() {
+		return this.word;
 	}
 
 	@Override
