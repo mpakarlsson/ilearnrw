@@ -47,7 +47,6 @@ public class EnglishDictionary {
 				String word, stem, phonetic;
 				ArrayList<GraphemePhonemePair> phoneticList;
 				ArrayList<String> graphemeSyllables = new ArrayList<String>();
-				ArrayList<String> phoneticSyllables = new ArrayList<String>();
 				int numChars, numPhons, numSyllables;
 				double frequency;
 				String suffixType, suffix;
@@ -88,14 +87,14 @@ public class EnglishDictionary {
 				
 				suffixType = results[4];
 				suffix = results[5];
-				graphemeSyllables = new ArrayList<String>(Arrays.asList(results[6].split(",")));
-				phoneticSyllables = new ArrayList<String>(Arrays.asList(results[7].split(",")));
 				
-				numChars = Integer.parseInt(results[8]);
-				numSyllables = Integer.parseInt(results[10]);
-				frequency = Double.parseDouble(results[11]);
+				graphemeSyllables = new ArrayList<String>(Arrays.asList(results[6].split("\\.")));
 				
-				EnglishWord w = new EnglishWord(word, phonetic, stem, phoneticList, suffix, suffixType, numSyllables, frequency, WordType.Unknown);
+				numChars = Integer.parseInt(results[7]);
+				numSyllables = Integer.parseInt(results[9]);
+				frequency = Double.parseDouble(results[10]);
+				
+				EnglishWord w = new EnglishWord(word, phonetic, stem, phoneticList, graphemeSyllables, suffix, suffixType, numSyllables, frequency, WordType.Unknown);
 				
 				if(!dictionary.containsKey(word)){
 					dictionary.put(word, w);
