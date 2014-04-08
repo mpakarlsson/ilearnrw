@@ -258,6 +258,7 @@ public class WordVsProblems {
 				wpi.setProblemInfo(i, j, matcher.patternEqualsPronunciation(pd, word, endType));
 				break;
 			case SYLLABLE_PATTERN:
+				wpi.setProblemInfo(i, j, matcher.syllablePattern(pd, word));
 				break;
 			case SYLLABLE_COUNT:
 				wpi.setProblemInfo(i, j, matcher.syllableCount(pd, word));

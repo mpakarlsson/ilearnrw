@@ -7,6 +7,7 @@ import ilearnrw.user.problems.ProblemType;
 import ilearnrw.utils.LanguageCode;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class StringMatchesInfo {
 
@@ -247,7 +248,6 @@ public class StringMatchesInfo {
 	public static ArrayList<StringMatchesInfo> endsWithSuffix(String str[], Word w, ProblemType pt){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String phonetics = w.getPhonetics();
-		String ASD = pt.toString();
 		if(w.getLanguageCode().equals(LanguageCode.EN)){
 			for(String s : str){
 				int pos = s.indexOf("-");
@@ -266,7 +266,7 @@ public class StringMatchesInfo {
 						// remove stress, syllable dividers and vertical lines
 						tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
 						
-						if(w.getWord().endsWith(values[0]) && tempPhon.endsWith(values[1]) && !((EnglishWord)w).getSuffixType().equals("SUFFIX_NONE")){
+						if(w.getWord().endsWith(values[0]) && tempPhon.endsWith(values[1])){
 							result.add(new StringMatchesInfo(s, w.getWord().indexOf(values[0]), w.getWord().lastIndexOf(values[0])+values[0].length()));
 							return result;
 						}
@@ -328,6 +328,79 @@ public class StringMatchesInfo {
 		}
 		
 		return null;
+	}
+	
+	public static ArrayList<StringMatchesInfo> syllablePattern(String str[], Word w){
+		ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
+		for(String s : str){
+			if(!s.contains("/"))
+				break;
+			String lookup = "", problem = "";
+			
+			if(s.contains(":")){
+				String[] splitValues = s.split(":");
+				lookup = splitValues[0];
+				problem = splitValues[1];
+			} else
+				problem = s;
+			
+			// level - vc/v
+			// diet - v/v
+			// basic - v/cv
+			// connect - vc/cv
+			String word = w.getWord();
+			if(word.equals("level") || word.equals("diet") ||
+					word.equals("basic") || word.equals("connect")){
+				int k=0;
+				k++;
+				
+			}
+			
+			problem = problem.replace("/", "-");
+			String cv = w.getCVForm();
+			
+			if(countCharacter(cv, '-') != 3)
+				continue;
+			
+			if(cv.contains(problem)){
+				if(!lookup.isEmpty()){
+					if(!word.contains(lookup))
+						continue;
+					// qu - equip
+					// ture - features
+					if(lookup.equals("qu")){
+						int index = word.indexOf("qu");
+						
+						for(int i=0; i<index+1; i++){
+							if(cv.charAt(i) == '-')
+								index++;
+						}
+						
+						cv = new StringBuilder(cv).replace(index+1, index+2, "").toString();
+						
+						if(!cv.contains(problem))
+							continue;
+					}
+					
+					
+				}
+				
+
+				int index = cv.indexOf(problem);
+				String temp = cv.substring(0, index);
+				index = index - countCharacter(temp, '-') + 1;
+				result.add(new StringMatchesInfo(w.getWord(), index, index+problem.length()-1));
+				
+			}
+			
+			
+		}
+		
+
+		if(!result.isEmpty())
+			return result;
+		else
+			return null;
 	}
 	
 	public static ArrayList<StringMatchesInfo> syllableCount(String str[], Word w){
@@ -567,6 +640,15 @@ public class StringMatchesInfo {
 	
 	private static boolean isVowel(char c){
 		return "AEIOUYaeiouy".indexOf(c) != -1;
+	}
+	
+	private static int countCharacter(String word, Character lookup){
+		int cnt = 0;
+		for(Character ch : word.toCharArray()){
+			if(ch == lookup)
+				cnt++;
+		}
+		return cnt;
 	}
 
 }

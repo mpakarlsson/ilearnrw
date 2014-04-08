@@ -78,13 +78,17 @@
       },
       {
         "descriptions": [
-          "qu as vc/cv, v/cv and v/v"
+          "qu:vc/cv",
+          "qu:v/cv",
+          "qu:v/v"
         ],
         "problemType": "SYLLABLE_PATTERN"
       },
       {
         "descriptions": [
-          "-ture as vc/cv, v/cv and vc/v"
+          "ture:vc/cv",
+          "ture:v/cv",
+          "ture:vc/v"
         ],
         "problemType": "SYLLABLE_PATTERN"
       },
