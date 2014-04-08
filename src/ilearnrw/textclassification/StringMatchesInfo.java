@@ -7,7 +7,6 @@ import ilearnrw.user.problems.ProblemType;
 import ilearnrw.utils.LanguageCode;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class StringMatchesInfo {
 
@@ -344,19 +343,8 @@ public class StringMatchesInfo {
 			} else
 				problem = s;
 			
-			// level - vc/v
-			// diet - v/v
-			// basic - v/cv
-			// connect - vc/cv
-			String word = w.getWord();
-			if(word.equals("level") || word.equals("diet") ||
-					word.equals("basic") || word.equals("connect")){
-				int k=0;
-				k++;
-				
-			}
-			
 			problem = problem.replace("/", "-");
+			String word = w.getWord();
 			String cv = w.getCVForm();
 			
 			if(countCharacter(cv, '-') != 3)
@@ -366,8 +354,7 @@ public class StringMatchesInfo {
 				if(!lookup.isEmpty()){
 					if(!word.contains(lookup))
 						continue;
-					// qu - equip
-					// ture - features
+
 					if(lookup.equals("qu")){
 						int index = word.indexOf("qu");
 						
@@ -378,24 +365,16 @@ public class StringMatchesInfo {
 						
 						cv = new StringBuilder(cv).replace(index+1, index+2, "").toString();
 						
-						if(!cv.contains(problem))
-							continue;
+						if(!cv.contains(problem)) continue;
 					}
-					
-					
 				}
 				
-
 				int index = cv.indexOf(problem);
 				String temp = cv.substring(0, index);
 				index = index - countCharacter(temp, '-') + 1;
 				result.add(new StringMatchesInfo(w.getWord(), index, index+problem.length()-1));
-				
 			}
-			
-			
 		}
-		
 
 		if(!result.isEmpty())
 			return result;

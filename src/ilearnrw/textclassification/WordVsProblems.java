@@ -223,7 +223,7 @@ public class WordVsProblems {
 					//gDic.getGreekWords().add((GreekWord)word);
 				break;
 			case CONTAINS_PHONEME:
-				wpi.setProblemInfo(i, j, matcher.containsPhoneme(pd, word));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.containsPhoneme(pd, word));
 				break;
 				// English language
 				// TODO: Fix to be more complex, discuss with language experts
@@ -233,13 +233,13 @@ public class WordVsProblems {
 			case SUFFIX_DOUBLE:
 			case SUFFIX_STRESS_PATTERN: // FIX THIS TO DO AS THE JSON OBJECT TELLS IT
 			case SUFFIX_PATTERN:
-				wpi.setProblemInfo(i, j, matcher.endsWithSuffix(pd, word, pt));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.endsWithSuffix(pd, word, pt));
 				break;
 				
 			// TODO: Fix to be more complex, discuss with language experts
 			case PREFIX: 
 			case PREFIX_GROUP:
-				wpi.setProblemInfo(i, j, matcher.startsWithPrefix(pd, word));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.startsWithPrefix(pd, word));
 				break;
 			
 				// TODO: Fix to be more complex, discuss with language experts		
@@ -247,7 +247,7 @@ public class WordVsProblems {
 			case DIGRAPH_EQUALS_PHONEME:
 			case TRIGRAPH_EQUALS_PHONEME:
 				String startType = pt.toString().substring(0, pt.toString().indexOf("_")).toLowerCase();
-				wpi.setProblemInfo(i, j, matcher.equalsPhoneme(pd, word, startType));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.equalsPhoneme(pd, word, startType));
 				break;
 			
 			// TODO: Fix to be more complex, discuss with language experts
@@ -255,13 +255,13 @@ public class WordVsProblems {
 			case PATTERN_EQUALS_PRONUNCIATION_BEGINS:
 			case PATTERN_EQUALS_PRONUNCIATION_ENDS:
 				String endType = pt.toString().substring(pt.toString().lastIndexOf("_")+1, pt.toString().length()).toLowerCase();
-				wpi.setProblemInfo(i, j, matcher.patternEqualsPronunciation(pd, word, endType));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.patternEqualsPronunciation(pd, word, endType));
 				break;
 			case SYLLABLE_PATTERN:
-				wpi.setProblemInfo(i, j, matcher.syllablePattern(pd, word));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.syllablePattern(pd, word));
 				break;
 			case SYLLABLE_COUNT:
-				wpi.setProblemInfo(i, j, matcher.syllableCount(pd, word));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.syllableCount(pd, word));
 				break;
 		default:
 			break;

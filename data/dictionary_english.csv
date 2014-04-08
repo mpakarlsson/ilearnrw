@@ -1716,7 +1716,7 @@ brake	brake	breɪk	b-b,r-r,a.e-eɪ,k-k	SUFFIX_NONE	NULL	brake	5	4	1	5522
 brake's	brake	breɪks	b-b,r-r,a.e-eɪ,k-k,s-s	SUFFIX_ADD	's	brake's	7	5	1	5522
 braked	brake	breɪkt	b-b,r-r,a-eɪ,k-k,ed-t	SUFFIX_DROP	ed	braked	6	5	1	5522
 brakes	brake	breɪks	b-b,r-r,a.e-eɪ,k-k,s-s	SUFFIX_ADD	s	brakes	6	5	1	5522
-braking	brake	ˈbreɪkɪŋ	b-b,r-r,a-eɪ,k-k,i-ɪ,ng-ŋ	SUFFIX_DROP	ing	braking	7	6	1	5522
+braking	brake	ˈbreɪk.ɪŋ	b-b,r-r,a-eɪ,k-k,i-ɪ,ng-ŋ	SUFFIX_DROP	ing	brak.ing	7	6	1	5522
 branch	branch	brɑːntʃ	b-b,r-r,a-ɑː,n-n,ch-tʃ	SUFFIX_NONE	NULL	branch	6	5	1	19633
 branch's	branch	ˈbræn.tʃəz	b-b,r-r,a-æ,n-n,ch-tʃ,'-,s-əz	SUFFIX_ADD	's	bran.ch's	8	7	2	19633
 branched	branch	brɑːntʃt	b-b,r-r,a-ɑː,n-n,ch-tʃ,ed-t	SUFFIX_ADD	ed	branched	8	6	1	19633
