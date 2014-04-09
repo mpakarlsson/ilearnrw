@@ -297,7 +297,7 @@ public class StringMatchesInfo {
 		String ipa = w.getPhonetics();
 		
 		// TODO: Fix -> ignore phonetics if word is not in the dictionary
-		if(ipa==null)
+		if(ipa==null || w.getGraphemesPhonemes()==null)
 			for(String s : str)
 				if(w.getWord().contains(s.split("-")[0])){
 				    result.add(new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length()));
@@ -315,18 +315,38 @@ public class StringMatchesInfo {
 			String tempPhon = w.getPhonetics();
 			// remove stress, syllable dividers and vertical lines
 			tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
+			String word = w.getWord();
+			ArrayList<GraphemePhonemePair> graphemesPhonemes = new ArrayList<GraphemePhonemePair>();
 			
-			if(w.getWord().contains(difficulty) && tempPhon.contains(transcription)){			
-				int pos = wordContainsGraphemePhoneme(w, difficulty, transcription);
+			for(int i=0; i<w.getGraphemesPhonemes().size(); i++){
+				graphemesPhonemes.add(w.getGraphemesPhonemes().get(i));
+			}
+			
+			int savePos = 0;
+			while(word.contains(difficulty) && tempPhon.contains(transcription)){
+				int pos = wordContainsGraphemePhoneme(graphemesPhonemes, difficulty, transcription);
 				
-				if(pos != -1){
-					result.add(new StringMatchesInfo(difficulty, pos, pos+difficulty.length()));
-					return result;
-				}
+				if(pos != -1){					
+					result.add(new StringMatchesInfo(difficulty, pos+savePos, pos+savePos+difficulty.length()));
+					word = word.substring(pos+difficulty.length());
+					tempPhon = tempPhon.substring(tempPhon.indexOf(transcription)+transcription.length());
+					savePos = pos+difficulty.length();
+					if(pos+1<graphemesPhonemes.size()){
+						for(int j=0; j<=pos; j++){
+							graphemesPhonemes.remove(0);
+						}
+					} else 
+						break;
+					
+				} else 
+					break;
 			}
 		}
 		
-		return null;
+		if(!result.isEmpty())
+			return result;
+		else
+			return null;
 	}
 	
 	public static ArrayList<StringMatchesInfo> syllablePattern(String str[], Word w){
@@ -448,7 +468,7 @@ public class StringMatchesInfo {
 			String transcription = values[1];
 			
 			if(type.equals("contains")){
-				int pos = wordContainsGraphemePhoneme(w, difficulty, transcription);
+				int pos = wordContainsGraphemePhoneme(w.getGraphemesPhonemes(), difficulty, transcription);
 				if(pos != -1){
 					if(difficulty.contains("_C_") || difficulty.contains("_V_")){
 						result.add(new StringMatchesInfo(s, pos, pos+difficulty.length()-2));
@@ -500,8 +520,8 @@ public class StringMatchesInfo {
 		return null;
 	}
 	
-	private static int wordContainsGraphemePhoneme(Word word, String difficulty, String ipa){
-		ArrayList<GraphemePhonemePair> gpList = word.getGraphemesPhonemes();
+	private static int wordContainsGraphemePhoneme(ArrayList<GraphemePhonemePair> graphsPhons, String difficulty, String ipa){
+		ArrayList<GraphemePhonemePair> gpList = graphsPhons;
 		
 		if(gpList == null)
 			return -1;
