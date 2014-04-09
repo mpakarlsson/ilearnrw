@@ -332,8 +332,16 @@ public class StringMatchesInfo {
 	public static ArrayList<StringMatchesInfo> syllablePattern(String str[], Word w){
 		ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		for(String s : str){
-			if(!s.contains("/"))
+			if(!s.contains("/")){
+				
+				if(s.equals("Closed and Open syllables"))
+					if(ContainsOpenClosedSyllables(w)){
+						result.add(new StringMatchesInfo(w.getWord(), 0, w.getWord().length()));
+						return result;
+					}
+				
 				break;
+			}
 			String lookup = "", problem = "";
 			
 			if(s.contains(":")){
@@ -616,6 +624,25 @@ public class StringMatchesInfo {
 		return -1;
 	}	
 
+	
+	private static Boolean ContainsOpenClosedSyllables(Word w){
+		if(w.getNumberOfSyllables()<2)
+			return false;
+		else { 
+			String[] syllables = w.getSyllables();
+			int numOpen = 0, numClosed = 0;
+			for(int i=0; i<syllables.length; i++){
+				if(isVowel(syllables[i].charAt(syllables[i].length()-1)))
+					numOpen++;
+				else
+					numClosed++;
+			}
+			
+			if(numOpen>0 && numClosed>0)
+				return true;
+		}
+		return false;
+	}
 	
 	private static boolean isVowel(char c){
 		return "AEIOUYaeiouy".indexOf(c) != -1;
