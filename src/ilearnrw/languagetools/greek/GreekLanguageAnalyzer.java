@@ -16,8 +16,9 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 
 	public GreekLanguageAnalyzer() {
 		dictionary = new GreekDictionary();
-		GreekLineByLineDictionaryLoader glld = new GreekLineByLineDictionaryLoader("greek_sound_similarity.txt");
-		soundsSimilarDictionary = new GreekDictionary(glld.getEntries());
+		//GreekLineByLineDictionaryLoader glld = new GreekLineByLineDictionaryLoader("greek_sound_similarity.txt");
+		//soundsSimilarDictionary = new GreekDictionary(glld.getEntries());
+		soundsSimilarDictionary = new GreekDictionary("similarSoundWords.txt");
 	}
 
 
@@ -29,8 +30,9 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 		if (soundsSimilarDictionary != null)
 			this.soundsSimilarDictionary = soundsSimilarDictionary;
 		else{
-			GreekLineByLineDictionaryLoader glld = new GreekLineByLineDictionaryLoader("greek_sound_similarity.txt");
-			this.soundsSimilarDictionary = new GreekDictionary(glld.getEntries());
+			//GreekLineByLineDictionaryLoader glld = new GreekLineByLineDictionaryLoader("greek_sound_similarity.txt");
+			//this.soundsSimilarDictionary = new GreekDictionary(glld.getEntries());
+			soundsSimilarDictionary = new GreekDictionary("similarSoundWords.txt");
 		}
 	}
 
@@ -56,7 +58,15 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 					continue;
 				String temp = x.getPhonetics().replaceAll(phA, "*");
 				temp = temp.replaceAll(phB, "*");
-				if (temp.equals(target)){
+				if (temp.length() != target.length())
+					continue;
+				int dist = 0;
+				for (int i=0;i<temp.length(); i++){
+					if (temp.charAt(i) != target.charAt(i))
+						dist++;
+				}
+				//if (temp.equals(target)){
+				if (dist<1){
 					return x;
 				}
 			}

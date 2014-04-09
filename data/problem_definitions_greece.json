@@ -158,7 +158,7 @@
           "άι",
           "όι"
         ],
-        "problemType": "CONTAINS_LETTERS_ON_CONSEQUTIVE_SYLLABLES"
+        "problemType": "CONTAINS_LETTERS_ON_SAME_SYLLABLES"
       },
       {
         "descriptions": [
