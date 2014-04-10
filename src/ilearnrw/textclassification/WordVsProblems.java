@@ -55,8 +55,9 @@ public class WordVsProblems {
 		languageAnalyser.setWord(word);
 		for (int i=0;i<theProblems.getIndexLength(); i++){
 			for (int j=0;j<theProblems.getRowLength(i); j++){
-				if (wordMatches(i, j).found()){
-					matchedProbs.add(wordMatches(i, j));
+				WordProblemInfo matches = wordMatches(i, j);
+				if (matches.found()){
+					matchedProbs.add(matches);
 				}
 			}
 		}
@@ -66,9 +67,10 @@ public class WordVsProblems {
 		languageAnalyser.setWord(word);
 		if (i<theProblems.getIndexLength() && 
 				j<theProblems.getRowLength(i)){
-				if (wordMatches(i, j).found()){
-					matchedProbs.add(wordMatches(i, j));
-				}
+			WordProblemInfo matches = wordMatches(i, j);
+			if (matches.found()){
+				matchedProbs.add(matches);
+			}
 		}
 	}
 	
@@ -77,8 +79,9 @@ public class WordVsProblems {
 		languageAnalyser.setWord(word);
 		for (int i=0;i<theProblems.getIndexLength(); i++){
 			for (int j=0;j<theProblems.getRowLength(i); j++){
-				if (wordMatches(i, j).found()){
-					mp.add(wordMatches(i, j));
+				WordProblemInfo matches = wordMatches(i, j);
+				if (matches.found()){
+					mp.add(matches);
 				}
 			}
 		}
@@ -89,8 +92,9 @@ public class WordVsProblems {
 		ArrayList<WordProblemInfo> mp = new ArrayList<WordProblemInfo>();
 		languageAnalyser.setWord(word);
 		if (i<theProblems.getIndexLength() && j<theProblems.getRowLength(i)){
-				if (wordMatches(i, j).found()){
-					mp.add(wordMatches(i, j));
+				WordProblemInfo matches = wordMatches(i, j);
+				if (matches.found()){
+					mp.add(matches);
 				}
 			}
 		return mp;
