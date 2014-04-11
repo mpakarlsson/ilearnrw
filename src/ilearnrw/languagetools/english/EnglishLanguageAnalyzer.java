@@ -12,7 +12,9 @@ public class EnglishLanguageAnalyzer implements LanguageAnalyzerAPI{
 	public static EnglishDictionary dictionary;
 	
 	public EnglishLanguageAnalyzer() {
-		dictionary = new EnglishDictionary("dictionary_english.csv");
+		dictionary = EnglishDictionary.getInstance();
+		if(dictionary.getDictionary().isEmpty())
+			dictionary.loadDictionary("data/dictionary_english.csv");
 	}
 
 	@Override

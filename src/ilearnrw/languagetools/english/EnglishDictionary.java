@@ -18,98 +18,104 @@ import java.util.Map;
 public class EnglishDictionary {
 
 	private Map<String, EnglishWord> dictionary;
-	
-	public EnglishDictionary(String fileName){
+	private static EnglishDictionary instance = null;
+
+	protected EnglishDictionary() {
 		dictionary = new HashMap<String, EnglishWord>();
-		
-		loadDictionary(fileName);
 	}
-	
-	public Map<String, EnglishWord> getDictionary(){
+
+	public static EnglishDictionary getInstance() {
+		if (instance == null)
+			instance = new EnglishDictionary();
+
+		return instance;
+	}
+
+	public Map<String, EnglishWord> getDictionary() {
 		return dictionary;
 	}
-	
-	public EnglishWord getWord(String w){
-		if(dictionary.containsKey(w)){
+
+	public EnglishWord getWord(String w) {
+		if (dictionary.containsKey(w)) {
 			return dictionary.get(w);
 		}
-		
+
 		return null;
 	}
-	
-	private void loadDictionary(String fileName){
+
+	public void loadDictionary(String fileName) {
 		try {
-			BufferedReader br = new BufferedReader(
-					new InputStreamReader(ResourceLoader.getInstance().getInputStream(Type.DATA, fileName), "UTF-8"));
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					new FileInputStream(fileName), "UTF-8"));
 
 			String strLine;
-			//Read File Line By Line
-			while ((strLine = br.readLine()) != null) {				
+			// Read File Line By Line
+			while ((strLine = br.readLine()) != null) {
 				String[] results = strLine.split("\t");
-				
+
 				String word, stem, phonetic;
 				ArrayList<GraphemePhonemePair> phoneticList;
-				ArrayList<String> graphemeSyllables = new ArrayList<String>();
+				String[] graphemeSyllables;
 				int numChars, numPhons, numSyllables;
 				double frequency;
 				String suffixType, suffix;
 				// Add this when it's possible
 				// partOfSpeech
-				
-				
-				word = results[0];
+
+				word = results[0].toLowerCase();
 				stem = results[1];
 				phonetic = results[2];
-				
+
 				phoneticList = new ArrayList<GraphemePhonemePair>();
 				numPhons = 0;
-				
-				if(!results[2].contains("<")){
+
+				if (!results[2].contains("<")) {
 					String[] phoneticMatches = results[3].split(",");
-					
-					for(String s : phoneticMatches){
+
+					for (String s : phoneticMatches) {
 						String[] values = s.split("-", -1);
-						
-						if(values.length>2){
-							for(int i=1; i<values.length-1; i++){
+
+						if (values.length > 2) {
+							for (int i = 1; i < values.length - 1; i++) {
 								values[0] += values[i];
-								
-								if(values[i].isEmpty())
+
+								if (values[i].isEmpty())
 									values[0] += "-";
 							}
-							values[1] = values[values.length-1];
+							values[1] = values[values.length - 1];
 						}
-						
-						GraphemePhonemePair pair = new GraphemePhonemePair(values[0], values[1]);
-						
+
+						GraphemePhonemePair pair = new GraphemePhonemePair(
+								values[0], values[1]);
+
 						phoneticList.add(pair);
 					}
-					
+
 					numPhons = Integer.parseInt(results[9]);
 				}
-				
+
 				suffixType = results[4];
 				suffix = results[5];
-				
-				graphemeSyllables = new ArrayList<String>(Arrays.asList(results[6].split("\\.")));
-				
+
+				graphemeSyllables = results[6].split("\\.");
 				numChars = Integer.parseInt(results[7]);
 				numSyllables = Integer.parseInt(results[9]);
 				frequency = Double.parseDouble(results[10]);
-				
-				EnglishWord w = new EnglishWord(word, phonetic, stem, phoneticList, graphemeSyllables, suffix, suffixType, numSyllables, frequency, WordType.Unknown);
-				
-				if(!dictionary.containsKey(word)){
+
+				EnglishWord w = new EnglishWord(word, phonetic, stem,
+						phoneticList, graphemeSyllables, suffix, suffixType,
+						numSyllables, frequency, WordType.Unknown);
+
+				if (!dictionary.containsKey(word)) {
 					dictionary.put(word, w);
 				}
 			}
 
-			//Close the input stream
+			// Close the input stream
 			br.close();
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 }
