@@ -9,12 +9,20 @@ import ilearnrw.utils.LanguageCode;
 public class EnglishLanguageAnalyzer implements LanguageAnalyzerAPI{
 	
 	private Word word;
+	private static EnglishLanguageAnalyzer instance = null;
 	public static EnglishDictionary dictionary;
 	
-	public EnglishLanguageAnalyzer() {
+	protected EnglishLanguageAnalyzer() {
 		dictionary = EnglishDictionary.getInstance();
 		if(dictionary.getDictionary().isEmpty())
 			dictionary.loadDictionary("data/dictionary_english.csv");
+	}
+	
+	public static EnglishLanguageAnalyzer getInstance(){
+		if(instance==null)
+			instance = new EnglishLanguageAnalyzer();
+		
+		return instance;
 	}
 
 	@Override

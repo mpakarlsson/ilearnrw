@@ -22,7 +22,7 @@ public class UserBasedAnnotatedWord extends Word {
 		if (languageCode == languageCode.GR)
 			la = new GreekLanguageAnalyzer();
 		else
-			la = new EnglishLanguageAnalyzer();
+			la = EnglishLanguageAnalyzer.getInstance();
 		this.wp = new WordVsProblems(la);
 		//la.setWord(w);
 		//w = la.getWord();

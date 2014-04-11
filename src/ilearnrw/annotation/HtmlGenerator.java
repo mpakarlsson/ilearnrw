@@ -39,7 +39,7 @@ public class HtmlGenerator {
 	private void createAll(String templateFilename){
 		LanguageAnalyzerAPI la = new GreekLanguageAnalyzer();
 		if (lc == LanguageCode.EN)
-			la = new EnglishLanguageAnalyzer();
+			la = EnglishLanguageAnalyzer.getInstance();
 		WordVsProblems wp = new WordVsProblems(la);
 		wordSet = new UserBasedAnnotatedWordsSet();
 		HtmlPartsGenerator tp = new HtmlPartsGenerator(text);
