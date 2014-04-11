@@ -506,7 +506,7 @@ public class StringMatchesInfo {
 						return result;
 					}
 				}
-			} else if(type.equals("start")){
+			} else if(type.equals("begins")){
 				String tempPhon = w.getPhonetics();
 				// remove stress, syllable dividers and vertical lines
 				tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
