@@ -1,6 +1,7 @@
 package ilearnrw.languagetools.greek;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
+import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordType;
 import ilearnrw.textclassification.greek.GreekWord;
@@ -9,20 +10,27 @@ import ilearnrw.utils.LanguageCode;
 public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 	//private GreekDictionaryLoader dictionary;
 	private GreekDictionary dictionary;
-	private GreekDictionary soundsSimilarDictionary;
+	private GreekSoundDictionary soundsSimilarDictionary;
 	private Word word;
-	//private HashMap<String, Integer> unknownWords;
+	private static GreekLanguageAnalyzer instance = null;
 
 
-	public GreekLanguageAnalyzer() {
+	protected GreekLanguageAnalyzer() {
 		dictionary = new GreekDictionary();
 		//GreekLineByLineDictionaryLoader glld = new GreekLineByLineDictionaryLoader("greek_sound_similarity.txt");
 		//soundsSimilarDictionary = new GreekDictionary(glld.getEntries());
-		soundsSimilarDictionary = new GreekDictionary("similarSoundWords.txt");
+		soundsSimilarDictionary = new GreekSoundDictionary("similarSoundWords.txt");
+	}
+	
+	public static GreekLanguageAnalyzer getInstance(){
+		if(instance==null)
+			instance = new GreekLanguageAnalyzer();
+		
+		return instance;
 	}
 
 
-	public GreekLanguageAnalyzer(GreekDictionary dictionary, GreekDictionary soundsSimilarDictionary) {
+	public GreekLanguageAnalyzer(GreekDictionary dictionary, GreekSoundDictionary soundsSimilarDictionary) {
 		if (dictionary != null)
 			this.dictionary = dictionary;
 		else 
@@ -32,7 +40,7 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 		else{
 			//GreekLineByLineDictionaryLoader glld = new GreekLineByLineDictionaryLoader("greek_sound_similarity.txt");
 			//this.soundsSimilarDictionary = new GreekDictionary(glld.getEntries());
-			soundsSimilarDictionary = new GreekDictionary("similarSoundWords.txt");
+			this.soundsSimilarDictionary = new GreekSoundDictionary("similarSoundWords.txt");
 		}
 	}
 

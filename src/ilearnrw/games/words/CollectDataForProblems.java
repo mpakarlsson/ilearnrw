@@ -103,7 +103,7 @@ public class CollectDataForProblems {
 					String[] parts = prb.split("-");
 					gd = getWordsWithPhonemeAtPosition(sts1, again, parts);
 					System.out.println("loading again language analyser...");
-					languageAnalyser = new GreekLanguageAnalyzer(gd, gd);
+					languageAnalyser = new GreekLanguageAnalyzer(gd, null);
 				}
 				SortedTreeSet sts = gd.getWords();
 				System.out.println("filling an array with " + sts.size() + " words...");
@@ -192,7 +192,7 @@ public class CollectDataForProblems {
 
 	public static void test() {
 		InputStream greekDictionary;
-		LanguageAnalyzerAPI languageAnalyser = new GreekLanguageAnalyzer();
+		LanguageAnalyzerAPI languageAnalyser = GreekLanguageAnalyzer.getInstance();
 		WordVsProblems wp = new WordVsProblems(languageAnalyser);
 		ProblemDefinitionIndex probs = wp.getTheProblems();
 		FileData fd[][] = new FileData[probs.getIndexLength()][];
