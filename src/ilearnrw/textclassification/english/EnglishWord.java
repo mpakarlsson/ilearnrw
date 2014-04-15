@@ -143,7 +143,7 @@ public class EnglishWord extends Word {
 		return suffixType;
 	}
 
-	private void setSuffixType(String suffixType) {
+	public void setSuffixType(String suffixType) {
 		this.suffixType = suffixType;
 	}
 

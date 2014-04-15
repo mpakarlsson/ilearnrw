@@ -317,6 +317,39 @@ public class StringMatchesInfo {
 		return null;
 	}
 	
+	public static ArrayList<StringMatchesInfo> suffixStress(String[] pd, Word w, ProblemType pt){
+		ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
+		String phonetics = w.getPhonetics();
+		
+		if(phonetics==null)
+			return null;
+		
+		if(w.getNumberOfSyllables()<=1)
+			return null;
+		
+		String[] args = pd[0].split(",");
+		String word = w.getWord();
+		
+		if(word.endsWith(args[0])){
+			String[] syllables = phonetics.split("\\.");
+			
+			Character ch = syllables[syllables.length-2].charAt(0);
+			if((ch=='\u02C8' || ch=='\u02CC') && syllables.length-2>0){
+				((EnglishWord)w).setSuffixType("SUFFIX_DOUBLE");
+				return StringMatchesInfo.endsWithSuffix(new String[]{args[0]}, w, ProblemType.SUFFIX_DOUBLE);
+			}
+			
+			ch = syllables[0].charAt(0);
+			if(ch=='\u02C8' || ch=='\u02CC'){
+				((EnglishWord)w).setSuffixType("SUFFIX_ADD");
+				return StringMatchesInfo.endsWithSuffix(new String[]{args[0]}, w, ProblemType.SUFFIX_ADD);
+			}
+		}
+		
+		
+		return null;
+	}
+	
 	public static ArrayList<StringMatchesInfo> startsWithPrefix(String str[], Word w){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		for(String s : str){
