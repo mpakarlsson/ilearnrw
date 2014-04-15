@@ -988,13 +988,13 @@
       },
       {
         "descriptions": [
-          "For words longer than one syllable: [double rule] if syllable before suffix stressed but [add rule] if first syllable stressed. Suffix -ing"
+          "ing,last:double,first:add"
         ],
         "problemType": "SUFFIX_STRESS_PATTERN"
       },
       {
         "descriptions": [
-          "For words longer than one syllable: [double rule] if syllable before suffix stressed but [add rule] if first syllable stressed. Suffix -ed"
+          "ed,last:double,first:add"
         ],
         "problemType": "SUFFIX_STRESS_PATTERN"
       },

@@ -283,6 +283,10 @@ public class StringMatchesInfo {
 	public static ArrayList<StringMatchesInfo> endsWithSuffix(String str[], Word w, ProblemType pt){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String phonetics = w.getPhonetics();
+		
+		if(phonetics==null || phonetics.isEmpty())
+			return null;
+		
 		if(w.getLanguageCode().equals(LanguageCode.EN)){
 			for(String s : str){
 				int pos = s.indexOf("-");
@@ -291,21 +295,15 @@ public class StringMatchesInfo {
 					String[] values = s.split("-");
 					
 					// TODO: fix this temporary solution -> if no phonetics but word ends with suffix -> difficult word
-					if(phonetics == null){
-						if(w.getWord().endsWith(values[0])){
-							result.add(new StringMatchesInfo(s, w.getWord().indexOf(values[0]), w.getWord().lastIndexOf(values[0])+values[0].length()));
-							return result;
-						}
-					} else {
-						String tempPhon = w.getPhonetics();
-						// remove stress, syllable dividers and vertical lines
-						tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
-						
-						if(w.getWord().endsWith(values[0]) && tempPhon.endsWith(values[1])){
-							result.add(new StringMatchesInfo(s, w.getWord().indexOf(values[0]), w.getWord().lastIndexOf(values[0])+values[0].length()));
-							return result;
-						}
+					String tempPhon = w.getPhonetics();
+					// remove stress, syllable dividers and vertical lines
+					tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
+					
+					if(w.getWord().endsWith(values[0]) && tempPhon.endsWith(values[1])){
+						result.add(new StringMatchesInfo(s, w.getWord().indexOf(values[0]), w.getWord().lastIndexOf(values[0])+values[0].length()));
+						return result;
 					}
+					
 				} else {
 					if(w.getWord().endsWith(s) && pt.toString().equals(((EnglishWord)w).getSuffixType())){
 						result.add(new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length()));
@@ -314,6 +312,39 @@ public class StringMatchesInfo {
 				}
 			}
 		}
+		return null;
+	}
+	
+	public static ArrayList<StringMatchesInfo> suffixStress(String[] pd, Word w, ProblemType pt){
+		ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
+		String phonetics = w.getPhonetics();
+		
+		if(phonetics==null || phonetics.isEmpty())
+			return null;
+		
+		if(w.getNumberOfSyllables()<=1)
+			return null;
+		
+		String[] args = pd[0].split(",");
+		String word = w.getWord();
+		
+		if(word.endsWith(args[0])){
+			String[] syllables = phonetics.split("\\.");
+			
+			Character ch = syllables[syllables.length-2].charAt(0);
+			if((ch=='\u02C8' || ch=='\u02CC') && syllables.length-2>0){
+				((EnglishWord)w).setSuffixType("SUFFIX_DOUBLE");
+				return StringMatchesInfo.endsWithSuffix(new String[]{args[0]}, w, ProblemType.SUFFIX_DOUBLE);
+			}
+			
+			ch = syllables[0].charAt(0);
+			if(ch=='\u02C8' || ch=='\u02CC'){
+				((EnglishWord)w).setSuffixType("SUFFIX_ADD");
+				return StringMatchesInfo.endsWithSuffix(new String[]{args[0]}, w, ProblemType.SUFFIX_ADD);
+			}
+		}
+		
+		
 		return null;
 	}
 	
@@ -333,16 +364,11 @@ public class StringMatchesInfo {
 		String ipa = w.getPhonetics();
 		
 		// TODO: Fix -> ignore phonetics if word is not in the dictionary
-		if(ipa==null || w.getGraphemesPhonemes()==null)
-			for(String s : str)
-				if(w.getWord().contains(s.split("-")[0])){
-				    result.add(new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length()));
-				    return result;
-				}
-				else 
-					return null;
-		
+		if(ipa==null || ipa.isEmpty() || w.getGraphemesPhonemes()==null)
+			return null;		
 	
+		
+		
 		for(String s : str){
 			String[] values = s.split("-");
 			String difficulty = values[0];
@@ -359,8 +385,10 @@ public class StringMatchesInfo {
 			}
 			
 			int savePos = 0;
-			while(word.contains(difficulty) && tempPhon.contains(transcription)){
+			while(word.contains(difficulty) && tempPhon.contains(transcription)){				
 				int pos = wordContainsGraphemePhoneme(graphemesPhonemes, difficulty, transcription);
+				
+				
 				
 				if(pos != -1){					
 					result.add(new StringMatchesInfo(difficulty, pos+savePos, pos+savePos+difficulty.length()));
@@ -457,11 +485,11 @@ public class StringMatchesInfo {
 	
 	public static ArrayList<StringMatchesInfo> patternEqualsPronunciation(String str[], Word w, String type){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
-		//_C_ _V_
-		
+	    
 		String ipa = w.getPhonetics();
+		if(ipa==null || ipa.isEmpty())
+			return null;		
 		
-		// Problem doesn't contain an IPA? 
 		// al_C_ special case
 		for(String s: str){
 			String[] sarr = s.split("-");
@@ -488,15 +516,7 @@ public class StringMatchesInfo {
 			}
 		}
 
-		// TODO: Fix -> ignore phonetics if word is not in the dictionary
-		if(ipa==null)
-			for(String s : str)
-				if(w.getWord().contains(s.split("-")[0])){
-				    result.add(new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length()));
-					return result;
-				}
-				else 
-					return null;		
+		
 		
 		for(String s : str){
 			String[] values = s.split("-");
