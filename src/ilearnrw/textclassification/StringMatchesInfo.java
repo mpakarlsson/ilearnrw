@@ -300,13 +300,15 @@ public class StringMatchesInfo {
 					tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
 					
 					if(w.getWord().endsWith(values[0]) && tempPhon.endsWith(values[1])){
-						result.add(new StringMatchesInfo(s, w.getWord().indexOf(values[0]), w.getWord().lastIndexOf(values[0])+values[0].length()));
+						int pos2 = w.getWord().lastIndexOf(values[0]);
+						result.add(new StringMatchesInfo(s, pos2, pos2 + values[0].length()));
 						return result;
 					}
 					
 				} else {
 					if(w.getWord().endsWith(s) && pt.toString().equals(((EnglishWord)w).getSuffixType())){
-						result.add(new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length()));
+						int pos2 = w.getWord().lastIndexOf(s);
+						result.add(new StringMatchesInfo(s, pos2, pos2+s.length()));
 						return result;
 					}
 				}
@@ -463,7 +465,7 @@ public class StringMatchesInfo {
 				
 				int index = cv.indexOf(problem);
 				String temp = cv.substring(0, index);
-				index = index - countCharacter(temp, '-') + 1;
+				index = index - countCharacter(temp, '-');
 				result.add(new StringMatchesInfo(w.getWord(), index, index+problem.length()-1));
 			}
 		}
