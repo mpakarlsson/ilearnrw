@@ -1,0 +1,7 @@
+argparse==1.2.1
+flup==1.0.2
+fuzzywuzzy==0.2
+lettuce==0.2.19
+requests==2.2.1
+sure==1.2.7
+wsgiref==0.1.2

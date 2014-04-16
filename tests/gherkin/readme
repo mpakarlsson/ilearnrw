@@ -1,0 +1,36 @@
+***NOTE***
+
+I have not tried theese all theese instructions as i already
+have virtual env, pip and pyhon installed. Please update this document
+if you find anything that is wrong.
+
+To run the Gherkin tests the following is required:
+    
+    Python 2.7
+    pip
+    virtualenv
+
+To install on debian (as root):
+    
+    apt-get install python-dev python-setuptools
+    easy_install virtualenv
+
+To create the python virtual environment:
+    
+    virtualenv --no-site-packages testenv
+
+To enter the python virtual environment:
+    
+    source testenv/bin/activate
+
+To install the dependencies (inside the virtual env):
+    
+    pip install -r requirements.txt
+
+To run the tests (inside the virtual env):
+    
+    lettuce
+
+To leave the virtual environment:
+    
+    deactivate
