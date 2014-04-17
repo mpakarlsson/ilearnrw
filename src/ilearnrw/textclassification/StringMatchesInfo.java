@@ -196,10 +196,21 @@ public class StringMatchesInfo {
 	public static ArrayList<StringMatchesInfo> startsWithPhoneme(String str[], Word w){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getPhonetics();
+		ArrayList<GraphemePhonemePair> gp = w.getGraphemesPhonemes();
 		for (int i=0;i<str.length;i++){
 			if (ws.startsWith(str[i])){
-			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
-				return result;
+				int k = 1, length = 0;
+				String match = gp.get(0).getPhoneme();
+				length = gp.get(0).getGrapheme().length();
+				while (match.length() < str[i].length()){
+					match = match+gp.get(k).getPhoneme();
+					length += gp.get(k).getGrapheme().length();
+					k++;
+				}
+				if (match.equals(str[i])){
+					result.add(new StringMatchesInfo(str[i], 0,length));
+			    	return result;
+				}
 			}
 		}
 		return null;
@@ -246,22 +257,38 @@ public class StringMatchesInfo {
 	public static ArrayList<StringMatchesInfo> containsPatternOrEndsWithExtraConsonant(String str[], Word w){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getCVForm();
+		if (ws.length()<1)
+			return null;
+		String cvf[] = (ws.substring(1, ws.length()-1)).split("-");
+		String syl[] = w.getSyllables();
 		for (int i=0;i<str.length;i++){
-			if (ws.contains(str[i])){
-			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
-				return result;
+			String pat[] = (str[i].substring(1, str[i].length()-1)).split("-");
+			for (int j=0;j<=cvf.length-pat.length;j++){
+				int length = 0;
+				for (int k=0;k<pat.length;k++){
+					if (j+k == syl.length-1 && (pat[k]+"c").equalsIgnoreCase(cvf[j+k])){
+						length += syl[j+k].length();
+						break;
+					}
+					if (!pat[k].equalsIgnoreCase(cvf[j+k])){
+						length = 0;
+						break;
+					}
+					length += syl[j+k].length();
+				}
+				if (length>0){
+					int start = 0;
+					for (int k=0;k<str.length;k++){
+						if (k>=j)
+							break;
+						start += syl[i].length();
+					}
+				    result.add(new StringMatchesInfo(str[i], start, start+length));
+				}
 			}
 		}
-		for (int i=0;i<str.length;i++){
-			String newStr = "";
-			for (int k=0; k<str[i].length()-1;k++)
-				newStr = newStr +str[i].charAt(k);
-			newStr = newStr + "c-";
-			if (ws.endsWith(newStr)){
-			    result.add(new StringMatchesInfo(newStr, ws.lastIndexOf(newStr), ws.lastIndexOf(newStr)+newStr.length()));
-				return result;
-			}
-		}
+		if (result.size()>0)
+			return result;
 		return null;
 	}
 
@@ -280,6 +307,10 @@ public class StringMatchesInfo {
 	}
 	
 	
+	public static void setLanguageAnalyser(LanguageAnalyzerAPI languageAnalyser) {
+		StringMatchesInfo.languageAnalyser = languageAnalyser;
+	}
+
 	public static ArrayList<StringMatchesInfo> endsWithSuffix(String str[], Word w, ProblemType pt){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String phonetics = w.getPhonetics();
