@@ -7,6 +7,12 @@ public class GreekDictionary extends WordDictionary{
 
 	public GreekDictionary() {
 		super();
+		loadWords();
+	}
+
+	public GreekDictionary(String filename) {
+		super();
+		loadWords(filename);
 	}
 
 	public GreekDictionary(SortedTreeSet gw) {
@@ -15,7 +21,13 @@ public class GreekDictionary extends WordDictionary{
 
 	
 	public void loadWords(){
-		GreekGenericDictionaryLoader gl = new GreekGenericDictionaryLoader("greek_dictionary.txt");
+		GreekDictionaryLoader gl = new GreekDictionaryLoader("greekDictionary");
+		words = gl.getEntries();
+	}	
+
+	
+	public void loadWords(String filename){
+		GreekDictionaryLoader gl = new GreekDictionaryLoader(filename);
 		words = gl.getEntries();
 	}	
 }

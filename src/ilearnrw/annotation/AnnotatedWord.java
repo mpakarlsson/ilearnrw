@@ -51,9 +51,9 @@ public class AnnotatedWord extends Word {
 	private ArrayList<WordProblemInfo> getProblems(Word w){
 		LanguageAnalyzerAPI lan;
 		if (super.getLanguageCode().equals(LanguageCode.GR))
-			lan = new GreekLanguageAnalyzer();
+			lan = GreekLanguageAnalyzer.getInstance();
 		else 
-			lan = new EnglishLanguageAnalyzer();
+			lan = EnglishLanguageAnalyzer.getInstance();
 		WordVsProblems wp = new WordVsProblems(lan);
 		wp.insertWord(w);
 		return wp.getMatchedProbs();
@@ -62,9 +62,9 @@ public class AnnotatedWord extends Word {
 	private ArrayList<WordProblemInfo> getProblems(Word w, int i, int j){
 		LanguageAnalyzerAPI lan;
 		if (super.getLanguageCode().equals(LanguageCode.GR))
-			lan = new GreekLanguageAnalyzer();
+			lan = GreekLanguageAnalyzer.getInstance();
 		else 
-			lan = new EnglishLanguageAnalyzer();
+			lan = EnglishLanguageAnalyzer.getInstance();
 		WordVsProblems wp = new WordVsProblems(lan);
 		wp.insertWord(w, i, j);
 		return wp.getMatchedProbs();

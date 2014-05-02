@@ -79,11 +79,14 @@ public class StringMatchesInfo {
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getWord();
 		for (int i=0;i<str.length;i++){
-			if (ws.contains(str[i])){
-			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
-				return result;
+			for (int k=0;k<ws.length();k++){
+				if ((ws.substring(k)).startsWith(str[i])){
+				    result.add(new StringMatchesInfo(str[i], k, k+str[i].length()));
+				}
 			}
 		}
+		if (result.size()>0)
+			return result;
 		return null;
 	}
 	
@@ -91,11 +94,14 @@ public class StringMatchesInfo {
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getWordUnmodified();
 		for (int i=0;i<str.length;i++){
-			if (ws.contains(str[i])){
-			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
-				return result;
+			for (int k=0;k<ws.length();k++){
+				if ((ws.substring(k)).startsWith(str[i])){
+				    result.add(new StringMatchesInfo(str[i], k, k+str[i].length()));
+				}
 			}
 		}
+		if (result.size()>0)
+			return result;
 		return null;
 	}
 	
@@ -109,11 +115,12 @@ public class StringMatchesInfo {
 			for (int j=0;j<syl.length-1;j++){
 				if (syl[j].endsWith(fp) && syl[j+1].startsWith(sp)){
 				    result.add(new StringMatchesInfo(str[i], start-1, start-1+sp.length()));
-					return result;
 				}
 				start += syl[j].length();
 			}
 		}
+		if (result.size()>0)
+			return result;
 		return null;
 	}
 	
@@ -127,11 +134,12 @@ public class StringMatchesInfo {
 				if (syl[j].contains(str[i])){
 				    result.add(new StringMatchesInfo(str[i], 
 						ws.indexOf(str[i], start-1), ws.indexOf(str[i], start-1)+str[i].length()));
-					return result;
 				}
 				start += syl[j].length();
 			}
 		}
+		if (result.size()>0)
+			return result;
 		return null;
 	}
 	
@@ -165,9 +173,10 @@ public class StringMatchesInfo {
 		for (int i=0;i<str.length;i++){
 			if (ws.contains(str[i])){
 			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
-				return result;
 			}
 		}
+		if (result.size()>0)
+			return result;
 		return null;
 	}
 
@@ -177,19 +186,31 @@ public class StringMatchesInfo {
 		for (int i=0;i<str.length;i++){
 			if (ws.contains(str[i]) && !ws.startsWith(str[i])){
 			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
-				return result;
 			}
 		}
+		if (result.size()>0)
+			return result;
 		return null;
 	}
 
 	public static ArrayList<StringMatchesInfo> startsWithPhoneme(String str[], Word w){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getPhonetics();
+		ArrayList<GraphemePhonemePair> gp = w.getGraphemesPhonemes();
 		for (int i=0;i<str.length;i++){
 			if (ws.startsWith(str[i])){
-			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
-				return result;
+				int k = 1, length = 0;
+				String match = gp.get(0).getPhoneme();
+				length = gp.get(0).getGrapheme().length();
+				while (match.length() < str[i].length()){
+					match = match+gp.get(k).getPhoneme();
+					length += gp.get(k).getGrapheme().length();
+					k++;
+				}
+				if (match.equals(str[i])){
+					result.add(new StringMatchesInfo(str[i], 0,length));
+			    	return result;
+				}
 			}
 		}
 		return null;
@@ -198,34 +219,76 @@ public class StringMatchesInfo {
 	public static ArrayList<StringMatchesInfo> containsPattern(String str[], Word w){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getCVForm();
+		if (ws.length()<1)
+			return null;
+		String cvf[] = (ws.substring(1, ws.length()-1)).split("-");
+		String syl[] = w.getSyllables();
 		for (int i=0;i<str.length;i++){
-			if (ws.contains(str[i])){
+			String pat[] = (str[i].substring(1, str[i].length()-1)).split("-");
+			for (int j=0;j<=cvf.length-pat.length;j++){
+				int length = 0;
+				for (int k=0;k<pat.length;k++){
+					if (!pat[k].equalsIgnoreCase(cvf[j+k])){
+						length = 0;
+						break;
+					}
+					length += syl[j+k].length();
+				}
+				if (length>0){
+					int start = 0;
+					for (int k=0;k<str.length;k++){
+						if (k>=j)
+							break;
+						start += syl[i].length();
+					}
+				    result.add(new StringMatchesInfo(str[i], start, start+length));
+				}
+			}
+			/*if (ws.contains(str[i])){
 			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
 				return result;
-			}
+			}*/
 		}
+		if (result.size()>0)
+			return result;
 		return null;
 	}
 
 	public static ArrayList<StringMatchesInfo> containsPatternOrEndsWithExtraConsonant(String str[], Word w){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getCVForm();
+		if (ws.length()<1)
+			return null;
+		String cvf[] = (ws.substring(1, ws.length()-1)).split("-");
+		String syl[] = w.getSyllables();
 		for (int i=0;i<str.length;i++){
-			if (ws.contains(str[i])){
-			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
-				return result;
+			String pat[] = (str[i].substring(1, str[i].length()-1)).split("-");
+			for (int j=0;j<=cvf.length-pat.length;j++){
+				int length = 0;
+				for (int k=0;k<pat.length;k++){
+					if (j+k == syl.length-1 && (pat[k]+"c").equalsIgnoreCase(cvf[j+k])){
+						length += syl[j+k].length();
+						break;
+					}
+					if (!pat[k].equalsIgnoreCase(cvf[j+k])){
+						length = 0;
+						break;
+					}
+					length += syl[j+k].length();
+				}
+				if (length>0){
+					int start = 0;
+					for (int k=0;k<str.length;k++){
+						if (k>=j)
+							break;
+						start += syl[i].length();
+					}
+				    result.add(new StringMatchesInfo(str[i], start, start+length));
+				}
 			}
 		}
-		for (int i=0;i<str.length;i++){
-			String newStr = "";
-			for (int k=0; k<str[i].length()-1;k++)
-				newStr = newStr +str[i].charAt(k);
-			newStr = newStr + "c-";
-			if (ws.endsWith(newStr)){
-			    result.add(new StringMatchesInfo(newStr, ws.lastIndexOf(newStr), ws.lastIndexOf(newStr)+newStr.length()));
-				return result;
-			}
-		}
+		if (result.size()>0)
+			return result;
 		return null;
 	}
 
@@ -244,10 +307,17 @@ public class StringMatchesInfo {
 	}
 	
 	
+	public static void setLanguageAnalyser(LanguageAnalyzerAPI languageAnalyser) {
+		StringMatchesInfo.languageAnalyser = languageAnalyser;
+	}
+
 	public static ArrayList<StringMatchesInfo> endsWithSuffix(String str[], Word w, ProblemType pt){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String phonetics = w.getPhonetics();
-		String ASD = pt.toString();
+		
+		if(phonetics==null || phonetics.isEmpty())
+			return null;
+		
 		if(w.getLanguageCode().equals(LanguageCode.EN)){
 			for(String s : str){
 				int pos = s.indexOf("-");
@@ -256,29 +326,58 @@ public class StringMatchesInfo {
 					String[] values = s.split("-");
 					
 					// TODO: fix this temporary solution -> if no phonetics but word ends with suffix -> difficult word
-					if(phonetics == null){
-						if(w.getWord().endsWith(values[0])){
-							result.add(new StringMatchesInfo(s, w.getWord().indexOf(values[0]), w.getWord().lastIndexOf(values[0])+values[0].length()));
-							return result;
-						}
-					} else {
-						String tempPhon = w.getPhonetics();
-						// remove stress, syllable dividers and vertical lines
-						tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
-						
-						if(w.getWord().endsWith(values[0]) && tempPhon.endsWith(values[1]) && !((EnglishWord)w).getSuffixType().equals("SUFFIX_NONE")){
-							result.add(new StringMatchesInfo(s, w.getWord().indexOf(values[0]), w.getWord().lastIndexOf(values[0])+values[0].length()));
-							return result;
-						}
+					String tempPhon = w.getPhonetics();
+					// remove stress, syllable dividers and vertical lines
+					tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
+					
+					if(w.getWord().endsWith(values[0]) && tempPhon.endsWith(values[1])){
+						int pos2 = w.getWord().lastIndexOf(values[0]);
+						result.add(new StringMatchesInfo(s, pos2, pos2 + values[0].length()));
+						return result;
 					}
+					
 				} else {
 					if(w.getWord().endsWith(s) && pt.toString().equals(((EnglishWord)w).getSuffixType())){
-						result.add(new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length()));
+						int pos2 = w.getWord().lastIndexOf(s);
+						result.add(new StringMatchesInfo(s, pos2, pos2+s.length()));
 						return result;
 					}
 				}
 			}
 		}
+		return null;
+	}
+	
+	public static ArrayList<StringMatchesInfo> suffixStress(String[] pd, Word w, ProblemType pt){
+		ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
+		String phonetics = w.getPhonetics();
+		
+		if(phonetics==null || phonetics.isEmpty())
+			return null;
+		
+		if(w.getNumberOfSyllables()<=1)
+			return null;
+		
+		String[] args = pd[0].split(",");
+		String word = w.getWord();
+		
+		if(word.endsWith(args[0])){
+			String[] syllables = phonetics.split("\\.");
+			
+			Character ch = syllables[syllables.length-2].charAt(0);
+			if((ch=='\u02C8' || ch=='\u02CC') && syllables.length-2>0){
+				((EnglishWord)w).setSuffixType("SUFFIX_DOUBLE");
+				return StringMatchesInfo.endsWithSuffix(new String[]{args[0]}, w, ProblemType.SUFFIX_DOUBLE);
+			}
+			
+			ch = syllables[0].charAt(0);
+			if(ch=='\u02C8' || ch=='\u02CC'){
+				((EnglishWord)w).setSuffixType("SUFFIX_ADD");
+				return StringMatchesInfo.endsWithSuffix(new String[]{args[0]}, w, ProblemType.SUFFIX_ADD);
+			}
+		}
+		
+		
 		return null;
 	}
 	
@@ -298,16 +397,11 @@ public class StringMatchesInfo {
 		String ipa = w.getPhonetics();
 		
 		// TODO: Fix -> ignore phonetics if word is not in the dictionary
-		if(ipa==null)
-			for(String s : str)
-				if(w.getWord().contains(s.split("-")[0])){
-				    result.add(new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length()));
-				    return result;
-				}
-				else 
-					return null;
-		
+		if(ipa==null || ipa.isEmpty() || w.getGraphemesPhonemes()==null)
+			return null;		
 	
+		
+		
 		for(String s : str){
 			String[] values = s.split("-");
 			String difficulty = values[0];
@@ -316,18 +410,101 @@ public class StringMatchesInfo {
 			String tempPhon = w.getPhonetics();
 			// remove stress, syllable dividers and vertical lines
 			tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
+			String word = w.getWord();
+			ArrayList<GraphemePhonemePair> graphemesPhonemes = new ArrayList<GraphemePhonemePair>();
 			
-			if(w.getWord().contains(difficulty) && tempPhon.contains(transcription)){			
-				int pos = wordContainsGraphemePhoneme(w, difficulty, transcription);
+			for(int i=0; i<w.getGraphemesPhonemes().size(); i++){
+				graphemesPhonemes.add(w.getGraphemesPhonemes().get(i));
+			}
+			
+			int savePos = 0;
+			while(word.contains(difficulty) && tempPhon.contains(transcription)){				
+				int pos = wordContainsGraphemePhoneme(graphemesPhonemes, difficulty, transcription);
 				
-				if(pos != -1){
-					result.add(new StringMatchesInfo(difficulty, pos, pos+difficulty.length()));
-					return result;
-				}
+				
+				
+				if(pos != -1){					
+					result.add(new StringMatchesInfo(difficulty, pos+savePos, pos+savePos+difficulty.length()));
+					word = word.substring(pos+difficulty.length());
+					tempPhon = tempPhon.substring(tempPhon.indexOf(transcription)+transcription.length());
+					savePos = pos+difficulty.length();
+					if(pos+1<graphemesPhonemes.size()){
+						for(int j=0; j<=pos; j++){
+							graphemesPhonemes.remove(0);
+						}
+					} else 
+						break;
+					
+				} else 
+					break;
 			}
 		}
 		
-		return null;
+		if(!result.isEmpty())
+			return result;
+		else
+			return null;
+	}
+	
+	public static ArrayList<StringMatchesInfo> syllablePattern(String str[], Word w){
+		ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
+		for(String s : str){
+			if(!s.contains("/")){
+				
+				if(s.equals("Closed and Open syllables"))
+					if(ContainsOpenClosedSyllables(w)){
+						result.add(new StringMatchesInfo(w.getWord(), 0, w.getWord().length()));
+						return result;
+					}
+				
+				break;
+			}
+			String lookup = "", problem = "";
+			
+			if(s.contains(":")){
+				String[] splitValues = s.split(":");
+				lookup = splitValues[0];
+				problem = splitValues[1];
+			} else
+				problem = s;
+			
+			problem = problem.replace("/", "-");
+			String word = w.getWord();
+			String cv = w.getCVForm();
+			
+			if(countCharacter(cv, '-') != 3)
+				continue;
+			
+			if(cv.contains(problem)){
+				if(!lookup.isEmpty()){
+					if(!word.contains(lookup))
+						continue;
+
+					if(lookup.equals("qu")){
+						int index = word.indexOf("qu");
+						
+						for(int i=0; i<index+1; i++){
+							if(cv.charAt(i) == '-')
+								index++;
+						}
+						
+						cv = new StringBuilder(cv).replace(index+1, index+2, "").toString();
+						
+						if(!cv.contains(problem)) continue;
+					}
+				}
+				
+				int index = cv.indexOf(problem);
+				String temp = cv.substring(0, index);
+				index = index - countCharacter(temp, '-');
+				result.add(new StringMatchesInfo(w.getWord(), index, index+problem.length()-1));
+			}
+		}
+
+		if(!result.isEmpty())
+			return result;
+		else
+			return null;
 	}
 	
 	public static ArrayList<StringMatchesInfo> syllableCount(String str[], Word w){
@@ -341,11 +518,11 @@ public class StringMatchesInfo {
 	
 	public static ArrayList<StringMatchesInfo> patternEqualsPronunciation(String str[], Word w, String type){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
-		//_C_ _V_
-		
+	    
 		String ipa = w.getPhonetics();
+		if(ipa==null || ipa.isEmpty())
+			return null;		
 		
-		// Problem doesn't contain an IPA? 
 		// al_C_ special case
 		for(String s: str){
 			String[] sarr = s.split("-");
@@ -372,15 +549,7 @@ public class StringMatchesInfo {
 			}
 		}
 
-		// TODO: Fix -> ignore phonetics if word is not in the dictionary
-		if(ipa==null)
-			for(String s : str)
-				if(w.getWord().contains(s.split("-")[0])){
-				    result.add(new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length()));
-					return result;
-				}
-				else 
-					return null;		
+		
 		
 		for(String s : str){
 			String[] values = s.split("-");
@@ -388,7 +557,7 @@ public class StringMatchesInfo {
 			String transcription = values[1];
 			
 			if(type.equals("contains")){
-				int pos = wordContainsGraphemePhoneme(w, difficulty, transcription);
+				int pos = wordContainsGraphemePhoneme(w.getGraphemesPhonemes(), difficulty, transcription);
 				if(pos != -1){
 					if(difficulty.contains("_C_") || difficulty.contains("_V_")){
 						result.add(new StringMatchesInfo(s, pos, pos+difficulty.length()-2));
@@ -426,7 +595,7 @@ public class StringMatchesInfo {
 						return result;
 					}
 				}
-			} else if(type.equals("start")){
+			} else if(type.equals("begins")){
 				String tempPhon = w.getPhonetics();
 				// remove stress, syllable dividers and vertical lines
 				tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
@@ -440,8 +609,8 @@ public class StringMatchesInfo {
 		return null;
 	}
 	
-	private static int wordContainsGraphemePhoneme(Word word, String difficulty, String ipa){
-		ArrayList<GraphemePhonemePair> gpList = word.getGraphemesPhonemes();
+	private static int wordContainsGraphemePhoneme(ArrayList<GraphemePhonemePair> graphsPhons, String difficulty, String ipa){
+		ArrayList<GraphemePhonemePair> gpList = graphsPhons;
 		
 		if(gpList == null)
 			return -1;
@@ -565,8 +734,36 @@ public class StringMatchesInfo {
 	}	
 
 	
+	private static Boolean ContainsOpenClosedSyllables(Word w){
+		if(w.getNumberOfSyllables()<2)
+			return false;
+		else { 
+			String[] syllables = w.getSyllables();
+			int numOpen = 0, numClosed = 0;
+			for(int i=0; i<syllables.length; i++){
+				if(isVowel(syllables[i].charAt(syllables[i].length()-1)))
+					numOpen++;
+				else
+					numClosed++;
+			}
+			
+			if(numOpen>0 && numClosed>0)
+				return true;
+		}
+		return false;
+	}
+	
 	private static boolean isVowel(char c){
 		return "AEIOUYaeiouy".indexOf(c) != -1;
+	}
+	
+	private static int countCharacter(String word, Character lookup){
+		int cnt = 0;
+		for(Character ch : word.toCharArray()){
+			if(ch == lookup)
+				cnt++;
+		}
+		return cnt;
 	}
 
 }

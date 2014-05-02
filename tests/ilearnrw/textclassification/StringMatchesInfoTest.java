@@ -31,30 +31,37 @@ public class StringMatchesInfoTest {
 		
 		ew1 = new EnglishWord("absorbing", "əb.ˈzɔːb.ɪŋ", "absorb",
 				new ArrayList<GraphemePhonemePair>(createGraphemePhonemeList(new String[] {"a-ə", "b-b", "s-z", "or-ɔː", "b-b", "i-ɪ", "ng-ŋ"})),
+				new String[] { "ab", "sorb", "ing"},
 				"ing", "SUFFIX_ADD", 3, 5001, WordType.Unknown);
 		
 		ew2 = new EnglishWord("angle", "ˈæŋ.ɡəl", "angle",
 				new ArrayList<GraphemePhonemePair>(createGraphemePhonemeList(new String[] {"a-æ", "n-ŋ", "g-ɡ", "le-əl"})),
+				new String[] { "an", "gle" },
 				"NULL", "SUFFIX_NONE", 2, 5001, WordType.Unknown);
 	
 		ew3 = new EnglishWord("balloon", "bə.ˈluːn", "balloon",
 				new ArrayList<GraphemePhonemePair>(createGraphemePhonemeList(new String[] {"b-b", "a-ə", "ll-l", "oo-uː", "n-n"})),
+				new String[] { "bal", "loon" },
 				"NULL", "SUFFIX_NONE", 2, 5001, WordType.Unknown);
 		
 		ew4 = new EnglishWord("bee's", "biːz", "bee",
 				new ArrayList<GraphemePhonemePair>(createGraphemePhonemeList(new String[] {"b-b", "ee-iː", "'-", "s-z"})),
+				new String[] { "bee's" },
 				"'s", "SUFFIX_ADD", 1, 5001, WordType.Unknown);
 
 		ew5 = new EnglishWord("psychology", "saɪˈk.ɒ.lə.dʒi", "psychology",
 				new ArrayList<GraphemePhonemePair>(createGraphemePhonemeList(new String[] {"ps-s", "y-aɪ", "ch-k", "o-ɒ", "l-l", "o-ə", "g-dʒ", "y-i"})),
+				new String[] { "psych", "o", "lo", "gy" },
 				"NULL", "SUFFIX_NONE", 4, 5001, WordType.Unknown);
 	
 		ew6 = new EnglishWord("majority", "mə.ˈdʒɒ.rɪ.ti", "majority",
 				new ArrayList<GraphemePhonemePair>(createGraphemePhonemeList(new String[] {"m-m", "a-ə", "j-dʒ", "o-ɒ", "r-r", "i-ɪ", "t-t", "y-i"})),
+				new String[] { "ma", "jo", "ri", "ti" },
 				"NULL", "SUFFIX_NONE", 2, 5001, WordType.Unknown);
 
 		ew7 = new EnglishWord("tablespoon", "ˈteɪ.bl.spuːn", "tablespoon",
 				new ArrayList<GraphemePhonemePair>(createGraphemePhonemeList(new String[] {"t-t", "a.e-eɪ", "b-b", "l-l", "s-s", "p-p", "oo-uː", "n-n"})),
+				new String[] { "ta", "ble", "spoon" },
 				"NULL", "SUFFIX_NONE", 3, 5001, WordType.Unknown);
 	}
 	
@@ -250,6 +257,7 @@ public class StringMatchesInfoTest {
 		
 		EnglishWord tempWord = new EnglishWord("framework", "ˈfreɪm.wɜːk", "framework",
 				new ArrayList<GraphemePhonemePair>(createGraphemePhonemeList(new String[]{"f-f", "r-r", "a.e-eɪ", "m-m", "w-w", "or-ɜː", "k-k"})),
+				new String[] { "frame", "work" },
 				"NULL", "SUFFIX_NONE", 3, 5001, WordType.Unknown);
 		
 		

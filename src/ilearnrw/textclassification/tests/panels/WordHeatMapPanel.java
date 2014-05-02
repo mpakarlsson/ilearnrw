@@ -1,6 +1,8 @@
 package ilearnrw.textclassification.tests.panels;
 
+import ilearnrw.textclassification.StringMatchesInfo;
 import ilearnrw.textclassification.WordClassificationResults;
+import ilearnrw.textclassification.WordProblemInfo;
 import ilearnrw.user.profile.UserProfile;
 
 import java.awt.BorderLayout;
@@ -40,7 +42,7 @@ public class WordHeatMapPanel extends JPanel {
 
         descriptionsText = new JTextPane();
         descriptionsText.setEditable(false);
-        descriptionsText.setBackground(Color.lightGray);
+        //descriptionsText.setBackground(Color.lightGray);
         
 		heatMap = new JTable(data.length,lengthsMax()); 
 		for (int i=0;i<lengthsMax(); i++)
@@ -189,6 +191,36 @@ public class WordHeatMapPanel extends JPanel {
 		return res;
 	}
 	
+	private String displayAllProbsInfo(){
+		String res = "null";
+		if (classifier == null) 
+			return res;
+		String t = "";
+		String w = classifier.getWord();
+		String extras[] = new String[w.length()+2];
+		for (WordProblemInfo wpi : classifier.getWprobs().getWordProblems()){
+			for (int i=0; i<extras.length; i++)
+				extras[i] = "_";
+			extras[extras.length-1] = " ";
+			for (StringMatchesInfo smi : wpi.getMatched()){
+				extras[smi.getStart()] = "{";
+				if (smi.getEnd()<extras.length-1)
+					extras[smi.getEnd()] = "}";
+				else
+					extras[extras.length-1] = "***";
+			}
+			String tmp = "";
+			for (int i=0;i<w.length();i++)
+				tmp = tmp + extras[i]+w.charAt(i);
+			tmp = tmp+extras[extras.length-2];
+			tmp = tmp+extras[extras.length-1];
+			String info = "("+wpi.getCategory()+", "+wpi.getIndex()+") "+ userProfile.getUserProblems().getProblemDescription(wpi.getCategory(), wpi.getIndex()).getProblemType().toString();
+			info = info + " {"+userProfile.getUserProblems().getProblemDescription(wpi.getCategory(), wpi.getIndex()).getDescriptionsTosString()+"}";
+			t = t+info+" "+tmp+"\n";
+		}
+		return t;
+	}
+	
 	
 	private class CellRenderer extends DefaultTableCellRenderer {
 
@@ -200,7 +232,10 @@ public class WordHeatMapPanel extends JPanel {
             Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
             if (hasFocus){
             	// TODO add a window that displays problem description here!
-            	descriptionsText.setText(displayCellInfo(row, column));
+            	if (!displayCellInfo(row, column).equals("null"))
+            		descriptionsText.setText(displayCellInfo(row, column));
+            	else 
+            		descriptionsText.setText(displayAllProbsInfo());
             	c.setBackground(Color.black);
             }
             if (multi[row][column]==-1)

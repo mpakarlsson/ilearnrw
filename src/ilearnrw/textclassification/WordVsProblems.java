@@ -19,6 +19,7 @@ public class WordVsProblems {
 		this.lc = languageAnalyser.getLanguageCode();
 		this.languageAnalyser = languageAnalyser;
 		this.theProblems = new ProblemDefinitionIndex(this.lc);
+		StringMatchesInfo.setLanguageAnalyser(languageAnalyser);
 	}
 
 	
@@ -32,6 +33,7 @@ public class WordVsProblems {
 		}
 		
 		checkWordAgainstMatrix();
+		this.word.wordUnmodified = word.getWordUnmodified();
 	}
 
 	
@@ -40,6 +42,7 @@ public class WordVsProblems {
 		this.word = word;
 		
 		checkWordAgainstMatrix(i, j);
+		this.word.wordUnmodified = word.getWordUnmodified();
 	}
 	public ProblemDefinitionIndex getTheProblems() {
 		return theProblems;
@@ -53,8 +56,9 @@ public class WordVsProblems {
 		languageAnalyser.setWord(word);
 		for (int i=0;i<theProblems.getIndexLength(); i++){
 			for (int j=0;j<theProblems.getRowLength(i); j++){
-				if (wordMatches(i, j).found()){
-					matchedProbs.add(wordMatches(i, j));
+				WordProblemInfo matches = wordMatches(i, j);
+				if (matches.found()){
+					matchedProbs.add(matches);
 				}
 			}
 		}
@@ -64,9 +68,10 @@ public class WordVsProblems {
 		languageAnalyser.setWord(word);
 		if (i<theProblems.getIndexLength() && 
 				j<theProblems.getRowLength(i)){
-				if (wordMatches(i, j).found()){
-					matchedProbs.add(wordMatches(i, j));
-				}
+			WordProblemInfo matches = wordMatches(i, j);
+			if (matches.found()){
+				matchedProbs.add(matches);
+			}
 		}
 	}
 	
@@ -75,8 +80,9 @@ public class WordVsProblems {
 		languageAnalyser.setWord(word);
 		for (int i=0;i<theProblems.getIndexLength(); i++){
 			for (int j=0;j<theProblems.getRowLength(i); j++){
-				if (wordMatches(i, j).found()){
-					mp.add(wordMatches(i, j));
+				WordProblemInfo matches = wordMatches(i, j);
+				if (matches.found()){
+					mp.add(matches);
 				}
 			}
 		}
@@ -87,11 +93,16 @@ public class WordVsProblems {
 		ArrayList<WordProblemInfo> mp = new ArrayList<WordProblemInfo>();
 		languageAnalyser.setWord(word);
 		if (i<theProblems.getIndexLength() && j<theProblems.getRowLength(i)){
-				if (wordMatches(i, j).found()){
-					mp.add(wordMatches(i, j));
+				WordProblemInfo matches = wordMatches(i, j);
+				if (matches.found()){
+					mp.add(matches);
 				}
 			}
 		return mp;
+	}
+
+	public Word getWord() {
+		return this.word;
 	}
 
 	public LanguageCode getLanguageCode() {
@@ -115,109 +126,109 @@ public class WordVsProblems {
 	}
 
 	private WordProblemInfo wordMatches(int i, int j){
-		WordProblemInfo wpi = new WordProblemInfo(word.getLanguageCode());
+		WordProblemInfo wpi = new WordProblemInfo();
 		//ask for the small strings that describe the problem
 		String pd[] = theProblems.getProblemDescription(i, j).getDescriptions();
 		//ask the problem type
 		ProblemType pt = theProblems.getProblemDescription(i, j).getProblemType();
-		StringMatchesInfo matcher = new StringMatchesInfo(languageAnalyser);
+		//StringMatchesInfo matcher = new StringMatchesInfo(languageAnalyser);
 		switch (pt){
 			case EQUALS:
-				wpi.setProblemInfo(i, j, matcher.equals(pd, word));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.equals(pd, word));
 				break;
 			case CONTAINS:
-				wpi.setProblemInfo(i, j, matcher.contains(pd, word));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.contains(pd, word));
 				break;
 			case VISUAL_SIMILARITY:
-				wpi.setProblemInfo(i, j, matcher.visualSimilarity(pd, word));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.visualSimilarity(pd, word));
 				break;
 			case IS_NOUN_OR_ADJ_AND_ENDS_WITH:
 				if (languageAnalyser.isNoun() || languageAnalyser.isAdj())
-					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
 				break;
 			case IS_BIG_NOUN_OR_ADJ_AND_ENDS_WITH:
 				if (word.getNumberOfSyllables()>=3 && 
 				(languageAnalyser.isNoun() || languageAnalyser.isAdj()))
-					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
 				break;
 			case IS_NOUN_AND_ENDS_WITH:
 				if (languageAnalyser.isNoun())
-					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
 				break;
 			case IS_BIG_NOUN_AND_ENDS_WITH:
 				if (word.getNumberOfSyllables()>=3 && languageAnalyser.isNoun())
-					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
 				break;
 			case IS_ADJ_AND_ENDS_WITH:
 				if (languageAnalyser.isAdj())
-					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
 				break;
 			case IS_BIG_ADJ_AND_ENDS_WITH:
 				if (word.getNumberOfSyllables()>=3 && languageAnalyser.isAdj())
-					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
 				break;
 			case IS_VERB_AND_ENDS_WITH:
 				if (languageAnalyser.isVerb())
-					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
 				break;
 			case IS_BIG_VERB_AND_ENDS_WITH:
 				if (word.getNumberOfSyllables()>=3 && languageAnalyser.isVerb())
-					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
 				break;
 			case IS_PARTICIPLE_AND_ENDS_WITH:
 				if (languageAnalyser.isParticiple())
-					wpi.setProblemInfo(i, j, matcher.endsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
 				break;
 			case IS_NOUN_OR_ADJ_AND_STARTS_WITH:
 				if (languageAnalyser.isNoun() || languageAnalyser.isAdj())
-					wpi.setProblemInfo(i, j, matcher.startsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.startsWith(pd, word));
 				break;
 			case IS_ADJ_AND_STARTS_WITH:
 				if (languageAnalyser.isAdj())
-					wpi.setProblemInfo(i, j, matcher.startsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.startsWith(pd, word));
 				break;
 			case IS_VERB_AND_STARTS_WITH:
 				if (languageAnalyser.isVerb())
-					wpi.setProblemInfo(i, j, matcher.startsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.startsWith(pd, word));
 				break;
 			case TWO_SYL_WORD_INITIAL_PHONEME:
 				if (word.getNumberOfSyllables()==2)
-					wpi.setProblemInfo(i, j, matcher.startsWithPhoneme(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.startsWithPhoneme(pd, word));
 				break;
 			case TWO_SYL_WORD_INTERNAL_PHONEME:
 				if (word.getNumberOfSyllables()==2)
-					wpi.setProblemInfo(i, j, matcher.hasInternalPhoneme(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.hasInternalPhoneme(pd, word));
 				break;
 			case THREE_SYL_WORD_INITIAL_PHONEME:
 				if (word.getNumberOfSyllables()==3)
-					wpi.setProblemInfo(i, j, matcher.startsWithPhoneme(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.startsWithPhoneme(pd, word));
 				break;
 			case THREE_SYL_WORD_INTERNAL_PHONEME:
 				if (word.getNumberOfSyllables()==3)
-					wpi.setProblemInfo(i, j, matcher.hasInternalPhoneme(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.hasInternalPhoneme(pd, word));
 				break;
 			case STARTS_WITH:
-				wpi.setProblemInfo(i, j, matcher.startsWith(pd, word));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.startsWith(pd, word));
 				break;
 			case CONTAINS_PATTERN:
-				wpi.setProblemInfo(i, j, matcher.containsPattern(pd, word));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.containsPattern(pd, word));
 				break;
 			case CONTAINS_LETTERS_ON_CONSEQUTIVE_SYLLABLES:
-				wpi.setProblemInfo(i, j, matcher.containsLettersOnConsequtiveSyllables(pd, word));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.containsLettersOnConsequtiveSyllables(pd, word));
 				break;
 			case CONTAINS_LETTERS_ON_SAME_SYLLABLES:
-				wpi.setProblemInfo(i, j, matcher.containsLettersOnSameSyllable(pd, word));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.containsLettersOnSameSyllable(pd, word));
 				break;
 			case CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT:
-				wpi.setProblemInfo(i, j, matcher.containsPatternOrEndsWithExtraConsonant(pd, word));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.containsPatternOrEndsWithExtraConsonant(pd, word));
 				break;
 			case SOUND_SIMILARITY:
-				wpi.setProblemInfo(i, j, matcher.soundSimilarity(pd, word));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.soundSimilarity(pd, word));
 				//if (wpi.getFound())
 					//gDic.getGreekWords().add((GreekWord)word);
 				break;
 			case CONTAINS_PHONEME:
-				wpi.setProblemInfo(i, j, matcher.containsPhoneme(pd, word));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.containsPhoneme(pd, word));
 				break;
 				// English language
 				// TODO: Fix to be more complex, discuss with language experts
@@ -225,15 +236,18 @@ public class WordVsProblems {
 			case SUFFIX_DROP:
 			case SUFFIX_CHANGE:
 			case SUFFIX_DOUBLE:
-			case SUFFIX_STRESS_PATTERN: // FIX THIS TO DO AS THE JSON OBJECT TELLS IT
 			case SUFFIX_PATTERN:
-				wpi.setProblemInfo(i, j, matcher.endsWithSuffix(pd, word, pt));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.endsWithSuffix(pd, word, pt));
+				break;
+				
+			case SUFFIX_STRESS_PATTERN:
+				wpi.setProblemInfo(i, j, StringMatchesInfo.suffixStress(pd, word, pt));
 				break;
 				
 			// TODO: Fix to be more complex, discuss with language experts
 			case PREFIX: 
 			case PREFIX_GROUP:
-				wpi.setProblemInfo(i, j, matcher.startsWithPrefix(pd, word));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.startsWithPrefix(pd, word));
 				break;
 			
 				// TODO: Fix to be more complex, discuss with language experts		
@@ -241,7 +255,7 @@ public class WordVsProblems {
 			case DIGRAPH_EQUALS_PHONEME:
 			case TRIGRAPH_EQUALS_PHONEME:
 				String startType = pt.toString().substring(0, pt.toString().indexOf("_")).toLowerCase();
-				wpi.setProblemInfo(i, j, matcher.equalsPhoneme(pd, word, startType));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.equalsPhoneme(pd, word, startType));
 				break;
 			
 			// TODO: Fix to be more complex, discuss with language experts
@@ -249,12 +263,13 @@ public class WordVsProblems {
 			case PATTERN_EQUALS_PRONUNCIATION_BEGINS:
 			case PATTERN_EQUALS_PRONUNCIATION_ENDS:
 				String endType = pt.toString().substring(pt.toString().lastIndexOf("_")+1, pt.toString().length()).toLowerCase();
-				wpi.setProblemInfo(i, j, matcher.patternEqualsPronunciation(pd, word, endType));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.patternEqualsPronunciation(pd, word, endType));
 				break;
 			case SYLLABLE_PATTERN:
+				wpi.setProblemInfo(i, j, StringMatchesInfo.syllablePattern(pd, word));
 				break;
 			case SYLLABLE_COUNT:
-				wpi.setProblemInfo(i, j, matcher.syllableCount(pd, word));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.syllableCount(pd, word));
 				break;
 		default:
 			break;

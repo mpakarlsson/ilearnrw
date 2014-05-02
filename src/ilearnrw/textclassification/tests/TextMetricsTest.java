@@ -115,8 +115,8 @@ public class TextMetricsTest extends JFrame {
 	    catch(Exception e){ 
 	    }*/
 
-		greekAnalyzer = new GreekLanguageAnalyzer();
-		englishAnalyzer = new EnglishLanguageAnalyzer();
+		greekAnalyzer = GreekLanguageAnalyzer.getInstance();
+		englishAnalyzer = EnglishLanguageAnalyzer.getInstance();
 
 		languageLabel = new JLabel();
 		

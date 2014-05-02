@@ -21,6 +21,7 @@ public class GreekWord extends Word{
 		createCVForm();
 		createPhonetics();
 		createGraphemePhonemePairs();
+		setStem("");
 		//System.out.println(word);
 	}
 	
@@ -31,6 +32,7 @@ public class GreekWord extends Word{
 		createCVForm();
 		createPhonetics();
 		createGraphemePhonemePairs();
+		setStem("");
 		//System.out.println(word);
 	}
 	

@@ -12,15 +12,12 @@ public class EnglishWord extends Word {
 	private static final long serialVersionUID = 1L;
 	private String suffix;
 	private String suffixType;
-	private String stem;
-	ArrayList<String> cDigraphs;
-	ArrayList<String> cTrigraphs;
+	private CharacterInfo chInfo;
 	
     //We put inside only lower case words
     public EnglishWord(String word) {
     	super(word);
     	
-    	setupLists();
         wordUnmodified = word;
 		super.languageCode = LanguageCode.EN;
         checkType();
@@ -31,18 +28,18 @@ public class EnglishWord extends Word {
         frequency = 5001;
         setSuffix("");
         setSuffixType("SUFFIX_NONE");
-        setStem("");
+        super.setStem("");
     }
 
     //We put inside only lower case words
-    public EnglishWord(String word, String phonetic, String stem, ArrayList<GraphemePhonemePair> phoneticList, String suffix, String suffixType, int numSyllables, double frequency, WordType type) {
+    public EnglishWord(String word, String phonetic, String stem, ArrayList<GraphemePhonemePair> phoneticList, String[] graphemeSyllables, String suffix, String suffixType, int numSyllables, double frequency, WordType type) {
     	super(word, type);
-    	setupLists();
-    	wordUnmodified = word;
+    	super.wordUnmodified = word;
 		super.languageCode = LanguageCode.EN;
         checkType();
-        syllabism();
-        super.word = word.toLowerCase();
+        //syllabism();
+        syllables = graphemeSyllables;
+        super.word = word;
         
         phonetics = phonetic;
         this.numSyllables = numSyllables;
@@ -52,27 +49,25 @@ public class EnglishWord extends Word {
         
         this.setSuffix(suffix);
         this.setSuffixType(suffixType);
-        this.setStem(stem);
+        super.setStem(stem);
         createCVForm();
     }
 
     
     protected void syllabism(){
-        if(Program.getDictionary().containsKey(word) || Program.getDictionary().containsKey(word.toLowerCase())){
+        if(Program.getDictionary().containsKey(word)){
                 ArrayList<String> data = Program.getDictionary().get(word);
-                if(data==null)
-                	data = Program.getDictionary().get(word.toLowerCase());
                 numSyllables = Integer.parseInt(data.get(1));
                 
                 String ipa = data.get(3);
                 if(ipa.contains("<"))
                 	syllables = new String[] {""};
                 else
-                	syllables = syllabify(word.toLowerCase());
+                	syllables = syllabify(word);
 
         } else {
                 numSyllables = countVowels();
-                syllables = syllabify(word.toLowerCase());
+                syllables = syllabify(word);
         }
     }
     
@@ -135,14 +130,6 @@ public class EnglishWord extends Word {
             
             return numVowels;
     }
-    
-	public String getStem() {
-		return stem;
-	}
-	
-	private void setStem(String stem) {
-		this.stem = stem;
-	}
 	
 	public String getSuffix() {
 		return suffix;
@@ -156,7 +143,7 @@ public class EnglishWord extends Word {
 		return suffixType;
 	}
 
-	private void setSuffixType(String suffixType) {
+	public void setSuffixType(String suffixType) {
 		this.suffixType = suffixType;
 	}
 
@@ -362,7 +349,7 @@ public class EnglishWord extends Word {
 	
     private boolean checkDigraph(char c1, char c2){
     	String value = new StringBuilder().append(c1).append(c2).toString();
-    	for(String digraph : cDigraphs){
+    	for(String digraph : chInfo.getInstance().getDigraphs()){
     		if(digraph.equals(value))
     			return true;
     	}
@@ -372,7 +359,7 @@ public class EnglishWord extends Word {
     private boolean checkTrigraph(char c1, char c2, char c3){
     	String value = new StringBuilder().append(c1).append(c2).append(c3).toString();
     	
-    	for(String trigraph : cTrigraphs){
+    	for(String trigraph : chInfo.getInstance().getTrigraphs()){
     		if(trigraph.equals(value))
     			return true;
     	}
@@ -386,30 +373,5 @@ public class EnglishWord extends Word {
 			count++;
 		}
     	return count;
-    }
-    
-    private void setupLists(){
-    	cDigraphs 	= new ArrayList<String>();
-    	cTrigraphs	= new ArrayList<String>();
-    	
-    	/**
-    	 * Consonant digraphs
-    	 * 	- http://www.enchantedlearning.com/consonantblends/
-    	 */
-    	cDigraphs.add("bl"); cDigraphs.add("br"); cDigraphs.add("ch"); cDigraphs.add("ck"); cDigraphs.add("cl");
-    	cDigraphs.add("cr"); cDigraphs.add("dr"); cDigraphs.add("fl"); cDigraphs.add("fr"); cDigraphs.add("gh");
-    	cDigraphs.add("gl"); cDigraphs.add("gr"); cDigraphs.add("ng"); cDigraphs.add("ph"); cDigraphs.add("pl");
-    	cDigraphs.add("pr"); cDigraphs.add("qu"); cDigraphs.add("sc"); cDigraphs.add("sh"); cDigraphs.add("sk");
-    	cDigraphs.add("sl"); cDigraphs.add("sm"); cDigraphs.add("sn"); cDigraphs.add("sp"); cDigraphs.add("st");
-    	cDigraphs.add("sw"); cDigraphs.add("th"); cDigraphs.add("tr"); cDigraphs.add("tw"); cDigraphs.add("wh");
-    	cDigraphs.add("wr");
-    	
-    	/**
-    	 * Consonant trigraphs
-    	 * 	- http://www.enchantedlearning.com/consonantblends/
-    	 */
-    	
-    	cTrigraphs.add("nth"); cTrigraphs.add("sch"); cTrigraphs.add("scr"); cTrigraphs.add("shr"); cTrigraphs.add("spl");
-    	cTrigraphs.add("spr"); cTrigraphs.add("squ"); cTrigraphs.add("str"); cTrigraphs.add("tch"); cTrigraphs.add("thr");
     }
 }

@@ -1,8 +1,10 @@
 package ilearnrw.textclassification;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
-import ilearnrw.user.User;
+import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
+import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
 import ilearnrw.user.profile.UserProfile;
+import ilearnrw.utils.LanguageCode;
 
 public class Classifier {
 
@@ -15,10 +17,16 @@ public class Classifier {
 		
 	}
 			
-	public Classifier(UserProfile userProfile, Text text, LanguageAnalyzerAPI languageAnalyzer) {
+	public Classifier(UserProfile userProfile, Text text) {
+
+		if (userProfile.getLanguage() == LanguageCode.EN)
+			this.languageAnalyzer = EnglishLanguageAnalyzer.getInstance();
+		else
+			this.languageAnalyzer = GreekLanguageAnalyzer.getInstance();
+		
 		this.userProfile = userProfile;
 		this.text = text;
-		this.languageAnalyzer = languageAnalyzer;
+		//this.languageAnalyzer = languageAnalyzer;
 		this.userProblemsToText = new UserProblemsToText(userProfile, text, languageAnalyzer);
 	}
 	

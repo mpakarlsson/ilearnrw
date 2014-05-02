@@ -78,13 +78,17 @@
       },
       {
         "descriptions": [
-          "qu as vc/cv, v/cv and v/v"
+          "qu:vc/cv",
+          "qu:v/cv",
+          "qu:v/v"
         ],
         "problemType": "SYLLABLE_PATTERN"
       },
       {
         "descriptions": [
-          "-ture as vc/cv, v/cv and vc/v"
+          "ture:vc/cv",
+          "ture:v/cv",
+          "ture:vc/v"
         ],
         "problemType": "SYLLABLE_PATTERN"
       },
@@ -984,13 +988,13 @@
       },
       {
         "descriptions": [
-          "For words longer than one syllable: [double rule] if syllable before suffix stressed but [add rule] if first syllable stressed. Suffix -ing"
+          "ing,last:double,first:add"
         ],
         "problemType": "SUFFIX_STRESS_PATTERN"
       },
       {
         "descriptions": [
-          "For words longer than one syllable: [double rule] if syllable before suffix stressed but [add rule] if first syllable stressed. Suffix -ed"
+          "ed,last:double,first:add"
         ],
         "problemType": "SUFFIX_STRESS_PATTERN"
       },
@@ -2209,12 +2213,6 @@
          "gue-g"
         ],
         "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
-      },
-      {
-        "descriptions": [
-         "sc-s"
-        ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
       },
       {
         "descriptions": [

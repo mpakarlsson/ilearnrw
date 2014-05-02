@@ -1,6 +1,7 @@
 package ilearnrw.languagetools.greek;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
+import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordType;
 import ilearnrw.textclassification.greek.GreekWord;
@@ -9,19 +10,38 @@ import ilearnrw.utils.LanguageCode;
 public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 	//private GreekDictionaryLoader dictionary;
 	private GreekDictionary dictionary;
-	private GreekDictionary soundsSimilarDictionary;
+	private GreekSoundDictionary soundsSimilarDictionary;
 	private Word word;
-	//private HashMap<String, Integer> unknownWords;
+	private static GreekLanguageAnalyzer instance = null;
 
 
-	public GreekLanguageAnalyzer() {
-		//GreekDictionaryLoader gl = new GreekDictionaryLoader();
-		GreekGenericDictionaryLoader ggl = new GreekGenericDictionaryLoader("greek_dictionary.txt");
-		dictionary = new GreekDictionary(ggl.getEntries());
-		GreekLineByLineDictionaryLoader glld = new GreekLineByLineDictionaryLoader("greek_sound_similarity.txt");
-		soundsSimilarDictionary = new GreekDictionary(glld.getEntries());
-		//dictionary = new GreekDictionaryLoader();
-		//unknownWords = new HashMap<String, Integer>();
+	protected GreekLanguageAnalyzer() {
+		dictionary = new GreekDictionary();
+		//GreekLineByLineDictionaryLoader glld = new GreekLineByLineDictionaryLoader("greek_sound_similarity.txt");
+		//soundsSimilarDictionary = new GreekDictionary(glld.getEntries());
+		soundsSimilarDictionary = new GreekSoundDictionary("similarSoundWords.txt");
+	}
+	
+	public static GreekLanguageAnalyzer getInstance(){
+		if(instance==null)
+			instance = new GreekLanguageAnalyzer();
+		
+		return instance;
+	}
+
+
+	public GreekLanguageAnalyzer(GreekDictionary dictionary, GreekSoundDictionary soundsSimilarDictionary) {
+		if (dictionary != null)
+			this.dictionary = dictionary;
+		else 
+			this.dictionary = new GreekDictionary();
+		if (soundsSimilarDictionary != null)
+			this.soundsSimilarDictionary = soundsSimilarDictionary;
+		else{
+			//GreekLineByLineDictionaryLoader glld = new GreekLineByLineDictionaryLoader("greek_sound_similarity.txt");
+			//this.soundsSimilarDictionary = new GreekDictionary(glld.getEntries());
+			this.soundsSimilarDictionary = new GreekSoundDictionary("similarSoundWords.txt");
+		}
 	}
 
 	@Override
@@ -46,7 +66,15 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 					continue;
 				String temp = x.getPhonetics().replaceAll(phA, "*");
 				temp = temp.replaceAll(phB, "*");
-				if (temp.equals(target)){
+				if (temp.length() != target.length())
+					continue;
+				int dist = 0;
+				for (int i=0;i<temp.length(); i++){
+					if (temp.charAt(i) != target.charAt(i))
+						dist++;
+				}
+				//if (temp.equals(target)){
+				if (dist<1){
 					return x;
 				}
 			}
@@ -73,7 +101,11 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 	public boolean isParticiple() {
 		return this.word.getType() == WordType.Participle;
 	}
-
+	
+	@Override
+	public Word getWord() {
+		return this.word;
+	}
 
 	@Override
 	public LanguageCode getLanguageCode() {

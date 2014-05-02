@@ -11,6 +11,7 @@ public class Word implements Serializable, Comparable {
 	protected String[] syllables;
 	protected String cvForm;
 	protected String phonetics;
+	protected String stem;
 	protected int numSyllables;
 	protected LanguageCode languageCode;
 	protected double frequency;
@@ -34,6 +35,7 @@ public class Word implements Serializable, Comparable {
 		type = WordType.Unknown;
 		cvForm = "";
 		phonetics = "";
+		stem = "";
 		languageCode = null;
 		graphemesPhonemes = null;
 	}
@@ -82,6 +84,14 @@ public class Word implements Serializable, Comparable {
 
 	public String getCVForm() {
 		return cvForm;
+	}
+    
+	public String getStem() {
+		return stem;
+	}
+	
+	public void setStem(String stem) {
+		this.stem = stem;
 	}
 
 	public String getPhonetics() {

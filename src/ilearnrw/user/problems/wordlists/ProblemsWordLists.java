@@ -3,6 +3,7 @@ package ilearnrw.user.problems.wordlists;
 import ilearnrw.languagetools.DictionaryLoader;
 import ilearnrw.languagetools.WordDictionary;
 import ilearnrw.languagetools.greek.GreekDictionary;
+import ilearnrw.languagetools.greek.GreekDictionaryLoader;
 import ilearnrw.languagetools.greek.GreekGenericDictionaryLoader;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.utils.LanguageCode;
@@ -15,12 +16,12 @@ public class ProblemsWordLists {
 		switch (lc) {
 		case GR:
 			probs = new ProblemDefinitionIndex(lc);
-			path = "greek_problems/";
+			path = "greek_collection_for_problems/";
 			wordDictionary = new WordDictionary[probs.getIndexLength()][];
 			for (int i=0;i<wordDictionary.length; i++){
 				wordDictionary[i] = new WordDictionary[probs.getRowLength(i)];
 				for (int j=0;j<wordDictionary[i].length; j++){
-					GreekGenericDictionaryLoader ggl = new GreekGenericDictionaryLoader(path+"words_for_problem_"+i+"_"+j+"_"+"GR.txt");
+					GreekDictionaryLoader ggl = new GreekDictionaryLoader(path+"cat"+i+"/words_for_problem_"+i+"_"+j+"_"+"GR.txt");
 					wordDictionary[i][j] = new GreekDictionary(ggl.getEntries());
 				}
 			}
