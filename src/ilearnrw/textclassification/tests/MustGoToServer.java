@@ -3,7 +3,6 @@ package ilearnrw.textclassification.tests;
 import ilearnrw.datalogger.IUserAdministration.AuthenticationException;
 import ilearnrw.datalogger.UserStore;
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
-import ilearnrw.languagetools.greek.DictionaryEntry;
 import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
 import ilearnrw.resource.ResourceLoader;
 import ilearnrw.resource.ResourceLoader.Type;

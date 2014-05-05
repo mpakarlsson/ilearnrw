@@ -1,55 +1,41 @@
 package ilearnrw.user.problems.wordlists;
 
-import ilearnrw.languagetools.DictionaryLoader;
-import ilearnrw.languagetools.WordDictionary;
-import ilearnrw.languagetools.greek.GreekDictionary;
-import ilearnrw.languagetools.greek.GreekDictionaryLoader;
-import ilearnrw.languagetools.greek.GreekGenericDictionaryLoader;
+import ilearnrw.languagetools.extras.WordList;
+import ilearnrw.languagetools.extras.WordListLoader;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.utils.LanguageCode;
 
 public class ProblemsWordLists {
-	private WordDictionary wordDictionary[][];
+	private WordList wordList[][];
+	
 	public ProblemsWordLists(LanguageCode lc){
 		ProblemDefinitionIndex probs;
-		String path;
-		switch (lc) {
-		case GR:
-			probs = new ProblemDefinitionIndex(lc);
-			path = "greek_collection_for_problems/";
-			wordDictionary = new WordDictionary[probs.getIndexLength()][];
-			for (int i=0;i<wordDictionary.length; i++){
-				wordDictionary[i] = new WordDictionary[probs.getRowLength(i)];
-				for (int j=0;j<wordDictionary[i].length; j++){
-					GreekDictionaryLoader ggl = new GreekDictionaryLoader(path+"cat"+i+"/words_for_problem_"+i+"_"+j+"_"+"GR.txt");
-					wordDictionary[i][j] = new GreekDictionary(ggl.getEntries());
-				}
+		String path = "greek_collection_for_problems/", lan = "GR";
+		if (lc == LanguageCode.EN){
+			path = "english_collection_for_problems/";
+			lan = "EN";
+		}
+		probs = new ProblemDefinitionIndex(lc);
+		wordList = new WordList[probs.getIndexLength()][];
+		for (int i=0;i<wordList.length; i++){
+			wordList[i] = new WordList[probs.getRowLength(i)];
+			for (int j=0;j<wordList[i].length; j++){
+				wordList[i][j] = null;
+				try{
+					WordListLoader ggl = new WordListLoader(path+"cat"+i+"/words_for_problem_"+i+"_"+j+"_"+lan+".txt");
+					wordList[i][j] = ggl.getWordList();
+				}catch(Exception e){}
 			}
-			break;
-		case EN:
-			probs = new ProblemDefinitionIndex(lc);
-			path = "english_problems/";
-			wordDictionary = new WordDictionary[probs.getIndexLength()][];
-			for (int i=0;i<wordDictionary.length; i++){
-				wordDictionary[i] = new WordDictionary[probs.getRowLength(i)];
-				for (int j=0;j<wordDictionary[i].length; j++){
-					DictionaryLoader ggl = new DictionaryLoader(path+"words_for_problem_"+i+"_"+j+"_"+"GR.txt");
-					wordDictionary[i][j] = new GreekDictionary(ggl.getEntries());
-				}
-			}
-			break;
 		}
 	}
-	public WordDictionary[][] getWordDictionary() {
-		return wordDictionary;
+	public WordList[][] getWordLists() {
+		return wordList;
 	}
-	public void setWordDictionary(WordDictionary[][] wordDictionary) {
-		this.wordDictionary = wordDictionary;
-	}
-	public WordDictionary get(int i, int j){
-		if (wordDictionary == null || 
-				wordDictionary.length<=i || wordDictionary[i].length<=j)
+
+	public WordList get(int i, int j){
+		if (wordList == null || 
+				wordList.length<=i || wordList[i].length<=j)
 			return null;
-		return wordDictionary[i][j];
+		return wordList[i][j];
 	}
 }
