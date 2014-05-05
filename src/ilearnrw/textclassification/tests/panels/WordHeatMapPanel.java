@@ -215,7 +215,7 @@ public class WordHeatMapPanel extends JPanel {
 			tmp = tmp+extras[extras.length-2];
 			tmp = tmp+extras[extras.length-1];
 			String info = "("+wpi.getCategory()+", "+wpi.getIndex()+") "+ userProfile.getUserProblems().getProblemDescription(wpi.getCategory(), wpi.getIndex()).getProblemType().toString();
-			info = info + " {"+userProfile.getUserProblems().getProblemDescription(wpi.getCategory(), wpi.getIndex()).getDescriptionsTosString()+"}";
+			info = info + " {"+userProfile.getUserProblems().getProblemDescription(wpi.getCategory(), wpi.getIndex()).returnDescriptionsAsString()+"}";
 			t = t+info+" "+tmp+"\n";
 		}
 		return t;
