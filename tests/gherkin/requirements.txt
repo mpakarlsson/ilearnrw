@@ -1,7 +1,9 @@
 argparse==1.2.1
-flup==1.0.2
+## FIXME: could not find svn URL in dependency_links for this package:
+flup==1.0.3.dev-20110405
 fuzzywuzzy==0.2
 lettuce==0.2.19
+mechanize==0.2.5
 requests==2.2.1
 sure==1.2.7
 wsgiref==0.1.2

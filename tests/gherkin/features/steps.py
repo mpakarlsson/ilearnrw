@@ -1,10 +1,15 @@
 from lettuce import *
 import requests
 import base64
+import mechanize
 
 ILEARN_BASE_URL='http://api:api@api.ilearnrw.eu/ilearnrw/'
+ILEARN_BASE_NO_AUTH_URL='http://api.ilearnrw.eu/ilearnrw/'
 def ilurl(appendUrl, **kwargs):
-    retUrl =ILEARN_BASE_URL + appendUrl
+    retUrl = ILEARN_BASE_URL + appendUrl
+    return retUrl.format(**kwargs)
+def ilurl_noauth(appendUrl, **kwargs):
+    retUrl = ILEARN_BASE_NO_AUTH_URL + appendUrl
     return retUrl.format(**kwargs)
 
 @step('the username "(.*)"')
@@ -13,6 +18,9 @@ def set_username(step, username):
 @step('the password "(.*)"')
 def set_password(step, password):
     world.password = password
+@step('the url "(.*)"')
+def set_url(step, url):
+    world.url = url
 
 @step('i authenticate against api.ilearnrw.eu')
 def auth(step):
@@ -58,3 +66,39 @@ def classifictaion_result(step, key, value):
     val = int(world.classificationResult[key])
     assert(val == int(value))
 
+@step('when i browse to "(.*)"')
+def browse_to(step, url):
+    world.br = mechanize.Browser()
+    world.url = ilurl_noauth(url)
+    print world.url
+    world.br.open(world.url)
+
+@step('i see a login form')
+def check_login_form(step):
+    world.br.form = list(world.br.forms())[0] #select first form
+    #Check that we have the following named form items
+    for n in ['username', 'pass']:
+        if not n in world.br.form:
+            raise Exception(n)
+
+@step('set the form value "(.*)" to "(.*)"')
+def set_form_value(step, name, value):
+    world.br.form[name] = value
+
+@step('i press Submit')
+def press_submit(step):
+    world.br.submit()
+
+@step('i get redirected to "(.*)"')
+def check_redirect(step, url):
+    expected = ilurl_noauth(url)
+
+    if world.br.geturl() != expected:
+        raise Exception(
+        '''
+        Urls not the same.
+        Expected: %s
+        Got: %s
+        ''' % (expected, world.br.geturl()))
+
+                    
