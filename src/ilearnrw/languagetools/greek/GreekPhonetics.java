@@ -46,8 +46,8 @@ public class GreekPhonetics {
     		"í", "í", "s"};
 	
 	private final String[] vowelPhonetics = 
-		{"a", "e", "i", "o", "á", "é", "j", "í", "ό", "i", "ε", "u", "ú"};
-   
+		{"a", "e", "i", "o", "ó", "á", "é", "j", "í", "ό", "i", "ε", "u", "ú"};
+	
     /** Creates a new instance of GreekPhonetics */
     public GreekPhonetics() {
         this("");
