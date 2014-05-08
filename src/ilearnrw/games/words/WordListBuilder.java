@@ -1,10 +1,7 @@
 package ilearnrw.games.words;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import ilearnrw.languagetools.extras.WordList;
@@ -12,8 +9,8 @@ import ilearnrw.languagetools.extras.WordListLoader;
 import ilearnrw.textclassification.greek.GreekWord;
 
 public class WordListBuilder {
-	private static String path = "greek_collection_for_problems/cat0";
-	private static int category = 0, index = 7;
+	private static String path = "greek_collection_for_problems/cat4";
+	private static int category = 4, index = 9;
 	public static void main(String args[]){
 		WordListLoader wll = new WordListLoader("greek_collection_for_problems/test");
 		WordList wl = wll.getWordList();
