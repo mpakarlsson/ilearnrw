@@ -36,8 +36,10 @@ public class TrickyWordsPanel extends JPanel{
 		for (int i=0;i<data.length; i++)
 			words.add((Word)data[i]);
 		
-        JButton addButton = new JButton("Add Word");
-        addButton = new JButton("Add Tricky Word");
+        JButton addButton = new JButton("Add Tricky Word");
+        final JButton removeButton = new JButton("Remove Tricky Word");
+        
+        
 		addButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -55,7 +57,6 @@ public class TrickyWordsPanel extends JPanel{
 			}
 		});
         
-        final JButton removeButton = new JButton("Remove Tricky Word");
 		removeButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -116,7 +117,7 @@ public class TrickyWordsPanel extends JPanel{
             }
         });
         JScrollPane listScroller = new JScrollPane(list);
-        listScroller.setPreferredSize(new Dimension(350, 80));
+        listScroller.setPreferredSize(new Dimension(250, 100));
         listScroller.setAlignmentX(LEFT_ALIGNMENT);
 
         //Create a container so that we can add a title around
@@ -132,17 +133,19 @@ public class TrickyWordsPanel extends JPanel{
         listPane.add(listScroller);
         listPane.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
-        //Lay out the buttons from left to right.
+
         JPanel buttonPane = new JPanel();
-        buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.LINE_AXIS));
+        buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.PAGE_AXIS));
         buttonPane.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
-        buttonPane.add(Box.createHorizontalGlue());
+        buttonPane.add(Box.createVerticalGlue());
         buttonPane.add(addButton);
         buttonPane.add(Box.createRigidArea(new Dimension(10, 0)));
         buttonPane.add(removeButton);
 
-        this.add(listPane, BorderLayout.CENTER);
-        this.add(buttonPane, BorderLayout.PAGE_END);
+
+        this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+        this.add(listPane);
+        this.add(buttonPane);
 	}
 
     //Handle clicks on the Set and Cancel buttons.

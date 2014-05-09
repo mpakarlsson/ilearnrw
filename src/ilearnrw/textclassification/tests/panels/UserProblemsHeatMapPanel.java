@@ -1,10 +1,13 @@
 package ilearnrw.textclassification.tests.panels;
+import ilearnrw.languagetools.extras.DoubleWordList;
+import ilearnrw.languagetools.extras.WordListLoader;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.textclassification.tests.panels.userproblems.TrickyWordsPanel;
 import ilearnrw.user.User;
 import ilearnrw.user.profile.UserProblems;
 import ilearnrw.user.profile.UserSeverities;
+import ilearnrw.utils.LanguageCode;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -13,6 +16,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -38,20 +42,26 @@ public class UserProblemsHeatMapPanel extends JPanel {
 	private User user;
 	private int[][] data;
 	private int[][] multi;
-	private ArrayList<Word> trickyWords;
 	private CellRenderer renderer;
 	private JSplitPane splitPane;
 	private int colorMode = 0;
 	private JPanel upperPanel;
 	private TrickyWordsPanel trickyPanel;
-	private JButton addButton, removeButton;
+	private WordListPanel easy, hard;
+	private WordListLoader wordListLoader;
+	private String path = "game_words_GR";
 
 	public UserProblemsHeatMapPanel(User user){
 		this.user = user;
+		if (user.getProfile().getLanguage() == LanguageCode.EN)
+			path = "game_words_EN";
+		else 
+			path = "game_words_GR";
 
 		this.data = copyMatrix(user.getProfile().getUserProblems().getUserSeverities().getSeverities());
-		this.trickyWords = user.getProfile().getUserProblems().getTrickyWords();
 
+		wordListLoader = new WordListLoader();
+		
         descriptionsText = new JTextPane();
         descriptionsText.setEditable(false);
         descriptionsText.setBackground(Color.lightGray);
@@ -79,7 +89,21 @@ public class UserProblemsHeatMapPanel extends JPanel {
 		ArrayList<Word> tmp = user.getProfile().getUserProblems().getTrickyWords();
         trickyPanel = new TrickyWordsPanel(tmp.toArray());
 
-        upperPanel.add(trickyPanel, BorderLayout.PAGE_END);
+        easy = new WordListPanel(null, "Easy Words");
+        hard = new WordListPanel(null, "Hard Words");
+
+        JPanel wordsInfo = new JPanel(new BorderLayout());
+        wordsInfo.setLayout(new BoxLayout(wordsInfo, BoxLayout.LINE_AXIS));
+        wordsInfo.setPreferredSize(new Dimension(500, 250));
+        wordsInfo.setAlignmentX(CENTER_ALIGNMENT);
+        wordsInfo.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
+        //wordsInfo.add(Box.createHorizontalGlue());
+        wordsInfo.add(Box.createRigidArea(new Dimension(10, 0)));
+        wordsInfo.add(trickyPanel);
+        wordsInfo.add(easy);
+        wordsInfo.add(hard);
+		
+        upperPanel.add(wordsInfo, BorderLayout.PAGE_END);
 		splitPane.setLeftComponent(upperPanel);
         
 		splitPane.setRightComponent(descriptionsText);
@@ -96,6 +120,10 @@ public class UserProblemsHeatMapPanel extends JPanel {
 	
 	public void setUser(User user){
 		this.user = user;
+		if (user.getProfile().getLanguage() == LanguageCode.EN)
+			path = "english_collection_for_problems";
+		else 
+			path = "greek_collection_for_problems";
 
 		this.data = copyMatrix(user.getProfile().getUserProblems().getUserSeverities().getSeverities());
 		heatMap = new JTable(data.length,lengthsMax());
@@ -116,7 +144,21 @@ public class UserProblemsHeatMapPanel extends JPanel {
 		ArrayList<Word> tmp = user.getProfile().getUserProblems().getTrickyWords();
         trickyPanel = new TrickyWordsPanel(tmp.toArray());
 
-        upperPanel.add(trickyPanel, BorderLayout.PAGE_END);
+        easy = new WordListPanel(null, "Easy Words");
+        hard = new WordListPanel(null, "Hard Words");
+
+        JPanel wordsInfo = new JPanel(new BorderLayout());
+        wordsInfo.setLayout(new BoxLayout(wordsInfo, BoxLayout.LINE_AXIS));
+        wordsInfo.setPreferredSize(new Dimension(500, 250));
+        wordsInfo.setAlignmentX(CENTER_ALIGNMENT);
+        wordsInfo.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
+        //wordsInfo.add(Box.createHorizontalGlue());
+        wordsInfo.add(Box.createRigidArea(new Dimension(10, 0)));
+        wordsInfo.add(trickyPanel);
+        wordsInfo.add(easy);
+        wordsInfo.add(hard);
+		
+        upperPanel.add(wordsInfo, BorderLayout.PAGE_END);
 		splitPane.setLeftComponent(upperPanel);
 		
 		draw();
@@ -208,15 +250,6 @@ public class UserProblemsHeatMapPanel extends JPanel {
 		return max;
 	}
 	
-	private int sumsMax(){
-		int max = multi[0][0];
-		for (int i=0;i<multi.length;i++){
-			if (multi[i][0] > max)
-				max = multi[i][0];
-		}
-		return max;
-	}
-	
 	private int lengthsMax(){
 		int max = data[0].length;
 		for (int i=0;i<data.length;i++){
@@ -253,6 +286,7 @@ public class UserProblemsHeatMapPanel extends JPanel {
 			//res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
 			res = res + "\nMatching word characteristics:"+user.getProfile().getUserProblems().getProblemDescription(i, j).getProblemType();
 			res = res + " {"+user.getProfile().getUserProblems().getProblemDescription(i, j).getDescriptionsTosString()+"}";
+			
 		}
 		return res;
 	}
@@ -284,6 +318,32 @@ public class UserProblemsHeatMapPanel extends JPanel {
             	// TODO add a window that displays problem description here!
             	descriptionsText.setText(displayCellInfo(row, column));
             	c.setBackground(Color.black);
+    			String lan = "GR";
+    			if (user.getProfile().getLanguage() ==  LanguageCode.EN)
+    				lan = "EN";
+    			try{
+    				wordListLoader.load(path+"/cat"+row+"/words_"+row+"_"+column+"_"+lan+".txt");
+    				DoubleWordList dw = new DoubleWordList(wordListLoader.getWordList().getWords());
+    				ArrayList<String> w = dw.getEasyWords();
+    				String tmp = "";
+    				int cnt = 1;
+    				for (String x:w){
+    					tmp = tmp+cnt+") "+x+"\n";
+    					cnt++;
+    				}
+    				easy.setText(tmp);
+    				w = dw.getHardWords();
+    				tmp = "";
+    				cnt = 1;
+    				for (String x:w){
+    					tmp = tmp+cnt+") "+x+"\n";
+    					cnt++;
+    				}
+    				hard.setText(tmp);
+    			}catch (Exception e){
+    				easy.setText("no data");
+    				hard.setText("no data");
+    			}
             }
             if (multi[row][column]==-1)
             	c.setBackground(new Color(210, 210, 210)); 
@@ -313,7 +373,6 @@ public class UserProblemsHeatMapPanel extends JPanel {
 				}
 			} 
 			setToolTipText(displayCellInfo(row, column));
-
             return c;
         };
 	}

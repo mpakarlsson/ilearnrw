@@ -4,6 +4,7 @@ import ilearnrw.resource.ResourceLoader;
 import ilearnrw.resource.ResourceLoader.Type;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -13,14 +14,20 @@ public class WordListLoader {
 	private String filename;
 	private WordList words;
 
-	public WordListLoader(String filename) {
+	public WordListLoader() {
+		this.filename = null;
+		this.words = new WordList();
+	}
+	
+	public void load(String filename) throws Exception{
+		
 		this.filename = filename;
 		this.words = new WordList();
 		loadFile();
 		readWords();
 	}
 	
-	private void loadFile() {
+	private void loadFile() throws Exception{
 		dictionary = ResourceLoader.getInstance().getInputStream(Type.DATA, this.filename);
 	}
 

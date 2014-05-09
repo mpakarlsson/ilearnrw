@@ -297,12 +297,6 @@
     [
       {
         "descriptions": [
-          "εϋ"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
           "οϋ"
         ],
         "problemType": "CONTAINS"
@@ -1137,12 +1131,7 @@
       },
       {
         "descriptions": [
-          "εϋ"
-        ],
-        "problemType": "CONTAINS"
-      },
-      {
-        "descriptions": [
+          "εϋ",
           "οϋ"
         ],
         "problemType": "CONTAINS"
@@ -1248,7 +1237,9 @@
       {
         "descriptions": [
           "φ",
+          "θ",
           "Θ",
+          "Β",
           "β"
         ],
         "problemType": "VISUAL_SIMILARITY"
@@ -1256,6 +1247,7 @@
       {
         "descriptions": [
           "ψ",
+          "Ψ",
           "ω",
           "ώ"
         ],
@@ -1290,6 +1282,8 @@
       {
         "descriptions": [
           "π",
+          "Π",
+          "Τ",
           "τ"
         ],
         "problemType": "VISUAL_SIMILARITY"
@@ -1299,6 +1293,7 @@
           "δ",
           "σ",
           "ρ",
+          "Ρ",
           "6"
         ],
         "problemType": "VISUAL_SIMILARITY"

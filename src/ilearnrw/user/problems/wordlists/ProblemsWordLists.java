@@ -10,9 +10,9 @@ public class ProblemsWordLists {
 	
 	public ProblemsWordLists(LanguageCode lc){
 		ProblemDefinitionIndex probs;
-		String path = "greek_collection_for_problems/", lan = "GR";
+		String path = "game_words_GR/", lan = "GR";
 		if (lc == LanguageCode.EN){
-			path = "english_collection_for_problems/";
+			path = "game_words_EN/";
 			lan = "EN";
 		}
 		probs = new ProblemDefinitionIndex(lc);
@@ -22,7 +22,8 @@ public class ProblemsWordLists {
 			for (int j=0;j<wordList[i].length; j++){
 				wordList[i][j] = null;
 				try{
-					WordListLoader ggl = new WordListLoader(path+"cat"+i+"/words_for_problem_"+i+"_"+j+"_"+lan+".txt");
+					WordListLoader ggl = new WordListLoader();
+					ggl.load(path+"cat"+i+"/words_"+i+"_"+j+"_"+lan+".txt");
 					wordList[i][j] = ggl.getWordList();
 				}catch(Exception e){}
 			}
