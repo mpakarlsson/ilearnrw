@@ -9,8 +9,8 @@ import ilearnrw.languagetools.extras.WordListLoader;
 import ilearnrw.textclassification.greek.GreekWord;
 
 public class WordListBuilder {
-	private static String path = "greek_collection_for_problems/cat4";
-	private static int category = 4, index = 9;
+	private static String path = "greek_collection_for_problems/cat6";
+	private static int category = 6, index = 26;
 	public static void main(String args[]){
 		WordListLoader wll = new WordListLoader("greek_collection_for_problems/test");
 		WordList wl = wll.getWordList();

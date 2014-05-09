@@ -683,17 +683,12 @@
           "ιά",
           "ί",
           "ής",
-          "ές"
-        ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
-      },
-      {
-        "descriptions": [
+          "ές",
           "πολύς",
           "πολλή",
           "πολύ"
         ],
-        "problemType": "EQUALS"
+        "problemType": "IS_ADJ_AND_ENDS_WITH"
       },
       {
         "descriptions": [
@@ -715,17 +710,12 @@
           "ιές",
           "ιά",
           "είς",
-          "ή"
-        ],
-        "problemType": "IS_ADJ_AND_ENDS_WITH"
-      },
-      {
-        "descriptions": [
+          "ή",
           "πολλοί",
           "πολλές",
           "πολλά"
         ],
-        "problemType": "EQUALS"
+        "problemType": "IS_ADJ_AND_ENDS_WITH"
       },
       {
         "descriptions": [
@@ -883,7 +873,7 @@
           "είσα",
           "έν"
         ],
-        "problemType": "IS_PARTICIPLE_AND_ENDS_WITH"
+        "problemType": "IS_ADJ_AND_ENDS_WITH"
       }
     ],
     [
