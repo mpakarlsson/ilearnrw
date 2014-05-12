@@ -171,7 +171,7 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 			
 			
 			// Adds the appropriate attributes to the words
-			for (org.jsoup.nodes.Element element : doc.select("style") )
+			/*for (org.jsoup.nodes.Element element : doc.select("style") )
 			{
 				System.out.println(element.childNodes().get(0).attr("h1"));
 				
@@ -190,7 +190,23 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 				//System.out.println(element.attr("h1"));
 				//System.out.println(element);
 			}
-			
+			*/
+			for (org.jsoup.nodes.Element e : doc.select("style")) {
+	            String styleRules = e.getAllElements().get(0).data().replaceAll("\n", "").trim(), delims =
+	                    "{}";
+	           java.util.StringTokenizer st = new java.util.StringTokenizer(styleRules, delims);
+	            while (st.countTokens() > 1) 
+	            {
+	                String selector = st.nextToken(), properties = st.nextToken();
+	                System.out.println(selector);
+	                // Process selectors such as "a:hover"
+	                if (selector.indexOf(":") > 0) 
+	                {
+	                    selector = selector.substring(0, selector.indexOf(":"));
+	                }
+	            }
+			}
+	                
 			
 			
 			java.io.PrintWriter bw = new java.io.PrintWriter(new java.io.File(this.annotatedHTMLFile),"UTF-8");
