@@ -1,0 +1,7 @@
+herself
+himself
+itself
+myself
+self
+###
+shelf

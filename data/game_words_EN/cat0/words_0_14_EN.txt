@@ -1,0 +1,7 @@
+construction
+instruction
+production
+reduction
+###
+destruction
+introduction
