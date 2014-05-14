@@ -121,9 +121,9 @@ public class UserProblemsHeatMapPanel extends JPanel {
 	public void setUser(User user){
 		this.user = user;
 		if (user.getProfile().getLanguage() == LanguageCode.EN)
-			path = "english_collection_for_problems";
+			path = "game_words_EN";
 		else 
-			path = "greek_collection_for_problems";
+			path = "game_words_GR";
 
 		this.data = copyMatrix(user.getProfile().getUserProblems().getUserSeverities().getSeverities());
 		heatMap = new JTable(data.length,lengthsMax());

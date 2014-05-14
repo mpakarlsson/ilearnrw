@@ -3,14 +3,41 @@ package ilearnrw.games.words;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
+
+import ilearnrw.languagetools.english.EnglishDictionary;
 import ilearnrw.languagetools.extras.WordList;
 import ilearnrw.languagetools.extras.WordListLoader;
+import ilearnrw.textclassification.english.EnglishWord;
 import ilearnrw.textclassification.greek.GreekWord;
 
 public class WordListBuilder {
-	private static String path = "greek_collection_for_problems/cat8";
-	private static int category = 8, index = 7;
 	public static void main(String args[]){
+		ArrayList<String> t = new ArrayList<String>();
+		t.add(ENdictionaryToString());
+		try {
+			save("data/game_words_EN/test.txt", t);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static String ENdictionaryToString(){
+		System.out.println("Starting loading words...");
+		EnglishDictionary ed = EnglishDictionary.getInstance();
+		ed = EnglishDictionary.getInstance();
+		if(ed.getDictionary().isEmpty())
+			ed.loadDictionary("data/dictionary_english.csv");
+		Map<String, EnglishWord> ws = ed.getDictionary();
+		String res = "";
+		for (String x : ws.keySet()){
+			res = res + (x+" ");
+		}
+		return res;
+	}
+	
+	private static void greekList(int category, int index){
+		String path = "greek_collection_for_problems/cat"+category;
 		WordListLoader wll = new WordListLoader();
 		try {
 			wll.load("greek_collection_for_problems/test");

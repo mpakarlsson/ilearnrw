@@ -1,5 +1,9 @@
 package ilearnrw.textclassification;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
 import ilearnrw.user.profile.UserProblems;
 
 public class ProblematicWords {
@@ -32,6 +36,39 @@ public class ProblematicWords {
 	public void addWord(int i, int j, Word w) {
 			table[i][j].add(w);
 	}
-	
 
+	
+	/*public void save() throws IOException {
+		int n = table.length;
+		for (int i=0; i<n; i++){
+			String path = "game_words_EN/cat"+i;
+			for (int j=0; j<table[i].length; j++){
+				ArrayList<Word> w = table[i][j].getWordList();
+				ArrayList<String> base = new ArrayList<String>();
+				int cnt = 0;
+				for (Word x:w){
+					if (x.getFrequency()>=15000)	
+						base.add(x.toString());
+					if (cnt++ >=300)
+						break;
+				}	
+				base.add("###");
+				for (Word x:w){
+					if (x.getFrequency()<15000)	
+						base.add(x.toString());
+					if (cnt++ >=500)
+						break;
+				}
+				String fileName = "words_"+i+"_"+j+"_EN.txt";
+				FileWriter writer = new FileWriter("data/"+path+"/"+fileName);
+				for(int ii=0;ii<base.size()-1;ii++) {
+				  writer.write(base.get(ii)+"\n");
+				}
+				if (base.size()>0)
+					writer.write(base.get(base.size()-1));
+				writer.close();
+			}
+		}
+	}
+*/
 }
