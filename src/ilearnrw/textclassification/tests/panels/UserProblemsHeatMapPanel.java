@@ -18,6 +18,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -86,7 +87,7 @@ public class UserProblemsHeatMapPanel extends JPanel {
 		JScrollPane scrollPane = new JScrollPane(heatMap);
 		upperPanel.add(scrollPane, BorderLayout.CENTER);
 
-		ArrayList<Word> tmp = user.getProfile().getUserProblems().getTrickyWords();
+		List<Word> tmp = user.getProfile().getUserProblems().getTrickyWords();
         trickyPanel = new TrickyWordsPanel(tmp.toArray());
 
         easy = new WordListPanel(null, "Easy Words");
@@ -141,7 +142,7 @@ public class UserProblemsHeatMapPanel extends JPanel {
 		JScrollPane scrollPane = new JScrollPane(heatMap);
 		upperPanel.add(scrollPane, BorderLayout.CENTER);
 
-		ArrayList<Word> tmp = user.getProfile().getUserProblems().getTrickyWords();
+		List<Word> tmp = user.getProfile().getUserProblems().getTrickyWords();
         trickyPanel = new TrickyWordsPanel(tmp.toArray());
 
         easy = new WordListPanel(null, "Easy Words");
@@ -285,8 +286,7 @@ public class UserProblemsHeatMapPanel extends JPanel {
 				res = res + ", Targeted Area:"+user.getProfile().getUserProblems().getProblemDefinition(i).getURI();
 			//res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
 			res = res + "\nMatching word characteristics:"+user.getProfile().getUserProblems().getProblemDescription(i, j).getProblemType();
-			res = res + " {"+user.getProfile().getUserProblems().getProblemDescription(i, j).getDescriptionsTosString()+"}";
-			
+			res = res + " {"+user.getProfile().getUserProblems().getProblemDescription(i, j).returnDescriptionsAsString()+"}";
 		}
 		return res;
 	}

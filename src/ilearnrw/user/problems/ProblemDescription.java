@@ -7,6 +7,11 @@ public class ProblemDescription implements Serializable{
 	private String descriptions[];
 	private ProblemType problemType;
 	
+	public ProblemDescription()
+	{
+		//for JSON deserialization
+	}
+	
 	public ProblemDescription(ProblemType problemType, String[] descriptions) {
 		this.descriptions = descriptions;
 		this.problemType= problemType;
@@ -20,6 +25,14 @@ public class ProblemDescription implements Serializable{
 		return problemType;
 	}
 	
+	public void setDescriptions(String[] descriptions) {
+		this.descriptions = descriptions;
+	}
+
+	public void setProblemType(ProblemType problemType) {
+		this.problemType = problemType;
+	}
+	
 	public boolean isDescription(String x){
 		for (int i=0; i<descriptions.length; i++){
 			if (descriptions[i].equalsIgnoreCase(x))
@@ -28,7 +41,7 @@ public class ProblemDescription implements Serializable{
 		return false;
 	}
 	
-	public String getDescriptionsTosString(){
+	public String returnDescriptionsAsString(){
 		String res ="";
 		for (int i=0; i<descriptions.length-1; i++){
 			res = res + descriptions[i]+" ,";

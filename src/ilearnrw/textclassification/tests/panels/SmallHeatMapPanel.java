@@ -185,7 +185,7 @@ public class SmallHeatMapPanel extends JPanel {
 				res = res + ", Targeted Area:"+userProfile.getUserProblems().getProblemDefinition(i).getURI();
 			//res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
 			res = res + "\nMatching word characteristics:"+userProfile.getUserProblems().getProblemDescription(i, j).getProblemType();
-			res = res + " {"+userProfile.getUserProblems().getProblemDescription(i, j).getDescriptionsTosString()+"}";
+			res = res + " {"+userProfile.getUserProblems().getProblemDescription(i, j).returnDescriptionsAsString()+"}";
 			res = res + " \nFound "+multi[i][j]+" times\n";
 			res = res + " \nWords With Problem: "+classifier.getProblematicWords().getWordList(i, j).toString();
 		}
