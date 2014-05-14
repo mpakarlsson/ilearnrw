@@ -14,7 +14,4 @@ Feature: Classify greek text
         Examples:
             | key                   | number |
             | numberOfDistinctWords | 5      |
-            | numberOfSentences     | 1      |
-            | numberOfSyllables     | 5      |
-
 

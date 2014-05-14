@@ -66,6 +66,40 @@ def classifictaion_result(step, key, value):
     val = int(world.classificationResult[key])
     assert(val == int(value))
 
+def annotate_text(text):
+    url = ilurl('text/annotate?userId={userid}&lc={language}&token={token}',
+            userid=world.userId,
+            language=world.languageCode,
+            token=world.authToken)
+    result = requests.post(url, data=text)
+    if result.status_code != 200:
+        raise Exception(result.text)
+    world.annotatedText_json = result.json()
+    world.annotatedText = world.annotatedText_json["wordSet"]
+    world.classificationResult = world.annotatedText
+    world.annotatedText_html = world.annotatedText_json["html"]
+
+@step('i annotate the text')
+def annotate_text_multi(step):
+    annotate_text(step.multiline)
+@step('i annotate the text in <(.*)>')
+def annotate_text_file(step, filename):
+    f = open(filename, 'r')
+    annotate_text(f.read())
+    f.close()
+
+@step('i annotate the text "(.*)"')
+def annotate_text_single(step, text):
+    annotate_text(text)
+
+@step('i get valid xhtml')
+def valid_xhtml(step):
+    if len(world.annotatedText_html) < 4:
+        raise Exception("Could not find valid html")
+@step('wordSet "(.*)" exists')
+def wordSet_key_exists(step, key):
+    if not key in world.annotatedText:
+        raise Exception("Key \"%s\" did not exist." % key)
 @step('when i browse to "(.*)"')
 def browse_to(step, url):
     world.br = mechanize.Browser()
