@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
@@ -53,7 +54,7 @@ public class HtmlGenerator {
 			this.html = this.html+"<p id = p"+(pId++)+">";
 			HtmlSentence s[] = tp.getParagraph(i);
 			for (int j=0;j<s.length; j++){
-				this.html = this.html+"<s id = s"+(sId++)+">";
+				this.html = this.html+"<sen id = s"+(sId++)+">";
 				for (int k=0; k<s[j].getNumberOfWords(); k++){
 					if (s[j].isWord(k)){
 						if (lc == LanguageCode.EN){
@@ -73,7 +74,7 @@ public class HtmlGenerator {
 					else 
 						this.html = this.html+s[j].getWord(k);
 				}
-				this.html = this.html+"</s>";
+				this.html = this.html+"</sen>";
 			}
 			this.html = this.html+"</p>";
 		}
@@ -108,7 +109,7 @@ public class HtmlGenerator {
 	public UserBasedAnnotatedWordsSet getWordSet(){
 		return wordSet;
 	}
-	public ArrayList<Word> getTrickyWordsList(){
+	public List<Word> getTrickyWordsList(){
 		return userProfile.getUserProblems().getTrickyWords();
 	}
 }

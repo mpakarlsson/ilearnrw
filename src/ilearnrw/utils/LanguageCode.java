@@ -20,4 +20,12 @@ public enum LanguageCode {
 		// default is EN
 		return EN;
 	}
+	
+	public byte getCode() {
+		if (this.equals(EN))
+			return getEnglishCode();
+		if (this.equals(GR))
+			return getGreekCode();
+		return -1;
+	}
 }

@@ -7,6 +7,10 @@ public class Category implements Serializable {
 
 	private String url;//always to lowercase
 	
+	public Category() {
+		//for JSON deserialization
+	}
+	
 	public Category(String url) {
 		this.url = url.toLowerCase().trim();
 	}

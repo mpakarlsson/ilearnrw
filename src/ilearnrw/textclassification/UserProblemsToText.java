@@ -7,6 +7,7 @@ import ilearnrw.user.UserTextCounters;
 import ilearnrw.user.profile.UserProblems;
 import ilearnrw.user.profile.UserProfile;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -108,6 +109,11 @@ public class UserProblemsToText implements Serializable {
 			if (Wscore>5)
 				veryDiffWords++;
 		}
+		/*try {
+			problematicWords.save();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}*/
 		//Tscore = Tscore;/text.getNumberOfSentences();
 	}
 

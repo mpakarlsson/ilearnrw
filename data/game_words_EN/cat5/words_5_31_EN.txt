@@ -1,0 +1,10 @@
+gift
+soft
+shift
+lift
+left
+###
+draft
+drift
+craft
+aircraft
