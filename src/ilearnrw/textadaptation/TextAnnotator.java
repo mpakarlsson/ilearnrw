@@ -51,27 +51,27 @@ public interface TextAnnotator {
 
 	void filterPage(int p);
 
-	void setTextFontFamily(Font font);
+	void setTextFontFamily(String font, String tag);
 
-	Font getTextFontFamily();
+	String getTextFontFamily();
 
-	void setTextFontSize(double v);
+	void setTextFontSize(double v, String tag);
 
 	double getDoubleTextFontSize();
 
-	void setTextFontSize(int v);
+	void setTextFontSize(int v, String tag);
 
 	int getTextFontSize();
 
-	void setDoubleLineSpacing(double v);
+	void setDoubleLineSpacing(double v, String tag);
 
 	double getDoubleLineSpacing ();
 
-	void setIntLineSpacing(int v);
+	void setIntLineSpacing(int v, String tag);
 
 	int getIntLineSpacing ();
 
-	void setDoubleMargin(double v);
+	void setDoubleMargin(double v, String tag);
 
 	double getDoubleMargin();
 
@@ -79,14 +79,14 @@ public interface TextAnnotator {
 
 	int getMargin();
 
-	void setBackgroundColor(Color color);
+	void setBackgroundColor(Color color, String tag);
 
 	Color getBackgroundColor();
 
-	void setForegroundColor(Color color);
+	void setForegroundColor(Color color, String tag);
 
 	Color getForegroundColor();
 
-	void updatePageStyle(String CSSProperty, String value);
+	void updatePageStyle(String CSSProperty, String value, String tag);
 
 }

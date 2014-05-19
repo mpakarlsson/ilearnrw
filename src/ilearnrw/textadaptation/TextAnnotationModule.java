@@ -23,7 +23,7 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	
 	// Page properties
 	private double threshold;
-	private Font font;
+	private String font;
 	private double dFontSize;
 	private int fontSize;
 	private double dLineSpacing;
@@ -45,8 +45,9 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 		
 		// Default page values
 		this.threshold = 0.10;
-		this.font = new Font("Tahoma", Font.PLAIN, 14);
+		this.font = "Tahoma";
 		this.dFontSize = 1.0;
+		this.fontSize = 14;
 		this.dLineSpacing = 1.25;
 		this.dMargin = 0.0;
 		this.backgroundColor = Color.WHITE;
@@ -56,8 +57,9 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	public TextAnnotationModule()
 	{
 		this.threshold = 0.10;
-		this.font = new Font("Tahoma", Font.PLAIN, 14);
+		this.font = "Tahoma";
 		this.dFontSize = 1.0;
+		this.fontSize = 14;
 		this.dLineSpacing = 1.25;
 		this.dMargin = 0.0;
 		this.backgroundColor = Color.WHITE;
@@ -169,12 +171,10 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 			
 			doc = org.jsoup.Jsoup.parse(text.toString());
 			
+			splitInPages();
 			
-			// Adds the appropriate attributes to the words
-			/*for (org.jsoup.nodes.Element element : doc.select("style") )
-			{
-				System.out.println(element.childNodes().get(0).attr("h1"));
-				
+			//this.updatePageStyle("margin-top", "20%", "h2");
+			
 				//element.html(element.html().replaceAll("font-family:Tahoma, Geneva, sans-serif;", "font-family:Arial;"));
 				//System.out.println(doc.select("style").first().getElementsByTag("h1"));
 				
@@ -189,25 +189,73 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 		        //child.attr("h1", element.attr("h1") +" " +"background:yellow;");
 				//System.out.println(element.attr("h1"));
 				//System.out.println(element);
-			}
-			*/
-			for (org.jsoup.nodes.Element e : doc.select("style")) {
-	            String styleRules = e.getAllElements().get(0).data().replaceAll("\n", "").trim(), delims =
-	                    "{}";
-	           java.util.StringTokenizer st = new java.util.StringTokenizer(styleRules, delims);
-	            while (st.countTokens() > 1) 
-	            {
-	                String selector = st.nextToken(), properties = st.nextToken();
-	                System.out.println(selector);
-	                // Process selectors such as "a:hover"
-	                if (selector.indexOf(":") > 0) 
-	                {
-	                    selector = selector.substring(0, selector.indexOf(":"));
-	                }
-	            }
-			}
-	                
 			
+			
+			
+			/*String style = "style";
+			
+			org.jsoup.nodes.Element style = doc.select("style").first();
+			java.util.regex.Matcher cssMatcher = java.util.regex.Pattern.compile("[h1](\\w+)\\s*[{]([^}]+)[}]").matcher(style.html());
+	        
+			while (cssMatcher.find()) 
+	        {
+	            System.out.println("Style `" + cssMatcher.group(1) + "`: " + cssMatcher.group(2));
+	            
+	            
+	        }*/
+			
+			
+	        
+				//com.steadystate.css.parser.CSSOMParser parser = new com.steadystate.css.parser.CSSOMParser();
+				//org.w3c.css.sac.InputSource source = new org.w3c.css.sac.InputSource(new java.io.StringReader(styleRules));
+				//org.w3c.dom.css.CSSRule o = parser.parseRule(source);
+			    //assertEquals("h1 { margin-top: 0cm; margin-bottom: 0cm; background: rgb(230, 230, 230) }", o.toString());
+			    
+			    //System.out.println(o);
+				//System.out.println(styleRules);
+		
+				/*java.util.StringTokenizer st = new java.util.StringTokenizer(styleRules, delims);
+				java.util.StringTokenizer inner;
+				
+				while (st.countTokens() > 1) 
+				{
+					String nextToken = st.nextToken();
+					System.out.println("Token: " +nextToken);
+					
+					if (nextToken.contains("h1"))
+					{
+						inner = new java.util.StringTokenizer(nextToken, ";");
+						
+						while (inner.hasMoreTokens()) 
+						{
+							System.out.println("Inner: " +inner.nextToken().replace("h1", "").replace("{", "").replace("}", "").trim());
+						}
+						
+					}*/
+					
+					//String selector = nextToken , properties = st.nextToken();
+					
+					
+					//System.out.println(selector);
+					// Process selectors such as "a:hover"
+					/*if (selector.indexOf(":") > 0) 
+					{
+						selector = selector.substring(0, selector.indexOf(":"));
+					}*/
+				
+
+					/*org.jsoup.select.Elements selectedElements = doc.select(selector);
+					for (org.jsoup.nodes.Element selElem : selectedElements) 
+					{
+						String oldProperties = selElem.attr(style);
+						
+						
+						//selElem.attr(style,oldProperties.length() > 0 ? concatenateProperties(oldProperties,properties) : properties);
+						
+					}*/
+				//}
+			//}
+		
 			
 			java.io.PrintWriter bw = new java.io.PrintWriter(new java.io.File(this.annotatedHTMLFile),"UTF-8");
 			bw.write(doc.html()) ;
@@ -225,6 +273,7 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 		
 	}
 	
+	
 
 	//WordClassifierInfo parseJSONFile()
 
@@ -233,6 +282,63 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	 */
 	public Map<Integer, List<String>> splitInPages()
 	{
+		String text = "This is a test. This is a test. This is a test. This is a test. This is a test. This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test. ";
+		
+		javax.swing.JFrame f = new javax.swing.JFrame("Test");
+		f.getContentPane().setLayout(new java.awt.BorderLayout());
+		
+		javax.swing.JTextArea tx = new javax.swing.JTextArea();
+		
+		tx.setPreferredSize(new java.awt.Dimension(300,300));
+		java.awt.Font font = new Font("Arial", 1, 15); // use exact font
+		tx.setFont(font);
+		tx.setWrapStyleWord(true);
+		tx.getDocument().putProperty(javax.swing.text.DefaultEditorKit.EndOfLineStringProperty, "\n");
+		
+		java.util.StringTokenizer st = new java.util.StringTokenizer(text);
+		StringBuffer sb = new StringBuffer();
+		
+		String token;
+		
+		double totalWidth = 0;
+		double wordWidth = 0;
+		double maxHeight = 0;
+		double totalMaxHeight = 0;
+		
+		java.awt.geom.AffineTransform af = new java.awt.geom.AffineTransform();     
+		java.awt.font.FontRenderContext fr = new java.awt.font.FontRenderContext(af,true,true);  
+		
+		int lineNumber = 0;
+		while (st.hasMoreTokens())
+		{
+			token = st.nextToken();
+			wordWidth = font.getStringBounds(token, fr).getWidth();
+			maxHeight = Math.max(font.getStringBounds(token, fr).getHeight(), maxHeight);
+			
+			if (totalWidth + wordWidth > 200)
+			{
+				sb.append("\n" + token + " ");
+				totalWidth = wordWidth;
+				lineNumber++;
+			}
+			else
+			{
+				totalWidth += wordWidth;
+				sb.append(token + " ");
+			}
+		}
+		
+		totalMaxHeight = lineNumber * maxHeight;
+		
+		System.out.println(totalMaxHeight);
+		System.out.println(sb.toString());
+		   
+		tx.setText(text);
+		f.add(tx,java.awt.BorderLayout.CENTER);
+		f.setSize(500, 500);
+		f.setVisible(true);
+		
+		
 		return null;
 	}
 		
@@ -251,7 +357,7 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	{
 		org.jsoup.nodes.Element element = doc.getElementById(wordID);
 		
-		setAttributeToWord(element, wordID, "color", color.toString(), start, end);
+		this.setAttributeToWord(element, wordID, "color", color.toString(), start, end);
 	}
 	
 		
@@ -262,7 +368,7 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	{
 		org.jsoup.nodes.Element element = doc.getElementById(wordID);
 		
-		removeAttributeFromWord(element, wordID, "color", start, end);
+		this.removeAttributeFromWord(element, wordID, "color", start, end);
 	}
 		
 	/**
@@ -271,7 +377,7 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	public void setWordHighlighting(String wordID, Color color, int start, int end)
 	{
 		org.jsoup.nodes.Element element = doc.getElementById(wordID);
-		setAttributeToWord(element, wordID, "background", color.toString(), start, end);
+		this.setAttributeToWord(element, wordID, "background", color.toString(), start, end);
 	}
 	
 	
@@ -284,7 +390,7 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 		for (java.util.Iterator<String> it = attributes.keySet().iterator(); it.hasNext();)
 		{
 			attribute = it.next();
-			setAttributeToWord(element, wordID, attribute, (String) attributes.get(attribute), start, end);
+			this.setAttributeToWord(element, wordID, attribute, (String) attributes.get(attribute), start, end);
 		}
 		
 	}
@@ -452,7 +558,7 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	{
 		org.jsoup.nodes.Element element = doc.getElementById(wordID);
 		
-		removeAttributeFromWord(element, wordID, "color", start, end);
+		this.removeAttributeFromWord(element, wordID, "color", start, end);
 	}
 
 	/**
@@ -498,16 +604,114 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	/**
 	 * Modifies the font face of the HTML file by applying the CSS “font-family” property.
 	 */
-	public void setTextFontFamily(Font font)
+	public void setTextFontFamily(String font, String tag)
 	{
 		this.font = font;
+		this.updatePageStyle("font-family", font, tag);
 	}
 	
+	
+	/**
+	 * Modifies the CSS values of the text
+	 * @param attribute - the attribute to be modified
+	 * @param value - the value that attribute is assigned
+	 * @param tag - the tag that will be affected
+	 */
+	public void updatePageStyle(String attribute, String value, String tag)
+	{
+		StringBuffer sb = new StringBuffer();
+		
+        for (org.jsoup.nodes.Element e : doc.select("style") )
+        { 
+            String styleRules = e.getAllElements().get(0).data();
+            
+            java.util.StringTokenizer st = new java.util.StringTokenizer(styleRules, "{}"); 
+            java.util.StringTokenizer inner;
+            String innerNextToken;
+            String stringToReplace;
+            
+            while (st.countTokens() > 1) 
+            { 
+                String selectors = st.nextToken();
+                String properties = st.nextToken();
+                sb.append(selectors + "{");
+                
+                if (selectors.contains(tag))
+                {
+                	inner = new java.util.StringTokenizer(properties);
+					
+                	if (properties.contains(attribute))
+                	{
+						while (inner.hasMoreTokens()) 
+						{
+							innerNextToken = inner.nextToken();
+							
+							if (innerNextToken.contains(attribute))
+							{
+								int start = innerNextToken.indexOf(attribute)+attribute.length()+1;
+								int end = innerNextToken.indexOf(";", start);
+								
+								if (!attribute.equals("color"))
+								{
+									stringToReplace = innerNextToken.substring(start, end);
+									innerNextToken = innerNextToken.replace(stringToReplace, value);
+								}
+								else 
+								{
+									if (innerNextToken.indexOf(attribute)>1)
+									{
+										if (innerNextToken.charAt(innerNextToken.indexOf(attribute)-1)=='-')
+										{
+											sb.append(innerNextToken);
+											continue;
+										}
+										else if (innerNextToken.charAt(innerNextToken.indexOf(attribute)-1)!='-')
+										{
+											stringToReplace = innerNextToken.substring(start, end);
+											innerNextToken = innerNextToken.replace(stringToReplace, value);
+										}
+									}
+									else
+									{
+										
+										stringToReplace = innerNextToken.substring(start, end);
+										innerNextToken = innerNextToken.replace(stringToReplace, value);
+									}
+								}
+							}
+							sb.append(innerNextToken);
+						}
+						
+                	}
+					else
+					{
+						properties = properties.substring(0, properties.length()) + " " + attribute+":"+value+";";
+						sb.append(properties);
+						
+					}	
+					sb.append("}");
+                }
+                else
+                {
+                	sb.append(properties +"}");
+                }
+            }
 
+        }
+
+       
+        for (org.jsoup.nodes.Element e : doc.select("style") )
+        { 
+            doc.html(doc.html().replace(e.getAllElements().get(0).data(), sb.toString()+"\n"));
+            System.out.println( doc.html());
+        }
+	}
+	
+	
 	/**
 	 * Returns the current font family of the HTML file.
 	 */
-	public Font getTextFontFamily()
+	public String getTextFontFamily()
 	{
 		return this.font;
 	}
@@ -515,9 +719,10 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	/**
 	 * Modifies by v% the font size of the HTML file by applying the CSS “font-size” property and annotates property the HTML file.
 	 */
-	public void setTextFontSize(double dFontSize)
+	public void setTextFontSize(double dFontSize, String tag)
 	{
 		this.dFontSize = dFontSize;
+		this.updatePageStyle("font-size", dFontSize+"%", tag);
 	}
 
 	/**
@@ -531,9 +736,10 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	/**
 	 * Sets to the font size of the HTML file, value v (in pixels) by applying the CSS “font-size” property and annotates property the HTML file.
 	 */
-	public void setTextFontSize(int fontSize)
+	public void setTextFontSize(int fontSize, String tag)
 	{
 		this.fontSize = fontSize;
+		this.updatePageStyle("font-size", dFontSize+"px", tag);
 	}
 
 	/**
@@ -548,9 +754,10 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	/**
 	 * Modifies by v% the line spacing size of the HTML file by applying the CSS “line-height” property and annotates property the HTML file
 	 */
-	public void setDoubleLineSpacing(double dLineSpacing)
+	public void setDoubleLineSpacing(double dLineSpacing, String tag)
 	{
 		this.dLineSpacing = dLineSpacing;
+		this.updatePageStyle("line-height", dFontSize+"px", tag);
 	}
 
 	/**
@@ -564,9 +771,10 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	/**
 	 * Sets to the line spacing size of the HTML file value v (in pixel) by applying the CSS “line-height” property and annotates property the HTML file.
 	 */
-	public void setIntLineSpacing(int lineSpacing)
+	public void setIntLineSpacing(int lineSpacing, String tag)
 	{
 		this.lineSpacing = lineSpacing;
+		this.updatePageStyle("line-height", dLineSpacing+"px", tag);
 	}
 
 	/**
@@ -580,9 +788,10 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	/**
 	 * Modifies by v% the margins of the HTML file by applying the CSS “margin” property and annotates property the HTML file.
 	 */
-	public void setDoubleMargin(double dMargin)
+	public void setDoubleMargin(double dMargin, String tag)
 	{
 		this.dMargin = dMargin;
+		this.updatePageStyle("margin", dMargin+"%", tag);
 	}
 
 	/**
@@ -612,9 +821,10 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	/**
 	 * Sets the background colour of the HTML file by applying the “background-color” property and annotates property the HTML file.
 	 */
-	public void setBackgroundColor(Color backgroundColor)
+	public void setBackgroundColor(Color backgroundColor, String tag)
 	{
 		this.backgroundColor = backgroundColor;
+		this.updatePageStyle("background-color", backgroundColor.toString(), tag);
 	}
 
 	/**
@@ -629,9 +839,10 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	/**
 	 * Sets the foreground colour of the HTML file by applying the “color” property and annotates property the HTML file.
 	 */
-	public void setForegroundColor(Color foregroundColor)
+	public void setForegroundColor(Color foregroundColor, String tag)
 	{
 		this.foregroundColor = foregroundColor;
+		this.updatePageStyle("color", foregroundColor.toString(), tag);
 	}
 
 	/**
@@ -642,13 +853,6 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 		return this.foregroundColor;
 	}
 
-	/**
-	 * Applies the CCS style to the HTML document
-	 */
-	public void updatePageStyle(String CSSProperty, String value)
-	{
-		
-	}
 	
 	public void setScreenWidth(int screenWidth)
 	{
@@ -700,10 +904,6 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 		
 	}
 	
-	private void setAttributeToDocument(String attribute, String value)
-	{
-		
-	}
 	
 }
 	
