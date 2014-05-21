@@ -10,6 +10,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
@@ -40,8 +41,10 @@ public class HtmlGenerator {
 	}
 	
 	private void createAll(String templateFilename){
-		LanguageAnalyzerAPI la = GreekLanguageAnalyzer.getInstance();
-		if (lc == LanguageCode.EN)
+		LanguageAnalyzerAPI la  = null;
+		if(lc == LanguageCode.GR)
+			la = GreekLanguageAnalyzer.getInstance();
+		else if (lc == LanguageCode.EN)
 			la = EnglishLanguageAnalyzer.getInstance();
 		WordVsProblems wp = new WordVsProblems(la);
 		wordSet = new UserBasedAnnotatedWordsSet();
@@ -50,49 +53,72 @@ public class HtmlGenerator {
 		int pn = tp.getParagraphsNumber();
 		int pId = 0, sId = 0, wId = 0;
 		this.html = "";
+		StringBuilder builder = new StringBuilder();
+		
+		long startTime;
+		long endTime;
+
+		startTime = System.nanoTime();
+		
 		for (int i=0; i<pn; i++){
-			this.html = this.html+"<p id = p"+(pId++)+">";
+			builder.append("<p id = p"+(pId++)+">");
 			HtmlSentence s[] = tp.getParagraph(i);
 			for (int j=0;j<s.length; j++){
-				this.html = this.html+"<sen id = s"+(sId++)+">";
+				builder.append("<sen id = s"+(sId++)+">");
 				for (int k=0; k<s[j].getNumberOfWords(); k++){
+					String word = s[j].getWord(k);
 					if (s[j].isWord(k)){
 						if (lc == LanguageCode.EN){
 							UserBasedAnnotatedWord t = new UserBasedAnnotatedWord(
-									new EnglishWord(s[j].getWord(k)), userProfile, wp);
+									new EnglishWord(word), userProfile, wp);
 							wordSet.addWord(t, wId);
 						}
 						else{
 							UserBasedAnnotatedWord t = new UserBasedAnnotatedWord(
-									new GreekWord(s[j].getWord(k)), userProfile, wp);
+									new GreekWord(word), userProfile, wp);
 							wordSet.addWord(t, wId);
 						}
-						this.html = this.html+"<w id = w"+(wId++)+">";
-						this.html = this.html+s[j].getWord(k);
-						this.html = this.html+"</w>";
+						builder.append("<w id = w"+(wId++)+">");
+						builder.append(word);
+						builder.append("</w>");
 					}
 					else 
-						this.html = this.html+s[j].getWord(k);
+						builder.append(word);
 				}
-				this.html = this.html+"</sen>";
+				builder.append("</sen>");
 			}
-			this.html = this.html+"</p>";
+			builder.append("</p>");
 		}
+		
+		endTime = System.nanoTime();
+		
+		long duration = endTime - startTime;
+		
+		System.out.println("Build body: " + (double)duration/1000000000.0);
+		System.out.println("Build body: " + TimeUnit.SECONDS.convert(duration, TimeUnit.NANOSECONDS));
+		
 		template = loadTemplate(templateFilename);
-		this.html = template.replace("???", this.html);
-		//this.html = template;
+		
+		int index = template.indexOf("???");
+		StringBuilder templateBuilder = new StringBuilder(template);
+		templateBuilder.insert(index+3 ,builder.toString());
+		templateBuilder.replace(index, index+3, "");
+		this.html = templateBuilder.toString();
 	}
 	
-	private String loadTemplate(String filename){
+	public static String loadTemplate(String filename){
 		InputStream templ;
 		templ = ResourceLoader.getInstance().getInputStream(Type.DATA, filename);
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(templ, "UTF-8"));
-			String s, result = "";
-			while ((s=br.readLine())!=null) {
-	            result = result +s+"\n";
+			String line = "";
+			StringBuilder sb = new StringBuilder();
+			
+			while((line = br.readLine()) != null){
+				sb.append(line + "\n");
 			}
-			return result;
+			br.close();
+			return sb.toString();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {

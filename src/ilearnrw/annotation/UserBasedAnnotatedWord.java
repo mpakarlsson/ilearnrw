@@ -18,6 +18,9 @@ public class UserBasedAnnotatedWord extends Word {
 	private WordVsProblems wp;
 	public UserBasedAnnotatedWord(Word w) {
 		super();
+
+		long start, end, duration;
+		start = System.nanoTime();
 		LanguageAnalyzerAPI la = null;
 		if (languageCode == languageCode.GR)
 			la = GreekLanguageAnalyzer.getInstance();
@@ -39,6 +42,12 @@ public class UserBasedAnnotatedWord extends Word {
 		super.frequency = w.getFrequency();
 		super.graphemesPhonemes = w.getGraphemesPhonemes();
 		this.userSeveritiesOnWordProblems = getProblems(w, null);
+		end = System.nanoTime();
+		
+		duration = end -start;
+		
+		double d = (double) duration / 1000000000.0;
+		System.out.println("Word: " + word + " - time: " + d);
 	}
 	public UserBasedAnnotatedWord(Word w, UserProfile userProfile, WordVsProblems wp) {
 		super();

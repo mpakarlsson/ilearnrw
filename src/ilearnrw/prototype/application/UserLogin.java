@@ -1,5 +1,6 @@
 package ilearnrw.prototype.application;
 
+import ilearnrw.annotation.HtmlGenerator;
 import ilearnrw.datalogger.ILoginProvider;
 import ilearnrw.datalogger.IProfileAccessUpdater.PendingChangesAvailable;
 import ilearnrw.datalogger.IProfileAccessUpdater.PermissionException;
@@ -53,6 +54,10 @@ public class UserLogin extends ConsoleMenuAction {
 		String problemsMatrix = user.getProfile().getUserProblems().toString();
 
 		menu.out().println(problemsMatrix);
+		
+		String str = HtmlGenerator.loadTemplate("pg76.txt");
+		
+		HtmlGenerator gen = new HtmlGenerator(str, user.getProfile(), user.getProfile().getLanguage(), "html/template.html");
 		
 		
 		

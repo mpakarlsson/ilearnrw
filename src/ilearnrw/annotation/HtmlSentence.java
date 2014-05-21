@@ -66,7 +66,7 @@ public class HtmlSentence {
 	}
 	
 	public boolean isWord(int i){
-		if (parts.length<i)
+		if (parts.length<i || parts.length == 0)
 			return false;
 		return notIn(p, parts[i].charAt(0));
 	}

@@ -35,7 +35,7 @@ public class HtmlPartsGenerator {
 		String pars[] = text.trim().split("((\\n\\n)*(\\\n)\\s)");
 		sentences = new HtmlSentence[pars.length][];
 		for (int i=0;i<pars.length; i++){
-			String tmp[] = pars[i].trim().split("(?<=(\\.)*(\\.)\\s)|(?<=(\\!)*(\\!)\\s)|(?<=(\\;)*(\\;)\\s)|(?<=(\\?)*(\\?)\\s)");
+			String tmp[] = pars[i].trim().split("(?<=(\\.)+\\s)|(?<=(\\!)+\\s)|(?<=(\\;)+\\s)|(?<=(\\?)+\\s)");			
 			sentences[i] = new HtmlSentence[tmp.length];
 			for (int j=0;j<tmp.length; j++){
 				sentences[i][j] = new HtmlSentence(tmp[j]);
