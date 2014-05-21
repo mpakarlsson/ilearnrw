@@ -18,9 +18,6 @@ public class UserBasedAnnotatedWord extends Word {
 	private WordVsProblems wp;
 	public UserBasedAnnotatedWord(Word w) {
 		super();
-
-		long start, end, duration;
-		start = System.nanoTime();
 		LanguageAnalyzerAPI la = null;
 		if (languageCode == languageCode.GR)
 			la = GreekLanguageAnalyzer.getInstance();
@@ -29,8 +26,8 @@ public class UserBasedAnnotatedWord extends Word {
 		this.wp = new WordVsProblems(la);
 		//la.setWord(w);
 		//w = la.getWord();
-		wp.insertWord(w);
-		w = wp.getWord();
+		this.wp.insertWord(w);
+		w = this.wp.getWord();
 		super.word = w.getWord();
 		super.wordUnmodified = w.getWordUnmodified();
 		super.type = w.getType();
@@ -42,12 +39,6 @@ public class UserBasedAnnotatedWord extends Word {
 		super.frequency = w.getFrequency();
 		super.graphemesPhonemes = w.getGraphemesPhonemes();
 		this.userSeveritiesOnWordProblems = getProblems(w, null);
-		end = System.nanoTime();
-		
-		duration = end -start;
-		
-		double d = (double) duration / 1000000000.0;
-		System.out.println("Word: " + word + " - time: " + d);
 	}
 	public UserBasedAnnotatedWord(Word w, UserProfile userProfile, WordVsProblems wp) {
 		super();
@@ -60,8 +51,8 @@ public class UserBasedAnnotatedWord extends Word {
 		la.setWord(w);
 		w = la.getWord();*/
 		this.wp = wp;
-		wp.insertWord(w);
-		w = wp.getWord();
+		this.wp.insertWord(w);
+		w = this.wp.getWord();
 		super.word = w.getWord();
 		super.wordUnmodified = w.getWordUnmodified();
 		super.type = w.getType();
@@ -85,8 +76,8 @@ public class UserBasedAnnotatedWord extends Word {
 		la.setWord(w);
 		w = la.getWord();*/
 		this.wp = wp;
-		wp.insertWord(w);
-		w = wp.getWord();
+		this.wp.insertWord(w, i, j);
+		w = this.wp.getWord();
 		super.word = w.getWord();
 		super.wordUnmodified = w.getWordUnmodified();
 		super.type = w.getType();
@@ -108,7 +99,6 @@ public class UserBasedAnnotatedWord extends Word {
 	}
 	
 	private ArrayList<SeverityOnWordProblemInfo> getProblems(Word w, UserProfile userProfile){
-		wp.insertWord(w);
 		ArrayList<SeverityOnWordProblemInfo> uswp = new ArrayList<SeverityOnWordProblemInfo>();
 		for (WordProblemInfo prob : wp.getMatchedProbs()){
 			SeverityOnWordProblemInfo n = new SeverityOnWordProblemInfo();
@@ -120,7 +110,6 @@ public class UserBasedAnnotatedWord extends Word {
 	
 	private ArrayList<SeverityOnWordProblemInfo> getProblems(Word w, int i, int j, 
 			UserProfile userProfile){
-		wp.insertWord(w, i, j);
 		ArrayList<SeverityOnWordProblemInfo> uswp = new ArrayList<SeverityOnWordProblemInfo>();
 		for (WordProblemInfo prob : wp.getMatchedProbs()){
 			SeverityOnWordProblemInfo n = new SeverityOnWordProblemInfo();
