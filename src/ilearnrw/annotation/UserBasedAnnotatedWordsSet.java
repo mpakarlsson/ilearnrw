@@ -1,12 +1,16 @@
 package ilearnrw.annotation;
 
+import ilearnrw.textclassification.Word;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class UserBasedAnnotatedWordsSet {
 	private ArrayList<UserBasedAnnotatedWord> words;
 	private Map<Integer, UserBasedAnnotatedWord> idCorrespondance;
+	
 	public UserBasedAnnotatedWordsSet() {
 		super();
 		this.words = new ArrayList<UserBasedAnnotatedWord>();
