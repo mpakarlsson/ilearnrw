@@ -11,11 +11,6 @@ public class Test
 		t.annotateText();
 		
 		
-		
-		
-		
-		
-		
 			//org.jsoup.nodes.Document doc = org.jsoup.Jsoup.parse(input);
 			
 			/*int i = 0;

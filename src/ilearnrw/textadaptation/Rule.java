@@ -18,7 +18,7 @@ public class Rule {
 	
 	public Rule()
 	{
-		this.presentationStyle = 5;
+		this.presentationStyle = DO_NOTHING;
 		this.textColor = Color.BLACK;
 		this.highlightingColor = null;
 		this.activated = true;

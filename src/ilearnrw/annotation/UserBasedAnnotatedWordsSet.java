@@ -16,6 +16,11 @@ public class UserBasedAnnotatedWordsSet {
 	public void setWords(ArrayList<UserBasedAnnotatedWord> words) {
 		this.words = words;
 	}
+	
+	public ArrayList<UserBasedAnnotatedWord> getWords() {
+		return this.words;
+	}
+	
 	public void addWord(UserBasedAnnotatedWord word, int id) {
 		int i;
 		for (i=0;i<words.size();i++){
@@ -27,7 +32,7 @@ public class UserBasedAnnotatedWordsSet {
 		words.add(word);
 		idCorrespondance.put(id, words.get(words.size()-1));
 	}
-	public UserBasedAnnotatedWord getWordById(int id){
+	public UserBasedAnnotatedWord obj(int id){
 		return idCorrespondance.get(id);
 	}
 	public Map<Integer, UserBasedAnnotatedWord> getIdCorrespondance() {

@@ -1,12 +1,22 @@
 package ilearnrw.textadaptation;
 
+import ilearnrw.annotation.UserBasedAnnotatedWord;
+import ilearnrw.resource.ResourceLoader;
 import ilearnrw.user.profile.UserProfile;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.List;
 import java.awt.Font;
 import java.awt.Color;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Serializable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.stream.JsonReader;
 
 class TextAnnotationModule implements TextAnnotator, Serializable{
 	
@@ -171,7 +181,34 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 			
 			doc = org.jsoup.Jsoup.parse(text.toString());
 			
-			splitInPages();
+			String JSONfile = "C:\\Users\\Fouli\\Desktop\\serverHTML\\test.json";
+			
+			
+			//br = new java.io.BufferedReader(new java.io.FileReader(new java.io.File(JSONfile)));
+			br = new java.io.BufferedReader(new java.io.FileReader(JSONfile));
+			//Object obj = null;
+			
+			Gson gson = new GsonBuilder().create();
+			//ilearnrw.annotation.UserBasedAnnotatedWordsSet pojo = gson.fromJson(br,ilearnrw.annotation.UserBasedAnnotatedWordsSet.class);
+			//InputStream inputStream = ResourceLoader.getInstance().getInputStream(ilearnrw.resource.ResourceLoader.Type., JSONfile);
+			JsonReader reader = new JsonReader(br);
+			ilearnrw.annotation.UserBasedAnnotatedWordsSet obj = gson.fromJson(reader, ilearnrw.annotation.UserBasedAnnotatedWordsSet.class);
+			
+			//System.out.println(obj.getWords().get(0));
+			reader.close();
+			
+			
+		
+		   
+		
+		    //gson.
+		    
+		    br.close();
+			
+			
+			
+			
+			//splitInPages();
 			
 			//this.updatePageStyle("margin-top", "20%", "h2");
 			
