@@ -1,15 +1,12 @@
 package ilearnrw.annotation;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
@@ -78,6 +75,7 @@ public class HtmlGenerator {
 			}
 			this.html = this.html+"</p>";
 		}
+
 		template = loadTemplate(templateFilename);
 		this.html = template.replace("???", this.html);
 		//this.html = template;
