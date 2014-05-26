@@ -1,5 +1,6 @@
 package ilearnrw.prototype.application;
 
+import ilearnrw.annotation.HtmlGenerator;
 import ilearnrw.datalogger.ILoginProvider;
 import ilearnrw.datalogger.IProfileAccessUpdater.PendingChangesAvailable;
 import ilearnrw.datalogger.IProfileAccessUpdater.PermissionException;
@@ -54,7 +55,15 @@ public class UserLogin extends ConsoleMenuAction {
 
 		menu.out().println(problemsMatrix);
 		
+		/*
+		long start = System.nanoTime();
+		String str = HtmlGenerator.loadTemplate("pg76.txt");
 		
+		HtmlGenerator gen = new HtmlGenerator(str, user.getProfile(), user.getProfile().getLanguage(), "html/template.html");
+		long end = System.nanoTime();
+		
+		System.out.println("Total time: " + (double)(end-start)/1000000000.0);
+		*/
 		
 		menu.subMenu("User: " + user.getDetails().getUsername(), new IConsoleMenuAction[] {
 				new ConsoleMenuAction("List Sessions") {
