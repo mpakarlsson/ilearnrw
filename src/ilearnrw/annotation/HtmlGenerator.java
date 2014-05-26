@@ -53,13 +53,7 @@ public class HtmlGenerator {
 		int pn = tp.getParagraphsNumber();
 		int pId = 0, sId = 0, wId = 0;
 		this.html = "";
-		StringBuilder builder = new StringBuilder();
-		
-		long startTime;
-		long endTime;
-
-		startTime = System.nanoTime();
-		
+		StringBuilder builder = new StringBuilder();		
 		for (int i=0; i<pn; i++){
 			builder.append("<p id = p"+(pId++)+">");
 			HtmlSentence s[] = tp.getParagraph(i);
@@ -90,13 +84,6 @@ public class HtmlGenerator {
 			builder.append("</p>");
 		}
 		
-		endTime = System.nanoTime();
-		
-		long duration = endTime - startTime;
-		
-		System.out.println("Build body: " + (double)duration/1000000000.0);
-		System.out.println("Build body: " + TimeUnit.SECONDS.convert(duration, TimeUnit.NANOSECONDS));
-		
 		template = loadTemplate(templateFilename);
 		
 		int index = template.indexOf("???");
@@ -106,7 +93,7 @@ public class HtmlGenerator {
 		this.html = templateBuilder.toString();
 	}
 	
-	public static String loadTemplate(String filename){
+	private String loadTemplate(String filename){
 		InputStream templ;
 		templ = ResourceLoader.getInstance().getInputStream(Type.DATA, filename);
 		try {
