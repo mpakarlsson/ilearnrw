@@ -25,3 +25,12 @@ Feature: Annotate text
         Examples:
             | key               |
             | idCorrespondance  |
+
+    Scenario: Annotate really long text
+        When i annotate the text in <data/long_en.txt>
+        Then i get valid xhtml
+        Then wordSet "<key>" exists
+
+        Examples:
+            | key               |
+            | idCorrespondance  |
