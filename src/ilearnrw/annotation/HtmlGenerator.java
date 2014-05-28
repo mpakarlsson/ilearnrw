@@ -57,19 +57,36 @@ public class HtmlGenerator {
 		for (int i=0; i<pn; i++){
 			builder.append("<p id = p"+(pId++)+">");
 			HtmlSentence s[] = tp.getParagraph(i);
+			
+			if(s == null)
+				s = new HtmlSentence[] {new HtmlSentence("\n")};
+			
 			for (int j=0;j<s.length; j++){
 				builder.append("<sen id = s"+(sId++)+">");
 				for (int k=0; k<s[j].getNumberOfWords(); k++){
 					String word = s[j].getWord(k);
 					if (s[j].isWord(k)){
 						if (lc == LanguageCode.EN){
+							EnglishWord w;
+							if(EnglishLanguageAnalyzer.dictionary.getDictionary().containsKey(word))
+								w = EnglishLanguageAnalyzer.dictionary.getDictionary().get(word);
+							else
+								w = new EnglishWord(word);
+							
+							
 							UserBasedAnnotatedWord t = new UserBasedAnnotatedWord(
-									new EnglishWord(word), userProfile, wp);
+									w, userProfile, wp);
 							wordSet.addWord(t, wId);
 						}
 						else{
+							GreekWord w;
+							//if(GreekLanguageAnalyzer.getInstance().getDictionary().contains(word))
+							//	w = (GreekWord) GreekLanguageAnalyzer.getInstance().getDictionary().get(word);
+							//else
+								w = new GreekWord(word);
+							
 							UserBasedAnnotatedWord t = new UserBasedAnnotatedWord(
-									new GreekWord(word), userProfile, wp);
+									w , userProfile, wp);
 							wordSet.addWord(t, wId);
 						}
 						builder.append("<w id = w"+(wId++)+">");
@@ -93,7 +110,7 @@ public class HtmlGenerator {
 		this.html = templateBuilder.toString();
 	}
 	
-	private String loadTemplate(String filename){
+	public static String loadTemplate(String filename){
 		InputStream templ;
 		templ = ResourceLoader.getInstance().getInputStream(Type.DATA, filename);
 		try {

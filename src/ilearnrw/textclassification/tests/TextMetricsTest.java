@@ -373,9 +373,14 @@ public class TextMetricsTest extends JFrame {
 			Word ww;
 			if (lc==LanguageCode.GR)
 				ww = new GreekWord(wordPanel.getText());
-			else 
-				ww = new EnglishWord(wordPanel.getText());
+			else {
+				String word = wordPanel.getText();
+				if(EnglishLanguageAnalyzer.dictionary.getDictionary().containsKey(word))
+					ww = EnglishLanguageAnalyzer.dictionary.getDictionary().get(word);
+				else
+					ww = new EnglishWord(word);
 			
+			}
 			upw = new UserProblemsToWord(user.getProfile(), ww, getLanguageAnalyzer(user.getProfile()));
 			wcr = upw.getWordClassificationResults();
 			wordPanel.getSmallHeatMapPanel().setClassifier(wcr);

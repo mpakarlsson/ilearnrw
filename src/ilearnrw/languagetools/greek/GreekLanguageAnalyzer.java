@@ -112,5 +112,8 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 		return LanguageCode.GR;
 	}
 
+	public GreekDictionary getDictionary(){
+		return dictionary;
+	}
 
 }
