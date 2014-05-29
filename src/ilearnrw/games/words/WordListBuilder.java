@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import ilearnrw.languagetools.english.EnglishDictionary;
-import ilearnrw.languagetools.extras.WordList;
 import ilearnrw.languagetools.extras.WordListLoader;
 import ilearnrw.textclassification.english.EnglishWord;
 import ilearnrw.textclassification.greek.GreekWord;
@@ -44,16 +43,14 @@ public class WordListBuilder {
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		WordList wl = wll.getWordList();
-		ArrayList<String> base = wl.getWords();
+		ArrayList<String> base = wll.getWordList();
 		wll = new WordListLoader();
 		try {
 			wll.load(path+"/words_for_problem_"+category+"_"+index+"_GR.txt");
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
-		wl = wll.getWordList();
-		ArrayList<String> more = wl.getWords();
+		ArrayList<String> more = wll.getWordList();
 		System.err.println(base);
 		System.err.println(more);
 		listUnion(more, base);
