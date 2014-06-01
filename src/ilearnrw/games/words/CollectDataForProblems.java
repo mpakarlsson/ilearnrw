@@ -123,7 +123,7 @@ public class CollectDataForProblems {
 					Word w = allWords[next];
 					wp.insertWord(w);
 					ArrayList<WordProblemInfo> wpi = wp.getMatchedProbs();
-					int lastProbs[] = new int[probs.getIndexLength()];
+					int lastProbs[] = new int[probs.returnIndexLength()];
 					if (bruteForce) {
 						for (WordProblemInfo pr : wpi) {
 							int x = pr.getCategory();

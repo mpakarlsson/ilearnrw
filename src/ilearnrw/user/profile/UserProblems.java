@@ -45,10 +45,10 @@ public class UserProblems implements Serializable {
 	
 	private void initialize(ProblemDefinitionIndex theProblems, boolean initializeUserSeverities){
 		this.problems = theProblems;
-		userSeverities = new UserSeverities(theProblems.getIndexLength());
+		userSeverities = new UserSeverities(theProblems.returnIndexLength());
 		
 		if(initializeUserSeverities) {
-			int idxLen = theProblems.getIndexLength();
+			int idxLen = theProblems.returnIndexLength();
 			for (int i=0; i<idxLen; i++){
 				userSeverities.constructRow(i, theProblems.getRowLength(i));
 			}
@@ -58,7 +58,7 @@ public class UserProblems implements Serializable {
 	public void loadTestGreekProblems(){
 		initialize(new ProblemDefinitionIndex(LanguageCode.GR), true);
 		Random rand = new Random();
-		for (int i=0;i<problems.getIndexLength(); i++){
+		for (int i=0;i<problems.returnIndexLength(); i++){
 			int wi =2*problems.getRowLength(i)/4 + rand.nextInt(1);
 			this.setSystemIndex(i, wi);
 			this.setTeacherIndex(i, wi);
@@ -78,7 +78,7 @@ public class UserProblems implements Serializable {
 	public void loadTestEnglishProblems() {
 		initialize(new ProblemDefinitionIndex(LanguageCode.EN), true);
 		Random rand = new Random();
-		for (int i=0;i<problems.getIndexLength(); i++){
+		for (int i=0;i<problems.returnIndexLength(); i++){
 			int wi =2*problems.getRowLength(i)/4 + rand.nextInt(1);
 			this.setSystemIndex(i, wi);
 			this.setTeacherIndex(i, wi);

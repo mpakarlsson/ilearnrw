@@ -54,7 +54,7 @@ public class WordVsProblems {
 	
 	public void checkWordAgainstMatrix(){
 		languageAnalyser.setWord(word);
-		for (int i=0;i<theProblems.getIndexLength(); i++){
+		for (int i=0;i<theProblems.returnIndexLength(); i++){
 			for (int j=0;j<theProblems.getRowLength(i); j++){
 				WordProblemInfo matches = wordMatches(i, j);
 				if (matches.found()){
@@ -66,7 +66,7 @@ public class WordVsProblems {
 	
 	public void checkWordAgainstMatrix(int i, int j){
 		languageAnalyser.setWord(word);
-		if (i<theProblems.getIndexLength() && 
+		if (i<theProblems.returnIndexLength() && 
 				j<theProblems.getRowLength(i)){
 			WordProblemInfo matches = wordMatches(i, j);
 			if (matches.found()){
@@ -78,7 +78,7 @@ public class WordVsProblems {
 	public ArrayList<WordProblemInfo> getWordProblems(){
 		ArrayList<WordProblemInfo> mp = new ArrayList<WordProblemInfo>();
 		languageAnalyser.setWord(word);
-		for (int i=0;i<theProblems.getIndexLength(); i++){
+		for (int i=0;i<theProblems.returnIndexLength(); i++){
 			for (int j=0;j<theProblems.getRowLength(i); j++){
 				WordProblemInfo matches = wordMatches(i, j);
 				if (matches.found()){
@@ -92,7 +92,7 @@ public class WordVsProblems {
 	public ArrayList<WordProblemInfo> getWordProblems(int i, int j){
 		ArrayList<WordProblemInfo> mp = new ArrayList<WordProblemInfo>();
 		languageAnalyser.setWord(word);
-		if (i<theProblems.getIndexLength() && j<theProblems.getRowLength(i)){
+		if (i<theProblems.returnIndexLength() && j<theProblems.getRowLength(i)){
 				WordProblemInfo matches = wordMatches(i, j);
 				if (matches.found()){
 					mp.add(matches);
