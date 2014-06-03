@@ -50,6 +50,9 @@ def get_user_details(step):
 @step('i get the languagecode GR')
 def get_language_code_GR(step):
     assert(world.languageCode == 'GR')
+@step('i get the languagecode EN')
+def get_language_code_GR(step):
+    assert(world.languageCode == 'EN')
 
 @step('i classify the text "(.*)"')
 def classify_english(step, text):

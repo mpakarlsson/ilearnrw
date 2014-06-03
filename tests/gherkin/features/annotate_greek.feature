@@ -17,6 +17,15 @@ Feature: Annotate text
             | key               |
             | idCorrespondance  |
 
+    Scenario: Annotate a sentence with the word Greater
+        When i annotate the text "Some are greater that others! Greater."
+        Then i get valid xhtml
+        Then wordSet "<key>" exists
+
+        Examples:
+            | key               |
+            | idCorrespondance  |
+
     Scenario: Annotate longer text
         When i annotate the text in <data/short_en.txt>
         Then i get valid xhtml
