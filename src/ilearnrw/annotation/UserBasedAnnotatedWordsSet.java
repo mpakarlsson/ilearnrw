@@ -9,12 +9,12 @@ import java.util.Map;
 
 public class UserBasedAnnotatedWordsSet {
 	private ArrayList<UserBasedAnnotatedWord> words;
-	private Map<Integer, UserBasedAnnotatedWord> idCorrespondance;
+	private Map<Integer, Integer> idCorrespondance;
 	
 	public UserBasedAnnotatedWordsSet() {
 		super();
 		this.words = new ArrayList<UserBasedAnnotatedWord>();
-		this.idCorrespondance = new HashMap<Integer, UserBasedAnnotatedWord>();
+		this.idCorrespondance = new HashMap<Integer, Integer>();
 	}
 
 	public void setWords(ArrayList<UserBasedAnnotatedWord> words) {
@@ -29,20 +29,20 @@ public class UserBasedAnnotatedWordsSet {
 		int i;
 		for (i=0;i<words.size();i++){
 			if (word.equals(words.get(i))){
-				idCorrespondance.put(id, words.get(i));
+				idCorrespondance.put(id,i);
 				return;
 			}
 		}
 		words.add(word);
-		idCorrespondance.put(id, words.get(words.size()-1));
+		idCorrespondance.put(id, words.size()-1);
 	}
-	public UserBasedAnnotatedWord obj(int id){
+	public Integer obj(int id){
 		return idCorrespondance.get(id);
 	}
-	public Map<Integer, UserBasedAnnotatedWord> getIdCorrespondance() {
+	public Map<Integer, Integer> getIdCorrespondance() {
 		return idCorrespondance;
 	}
-	public void setIdCorrespondance(Map<Integer, UserBasedAnnotatedWord> idCorrespondance) {
+	public void setIdCorrespondance(Map<Integer, Integer> idCorrespondance) {
 		this.idCorrespondance = idCorrespondance;
 	}
 	
