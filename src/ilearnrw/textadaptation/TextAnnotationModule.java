@@ -1,24 +1,46 @@
 package ilearnrw.textadaptation;
 
 import ilearnrw.annotation.UserBasedAnnotatedWord;
-import ilearnrw.resource.ResourceLoader;
+import ilearnrw.textclassification.*;
 import ilearnrw.user.profile.UserProfile;
+import ilearnrw.textadaptation.utils.*;
+import ilearnrw.annotation.*;
+import ilearnrw.annotation.AnnotatedPack;
 
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.geom.AffineTransform;
+import java.awt.font.FontRenderContext;
+import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.io.Writer;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.BufferedReader;
+import java.io.OutputStreamWriter;
+import java.nio.charset.Charset;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
 
-class TextAnnotationModule implements TextAnnotator, Serializable{
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Node;
+import org.jsoup.nodes.TextNode;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Attributes;
+import org.jsoup.nodes.Attribute;
+
+public class TextAnnotationModule implements TextAnnotator, Serializable{
 	
 	private String textFile;
 	private UserProfile profile;
@@ -26,10 +48,12 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	private String inputHTMLFile;
 	
 	private String annotatedHTMLFile;
-	private java.io.File annotatedFile;
-	private java.io.File inputFile;
+	private File annotatedFile;
+	private File inputFile;
 	
-	private org.jsoup.nodes.Document doc;
+	private Document doc;
+	
+	private AnnotatedPack jsonObject;
 	
 	// Page properties
 	private double threshold;
@@ -46,7 +70,13 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	private int screenWidth;
 	private int screenHeight;
 	
+	private boolean activatePagination;
+	
 	private static final long serialVersionUID = 1L;
+	
+	private boolean normalUser;
+	
+	private PresentationRulesModule presRules;
 	
 	public TextAnnotationModule(String textFile, UserProfile profile)
 	{
@@ -60,9 +90,17 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 		this.fontSize = 14;
 		this.dLineSpacing = 1.25;
 		this.dMargin = 0.0;
+		this.margin = 20;
 		this.backgroundColor = Color.WHITE;
 		this.foregroundColor = Color.BLACK;
+		this.jsonObject = null;
+		this.activatePagination = true;
+		this.normalUser = true;
+		this.presRules = new PresentationRulesModule(profile);
+		this.screenWidth = 200;
+		this.screenHeight = 200;
 	}
+	
 		
 	public TextAnnotationModule()
 	{
@@ -72,8 +110,21 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 		this.fontSize = 14;
 		this.dLineSpacing = 1.25;
 		this.dMargin = 0.0;
+		this.margin = 20;
 		this.backgroundColor = Color.WHITE;
 		this.foregroundColor = Color.BLACK;
+		this.jsonObject = null;
+		this.activatePagination = false;
+		this.normalUser = true;
+		this.screenWidth = 200;
+		this.screenHeight = 200;
+
+		this.presRules = new PresentationRulesModule(profile);
+	}
+	
+	public PresentationRulesModule getPresentationRulesModule()
+	{
+		return this.presRules;
 	}
 	
 	/**
@@ -156,18 +207,33 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	{
 		return annotatedHTMLFile;
 	}
-		
+	
+	
 	/**
-	 * Annotates the HTML file associated with the TextAnnotator object.
+	 * Retrieves the java object from the JSON file.
 	 */
-	public void annotateText()
+	public void retrieveJSonObject()
 	{
+		Gson gson = new GsonBuilder().create();
 		try
 		{
-			this.annotatedHTMLFile = "C:\\Users\\Fouli\\Desktop\\OutputTest.html";
-			java.io.BufferedReader br = new java.io.BufferedReader(new java.io.FileReader(new java.io.File(this.inputHTMLFile)));
-			
-			java.nio.charset.Charset.forName("UTF-8").newEncoder() ;
+			JsonReader reader = new JsonReader(new java.io.BufferedReader(new java.io.FileReader(this.getJSONFile())));
+			this.jsonObject = gson.fromJson(reader, ilearnrw.annotation.AnnotatedPack.class);
+			reader.close();
+		}
+		catch (IOException e)
+		{
+			System.err.println("Unable to write to file");
+		}
+	}
+	
+	public void readInputHTML()
+	{
+		Charset.forName("UTF-8").newEncoder() ;
+		this.annotatedHTMLFile = "C:\\Users\\Fouli\\Desktop\\OutputHTML.html";
+		try
+		{
+			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(this.inputHTMLFile), "UTF8"));
 			
 			String strLine;
 			
@@ -176,164 +242,364 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 			// Extracts the text from the HTML file
 			while ((strLine = br.readLine()) != null)
 			{
-				text.append(strLine+"\n");
+				text.append(strLine.trim()+"\n");
 			}
 			
-			doc = org.jsoup.Jsoup.parse(text.toString());
-			
-			String JSONfile = "C:\\Users\\Fouli\\Desktop\\serverHTML\\test.json";
-			
-			
-			//br = new java.io.BufferedReader(new java.io.FileReader(new java.io.File(JSONfile)));
-			br = new java.io.BufferedReader(new java.io.FileReader(JSONfile));
-			//Object obj = null;
-			
-			Gson gson = new GsonBuilder().create();
-			//ilearnrw.annotation.UserBasedAnnotatedWordsSet pojo = gson.fromJson(br,ilearnrw.annotation.UserBasedAnnotatedWordsSet.class);
-			//InputStream inputStream = ResourceLoader.getInstance().getInputStream(ilearnrw.resource.ResourceLoader.Type., JSONfile);
-			JsonReader reader = new JsonReader(br);
-			ilearnrw.annotation.UserBasedAnnotatedWordsSet obj = gson.fromJson(reader, ilearnrw.annotation.UserBasedAnnotatedWordsSet.class);
-			
-			//System.out.println(obj.getWords().get(0));
-			reader.close();
-			
-			
-		
-		   
-		
-		    //gson.
-		    
-		    br.close();
-			
-			
-			
-			
-			//splitInPages();
-			
-			//this.updatePageStyle("margin-top", "20%", "h2");
-			
-				//element.html(element.html().replaceAll("font-family:Tahoma, Geneva, sans-serif;", "font-family:Arial;"));
-				//System.out.println(doc.select("style").first().getElementsByTag("h1"));
-				
-				//String word = element.ownText();
-			    //String wordID = element.id();
-			    
-			    //element.attr("style", "color:pink;");
-		        //element.appendElement("style");
-		        
-		        
-		        //element.attr("font-family", "font-family:Arial;");
-		        //child.attr("h1", element.attr("h1") +" " +"background:yellow;");
-				//System.out.println(element.attr("h1"));
-				//System.out.println(element);
-			
-			
-			
-			/*String style = "style";
-			
-			org.jsoup.nodes.Element style = doc.select("style").first();
-			java.util.regex.Matcher cssMatcher = java.util.regex.Pattern.compile("[h1](\\w+)\\s*[{]([^}]+)[}]").matcher(style.html());
-	        
-			while (cssMatcher.find()) 
-	        {
-	            System.out.println("Style `" + cssMatcher.group(1) + "`: " + cssMatcher.group(2));
-	            
-	            
-	        }*/
-			
-			
-	        
-				//com.steadystate.css.parser.CSSOMParser parser = new com.steadystate.css.parser.CSSOMParser();
-				//org.w3c.css.sac.InputSource source = new org.w3c.css.sac.InputSource(new java.io.StringReader(styleRules));
-				//org.w3c.dom.css.CSSRule o = parser.parseRule(source);
-			    //assertEquals("h1 { margin-top: 0cm; margin-bottom: 0cm; background: rgb(230, 230, 230) }", o.toString());
-			    
-			    //System.out.println(o);
-				//System.out.println(styleRules);
-		
-				/*java.util.StringTokenizer st = new java.util.StringTokenizer(styleRules, delims);
-				java.util.StringTokenizer inner;
-				
-				while (st.countTokens() > 1) 
-				{
-					String nextToken = st.nextToken();
-					System.out.println("Token: " +nextToken);
-					
-					if (nextToken.contains("h1"))
-					{
-						inner = new java.util.StringTokenizer(nextToken, ";");
-						
-						while (inner.hasMoreTokens()) 
-						{
-							System.out.println("Inner: " +inner.nextToken().replace("h1", "").replace("{", "").replace("}", "").trim());
-						}
-						
-					}*/
-					
-					//String selector = nextToken , properties = st.nextToken();
-					
-					
-					//System.out.println(selector);
-					// Process selectors such as "a:hover"
-					/*if (selector.indexOf(":") > 0) 
-					{
-						selector = selector.substring(0, selector.indexOf(":"));
-					}*/
-				
+			doc = Jsoup.parse(text.toString());
 
-					/*org.jsoup.select.Elements selectedElements = doc.select(selector);
-					for (org.jsoup.nodes.Element selElem : selectedElements) 
-					{
-						String oldProperties = selElem.attr(style);
-						
-						
-						//selElem.attr(style,oldProperties.length() > 0 ? concatenateProperties(oldProperties,properties) : properties);
-						
-					}*/
-				//}
-			//}
-		
-			
-			java.io.PrintWriter bw = new java.io.PrintWriter(new java.io.File(this.annotatedHTMLFile),"UTF-8");
-			bw.write(doc.html()) ;
-			bw.flush();
-			
 			br.close();
-			bw.close();
 		}
-		
-		catch (java.io.IOException e)
+		catch (IOException e)
 		{
 			System.err.println("Unable to write to file");
-			System.exit(-1);
 		}
-		
 	}
 	
+	public void writeAnnotatedHTML()
+	{
+		try
+		{
+			Writer writer = new OutputStreamWriter(new FileOutputStream(this.annotatedHTMLFile), "UTF-8");
+			BufferedWriter bw = new BufferedWriter(writer);
+			bw.write(doc.outerHtml()) ;
+			bw.flush();
+			bw.close();
+		}
+		catch (IOException e)
+		{
+			System.err.println("Unable to write to file");
+		}
+	}
 	
+	public void processText()
+	{
+		// Reads words one by one and processes them according to the presentation rules.
+		Elements selectedElements = doc.select("w");
 
-	//WordClassifierInfo parseJSONFile()
+		for (Element selElem : selectedElements) 
+		{
+			FinalAnnotation f = processWord(selElem.attr("id").replace("w", ""));
+
+			selElem.text(selElem.text().replace(" ", ""));
+			String word = selElem.text();
+
+			if (f!=null)
+			{
+				String tag = Utils.translateRulesToHTMLTags(f.getRule());
+
+				if (f.getRule().getPresentationStyle() == Rule.HIGHLIGHT_WHOLE_WORD)
+				{
+					this.setWordHighlighting(selElem.attr("id"), f.getRule().getTextColor(), 0, word.length()-1);
+				}
+				else if (f.getRule().getPresentationStyle() == Rule.HIGHLIGHT_PROBLEMATIC_PARTS)
+				{
+					this.setWordHighlighting(selElem.attr("id"), f.getRule().getTextColor(), f.getStringMatchesInfo().getStart(), f.getStringMatchesInfo().getEnd());
+				}
+				else if (f.getRule().getPresentationStyle() == Rule.PAINT_WHOLE_WORD)
+				{
+					this.setWordColor(selElem.attr("id"), f.getRule().getTextColor(), 0, word.length()-1);
+				}
+				else if (f.getRule().getPresentationStyle() == Rule.PAINT_PROBLEMATIC_PARTS)
+				{
+					this.setWordColor(selElem.attr("id"), f.getRule().getTextColor(), f.getStringMatchesInfo().getStart(), f.getStringMatchesInfo().getEnd());
+				}
+			}
+		}
+	}
+		
+	/**
+	 * Annotates the HTML file associated with the TextAnnotator object.
+	 */
+	public void annotateText()
+	{
+		// Reads the input HTML file
+		this.readInputHTML();
+		
+		// Retrieve the JSON Oject
+		if (this.jsonObject==null)
+		{
+			this.retrieveJSonObject();
+		}
+		
+		// If activated, do pagination;
+		if (this.activatePagination)
+		{
+			this.splitInPages();
+		}
+		
+		// Process the words of the text
+		this.processText();
+		
+		if (this.activatePagination)
+		{
+			this.filterPage(0); // To change
+		}
+		
+		// Write to the annotated html file
+		this.writeAnnotatedHTML();
+	}
+	
+	/**
+	 * Determines how will the word will be eventually annotated if more than one rules apply in the same word.
+	 * @param wordID
+	 * @return
+	 */
+	private FinalAnnotation processWord(String wordID)
+	{
+		FinalAnnotation f = null; 
+		UserBasedAnnotatedWord word = this.jsonObject.getWordSet().getIdCorrespondance().get(new Integer(Integer.parseInt(wordID.replace("w", ""))));
+		
+		if (word!=null)
+		{
+			ArrayList<SeverityOnWordProblemInfo> wordProblems = word.getUserSeveritiesOnWordProblems();
+			
+			int category;
+			int index;
+			int userSeverity;
+			
+			if (wordProblems.size() == 1)
+			{
+				category = wordProblems.get(0).getCategory();
+				index = wordProblems.get(0).getIndex();
+				
+				userSeverity = wordProblems.get(0).getUserSeverity();
+				
+				if ((this.normalUser && userSeverity!=0) || !this.normalUser)
+				{
+					if (presRules.getRulesTable()[category][index].getActivated())
+					{
+						f = new FinalAnnotation(wordProblems.get(wordProblems.size()-1), wordProblems.get(wordProblems.size()-1).getMatched().get(0), presRules.getRulesTable()[category][index]);					
+					}
+				}
+			} 
+			else if (wordProblems.size() > 1)
+			{
+				category = wordProblems.get(wordProblems.size()-1).getCategory();
+				index = wordProblems.get(wordProblems.size()-1).getIndex();
+				
+				userSeverity = wordProblems.get(wordProblems.size()-1).getUserSeverity();
+				
+				if ((this.normalUser && userSeverity!=0) || !this.normalUser)
+				{
+					if (presRules.getRulesTable()[category][index].getActivated())
+					{
+						f = new FinalAnnotation(wordProblems.get(0), wordProblems.get(0).getMatched().get(0), presRules.getRulesTable()[category][index]);					
+					}
+				}
+			}
+			else
+			{
+				return null;
+			}
+		}
+		return f;
+	}
+
 
 	/**
 	 * Returns a Map object maintaining a list of words of each page (including multiple occurrences of each word in the same page).
 	 */
 	public Map<Integer, List<String>> splitInPages()
 	{
-		String text = "This is a test. This is a test. This is a test. This is a test. This is a test. This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test.  This is a test. ";
+		// Add <br> to define lines.
+		StringTokenizer st;
+		double totalWidth = 0;
+		double wordWidth = 0;
+		double maxHeight = 0;
+		double totalMaxHeight = 0;
+		String token;
 		
-		javax.swing.JFrame f = new javax.swing.JFrame("Test");
-		f.getContentPane().setLayout(new java.awt.BorderLayout());
+		AffineTransform af = new AffineTransform();     
+		FontRenderContext fr = new FontRenderContext(af,true,true);  
+		StringBuffer sb;
 		
-		javax.swing.JTextArea tx = new javax.swing.JTextArea();
+		Font f = new Font(font, Font.BOLD, this.fontSize);
 		
-		tx.setPreferredSize(new java.awt.Dimension(300,300));
-		java.awt.Font font = new Font("Arial", 1, 15); // use exact font
-		tx.setFont(font);
-		tx.setWrapStyleWord(true);
-		tx.getDocument().putProperty(javax.swing.text.DefaultEditorKit.EndOfLineStringProperty, "\n");
+		int lineNumber = 1;
+		int parLineNumber = 1;
 		
-		java.util.StringTokenizer st = new java.util.StringTokenizer(text);
-		StringBuffer sb = new StringBuffer();
+		double lineHeight = 0;
+		int pageLimit = 200;
+		double currentHeight = 0;
+		
+		ArrayList<Integer> linesPerParagraph = new ArrayList<Integer>();
+		Elements words;
+		Element word;
+		Element previousWord = null;
+		
+		for (Element e : doc.body().select("p"))
+		{
+			totalWidth = 0;
+			
+			for (Element sen : e.select("sen"))
+			{
+				words = sen.select("w");
+				for (int i = 0; i < words.size(); i++)
+				{
+					word = words.get(i);
+					if (i > 0)
+					{
+						previousWord = words.get(i-1);
+					}
+					wordWidth = f.getStringBounds(word.text(), fr).getWidth();
+					maxHeight = Math.max(f.getStringBounds(word.text(), fr).getHeight(), maxHeight);
+
+					if (totalWidth + wordWidth + this.margin + 20 > 600)
+					{
+						totalWidth = wordWidth;
+						lineNumber++;
+						parLineNumber++;
+						word.wrap("<br>");
+						currentHeight += maxHeight;
+						
+						if (currentHeight > pageLimit)
+						{
+							sen.wrap("<strong>");
+							currentHeight = maxHeight;
+						}
+					}
+					else
+					{
+						totalWidth += wordWidth;
+					}
+				}
+			}
+			linesPerParagraph.add(new Integer(lineNumber));
+		}
+		doc.html(doc.html().replace("</br>", ""));
+		
+		
+		/*double lineHeight = 0;
+		int pageLimit = 600;
+		java.util.ArrayList<Integer> lastParagraphInPage = new java.util.ArrayList<Integer>();
+		
+		double currentHeight = 0;
+		
+		for (int i = 0; i < linesPerParagraph.size(); i++)
+		{
+			currentHeight =  linesPerParagraph.get(i).intValue() * maxHeight;
+			
+			if (currentHeight + lineHeight > pageLimit && currentHeight < pageLimit)
+			{
+				lastParagraphInPage.add(i);
+				lineHeight = currentHeight;
+			}
+			else if (lineHeight > pageLimit && linesPerParagraph.get(i).intValue() > pageLimit) 
+			{
+				//System.out.println("I call");
+				// First paragraph does not fit in page. Have to split in sentences
+			}
+			else if (currentHeight + lineHeight < pageLimit && linesPerParagraph.size() == 1)
+			{
+				lastParagraphInPage.add(i);
+			}
+			else
+			{
+				lineHeight += currentHeight;
+			}
+		}
+		 
+		lastParagraphInPage.add(linesPerParagraph.size());
+		
+		int lastParagraph = 0;
+		int startParagraph = 0;*/
+		//System.out.println(doc.html());
+		
+		/*double lineHeight = 0;
+		int pageLimit = 200;
+		double currentHeight = 0;
+		boolean firstSentenceOfPageFound = false;
+		
+		Elements sentences = doc.select("sen");
+		Element e;
+		Element previous = null;
+		
+		int page = 0;
+		
+		sentences.get(0).wrap("<strong>");
+		sentences.get(0).html(sentences.get(0).html().replace("</strong>", ""));
+		
+		for (int i = 0; i < sentences.size(); i++)
+		{
+			e = sentences.get(i);
+			
+			if (i > 0)
+			{
+				previous = sentences.get(i-1);
+			}
+			
+			String sentence = e.html();
+			String k = "<br />";
+			
+			
+			java.util.StringTokenizer tokenizer = new java.util.StringTokenizer(sentence, k);
+			
+			
+			String[] pieces = sentence.split("<br />");
+			
+			for (int j = 0; j < pieces.length;j++)
+			{
+				System.out.println("j: " + pieces[j]);
+			}
+			
+			/*while (tokenizer.hasMoreTokens())
+			{
+				System.out.println(tokenizer.nextToken());
+			}
+			
+			if (e.html().contains("br"))
+			{
+				System.out.println("E-text(): " +e.text() + currentHeight);
+				currentHeight += maxHeight;
+				
+				if (currentHeight > pageLimit)
+				{
+					currentHeight = maxHeight;
+					firstSentenceOfPageFound = false;
+					previous.wrap("<instrong>");
+					previous.html(previous.html().replace("<instrong>", ""));
+					previous.html(previous.html().replace("</instrong>", "</strong>"));
+					e.wrap("<strong>");
+					e.html(e.html().replace("</strong>", ""));
+					page++;
+				}
+				else
+				{
+					firstSentenceOfPageFound = true;
+				}
+			}
+			
+		}*/
+		
+		
+		/*for (int i = 0; i < lastParagraphInPage.size(); i++)
+		{
+			lastParagraph =  lastParagraphInPage.get(i).intValue();
+			//String startHtml = htmlPerParagraph.get(startParagraph);
+			//String lastHtml = htmlPerParagraph.get(lastParagraph-1);
+			
+			
+			for (Element e : doc.body().select("sen"));
+			{
+				
+			}
+			//System.out.println(.get(startParagraph));
+			//System.out.println(doc.body().select("p").get(lastParagraph-1));
+			
+			//startHtml = "<page>"+startHtml;
+			
+			
+			//doc.html(doc.html().replace(startHtml, "<page>"+startHtml));
+			//doc.html(doc.html().replace(lastHtml, lastHtml + "</page>"));
+			//lastHtml = lastHtml + "</page>";
+			
+			startParagraph = lastParagraph;
+		}*/
+		
+		
+		
+		/*java.util.StringTokenizer st = new java.util.StringTokenizer(body.text());
+		StringBuffer sb = new StringBuffer("<br>");
 		
 		String token;
 		
@@ -354,7 +620,7 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 			
 			if (totalWidth + wordWidth > 200)
 			{
-				sb.append("\n" + token + " ");
+				sb.append("</br><br>" + token);
 				totalWidth = wordWidth;
 				lineNumber++;
 			}
@@ -364,37 +630,79 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 				sb.append(token + " ");
 			}
 		}
+		sb.append("</br>");
+		
 		
 		totalMaxHeight = lineNumber * maxHeight;
-		
 		System.out.println(totalMaxHeight);
-		System.out.println(sb.toString());
-		   
-		tx.setText(text);
-		f.add(tx,java.awt.BorderLayout.CENTER);
-		f.setSize(500, 500);
-		f.setVisible(true);
 		
+		if (totalMaxHeight > 100)
+		{
+			int lineHeight = 0;
+			
+			st = new java.util.StringTokenizer(sb.toString(),"</br>");
+			sb = new StringBuffer("<html><page>");
+			
+			while (st.hasMoreTokens())
+			{
+				token = st.nextToken();
+
+				if (lineHeight + maxHeight > 100 && !token.startsWith("html"))
+				{
+					sb.append("</page><page>");
+					lineHeight = 0;
+				}
+				sb.append("<br>"+token+"</br>");
+				lineHeight+=maxHeight;
+			}
+			sb.append("</page>");
+		}
+		
+		sb.append("</html>");
+		System.out.println(sb.toString());
+		
+		
+		*/
 		
 		return null;
 	}
+	
+	
 		
 	/**
 	 * Returns the next word that has to be processed in the HTML file.
 	 */
 	public String readNextWord()
 	{
+		java.util.ArrayList<String> wordsList = new java.util.ArrayList<String>();
+		
+	    java.util.StringTokenizer st = new java.util.StringTokenizer(doc.text().trim(), " . ! ; ? >> <<");
+		
+		while (st.hasMoreTokens()) 
+		{
+			String nextToken = st.nextToken();
+			if (!nextToken.equals(","))
+			{
+				wordsList.add(nextToken.replace(",", "").trim());
+			}
+		}
 		return null;
 	}
+	
+	public void activatePagination(boolean activatePagination)
+	{
+		this.activatePagination = activatePagination;
+	}
+	
 	
 	/**
 	 * The method applies the CSS “color” property to the word with id=w1, starting from index start and finishing to index end and annotates property the HTML file.
 	 */
 	public void setWordColor(String wordID, Color color, int start, int end)
 	{
-		org.jsoup.nodes.Element element = doc.getElementById(wordID);
+		Element element = doc.getElementById(wordID);
 		
-		this.setAttributeToWord(element, wordID, "color", color.toString(), start, end);
+		this.setAttributeToWord(element, wordID, "color", Utils.rgbToHEX(color), start, end);
 	}
 	
 		
@@ -403,7 +711,7 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	 */
 	public void removeWordColor(String wordID, int start, int end)
 	{
-		org.jsoup.nodes.Element element = doc.getElementById(wordID);
+		Element element = doc.getElementById(wordID);
 		
 		this.removeAttributeFromWord(element, wordID, "color", start, end);
 	}
@@ -413,14 +721,16 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	 */
 	public void setWordHighlighting(String wordID, Color color, int start, int end)
 	{
-		org.jsoup.nodes.Element element = doc.getElementById(wordID);
-		this.setAttributeToWord(element, wordID, "background", color.toString(), start, end);
+		Element element = doc.getElementById(wordID);
+		
+		this.setAttributeToWord(element, wordID, "background-color", Utils.rgbToHEX(color), start, end);
+		
 	}
 	
 	
 	public void setAttributesToWord(String wordID, java.util.Map<String, String> attributes, int start, int end)
 	{
-		org.jsoup.nodes.Element element = doc.getElementById(wordID);
+		Element element = doc.getElementById(wordID);
 		
 		String attribute = "";
 		
@@ -432,13 +742,13 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 		
 	}
 	
-	public void setAttributeToWord(org.jsoup.nodes.Element element, String wordID, String attribute, String value, int start, int end)
+	public void setAttributeToWord(Element element, String wordID, String attribute, String value, int start, int end)
 	{
-		String word = element.text();
-
+		String word = element.text().trim();
+		
 		if (end == word.length()-1 && start == 0)
 		{
-			element.attr("style", element.attr("style") +" " +attribute+";");
+			element.attr("style", element.attr("style") +" " +attribute+":"+value+";");
 		}
 		else
 		{
@@ -446,7 +756,7 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 			if (element.outerHtml().contains("span"))
 			{
 				boolean found = false;
-				for (org.jsoup.nodes.Element e : element.select("span") )
+				for (Element e : element.select("span") )
 				{
 					
 					// Checks if the desired word contains span 
@@ -462,11 +772,11 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 				{
 					for (int i = 0; i < element.childNodes().size(); i++) 
 					{
-						org.jsoup.nodes.Node child = element.childNodes().get(i);
+						Node child = element.childNodes().get(i);
 						
-						if (child instanceof org.jsoup.nodes.TextNode) 
+						if (child instanceof TextNode) 
 					    {
-							String text = ((org.jsoup.nodes.TextNode) child).text();
+							String text = ((TextNode) child).text();
 							
 							if (text.equals(element.text().substring(start, end+1)))
 							{
@@ -483,13 +793,13 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 				
 				for (int i = 0; i < element.childNodes().size(); i++) 
 				{
-					org.jsoup.nodes.Node child = element.childNodes().get(i);
+					Node child = element.childNodes().get(i);
 					child.remove();
 				}
 				
 				if (!result[0].equals(""))
 				{
-					element.appendChild(new org.jsoup.nodes.TextNode(result[0], ""));
+					element.appendChild(new TextNode(result[0], ""));
 				}
 				if (!result[1].equals(""))
 				{
@@ -497,23 +807,23 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 				}
 				if (!result[2].equals(""))
 				{
-					element.appendChild(new org.jsoup.nodes.TextNode(result[2], ""));
+					element.appendChild(new TextNode(result[2], ""));
 				}
 			}
 		}
 	}
 	
-	public void removeAttributeFromWord(org.jsoup.nodes.Element element, String wordID, String attribute, int start, int end)
+	public void removeAttributeFromWord(Element element, String wordID, String attribute, int start, int end)
 	{
 		String word = element.text();
 
 		if (end == word.length()-1 && start == 0)
 		{
-			org.jsoup.nodes.Attributes styleAtt = element.attributes();
+			Attributes styleAtt = element.attributes();
 
 			if (!styleAtt.asList().isEmpty())
 			{
-				org.jsoup.nodes.Attribute a = styleAtt.asList().get(1);
+				Attribute a = styleAtt.asList().get(1);
 			
 				if (a.getKey().equals("style"))
 				{
@@ -544,15 +854,15 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 		{
 			for (int i = 0; i < element.select("span").size(); i++ )
 			{
-				org.jsoup.nodes.Element e = element.select("span").get(i);
+				Element e = element.select("span").get(i);
 				
 				if (e.text().equals(element.text().substring(start, end+1)))
 				{
-					org.jsoup.nodes.Attributes styleAtt = e.attributes();
+					Attributes styleAtt = e.attributes();
 
 					if (!styleAtt.asList().isEmpty())
 					{
-						org.jsoup.nodes.Attribute a = styleAtt.asList().get(0);
+						Attribute a = styleAtt.asList().get(0);
 						
 						if (a.getKey().equals("style"))
 						{
@@ -562,7 +872,7 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 							
 							if (items.length == 1)
 							{
-								org.jsoup.nodes.Element clone = element.clone();
+								Element clone = element.clone();
 								e.remove();
 								element.text(clone.text());
 							}
@@ -593,7 +903,7 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	 */
 	public void removeWordHighlighting(String wordID, int start, int end)
 	{
-		org.jsoup.nodes.Element element = doc.getElementById(wordID);
+		Element element = doc.getElementById(wordID);
 		
 		this.removeAttributeFromWord(element, wordID, "color", start, end);
 	}
@@ -658,7 +968,7 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
 	{
 		StringBuffer sb = new StringBuffer();
 		
-        for (org.jsoup.nodes.Element e : doc.select("style") )
+        for (Element e : doc.select("style") )
         { 
             String styleRules = e.getAllElements().get(0).data();
             
@@ -733,11 +1043,9 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
                 	sb.append(properties +"}");
                 }
             }
-
         }
 
-       
-        for (org.jsoup.nodes.Element e : doc.select("style") )
+        for (Element e : doc.select("style") )
         { 
             doc.html(doc.html().replace(e.getAllElements().get(0).data(), sb.toString()+"\n"));
             System.out.println( doc.html());
@@ -915,21 +1223,21 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
         String middleText = "";
         String endText = "";
         
-        if (start == 0 && end != elementText.length()-1)
+        if (start == 0 && end != elementText.length()-2)
         {
-        	middleText = elementText.substring(0,end+1);
-        	endText = elementText.substring(end+1, elementText.length());
-        }
-        else if (start != 0 && end != elementText.length()-1)
-        {
-        	beforeText = elementText.substring(0,start);
-        	middleText = elementText.substring(start,end);
+        	middleText = elementText.substring(0,end);
         	endText = elementText.substring(end, elementText.length());
         }
-        else if (start != 0 && end == elementText.length()-1)
+        else if (start != 0 && end != elementText.length()-2)
         {
         	beforeText = elementText.substring(0,start);
-        	middleText = elementText.substring(start, end+1);
+        	middleText = elementText.substring(start,end-1);
+        	endText = elementText.substring(end-1, elementText.length());
+        }
+        else if (start != 0 && end == elementText.length()-2)
+        {
+        	beforeText = elementText.substring(0,start);
+        	middleText = elementText.substring(start, end);
         }
 		
         String [] result = new String[3];
@@ -938,10 +1246,7 @@ class TextAnnotationModule implements TextAnnotator, Serializable{
         result[2] = endText;
 		
 		return result;
-		
 	}
-	
-	
 }
 	
 

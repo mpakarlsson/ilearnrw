@@ -6,7 +6,7 @@ import java.awt.Color;
 
 public interface PresentationRules {
 
-	void initializePresentationRules(UserProfile profile);
+	void initializePresentationRules();
 
 	void setUserProfile(UserProfile profile);
 

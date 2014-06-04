@@ -39,13 +39,13 @@ public class UserProblemsMatrix extends JPanel {
 	private int colorMode = 0;
 	private JPanel upperPanel;
 	private AnnotationStylesPanel annotationStylesPanel;
+	private Mediator m;
 
-	public UserProblemsMatrix(User user){
+	public UserProblemsMatrix(User user, Mediator m){
 		this.user = user;
-
+		this.m = m;
 		this.data = copyMatrix(user.getProfile().getUserProblems().getUserSeverities().getSeverities());
 
-		
         descriptionsText = new JTextPane();
         descriptionsText.setEditable(false);
         descriptionsText.setBackground(Color.lightGray);
@@ -71,7 +71,7 @@ public class UserProblemsMatrix extends JPanel {
 		upperPanel.add(scrollPane, BorderLayout.CENTER);
 
 		List<Word> tmp = user.getProfile().getUserProblems().getTrickyWords();
-        annotationStylesPanel = new AnnotationStylesPanel(tmp.toArray());
+        annotationStylesPanel = new AnnotationStylesPanel(tmp.toArray(), m);
 
         JPanel wordsInfo = new JPanel(new BorderLayout());
         wordsInfo.setLayout(new BoxLayout(wordsInfo, BoxLayout.LINE_AXIS));
@@ -116,7 +116,7 @@ public class UserProblemsMatrix extends JPanel {
 		upperPanel.add(scrollPane, BorderLayout.CENTER);
 
 		List<Word> tmp = user.getProfile().getUserProblems().getTrickyWords();
-        annotationStylesPanel = new AnnotationStylesPanel(tmp.toArray());
+        annotationStylesPanel = new AnnotationStylesPanel(tmp.toArray(), m);
 
         JPanel wordsInfo = new JPanel(new BorderLayout());
         wordsInfo.setLayout(new BoxLayout(wordsInfo, BoxLayout.LINE_AXIS));
@@ -298,6 +298,9 @@ public class UserProblemsMatrix extends JPanel {
 				}
 			} 
 			setToolTipText(displayCellInfo(row, column));
+			m.setXCellCoord(row);
+			m.setYCellCoord(column);
+			System.out.println(m.getXCellCoord() + " " + m.getYCellCoord());
             return c;
         };
 	}
