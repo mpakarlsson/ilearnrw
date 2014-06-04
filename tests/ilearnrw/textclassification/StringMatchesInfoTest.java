@@ -80,7 +80,7 @@ public class StringMatchesInfoTest {
 		ArrayList<ArrayList<StringMatchesInfo>> strMatchInfo6 = new ArrayList<ArrayList<StringMatchesInfo>>();
 		ArrayList<ArrayList<StringMatchesInfo>> strMatchInfo7 = new ArrayList<ArrayList<StringMatchesInfo>>();
 		
-		for (int i = 0; i < pdIndex.getIndexLength(); i++) {
+		for (int i = 0; i < pdIndex.returnIndexLength(); i++) {
 			for (int j = 0; j < pdIndex.getRowLength(i); j++) {
 				String[] pd = pdIndex.getProblemDescription(i, j).getDescriptions();
 				ProblemType pt = pdIndex.getProblemDescription(i, j).getProblemType();
@@ -139,7 +139,7 @@ public class StringMatchesInfoTest {
 		ArrayList<ArrayList<StringMatchesInfo>> strMatchInfo6 = new ArrayList<ArrayList<StringMatchesInfo>>();
 		ArrayList<ArrayList<StringMatchesInfo>> strMatchInfo7 = new ArrayList<ArrayList<StringMatchesInfo>>();
 		
-		for (int i = 0; i < pdIndex.getIndexLength(); i++) {
+		for (int i = 0; i < pdIndex.returnIndexLength(); i++) {
 			for (int j = 0; j < pdIndex.getRowLength(i); j++) {
 				String[] pd = pdIndex.getProblemDescription(i, j).getDescriptions();
 				ProblemType pt = pdIndex.getProblemDescription(i, j).getProblemType();
@@ -189,7 +189,7 @@ public class StringMatchesInfoTest {
 		ArrayList<ArrayList<StringMatchesInfo>> strMatchInfo6 = new ArrayList<ArrayList<StringMatchesInfo>>();
 		ArrayList<ArrayList<StringMatchesInfo>> strMatchInfo7 = new ArrayList<ArrayList<StringMatchesInfo>>();
 		
-		for (int i = 0; i < pdIndex.getIndexLength(); i++) {
+		for (int i = 0; i < pdIndex.returnIndexLength(); i++) {
 			for (int j = 0; j < pdIndex.getRowLength(i); j++) {
 				String[] pd = pdIndex.getProblemDescription(i, j).getDescriptions();
 				ProblemType pt = pdIndex.getProblemDescription(i, j).getProblemType();
@@ -263,7 +263,7 @@ public class StringMatchesInfoTest {
 		
 		ArrayList<ArrayList<StringMatchesInfo>> strMatchInfo8 = new ArrayList<ArrayList<StringMatchesInfo>>();
 		
-		for (int i = 0; i < pdIndex.getIndexLength(); i++) {
+		for (int i = 0; i < pdIndex.returnIndexLength(); i++) {
 			for (int j = 0; j < pdIndex.getRowLength(i); j++) {
 				String[] pd = pdIndex.getProblemDescription(i, j).getDescriptions();
 				ProblemType pt = pdIndex.getProblemDescription(i, j).getProblemType();

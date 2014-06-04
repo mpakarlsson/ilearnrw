@@ -81,7 +81,7 @@ public class ProblemDefinitionIndex implements Serializable, ProblemDefinitionIn
 		return problems[i][j];
 	}
 	
-	public int getIndexLength(){
+	public int returnIndexLength(){
 		if (problemsIndex != null)
 			return problemsIndex.length;
 		return 0;

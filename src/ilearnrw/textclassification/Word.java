@@ -54,6 +54,7 @@ public class Word implements Serializable, Comparable {
 		type = wt;
 		cvForm = "";
 		phonetics = "";
+		stem = "";
 		languageCode = null;
 		graphemesPhonemes = new ArrayList<GraphemePhonemePair>();
 	}
@@ -115,6 +116,9 @@ public class Word implements Serializable, Comparable {
 	}
 
 	public String getWordInToSyllables() {
+		if(syllables == null)
+			syllables = new String[]{""};
+		
 		String res = "-";
 		for (int i = 0; i < syllables.length; i++) {
 			String tmp = syllables[i].toUpperCase();

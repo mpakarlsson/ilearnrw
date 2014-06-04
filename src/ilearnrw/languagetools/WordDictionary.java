@@ -29,9 +29,26 @@ public class WordDictionary {
 	public boolean contains(Word w){
 		return words.contains(w);
 	}
+	
+	public boolean contains(String w){
+		for(Word word : words){
+			if(word.getWord().equals(w))
+				return true;
+		}
+		return false;
+	}
 
 	public Word get(Word w){
 		return words.subSet(w, true, w, true).first();
+	}
+	
+	public Word get(String w){
+		for(Word word : words){
+			if(word.getWord().equals(w))
+				return word;
+		}
+		
+		return null;
 	}
 	
 	//has to   be overridden!

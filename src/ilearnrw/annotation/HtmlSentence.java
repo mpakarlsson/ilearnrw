@@ -56,8 +56,9 @@ public class HtmlSentence {
 					t = t+sentence.charAt(i++);
 				}
 			else 
-				while (i<sentence.length() && !notIn(p, sentence.charAt(i)))
+				while (i<sentence.length() && !notIn(p, sentence.charAt(i))){
 					t = t+replaceWithHtmlEntity(sentence.charAt(i++));
+				}
 			sentenceParts.add(t);
 		}
 		parts = new String[sentenceParts.size()];
@@ -68,6 +69,7 @@ public class HtmlSentence {
 	public boolean isWord(int i){
 		if (parts.length<i)
 			return false;
+		
 		return notIn(p, parts[i].charAt(0));
 	}
 	

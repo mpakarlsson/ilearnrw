@@ -1,5 +1,5 @@
 package ilearnrw.textclassification.tests.panels;
-import ilearnrw.languagetools.extras.DoubleWordList;
+import ilearnrw.languagetools.extras.EasyHardList;
 import ilearnrw.languagetools.extras.WordListLoader;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.greek.GreekWord;
@@ -323,8 +323,8 @@ public class UserProblemsHeatMapPanel extends JPanel {
     				lan = "EN";
     			try{
     				wordListLoader.load(path+"/cat"+row+"/words_"+row+"_"+column+"_"+lan+".txt");
-    				DoubleWordList dw = new DoubleWordList(wordListLoader.getWordList().getWords());
-    				ArrayList<String> w = dw.getEasyWords();
+    				EasyHardList dw = new EasyHardList(wordListLoader.getWordList());
+    				ArrayList<String> w = dw.getEasy();
     				String tmp = "";
     				int cnt = 1;
     				for (String x:w){
@@ -332,7 +332,7 @@ public class UserProblemsHeatMapPanel extends JPanel {
     					cnt++;
     				}
     				easy.setText(tmp);
-    				w = dw.getHardWords();
+    				w = dw.getHard();
     				tmp = "";
     				cnt = 1;
     				for (String x:w){
