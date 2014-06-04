@@ -6,7 +6,10 @@ public class Test
 
 	public static void main(String arg[])
 	{
+		String JSONfile = "C:\\Users\\Fouli\\Desktop\\greekText.json";
 		TextAnnotationModule t = new TextAnnotationModule();
+		
+		t.setJSONFile(JSONfile);
 		t.setInputHTMLFile("C:\\Users\\Fouli\\Desktop\\Test.html");
 		t.annotateText();
 		

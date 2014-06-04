@@ -9,17 +9,16 @@ public class Rule {
 	private Color highlightingColor;
 	private boolean activated;
 	
-	private static final int PAINT_PROBLEMATIC_PARTS = 0;
-	private static final int PAINT_WHOLE_WORD = 1;
-	private static final int HIGHLIGHT_PROBLEMATIC_PARTS = 2;
-	private static final int HIGHLIGHT_WHOLE_WORD = 3;
-	private static final int BOLD_PROBLEMATIC_PARTS = 4;
-	private static final int DO_NOTHING = 5;
+	public static final int PAINT_PROBLEMATIC_PARTS = 0;
+	public static final int PAINT_WHOLE_WORD = 1;
+	public static final int HIGHLIGHT_PROBLEMATIC_PARTS = 2;
+	public static final int HIGHLIGHT_WHOLE_WORD = 3;
+	public static final int DO_NOTHING = 4;
 	
 	public Rule()
 	{
-		this.presentationStyle = DO_NOTHING;
-		this.textColor = Color.BLACK;
+		this.presentationStyle = HIGHLIGHT_WHOLE_WORD;
+		this.textColor = Color.YELLOW;
 		this.highlightingColor = null;
 		this.activated = true;
 	}
@@ -68,6 +67,11 @@ public class Rule {
 	public boolean getActivated()
 	{
 		return this.activated;
+	}
+	
+	public String toString()
+	{
+		return this.presentationStyle + " " + this.textColor +" " + this.highlightingColor +" " + this.activated;
 	}
 	
 }

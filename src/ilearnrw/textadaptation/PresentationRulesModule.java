@@ -18,16 +18,17 @@ public class PresentationRulesModule implements PresentationRules, Serializable{
 	public PresentationRulesModule(UserProfile profile)
 	{
 		this.profile = profile;
-		initializePresentationRules(this.profile);
+		initializePresentationRules();
 	}
 	
 	
 	/**
 	 * Initializes a Presentation Rules object based on a user's profile.
 	 */
-	public void initializePresentationRules(UserProfile profile){
+	public void initializePresentationRules(){
 		
 		UserProblems userProblems = this.profile.getUserProblems();
+		
 		int[][] severities = userProblems.getUserSeverities().getSeverities();
 		rulesTable = new Rule[severities.length][];
 		
@@ -44,6 +45,11 @@ public class PresentationRulesModule implements PresentationRules, Serializable{
 				rulesTable[i][j] = new Rule();
 			}
 		}
+	}
+	
+	public Rule[][] getRulesTable()
+	{
+		return this.rulesTable;
 	}
 
 	/**
@@ -127,8 +133,4 @@ public class PresentationRulesModule implements PresentationRules, Serializable{
 		return rulesTable[i][j].getActivated();
 	}
 	
-	
-	
-	
-
 }

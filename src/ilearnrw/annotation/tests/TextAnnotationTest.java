@@ -3,7 +3,10 @@ package ilearnrw.annotation.tests;
 import ilearnrw.datalogger.IUserAdministration.AuthenticationException;
 import ilearnrw.datalogger.UserStore;
 import ilearnrw.user.User;
+import ilearnrw.user.profile.UserProfile;
 import ilearnrw.utils.LanguageCode;
+import ilearnrw.textadaptation.TextAnnotationModule;
+import ilearnrw.textadaptation.PresentationRulesModule;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -32,8 +35,13 @@ public class TextAnnotationTest extends JFrame {
 	private JLabel languageLabel;
 	private	UserProblemsMatrix userProblemsMatrix;
 	private User user;
-
+	
+	private TextAnnotationModule txModule;
+	private PresentationRulesModule rulesModule;
+	private Mediator m;
+	
 	private static UserStore mUserStore = null;
+	
 	final class UserListBoxWrapper {
 		public UserListBoxWrapper(User u) {
 			user = u;
@@ -57,6 +65,9 @@ public class TextAnnotationTest extends JFrame {
 			mUserStore = new UserStore(databaseFile);
 			/* We have to auth as admin to access the database.*/
 			mUserStore.authenticateAdmin("ilearn");
+			
+			
+			
 		} catch (Exception e) {
 			/* Could not load any users, no point to continue.*/
 			e.printStackTrace();
@@ -73,7 +84,7 @@ public class TextAnnotationTest extends JFrame {
 			}
 		});
 	}
-	
+
 
 	/**
 	 * Create the frame.
@@ -81,20 +92,33 @@ public class TextAnnotationTest extends JFrame {
 	public TextAnnotationTest() {
 
 		languageLabel = new JLabel();
+
+		m = new Mediator();
 		
 		/*Fill the user ComboBox*/
 		try {
 			for( User u : mUserStore.getAllUsers() ){
 				mUserStore.update(u);
 			}
-			
+
 			for( User u : mUserStore.getAllUsers() )
 				userCombobox.addItem(new UserListBoxWrapper(u));
-				
+
 			/*Select the first user.*/
 			user = mUserStore.getAllUsers().get(0);
 			userCombobox.setSelectedIndex(0);
 			updateLanguageLabel();
+
+			m.setProfile(user.getProfile());
+			this.txModule = new TextAnnotationModule("C:\\Users\\Fouli\\Desktop\\Input-2.html", user.getProfile());
+			//System.out.println(this.txModule.getTextFile());
+			this.rulesModule = new PresentationRulesModule(user.getProfile());
+			m.setTextAnnotationModule(txModule);
+			m.setPresentationRulesModule(rulesModule);
+			
+			System.out.println(this.rulesModule.getRulesTable()[0][1]);
+			
+			
 		} catch (Exception ex){
 			ex.printStackTrace();
 		}
@@ -135,20 +159,20 @@ public class TextAnnotationTest extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 
-		userProblemsMatrix = new UserProblemsMatrix(user);
+		userProblemsMatrix = new UserProblemsMatrix(user, m);
 		userProblemsMatrix.setColorMode(getColorMode());
-		
-		
+
+
 		// TODO change the 2 following rows / send them inside the UserSeveritiesHeatMapPanel class
 		userProblemsMatrix.draw();
 		userProblemsMatrix.test();
 
 		contentPane.add(userProblemsMatrix, BorderLayout.CENTER );
-		
-		
+
+
 		JToolBar toolBar = new JToolBar();
 		contentPane.add(toolBar, BorderLayout.NORTH);
-		
+
 		JButton exitButton = new JButton("Exit");
 		exitButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -159,8 +183,8 @@ public class TextAnnotationTest extends JFrame {
 		toolBar.add(exitButton);
 		toolBar.addSeparator();
 
-		
-		
+
+
 		JButton saveButton = new JButton("Save User");
 		saveButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -181,11 +205,11 @@ public class TextAnnotationTest extends JFrame {
 		toolBar.add(saveButton);
 
 		toolBar.addSeparator();
-		
+
 		toolBar.add(new JLabel("Select User:"));
 		toolBar.add(userCombobox);
 	}
-	
+
 	private boolean updateLanguageLabel(){
 		boolean result = false;
 		if (lc == null || lc!=user.getProfile().getLanguage())
@@ -199,17 +223,17 @@ public class TextAnnotationTest extends JFrame {
 		}
 		return result;
 	}
-	
+
 	private int getColorMode(){
-  	  String t = "";
-  	  try {
-  		  t = new Scanner( new File("params/colors.txt")).useDelimiter("\\A").next();
-  	  } catch (FileNotFoundException e1) {
-  		  System.out.println(e1.toString());
-  		  return 0;
-  	  }
-  	  if (t.contains("1"))
-  		  return 1;
-  	  return 0;
+		String t = "";
+		try {
+			t = new Scanner( new File("params/colors.txt")).useDelimiter("\\A").next();
+		} catch (FileNotFoundException e1) {
+			System.out.println(e1.toString());
+			return 0;
+		}
+		if (t.contains("1"))
+			return 1;
+		return 0;
 	}
 }
