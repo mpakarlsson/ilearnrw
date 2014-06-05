@@ -91,13 +91,13 @@ public class UserBasedAnnotatedWord extends Word {
 		}
 	}*/
 	
-	/*public ArrayList<SeverityOnWordProblemInfo> getUserSeveritiesOnWordProblems() {
+	public ArrayList<SeverityOnWordProblemInfo> getUserSeveritiesOnWordProblems() {
 		return userSeveritiesOnWordProblems;
 	}
 	public void setWordProblems(ArrayList<SeverityOnWordProblemInfo> userSeveritiesOnWordProblems) {
 		this.userSeveritiesOnWordProblems = userSeveritiesOnWordProblems;
 	}
-	*/
+	
 	private ArrayList<SeverityOnWordProblemInfo> getProblems(Word w, UserProfile userProfile){
 		ArrayList<SeverityOnWordProblemInfo> uswp = new ArrayList<SeverityOnWordProblemInfo>();
 		for (WordProblemInfo prob : wp.getMatchedProbs()){
