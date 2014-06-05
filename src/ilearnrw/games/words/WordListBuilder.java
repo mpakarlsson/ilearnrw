@@ -72,7 +72,7 @@ public class WordListBuilder {
 		for (String x:more){
 			if (base.contains(x))
 				continue;
-			GreekWord w = new GreekWord(x);
+			//GreekWord w = new GreekWord(x);
 			//if (w.getNumberOfSyllables()>=3)
 				base.add(x);
 			if (base.size() == wordsToAppend)

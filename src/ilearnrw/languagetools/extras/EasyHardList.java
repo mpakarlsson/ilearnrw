@@ -34,9 +34,11 @@ public class EasyHardList {
 		return hard;
 	}
 
-	public void setWords(ArrayList<String> words) {
+	private void setWords(ArrayList<String> words) {
 		boolean easy = true;
 		for (String x:words){
+			if (x.isEmpty())
+				continue;
 			if (x.startsWith("###")){
 				easy = false;
 				continue;
