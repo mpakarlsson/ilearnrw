@@ -139,3 +139,13 @@ def check_redirect(step, url):
         ''' % (expected, world.br.geturl()))
 
                     
+@step('i fetch the profile i get valid json')
+def fetch_profile(step):
+    url = ilurl('profile?userId={userid}&token={token}',
+            userid=world.userId,
+            token=world.authToken)
+    result = requests.get(url)
+    if result.status_code != 200:
+        raise Exception("Did not get status 200, got: %s: %s" %
+                (result.status_code, result.json()))
+    world.profile = result.json()
