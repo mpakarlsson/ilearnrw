@@ -10,6 +10,10 @@ public enum LanguageCode {
 	}
 	
 	public static LanguageCode fromString(String languageCode) {
+		if (languageCode == null)
+			// default is EN
+			return EN;
+		
 		if (languageCode.compareToIgnoreCase("EN") == 0) {
 			return EN;
 		}
