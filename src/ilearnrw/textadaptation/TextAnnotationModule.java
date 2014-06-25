@@ -127,6 +127,17 @@ public class TextAnnotationModule implements TextAnnotator, Serializable{
 		return this.presRules;
 	}
 	
+	public void sendTextToServer()
+	{
+		// Chris: Add your code here
+	}
+	
+	public String getResultFromServer()
+	{
+		// Chris: Add your code here
+		return null;
+	}
+	
 	/**
 	 * Sets a text file to the TextAnnotator object	
 	 */
