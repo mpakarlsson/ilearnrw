@@ -16,13 +16,13 @@ public interface PresentationRules {
 
 	int getPresentationRule(int i, int j);
 
-	void setTextColor(int i, int j, Color color);
+	void setTextColor(int i, int j, String color);
 	
-	Color getTextColor(int i, int j);	
+	String getTextColor(int i, int j);	
 
-	void setHighlightingColor(int i, int j, Color color);
+	void setHighlightingColor(int i, int j, String color);
 
-	Color getHighlightingColor(int i, int j);
+	String getHighlightingColor(int i, int j);
 
 	void setActivated(int i, int j, boolean flag);
 

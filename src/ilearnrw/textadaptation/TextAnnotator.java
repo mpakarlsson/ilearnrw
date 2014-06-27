@@ -33,11 +33,11 @@ public interface TextAnnotator {
 	
 	String readNextWord();
 	
-	void setWordColor(String wordId, Color color, int start, int end);
+	void setWordColor(String wordId, String color, int start, int end);
 	
 	void removeWordColor(String wordId, int start, int end);
 	
-	void setWordHighlighting(String wordId, Color color, int start, int end);
+	void setWordHighlighting(String wordId, String color, int start, int end);
 	
 	void removeWordHighlighting(String wordId, int start, int end);
 
@@ -79,13 +79,13 @@ public interface TextAnnotator {
 
 	int getMargin();
 
-	void setBackgroundColor(Color color, String tag);
+	void setBackgroundColor(String color, String tag);
 
-	Color getBackgroundColor();
+	String getBackgroundColor();
 
-	void setForegroundColor(Color color, String tag);
+	void setForegroundColor(String color, String tag);
 
-	Color getForegroundColor();
+	String getForegroundColor();
 
 	void updatePageStyle(String CSSProperty, String value, String tag);
 

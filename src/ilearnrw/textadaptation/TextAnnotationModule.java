@@ -68,8 +68,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	private int lineSpacing;
 	private double dMargin;
 	private int margin;
-	private Color backgroundColor;
-	private Color foregroundColor;
+	private String backgroundColor;
+	private String foregroundColor;
 
 	private int screenWidth;
 	private int screenHeight;
@@ -94,8 +94,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		this.dLineSpacing = 1.25;
 		this.dMargin = 0.0;
 		this.margin = 20;
-		this.backgroundColor = Color.WHITE;
-		this.foregroundColor = Color.BLACK;
+		this.backgroundColor = "#FFFFFF"; //color white
+		this.foregroundColor = "#080808"; //color black
 		this.jsonObject = null;
 		this.activatePagination = false;
 		this.normalUser = true;
@@ -112,8 +112,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		this.dLineSpacing = 1.25;
 		this.dMargin = 0.0;
 		this.margin = 20;
-		this.backgroundColor = Color.WHITE;
-		this.foregroundColor = Color.BLACK;
+		this.backgroundColor = "#FFFFFF"; //color white
+		this.foregroundColor = "#080808"; //color black
 		this.jsonObject = null;
 		this.activatePagination = false;
 		this.normalUser = true;
@@ -127,14 +127,37 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		return this.presRules;
 	}
 
-	public void sendPostToServer(String token) throws Exception
+	public void sendPostToServer(String token)
 	{
-		String resp = ServerHelperClass.sendPost("text/annotate?userId=" + profile.getLanguage() + "&lc=GR&token=" + token, this.textFile);
-
-		//PrintWriter printWriter = new PrintWriter("response.json");
-		//printWriter.println(resp);
-		//printWriter.close();
-		this.JSONFileName = resp;
+		String tokenParams;
+		int language;
+		if (profile.getLanguage() == ilearnrw.utils.LanguageCode.EN)
+		{
+			tokenParams = "&lc=EN&token=";
+			language = 1;
+			
+		}
+		else
+		{
+			tokenParams = "&lc=GR&token=";
+			language = 5;
+		}
+		try
+		{
+			String resp = ServerHelperClass.sendPost("text/annotate?userId=" + language + tokenParams + token, this.textFile);
+		
+			
+			//PrintWriter printWriter = new PrintWriter("response.json");
+			//printWriter.println(resp);
+			//printWriter.close();
+			this.JSONFileName = resp;
+		}
+		catch (Exception e)
+		{
+			
+		}
+		
+		
 	}
 	
 	/**
@@ -213,10 +236,9 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	public void retrieveJSonObject() {
 		Gson gson = new GsonBuilder().create();
 		try {
-			JsonReader reader = new JsonReader(new java.io.BufferedReader(
-					new java.io.FileReader(this.getJSONFile())));
-			this.jsonObject = gson.fromJson(reader,
-					ilearnrw.annotation.AnnotatedPack.class);
+			//JsonReader reader = new JsonReader(new java.io.BufferedReader(new java.io.FileReader(this.getJSONFile())));
+			JsonReader reader = new JsonReader(new java.io.StringReader(this.getJSONFile()));
+			this.jsonObject = gson.fromJson(reader, ilearnrw.annotation.AnnotatedPack.class);
 			reader.close();
 		} catch (IOException e) {
 			System.err.println("Unable to write to file");
@@ -251,8 +273,10 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	}
 
 	public void writeAnnotatedHTML() {
-		try {
-			Writer writer = new OutputStreamWriter(new FileOutputStream(
+		this.annotatedHTMLFile = doc.html().toString();
+		//removeExtraWhiteSpaces();
+		/*try {
+			/*Writer writer = new OutputStreamWriter(new FileOutputStream(
 					this.annotatedHTMLFile), "UTF-8");
 			BufferedWriter bw = new BufferedWriter(writer);
 			// doc.text(doc.text().replaceAll("",""));
@@ -262,15 +286,19 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 			bw.flush();
 			bw.close();
 			
-			//this.annotatedHTMLFile = doc.html().toString();
+			this.annotatedHTMLFile = doc.html().toString();
 
 			removeExtraWhiteSpaces();
 		} catch (IOException e) {
 			System.err.println("Unable to write to file");
-		}
+		}*/
 	}
 
 	public void removeExtraWhiteSpaces() {
+		//To do
+	}
+	
+	/*public void removeExtraWhiteSpaces() {
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(
 					new FileInputStream(this.annotatedHTMLFile), "UTF8"));
@@ -302,8 +330,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		} catch (IOException e) {
 			System.err.println("Unable to write to file");
 		}
-
-	}
+	}*/
 
 	public void processText() {
 		// Reads words one by one and processes them according to the
@@ -318,8 +345,6 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 			System.out.println(word);
 
 			if (f != null) {
-				String tag = Utils.translateRulesToHTMLTags(f.getRule());
-
 				if (f.getRule().getPresentationStyle() == Rule.HIGHLIGHT_WHOLE_WORD) {
 					this.setWordHighlighting(selElem.attr("id"), f.getRule()
 							.getTextColor(), 0, word.length() - 1);
@@ -664,11 +689,10 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	 * starting from index start and finishing to index end and annotates
 	 * property the HTML file.
 	 */
-	public void setWordColor(String wordID, Color color, int start, int end) {
+	public void setWordColor(String wordID, String color, int start, int end) {
 		Element element = doc.getElementById(wordID);
 
-		this.setAttributeToWord(element, wordID, "color",
-				Utils.rgbToHEX(color), start, end);
+		this.setAttributeToWord(element, wordID, "color", color, start, end);
 	}
 
 	/**
@@ -686,12 +710,11 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	 * starting from index start and finishing to index end and annotates
 	 * property the HTML file.
 	 */
-	public void setWordHighlighting(String wordID, Color color, int start,
+	public void setWordHighlighting(String wordID, String color, int start,
 			int end) {
 		Element element = doc.getElementById(wordID);
 
-		this.setAttributeToWord(element, wordID, "background-color",
-				Utils.rgbToHEX(color), start, end);
+		this.setAttributeToWord(element, wordID, "background-color", color, start, end);
 
 	}
 
@@ -1102,16 +1125,15 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	 * Sets the background colour of the HTML file by applying the
 	 * “background-color” property and annotates property the HTML file.
 	 */
-	public void setBackgroundColor(Color backgroundColor, String tag) {
+	public void setBackgroundColor(String backgroundColor, String tag) {
 		this.backgroundColor = backgroundColor;
-		this.updatePageStyle("background-color", backgroundColor.toString(),
-				tag);
+		this.updatePageStyle("background-color", backgroundColor,tag);
 	}
 
 	/**
 	 * Returns the current background colour of the HTML file.
 	 */
-	public Color getBackgroundColor() {
+	public String getBackgroundColor() {
 		return this.backgroundColor;
 	}
 
@@ -1119,15 +1141,15 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	 * Sets the foreground colour of the HTML file by applying the “color”
 	 * property and annotates property the HTML file.
 	 */
-	public void setForegroundColor(Color foregroundColor, String tag) {
+	public void setForegroundColor(String foregroundColor, String tag) {
 		this.foregroundColor = foregroundColor;
-		this.updatePageStyle("color", foregroundColor.toString(), tag);
+		this.updatePageStyle("color", foregroundColor, tag);
 	}
 
 	/**
 	 * Returns the current foreground colour of the HTML file.
 	 */
-	public Color getForegroundColor() {
+	public String getForegroundColor() {
 		return this.foregroundColor;
 	}
 
