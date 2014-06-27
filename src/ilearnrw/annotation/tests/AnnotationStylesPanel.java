@@ -161,11 +161,11 @@ public class AnnotationStylesPanel extends JPanel{
 		
 		public void actionPerformed(java.awt.event.ActionEvent e)
         {
-			String JSONfile = "C:\\Users\\Fouli\\Desktop\\greekText.json";
+			String JSONfile = "C:\\Users\\Fouli\\Desktop\\response.json";
 			TextAnnotationModule t = new TextAnnotationModule("", m.getUserProfile());
 			
 			t.setJSONFile(JSONfile);
-			t.setInputHTMLFile("C:\\Users\\Fouli\\Desktop\\Input-2.html");
+			t.setInputHTMLFile("C:\\Users\\Fouli\\Desktop\\Input-1.html");
 			t.annotateText();
         }
 	}
