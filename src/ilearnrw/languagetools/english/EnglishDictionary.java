@@ -46,7 +46,7 @@ public class EnglishDictionary {
 	public void loadDictionary(String fileName) {
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(
-					new FileInputStream(fileName), "UTF-8"));
+					ResourceLoader.getInstance().getInputStream(Type.DATA, fileName), "UTF-8"));
 
 			String strLine;
 			// Read File Line By Line

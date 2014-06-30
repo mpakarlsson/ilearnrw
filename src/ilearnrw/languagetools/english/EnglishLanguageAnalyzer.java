@@ -15,7 +15,7 @@ public class EnglishLanguageAnalyzer implements LanguageAnalyzerAPI{
 	protected EnglishLanguageAnalyzer() {
 		dictionary = EnglishDictionary.getInstance();
 		if(dictionary.getDictionary().isEmpty())
-			dictionary.loadDictionary("data/dictionary_english.csv");
+			dictionary.loadDictionary("dictionary_english.csv");
 	}
 	
 	public static EnglishLanguageAnalyzer getInstance(){
