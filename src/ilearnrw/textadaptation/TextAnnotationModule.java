@@ -68,8 +68,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	private int lineSpacing;
 	private double dMargin;
 	private int margin;
-	private String backgroundColor;
-	private String foregroundColor;
+	private int backgroundColor;
+	private int foregroundColor;
 
 	private int screenWidth;
 	private int screenHeight;
@@ -94,8 +94,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		this.dLineSpacing = 1.25;
 		this.dMargin = 0.0;
 		this.margin = 20;
-		this.backgroundColor = "#FFFFFF"; //color white
-		this.foregroundColor = "#080808"; //color black
+		this.backgroundColor = 0xFFFFFF; //color white
+		this.foregroundColor =  0xffff0000; //color black
 		this.jsonObject = null;
 		this.activatePagination = false;
 		this.normalUser = true;
@@ -112,8 +112,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		this.dLineSpacing = 1.25;
 		this.dMargin = 0.0;
 		this.margin = 20;
-		this.backgroundColor = "#FFFFFF"; //color white
-		this.foregroundColor = "#080808"; //color black
+		this.backgroundColor = 0xFFFFFF; //color white
+		this.foregroundColor =  0xffff0000; //color black
 		this.jsonObject = null;
 		this.activatePagination = false;
 		this.normalUser = true;
@@ -127,9 +127,10 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		return this.presRules;
 	}
 
-	public void sendPostToServer(String token)
+	public String sendPostToServer(String token, String input)
 	{
 		String tokenParams;
+		String resp = "No resp";
 		int language;
 		if (profile.getLanguage() == ilearnrw.utils.LanguageCode.EN)
 		{
@@ -144,9 +145,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		}
 		try
 		{
-			String resp = ServerHelperClass.sendPost("text/annotate?userId=" + language + tokenParams + token, this.textFile);
-		
-			
+			resp = ServerHelperClass.sendPost(input+token, this.textFile);
 			//PrintWriter printWriter = new PrintWriter("response.json");
 			//printWriter.println(resp);
 			//printWriter.close();
@@ -154,9 +153,9 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		}
 		catch (Exception e)
 		{
-			
+			resp = "Nothing";
 		}
-		
+		return resp;
 		
 	}
 	
@@ -689,10 +688,10 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	 * starting from index start and finishing to index end and annotates
 	 * property the HTML file.
 	 */
-	public void setWordColor(String wordID, String color, int start, int end) {
+	public void setWordColor(String wordID, int color, int start, int end) {
 		Element element = doc.getElementById(wordID);
 
-		this.setAttributeToWord(element, wordID, "color", color, start, end);
+		this.setAttributeToWord(element, wordID, "color", color+"", start, end);
 	}
 
 	/**
@@ -710,11 +709,11 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	 * starting from index start and finishing to index end and annotates
 	 * property the HTML file.
 	 */
-	public void setWordHighlighting(String wordID, String color, int start,
+	public void setWordHighlighting(String wordID, int color, int start,
 			int end) {
 		Element element = doc.getElementById(wordID);
 
-		this.setAttributeToWord(element, wordID, "background-color", color, start, end);
+		this.setAttributeToWord(element, wordID, "background-color", color+"", start, end);
 
 	}
 
@@ -1125,15 +1124,15 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	 * Sets the background colour of the HTML file by applying the
 	 * “background-color” property and annotates property the HTML file.
 	 */
-	public void setBackgroundColor(String backgroundColor, String tag) {
+	public void setBackgroundColor(int backgroundColor, String tag) {
 		this.backgroundColor = backgroundColor;
-		this.updatePageStyle("background-color", backgroundColor,tag);
+		this.updatePageStyle("background-color", backgroundColor+"",tag);
 	}
 
 	/**
 	 * Returns the current background colour of the HTML file.
 	 */
-	public String getBackgroundColor() {
+	public int getBackgroundColor() {
 		return this.backgroundColor;
 	}
 
@@ -1141,15 +1140,15 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	 * Sets the foreground colour of the HTML file by applying the “color”
 	 * property and annotates property the HTML file.
 	 */
-	public void setForegroundColor(String foregroundColor, String tag) {
+	public void setForegroundColor(int foregroundColor, String tag) {
 		this.foregroundColor = foregroundColor;
-		this.updatePageStyle("color", foregroundColor, tag);
+		this.updatePageStyle("color", foregroundColor+"", tag);
 	}
 
 	/**
 	 * Returns the current foreground colour of the HTML file.
 	 */
-	public String getForegroundColor() {
+	public int getForegroundColor() {
 		return this.foregroundColor;
 	}
 
