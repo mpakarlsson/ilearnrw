@@ -82,9 +82,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 
 	private PresentationRulesModule presRules;
 
-	public TextAnnotationModule(String textFile, UserProfile profile) {
+	public TextAnnotationModule(String textFile) {
 		this.textFile = textFile;
-		this.profile = profile;
 
 		// Default page values
 		this.threshold = 0.10;
@@ -99,7 +98,6 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		this.jsonObject = null;
 		this.activatePagination = false;
 		this.normalUser = true;
-		this.presRules = new PresentationRulesModule(profile);
 		this.screenWidth = 200;
 		this.screenHeight = 200;
 	}
@@ -119,9 +117,22 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		this.normalUser = true;
 		this.screenWidth = 200;
 		this.screenHeight = 200;
-
+	}
+	
+	public void initializePresentationModuleFromServer(String token, String userID)
+	{
+		// Add here...
+		
+		
+		//this.profile = afto pou tha pareis
 		this.presRules = new PresentationRulesModule(profile);
 	}
+	
+	public void initializePresentationModule()
+	{
+		this.presRules = new PresentationRulesModule(profile);
+	}
+	
 
 	public PresentationRulesModule getPresentationRulesModule() {
 		return this.presRules;
@@ -274,7 +285,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 
 	public void writeAnnotatedHTML() {
 		this.annotatedHTMLFile = doc.html().toString();
-		//removeExtraWhiteSpaces();
+		removeExtraWhiteSpaces();
 		/*try {
 			/*Writer writer = new OutputStreamWriter(new FileOutputStream(
 					this.annotatedHTMLFile), "UTF-8");
