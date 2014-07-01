@@ -18,17 +18,9 @@ import java.util.Map;
 public class EnglishDictionary {
 
 	private Map<String, EnglishWord> dictionary;
-	private static EnglishDictionary instance = null;
 
 	protected EnglishDictionary() {
 		dictionary = new HashMap<String, EnglishWord>();
-	}
-
-	public static EnglishDictionary getInstance() {
-		if (instance == null)
-			instance = new EnglishDictionary();
-
-		return instance;
 	}
 
 	public Map<String, EnglishWord> getDictionary() {
@@ -46,7 +38,7 @@ public class EnglishDictionary {
 	public void loadDictionary(String fileName) {
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(
-					new FileInputStream(fileName), "UTF-8"));
+					ResourceLoader.getInstance().getInputStream(Type.DATA, fileName), "UTF-8"));
 
 			String strLine;
 			// Read File Line By Line

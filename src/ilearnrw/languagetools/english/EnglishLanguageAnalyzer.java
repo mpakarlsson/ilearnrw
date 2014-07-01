@@ -10,17 +10,20 @@ public class EnglishLanguageAnalyzer implements LanguageAnalyzerAPI{
 	
 	private Word word;
 	private static EnglishLanguageAnalyzer instance = null;
-	public static EnglishDictionary dictionary;
+	private EnglishDictionary dictionary 			= null;
 	
 	protected EnglishLanguageAnalyzer() {
-		dictionary = EnglishDictionary.getInstance();
-		if(dictionary.getDictionary().isEmpty())
-			dictionary.loadDictionary("data/dictionary_english.csv");
+		if(dictionary==null){
+			dictionary = new EnglishDictionary();
+			if(dictionary.getDictionary().isEmpty())
+				dictionary.loadDictionary("dictionary_english.csv");
+		}
 	}
 	
 	public static EnglishLanguageAnalyzer getInstance(){
-		if(instance==null)
+		if(instance==null) {
 			instance = new EnglishLanguageAnalyzer();
+		}
 		
 		return instance;
 	}
@@ -35,6 +38,10 @@ public class EnglishLanguageAnalyzer implements LanguageAnalyzerAPI{
 		else word.setType(WordType.Unknown);
 	}
 
+	public EnglishDictionary getDictionary(){
+		return dictionary;
+	}
+	
 	@Override
 	public boolean isNoun() {
 		return this.word.getType() == WordType.Noun;

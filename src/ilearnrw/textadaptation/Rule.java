@@ -5,8 +5,8 @@ import java.awt.Color;
 public class Rule {
 
 	private int presentationStyle;
-	private Color textColor;
-	private Color highlightingColor;
+	private int textColor;
+	private int highlightingColor;
 	private boolean activated;
 	
 	public static final int PAINT_PROBLEMATIC_PARTS = 0;
@@ -18,8 +18,8 @@ public class Rule {
 	public Rule()
 	{
 		this.presentationStyle = HIGHLIGHT_WHOLE_WORD;
-		this.textColor = Color.YELLOW;
-		this.highlightingColor = null;
+		this.textColor =  0xffff0000; 
+		this.highlightingColor = 0xffff00; //color yellow
 		this.activated = true;
 	}
 	
@@ -39,22 +39,22 @@ public class Rule {
 		return this.presentationStyle;
 	}
 	
-	public void setTextColor(Color textColor)
+	public void setTextColor(int textColor)
 	{
 		this.textColor = textColor;
 	}
 	
-	public Color getTextColor()
+	public int getTextColor()
 	{
 		return this.textColor;
 	}
 
-	public void setHighlightingColor(Color highlightingColor)
+	public void setHighlightingColor(int highlightingColor)
 	{
 		this.highlightingColor = highlightingColor;
 	}
 
-	public Color getHighlightingColor()
+	public int getHighlightingColor()
 	{
 		return this.highlightingColor;
 	}

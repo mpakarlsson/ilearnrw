@@ -29,15 +29,15 @@ public interface TextAnnotator {
 
 	//WordClassifierInfo parseJSONFile()
 
-	Map<Integer, List<String>> splitInPages();
+	//Map<Integer, List<String>> splitInPages();
 	
 	String readNextWord();
 	
-	void setWordColor(String wordId, Color color, int start, int end);
+	void setWordColor(String wordId, int color, int start, int end);
 	
 	void removeWordColor(String wordId, int start, int end);
 	
-	void setWordHighlighting(String wordId, Color color, int start, int end);
+	void setWordHighlighting(String wordId, int color, int start, int end);
 	
 	void removeWordHighlighting(String wordId, int start, int end);
 
@@ -79,13 +79,13 @@ public interface TextAnnotator {
 
 	int getMargin();
 
-	void setBackgroundColor(Color color, String tag);
+	void setBackgroundColor(int color, String tag);
 
-	Color getBackgroundColor();
+	int getBackgroundColor();
 
-	void setForegroundColor(Color color, String tag);
+	void setForegroundColor(int color, String tag);
 
-	Color getForegroundColor();
+	int getForegroundColor();
 
 	void updatePageStyle(String CSSProperty, String value, String tag);
 

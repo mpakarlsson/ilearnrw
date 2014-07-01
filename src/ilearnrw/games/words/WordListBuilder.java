@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import ilearnrw.languagetools.english.EnglishDictionary;
+import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
 import ilearnrw.languagetools.extras.WordListLoader;
 import ilearnrw.textclassification.english.EnglishWord;
 import ilearnrw.textclassification.greek.GreekWord;
@@ -23,8 +24,7 @@ public class WordListBuilder {
 	
 	private static String ENdictionaryToString(){
 		System.out.println("Starting loading words...");
-		EnglishDictionary ed = EnglishDictionary.getInstance();
-		ed = EnglishDictionary.getInstance();
+		EnglishDictionary ed = EnglishLanguageAnalyzer.getInstance().getDictionary();
 		if(ed.getDictionary().isEmpty())
 			ed.loadDictionary("data/dictionary_english.csv");
 		Map<String, EnglishWord> ws = ed.getDictionary();

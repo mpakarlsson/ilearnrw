@@ -28,8 +28,8 @@ public class WordVsProblems {
 		this.word = word;
 		
 		if(word.languageCode == LanguageCode.EN){
-			if(EnglishLanguageAnalyzer.dictionary.getDictionary().containsKey(word.getWord()))
-				this.word = EnglishLanguageAnalyzer.dictionary.getDictionary().get(word.getWord());
+			if(EnglishLanguageAnalyzer.getInstance().getDictionary().getDictionary().containsKey(word.getWord()))
+				this.word = EnglishLanguageAnalyzer.getInstance().getDictionary().getDictionary().get(word.getWord());
 		}
 		
 		checkWordAgainstMatrix();

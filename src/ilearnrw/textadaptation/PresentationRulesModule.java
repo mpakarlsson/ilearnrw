@@ -88,7 +88,7 @@ public class PresentationRulesModule implements PresentationRules, Serializable{
 	/**
 	 * Sets the desired text colour for the problem that corresponds to indices i,j of the user’s profile table.
 	 */
-	public void setTextColor(int i, int j, Color textColor)
+	public void setTextColor(int i, int j, int textColor)
 	{
 		rulesTable[i][j].setTextColor(textColor);
 	}
@@ -96,7 +96,7 @@ public class PresentationRulesModule implements PresentationRules, Serializable{
 	/**
 	 * Returns the text colour for the problem that corresponds to indices i,j of the user’s profile table.
 	 */
-	public Color getTextColor(int i, int j)
+	public int getTextColor(int i, int j)
 	{
 		return rulesTable[i][j].getTextColor();
 	}	
@@ -104,7 +104,7 @@ public class PresentationRulesModule implements PresentationRules, Serializable{
 	/**
 	 * Sets the highlighting colour for the problem that corresponds to indices i,j of the user’s profile table.
 	 */
-	public void setHighlightingColor(int i, int j, Color highlightingColor)
+	public void setHighlightingColor(int i, int j, int highlightingColor)
 	{
 		rulesTable[i][j].setHighlightingColor(highlightingColor);
 	}
@@ -112,7 +112,7 @@ public class PresentationRulesModule implements PresentationRules, Serializable{
 	/**
 	 * Returns the highlighting colour for the problem that corresponds to indices i,j of the user’s profile table.
 	 */
-	public Color getHighlightingColor(int i, int j)
+	public int getHighlightingColor(int i, int j)
 	{
 		return rulesTable[i][j].getHighlightingColor();
 	}
