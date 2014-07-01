@@ -37,7 +37,7 @@ public class ServerHelperClass {
 		// optional default is GET
 		con.setRequestMethod("GET");
 		con.setRequestProperty("Authorization", userNamePasswordBase64("api", "api"));
-		con.setRequestProperty("User-Agent", USER_AGENT);
+		//con.setRequestProperty("User-Agent", USER_AGENT);
 
 		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 		String inputLine;

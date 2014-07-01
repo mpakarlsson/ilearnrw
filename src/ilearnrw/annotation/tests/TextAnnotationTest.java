@@ -110,7 +110,7 @@ public class TextAnnotationTest extends JFrame {
 			updateLanguageLabel();
 
 			m.setProfile(user.getProfile());
-			this.txModule = new TextAnnotationModule("C:\\Users\\Fouli\\Desktop\\Input-2.html", user.getProfile());
+			this.txModule = new TextAnnotationModule("C:\\Users\\Fouli\\Desktop\\Input-2.html");
 			//System.out.println(this.txModule.getTextFile());
 			this.rulesModule = new PresentationRulesModule(user.getProfile());
 			m.setTextAnnotationModule(txModule);

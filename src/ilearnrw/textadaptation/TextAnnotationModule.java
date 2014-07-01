@@ -120,11 +120,25 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	}
 	
 	public void initializePresentationModuleFromServer(String token, String userID)
+	{	
+		String profileAsJSON = null;
+		try {
+			profileAsJSON = ServerHelperClass.sendGet("profile?userId="+userID+"&token=" + token);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		if (profileAsJSON != null){
+			Gson gson = new Gson();
+			this.profile = gson.fromJson(profileAsJSON, UserProfile.class);
+		}
+		this.presRules = new PresentationRulesModule(profile);
+	}
+	
+	public void initializePresentationModule(UserProfile profile)
 	{
-		// Add here...
+		this.profile = profile;
 		
-		
-		//this.profile = afto pou tha pareis
 		this.presRules = new PresentationRulesModule(profile);
 	}
 	

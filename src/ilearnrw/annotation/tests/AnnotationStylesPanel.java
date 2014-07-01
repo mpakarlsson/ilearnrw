@@ -162,7 +162,7 @@ public class AnnotationStylesPanel extends JPanel{
 		public void actionPerformed(java.awt.event.ActionEvent e)
         {
 			String JSONfile = "C:\\Users\\Fouli\\Desktop\\response.json";
-			TextAnnotationModule t = new TextAnnotationModule("", m.getUserProfile());
+			TextAnnotationModule t = new TextAnnotationModule("");
 			
 			t.setJSONFile(JSONfile);
 			t.setInputHTMLFile("C:\\Users\\Fouli\\Desktop\\Input-1.html");
