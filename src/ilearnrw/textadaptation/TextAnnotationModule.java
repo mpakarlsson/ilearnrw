@@ -127,7 +127,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		return this.presRules;
 	}
 
-	public String sendPostToServer(String token, String input)
+	/*public String sendPostToServer(String token, String input, String text)
 	{
 		String tokenParams;
 		String resp = "No resp";
@@ -145,6 +145,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		}
 		try
 		{
+			this.textFile = text;
 			resp = ServerHelperClass.sendPost(input+token, this.textFile);
 			//PrintWriter printWriter = new PrintWriter("response.json");
 			//printWriter.println(resp);
@@ -157,7 +158,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		}
 		return resp;
 		
-	}
+	}*/
 	
 	/**
 	 * Sets a text file to the TextAnnotator object
@@ -246,7 +247,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 
 	public void readInputHTML() {
 		Charset.forName("UTF-8").newEncoder();
-		this.inputHTMLFile = this.jsonObject.getHtml();
+		//this.inputHTMLFile = this.jsonObject.getHtml();
 		doc = Jsoup.parse(this.inputHTMLFile);
 		
 		/*try {
@@ -377,9 +378,9 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		this.readInputHTML();
 
 		// If activated, do pagination;
-		if (this.activatePagination) {
-			this.splitInPages();
-		}
+		//if (this.activatePagination) {
+			//this.splitInPages();
+		//}
 
 		// Process the words of the text
 		this.processText();
@@ -463,7 +464,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	 * Returns a Map object maintaining a list of words of each page (including
 	 * multiple occurrences of each word in the same page).
 	 */
-	public Map<Integer, List<String>> splitInPages() {
+	/*public Map<Integer, List<String>> splitInPages() {
 		// Add <br> to define lines.
 		StringTokenizer st;
 		double totalWidth = 0;
@@ -658,8 +659,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		 * sb.append("</html>"); System.out.println(sb.toString());
 		 */
 
-		return null;
-	}
+		//return null;
+	//}
 
 	/**
 	 * Returns the next word that has to be processed in the HTML file.
@@ -1193,6 +1194,11 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		result[2] = endText;
 
 		return result;
+	}
+	
+	public String toString()
+	{
+		return "this is me";
 	}
 
 }

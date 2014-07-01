@@ -29,7 +29,7 @@ public interface TextAnnotator {
 
 	//WordClassifierInfo parseJSONFile()
 
-	Map<Integer, List<String>> splitInPages();
+	//Map<Integer, List<String>> splitInPages();
 	
 	String readNextWord();
 	
