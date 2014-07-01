@@ -375,8 +375,8 @@ public class TextMetricsTest extends JFrame {
 				ww = new GreekWord(wordPanel.getText());
 			else {
 				String word = wordPanel.getText();
-				if(EnglishLanguageAnalyzer.dictionary.getDictionary().containsKey(word))
-					ww = EnglishLanguageAnalyzer.dictionary.getDictionary().get(word);
+				if(EnglishLanguageAnalyzer.getInstance().getDictionary().getDictionary().containsKey(word))
+					ww = EnglishLanguageAnalyzer.getInstance().getDictionary().getDictionary().get(word);
 				else
 					ww = new EnglishWord(word);
 			

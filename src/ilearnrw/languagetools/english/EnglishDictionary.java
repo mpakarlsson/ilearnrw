@@ -18,17 +18,9 @@ import java.util.Map;
 public class EnglishDictionary {
 
 	private Map<String, EnglishWord> dictionary;
-	private static EnglishDictionary instance = null;
 
 	protected EnglishDictionary() {
 		dictionary = new HashMap<String, EnglishWord>();
-	}
-
-	public static EnglishDictionary getInstance() {
-		if (instance == null)
-			instance = new EnglishDictionary();
-
-		return instance;
 	}
 
 	public Map<String, EnglishWord> getDictionary() {

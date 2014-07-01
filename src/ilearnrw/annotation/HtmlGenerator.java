@@ -68,8 +68,8 @@ public class HtmlGenerator {
 					if (s[j].isWord(k)){
 						if (lc == LanguageCode.EN){
 							EnglishWord w;
-							if(EnglishLanguageAnalyzer.dictionary.getDictionary().containsKey(word))
-								w = EnglishLanguageAnalyzer.dictionary.getDictionary().get(word);
+							if(EnglishLanguageAnalyzer.getInstance().getDictionary().getDictionary().containsKey(word.toLowerCase()))
+								w = EnglishLanguageAnalyzer.getInstance().getDictionary().getDictionary().get(word.toLowerCase());
 							else
 								w = new EnglishWord(word);
 							

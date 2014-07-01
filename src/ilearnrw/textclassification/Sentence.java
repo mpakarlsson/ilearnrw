@@ -77,8 +77,8 @@ public class Sentence {
 			for (int i=0;i<theWords.length;i++){
 				if (theWords[i].trim().equals("")) continue;
 				
-				if(EnglishLanguageAnalyzer.dictionary.getDictionary().containsKey(theWords[i].toLowerCase())){
-					words[j++] = EnglishLanguageAnalyzer.dictionary.getDictionary().get(theWords[i].toLowerCase());
+				if(EnglishLanguageAnalyzer.getInstance().getDictionary().getDictionary().containsKey(theWords[i].toLowerCase())){
+					words[j++] = EnglishLanguageAnalyzer.getInstance().getDictionary().getDictionary().get(theWords[i].toLowerCase());
 				} else 
 					words[j++] = new EnglishWord(theWords[i]);
 			}
