@@ -3,12 +3,16 @@ package ilearnrw.textclassification;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import com.google.gson.annotations.SerializedName;
+
 import ilearnrw.utils.LanguageCode;
 
 public class Word implements Serializable, Comparable {
 	protected String word, wordUnmodified;
 	protected WordType type;
 	protected String[] syllables;
+	
+	@SerializedName("cvform")
 	protected String cvForm;
 	protected String phonetics;
 	protected String stem;

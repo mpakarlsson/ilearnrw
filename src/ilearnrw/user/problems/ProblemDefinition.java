@@ -2,18 +2,23 @@ package ilearnrw.user.problems;
 
 import java.io.Serializable;
 
+import com.google.gson.annotations.SerializedName;
+
 public class ProblemDefinition implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private String severityType, uri;
+	private String severityType;
+	
+	@SerializedName("uri")
+	private String URI;
 	private Category type;
 
 	public ProblemDefinition() {
-		this.uri = null;
+		this.URI = null;
 		this.type = null;
 	}
 
 	public ProblemDefinition(String URI, Category type) {
-		this.uri = URI;
+		this.URI = URI;
 		this.type = type;
 	}
 
@@ -26,11 +31,11 @@ public class ProblemDefinition implements Serializable {
 	}
 
 	public String getURI() {
-		return uri;
+		return URI;
 	}
 
 	public void setURI(String uRI) {
-		uri = uRI;
+		URI = uRI;
 	}
 
 	public Category getType() {
@@ -43,7 +48,7 @@ public class ProblemDefinition implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Problem Definition:\nURI:" + uri + type.toString();
+		return "Problem Definition:\nURI:" + URI + type.toString();
 	}
 
 }
