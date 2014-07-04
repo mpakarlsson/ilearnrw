@@ -57,8 +57,9 @@ public class UserLogin extends ConsoleMenuAction {
 		
 		
 		long start = System.nanoTime();
-		String str = HtmlGenerator.loadTemplate("papadiamantis.txt");
+		//String str = HtmlGenerator.loadTemplate("papadiamantis.txt");
 		
+		String str = "the sky is blue. mr.grass is green! is the frog green too? something;something dark!side";
 		HtmlGenerator gen = new HtmlGenerator(str, user.getProfile(), user.getProfile().getLanguage(), "html/template.html");
 		long end = System.nanoTime();
 		

@@ -38,7 +38,7 @@ public class HtmlPartsGenerator {
 			if(pars[i].trim().isEmpty())
 				continue;
 			
-			String tmp[] = pars[i].trim().split("(?<=(\\.)+\\s)|(?<=(\\!)+\\s)|(?<=(\\;)+\\s)|(?<=(\\?)+\\s)");	
+			String tmp[] = pars[i].trim().split("(?<=(\\.)+\\s)|(?<=[;?!])(?:\\s*)");	
 			sentences[i] = new HtmlSentence[tmp.length];
 			for (int j=0;j<tmp.length; j++){
 				sentences[i][j] = new HtmlSentence(tmp[j]);
