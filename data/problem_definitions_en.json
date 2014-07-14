@@ -1,42 +1,42 @@
 {
   "problemsIndex": [
     {
-      "URI": "Syllable division",
+      "uri": "Syllable division",
       "severityType": "zeroToThree",
       "type": {
         "url": "Syllable division"
       }
     },
     {
-      "URI": "Vowel sounds",
+      "uri": "Vowel sounds",
       "severityType": "zeroToThree",
       "type": {
         "url": "Vowel sounds"
       }
     },
     {
-      "URI": "Suffixing",
+      "uri": "Suffixing",
       "severityType": "zeroToThree",
       "type": {
         "url": "Suffixing"
       }
     },
     {
-      "URI": "Prefixing",
+      "uri": "Prefixing",
       "severityType": "zeroToThree",
       "type": {
         "url": "Prefixing"
       }
     },
     {
-      "URI": "Phon-Graph",
+      "uri": "Phon-Graph",
       "severityType": "zeroToThree",
       "type": {
         "url": "Phon-Graph"
       }
     },
     {
-      "URI": "Letter Patterns",
+      "uri": "Letter Patterns",
       "severityType": "zeroToThree",
       "type": {
         "url": "Letter Patterns"

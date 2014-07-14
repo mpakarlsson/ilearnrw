@@ -180,9 +180,9 @@ public class WordHeatMapPanel extends JPanel {
 		//}
 		if (j<data[i].length){
 			res = "Problem Title:"+userProfile.getUserProblems().getProblemDefinition(i).getType().getUrl();
-			if (!userProfile.getUserProblems().getProblemDefinition(i).getURI().
+			if (!userProfile.getUserProblems().getProblemDefinition(i).getUri().
 					equalsIgnoreCase(userProfile.getUserProblems().getProblemDefinition(i).getType().getUrl()))
-				res = res + ", Targeted Area:"+userProfile.getUserProblems().getProblemDefinition(i).getURI();
+				res = res + ", Targeted Area:"+userProfile.getUserProblems().getProblemDefinition(i).getUri();
 			//res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
 			res = res + "\nMatching word characteristics:"+userProfile.getUserProblems().getProblemDescription(i, j).getProblemType();
 			res = res + " {"+userProfile.getUserProblems().getProblemDescription(i, j).returnDescriptionsAsString()+"}";

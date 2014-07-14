@@ -1,7 +1,6 @@
 package ilearnrw.languagetools.greek;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
-import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordType;
 import ilearnrw.textclassification.greek.GreekWord;

@@ -8,17 +8,16 @@ public class ProblemDefinition implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String severityType;
 	
-	@SerializedName("uri")
-	private String URI;
+	private String uri;
 	private Category type;
 
 	public ProblemDefinition() {
-		this.URI = null;
+		this.uri = null;
 		this.type = null;
 	}
 
 	public ProblemDefinition(String URI, Category type) {
-		this.URI = URI;
+		this.uri = URI;
 		this.type = type;
 	}
 
@@ -30,12 +29,12 @@ public class ProblemDefinition implements Serializable {
 		this.severityType = title;
 	}
 
-	public String getURI() {
-		return URI;
+	public String getUri() {
+		return uri;
 	}
 
-	public void setURI(String uRI) {
-		URI = uRI;
+	public void setUri(String uRI) {
+		uri = uRI;
 	}
 
 	public Category getType() {
@@ -48,7 +47,7 @@ public class ProblemDefinition implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Problem Definition:\nURI:" + URI + type.toString();
+		return "Problem Definition:\nURI:" + uri + type.toString();
 	}
 
 }

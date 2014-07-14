@@ -1,63 +1,63 @@
 {
   "problemsIndex": [
     {
-      "URI": "Syllable Division",
+      "uri": "Syllable Division",
       "severityType": "zeroToThree",
       "type": {
         "url": "syllable division"
       }
     },
     {
-      "URI": "Consonants",
+      "uri": "Consonants",
       "severityType": "zeroToThree",
       "type": {
         "url": "phonemes"
       }
     },
     {
-      "URI": "Vowels",
+      "uri": "Vowels",
       "severityType": "zeroToThree",
       "type": {
         "url": "phonemes"
       }
     },
     {
-      "URI": "Derivational",
+      "uri": "Derivational",
       "severityType": "zeroToThree",
       "type": {
         "url": "suffixing"
       }
     },
     {
-      "URI": "Inflectional/Grammatical",
+      "uri": "Inflectional/Grammatical",
       "severityType": "zeroToThree",
       "type": {
         "url": "suffixing"
       }
     },
     {
-      "URI": "Prefixing",
+      "uri": "Prefixing",
       "severityType": "zeroToThree",
       "type": {
         "url": "prefixing"
       }
     },
     {
-      "URI": "Regular/Irregular:Consonant clusters",
+      "uri": "Regular/Irregular:Consonant clusters",
       "severityType": "zeroToThree",
       "type": {
         "url": "grapheme/phoneme correspondence"
       }
     },
     {
-      "URI": "Grammar/Function Words",
+      "uri": "Grammar/Function Words",
       "severityType": "zeroToThree",
       "type": {
         "url": "grammar/function words"
       }
     },
     {
-      "URI": "Visual Similarity",
+      "uri": "Visual Similarity",
       "severityType": "binary",
       "type": {
         "url": "visual similarity"
@@ -1158,12 +1158,6 @@
     [
       {
         "descriptions": [
-          "των"
-        ],
-        "problemType": "EQUALS"
-      },
-      {
-        "descriptions": [
           "ένας",
           "μία",
           "ένα"
@@ -1196,6 +1190,12 @@
         "descriptions": [
           "οι",
           "τα"
+        ],
+        "problemType": "EQUALS"
+      },
+      {
+        "descriptions": [
+          "των"
         ],
         "problemType": "EQUALS"
       },

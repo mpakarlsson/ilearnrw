@@ -5,6 +5,7 @@ import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.textclassification.tests.panels.userproblems.TrickyWordsPanel;
 import ilearnrw.user.User;
+import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.profile.UserProblems;
 import ilearnrw.user.profile.UserSeverities;
 import ilearnrw.utils.LanguageCode;
@@ -281,9 +282,9 @@ public class UserProblemsHeatMapPanel extends JPanel {
 		//}
 		if (j<data[i].length){
 			res = "Problem Title:"+user.getProfile().getUserProblems().getProblemDefinition(i).getType().getUrl();
-			if (!user.getProfile().getUserProblems().getProblemDefinition(i).getURI().
+			if (!user.getProfile().getUserProblems().getProblemDefinition(i).getUri().
 					equalsIgnoreCase(user.getProfile().getUserProblems().getProblemDefinition(i).getType().getUrl()))
-				res = res + ", Targeted Area:"+user.getProfile().getUserProblems().getProblemDefinition(i).getURI();
+				res = res + ", Targeted Area:"+user.getProfile().getUserProblems().getProblemDefinition(i).getUri();
 			//res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
 			res = res + "\nMatching word characteristics:"+user.getProfile().getUserProblems().getProblemDescription(i, j).getProblemType();
 			res = res + " {"+user.getProfile().getUserProblems().getProblemDescription(i, j).returnDescriptionsAsString()+"}";

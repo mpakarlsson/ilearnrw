@@ -11,6 +11,7 @@ import ilearnrw.textclassification.WordVsProblems;
 import ilearnrw.utils.LanguageCode;
 
 public class AnnotatedWord extends Word {
+	private static final long serialVersionUID = 1L;
 	private ArrayList<WordProblemInfo> wordProblems;
 	public AnnotatedWord(Word w) {
 		super();
