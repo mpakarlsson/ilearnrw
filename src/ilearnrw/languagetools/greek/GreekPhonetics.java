@@ -281,10 +281,14 @@ public class GreekPhonetics {
         replaceChar("ή", "í");
         replaceChar("ι", "i");
         replaceChar("ί", "í");
+        replaceChar("ϊ", "i");
+        replaceChar("ΐ", "í");
         replaceChar("ο", "o");
         replaceChar("ό", "ó");
         replaceChar("υ", "i");
         replaceChar("ύ", "í");
+        replaceChar("ϋ", "i");
+        replaceChar("ΰ", "í");
         replaceChar("ω", "o");
         replaceChar("ώ", "ó");
     }

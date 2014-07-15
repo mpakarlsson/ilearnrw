@@ -16,7 +16,6 @@ public interface Speller {
     public void performSpelling();
     public java.util.ArrayList<String> getTokens();
     public String[] getTokensArray();
-    public String getHyphenSyllable(ArrayList<String> tokens);
     public String toString();
     public String getToken(int index);
     public int getTokensNumber();
