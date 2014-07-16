@@ -12,6 +12,23 @@ public class GreekSyllabification implements Speller{
 
     private ArrayList<String> result;
 
+    private char[] lowerCase = {'α', 'β', 'γ', 
+    		'δ', 'ε', 'ζ', 'η', 'θ', 
+    		'ι', 'κ', 'λ', 'μ', 'ν', 
+    		'ξ', 'ο', 'π', 'ρ', 'σ', 
+    		'τ', 'υ', 'φ', 'χ', 'ψ', 
+    		'ω', 'ά', 'έ', 'ή', 'ί', 
+    		'ό', 'ύ', 'ώ', 'ϊ', 'ϋ', 
+    		'ΐ','ΰ', 'ς'};
+    private char[] upperCase = {'Α', 'Β', 'Γ', 
+    		'Δ', 'Ε', 'Ζ', 'Η', 'Θ', 
+    		'Ι', 'Κ', 'Λ', 'Μ', 'Ν', 
+    		'Ξ', 'Ο', 'Π', 'Ρ', 'Σ', 
+    		'Τ', 'Υ', 'Φ', 'Χ', 'Ψ', 
+    		'Ω', 'Ά', 'Έ', 'Ή', 'Ί', 
+    		'Ό', 'Ύ', 'Ώ', 'Ϊ', 'Ϋ' };
+    private int[] converter;
+
     /** Creates a new instance of GreekSpeller */
     public GreekSyllabification() {
     	this("");
@@ -20,7 +37,7 @@ public class GreekSyllabification implements Speller{
 
     /** Creates a new instance of GreekSpeller */
     public GreekSyllabification(String stringToSpell) {
-		this.stringToSpell = stringToSpell;
+    	this.stringToSpell = preprocess(stringToSpell);
 		this.vowels = new ArrayList<String>();
 		this.consonants = new ArrayList<String>();
 		this.nonSeperable = new ArrayList<String>();
@@ -33,7 +50,7 @@ public class GreekSyllabification implements Speller{
      * Sets the string to spell.
      */
     public void setStringToSpell(String stringToSpell) {
-    	this.stringToSpell = stringToSpell;
+    	this.stringToSpell = preprocess(stringToSpell);
     }
 
     /**
@@ -44,6 +61,7 @@ public class GreekSyllabification implements Speller{
 		this.reset();
 		this.result.add(this.stringToSpell);
 		this.splitSyllables(0);
+		this.postprocess(result);
 	
     }
     
@@ -158,9 +176,11 @@ public class GreekSyllabification implements Speller{
 	    	if (i<str.length()-2 && this.vowels.contains(""+str.charAt(i)) 
 	    			&& this.vowels.contains(""+str.charAt(i+1))
 	    			&& this.vowels.contains(""+str.charAt(i+2))
+	    			&& !this.nonSeperable.contains(str.substring(i, i+2))
 	    			&& !this.nonSeperable.contains(str.substring(i, i+3))){
 	    		String str1 = str.substring(0, i+1);
 	    		String str2 = str.substring(i+1);
+	    		System.err.println(this.stringToSpell + " == " +str1 +" - "+ str2);
 	    		ArrayList<String> l1 = new ArrayList<String>();
 	    		l1.add(str1);
 	    		l1.add(str2);
@@ -288,13 +308,47 @@ public class GreekSyllabification implements Speller{
 		/* Combinations... */
 		this.nonSeperable.add("ια");
 		this.nonSeperable.add("ιά");
+		this.nonSeperable.add("ειά");
 		this.nonSeperable.add("ιο");
-		this.nonSeperable.add("ιό");
-		this.nonSeperable.add("οιο");
-		this.nonSeperable.add("ειο");
+		//this.nonSeperable.add("ιό");
 		this.nonSeperable.add("υος");
 		this.nonSeperable.add("ιου");
 
+		// ι,υ,ει,οι+φωνήεν
+		this.nonSeperable.add("ια");
+		this.nonSeperable.add("ιά");
+		this.nonSeperable.add("ιε");
+		this.nonSeperable.add("ιέ");
+		this.nonSeperable.add("ιο");
+		this.nonSeperable.add("ιό");
+		this.nonSeperable.add("ιυ");
+		this.nonSeperable.add("ιύ");
+		this.nonSeperable.add("ιω");
+		this.nonSeperable.add("ιώ");
+		this.nonSeperable.add("υα");
+		this.nonSeperable.add("υά");
+		this.nonSeperable.add("υε");
+		this.nonSeperable.add("υέ");
+		this.nonSeperable.add("υη");
+		this.nonSeperable.add("υή");
+		this.nonSeperable.add("υι");
+		this.nonSeperable.add("υί");
+		this.nonSeperable.add("υο");
+		this.nonSeperable.add("υό");
+		this.nonSeperable.add("υω");
+		this.nonSeperable.add("υώ");
+		this.nonSeperable.add("ειά");
+		this.nonSeperable.add("ειέ");
+		this.nonSeperable.add("ειή");
+		this.nonSeperable.add("ειό");
+		this.nonSeperable.add("ειύ");
+		this.nonSeperable.add("ειώ");
+		this.nonSeperable.add("οια");
+		this.nonSeperable.add("οιέ");
+		this.nonSeperable.add("οιή");
+		this.nonSeperable.add("οιό");
+		this.nonSeperable.add("οιυ");
+		this.nonSeperable.add("οιύ");
 	
 		/* Undues... */
 		//this.nonSeperable.add("ι");
@@ -321,7 +375,7 @@ public class GreekSyllabification implements Speller{
 		this.greekPrefixes.add("κν");
 		this.greekPrefixes.add("κρ");
 		this.greekPrefixes.add("κτ");
-		this.greekPrefixes.add("μπ");
+		this.greekPrefixes.add("μν");
 		this.greekPrefixes.add("μπ");
 		this.greekPrefixes.add("ντ");
 		this.greekPrefixes.add("πλ");
@@ -356,6 +410,38 @@ public class GreekSyllabification implements Speller{
 		this.greekPrefixes.add("θρ");	
     }
 
+    /**
+     * Returns the hyphen syllable
+     * @param tokens
+     * @return
+     */
+    public String getHyphenSyllable(ArrayList<String> tokens){
+		String hyphenSyllable = "";
+		for (Iterator<String> it = tokens.iterator(); it.hasNext();){
+		    hyphenSyllable = it.next();
+		    if (hyphenSyllable.contains("ά") || 
+		    		hyphenSyllable.contains("έ") || 
+				    hyphenSyllable.contains("ή") || 
+				    hyphenSyllable.contains("ί") || 
+				    hyphenSyllable.contains("ό") ||
+				    hyphenSyllable.contains("ύ") || 
+				    hyphenSyllable.contains("ώ") ||
+				    hyphenSyllable.contains("ΐ") ||
+				    hyphenSyllable.contains("ΰ") ||
+				    hyphenSyllable.contains("Ά") || 
+				    hyphenSyllable.contains("Έ") || 
+				    hyphenSyllable.contains("Ή") || 
+				    hyphenSyllable.contains("Ί") || 
+				    hyphenSyllable.contains("Ό") ||
+				    hyphenSyllable.contains("Ύ") || 
+				    hyphenSyllable.contains("Ώ")) {			
+		    	return hyphenSyllable;
+		    }	    
+		}
+		return "";
+    }
+
+
 	@Override
 	public int getTokensNumber() {
 		return result.size();
@@ -378,6 +464,54 @@ public class GreekSyllabification implements Speller{
 		return res;
 	}
 	
-	
 
+    /**
+     * To lowerCase
+     */
+    private String preprocess(String str) {
+		String lowerCaseString = str;
+		
+		this.converter = new int[str.length()];
+		
+		for (int i=0; i<str.length(); i++){	    
+		   	int position = this.positionOf(this.upperCase, str.charAt(i));
+			
+		    if (position != -1) {
+		   		if(i==str.length()-1 && str.charAt(i)=='ς'){
+		    		lowerCaseString = lowerCaseString.replace(str.charAt(i),'Σ');
+		    	}
+		    	else {
+		    		lowerCaseString = lowerCaseString.replace(str.charAt(i),this.lowerCase[position]);		   
+		    	}
+		    	this.converter[i] = 1;
+		    }
+		}
+		return lowerCaseString;
+    }
+	
+    private void postprocess(ArrayList<String> result) {
+		int counter = 0;
+		for (int i=0; i<this.result.size(); i++){
+		    String token = this.result.get(i);
+	
+		    for (int j=0; j<token.length(); j++) {
+				if (this.converter[counter]==1){
+				    char c = token.charAt(j);
+				    int position = this.positionOf(this.lowerCase, c);
+				    char replaceChar = this.upperCase[position];
+		
+				    token = token.substring(0, j) + replaceChar + token.substring(j+1, token.length());
+				    this.result.set(i, token);
+				}   
+				counter++;
+		    }
+		}
+    }
+    
+    private int positionOf(char[] array, char checkChar) {
+		for (int i = 0; i < array.length; i++){
+		    if (array[i] == checkChar) return i;
+		}
+		return -1;
+    }
 }
