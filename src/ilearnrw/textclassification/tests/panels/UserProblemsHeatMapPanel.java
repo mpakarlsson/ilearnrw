@@ -288,6 +288,7 @@ public class UserProblemsHeatMapPanel extends JPanel {
 			//res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
 			res = res + "\nMatching word characteristics:"+user.getProfile().getUserProblems().getProblemDescription(i, j).getProblemType();
 			res = res + " {"+user.getProfile().getUserProblems().getProblemDescription(i, j).returnDescriptionsAsString()+"}";
+			res = res + "\nCluster #"+user.getProfile().getUserProblems().getProblemDescription(i, j).getCluster();
 		}
 		return res;
 	}

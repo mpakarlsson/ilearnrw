@@ -50,31 +50,41 @@
         "descriptions": [
           "Closed and Open syllables"
         ],
-        "problemType": "SYLLABLE_PATTERN"
+        "problemType": "SYLLABLE_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "vc/cv"
         ],
-        "problemType": "SYLLABLE_PATTERN"
+        "problemType": "SYLLABLE_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "v/cv"
         ],
-        "problemType": "SYLLABLE_PATTERN"
+        "problemType": "SYLLABLE_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "v/v"
         ],
-        "problemType": "SYLLABLE_PATTERN"
+        "problemType": "SYLLABLE_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "vc/v"
         ],
-        "problemType": "SYLLABLE_PATTERN"
+        "problemType": "SYLLABLE_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
@@ -82,7 +92,9 @@
           "qu:v/cv",
           "qu:v/v"
         ],
-        "problemType": "SYLLABLE_PATTERN"
+        "problemType": "SYLLABLE_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
@@ -90,187 +102,249 @@
           "ture:v/cv",
           "ture:vc/v"
         ],
-        "problemType": "SYLLABLE_PATTERN"
+        "problemType": "SYLLABLE_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ation-eɪʃən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "otion-əʊʃən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ition-ɪʃən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ution-uːʃən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "action-ækʃən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ection-ekʃən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "iction-ɪkʃən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "uction-ʌkʃən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "ention-enʃən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "ble-bəl"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "fle-fəl"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "ple-pəl"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "tle-təl"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "dle-dəl"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "kle-kəl"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "cle-kəl"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "gle-ɡəl"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "zle-zəl"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "stle-səl"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "asion-eɪʒən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "usion-uːʒən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "ision-ɪʒən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "osion-əʊʒən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "mission-mɪʃən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "ession-eʃən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "ussion-ʌʃən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "version-vɜːʃən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "ulsion-ʌlʃən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "cian-ʃən"
         ],
-        "problemType": "SUFFIX_PATTERN"
+        "problemType": "SUFFIX_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "3 syllables or higher"
         ],
-        "problemType": "SYLLABLE_COUNT"
+        "problemType": "SYLLABLE_COUNT",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       }
     ],
     //Vowel Sounds 
@@ -279,433 +353,577 @@
         "descriptions": [
           "i-ɪ"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "a-æ"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "o-ɒ"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "i-aɪ"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "e-e"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "u-ʌ"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ar-ɑː"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ee-iː"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "or-ɔː"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "y-i"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "y-aɪ"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ie-aɪ"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "i_C_e-aɪ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
         "a_C_e-eɪ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ay-eɪ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "er-ə"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "oo-uː"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "oo-ʊ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "o_C_e-əʊ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "u_C_e-juː"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ea-iː"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ea-e"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ou-aʊ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "igh-aɪ"
         ],
-        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+        "problemType": "TRIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "o-ʌ"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ice-ɪs"
         ],
-        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+        "problemType": "TRIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ai-eɪ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ow-əʊ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ow-aʊ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "oa-əʊ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "o-əʊ"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "e_C_e-iː"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ir-ɜː"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ur-ɜː"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "wor-wɜː"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "oi-ɔɪ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "oy-ɔɪ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ie-iː"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "au-ɔː"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "aw-ɔː"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ore-ɔː"
         ],
-        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+        "problemType": "TRIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ew-juː"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ue-uː"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ear-ɜː"
         ],
-        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+        "problemType": "TRIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "y-ɪ"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "y_C_e-aɪ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ou-aʊ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ei-iː"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ei-eɪ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "eigh-eɪ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "our-ə"
         ],
-        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+        "problemType": "TRIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ar-ə"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ui-uː"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ui-ɪ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ey-iː"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ey-eɪ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "oe-əʊ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "eu-juː"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "eur-ə"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ine-aɪn"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ine-ʒɪn"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ine-iːn"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "air-eə"
         ],
-        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+        "problemType": "TRIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "are-eə"
         ],
-        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+        "problemType": "TRIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ear-eə"
         ],
-        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+        "problemType": "TRIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ear-ɪə"
         ],
-        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+        "problemType": "TRIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "eer-ɪə"
         ],
-        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+        "problemType": "TRIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ere-ɪə"
         ],
-        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+        "problemType": "TRIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ure-ʊə"
         ],
-        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+        "problemType": "TRIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "oor-ʊə"
         ],
-        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+        "problemType": "TRIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "our-ʊə"
         ],
-        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+        "problemType": "TRIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "a-ɒ"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       }   
     ], 
     //SUFFIX
@@ -714,367 +932,489 @@
         "descriptions": [
           "s"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ed"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "es"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "less"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ness"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "en"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ing"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ful"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ish"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ist"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ing"
         ],
-        "problemType": "SUFFIX_DOUBLE"
+        "problemType": "SUFFIX_DOUBLE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ed"
         ],
-        "problemType": "SUFFIX_DOUBLE"
+        "problemType": "SUFFIX_DOUBLE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "en"
         ],
-        "problemType": "SUFFIX_DOUBLE"
+        "problemType": "SUFFIX_DOUBLE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ish"
         ],
-        "problemType": "SUFFIX_DOUBLE"
+        "problemType": "SUFFIX_DOUBLE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "y"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "y"
         ],
-        "problemType": "SUFFIX_DOUBLE"
+        "problemType": "SUFFIX_DOUBLE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ly"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ity"
         ],
-        "problemType": "SUFFIX_CHANGE"
+        "problemType": "SUFFIX_CHANGE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ility"
         ],
-        "problemType": "SUFFIX_CHANGE"
+        "problemType": "SUFFIX_CHANGE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ty"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ing"
         ],
-        "problemType": "SUFFIX_DROP"
+        "problemType": "SUFFIX_DROP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ed"
         ],
-        "problemType": "SUFFIX_DROP"
+        "problemType": "SUFFIX_DROP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "y"
         ],
-        "problemType": "SUFFIX_DROP"
+        "problemType": "SUFFIX_DROP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "en"
         ],
-        "problemType": "SUFFIX_DROP"
+        "problemType": "SUFFIX_DROP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "er"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "er"
         ],
-        "problemType": "SUFFIX_DROP"
+        "problemType": "SUFFIX_DROP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "er"
         ],
-        "problemType": "SUFFIX_DOUBLE"
+        "problemType": "SUFFIX_DOUBLE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ed-d"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ed-d"
         ],
-        "problemType": "SUFFIX_DROP"
+        "problemType": "SUFFIX_DROP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ed-d"
         ],
-        "problemType": "SUFFIX_DOUBLE"
+        "problemType": "SUFFIX_DOUBLE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ed-t"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ed-t"
         ],
-        "problemType": "SUFFIX_DROP"
+        "problemType": "SUFFIX_DROP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ed-t"
         ],
-        "problemType": "SUFFIX_DOUBLE"
+        "problemType": "SUFFIX_DOUBLE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "est"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "est"
         ],
-        "problemType": "SUFFIX_DROP"
+        "problemType": "SUFFIX_DROP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "est"
         ],
-        "problemType": "SUFFIX_DOUBLE"
+        "problemType": "SUFFIX_DOUBLE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "al"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "al"
         ],
-        "problemType": "SUFFIX_DROP"
+        "problemType": "SUFFIX_DROP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "es"
         ],
-        "problemType": "SUFFIX_CHANGE"
+        "problemType": "SUFFIX_CHANGE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ed"
         ],
-        "problemType": "SUFFIX_CHANGE"
+        "problemType": "SUFFIX_CHANGE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ly"
         ],
-        "problemType": "SUFFIX_CHANGE"
+        "problemType": "SUFFIX_CHANGE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ness"
         ],
-        "problemType": "SUFFIX_CHANGE"
+        "problemType": "SUFFIX_CHANGE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ful"
         ],
-        "problemType": "SUFFIX_CHANGE"
+        "problemType": "SUFFIX_CHANGE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "less"
         ],
-        "problemType": "SUFFIX_CHANGE"
+        "problemType": "SUFFIX_CHANGE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "er"
         ],
-        "problemType": "SUFFIX_CHANGE"
+        "problemType": "SUFFIX_CHANGE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "est"
         ],
-        "problemType": "SUFFIX_CHANGE"
+        "problemType": "SUFFIX_CHANGE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ing,last:double,first:add"
         ],
-        "problemType": "SUFFIX_STRESS_PATTERN"
+        "problemType": "SUFFIX_STRESS_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ed,last:double,first:add"
         ],
-        "problemType": "SUFFIX_STRESS_PATTERN"
+        "problemType": "SUFFIX_STRESS_PATTERN",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ous"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ous"
         ],
-        "problemType": "SUFFIX_DROP"
+        "problemType": "SUFFIX_DROP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ous"
         ],
-        "problemType": "SUFFIX_CHANGE"
+        "problemType": "SUFFIX_CHANGE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "tious"
         ],
-        "problemType": "SUFFIX_CHANGE"
+        "problemType": "SUFFIX_CHANGE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "cious"
         ],
-        "problemType": "SUFFIX_CHANGE"
+        "problemType": "SUFFIX_CHANGE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ious"
         ],
-        "problemType": "SUFFIX_CHANGE"
+        "problemType": "SUFFIX_CHANGE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "uous"
         ],
-        "problemType": "SUFFIX_CHANGE"
+        "problemType": "SUFFIX_CHANGE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "or"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "or"
         ],
-        "problemType": "SUFFIX_DROP"
+        "problemType": "SUFFIX_DROP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "able"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "able"
         ],
-        "problemType": "SUFFIX_DROP"
+        "problemType": "SUFFIX_DROP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "able"
         ],
-        "problemType": "SUFFIX_CHANGE"
+        "problemType": "SUFFIX_CHANGE",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ment"
         ],
-        "problemType": "SUFFIX_ADD"
+        "problemType": "SUFFIX_ADD",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       }
     ], 
     //PREFIX
@@ -1083,241 +1423,321 @@
         "descriptions": [
           "un"
         ],
-        "problemType": "PREFIX"
+        "problemType": "PREFIX",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "mis"
         ],
-        "problemType": "PREFIX"
+        "problemType": "PREFIX",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "under"
         ],
-        "problemType": "PREFIX"
+        "problemType": "PREFIX",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "over"
         ],
-        "problemType": "PREFIX"
+        "problemType": "PREFIX",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ad"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "abb"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "acc"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "aff"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "agg"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "all"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ann"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "app"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "arr"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ass"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "att"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "con"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "coll"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "corr"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "comm"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "in"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ill"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "imm"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "irr"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "im"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ir"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "sub"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "succ"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "suff"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "sugg"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "supp"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "summ"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "surr"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "dis"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "diff"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ob"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "off"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "opp"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "occ"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ex"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "eff"
         ],
-        "problemType": "PREFIX_GROUP"
+        "problemType": "PREFIX_GROUP",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       }
     ],
     //PHON-GRAPH 
@@ -1326,343 +1746,457 @@
         "descriptions": [
           "t-t"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "tt-t"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ed-t"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "p-p"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "pp-p"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "n-n"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "nn-n"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "s-s"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ss-s"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "c-s"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "d-d"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "dd-d"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ed-d"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "h-h"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "r-r"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "rr-r"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "m-m"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "mm-m"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "b-b"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "bb-b"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "l-l"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ll-l"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "f-f"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ff-f"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ph-f"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "g-g"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "gg-g"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "k-k"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "c-k"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ck-k"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ng-ŋ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "nk-ŋk"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "th-θ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "v-v"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "w-w"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "sh-ʃ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "s-ʃ"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ss-ʃ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "tion-ʃən"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "tial-ʃəl"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "y-j"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "j-dʒ"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "g-dʒ"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "dg-dʒ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "qu-k"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "z-z"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "zz-z"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "s-z"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "se-z"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ze-z"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "ch-tʃ"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "tch-tʃ"
         ],
-        "problemType": "TRIGRAPH_EQUALS_PHONEME"
+        "problemType": "TRIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "sion-ʒən"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "sure-ʒə"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "th-ð"
         ],
-        "problemType": "DIGRAPH_EQUALS_PHONEME"
+        "problemType": "DIGRAPH_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "x-ɡz"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
           "x-ks"
         ],
-        "problemType": "LETTER_EQUALS_PHONEME"
+        "problemType": "LETTER_EQUALS_PHONEME",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       }
     ], 
     // Letter Patterns
@@ -1671,761 +2205,1013 @@
         "descriptions": [
          "ip-ɪp"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
        {
         "descriptions": [
          "in-ɪn"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
        {
         "descriptions": [
          "st-st"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
        {
         "descriptions": [
          "sp-sp"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
        {
         "descriptions": [
          "sn-sn"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "sm-sm"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "ad-æd"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "and-ænd"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "de-de"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "act-ækt"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "sc-sk"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "cr-kr"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "dr-dr"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "pr-pr"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "tr-tr"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "str-str"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "spr-spr"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "scr-skr"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "am-æm"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "amp-æmp"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "im-ɪm"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_b-b"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "br-br"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_lt-lt"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "bl-bl"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "cl-kl"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "pl-pl"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "sl-sl"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "spl-spl"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_ll-l"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_ss-s"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_ft-ft"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "elf-elf"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "fl-fl"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "fr-fr"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_g-g"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "gl-gl"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "gr-gr"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_sk-sk"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_lk-lk"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "sk-sk"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_ng-ŋ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_nk-ŋk"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "thank-θæŋk",
          "than-ðæn"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "ath-ɑːθ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "oth-ɒθ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "ength-eŋθ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_ck-k"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "ic-ɪk"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "ve-v"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "sw-sw"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "tw-tw"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "dw-dw"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "wa-wɒ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "swa-swɒ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_sh-ʃ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "shr-ʃr"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_x-ks"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "zz-z"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_ff-f"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_nch-ntʃ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "arch-tʃ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_ce-ɪs"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_nce-ns"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "wh-w"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_ge-dʒ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_rge-dʒ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_nge-ndʒ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_dge-dʒ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "c-s"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "sc-s"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "age-ɪdʒ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "ege-ɪdʒ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_V_tch-tʃ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "ph-f"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "pph-f"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "ch-k"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "ch-ʃ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "kn-n"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "gn-n"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "gh-g"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "ps-s"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "rh-r"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "mb-m"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "bt-t"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "mn-m"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "wr-r"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "pt-pt"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "st-s"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "gu-g"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "gue-g"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "pro-prə"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "pre-prɪ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "que-k"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "sch-sk"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "xc-ksk"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "xc-ks"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "ayor-eə"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "ayer-eɪə"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       // TODO: FIX THIS ELEMENT LINE 392 profileV5.xlsx
       {
         "descriptions": [
          "al_C_"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "oh-əʊ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "cial-ʃəl"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "tial-ʃəl"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "cqu-kwa"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "ngue-ŋ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       // TODO : FIX THIS ELEMENT LINE 398 profileV5.xlsx
       {
         "descriptions": [
          "ol_C_-əʊ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
        // TODO : FIX THIS ELEMENT LINE 399 profileV5.xlsx
       {
         "descriptions": [
          "quar_C_-kwɒ,kwɔː"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "_C_re-tə"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "ro-ra,rə"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "sci-saɪ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "scle-səl"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "sure-ʒə"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "ti-ʃ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "ci-ʃ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "zure-ʒə"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "thr-θr"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "nd-nd"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "nt-nt"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "nch-ntʃ"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "mp-mp"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "ology-ɒlədʒi"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "cise-saɪz"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "dual-dʒʊə"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "tual-tʃʊəl"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "sual-ʒuəl"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       },
       {
         "descriptions": [
          "tory-str̩i"
         ],
-        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS"
+        "problemType": "PATTERN_EQUALS_PRONUNCIATION_ENDS",
+        "humanReadableDescription": "no description", 
+        "cluster": 0
       }
     ]
   ],

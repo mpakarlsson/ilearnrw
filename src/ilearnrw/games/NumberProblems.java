@@ -36,10 +36,14 @@ public class NumberProblems{
 		ProblemDefinition prob = new ProblemDefinition("1.1", cat);
 		probsMatrix.setProblemDefinition(prob, 0);
 
-		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"One Digit"}, 0, 0);
-		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"Two Digits"}, 0, 1);
-		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"Three Digits"}, 0, 2);
-		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"Four Digits"}, 0, 3);
+		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"One Digit"}, 
+				"x problem", 0, 0, 0);
+		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"Two Digits"},
+				"x problem", 0, 0, 1);
+		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"Three Digits"},
+				"x problem", 1, 0, 2);
+		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"Four Digits"},
+				"x problem", 1, 0, 3);
 			
 	
 		//2) Problem on recognizing numbers containing the digit {3} or {4} or { {5} with {7} } 
@@ -47,16 +51,20 @@ public class NumberProblems{
 		cat = new Category("Numbers.Recognition");
 		prob = new ProblemDefinition("1.2", cat);
 		probsMatrix.setProblemDefinition(prob, 1);
-		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"3"}, 1, 0);
-		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"4"}, 1, 1);		
-		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"5", "7"}, 1, 2);
+		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"3"}, 
+				"the x problem", 0, 1, 0);
+		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"4"}, 
+				"the x problem", 1, 1, 1);		
+		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"5", "7"}, 
+				"the difficult x problem", 1, 1, 2);
 	
 			
 		//3) Problem on recognizing numbers containing pattern xy, where y = x+1
 		probsMatrix.constructProblemRow(2, 1);
 		prob = new ProblemDefinition("1.3", cat);
 		probsMatrix.setProblemDefinition(prob, 2);
-		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"Containing xy, y = x+1"}, 2, 0);
+		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"Containing xy, y = x+1"},
+				"the hard x problem", 0, 2, 0);
 
 	}
 	
