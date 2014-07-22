@@ -367,7 +367,6 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 
 			selElem.text(selElem.text().replace(" ", ""));
 			String word = selElem.text();
-			System.out.println(word);
 
 			if (f != null) {
 				if (f.getRule().getPresentationStyle() == Rule.HIGHLIGHT_WHOLE_WORD) {
@@ -416,6 +415,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 
 		// Write to the annotated html file
 		this.writeAnnotatedHTML();
+		
+		System.out.println(this.annotatedHTMLFile);
 	}
 
 	/**
