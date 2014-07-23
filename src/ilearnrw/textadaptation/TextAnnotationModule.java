@@ -262,8 +262,12 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		Gson gson = new GsonBuilder().create();
 		try {
 			//JsonReader reader = new JsonReader(new java.io.BufferedReader(new java.io.FileReader(this.getJSONFile())));
+			System.out.println("I am the jSonfile: " +this.getJSONFile());
 			JsonReader reader = new JsonReader(new java.io.StringReader(this.getJSONFile()));
 			this.jsonObject = gson.fromJson(reader, ilearnrw.annotation.AnnotatedPack.class);
+			
+			
+			
 			reader.close();
 		} catch (IOException e) {
 			System.err.println("Unable to write to file");
@@ -299,6 +303,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 
 	public void writeAnnotatedHTML() {
 		this.annotatedHTMLFile = doc.html().toString();
+		
 		removeExtraWhiteSpaces();
 		/*try {
 			/*Writer writer = new OutputStreamWriter(new FileOutputStream(
@@ -367,7 +372,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 
 			selElem.text(selElem.text().replace(" ", ""));
 			String word = selElem.text();
-
+			
 			if (f != null) {
 				if (f.getRule().getPresentationStyle() == Rule.HIGHLIGHT_WHOLE_WORD) {
 					this.setWordHighlighting(selElem.attr("id"), f.getRule()
@@ -396,6 +401,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		// Retrieve the JSON Oject
 		if (this.jsonObject == null) {
 			this.retrieveJSonObject();
+			System.out.println("I am the : "+this.jsonObject);
 		}
 
 		// Take the input HTML from JSON
@@ -415,8 +421,6 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 
 		// Write to the annotated html file
 		this.writeAnnotatedHTML();
-		
-		System.out.println(this.annotatedHTMLFile);
 	}
 
 	/**
@@ -427,17 +431,22 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	 * @return
 	 */
 	private FinalAnnotation processWord(String wordID) {
+		
 		FinalAnnotation f = null;
 		Integer pos = this.jsonObject.getWordSet().getIdCorrespondance()
 				.get(Integer.parseInt(wordID.replace("w", "")));
-
+		
+		System.out.println(this.jsonObject.toString());
+		
 		if (pos != null) {
 			UserBasedAnnotatedWord word = this.jsonObject.getWordSet()
 					.getWords().get(pos);
+			
 
 			if (word != null) {
 				ArrayList<SeverityOnWordProblemInfo> wordProblems = word
 						.getUserSeveritiesOnWordProblems();
+				
 
 				int category;
 				int index;
