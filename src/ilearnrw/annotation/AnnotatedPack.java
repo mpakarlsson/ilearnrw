@@ -43,4 +43,16 @@ public class AnnotatedPack {
 		this.trickyWordList = trickyWordList;
 	}
 	
+	public String toString()
+	{
+		StringBuffer f = new StringBuffer();
+		
+		for (int i = 0; i < this.wordSet.getWords().size(); i++)
+		{
+			f.append(this.wordSet.getWords().get(i)+" ");
+		}
+		
+		return f.toString();
+	}
+	
 }

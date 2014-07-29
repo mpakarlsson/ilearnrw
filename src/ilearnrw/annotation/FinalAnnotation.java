@@ -52,5 +52,10 @@ public class FinalAnnotation
 		return this.severityOnWordProblemInfo;
 	}
 	
+	public String toString()
+	{
+		return this.rule+"";
+	}
+	
 	
 }
