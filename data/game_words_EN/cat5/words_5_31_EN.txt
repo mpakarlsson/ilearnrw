@@ -1,10 +1,7 @@
-gift
-soft
-shift
-lift
-left
+surrounded
+surround
+surrounds
 ###
-draft
-drift
-craft
-aircraft
+surrounding's
+surroundings
+surrounding

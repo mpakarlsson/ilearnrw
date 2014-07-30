@@ -1,8 +1,5 @@
+emotion
+notion
+motion
 ###
-aggressive
-aggression
-aggression's
-aggressions
-aggressivenesses
-aggressively
-aggressiveness
+promotion
