@@ -138,7 +138,6 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	public void initializePresentationModule(UserProfile profile)
 	{
 		this.profile = profile;
-		
 		this.presRules = new PresentationRulesModule(profile);
 	}
 	
@@ -266,14 +265,12 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 			JsonReader reader = new JsonReader(new java.io.StringReader(this.getJSONFile()));
 			this.jsonObject = gson.fromJson(reader, ilearnrw.annotation.AnnotatedPack.class);
 			
-			
-			
 			reader.close();
 		} catch (IOException e) {
 			System.err.println("Unable to write to file");
 		}
 	}
-
+	
 	public void readInputHTML() {
 		Charset.forName("UTF-8").newEncoder();
 		//this.inputHTMLFile = this.jsonObject.getHtml();
@@ -325,7 +322,57 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	}
 
 	public void removeExtraWhiteSpaces() {
-		//To do
+		//try {
+			/*BufferedReader br = new BufferedReader(new InputStreamReader(
+					new FileInputStream("C:\\Users\\Fouli\\Desktop\\OutputHTML.txt"), "UTF8"));
+
+			String strLine;
+
+			StringBuffer text = new StringBuffer();
+
+			// Extracts the text from the HTML file
+			while ((strLine = br.readLine()) != null) 
+			{
+				text.append(strLine.trim() +"\n");
+			}
+			
+			br.close();*/
+			
+			String previousLine;
+			String token;
+			StringTokenizer tokenizer = new StringTokenizer(this.annotatedHTMLFile, "\n");
+			
+			int tokenNumber = 0;
+			
+			StringBuffer cleanText = new StringBuffer();
+			
+			while (tokenizer.hasMoreTokens()) 
+			{
+				token = tokenizer.nextToken();
+				
+				if (tokenNumber == 0)
+				{
+					previousLine = token;
+				}
+				
+				if (token.contains("</w>")) 
+				{
+					cleanText.append(token.trim() + " ");
+				}
+				else 
+				{
+					cleanText.append(token.trim());
+				}
+				previousLine = token;
+				tokenNumber++;
+			}
+			this.annotatedHTMLFile = cleanText.toString();
+		/*} 
+		
+		catch (IOException e) {
+			System.err.println("Unable to write to file");
+		}*/
+		
 	}
 	
 	/*public void removeExtraWhiteSpaces() {
