@@ -57,7 +57,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 
 	private Document doc;
 
-	private AnnotatedPack jsonObject;
+	private UserBasedAnnotatedWordsSet jsonObject;
 
 	// Page properties
 	private double threshold;
@@ -260,18 +260,18 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	 */
 	public void retrieveJSonObject() {
 		Gson gson = new GsonBuilder().create();
-		try {
+		//try {
 			//JsonReader reader = new JsonReader(new java.io.BufferedReader(new java.io.FileReader(this.getJSONFile())));
 			System.out.println("I am the jSonfile: " +this.getJSONFile());
-			JsonReader reader = new JsonReader(new java.io.StringReader(this.getJSONFile()));
-			this.jsonObject = gson.fromJson(reader, ilearnrw.annotation.AnnotatedPack.class);
+			//JsonReader reader = new JsonReader(new java.io.StringReader(this.getJSONFile()));
+			this.jsonObject = gson.fromJson(JSONFileName, ilearnrw.annotation.UserBasedAnnotatedWordsSet.class);
 			
 			
 			
-			reader.close();
-		} catch (IOException e) {
-			System.err.println("Unable to write to file");
-		}
+			//reader.close();
+		//} catch (IOException e) {
+			//System.err.println("Unable to write to file");
+		//}
 	}
 
 	public void readInputHTML() {
@@ -401,7 +401,6 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		// Retrieve the JSON Oject
 		if (this.jsonObject == null) {
 			this.retrieveJSonObject();
-			System.out.println("I am the : "+this.jsonObject);
 		}
 
 		// Take the input HTML from JSON
@@ -433,13 +432,13 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	private FinalAnnotation processWord(String wordID) {
 		
 		FinalAnnotation f = null;
-		Integer pos = this.jsonObject.getWordSet().getIdCorrespondance()
+		Integer pos = this.jsonObject.getIdCorrespondance()
 				.get(Integer.parseInt(wordID.replace("w", "")));
 		
 		System.out.println(this.jsonObject.toString());
 		
 		if (pos != null) {
-			UserBasedAnnotatedWord word = this.jsonObject.getWordSet()
+			UserBasedAnnotatedWord word = this.jsonObject
 					.getWords().get(pos);
 			
 
