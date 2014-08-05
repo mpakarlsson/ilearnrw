@@ -17,7 +17,7 @@ public class Rule {
 	
 	public Rule()
 	{
-		this.presentationStyle = HIGHLIGHT_WHOLE_WORD;
+		this.presentationStyle = HIGHLIGHT_PROBLEMATIC_PARTS;
 		this.textColor =  0xffff0000; 
 		this.highlightingColor = 0xffff00; //color yellow
 		this.activated = true;

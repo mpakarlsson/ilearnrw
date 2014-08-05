@@ -139,12 +139,14 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	{
 		this.profile = profile;
 		
-		this.presRules = new PresentationRulesModule(profile);
+		if (this.presRules == null)
+			this.presRules = new PresentationRulesModule(profile);
 	}
 	
 	public void initializePresentationModule()
 	{
-		this.presRules = new PresentationRulesModule(profile);
+		if (this.presRules == null)
+			this.presRules = new PresentationRulesModule(profile);
 	}
 	
 
@@ -278,95 +280,24 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		Charset.forName("UTF-8").newEncoder();
 		//this.inputHTMLFile = this.jsonObject.getHtml();
 		doc = Jsoup.parse(this.inputHTMLFile);
-		
-		/*try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(
-					new FileInputStream(this.inputHTMLFile), "UTF8"));
-
-			String strLine;
-
-			StringBuffer text = new StringBuffer();
-
-			// Extracts the text from the HTML file
-			while ((strLine = br.readLine()) != null) {
-				text.append(strLine.trim() + "\n");
-			}
-
-			doc = Jsoup.parse(text.toString());
-
-			br.close();
-		} catch (IOException e) {
-			System.err.println("Unable to write to file");
-		}*/
-		
 	}
 
 	public void writeAnnotatedHTML() {
 		this.annotatedHTMLFile = doc.html().toString();
-		
 		removeExtraWhiteSpaces();
-		/*try {
-			/*Writer writer = new OutputStreamWriter(new FileOutputStream(
-					this.annotatedHTMLFile), "UTF-8");
-			BufferedWriter bw = new BufferedWriter(writer);
-			// doc.text(doc.text().replaceAll("",""));
-			// doc.select("&quot;").remove();
-			bw.write(doc.html());
-
-			bw.flush();
-			bw.close();
-			
-			this.annotatedHTMLFile = doc.html().toString();
-
-			removeExtraWhiteSpaces();
-		} catch (IOException e) {
-			System.err.println("Unable to write to file");
-		}*/
 	}
 
 	public void removeExtraWhiteSpaces() {
-		//To do
+		this.annotatedHTMLFile = this.annotatedHTMLFile.replaceAll("\\s+<span", "<span");
+		this.annotatedHTMLFile = this.annotatedHTMLFile.replaceAll("\\s+</w", "</w");
 	}
 	
-	/*public void removeExtraWhiteSpaces() {
-		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(
-					new FileInputStream(this.annotatedHTMLFile), "UTF8"));
-
-			StringBuffer text = new StringBuffer();
-
-			// Extracts the text from the HTML file
-			String previousLine = br.readLine();
-			text.append(previousLine);
-
-			String nextLine;
-
-			while ((nextLine = br.readLine()) != null) {
-				if (nextLine.contains("</w>")) {
-					text.append(nextLine.trim() + " ");
-					// br.readLine();
-				} else {
-					text.append(nextLine.trim());
-				}
-				previousLine = nextLine;
-			}
-
-			Writer writer = new OutputStreamWriter(new FileOutputStream(
-					this.annotatedHTMLFile), "UTF-8");
-			BufferedWriter bw = new BufferedWriter(writer);
-			bw.write(text.toString());
-			bw.close();
-			br.close();
-		} catch (IOException e) {
-			System.err.println("Unable to write to file");
-		}
-	}*/
-
+	
 	public void processText() {
 		// Reads words one by one and processes them according to the
 		// presentation rules.
 		Elements selectedElements = doc.select("w");
-
+		
 		for (Element selElem : selectedElements) {
 			FinalAnnotation f = processWord(selElem.attr("id").replace("w", ""));
 
@@ -374,6 +305,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 			String word = selElem.text();
 			
 			if (f != null) {
+				System.out.println(word + " " + f.getRule().getPresentationStyle());
 				if (f.getRule().getPresentationStyle() == Rule.HIGHLIGHT_WHOLE_WORD) {
 					this.setWordHighlighting(selElem.attr("id"), f.getRule()
 							.getTextColor(), 0, word.length() - 1);
@@ -392,6 +324,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 			}
 		}
 	}
+	
+	
 
 	/**
 	 * Annotates the HTML file associated with the TextAnnotator object.
@@ -725,8 +659,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	 */
 	public void setWordColor(String wordID, int color, int start, int end) {
 		Element element = doc.getElementById(wordID);
-
-		this.setAttributeToWord(element, wordID, "color", color+"", start, end);
+		this.setAttributeToWord(element, wordID, "color", String.format("#%06X", (0xFFFFFF & color))+"", start, end);
 	}
 
 	/**
@@ -748,7 +681,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 			int end) {
 		Element element = doc.getElementById(wordID);
 
-		this.setAttributeToWord(element, wordID, "background-color", color+"", start, end);
+		this.setAttributeToWord(element, wordID, "background-color", String.format("#%06X", (0xFFFFFF & color)), start, end);
 
 	}
 
@@ -1161,7 +1094,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	 */
 	public void setBackgroundColor(int backgroundColor, String tag) {
 		this.backgroundColor = backgroundColor;
-		this.updatePageStyle("background-color", backgroundColor+"",tag);
+		this.updatePageStyle("background-color", String.format("#%06X", (0xFFFFFF & backgroundColor))+"",tag);
 	}
 
 	/**
@@ -1177,7 +1110,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	 */
 	public void setForegroundColor(int foregroundColor, String tag) {
 		this.foregroundColor = foregroundColor;
-		this.updatePageStyle("color", foregroundColor+"", tag);
+		this.updatePageStyle("color", String.format("#%06X", (0xFFFFFF & foregroundColor))+"", tag);
 	}
 
 	/**
