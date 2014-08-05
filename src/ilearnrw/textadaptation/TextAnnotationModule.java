@@ -305,13 +305,13 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 			String word = selElem.text();
 			
 			if (f != null) {
-				System.out.println(word + " " + f.getRule().getPresentationStyle());
+				System.out.println(word + " I have color: " + f.getRule().getHighlightingColor());
 				if (f.getRule().getPresentationStyle() == Rule.HIGHLIGHT_WHOLE_WORD) {
 					this.setWordHighlighting(selElem.attr("id"), f.getRule()
-							.getTextColor(), 0, word.length() - 1);
+							.getHighlightingColor(), 0, word.length() - 1);
 				} else if (f.getRule().getPresentationStyle() == Rule.HIGHLIGHT_PROBLEMATIC_PARTS) {
 					this.setWordHighlighting(selElem.attr("id"), f.getRule()
-							.getTextColor(), f.getStringMatchesInfo()
+							.getHighlightingColor(), f.getStringMatchesInfo()
 							.getStart(), f.getStringMatchesInfo().getEnd());
 				} else if (f.getRule().getPresentationStyle() == Rule.PAINT_WHOLE_WORD) {
 					this.setWordColor(selElem.attr("id"), f.getRule()
