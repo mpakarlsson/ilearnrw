@@ -41,6 +41,13 @@
          "type":{  
             "url":"Prefixes"
          }
+      },
+      {  
+         "severityType":"binary",
+         "uri":"Confusing letters",
+         "type":{  
+            "url":"Confusing letters"
+         }
       }
    ],
    "problems":[  
@@ -51,7 +58,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027t\u0027 as \u0027t\u0027.For example: stress\u0027s, timed, stressing",
-            "cluster":0
+            "cluster":1,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -59,15 +67,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027tt\u0027 as \u0027t\u0027.For example: cutting, potted, matter\u0027s",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "ed-t"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027ed\u0027 as \u0027t\u0027.For example: tripped, reached, accessed",
-            "cluster":0
+            "cluster":8,
+            "character":"Double letter"
          },
          {  
             "descriptions":[  
@@ -75,7 +76,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027p\u0027 as \u0027p\u0027.For example: possibly, payments, president\u0027s",
-            "cluster":0
+            "cluster":1,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -83,7 +85,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027pp\u0027 as \u0027p\u0027.For example: approving, tripped, chipping",
-            "cluster":0
+            "cluster":8,
+            "character":"Double letter"
          },
          {  
             "descriptions":[  
@@ -91,7 +94,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027n\u0027 as \u0027n\u0027.For example: chickened, answer, payments",
-            "cluster":0
+            "cluster":1,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -99,7 +103,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027nn\u0027 as \u0027n\u0027.For example: beginning\u0027s, connected, funny",
-            "cluster":0
+            "cluster":8,
+            "character":"Double letter"
          },
          {  
             "descriptions":[  
@@ -107,7 +112,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027s\u0027 as \u0027s\u0027.For example: schooled, stress\u0027s, stressing",
-            "cluster":0
+            "cluster":1,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -115,7 +121,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ss\u0027 as \u0027s\u0027.For example: stress\u0027s, stressing, possibly",
-            "cluster":0
+            "cluster":8,
+            "character":"Double letter"
          },
          {  
             "descriptions":[  
@@ -123,7 +130,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027c\u0027 as \u0027s\u0027.For example: process\u0027s, accessed, cycling",
-            "cluster":0
+            "cluster":3,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -131,7 +139,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027d\u0027 as \u0027d\u0027.For example: clouded, relied, sand\u0027s",
-            "cluster":0
+            "cluster":3,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -139,15 +148,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027dd\u0027 as \u0027d\u0027.For example: middles, addition, wedding",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "ed-d"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027ed\u0027 as \u0027d\u0027.For example: schooled, timed, chickened",
-            "cluster":0
+            "cluster":8,
+            "character":"Double letter"
          },
          {  
             "descriptions":[  
@@ -155,7 +157,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027h\u0027 as \u0027h\u0027.For example: hospitals, hello, hells",
-            "cluster":0
+            "cluster":3,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -163,7 +166,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027r\u0027 as \u0027r\u0027.For example: approving, stress\u0027s, stressing",
-            "cluster":0
+            "cluster":5,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -171,7 +175,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027rr\u0027 as \u0027r\u0027.For example: terrible, sorrier, mirror\u0027s",
-            "cluster":0
+            "cluster":8,
+            "character":"Double letter"
          },
          {  
             "descriptions":[  
@@ -179,7 +184,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027m\u0027 as \u0027m\u0027.For example: timed, payments, times",
-            "cluster":0
+            "cluster":5,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -187,7 +193,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027mm\u0027 as \u0027m\u0027.For example: communication\u0027s, comments, communication",
-            "cluster":0
+            "cluster":8,
+            "character":"Double letter"
          },
          {  
             "descriptions":[  
@@ -195,7 +202,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027b\u0027 as \u0027b\u0027.For example: possibly, basis, basic",
-            "cluster":0
+            "cluster":7,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -203,7 +211,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027bb\u0027 as \u0027b\u0027.For example: grabbing, grabber, grabbed",
-            "cluster":0
+            "cluster":8,
+            "character":"Double letter"
          },
          {  
             "descriptions":[  
@@ -211,7 +220,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027l\u0027 as \u0027l\u0027.For example: schooled, possibly, relies",
-            "cluster":0
+            "cluster":7,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -219,7 +229,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ll\u0027 as \u0027l\u0027.For example: hello, hells, recall",
-            "cluster":0
+            "cluster":8,
+            "character":"Double letter"
          },
          {  
             "descriptions":[  
@@ -227,7 +238,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027f\u0027 as \u0027f\u0027.For example: finals, relief, chief\u0027s",
-            "cluster":0
+            "cluster":11,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -235,7 +247,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ff\u0027 as \u0027f\u0027.For example: traffics, officers, stuffs",
-            "cluster":0
+            "cluster":11,
+            "character":"Double letter"
          },
          {  
             "descriptions":[  
@@ -243,7 +256,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ph\u0027 as \u0027f\u0027.For example: telephoning, photographing, phone\u0027s",
-            "cluster":0
+            "cluster":35,
+            "character":"Xgraph"
          },
          {  
             "descriptions":[  
@@ -251,7 +265,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027g\u0027 as \u0027g\u0027.For example: ongoing",
-            "cluster":0
+            "cluster":11,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -259,7 +274,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027gg\u0027 as \u0027g\u0027.",
-            "cluster":0
+            "cluster":11,
+            "character":"Double letter"
          },
          {  
             "descriptions":[  
@@ -267,7 +283,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027k\u0027 as \u0027k\u0027.For example: lakes, tasking, making",
-            "cluster":0
+            "cluster":14,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -275,7 +292,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027c\u0027 as \u0027k\u0027.For example: clouded, victim\u0027s, cutting",
-            "cluster":0
+            "cluster":3,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -283,7 +301,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ck\u0027 as \u0027k\u0027.For example: chickened, sicklier, jacketed",
-            "cluster":0
+            "cluster":14,
+            "character":"Xgraph"
          },
          {  
             "descriptions":[  
@@ -291,7 +310,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ng\u0027 as \u0027ŋ\u0027.For example: approving, stressing, rushing",
-            "cluster":0
+            "cluster":14,
+            "character":"Xgraph"
          },
          {  
             "descriptions":[  
@@ -299,7 +319,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027nk\u0027 as \u0027ŋk\u0027.For example: linked, thinks, banks",
-            "cluster":0
+            "cluster":14,
+            "character":"Xgraph"
          },
          {  
             "descriptions":[  
@@ -307,7 +328,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027th\u0027 as \u0027θ\u0027.For example: thought, authored, beneath",
-            "cluster":0
+            "cluster":14,
+            "character":"Xgraph"
          },
          {  
             "descriptions":[  
@@ -315,7 +337,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027v\u0027 as \u0027v\u0027.For example: approving, victim\u0027s, creativenesses",
-            "cluster":0
+            "cluster":15,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -323,7 +346,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027w\u0027 as \u0027w\u0027.For example: wording, wears, warning",
-            "cluster":0
+            "cluster":16,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -331,7 +355,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027sh\u0027 as \u0027ʃ\u0027.For example: rushing, shadows, spanish",
-            "cluster":0
+            "cluster":16,
+            "character":"Xgraph"
          },
          {  
             "descriptions":[  
@@ -339,7 +364,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027s\u0027 as \u0027ʃ\u0027.For example: sugar, sure, insurances",
-            "cluster":0
+            "cluster":35,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -347,31 +373,17 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ss\u0027 as \u0027ʃ\u0027.For example: pressured, pressures, pressure",
-            "cluster":0
+            "cluster":35,
+            "character":"Double letter"
          },
-         {  
-            "descriptions":[  
-               "tion-ʃən"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027tion\u0027 as \u0027ʃən\u0027.For example: construction, communication\u0027s, action\u0027s",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "tial-ʃəl"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027tial\u0027 as \u0027ʃəl\u0027.For example: initials, presidential, initialled",
-            "cluster":0
-         },
-         {  
+         { 
             "descriptions":[  
                "y-j"
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027y\u0027 as \u0027j\u0027.For example: yard, yellows, lawyers",
-            "cluster":0
+            "cluster":18,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -379,7 +391,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027j\u0027 as \u0027dʒ\u0027.For example: jew, job, jury\u0027s",
-            "cluster":0
+            "cluster":18,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -387,7 +400,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027g\u0027 as \u0027dʒ\u0027.For example: emergency, advantages, larger",
-            "cluster":0
+            "cluster":31,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -395,7 +409,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027dg\u0027 as \u0027dʒ\u0027.For example: bridging, bridge\u0027s, edged",
-            "cluster":0
+            "cluster":28,
+            "character":"Xgraph"
          },
          {  
             "descriptions":[  
@@ -403,7 +418,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027qu\u0027 as \u0027k\u0027.",
-            "cluster":0
+            "cluster":18,
+            "character":"Xgraph"
          },
          {  
             "descriptions":[  
@@ -411,7 +427,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027z\u0027 as \u0027z\u0027.For example: dozens, amazing, organization",
-            "cluster":0
+            "cluster":18,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -419,7 +436,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027zz\u0027 as \u0027z\u0027.For example: jazzes, jazzed, jazz\u0027s",
-            "cluster":0
+            "cluster":18,
+            "character":"Double letter"
          },
          {  
             "descriptions":[  
@@ -427,23 +445,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027s\u0027 as \u0027z\u0027.For example: relies, finals, chairs",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "se-z"
-            ],
-            "problemType":"DIGRAPH_EQUALS_PHONEME",
-            "humanReadableDescription":"Pronounce \u0027se\u0027 as \u0027z\u0027.For example: presences, please, cheese",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "ze-z"
-            ],
-            "problemType":"DIGRAPH_EQUALS_PHONEME",
-            "humanReadableDescription":"Pronounce \u0027ze\u0027 as \u0027z\u0027.For example: analyze, emphasized, emphasize",
-            "cluster":0
+            "cluster":1,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -451,7 +454,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ch\u0027 as \u0027tʃ\u0027.For example: chickened, chairs, chief\u0027s",
-            "cluster":0
+            "cluster":21,
+            "character":"Xgraph"
          },
          {  
             "descriptions":[  
@@ -459,23 +463,8 @@
             ],
             "problemType":"TRIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027tch\u0027 as \u0027tʃ\u0027.For example: kitchens, stretching, kitchen",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "sion-ʒən"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027sion\u0027 as \u0027ʒən\u0027.For example: visions, decision\u0027s, televisions",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "sure-ʒə"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027sure\u0027 as \u0027ʒə\u0027.",
-            "cluster":0
+            "cluster":33,
+            "character":"Xgraph"
          },
          {  
             "descriptions":[  
@@ -483,7 +472,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027th\u0027 as \u0027ð\u0027.For example: fathers, rather, although",
-            "cluster":0
+            "cluster":14,
+            "character":"Xgraph"
          },
          {  
             "descriptions":[  
@@ -491,7 +481,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027x\u0027 as \u0027ɡz\u0027.For example: executives, existences, existence\u0027s",
-            "cluster":0
+            "cluster":18,
+            "character":"Single letter"
          },
          {  
             "descriptions":[  
@@ -499,7 +490,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027x\u0027 as \u0027ks\u0027.For example: fixing, excepts, sexing",
-            "cluster":0
+            "cluster":18,
+            "character":"Single letter"
          }
       ],
       [  
@@ -509,7 +501,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027i\u0027 as \u0027ɪ\u0027.For example: approving, chickened, stressing",
-            "cluster":0
+            "cluster":1,
+            "character":"Short vowel"
          },
          {  
             "descriptions":[  
@@ -517,7 +510,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027a\u0027 as \u0027æ\u0027.For example: sand\u0027s, analyze, understanding\u0027s",
-            "cluster":0
+            "cluster":3,
+            "character":"Short vowel"
          },
          {  
             "descriptions":[  
@@ -525,7 +519,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027o\u0027 as \u0027ɒ\u0027.For example: possibly, drop, belongs",
-            "cluster":0
+            "cluster":3,
+            "character":"Short vowel"
          },
          {  
             "descriptions":[  
@@ -533,7 +528,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027i\u0027 as \u0027aɪ\u0027.For example: timed, finals, timer",
-            "cluster":0
+            "cluster":1,
+            "character":"Short vowel"
          },
          {  
             "descriptions":[  
@@ -541,7 +537,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027e\u0027 as \u0027e\u0027.For example: stress\u0027s, stressing, greatnesses",
-            "cluster":0
+            "cluster":5,
+            "character":"Short vowel"
          },
          {  
             "descriptions":[  
@@ -549,7 +546,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027u\u0027 as \u0027ʌ\u0027.For example: rushing, cutting, understanding\u0027s",
-            "cluster":0
+            "cluster":11,
+            "character":"Short vowel"
          },
          {  
             "descriptions":[  
@@ -557,7 +555,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ar\u0027 as \u0027ɑː\u0027.For example: argued, argues, target",
-            "cluster":0
+            "cluster":21,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -565,7 +564,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ee\u0027 as \u0027iː\u0027.For example: steeling, sleeps, agreement\u0027s",
-            "cluster":0
+            "cluster":21,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -573,7 +573,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027or\u0027 as \u0027ɔː\u0027.For example: reformed, order\u0027s, organization",
-            "cluster":0
+            "cluster":21,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -581,7 +582,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027y\u0027 as \u0027i\u0027.For example: possibly, anyone, plenty\u0027s",
-            "cluster":0
+            "cluster":21,
+            "character":"Short vowel"
          },
          {  
             "descriptions":[  
@@ -589,7 +591,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027y\u0027 as \u0027aɪ\u0027.For example: analyze, cycling, by",
-            "cluster":0
+            "cluster":21,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -597,7 +600,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ie\u0027 as \u0027aɪ\u0027.For example: relies, relied, cries",
-            "cluster":0
+            "cluster":33,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -605,7 +609,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027i_C_e\u0027 as \u0027aɪ\u0027.For example: times, while, smile\u0027s",
-            "cluster":0
+            "cluster":23,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -613,7 +618,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027a_C_e\u0027 as \u0027eɪ\u0027.For example: estimates, rates, lakes",
-            "cluster":0
+            "cluster":23,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -621,7 +627,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ay\u0027 as \u0027eɪ\u0027.For example: payments, displayed, ways",
-            "cluster":0
+            "cluster":23,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -629,7 +636,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027er\u0027 as \u0027ə\u0027.For example: answer, timer, understanding\u0027s",
-            "cluster":0
+            "cluster":25,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -637,7 +645,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027oo\u0027 as \u0027uː\u0027.For example: schooled, rooting, boot\u0027s",
-            "cluster":0
+            "cluster":27,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -645,7 +654,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027oo\u0027 as \u0027ʊ\u0027.For example: book, goods, look",
-            "cluster":0
+            "cluster":27,
+            "character":"Short vowel"
          },
          {  
             "descriptions":[  
@@ -653,7 +663,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027o_C_e\u0027 as \u0027əʊ\u0027.For example: wholes, phone\u0027s, bone",
-            "cluster":0
+            "cluster":28,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -661,7 +672,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027u_C_e\u0027 as \u0027juː\u0027.For example: contribute, schedule, schedule\u0027s",
-            "cluster":0
+            "cluster":28,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -669,7 +681,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ea\u0027 as \u0027iː\u0027.For example: reached, reaches, season\u0027s",
-            "cluster":0
+            "cluster":28,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -677,7 +690,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ea\u0027 as \u0027e\u0027.For example: breading, ready, readied",
-            "cluster":0
+            "cluster":28,
+            "character":"Short vowel"
          },
          {  
             "descriptions":[  
@@ -685,7 +699,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ou\u0027 as \u0027aʊ\u0027.For example: clouded, counties, doubt",
-            "cluster":0
+            "cluster":31,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -693,7 +708,8 @@
             ],
             "problemType":"TRIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027igh\u0027 as \u0027aɪ\u0027.For example: brightness, fight, night\u0027s",
-            "cluster":0
+            "cluster":31,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -701,7 +717,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027o\u0027 as \u0027ʌ\u0027.For example: dozens, brother, discovers",
-            "cluster":0
+            "cluster":31,
+            "character":"Short vowel"
          },
          {  
             "descriptions":[  
@@ -709,7 +726,8 @@
             ],
             "problemType":"TRIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ice\u0027 as \u0027ɪs\u0027.For example: notice, practice, office",
-            "cluster":0
+            "cluster":31,
+            "character":"Short vowel"
          },
          {  
             "descriptions":[  
@@ -717,7 +735,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ai\u0027 as \u0027eɪ\u0027.For example: aimed, chains, wait",
-            "cluster":0
+            "cluster":31,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -725,7 +744,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ow\u0027 as \u0027əʊ\u0027.For example: shadows, lowness, owners",
-            "cluster":0
+            "cluster":31,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -733,7 +753,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ow\u0027 as \u0027aʊ\u0027.For example: rowed, somehow, down",
-            "cluster":0
+            "cluster":31,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -741,7 +762,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027oa\u0027 as \u0027əʊ\u0027.For example: boat, approaching, goal\u0027s",
-            "cluster":0
+            "cluster":33,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -749,7 +771,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027o\u0027 as \u0027əʊ\u0027.For example: process\u0027s, shadows, hello",
-            "cluster":0
+            "cluster":28,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -757,7 +780,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027e_C_e\u0027 as \u0027iː\u0027.For example: these, theme, supreme",
-            "cluster":0
+            "cluster":33,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -765,7 +789,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ir\u0027 as \u0027ɜː\u0027.For example: confirms, shirting, confirmed",
-            "cluster":0
+            "cluster":33,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -773,15 +798,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ur\u0027 as \u0027ɜː\u0027.For example: church\u0027s, occurs, turning",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "wor-wɜː"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027wor\u0027 as \u0027wɜː\u0027.For example: wording, word\u0027s, worded",
-            "cluster":0
+            "cluster":33,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -789,7 +807,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027oi\u0027 as \u0027ɔɪ\u0027.For example: soiling, point\u0027s, voicing",
-            "cluster":0
+            "cluster":33,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -797,7 +816,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027oy\u0027 as \u0027ɔɪ\u0027.For example: boys, employs, enjoyed",
-            "cluster":0
+            "cluster":33,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -805,7 +825,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ie\u0027 as \u0027iː\u0027.For example: relief, chief\u0027s, briefs",
-            "cluster":0
+            "cluster":33,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -813,7 +834,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027au\u0027 as \u0027ɔː\u0027.For example: authored, cause\u0027s, authority",
-            "cluster":0
+            "cluster":35,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -821,7 +843,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027aw\u0027 as \u0027ɔː\u0027.For example: draw, lawyers, draws",
-            "cluster":0
+            "cluster":35,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -829,7 +852,8 @@
             ],
             "problemType":"TRIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ore\u0027 as \u0027ɔː\u0027.For example: ignored, ignores, therefore",
-            "cluster":0
+            "cluster":38,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -837,7 +861,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ew\u0027 as \u0027juː\u0027.For example: fewer, newer, few",
-            "cluster":0
+            "cluster":35,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -845,7 +870,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ue\u0027 as \u0027uː\u0027.For example: blueness, blue, blue\u0027s",
-            "cluster":0
+            "cluster":35,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -853,7 +879,8 @@
             ],
             "problemType":"TRIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ear\u0027 as \u0027ɜː\u0027.For example: researches, researcher, researched",
-            "cluster":0
+            "cluster":35,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -861,7 +888,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027y\u0027 as \u0027ɪ\u0027.For example: analyst, symptom\u0027s, everything",
-            "cluster":0
+            "cluster":38,
+            "character":"Short vowel"
          },
          {  
             "descriptions":[  
@@ -869,7 +897,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027y_C_e\u0027 as \u0027aɪ\u0027.For example: type, style\u0027s, types",
-            "cluster":0
+            "cluster":38,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -877,7 +906,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ou\u0027 as \u0027aʊ\u0027.For example: clouded, counties, doubt",
-            "cluster":0
+            "cluster":38,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -885,7 +915,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ei\u0027 as \u0027iː\u0027.For example: receive, receiving, perceiving",
-            "cluster":0
+            "cluster":38,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -893,7 +924,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ei\u0027 as \u0027eɪ\u0027.For example: surveillance\u0027s, surveillance",
-            "cluster":0
+            "cluster":38,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -901,7 +933,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027eigh\u0027 as \u0027eɪ\u0027.For example: weights, eight\u0027s, neighborhood",
-            "cluster":0
+            "cluster":38,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -909,7 +942,8 @@
             ],
             "problemType":"TRIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027our\u0027 as \u0027ə\u0027.For example: your",
-            "cluster":0
+            "cluster":38,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -917,7 +951,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ar\u0027 as \u0027ə\u0027.For example: sugar, forwarded, standard",
-            "cluster":0
+            "cluster":38,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -925,7 +960,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ui\u0027 as \u0027uː\u0027.For example: suit, juices, fruiting",
-            "cluster":0
+            "cluster":38,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -933,7 +969,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ui\u0027 as \u0027ɪ\u0027.For example: builds, guiltier, building\u0027s",
-            "cluster":0
+            "cluster":38,
+            "character":"Short vowel"
          },
          {  
             "descriptions":[  
@@ -941,7 +978,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ey\u0027 as \u0027iː\u0027.For example: key, keys, keyed",
-            "cluster":0
+            "cluster":38,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -949,7 +987,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ey\u0027 as \u0027eɪ\u0027.For example: hey, surveyed, survey",
-            "cluster":0
+            "cluster":38,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -957,7 +996,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027oe\u0027 as \u0027əʊ\u0027.For example: goes, heroes, potatoes",
-            "cluster":0
+            "cluster":38,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -965,7 +1005,8 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027eu\u0027 as \u0027juː\u0027.For example: neutral, neutrally, neutrals",
-            "cluster":0
+            "cluster":38,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -973,7 +1014,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027eur\u0027 as \u0027ə\u0027.",
-            "cluster":0
+            "cluster":28,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -981,7 +1023,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027ine\u0027 as \u0027aɪn\u0027.For example: combine, define, airline",
-            "cluster":0
+            "cluster":23,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -989,7 +1032,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027ine\u0027 as \u0027ʒɪn\u0027.",
-            "cluster":0
+            "cluster":37,
+            "character":"Short vowel"
          },
          {  
             "descriptions":[  
@@ -997,7 +1041,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027ine\u0027 as \u0027iːn\u0027.For example: machine\u0027s, machine, magazines",
-            "cluster":0
+            "cluster":37,
+            "character":"Long vowel"
          },
          {  
             "descriptions":[  
@@ -1005,7 +1050,8 @@
             ],
             "problemType":"TRIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027air\u0027 as \u0027eə\u0027.For example: chairs, paired, hair\u0027s",
-            "cluster":0
+            "cluster":31,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -1013,7 +1059,8 @@
             ],
             "problemType":"TRIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027are\u0027 as \u0027eə\u0027.",
-            "cluster":0
+            "cluster":23,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -1021,7 +1068,8 @@
             ],
             "problemType":"TRIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ear\u0027 as \u0027eə\u0027.For example: wears, wear, bear",
-            "cluster":0
+            "cluster":35,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -1029,7 +1077,8 @@
             ],
             "problemType":"TRIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ear\u0027 as \u0027ɪə\u0027.For example: nearness, appears, clearness",
-            "cluster":0
+            "cluster":28,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -1037,7 +1086,8 @@
             ],
             "problemType":"TRIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027eer\u0027 as \u0027ɪə\u0027.For example: career\u0027s, careered, careers",
-            "cluster":0
+            "cluster":21,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -1045,7 +1095,8 @@
             ],
             "problemType":"TRIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ere\u0027 as \u0027ɪə\u0027.For example: here, atmospheres, merely",
-            "cluster":0
+            "cluster":28,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -1053,7 +1104,8 @@
             ],
             "problemType":"TRIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027ure\u0027 as \u0027ʊə\u0027.For example: sure, sureness, ensured",
-            "cluster":0
+            "cluster":28,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -1061,7 +1113,8 @@
             ],
             "problemType":"TRIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027oor\u0027 as \u0027ʊə\u0027.For example: poor, poorness, poornesses",
-            "cluster":0
+            "cluster":28,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -1069,7 +1122,8 @@
             ],
             "problemType":"TRIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027our\u0027 as \u0027ʊə\u0027.For example: toured, tours, tour",
-            "cluster":0
+            "cluster":28,
+            "character":"Diphthong"
          },
          {  
             "descriptions":[  
@@ -1077,7 +1131,8 @@
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027a\u0027 as \u0027ɒ\u0027.For example: wants, want, wash",
-            "cluster":0
+            "cluster":16,
+            "character":"Short vowel"
          }
       ],
       [  
@@ -1087,7 +1142,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ip\u0027 as \u0027ɪp\u0027.For example: relationship, chip, lip",
-            "cluster":0
+            "cluster":1,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1095,7 +1151,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027in\u0027 as \u0027ɪn\u0027.For example: brain, in, contain",
-            "cluster":0
+            "cluster":1,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1103,7 +1160,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027st\u0027 as \u0027st\u0027.For example: stress\u0027s, stressing, steeling",
-            "cluster":0
+            "cluster":1,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1111,7 +1169,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027sp\u0027 as \u0027sp\u0027.For example: spends, spanish, space",
-            "cluster":0
+            "cluster":1,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1119,7 +1178,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027sn\u0027 as \u0027sn\u0027.For example: snows, snow, snowed",
-            "cluster":0
+            "cluster":1,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1127,7 +1187,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027sm\u0027 as \u0027sm\u0027.For example: smile\u0027s, smarted, smarter",
-            "cluster":0
+            "cluster":16,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1135,7 +1196,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ad\u0027 as \u0027æd\u0027.For example: ad, glad, dad",
-            "cluster":0
+            "cluster":3,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1143,7 +1205,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027and\u0027 as \u0027ænd\u0027.For example: stand, expand, understand",
-            "cluster":0
+            "cluster":3,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1151,7 +1214,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027de\u0027 as \u0027de\u0027.For example: demonstrated, demonstrates, demonstrating",
-            "cluster":0
+            "cluster":5,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1159,7 +1223,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027act\u0027 as \u0027ækt\u0027.For example: contract, contact, attract",
-            "cluster":0
+            "cluster":3,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1167,7 +1232,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027sc\u0027 as \u0027sk\u0027.For example: schooled, schooling, school\u0027s",
-            "cluster":0
+            "cluster":3,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1175,7 +1241,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027cr\u0027 as \u0027kr\u0027.For example: creativenesses, crime, cries",
-            "cluster":0
+            "cluster":5,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1183,7 +1250,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027dr\u0027 as \u0027dr\u0027.For example: drop, drug, draw",
-            "cluster":0
+            "cluster":5,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1191,7 +1259,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027pr\u0027 as \u0027pr\u0027.For example: president\u0027s, process\u0027s, prisoned",
-            "cluster":0
+            "cluster":5,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1199,7 +1268,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027tr\u0027 as \u0027tr\u0027.For example: tripped, traffics, travelled",
-            "cluster":0
+            "cluster":5,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1207,7 +1277,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027str\u0027 as \u0027str\u0027.For example: stress\u0027s, stressing, straighter",
-            "cluster":0
+            "cluster":5,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1215,7 +1286,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027spr\u0027 as \u0027spr\u0027.For example: spring, spreads, springer",
-            "cluster":0
+            "cluster":5,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1223,7 +1295,26 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027scr\u0027 as \u0027skr\u0027.For example: screen, screens, screamed",
-            "cluster":0
+            "cluster":5,
+            "character":"Beginning of word"
+         },
+         { 
+            "descriptions":[  
+               "ed-t"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "humanReadableDescription":"Pronounce \u0027ed\u0027 as \u0027t\u0027.For example: tripped, reached, accessed",
+            "cluster":25,
+            "character":"End of word"
+         },
+         { 
+            "descriptions":[  
+               "ed-d"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "humanReadableDescription":"Pronounce \u0027ed\u0027 as \u0027d\u0027.For example: schooled, timed, chickened",
+            "cluster":25,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1231,7 +1322,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027am\u0027 as \u0027æm\u0027.For example: am, program",
-            "cluster":0
+            "cluster":5,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1239,7 +1331,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027amp\u0027 as \u0027æmp\u0027.For example: camp",
-            "cluster":0
+            "cluster":5,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1247,7 +1340,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027im\u0027 as \u0027ɪm\u0027.For example: him, victim, claim",
-            "cluster":0
+            "cluster":5,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1255,7 +1349,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_b\u0027 as \u0027b\u0027.For example: job, club, lab",
-            "cluster":0
+            "cluster":7,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1263,7 +1358,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027br\u0027 as \u0027br\u0027.For example: brightness, briefs, bridging",
-            "cluster":0
+            "cluster":7,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1271,7 +1367,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_lt\u0027 as \u0027lt\u0027.For example: adult, result, difficult",
-            "cluster":0
+            "cluster":7,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1279,7 +1376,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027bl\u0027 as \u0027bl\u0027.For example: blueness, black, blacks",
-            "cluster":0
+            "cluster":7,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1287,7 +1385,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027cl\u0027 as \u0027kl\u0027.For example: clouded, cleanness\u0027s, climate",
-            "cluster":0
+            "cluster":7,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1295,7 +1394,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027pl\u0027 as \u0027pl\u0027.For example: plenty\u0027s, plane\u0027s, pleasure",
-            "cluster":0
+            "cluster":7,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1303,7 +1403,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027sl\u0027 as \u0027sl\u0027.For example: sleeps, sliding, slowness",
-            "cluster":0
+            "cluster":7,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1311,7 +1412,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027spl\u0027 as \u0027spl\u0027.For example: splitting, splits, split\u0027s",
-            "cluster":0
+            "cluster":7,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1319,7 +1421,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_ll\u0027 as \u0027l\u0027.For example: recall, wall, small",
-            "cluster":0
+            "cluster":8,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1327,7 +1430,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_ss\u0027 as \u0027s\u0027.For example: brightness, quietness, lowness",
-            "cluster":0
+            "cluster":8,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1335,7 +1439,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_ft\u0027 as \u0027ft\u0027.For example: gift, soft, shift",
-            "cluster":0
+            "cluster":11,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1343,7 +1448,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027elf\u0027 as \u0027elf\u0027.For example: herself, himself, itself",
-            "cluster":0
+            "cluster":11,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1351,7 +1457,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027fl\u0027 as \u0027fl\u0027.For example: flight, fly, floors",
-            "cluster":0
+            "cluster":11,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1359,7 +1466,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027fr\u0027 as \u0027fr\u0027.For example: friends, friend, frame\u0027s",
-            "cluster":0
+            "cluster":11,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1367,7 +1475,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_g\u0027 as \u0027g\u0027.",
-            "cluster":0
+            "cluster":11,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1375,7 +1484,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027gl\u0027 as \u0027gl\u0027.",
-            "cluster":0
+            "cluster":11,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1383,7 +1493,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027gr\u0027 as \u0027gr\u0027.",
-            "cluster":0
+            "cluster":11,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1391,7 +1502,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_sk\u0027 as \u0027sk\u0027.For example: task, desk, risk",
-            "cluster":0
+            "cluster":14,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1399,7 +1511,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_lk\u0027 as \u0027lk\u0027.For example: milk",
-            "cluster":0
+            "cluster":14,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1407,7 +1520,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027sk\u0027 as \u0027sk\u0027.For example: tasking, skin\u0027s, tasked",
-            "cluster":0
+            "cluster":14,
+            "character":"Middle of word"
          },
          {  
             "descriptions":[  
@@ -1415,7 +1529,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_ng\u0027 as \u0027ŋ\u0027.For example: approving, stressing, rushing",
-            "cluster":0
+            "cluster":14,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1423,7 +1538,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_nk\u0027 as \u0027ŋk\u0027.For example: thank, bank, tank",
-            "cluster":0
+            "cluster":14,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1432,7 +1548,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027thank\u0027 as \u0027θæŋk\u0027.For example: thank, thanking, thanks",
-            "cluster":0
+            "cluster":14,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1440,7 +1557,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ath\u0027 as \u0027ɑːθ\u0027.For example: path",
-            "cluster":0
+            "cluster":14,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1448,7 +1566,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027oth\u0027 as \u0027ɒθ\u0027.For example: cloth",
-            "cluster":0
+            "cluster":14,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1456,7 +1575,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ength\u0027 as \u0027eŋθ\u0027.For example: length, strength",
-            "cluster":0
+            "cluster":14,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1464,7 +1584,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_ck\u0027 as \u0027k\u0027.For example: black, lock, pick",
-            "cluster":0
+            "cluster":14,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1472,7 +1593,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ic\u0027 as \u0027ɪk\u0027.For example: basic, scientific, ethnic",
-            "cluster":0
+            "cluster":14,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1480,7 +1602,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ve\u0027 as \u0027v\u0027.For example: resolve, wave, observe",
-            "cluster":0
+            "cluster":16,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1488,7 +1611,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027sw\u0027 as \u0027sw\u0027.For example: sweet, sweets, sweeter",
-            "cluster":0
+            "cluster":16,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1496,7 +1620,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027tw\u0027 as \u0027tw\u0027.For example: twenty, twice, twenties",
-            "cluster":0
+            "cluster":16,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1504,7 +1629,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027dw\u0027 as \u0027dw\u0027.",
-            "cluster":0
+            "cluster":16,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1512,7 +1638,17 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027wa\u0027 as \u0027wɒ\u0027.For example: wants, want, wash",
-            "cluster":0
+            "cluster":16,
+            "character":"Beginning of word"
+         },
+         { 
+            "descriptions":[  
+               "tion-ʃən"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "humanReadableDescription":"Pronounce \u0027tion\u0027 as \u0027ʃən\u0027.For example: construction, communication\u0027s, action\u0027s",
+            "cluster":28,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -1520,7 +1656,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027swa\u0027 as \u0027swɒ\u0027.For example: swallows, swallowing, swallowed",
-            "cluster":0
+            "cluster":16,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1528,7 +1665,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_sh\u0027 as \u0027ʃ\u0027.For example: spanish, wash, push",
-            "cluster":0
+            "cluster":16,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1536,7 +1674,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027shr\u0027 as \u0027ʃr\u0027.For example: shrugged, shrugs, shrimp\u0027s",
-            "cluster":0
+            "cluster":16,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1544,7 +1683,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_x\u0027 as \u0027ks\u0027.For example: fix, six, sex",
-            "cluster":0
+            "cluster":18,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1552,7 +1692,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027zz\u0027 as \u0027z\u0027.For example: jazz",
-            "cluster":0
+            "cluster":18,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1560,7 +1701,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_ff\u0027 as \u0027f\u0027.For example: staff, off, stuff",
-            "cluster":0
+            "cluster":21,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1568,7 +1710,26 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_nch\u0027 as \u0027ntʃ\u0027.For example: branch, french, lunch",
-            "cluster":0
+            "cluster":21,
+            "character":"Vowel pattern"
+         },
+         { 
+            "descriptions":[  
+               "_V_se-z"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "humanReadableDescription":"Pronounce \u0027se\u0027 as \u0027z\u0027.For example: presences, please, cheese",
+            "cluster":33,
+            "character":"Vowel pattern"
+         },
+         { 
+            "descriptions":[  
+               "_V_ze-z"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "humanReadableDescription":"Pronounce \u0027ze\u0027 as \u0027z\u0027.For example: analyze, emphasized, emphasize",
+            "cluster":33,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1576,7 +1737,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027arch\u0027 as \u0027tʃ\u0027.For example: search, research",
-            "cluster":0
+            "cluster":21,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1584,7 +1746,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_ce\u0027 as \u0027ɪs\u0027.For example: space, ice, price",
-            "cluster":0
+            "cluster":33,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1592,7 +1755,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_nce\u0027 as \u0027ns\u0027.For example: assistance, dance, enhance",
-            "cluster":0
+            "cluster":25,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1600,7 +1764,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027wh\u0027 as \u0027w\u0027.For example: which, while, white",
-            "cluster":0
+            "cluster":25,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1608,7 +1773,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_ge\u0027 as \u0027dʒ\u0027.For example: package, college, engage",
-            "cluster":0
+            "cluster":28,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1616,7 +1782,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_rge\u0027 as \u0027dʒ\u0027.For example: large, emerge, charge",
-            "cluster":0
+            "cluster":28,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1624,7 +1791,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_nge\u0027 as \u0027ndʒ\u0027.For example: challenge, change, strange",
-            "cluster":0
+            "cluster":28,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1632,7 +1800,97 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_dge\u0027 as \u0027dʒ\u0027.For example: bridge, acknowledge, knowledge",
-            "cluster":0
+            "cluster":28,
+            "character":"Vowel pattern"
+         },{  
+            "descriptions":[  
+               "ble-bəl"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":30,
+            "character":"End of word"
+         },
+         {  
+            "descriptions":[  
+               "fle-fəl"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":30,
+            "character":"End of word"
+         },
+         {  
+            "descriptions":[  
+               "ple-pəl"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":30,
+            "character":"End of word"
+         },
+         {  
+            "descriptions":[  
+               "tle-təl"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":30,
+            "character":"End of word"
+         },
+         {  
+            "descriptions":[  
+               "dle-dəl"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":30,
+            "character":"End of word"
+         },
+         {  
+            "descriptions":[  
+               "kle-kəl"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":30,
+            "character":"End of word"
+         },
+         {  
+            "descriptions":[  
+               "cle-kəl"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":30,
+            "character":"End of word"
+         },
+         {  
+            "descriptions":[  
+               "gle-ɡəl"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":30,
+            "character":"End of word"
+         },
+         {  
+            "descriptions":[  
+               "zle-zəl"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":30,
+            "character":"End of word"
+         },
+         {  
+            "descriptions":[  
+               "stle-səl"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":30,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1640,7 +1898,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027c\u0027 as \u0027s\u0027.For example: cycling, century, celebrate",
-            "cluster":0
+            "cluster":35,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1648,7 +1907,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027sc\u0027 as \u0027s\u0027.For example: schooled, scientific, schooling",
-            "cluster":0
+            "cluster":39,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1656,7 +1916,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027age\u0027 as \u0027ɪdʒ\u0027.For example: advantaged, damaged, package",
-            "cluster":0
+            "cluster":31,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1664,7 +1925,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ege\u0027 as \u0027ɪdʒ\u0027.For example: college",
-            "cluster":0
+            "cluster":33,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1672,7 +1934,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_V_tch\u0027 as \u0027tʃ\u0027.For example: match, stretch, watch",
-            "cluster":0
+            "cluster":33,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1680,7 +1943,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027ph\u0027 as \u0027f\u0027.For example: telephoning, photographing, phone\u0027s",
-            "cluster":0
+            "cluster":35,
+            "character":"Middle of word"
          },
          {  
             "descriptions":[  
@@ -1688,7 +1952,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027pph\u0027 as \u0027f\u0027.",
-            "cluster":0
+            "cluster":35,
+            "character":"Middle of word"
          },
          {  
             "descriptions":[  
@@ -1696,15 +1961,17 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027ch\u0027 as \u0027k\u0027.For example: characters, christian, christmas",
-            "cluster":0
+            "cluster":35,
+            "character":"Beginning of word"
          },
-         {  
+         { 
             "descriptions":[  
                "ch-ʃ"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027ch\u0027 as \u0027ʃ\u0027.For example: chef, chefs, chef\u0027s",
-            "cluster":0
+            "cluster":0,
+            "character":"INVALID"
          },
          {  
             "descriptions":[  
@@ -1712,7 +1979,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027kn\u0027 as \u0027n\u0027.For example: knee\u0027s, know, knee",
-            "cluster":0
+            "cluster":39,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1720,7 +1988,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027gn\u0027 as \u0027n\u0027.For example: gnome",
-            "cluster":0
+            "cluster":39,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1728,7 +1997,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027gh\u0027 as \u0027g\u0027.",
-            "cluster":0
+            "cluster":39,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1736,7 +2006,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027ps\u0027 as \u0027s\u0027.For example: psychological",
-            "cluster":0
+            "cluster":39,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1744,7 +2015,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027rh\u0027 as \u0027r\u0027.For example: rhythms, rhetoric, rhetoric\u0027s",
-            "cluster":0
+            "cluster":39,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1752,7 +2024,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027mb\u0027 as \u0027m\u0027.For example: bomb, climb",
-            "cluster":0
+            "cluster":39,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1760,7 +2033,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027bt\u0027 as \u0027t\u0027.For example: doubt, debt",
-            "cluster":0
+            "cluster":39,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1768,7 +2042,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027mn\u0027 as \u0027m\u0027.For example: column",
-            "cluster":0
+            "cluster":39,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1776,7 +2051,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027wr\u0027 as \u0027r\u0027.For example: wronged, wronging, wrapped",
-            "cluster":0
+            "cluster":39,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1784,7 +2060,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027pt\u0027 as \u0027pt\u0027.For example: accept, adopt, attempt",
-            "cluster":0
+            "cluster":11,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -1792,7 +2069,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027st\u0027 as \u0027s\u0027.For example: christmas, listened, listening",
-            "cluster":0
+            "cluster":39,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1800,7 +2078,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027gu\u0027 as \u0027g\u0027.",
-            "cluster":0
+            "cluster":39,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1808,23 +2087,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027gue\u0027 as \u0027g\u0027.",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "pro-prə"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
-            "humanReadableDescription":"Pronounce \u0027pro\u0027 as \u0027prə\u0027.For example: process\u0027s, processes, processed",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "pre-prɪ"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
-            "humanReadableDescription":"Pronounce \u0027pre\u0027 as \u0027prɪ\u0027.For example: predicted, pretty, preserving",
-            "cluster":0
+            "cluster":39,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1832,7 +2096,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027que\u0027 as \u0027k\u0027.For example: techniques, unique, uniqueness",
-            "cluster":0
+            "cluster":39,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1840,7 +2105,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027sch\u0027 as \u0027sk\u0027.For example: schooled, schooling, school\u0027s",
-            "cluster":0
+            "cluster":14,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1848,31 +2114,17 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027xc\u0027 as \u0027ksk\u0027.For example: excepts, excellent, excepted",
-            "cluster":0
+            "cluster":33,
+            "character":"Middle of word"
          },
-         {  
+         { 
             "descriptions":[  
                "xc-ks"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027xc\u0027 as \u0027ks\u0027.For example: excepts, excellent, excepted",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "ayor-eə"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027ayor\u0027 as \u0027eə\u0027.",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "ayer-eɪə"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027ayer\u0027 as \u0027eɪə\u0027.For example: player, gayer, sayer",
-            "cluster":0
+            "cluster":0,
+            "character":"INVALID"
          },
          {  
             "descriptions":[  
@@ -1880,7 +2132,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027al\u0027 as \u0027C\u0027.For example: finals, hospitals, recall",
-            "cluster":0
+            "cluster":14,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1888,23 +2141,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027oh\u0027 as \u0027əʊ\u0027.For example: oh",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "cial-ʃəl"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027cial\u0027 as \u0027ʃəl\u0027.For example: official, commercial, special",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "tial-ʃəl"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027tial\u0027 as \u0027ʃəl\u0027.For example: presidential, initial, potential",
-            "cluster":0
+            "cluster":39,
+            "character":"Middle of word"
          },
          {  
             "descriptions":[  
@@ -1912,7 +2150,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027cqu\u0027 as \u0027kwa\u0027.For example: acquires, acquired, acquiring",
-            "cluster":0
+            "cluster":39,
+            "character":"Middle of word"
          },
          {  
             "descriptions":[  
@@ -1920,7 +2159,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ngue\u0027 as \u0027ŋ\u0027.For example: tongue",
-            "cluster":0
+            "cluster":39,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1928,7 +2168,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027ol_C_\u0027 as \u0027əʊ\u0027.",
-            "cluster":0
+            "cluster":14,
+            "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
@@ -1936,7 +2177,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027quar_C_\u0027 as \u0027kwɒ,kwɔː\u0027.",
-            "cluster":0
+            "cluster":39,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1944,7 +2186,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027_C_re\u0027 as \u0027tə\u0027.",
-            "cluster":0
+            "cluster":33,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1952,7 +2195,17 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027ro\u0027 as \u0027ra,rə\u0027.For example: moreover",
-            "cluster":0
+            "cluster":29,
+            "character":"Middle of word"
+         },
+         { 
+            "descriptions":[  
+               "wor-wɜː"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "humanReadableDescription":"Pronounce \u0027wor\u0027 as \u0027wɜː\u0027.For example: wording, word\u0027s, worded",
+            "cluster":35,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -1960,7 +2213,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027sci\u0027 as \u0027saɪ\u0027.For example: scientific, scientist, scientists",
-            "cluster":0
+            "cluster":35,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1968,7 +2222,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027scle\u0027 as \u0027səl\u0027.For example: muscles, muscled, muscle",
-            "cluster":0
+            "cluster":35,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1976,7 +2231,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027sure\u0027 as \u0027ʒə\u0027.",
-            "cluster":0
+            "cluster":35,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -1984,7 +2240,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027ti\u0027 as \u0027ʃ\u0027.For example: construction, communication\u0027s, action\u0027s",
-            "cluster":0
+            "cluster":35,
+            "character":"Middle of word"
          },
          {  
             "descriptions":[  
@@ -1992,7 +2249,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027ci\u0027 as \u0027ʃ\u0027.For example: ancient, politician, specials",
-            "cluster":0
+            "cluster":35,
+            "character":"Middle of word"
          },
          {  
             "descriptions":[  
@@ -2000,7 +2258,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027zure\u0027 as \u0027ʒə\u0027.",
-            "cluster":0
+            "cluster":35,
+            "character":"Silent letter"
          },
          {  
             "descriptions":[  
@@ -2008,7 +2267,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027thr\u0027 as \u0027θr\u0027.For example: throws, threatening, threats",
-            "cluster":0
+            "cluster":14,
+            "character":"Beginning of word"
          },
          {  
             "descriptions":[  
@@ -2016,7 +2276,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027nd\u0027 as \u0027nd\u0027.For example: remind, friend, bond",
-            "cluster":0
+            "cluster":8,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -2024,7 +2285,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027nt\u0027 as \u0027nt\u0027.For example: instrument, ancient, want",
-            "cluster":0
+            "cluster":8,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -2032,7 +2294,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027nch\u0027 as \u0027ntʃ\u0027.For example: branch, french, lunch",
-            "cluster":0
+            "cluster":8,
+            "character":"End of word"
          },
          {  
             "descriptions":[  
@@ -2040,65 +2303,46 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027mp\u0027 as \u0027mp\u0027.For example: jump, camp",
-            "cluster":0
+            "cluster":8,
+            "character":"End of word"
          },
-         {  
-            "descriptions":[  
-               "ology-ɒlədʒi"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027ology\u0027 as \u0027ɒlədʒi\u0027.For example: technology",
-            "cluster":0
-         },
-         {  
+         { 
             "descriptions":[  
                "cise-saɪz"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027cise\u0027 as \u0027saɪz\u0027.For example: exercise",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "dual-dʒʊə"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027dual\u0027 as \u0027dʒʊə\u0027.",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "tual-tʃʊəl"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027tual\u0027 as \u0027tʃʊəl\u0027.For example: spiritual",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "sual-ʒuəl"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027sual\u0027 as \u0027ʒuəl\u0027.For example: visual",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "tory-str̩i"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027tory\u0027 as \u0027str̩i\u0027.",
-            "cluster":0
+            "cluster":33,
+            "character":"Silent letter"
          }
       ],
-      [  
-         {  
+      [   
+        {  
             "descriptions":[  
-               "Closed and Open syllables"
+               "1 syllable"
             ],
             "problemType":"SYLLABLE_PATTERN",
-            "humanReadableDescription":"Syllables are divided according to the \u0027Closed and Open syllables\u0027 pattern.For example: possibly, payments, relies",
-            "cluster":0
+            "humanReadableDescription":"Words containing only one syllable",
+            "cluster":4,
+            "character":"Polysyl"
+         },
+         {  
+            "descriptions":[  
+               "Closed syllables"
+            ],
+            "problemType":"SYLLABLE_PATTERN",
+            "humanReadableDescription":"Syllables are divided according to the \u0027Closed syllables\u0027 pattern.For example: pistol",
+            "cluster":4,
+            "character":"Syllable split rules"
+         },
+         {  
+            "descriptions":[  
+               "Open syllables"
+            ],
+            "problemType":"SYLLABLE_PATTERN",
+            "humanReadableDescription":"Syllables are divided according to the \u0027Open syllables\u0027 pattern.For example: silent",
+            "cluster":4,
+            "character":"Syllable split rules"
          },
          {  
             "descriptions":[  
@@ -2106,7 +2350,8 @@
             ],
             "problemType":"SYLLABLE_PATTERN",
             "humanReadableDescription":"Syllables are divided according to the \u0027vc/cv\u0027 pattern.For example: stressing, victim\u0027s, cutting",
-            "cluster":0
+            "cluster":6,
+            "character":"Syllable split rules"
          },
          {  
             "descriptions":[  
@@ -2114,7 +2359,8 @@
             ],
             "problemType":"SYLLABLE_PATTERN",
             "humanReadableDescription":"Syllables are divided according to the \u0027v/cv\u0027 pattern.For example: payments, relies, clouded",
-            "cluster":0
+            "cluster":10,
+            "character":"Syllable split rules"
          },
          {  
             "descriptions":[  
@@ -2122,7 +2368,8 @@
             ],
             "problemType":"SYLLABLE_PATTERN",
             "humanReadableDescription":"Syllables are divided according to the \u0027v/v\u0027 pattern.For example: speeches, meetings, feelings",
-            "cluster":0
+            "cluster":13,
+            "character":"Syllable split rules"
          },
          {  
             "descriptions":[  
@@ -2130,7 +2377,8 @@
             ],
             "problemType":"SYLLABLE_PATTERN",
             "humanReadableDescription":"Syllables are divided according to the \u0027vc/v\u0027 pattern.For example: finals, steeling, timer",
-            "cluster":0
+            "cluster":19,
+            "character":"Syllable split rules"
          },
          {  
             "descriptions":[  
@@ -2140,7 +2388,8 @@
             ],
             "problemType":"SYLLABLE_PATTERN",
             "humanReadableDescription":"Syllables are divided according to the \u0027qu:vc/cv\u0027 pattern.For example: quietness, questioned, question",
-            "cluster":0
+            "cluster":18,
+            "character":"Syllable split rules"
          },
          {  
             "descriptions":[  
@@ -2150,247 +2399,44 @@
             ],
             "problemType":"SYLLABLE_PATTERN",
             "humanReadableDescription":"Syllables are divided according to the \u0027ture:vc/cv\u0027 pattern.For example: culture, pictures, pictured",
-            "cluster":0
+            "cluster":28,
+            "character":"Syllable split rules"
          },
          {  
             "descriptions":[  
-               "ation-eɪʃən"
+               "2 syllables"
             ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
+            "problemType":"SYLLABLE_PATTERN",
+            "humanReadableDescription":"Words containing only two syllables",
+            "cluster":19,
+            "character":"Polysyl"
          },
          {  
             "descriptions":[  
-               "otion-əʊʃən"
+               "3 syllables"
             ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
+            "problemType":"SYLLABLE_PATTERN",
+            "humanReadableDescription":"Words containing only three syllables",
+            "cluster":40,
+            "character":"Polysyl"
          },
          {  
             "descriptions":[  
-               "ition-ɪʃən"
+               "4 syllables"
             ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
+            "problemType":"SYLLABLE_PATTERN",
+            "humanReadableDescription":"Words containing only four syllables",
+            "cluster":40,
+            "character":"Polysyl"
          },
          {  
             "descriptions":[  
-               "ution-uːʃən"
+               "5 or more syllables"
             ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "action-ækʃən"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "ection-ekʃən"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "iction-ɪkʃən"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "uction-ʌkʃən"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "ention-enʃən"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "ble-bəl"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "fle-fəl"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "ple-pəl"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "tle-təl"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "dle-dəl"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "kle-kəl"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "cle-kəl"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "gle-ɡəl"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "zle-zəl"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "stle-səl"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "asion-eɪʒən"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "usion-uːʒən"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "ision-ɪʒən"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "osion-əʊʒən"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "mission-mɪʃən"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "ession-eʃən"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "ussion-ʌʃən"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "version-vɜːʃən"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "ulsion-ʌlʃən"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "cian-ʃən"
-            ],
-            "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
-            "cluster":0
-         },
-         {  
-            "descriptions":[  
-               "3 syllables or higher"
-            ],
-            "problemType":"SYLLABLE_COUNT",
-            "humanReadableDescription":"Has 3 syllables or higher.For example: approving, possibly, greatnesses",
-            "cluster":0
+            "problemType":"SYLLABLE_PATTERN",
+            "humanReadableDescription":"Words containing five or more syllables",
+            "cluster":40,
+            "character":"Polysyl"
          }
       ],
       [  
@@ -2400,7 +2446,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027s\u0027 adds to the word with no changes. For example: stress\u0027s, payments, finals",
-            "cluster":0
+            "cluster":1,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2408,7 +2455,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027ed\u0027 adds to the word with no changes. For example: schooled, chickened, clouded",
-            "cluster":0
+            "cluster":7,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2416,7 +2464,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027es\u0027 adds to the word with no changes. For example: times, greatnesses, expensivenesses",
-            "cluster":0
+            "cluster":9,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2424,7 +2473,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027less\u0027 adds to the word with no changes. ",
-            "cluster":0
+            "cluster":9,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2432,7 +2482,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027ness\u0027 adds to the word with no changes. For example: brightness, quietness, lowness",
-            "cluster":0
+            "cluster":9,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2440,7 +2491,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027en\u0027 adds to the word with no changes. For example: beaten, fallen, grandchildren",
-            "cluster":0
+            "cluster":17,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2448,7 +2500,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027ing\u0027 adds to the word with no changes. For example: stressing, rushing, steeling",
-            "cluster":0
+            "cluster":17,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2456,7 +2509,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027ful\u0027 adds to the word with no changes. ",
-            "cluster":0
+            "cluster":17,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2464,7 +2518,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027ish\u0027 adds to the word with no changes. ",
-            "cluster":0
+            "cluster":17,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2472,7 +2527,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027ist\u0027 adds to the word with no changes. ",
-            "cluster":0
+            "cluster":35,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2480,7 +2536,8 @@
             ],
             "problemType":"SUFFIX_DOUBLE",
             "humanReadableDescription":"Suffix \u0027ing\u0027 double the last letter of the word. For example: requiring, succeeding, amazing",
-            "cluster":0
+            "cluster":20,
+            "character":"Double"
          },
          {  
             "descriptions":[  
@@ -2488,7 +2545,8 @@
             ],
             "problemType":"SUFFIX_DOUBLE",
             "humanReadableDescription":"Suffix \u0027ed\u0027 double the last letter of the word. For example: tripped, potted, warred",
-            "cluster":0
+            "cluster":20,
+            "character":"Double"
          },
          {  
             "descriptions":[  
@@ -2496,7 +2554,8 @@
             ],
             "problemType":"SUFFIX_DOUBLE",
             "humanReadableDescription":"Suffix \u0027en\u0027 double the last letter of the word. For example: forbidden, bidden, been",
-            "cluster":0
+            "cluster":20,
+            "character":"Double"
          },
          {  
             "descriptions":[  
@@ -2504,7 +2563,8 @@
             ],
             "problemType":"SUFFIX_DOUBLE",
             "humanReadableDescription":"Suffix \u0027ish\u0027 double the last letter of the word. ",
-            "cluster":0
+            "cluster":20,
+            "character":"Double"
          },
          {  
             "descriptions":[  
@@ -2512,7 +2572,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027y\u0027 adds to the word with no changes. For example: straightly, globally, formally",
-            "cluster":0
+            "cluster":22,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2520,7 +2581,8 @@
             ],
             "problemType":"SUFFIX_DOUBLE",
             "humanReadableDescription":"Suffix \u0027y\u0027 double the last letter of the word. ",
-            "cluster":0
+            "cluster":22,
+            "character":"Double"
          },
          {  
             "descriptions":[  
@@ -2528,7 +2590,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027ly\u0027 adds to the word with no changes. For example: straightly, globally, formally",
-            "cluster":0
+            "cluster":22,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2536,7 +2599,8 @@
             ],
             "problemType":"SUFFIX_CHANGE",
             "humanReadableDescription":"Suffix \u0027ity\u0027 changes the last letter of the word. ",
-            "cluster":0
+            "cluster":22,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -2544,7 +2608,8 @@
             ],
             "problemType":"SUFFIX_CHANGE",
             "humanReadableDescription":"Suffix \u0027ility\u0027 changes the last letter of the word. ",
-            "cluster":0
+            "cluster":22,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -2552,7 +2617,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027ty\u0027 adds to the word with no changes. ",
-            "cluster":0
+            "cluster":22,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2560,7 +2626,8 @@
             ],
             "problemType":"SUFFIX_DROP",
             "humanReadableDescription":"Suffix \u0027ing\u0027 drops the last letter of the stem. For example: approving, landscaping, cycling",
-            "cluster":0
+            "cluster":24,
+            "character":"Drop"
          },
          {  
             "descriptions":[  
@@ -2568,7 +2635,8 @@
             ],
             "problemType":"SUFFIX_DROP",
             "humanReadableDescription":"Suffix \u0027ed\u0027 drops the last letter of the stem. For example: timed, middled, muscled",
-            "cluster":0
+            "cluster":24,
+            "character":"Drop"
          },
          {  
             "descriptions":[  
@@ -2576,7 +2644,8 @@
             ],
             "problemType":"SUFFIX_DROP",
             "humanReadableDescription":"Suffix \u0027y\u0027 drops the last letter of the stem. ",
-            "cluster":0
+            "cluster":24,
+            "character":"Drop"
          },
          {  
             "descriptions":[  
@@ -2584,7 +2653,8 @@
             ],
             "problemType":"SUFFIX_DROP",
             "humanReadableDescription":"Suffix \u0027en\u0027 drops the last letter of the stem. For example: arisen, taken, risen",
-            "cluster":0
+            "cluster":24,
+            "character":"Drop"
          },
          {  
             "descriptions":[  
@@ -2592,7 +2662,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027er\u0027 adds to the word with no changes. For example: grander, sicklier, seconder",
-            "cluster":0
+            "cluster":26,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2600,7 +2671,8 @@
             ],
             "problemType":"SUFFIX_DROP",
             "humanReadableDescription":"Suffix \u0027er\u0027 drops the last letter of the stem. For example: timer, middler, larger",
-            "cluster":0
+            "cluster":26,
+            "character":"Drop"
          },
          {  
             "descriptions":[  
@@ -2608,7 +2680,8 @@
             ],
             "problemType":"SUFFIX_DOUBLE",
             "humanReadableDescription":"Suffix \u0027er\u0027 double the last letter of the word. For example: traveller, grabber, redder",
-            "cluster":0
+            "cluster":26,
+            "character":"Double"
          },
          {  
             "descriptions":[  
@@ -2616,7 +2689,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027ed-d\u0027 adds to the word with no changes. For example: schooled, timed, chickened",
-            "cluster":0
+            "cluster":25,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2624,7 +2698,8 @@
             ],
             "problemType":"SUFFIX_DROP",
             "humanReadableDescription":"Suffix \u0027ed-d\u0027 drops the last letter of the stem. For example: schooled, timed, chickened",
-            "cluster":0
+            "cluster":25,
+            "character":"Drop"
          },
          {  
             "descriptions":[  
@@ -2632,7 +2707,8 @@
             ],
             "problemType":"SUFFIX_DOUBLE",
             "humanReadableDescription":"Suffix \u0027ed-d\u0027 double the last letter of the word. For example: schooled, timed, chickened",
-            "cluster":0
+            "cluster":25,
+            "character":"Double"
          },
          {  
             "descriptions":[  
@@ -2640,7 +2716,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027ed-t\u0027 adds to the word with no changes. For example: tripped, reached, accessed",
-            "cluster":0
+            "cluster":25,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2648,7 +2725,8 @@
             ],
             "problemType":"SUFFIX_DROP",
             "humanReadableDescription":"Suffix \u0027ed-t\u0027 drops the last letter of the stem. For example: tripped, reached, accessed",
-            "cluster":0
+            "cluster":25,
+            "character":"Drop"
          },
          {  
             "descriptions":[  
@@ -2656,7 +2734,8 @@
             ],
             "problemType":"SUFFIX_DOUBLE",
             "humanReadableDescription":"Suffix \u0027ed-t\u0027 double the last letter of the word. For example: tripped, reached, accessed",
-            "cluster":0
+            "cluster":25,
+            "character":"Double"
          },
          {  
             "descriptions":[  
@@ -2664,7 +2743,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027est\u0027 adds to the word with no changes. For example: coolest, tightest, rawest",
-            "cluster":0
+            "cluster":26,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2672,7 +2752,8 @@
             ],
             "problemType":"SUFFIX_DROP",
             "humanReadableDescription":"Suffix \u0027est\u0027 drops the last letter of the stem. For example: squarest, palest, rarest",
-            "cluster":0
+            "cluster":26,
+            "character":"Drop"
          },
          {  
             "descriptions":[  
@@ -2680,7 +2761,8 @@
             ],
             "problemType":"SUFFIX_DOUBLE",
             "humanReadableDescription":"Suffix \u0027est\u0027 double the last letter of the word. For example: levellest, hottest, awfullest",
-            "cluster":0
+            "cluster":26,
+            "character":"Double"
          },
          {  
             "descriptions":[  
@@ -2688,7 +2770,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027al\u0027 adds to the word with no changes. ",
-            "cluster":0
+            "cluster":29,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2696,7 +2779,8 @@
             ],
             "problemType":"SUFFIX_DROP",
             "humanReadableDescription":"Suffix \u0027al\u0027 drops the last letter of the stem. ",
-            "cluster":0
+            "cluster":29,
+            "character":"Drop"
          },
          {  
             "descriptions":[  
@@ -2704,7 +2788,8 @@
             ],
             "problemType":"SUFFIX_CHANGE",
             "humanReadableDescription":"Suffix \u0027es\u0027 changes the last letter of the word. For example: relies, counties, somebodies",
-            "cluster":0
+            "cluster":32,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -2712,7 +2797,8 @@
             ],
             "problemType":"SUFFIX_CHANGE",
             "humanReadableDescription":"Suffix \u0027ed\u0027 changes the last letter of the word. For example: relied, babied, applied",
-            "cluster":0
+            "cluster":32,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -2720,7 +2806,8 @@
             ],
             "problemType":"SUFFIX_CHANGE",
             "humanReadableDescription":"Suffix \u0027ly\u0027 changes the last letter of the word. For example: easily, primarily, necessarily",
-            "cluster":0
+            "cluster":32,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -2728,7 +2815,8 @@
             ],
             "problemType":"SUFFIX_CHANGE",
             "humanReadableDescription":"Suffix \u0027ness\u0027 changes the last letter of the word. For example: sorriness, likeliness, contemporariness",
-            "cluster":0
+            "cluster":32,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -2736,7 +2824,8 @@
             ],
             "problemType":"SUFFIX_CHANGE",
             "humanReadableDescription":"Suffix \u0027ful\u0027 changes the last letter of the word. ",
-            "cluster":0
+            "cluster":32,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -2744,7 +2833,8 @@
             ],
             "problemType":"SUFFIX_CHANGE",
             "humanReadableDescription":"Suffix \u0027less\u0027 changes the last letter of the word. ",
-            "cluster":0
+            "cluster":32,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -2752,7 +2842,8 @@
             ],
             "problemType":"SUFFIX_CHANGE",
             "humanReadableDescription":"Suffix \u0027er\u0027 changes the last letter of the word. For example: sorrier, guiltier, tinier",
-            "cluster":0
+            "cluster":32,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -2760,7 +2851,8 @@
             ],
             "problemType":"SUFFIX_CHANGE",
             "humanReadableDescription":"Suffix \u0027est\u0027 changes the last letter of the word. For example: unhappiest, angriest, emptiest",
-            "cluster":0
+            "cluster":32,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -2768,7 +2860,8 @@
             ],
             "problemType":"SUFFIX_STRESS_PATTERN",
             "humanReadableDescription":"Suffix -ing on words longer than one syllable doubles the last consonant if the the last syllable is stressed (as in submit + ing \u003d submitting) but simply adds if first syllable stressed (as in \u0027target + ing \u003d \u0027targeting).",
-            "cluster":0
+            "cluster":34,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2776,7 +2869,170 @@
             ],
             "problemType":"SUFFIX_STRESS_PATTERN",
             "humanReadableDescription":"Suffix -ed on words longer than one syllable doubles the last consonant if the the last syllable is stressed (as in submit + ed \u003d submitted) but simply adds if first syllable stressed (as in \u0027target + ed \u003d \u0027targeted).",
-            "cluster":0
+            "cluster":34,
+            "character":"Add"
+         },
+         {  
+            "descriptions":[  
+               "ation-eɪʃən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":28,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "otion-əʊʃən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":28,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "ition-ɪʃən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":28,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "ution-uːʃən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":28,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "action-ækʃən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":28,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "ection-ekʃən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":28,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "iction-ɪkʃən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":28,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "uction-ʌkʃən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":28,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "ention-enʃən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":28,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "asion-eɪʒən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":35,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "usion-uːʒən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":35,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "ision-ɪʒən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":35,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "osion-əʊʒən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":35,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "mission-mɪʃən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":35,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "ession-eʃən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":35,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "ussion-ʌʃən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":35,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "version-vɜːʃən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":35,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "ulsion-ʌlʃən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":35,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -2784,7 +3040,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027ous\u0027 adds to the word with no changes. ",
-            "cluster":0
+            "cluster":37,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2792,7 +3049,8 @@
             ],
             "problemType":"SUFFIX_DROP",
             "humanReadableDescription":"Suffix \u0027ous\u0027 drops the last letter of the stem. ",
-            "cluster":0
+            "cluster":37,
+            "character":"Drop"
          },
          {  
             "descriptions":[  
@@ -2800,7 +3058,8 @@
             ],
             "problemType":"SUFFIX_CHANGE",
             "humanReadableDescription":"Suffix \u0027ous\u0027 changes the last letter of the word. ",
-            "cluster":0
+            "cluster":37,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -2808,7 +3067,8 @@
             ],
             "problemType":"SUFFIX_CHANGE",
             "humanReadableDescription":"Suffix \u0027tious\u0027 changes the last letter of the word. ",
-            "cluster":0
+            "cluster":37,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -2816,7 +3076,8 @@
             ],
             "problemType":"SUFFIX_CHANGE",
             "humanReadableDescription":"Suffix \u0027cious\u0027 changes the last letter of the word. ",
-            "cluster":0
+            "cluster":37,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -2824,7 +3085,125 @@
             ],
             "problemType":"SUFFIX_CHANGE",
             "humanReadableDescription":"Suffix \u0027ious\u0027 changes the last letter of the word. ",
-            "cluster":0
+            "cluster":37,
+            "character":"Change"
+         },
+         { 
+            "descriptions":[  
+               "tial-ʃəl"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "humanReadableDescription":"Pronounce \u0027tial\u0027 as \u0027ʃəl\u0027.For example: initials, presidential, initialled",
+            "cluster":35,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "sion-ʒən"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "humanReadableDescription":"Pronounce \u0027sion\u0027 as \u0027ʒən\u0027.For example: visions, decision\u0027s, televisions",
+            "cluster":35,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "sure-ʒə"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "humanReadableDescription":"Pronounce \u0027sure\u0027 as \u0027ʒə\u0027.",
+            "cluster":35,
+            "character":"Change"
+         },
+         { 
+            "descriptions":[  
+               "cial-ʃəl"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "humanReadableDescription":"Pronounce \u0027cial\u0027 as \u0027ʃəl\u0027.For example: official, commercial, special",
+            "cluster":35,
+            "character":"Change"
+         },
+         { 
+            "descriptions":[  
+               "tial-ʃəl"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "humanReadableDescription":"Pronounce \u0027tial\u0027 as \u0027ʃəl\u0027.For example: presidential, initial, potential",
+            "cluster":35,
+            "character":"Change"
+         },
+         { 
+            "descriptions":[  
+               "ology-ɒlədʒi"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "humanReadableDescription":"Pronounce \u0027ology\u0027 as \u0027ɒlədʒi\u0027.For example: technology",
+            "cluster":35,
+            "character":"Change"
+         },
+         { 
+            "descriptions":[  
+               "tory-str̩i"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "humanReadableDescription":"Pronounce \u0027tory\u0027 as \u0027str̩i\u0027.",
+            "cluster":35,
+            "character":"Change"
+         },
+         {  
+            "descriptions":[  
+               "cian-ʃən"
+            ],
+            "problemType":"SUFFIX_PATTERN",
+            "humanReadableDescription":"no description",
+            "cluster":37,
+            "character":"Change"
+         },
+         { 
+            "descriptions":[  
+               "dual-dʒʊə"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "humanReadableDescription":"Pronounce \u0027dual\u0027 as \u0027dʒʊə\u0027.",
+            "cluster":37,
+            "character":"Change"
+         },
+         { 
+            "descriptions":[  
+               "tual-tʃʊəl"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "humanReadableDescription":"Pronounce \u0027tual\u0027 as \u0027tʃʊəl\u0027.For example: spiritual",
+            "cluster":37,
+            "character":"Change"
+         },
+         { 
+            "descriptions":[  
+               "sual-ʒuəl"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "humanReadableDescription":"Pronounce \u0027sual\u0027 as \u0027ʒuəl\u0027.For example: visual",
+            "cluster":37,
+            "character":"Change"
+         },
+         { 
+            "descriptions":[  
+               "ayor-eə"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "humanReadableDescription":"Pronounce \u0027ayor\u0027 as \u0027eə\u0027.",
+            "cluster":38,
+            "character":"Change"
+         },
+         { 
+            "descriptions":[  
+               "ayer-eɪə"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "humanReadableDescription":"Pronounce \u0027ayer\u0027 as \u0027eɪə\u0027.For example: player, gayer, sayer",
+            "cluster":38,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -2832,7 +3211,8 @@
             ],
             "problemType":"SUFFIX_CHANGE",
             "humanReadableDescription":"Suffix \u0027uous\u0027 changes the last letter of the word. ",
-            "cluster":0
+            "cluster":37,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -2840,7 +3220,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027or\u0027 adds to the word with no changes. ",
-            "cluster":0
+            "cluster":38,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2848,7 +3229,8 @@
             ],
             "problemType":"SUFFIX_DROP",
             "humanReadableDescription":"Suffix \u0027or\u0027 drops the last letter of the stem. ",
-            "cluster":0
+            "cluster":38,
+            "character":"Drop"
          },
          {  
             "descriptions":[  
@@ -2856,7 +3238,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027able\u0027 adds to the word with no changes. ",
-            "cluster":0
+            "cluster":29,
+            "character":"Add"
          },
          {  
             "descriptions":[  
@@ -2864,7 +3247,8 @@
             ],
             "problemType":"SUFFIX_DROP",
             "humanReadableDescription":"Suffix \u0027able\u0027 drops the last letter of the stem. ",
-            "cluster":0
+            "cluster":29,
+            "character":"Drop"
          },
          {  
             "descriptions":[  
@@ -2872,7 +3256,8 @@
             ],
             "problemType":"SUFFIX_CHANGE",
             "humanReadableDescription":"Suffix \u0027able\u0027 changes the last letter of the word. ",
-            "cluster":0
+            "cluster":29,
+            "character":"Change"
          },
          {  
             "descriptions":[  
@@ -2880,7 +3265,8 @@
             ],
             "problemType":"SUFFIX_ADD",
             "humanReadableDescription":"Suffix \u0027ment\u0027 adds to the word with no changes. ",
-            "cluster":0
+            "cluster":35,
+            "character":"Add"
          }
       ],
       [  
@@ -2890,7 +3276,8 @@
             ],
             "problemType":"PREFIX",
             "humanReadableDescription":"Add prefix \u0027un\u0027 to the beginning of the word. For example: understanding\u0027s, unless, unusualness",
-            "cluster":0
+            "cluster":12,
+            "character":"Prefix add"
          },
          {  
             "descriptions":[  
@@ -2898,7 +3285,8 @@
             ],
             "problemType":"PREFIX",
             "humanReadableDescription":"Add prefix \u0027mis\u0027 to the beginning of the word. For example: mistake, misses, missed",
-            "cluster":0
+            "cluster":12,
+            "character":"Prefix add"
          },
          {  
             "descriptions":[  
@@ -2906,7 +3294,8 @@
             ],
             "problemType":"PREFIX",
             "humanReadableDescription":"Add prefix \u0027under\u0027 to the beginning of the word. For example: understanding\u0027s, understand, under",
-            "cluster":0
+            "cluster":28,
+            "character":"Prefix add"
          },
          {  
             "descriptions":[  
@@ -2914,7 +3303,26 @@
             ],
             "problemType":"PREFIX",
             "humanReadableDescription":"Add prefix \u0027over\u0027 to the beginning of the word. For example: over, overs, overalls",
-            "cluster":0
+            "cluster":28,
+            "character":"Prefix add"
+         },
+         { 
+            "descriptions":[  
+               "pro-prə"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "humanReadableDescription":"Pronounce \u0027pro\u0027 as \u0027prə\u0027.For example: process\u0027s, processes, processed",
+            "cluster":28,
+            "character":"Prefix add"
+         },
+         { 
+            "descriptions":[  
+               "pre-prɪ"
+            ],
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "humanReadableDescription":"Pronounce \u0027pre\u0027 as \u0027prɪ\u0027.For example: predicted, pretty, preserving",
+            "cluster":28,
+            "character":"Prefix add"
          },
          {  
             "descriptions":[  
@@ -2922,7 +3330,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027ad\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: advantaged, advantages, addition",
-            "cluster":0
+            "cluster":36,
+            "character":"Prefix add"
          },
          {  
             "descriptions":[  
@@ -2930,7 +3339,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027abb\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -2938,7 +3348,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027acc\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: accessed, accesses, accept",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimiliate"
          },
          {  
             "descriptions":[  
@@ -2946,7 +3357,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027aff\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: affording, affects, afforded",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -2954,7 +3366,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027agg\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: aggressive, aggression, aggression\u0027s",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -2962,7 +3375,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027all\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: allows, alls, all\u0027s",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -2970,7 +3384,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027ann\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: annual, announce, announces",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -2978,7 +3393,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027app\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: approving, appropriate, appeal\u0027s",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -2986,7 +3402,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027arr\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: arrest, arrested, arrive",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -2994,7 +3411,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027ass\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: assistance, associating, association",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3002,7 +3420,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027att\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: attracted, attracts, attorney\u0027s",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3010,7 +3429,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027con\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: construction, contract, connected",
-            "cluster":0
+            "cluster":36,
+            "character":"Prefix add"
          },
          {  
             "descriptions":[  
@@ -3018,7 +3438,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027coll\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: college, collect, collected",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3026,7 +3447,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027corr\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: correctnesses, correct, correctness\u0027s",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3034,7 +3456,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027comm\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: communication\u0027s, comments, communication",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3042,7 +3465,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027in\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: indian, instrument, invested",
-            "cluster":0
+            "cluster":12,
+            "character":"Prefix add"
          },
          {  
             "descriptions":[  
@@ -3050,7 +3474,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027ill\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: illustrated, illustrates, illegals",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3058,7 +3483,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027imm\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: immediateness\u0027s, immediate, immediatenesses",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3066,7 +3492,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027irr\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3074,7 +3501,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027im\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: importances, imagining, immediateness\u0027s",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3082,7 +3510,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027ir\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: iron, iraqi, ironing",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3090,7 +3519,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027sub\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: subject\u0027s, substance\u0027s, subject",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3098,7 +3528,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027succ\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: succeeding, succeeds, succeed",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3106,7 +3537,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027suff\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: suffers, suffer, suffered",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3114,7 +3546,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027sugg\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: suggesting, suggested, suggest",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3122,7 +3555,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027supp\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: support, suppose, supposing",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3130,7 +3564,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027summ\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: summer, summering, summer\u0027s",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3138,7 +3573,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027surr\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: surrounded, surround, surrounds",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3146,7 +3582,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027dis\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: displayed, discovers, discovery",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3154,7 +3591,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027diff\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: difficulties, difficulty\u0027s, differences",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3162,7 +3600,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027ob\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: object\u0027s, observe, objects",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3170,7 +3609,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027off\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: officering, officers, office\u0027s",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3178,7 +3618,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027opp\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: opportunities, opponents, opponent\u0027s",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3186,7 +3627,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027occ\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: occurs, occurred, occur",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
          },
          {  
             "descriptions":[  
@@ -3194,7 +3636,8 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027ex\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: expensivenesses, executives, excepts",
-            "cluster":0
+            "cluster":36,
+            "character":"Prefix add"
          },
          {  
             "descriptions":[  
@@ -3202,7 +3645,145 @@
             ],
             "problemType":"PREFIX_GROUP",
             "humanReadableDescription":"Prefix \u0027eff\u0027 is a common pattern in some words. When you chop off this prefix, you don\u0027t get a new word.For example: effected, effect, effectiveness\u0027s",
-            "cluster":0
+            "cluster":36,
+            "character":"Assimilate"
+         }
+      ],
+      [
+        {  
+            "descriptions":[  
+               "n/h"
+            ],
+            "problemType":"LETTER_PAIR",
+            "humanReadableDescription":"no description",
+            "cluster":3,
+            "character":"Letter pairs"
+         },
+         {  
+            "descriptions":[  
+               "a/o"
+            ],
+            "problemType":"LETTER_PAIR",
+            "humanReadableDescription":"no description",
+            "cluster":3,
+            "character":"Letter pairs"
+         },
+          {  
+            "descriptions":[  
+               "r/t"
+            ],
+            "problemType":"LETTER_PAIR",
+            "humanReadableDescription":"no description",
+            "cluster":5,
+            "character":"Letter pairs"
+         },
+          {  
+            "descriptions":[  
+               "m/n"
+            ],
+            "problemType":"LETTER_PAIR",
+            "humanReadableDescription":"no description",
+            "cluster":5,
+            "character":"Letter pairs"
+         },
+          {  
+            "descriptions":[  
+               "m/h"
+            ],
+            "problemType":"LETTER_PAIR",
+            "humanReadableDescription":"no description",
+            "cluster":5,
+            "character":"Letter pairs"
+         },
+          {  
+            "descriptions":[  
+               "b/d"
+            ],
+            "problemType":"LETTER_PAIR",
+            "humanReadableDescription":"no description",
+            "cluster":7,
+            "character":"Letter pairs"
+         },
+          {  
+            "descriptions":[  
+               "l/r"
+            ],
+            "problemType":"LETTER_PAIR",
+            "humanReadableDescription":"no description",
+            "cluster":7,
+            "character":"Letter pairs"
+         },
+          {  
+            "descriptions":[  
+               "b/g"
+            ],
+            "problemType":"LETTER_PAIR",
+            "humanReadableDescription":"no description",
+            "cluster":11,
+            "character":"Letter pairs"
+         },
+          {  
+            "descriptions":[  
+               "d/g"
+            ],
+            "problemType":"LETTER_PAIR",
+            "humanReadableDescription":"no description",
+            "cluster":11,
+            "character":"Letter pairs"
+         },
+          {  
+            "descriptions":[  
+               "t/f"
+            ],
+            "problemType":"LETTER_PAIR",
+            "humanReadableDescription":"no description",
+            "cluster":11,
+            "character":"Letter pairs"
+         },
+          {  
+            "descriptions":[  
+               "r/f"
+            ],
+            "problemType":"LETTER_PAIR",
+            "humanReadableDescription":"no description",
+            "cluster":11,
+            "character":"Letter pairs"
+         },
+          {  
+            "descriptions":[  
+               "b/q"
+            ],
+            "problemType":"LETTER_PAIR",
+            "humanReadableDescription":"no description",
+            "cluster":18,
+            "character":"Letter pairs"
+         },
+          {  
+            "descriptions":[  
+               "d/q"
+            ],
+            "problemType":"LETTER_PAIR",
+            "humanReadableDescription":"no description",
+            "cluster":18,
+            "character":"Letter pairs"
+         },
+         {  
+            "descriptions":[  
+               "q/g"
+            ],
+            "problemType":"LETTER_PAIR",
+            "humanReadableDescription":"no description",
+            "cluster":18,
+            "character":"Letter pairs"
+        },
+        {  
+            "descriptions":[  
+               "k/x"
+            ],
+            "problemType":"LETTER_PAIR",
+            "humanReadableDescription":"no description",
+            "cluster":18,
+            "character":"Letter pairs"
          }
       ]
    ],

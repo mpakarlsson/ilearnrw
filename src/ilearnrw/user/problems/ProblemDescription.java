@@ -8,6 +8,7 @@ public class ProblemDescription implements Serializable{
 	private ProblemType problemType;
 	private String humanReadableDescription;
 	private int cluster;
+	private String character;
 	
 	public ProblemDescription()
 	{
@@ -15,11 +16,12 @@ public class ProblemDescription implements Serializable{
 	}
 	
 	public ProblemDescription(ProblemType problemType, String[] descriptions, 
-			String humanReadableDescription, int cluster) {
-		this.descriptions = descriptions;
-		this.problemType= problemType;
-		this.humanReadableDescription = humanReadableDescription;
-		this.cluster = cluster;
+			String humanReadableDescription, int cluster, String character) {
+		this.descriptions 				= descriptions;
+		this.problemType				= problemType;
+		this.humanReadableDescription 	= humanReadableDescription;
+		this.cluster 					= cluster;
+		this.character 					= character;
 	}
 
 	public String[] getDescriptions() {
@@ -52,6 +54,14 @@ public class ProblemDescription implements Serializable{
 
 	public void setCluster(int cluster) {
 		this.cluster = cluster;
+	}
+	
+	public String getCharacter(){
+		return character;
+	}
+	
+	public void setCharacter(String ch){
+		character = ch;
 	}
 
 	public boolean isDescription(String x){
