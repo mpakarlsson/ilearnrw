@@ -30,7 +30,7 @@ public class ProgramSetup {
 		Map<String, ArrayList<String>> dict = new HashMap<String, ArrayList<String>>();		
 			try {
 				BufferedReader reader = new BufferedReader(
-						new InputStreamReader(ResourceLoader.getInstance().getInputStream(Type.DATA, "dictionary.txt"), "UTF-8"));
+						new InputStreamReader(ResourceLoader.getInstance().getInputStream(Type.DATA, "dictionary_english.csv"), "UTF-8"));
 				String line = null;
 				while ((line = reader.readLine()) != null) {
 					String[] parts = line.split("\\|");
