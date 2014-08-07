@@ -72,7 +72,8 @@
         ],
         "problemType": "CONTAINS_PATTERN",
         "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel)", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -80,7 +81,8 @@
         ],
         "problemType": "CONTAINS_PATTERN",
         "humanReadableDescription": "syllables of the word must contain the following pattern (c: consonant, v:vowel)", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -88,7 +90,8 @@
         ],
         "problemType": "CONTAINS_PATTERN",
         "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel)", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -96,7 +99,8 @@
         ],
         "problemType": "CONTAINS_PATTERN",
         "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel)", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -104,7 +108,8 @@
         ],
         "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
         "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -112,7 +117,8 @@
         ],
         "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
         "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -120,7 +126,8 @@
         ],
         "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
         "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -128,7 +135,8 @@
         ],
         "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
         "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -136,7 +144,8 @@
         ],
         "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
         "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -144,7 +153,8 @@
         ],
         "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
         "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -152,7 +162,8 @@
         ],
         "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
         "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -161,7 +172,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -169,7 +181,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -179,7 +192,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -188,7 +202,8 @@
         ],
         "problemType": "CONTAINS_LETTERS_ON_SAME_SYLLABLES",
         "humanReadableDescription": "the word must contain at least one of the following letter combinations in the same syllable", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -197,7 +212,8 @@
         ],
         "problemType": "CONTAINS_LETTERS_ON_SAME_SYLLABLES",
         "humanReadableDescription": "the word must contain at least one of the following letter combinations in the same syllable", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -207,7 +223,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contain at least one of the following letter combinations", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -216,7 +233,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contain at least one of the following letter combinations", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -227,7 +245,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contain at least one of the following letter combinations", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -246,7 +265,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contain at least one of the following letter combinations", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       }
     ],
     [
@@ -257,7 +277,8 @@
         ],
         "problemType": "SOUND_SIMILARITY",
         "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -266,7 +287,8 @@
         ],
         "problemType": "SOUND_SIMILARITY",
         "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -274,7 +296,8 @@
         ],
         "problemType": "SOUND_SIMILARITY",
         "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -284,7 +307,8 @@
         ],
         "problemType": "SOUND_SIMILARITY",
         "humanReadableDescription": "", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -293,7 +317,8 @@
         ],
         "problemType": "SOUND_SIMILARITY",
         "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -301,7 +326,8 @@
         ],
         "problemType": "SOUND_SIMILARITY",
         "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -309,7 +335,8 @@
         ],
         "problemType": "SOUND_SIMILARITY",
         "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -320,7 +347,8 @@
         ],
         "problemType": "SOUND_SIMILARITY",
         "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -328,7 +356,8 @@
         ],
         "problemType": "SOUND_SIMILARITY",
         "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -338,7 +367,8 @@
         ],
         "problemType": "SOUND_SIMILARITY",
         "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -347,7 +377,8 @@
         ],
         "problemType": "SOUND_SIMILARITY",
         "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -355,7 +386,8 @@
         ],
         "problemType": "SOUND_SIMILARITY",
         "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       }
     ],
     [
@@ -365,7 +397,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contain the following letter combination", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -373,7 +406,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contain the following letter combination", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -381,7 +415,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contain the following letter combination", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -389,7 +424,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contain the following letter combination", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -397,7 +433,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contain the following letter combination", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       }
     ],
     [
@@ -422,7 +459,8 @@
         ],
         "problemType": "IS_BIG_NOUN_OR_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun or adjective and end with one of the following letter combinations", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -435,7 +473,8 @@
         ],
         "problemType": "IS_BIG_NOUN_OR_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun or adjective and end with one of the following letter combinations", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -462,7 +501,8 @@
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -474,7 +514,8 @@
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -489,7 +530,8 @@
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -507,7 +549,8 @@
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -516,7 +559,8 @@
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -550,7 +594,8 @@
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -587,7 +632,8 @@
         ],
         "problemType": "IS_BIG_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -617,7 +663,8 @@
         ],
         "problemType": "IS_BIG_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -632,7 +679,8 @@
         ],
         "problemType": "IS_BIG_VERB_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -642,7 +690,8 @@
         ],
         "problemType": "IS_BIG_VERB_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -655,7 +704,8 @@
         ],
         "problemType": "IS_BIG_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       }
     ],
     [
@@ -673,7 +723,8 @@
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -685,7 +736,8 @@
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -702,7 +754,8 @@
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -723,7 +776,8 @@
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -737,7 +791,8 @@
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -758,7 +813,8 @@
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -780,7 +836,8 @@
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -798,7 +855,8 @@
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -814,7 +872,8 @@
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -829,7 +888,8 @@
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -851,7 +911,8 @@
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -864,7 +925,8 @@
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -896,7 +958,8 @@
         ],
         "problemType": "IS_VERB_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -924,7 +987,8 @@
         ],
         "problemType": "IS_VERB_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -951,7 +1015,8 @@
         ],
         "problemType": "IS_VERB_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -988,7 +1053,8 @@
         ],
         "problemType": "IS_VERB_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -1001,7 +1067,8 @@
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       }
     ],
     [
@@ -1013,7 +1080,8 @@
         ],
         "problemType": "IS_ADJ_AND_STARTS_WITH",
         "humanReadableDescription": "the word must be an adjective and start with one of the following letter combinations", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -1023,7 +1091,8 @@
         ],
         "problemType": "IS_NOUN_OR_ADJ_AND_STARTS_WITH",
         "humanReadableDescription": "the word must be a noun or adjective and start with one of the following letter combinations", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -1032,7 +1101,8 @@
         ],
         "problemType": "IS_VERB_AND_STARTS_WITH",
         "humanReadableDescription": "the word must be a verb and start with one of the following letter combinations", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -1047,7 +1117,8 @@
         ],
         "problemType": "STARTS_WITH",
         "humanReadableDescription": "the word must start with one of the following letter combinations", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -1070,7 +1141,8 @@
         ],
         "problemType": "IS_VERB_AND_STARTS_WITH",
         "humanReadableDescription": "the word must be a verb and start with one of the following letter combinations", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -1081,7 +1153,8 @@
         ],
         "problemType": "IS_VERB_AND_STARTS_WITH",
         "humanReadableDescription": "the word must be a verb and start with one of the following letter combinations", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       }
     ],
     [
@@ -1093,7 +1166,8 @@
         ],
         "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
         "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -1103,7 +1177,8 @@
         ],
         "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
         "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -1113,7 +1188,8 @@
         ],
         "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
         "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -1126,7 +1202,8 @@
         ],
         "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
         "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -1137,7 +1214,8 @@
         ],
         "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
         "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -1147,7 +1225,8 @@
         ],
         "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
         "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -1157,7 +1236,8 @@
         ],
         "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
         "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -1167,7 +1247,8 @@
         ],
         "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
         "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -1180,7 +1261,8 @@
         ],
         "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
         "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -1191,7 +1273,8 @@
         ],
         "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
         "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -1201,7 +1284,8 @@
         ],
         "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
         "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -1211,7 +1295,8 @@
         ],
         "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
         "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -1221,7 +1306,8 @@
         ],
         "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
         "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -1234,7 +1320,8 @@
         ],
         "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
         "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -1245,7 +1332,8 @@
         ],
         "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
         "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -1255,7 +1343,8 @@
         ],
         "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
         "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -1265,7 +1354,8 @@
         ],
         "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
         "humanReadableDescription": "the word must have three syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -1275,7 +1365,8 @@
         ],
         "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
         "humanReadableDescription": "the word must have three syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -1288,7 +1379,8 @@
         ],
         "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
         "humanReadableDescription": "the word must have three syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -1299,7 +1391,8 @@
         ],
         "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
         "humanReadableDescription": "the word must have three syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -1308,7 +1401,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contains one of the following letter combinations", 
-        "cluster": 4
+        "cluster": 4,
+        "character":""
       },
       {
         "descriptions": [
@@ -1317,7 +1411,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contains one of the following letter combinations", 
-        "cluster": 4
+        "cluster": 4,
+        "character":""
       },
       {
         "descriptions": [
@@ -1326,7 +1421,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contains one of the following letter combinations", 
-        "cluster": 5
+        "cluster": 5,
+        "character":""
       },
       {
         "descriptions": [
@@ -1334,7 +1430,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contains the following letter combination", 
-        "cluster": 5
+        "cluster": 5,
+        "character":""
       },
       {
         "descriptions": [
@@ -1342,7 +1439,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contains the following letter combination", 
-        "cluster": 6
+        "cluster": 6,
+        "character":""
       },
       {
         "descriptions": [
@@ -1350,7 +1448,8 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contains the following letter combination", 
-        "cluster": 6
+        "cluster": 6,
+        "character":""
       }
     ],
     [
@@ -1362,7 +1461,8 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -1371,7 +1471,8 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -1381,7 +1482,8 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -1390,7 +1492,8 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -1399,7 +1502,8 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -1407,7 +1511,8 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 2
+        "cluster": 2,
+        "character":""
       },
       {
         "descriptions": [
@@ -1415,7 +1520,8 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -1423,7 +1529,8 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -1431,7 +1538,8 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       },
       {
         "descriptions": [
@@ -1439,7 +1547,8 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 3
+        "cluster": 3,
+        "character":""
       }
     ],
     [
@@ -1452,7 +1561,8 @@
         ],
         "problemType": "VISUAL_SIMILARITY",
         "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -1464,7 +1574,8 @@
         ],
         "problemType": "VISUAL_SIMILARITY",
         "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -1475,7 +1586,8 @@
         ],
         "problemType": "VISUAL_SIMILARITY",
         "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -1486,7 +1598,8 @@
         ],
         "problemType": "VISUAL_SIMILARITY",
         "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 0
+        "cluster": 0,
+        "character":""
       },
       {
         "descriptions": [
@@ -1497,7 +1610,8 @@
         ],
         "problemType": "VISUAL_SIMILARITY",
         "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -1507,7 +1621,8 @@
         ],
         "problemType": "VISUAL_SIMILARITY",
         "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -1518,7 +1633,8 @@
         ],
         "problemType": "VISUAL_SIMILARITY",
         "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       },
       {
         "descriptions": [
@@ -1530,7 +1646,8 @@
         ],
         "problemType": "VISUAL_SIMILARITY",
         "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 1
+        "cluster": 1,
+        "character":""
       }
     ]
   ],
