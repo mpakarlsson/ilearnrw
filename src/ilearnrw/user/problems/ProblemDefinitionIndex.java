@@ -70,9 +70,9 @@ public class ProblemDefinitionIndex implements Serializable, ProblemDefinitionIn
 	}
 	
 	public void setProblemDescription(ProblemType problemType, String descriptions[], 
-			String humanReadableDescription, int cluster, int i, int j){
+			String humanReadableDescription, int cluster, String character, int i, int j){
 			problems[i][j] = new ProblemDescription(problemType, descriptions, 
-					humanReadableDescription, cluster);
+					humanReadableDescription, cluster, character);
 	}
 	
 	public void setProblemDescription(ProblemDescription description, int i, int j){

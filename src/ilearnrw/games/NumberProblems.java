@@ -37,13 +37,13 @@ public class NumberProblems{
 		probsMatrix.setProblemDefinition(prob, 0);
 
 		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"One Digit"}, 
-				"x problem", 0, 0, 0);
+				"x problem", 0, "Temp", 0, 0);
 		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"Two Digits"},
-				"x problem", 0, 0, 1);
+				"x problem", 0, "Temp", 0, 1);
 		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"Three Digits"},
-				"x problem", 1, 0, 2);
+				"x problem", 1, "Temp", 0, 2);
 		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"Four Digits"},
-				"x problem", 1, 0, 3);
+				"x problem", 1, "Temp", 0, 3);
 			
 	
 		//2) Problem on recognizing numbers containing the digit {3} or {4} or { {5} with {7} } 
@@ -52,11 +52,11 @@ public class NumberProblems{
 		prob = new ProblemDefinition("1.2", cat);
 		probsMatrix.setProblemDefinition(prob, 1);
 		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"3"}, 
-				"the x problem", 0, 1, 0);
+				"the x problem", 0, "Temp", 1, 0);
 		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"4"}, 
-				"the x problem", 1, 1, 1);		
+				"the x problem", 1, "Temp", 1, 1);		
 		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"5", "7"}, 
-				"the difficult x problem", 1, 1, 2);
+				"the difficult x problem", 1, "Temp", 1, 2);
 	
 			
 		//3) Problem on recognizing numbers containing pattern xy, where y = x+1
@@ -64,7 +64,7 @@ public class NumberProblems{
 		prob = new ProblemDefinition("1.3", cat);
 		probsMatrix.setProblemDefinition(prob, 2);
 		probsMatrix.setProblemDescription(ProblemType.X, new String[]{"Containing xy, y = x+1"},
-				"the hard x problem", 0, 2, 0);
+				"the hard x problem", 0, "Temp", 2, 0);
 
 	}
 	
