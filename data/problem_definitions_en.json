@@ -418,7 +418,7 @@
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
             "humanReadableDescription":"Pronounce \u0027qu\u0027 as \u0027k\u0027.",
-            "cluster":14,
+            "cluster":18,
             "character":"Xgraph"
          },
          {  
@@ -1715,18 +1715,18 @@
          },
          { 
             "descriptions":[  
-               "se-z"
+               "_V_se-z"
             ],
-            "problemType":"DIGRAPH_EQUALS_PHONEME",
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027se\u0027 as \u0027z\u0027.For example: presences, please, cheese",
             "cluster":33,
             "character":"Vowel pattern"
          },
          { 
             "descriptions":[  
-               "ze-z"
+               "_V_ze-z"
             ],
-            "problemType":"DIGRAPH_EQUALS_PHONEME",
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ze\u0027 as \u0027z\u0027.For example: analyze, emphasized, emphasize",
             "cluster":33,
             "character":"Vowel pattern"
