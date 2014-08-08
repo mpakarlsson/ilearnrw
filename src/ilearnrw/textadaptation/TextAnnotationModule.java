@@ -256,35 +256,25 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	public String getAnnotatedHTMLFile() {
 		return annotatedHTMLFile;
 	}
+	
 
 	/**
 	 * Retrieves the java object from the JSON file.
 	 */
 	public void retrieveJSonObject() {
 		Gson gson = new GsonBuilder().create();
-		//try {
-			//JsonReader reader = new JsonReader(new java.io.BufferedReader(new java.io.FileReader(this.getJSONFile())));
-			System.out.println("I am the jSonfile: " +this.getJSONFile());
-			//JsonReader reader = new JsonReader(new java.io.StringReader(this.getJSONFile()));
-			this.jsonObject = gson.fromJson(JSONFileName, ilearnrw.annotation.UserBasedAnnotatedWordsSet.class);
-			
-			
-			
-			//reader.close();
-		//} catch (IOException e) {
-			//System.err.println("Unable to write to file");
-		//}
+		this.jsonObject = gson.fromJson(JSONFileName, ilearnrw.annotation.UserBasedAnnotatedWordsSet.class);
 	}
 
 	public void readInputHTML() {
 		Charset.forName("UTF-8").newEncoder();
-		//this.inputHTMLFile = this.jsonObject.getHtml();
 		doc = Jsoup.parse(this.inputHTMLFile);
 	}
 
 	public void writeAnnotatedHTML() {
 		this.annotatedHTMLFile = doc.html().toString();
 		removeExtraWhiteSpaces();
+		System.out.println(this.annotatedHTMLFile);
 	}
 
 	public void removeExtraWhiteSpaces() {
@@ -300,12 +290,13 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		
 		for (Element selElem : selectedElements) {
 			FinalAnnotation f = processWord(selElem.attr("id").replace("w", ""));
-
+			
 			selElem.text(selElem.text().replace(" ", ""));
 			String word = selElem.text();
+			System.out.println(word);
 			
 			if (f != null) {
-				System.out.println(word + " I have color: " + f.getRule().getHighlightingColor());
+				System.out.println("Rule: " + f.getRule().getHighlightingColor());
 				if (f.getRule().getPresentationStyle() == Rule.HIGHLIGHT_WHOLE_WORD) {
 					this.setWordHighlighting(selElem.attr("id"), f.getRule()
 							.getHighlightingColor(), 0, word.length() - 1);
@@ -366,10 +357,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	private FinalAnnotation processWord(String wordID) {
 		
 		FinalAnnotation f = null;
-		Integer pos = this.jsonObject.getIdCorrespondance()
-				.get(Integer.parseInt(wordID.replace("w", "")));
-		
-		System.out.println(this.jsonObject.toString());
+		Integer pos = this.jsonObject.getIdCorrespondance().get(Integer.parseInt(wordID.replace("w", "")));
 		
 		if (pos != null) {
 			UserBasedAnnotatedWord word = this.jsonObject
@@ -978,7 +966,6 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		for (Element e : doc.select("style")) {
 			doc.html(doc.html().replace(e.getAllElements().get(0).data(),
 					sb.toString() + "\n"));
-			System.out.println(doc.html());
 		}
 	}
 

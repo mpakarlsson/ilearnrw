@@ -66,8 +66,6 @@ public class TextAnnotationTest extends JFrame {
 			/* We have to auth as admin to access the database.*/
 			mUserStore.authenticateAdmin("ilearn");
 			
-			
-			
 		} catch (Exception e) {
 			/* Could not load any users, no point to continue.*/
 			e.printStackTrace();
@@ -110,13 +108,8 @@ public class TextAnnotationTest extends JFrame {
 			updateLanguageLabel();
 
 			m.setProfile(user.getProfile());
-			this.txModule = new TextAnnotationModule("C:\\Users\\Fouli\\Desktop\\Input-2.html");
-			//System.out.println(this.txModule.getTextFile());
-			this.rulesModule = new PresentationRulesModule(user.getProfile());
-			m.setTextAnnotationModule(txModule);
-			m.setPresentationRulesModule(rulesModule);
 			
-			System.out.println(this.rulesModule.getRulesTable()[0][1]);
+			
 			
 			
 		} catch (Exception ex){

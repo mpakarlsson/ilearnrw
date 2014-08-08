@@ -12,7 +12,7 @@ public class UserBasedAnnotatedWordsSet {
 	private Map<Integer, Integer> idCorrespondance;
 	
 	public UserBasedAnnotatedWordsSet() {
-		super();
+		
 		this.words = new ArrayList<UserBasedAnnotatedWord>();
 		this.idCorrespondance = new HashMap<Integer, Integer>();
 	}
