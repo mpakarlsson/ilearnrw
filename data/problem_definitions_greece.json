@@ -1,13 +1,6 @@
 {
   "problemsIndex": [
     {
-      "uri": "Syllable Division",
-      "severityType": "zeroToThree",
-      "type": {
-        "url": "syllable division"
-      }
-    },
-    {
       "uri": "Consonants",
       "severityType": "zeroToThree",
       "type": {
@@ -19,6 +12,34 @@
       "severityType": "zeroToThree",
       "type": {
         "url": "phonemes"
+      }
+    },
+    {
+      "uri": "Visual Similarity",
+      "severityType": "binary",
+      "type": {
+        "url": "visual similarity"
+      }
+    },
+    {
+      "uri": "Regular/Irregular:Consonant clusters",
+      "severityType": "zeroToThree",
+      "type": {
+        "url": "grapheme/phoneme correspondence"
+      }
+    },
+    {
+      "uri": "Syllable Division",
+      "severityType": "zeroToThree",
+      "type": {
+        "url": "syllable division"
+      }
+    },
+    {
+      "uri": "Prefixing",
+      "severityType": "zeroToThree",
+      "type": {
+        "url": "prefixing"
       }
     },
     {
@@ -36,239 +57,14 @@
       }
     },
     {
-      "uri": "Prefixing",
-      "severityType": "zeroToThree",
-      "type": {
-        "url": "prefixing"
-      }
-    },
-    {
-      "uri": "Regular/Irregular:Consonant clusters",
-      "severityType": "zeroToThree",
-      "type": {
-        "url": "grapheme/phoneme correspondence"
-      }
-    },
-    {
       "uri": "Grammar/Function Words",
       "severityType": "zeroToThree",
       "type": {
         "url": "grammar/function words"
       }
-    },
-    {
-      "uri": "Visual Similarity",
-      "severityType": "binary",
-      "type": {
-        "url": "visual similarity"
-      }
     }
   ],
   "problems": [
-    [
-      {
-        "descriptions": [
-          "-cv-cv-"
-        ],
-        "problemType": "CONTAINS_PATTERN",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel)", 
-        "cluster": 0,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "-cv-v-"
-        ],
-        "problemType": "CONTAINS_PATTERN",
-        "humanReadableDescription": "syllables of the word must contain the following pattern (c: consonant, v:vowel)", 
-        "cluster": 0,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "-v-cv-"
-        ],
-        "problemType": "CONTAINS_PATTERN",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel)", 
-        "cluster": 0,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "-cv-vc-"
-        ],
-        "problemType": "CONTAINS_PATTERN",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel)", 
-        "cluster": 0,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "-vc-cv-"
-        ],
-        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 0,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "-cvc-cv-"
-        ],
-        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 0,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "-cv-ccv-"
-        ],
-        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 1,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "-ccv-cv-"
-        ],
-        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 1,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "-ccvc-cv-"
-        ],
-        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 1,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "-cv-cccv-"
-        ],
-        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 2,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "-v-cccv-"
-        ],
-        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 2,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "ιά",
-          "ειά"
-        ],
-        "problemType": "CONTAINS",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 3,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "ία"
-        ],
-        "problemType": "CONTAINS",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 3,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "αΐ",
-          "εΐ",
-          "οΐ"
-        ],
-        "problemType": "CONTAINS",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 3,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "αί",
-          "οί"
-        ],
-        "problemType": "CONTAINS_LETTERS_ON_SAME_SYLLABLES",
-        "humanReadableDescription": "the word must contain at least one of the following letter combinations in the same syllable", 
-        "cluster": 3,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "άι",
-          "όι"
-        ],
-        "problemType": "CONTAINS_LETTERS_ON_SAME_SYLLABLES",
-        "humanReadableDescription": "the word must contain at least one of the following letter combinations in the same syllable", 
-        "cluster": 3,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "αϊ",
-          "οϊ",
-          "εϊ"
-        ],
-        "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contain at least one of the following letter combinations", 
-        "cluster": 3,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "οϋ",
-          "οΰ"
-        ],
-        "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contain at least one of the following letter combinations", 
-        "cluster": 3,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "αυ",
-          "αϋ",
-          "αύ",
-          "αΰ"
-        ],
-        "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contain at least one of the following letter combinations", 
-        "cluster": 3,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "εύω",
-          "εύεις",
-          "εύει",
-          "εύουμε",
-          "εύετε",
-          "εύουν",
-          "ευα",
-          "ευες",
-          "ευαν",
-          "ευαμε",
-          "ευατε",
-          "ευαν"
-        ],
-        "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contain at least one of the following letter combinations", 
-        "cluster": 3,
-        "character":""
-      }
-    ],
     [
       {
         "descriptions": [
@@ -397,7 +193,7 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contain the following letter combination", 
-        "cluster": 0,
+        "cluster": 4,
         "character":""
       },
       {
@@ -406,7 +202,7 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contain the following letter combination", 
-        "cluster": 0,
+        "cluster": 4,
         "character":""
       },
       {
@@ -415,7 +211,7 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contain the following letter combination", 
-        "cluster": 0,
+        "cluster": 4,
         "character":""
       },
       {
@@ -424,7 +220,7 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contain the following letter combination", 
-        "cluster": 1,
+        "cluster": 5,
         "character":""
       },
       {
@@ -433,7 +229,691 @@
         ],
         "problemType": "CONTAINS",
         "humanReadableDescription": "the word must contain the following letter combination", 
-        "cluster": 1,
+        "cluster": 5,
+        "character":""
+      }
+    ],
+    [
+      {
+        "descriptions": [
+          "α",
+          "ά",
+          "ο",
+          "ό"
+        ],
+        "problemType": "VISUAL_SIMILARITY",
+        "humanReadableDescription": "the word must contain at least one of the following characters", 
+        "cluster": 6,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "φ",
+          "θ",
+          "Θ",
+          "Β",
+          "β"
+        ],
+        "problemType": "VISUAL_SIMILARITY",
+        "humanReadableDescription": "the word must contain at least one of the following characters", 
+        "cluster": 6,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "ψ",
+          "Ψ",
+          "ω",
+          "ώ"
+        ],
+        "problemType": "VISUAL_SIMILARITY",
+        "humanReadableDescription": "the word must contain at least one of the following characters", 
+        "cluster": 6,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "3",
+          "ε",
+          "έ",
+          "ξ"
+        ],
+        "problemType": "VISUAL_SIMILARITY",
+        "humanReadableDescription": "the word must contain at least one of the following characters", 
+        "cluster": 6,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "κ",
+          "γ",
+          "λ",
+          "χ"
+        ],
+        "problemType": "VISUAL_SIMILARITY",
+        "humanReadableDescription": "the word must contain at least one of the following characters", 
+        "cluster": 7,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "η",
+          "ή",
+          "μ"
+        ],
+        "problemType": "VISUAL_SIMILARITY",
+        "humanReadableDescription": "the word must contain at least one of the following characters", 
+        "cluster": 7,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "π",
+          "Π",
+          "Τ",
+          "τ"
+        ],
+        "problemType": "VISUAL_SIMILARITY",
+        "humanReadableDescription": "the word must contain at least one of the following characters", 
+        "cluster": 7,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "δ",
+          "σ",
+          "ρ",
+          "Ρ",
+          "6"
+        ],
+        "problemType": "VISUAL_SIMILARITY",
+        "humanReadableDescription": "the word must contain at least one of the following characters", 
+        "cluster": 7,
+        "character":""
+      }
+    ],
+    [
+      {
+        "descriptions": [
+          "sp",
+          "st",
+          "sk"
+        ],
+        "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
+        "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
+        "cluster": 8,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "pr",
+          "tr",
+          "kr"
+        ],
+        "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
+        "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
+        "cluster": 8,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "gr",
+          "dr",
+          "br"
+        ],
+        "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
+        "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
+        "cluster": 8,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "fr",
+          "ðr",
+          "χr",
+          "vr",
+          "γr",
+          "θr"
+        ],
+        "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
+        "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
+        "cluster": 8,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "spr",
+          "skr",
+          "str",
+          "sfr"
+        ],
+        "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
+        "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
+        "cluster": 8,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "sp",
+          "st",
+          "sk"
+        ],
+        "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
+        "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
+        "cluster": 9,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "pr",
+          "tr",
+          "kr"
+        ],
+        "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
+        "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
+        "cluster": 9,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "gr",
+          "dr",
+          "br"
+        ],
+        "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
+        "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
+        "cluster": 9,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "fr",
+          "ðr",
+          "χr",
+          "vr",
+          "γr",
+          "θr"
+        ],
+        "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
+        "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
+        "cluster": 9,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "spr",
+          "skr",
+          "str",
+          "sfr"
+        ],
+        "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
+        "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
+        "cluster": 9,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "sp",
+          "st",
+          "sk"
+        ],
+        "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
+        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
+        "cluster": 10,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "pr",
+          "tr",
+          "kr"
+        ],
+        "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
+        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
+        "cluster": 10,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "gr",
+          "dr",
+          "br"
+        ],
+        "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
+        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
+        "cluster": 10,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "fr",
+          "ðr",
+          "χr",
+          "vr",
+          "γr",
+          "θr"
+        ],
+        "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
+        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
+        "cluster": 10,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "spr",
+          "skr",
+          "str",
+          "sfr"
+        ],
+        "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
+        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
+        "cluster": 10,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "sp",
+          "st",
+          "sk"
+        ],
+        "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
+        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
+        "cluster": 11,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "pr",
+          "tr",
+          "kr"
+        ],
+        "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
+        "humanReadableDescription": "the word must have three syllables and contains one of the following phonemes as an internal phoneme", 
+        "cluster": 11,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "gr",
+          "dr",
+          "br"
+        ],
+        "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
+        "humanReadableDescription": "the word must have three syllables and contains one of the following phonemes as an internal phoneme", 
+        "cluster": 11,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "fr",
+          "ðr",
+          "χr",
+          "vr",
+          "γr",
+          "θr"
+        ],
+        "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
+        "humanReadableDescription": "the word must have three syllables and contains one of the following phonemes as an internal phoneme", 
+        "cluster": 11,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "spr",
+          "skr",
+          "str",
+          "sfr"
+        ],
+        "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
+        "humanReadableDescription": "the word must have three syllables and contains one of the following phonemes as an internal phoneme", 
+        "cluster": 11,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "ευ",
+          "εύ"
+        ],
+        "problemType": "CONTAINS",
+        "humanReadableDescription": "the word must contains one of the following letter combinations", 
+        "cluster": 12,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "αυ",
+          "αύ"
+        ],
+        "problemType": "CONTAINS",
+        "humanReadableDescription": "the word must contains one of the following letter combinations", 
+        "cluster": 12,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "εϋ",
+          "οϋ"
+        ],
+        "problemType": "CONTAINS",
+        "humanReadableDescription": "the word must contains one of the following letter combinations", 
+        "cluster": 13,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "αϊ"
+        ],
+        "problemType": "CONTAINS",
+        "humanReadableDescription": "the word must contains the following letter combination", 
+        "cluster": 13,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "οΰ"
+        ],
+        "problemType": "CONTAINS",
+        "humanReadableDescription": "the word must contains the following letter combination", 
+        "cluster": 14,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "αΐ"
+        ],
+        "problemType": "CONTAINS",
+        "humanReadableDescription": "the word must contains the following letter combination", 
+        "cluster": 14,
+        "character":""
+      }
+    ],
+    [
+      {
+        "descriptions": [
+          "-cv-cv-"
+        ],
+        "problemType": "CONTAINS_PATTERN",
+        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel)", 
+        "cluster": 15,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "-cv-v-"
+        ],
+        "problemType": "CONTAINS_PATTERN",
+        "humanReadableDescription": "syllables of the word must contain the following pattern (c: consonant, v:vowel)", 
+        "cluster": 15,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "-v-cv-"
+        ],
+        "problemType": "CONTAINS_PATTERN",
+        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel)", 
+        "cluster": 15,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "-cv-vc-"
+        ],
+        "problemType": "CONTAINS_PATTERN",
+        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel)", 
+        "cluster": 15,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "-vc-cv-"
+        ],
+        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
+        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "cluster": 15,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "-cvc-cv-"
+        ],
+        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
+        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "cluster": 15,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "-cv-ccv-"
+        ],
+        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
+        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "cluster": 16,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "-ccv-cv-"
+        ],
+        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
+        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "cluster": 16,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "-ccvc-cv-"
+        ],
+        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
+        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "cluster": 16,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "-cv-cccv-"
+        ],
+        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
+        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "cluster": 17,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "-v-cccv-"
+        ],
+        "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
+        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "cluster": 17,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "ιά",
+          "ειά"
+        ],
+        "problemType": "CONTAINS",
+        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "cluster": 18,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "ία"
+        ],
+        "problemType": "CONTAINS",
+        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "cluster": 18,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "αΐ",
+          "εΐ",
+          "οΐ"
+        ],
+        "problemType": "CONTAINS",
+        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "cluster": 18,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "αί",
+          "οί"
+        ],
+        "problemType": "CONTAINS_LETTERS_ON_SAME_SYLLABLES",
+        "humanReadableDescription": "the word must contain at least one of the following letter combinations in the same syllable", 
+        "cluster": 18,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "άι",
+          "όι"
+        ],
+        "problemType": "CONTAINS_LETTERS_ON_SAME_SYLLABLES",
+        "humanReadableDescription": "the word must contain at least one of the following letter combinations in the same syllable", 
+        "cluster": 18,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "αϊ",
+          "οϊ",
+          "εϊ"
+        ],
+        "problemType": "CONTAINS",
+        "humanReadableDescription": "the word must contain at least one of the following letter combinations", 
+        "cluster": 18,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "οϋ",
+          "οΰ"
+        ],
+        "problemType": "CONTAINS",
+        "humanReadableDescription": "the word must contain at least one of the following letter combinations", 
+        "cluster": 18,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "αυ",
+          "αϋ",
+          "αύ",
+          "αΰ"
+        ],
+        "problemType": "CONTAINS",
+        "humanReadableDescription": "the word must contain at least one of the following letter combinations", 
+        "cluster": 18,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "εύω",
+          "εύεις",
+          "εύει",
+          "εύουμε",
+          "εύετε",
+          "εύουν",
+          "ευα",
+          "ευες",
+          "ευαν",
+          "ευαμε",
+          "ευατε",
+          "ευαν"
+        ],
+        "problemType": "CONTAINS",
+        "humanReadableDescription": "the word must contain at least one of the following letter combinations", 
+        "cluster": 18,
+        "character":""
+      }
+    ],
+    [
+      {
+        "descriptions": [
+          "α",
+          "αντι",
+          "δυσ"
+        ],
+        "problemType": "IS_ADJ_AND_STARTS_WITH",
+        "humanReadableDescription": "the word must be an adjective and start with one of the following letter combinations", 
+        "cluster": 19,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "υπερ",
+          "υπο",
+          "κατα"
+        ],
+        "problemType": "IS_NOUN_OR_ADJ_AND_STARTS_WITH",
+        "humanReadableDescription": "the word must be a noun or adjective and start with one of the following letter combinations", 
+        "cluster": 20,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "υπερ",
+          "υπο"
+        ],
+        "problemType": "IS_VERB_AND_STARTS_WITH",
+        "humanReadableDescription": "the word must be a verb and start with one of the following letter combinations", 
+        "cluster": 20,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "δι",
+          "τρι",
+          "πρωτο",
+          "αυτο",
+          "πολυ",
+          "μικρο",
+          "ψιλο",
+          "ημι"
+        ],
+        "problemType": "STARTS_WITH",
+        "humanReadableDescription": "the word must start with one of the following letter combinations", 
+        "cluster": 21,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "ανα",
+          "αντι",
+          "απο",
+          "δια",
+          "εισ",
+          "εκ",
+          "εξ",
+          "εν",
+          "επι",
+          "κατα",
+          "μετα",
+          "παρα",
+          "περι",
+          "προ",
+          "προσ",
+          "συν"
+        ],
+        "problemType": "IS_VERB_AND_STARTS_WITH",
+        "humanReadableDescription": "the word must be a verb and start with one of the following letter combinations", 
+        "cluster": 21,
+        "character":""
+      },
+      {
+        "descriptions": [
+          "ψιλο",
+          "μισο",
+          "κουτσο",
+          "ψευτο"
+        ],
+        "problemType": "IS_VERB_AND_STARTS_WITH",
+        "humanReadableDescription": "the word must be a verb and start with one of the following letter combinations", 
+        "cluster": 21,
         "character":""
       }
     ],
@@ -459,7 +939,7 @@
         ],
         "problemType": "IS_BIG_NOUN_OR_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun or adjective and end with one of the following letter combinations", 
-        "cluster": 0,
+        "cluster": 22,
         "character":""
       },
       {
@@ -473,7 +953,7 @@
         ],
         "problemType": "IS_BIG_NOUN_OR_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun or adjective and end with one of the following letter combinations", 
-        "cluster": 0,
+        "cluster": 23,
         "character":""
       },
       {
@@ -501,7 +981,7 @@
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0,
+        "cluster": 23,
         "character":""
       },
       {
@@ -514,7 +994,7 @@
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0,
+        "cluster": 23,
         "character":""
       },
       {
@@ -530,7 +1010,7 @@
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0,
+        "cluster": 23,
         "character":""
       },
       {
@@ -549,7 +1029,7 @@
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0,
+        "cluster": 23,
         "character":""
       },
       {
@@ -559,7 +1039,7 @@
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0,
+        "cluster": 23,
         "character":""
       },
       {
@@ -594,7 +1074,7 @@
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0,
+        "cluster": 23,
         "character":""
       },
       {
@@ -632,7 +1112,7 @@
         ],
         "problemType": "IS_BIG_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 1,
+        "cluster": 24,
         "character":""
       },
       {
@@ -663,7 +1143,7 @@
         ],
         "problemType": "IS_BIG_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 1,
+        "cluster": 24,
         "character":""
       },
       {
@@ -679,7 +1159,7 @@
         ],
         "problemType": "IS_BIG_VERB_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 2,
+        "cluster": 25,
         "character":""
       },
       {
@@ -690,7 +1170,7 @@
         ],
         "problemType": "IS_BIG_VERB_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 2,
+        "cluster": 25,
         "character":""
       },
       {
@@ -704,7 +1184,7 @@
         ],
         "problemType": "IS_BIG_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 2,
+        "cluster": 25,
         "character":""
       }
     ],
@@ -723,7 +1203,7 @@
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0,
+        "cluster": 26,
         "character":""
       },
       {
@@ -736,7 +1216,7 @@
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0,
+        "cluster": 26,
         "character":""
       },
       {
@@ -754,7 +1234,7 @@
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0,
+        "cluster": 26,
         "character":""
       },
       {
@@ -776,7 +1256,7 @@
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 0,
+        "cluster": 26,
         "character":""
       },
       {
@@ -791,7 +1271,7 @@
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 1,
+        "cluster": 27,
         "character":""
       },
       {
@@ -813,7 +1293,7 @@
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 1,
+        "cluster": 27,
         "character":""
       },
       {
@@ -836,7 +1316,7 @@
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 2,
+        "cluster": 28,
         "character":""
       },
       {
@@ -855,7 +1335,7 @@
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 2,
+        "cluster": 28,
         "character":""
       },
       {
@@ -872,7 +1352,7 @@
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 2,
+        "cluster": 28,
         "character":""
       },
       {
@@ -888,7 +1368,7 @@
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 2,
+        "cluster": 28,
         "character":""
       },
       {
@@ -911,7 +1391,7 @@
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 2,
+        "cluster": 28,
         "character":""
       },
       {
@@ -925,7 +1405,7 @@
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 2,
+        "cluster": 28,
         "character":""
       },
       {
@@ -958,7 +1438,7 @@
         ],
         "problemType": "IS_VERB_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 3,
+        "cluster": 29,
         "character":""
       },
       {
@@ -987,7 +1467,7 @@
         ],
         "problemType": "IS_VERB_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 3,
+        "cluster": 29,
         "character":""
       },
       {
@@ -1015,7 +1495,7 @@
         ],
         "problemType": "IS_VERB_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 3,
+        "cluster": 29,
         "character":""
       },
       {
@@ -1053,7 +1533,7 @@
         ],
         "problemType": "IS_VERB_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 3,
+        "cluster": 29,
         "character":""
       },
       {
@@ -1067,388 +1547,7 @@
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
         "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 3,
-        "character":""
-      }
-    ],
-    [
-      {
-        "descriptions": [
-          "α",
-          "αντι",
-          "δυσ"
-        ],
-        "problemType": "IS_ADJ_AND_STARTS_WITH",
-        "humanReadableDescription": "the word must be an adjective and start with one of the following letter combinations", 
-        "cluster": 0,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "υπερ",
-          "υπο",
-          "κατα"
-        ],
-        "problemType": "IS_NOUN_OR_ADJ_AND_STARTS_WITH",
-        "humanReadableDescription": "the word must be a noun or adjective and start with one of the following letter combinations", 
-        "cluster": 1,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "υπερ",
-          "υπο"
-        ],
-        "problemType": "IS_VERB_AND_STARTS_WITH",
-        "humanReadableDescription": "the word must be a verb and start with one of the following letter combinations", 
-        "cluster": 1,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "δι",
-          "τρι",
-          "πρωτο",
-          "αυτο",
-          "πολυ",
-          "μικρο",
-          "ψιλο",
-          "ημι"
-        ],
-        "problemType": "STARTS_WITH",
-        "humanReadableDescription": "the word must start with one of the following letter combinations", 
-        "cluster": 2,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "ανα",
-          "αντι",
-          "απο",
-          "δια",
-          "εισ",
-          "εκ",
-          "εξ",
-          "εν",
-          "επι",
-          "κατα",
-          "μετα",
-          "παρα",
-          "περι",
-          "προ",
-          "προσ",
-          "συν"
-        ],
-        "problemType": "IS_VERB_AND_STARTS_WITH",
-        "humanReadableDescription": "the word must be a verb and start with one of the following letter combinations", 
-        "cluster": 2,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "ψιλο",
-          "μισο",
-          "κουτσο",
-          "ψευτο"
-        ],
-        "problemType": "IS_VERB_AND_STARTS_WITH",
-        "humanReadableDescription": "the word must be a verb and start with one of the following letter combinations", 
-        "cluster": 2,
-        "character":""
-      }
-    ],
-    [
-      {
-        "descriptions": [
-          "sp",
-          "st",
-          "sk"
-        ],
-        "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
-        "cluster": 0,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "pr",
-          "tr",
-          "kr"
-        ],
-        "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
-        "cluster": 0,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "gr",
-          "dr",
-          "br"
-        ],
-        "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
-        "cluster": 0,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "fr",
-          "ðr",
-          "χr",
-          "vr",
-          "γr",
-          "θr"
-        ],
-        "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
-        "cluster": 0,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "spr",
-          "skr",
-          "str",
-          "sfr"
-        ],
-        "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
-        "cluster": 0,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "sp",
-          "st",
-          "sk"
-        ],
-        "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
-        "cluster": 1,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "pr",
-          "tr",
-          "kr"
-        ],
-        "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
-        "cluster": 1,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "gr",
-          "dr",
-          "br"
-        ],
-        "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
-        "cluster": 1,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "fr",
-          "ðr",
-          "χr",
-          "vr",
-          "γr",
-          "θr"
-        ],
-        "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
-        "cluster": 1,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "spr",
-          "skr",
-          "str",
-          "sfr"
-        ],
-        "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
-        "cluster": 1,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "sp",
-          "st",
-          "sk"
-        ],
-        "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 2,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "pr",
-          "tr",
-          "kr"
-        ],
-        "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 2,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "gr",
-          "dr",
-          "br"
-        ],
-        "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 2,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "fr",
-          "ðr",
-          "χr",
-          "vr",
-          "γr",
-          "θr"
-        ],
-        "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 2,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "spr",
-          "skr",
-          "str",
-          "sfr"
-        ],
-        "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 2,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "sp",
-          "st",
-          "sk"
-        ],
-        "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 3,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "pr",
-          "tr",
-          "kr"
-        ],
-        "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 3,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "gr",
-          "dr",
-          "br"
-        ],
-        "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 3,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "fr",
-          "ðr",
-          "χr",
-          "vr",
-          "γr",
-          "θr"
-        ],
-        "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 3,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "spr",
-          "skr",
-          "str",
-          "sfr"
-        ],
-        "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and contains one of the following phonemes as an internal phoneme", 
-        "cluster": 3,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "ευ",
-          "εύ"
-        ],
-        "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contains one of the following letter combinations", 
-        "cluster": 4,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "αυ",
-          "αύ"
-        ],
-        "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contains one of the following letter combinations", 
-        "cluster": 4,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "εϋ",
-          "οϋ"
-        ],
-        "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contains one of the following letter combinations", 
-        "cluster": 5,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "αϊ"
-        ],
-        "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contains the following letter combination", 
-        "cluster": 5,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "οΰ"
-        ],
-        "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contains the following letter combination", 
-        "cluster": 6,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "αΐ"
-        ],
-        "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contains the following letter combination", 
-        "cluster": 6,
+        "cluster": 29,
         "character":""
       }
     ],
@@ -1461,7 +1560,7 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 0,
+        "cluster": 30,
         "character":""
       },
       {
@@ -1471,7 +1570,7 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 0,
+        "cluster": 30,
         "character":""
       },
       {
@@ -1482,7 +1581,7 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 1,
+        "cluster": 31,
         "character":""
       },
       {
@@ -1492,7 +1591,7 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 1,
+        "cluster": 31,
         "character":""
       },
       {
@@ -1502,7 +1601,7 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 2,
+        "cluster": 32,
         "character":""
       },
       {
@@ -1511,7 +1610,7 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 2,
+        "cluster": 32,
         "character":""
       },
       {
@@ -1520,7 +1619,7 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 3,
+        "cluster": 33,
         "character":""
       },
       {
@@ -1529,7 +1628,7 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 3,
+        "cluster": 33,
         "character":""
       },
       {
@@ -1538,7 +1637,7 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 3,
+        "cluster": 33,
         "character":""
       },
       {
@@ -1547,106 +1646,7 @@
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 3,
-        "character":""
-      }
-    ],
-    [
-      {
-        "descriptions": [
-          "α",
-          "ά",
-          "ο",
-          "ό"
-        ],
-        "problemType": "VISUAL_SIMILARITY",
-        "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 0,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "φ",
-          "θ",
-          "Θ",
-          "Β",
-          "β"
-        ],
-        "problemType": "VISUAL_SIMILARITY",
-        "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 0,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "ψ",
-          "Ψ",
-          "ω",
-          "ώ"
-        ],
-        "problemType": "VISUAL_SIMILARITY",
-        "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 0,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "3",
-          "ε",
-          "έ",
-          "ξ"
-        ],
-        "problemType": "VISUAL_SIMILARITY",
-        "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 0,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "κ",
-          "γ",
-          "λ",
-          "χ"
-        ],
-        "problemType": "VISUAL_SIMILARITY",
-        "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 1,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "η",
-          "ή",
-          "μ"
-        ],
-        "problemType": "VISUAL_SIMILARITY",
-        "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 1,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "π",
-          "Π",
-          "Τ",
-          "τ"
-        ],
-        "problemType": "VISUAL_SIMILARITY",
-        "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 1,
-        "character":""
-      },
-      {
-        "descriptions": [
-          "δ",
-          "σ",
-          "ρ",
-          "Ρ",
-          "6"
-        ],
-        "problemType": "VISUAL_SIMILARITY",
-        "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 1,
+        "cluster": 33,
         "character":""
       }
     ]

@@ -59,18 +59,18 @@ public class UserProblems implements Serializable {
 		initialize(new ProblemDefinitionIndex(LanguageCode.GR), true);
 		Random rand = new Random();
 		for (int i=0;i<problems.returnIndexLength(); i++){
-			int wi =2*problems.getRowLength(i)/4 + rand.nextInt(1);
+			int wi = 0 ;//2*problems.getRowLength(i)/4 + rand.nextInt(1);
 			this.setSystemIndex(i, wi);
 			this.setTeacherIndex(i, wi);
 			for (int j=0; j<userSeverities.getSeverityLength(i); j++){
-				if (j<wi/2)
+				/*if (j<wi/2)
 					this.setUserSeverity(i, j, 0);// rand.nextInt(2));
 				else if(j<wi)
 					this.setUserSeverity(i, j, 1);// rand.nextInt(3));
 				else if (j<(wi+userSeverities.getSeverityLength(i))/2)
 					this.setUserSeverity(i, j, 2);// rand.nextInt(4));
-				else 
-					this.setUserSeverity(i, j, 3);//  rand.nextInt(3)+1);
+				else */
+					this.setUserSeverity(i, j, 1);//  rand.nextInt(3)+1);
 			}
 		}
 	}
@@ -79,18 +79,18 @@ public class UserProblems implements Serializable {
 		initialize(new ProblemDefinitionIndex(LanguageCode.EN), true);
 		Random rand = new Random();
 		for (int i=0;i<problems.returnIndexLength(); i++){
-			int wi =2*problems.getRowLength(i)/4 + rand.nextInt(1);
+			int wi = 0 ;//2*problems.getRowLength(i)/4 + rand.nextInt(1);
 			this.setSystemIndex(i, wi);
 			this.setTeacherIndex(i, wi);
 			for (int j=0; j<userSeverities.getSeverityLength(i); j++){
-				if (j<wi/2)
+				/*if (j<wi/2)
 					this.setUserSeverity(i, j, 0);// rand.nextInt(2));
 				else if(j<wi)
 					this.setUserSeverity(i, j, 1);// rand.nextInt(3));
 				else if (j<(wi+userSeverities.getSeverityLength(i))/2)
 					this.setUserSeverity(i, j, 2);// rand.nextInt(4));
-				else 
-					this.setUserSeverity(i, j, 3);//  rand.nextInt(3)+1);
+				else */
+					this.setUserSeverity(i, j, 1);//  rand.nextInt(3)+1);
 			}
 		}
 	}
