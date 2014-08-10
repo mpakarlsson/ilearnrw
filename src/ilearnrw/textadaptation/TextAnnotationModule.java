@@ -265,6 +265,10 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		Gson gson = new GsonBuilder().create();
 		this.jsonObject = gson.fromJson(JSONFileName, ilearnrw.annotation.UserBasedAnnotatedWordsSet.class);
 	}
+	
+	public void setJSonObject(UserBasedAnnotatedWordsSet aws) {
+		this.jsonObject = aws;
+	}
 
 	public void readInputHTML() {
 		Charset.forName("UTF-8").newEncoder();
@@ -373,43 +377,24 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 				int index;
 				int userSeverity;
 
-				if (wordProblems.size() == 1) {
-					category = wordProblems.get(0).getCategory();
-					index = wordProblems.get(0).getIndex();
-
-					userSeverity = wordProblems.get(0).getUserSeverity();
-
-					if ((this.normalUser && userSeverity != 0)
-							|| !this.normalUser) {
-						if (presRules.getRulesTable()[category][index]
-								.getActivated()) {
-							f = new FinalAnnotation(
-									wordProblems.get(wordProblems.size() - 1),
-									wordProblems.get(wordProblems.size() - 1)
-											.getMatched().get(0),
-									presRules.getRulesTable()[category][index]);
-						}
-					}
-				} else if (wordProblems.size() > 1) {
-					category = wordProblems.get(wordProblems.size() - 1)
-							.getCategory();
-					index = wordProblems.get(wordProblems.size() - 1)
-							.getIndex();
-
-					userSeverity = wordProblems.get(wordProblems.size() - 1)
-							.getUserSeverity();
-
-					if ((this.normalUser && userSeverity != 0)
-							|| !this.normalUser) {
-						if (presRules.getRulesTable()[category][index]
-								.getActivated()) {
-							f = new FinalAnnotation(wordProblems.get(0),
-									wordProblems.get(0).getMatched().get(0),
-									presRules.getRulesTable()[category][index]);
-						}
-					}
-				} else {
+				if (wordProblems.size() == 0){
 					return null;
+				}
+				while (wordProblems.size() > 0) {
+					SeverityOnWordProblemInfo swpi = wordProblems.remove(0);
+					category = swpi.getCategory();
+					index = swpi.getIndex();
+
+					userSeverity = swpi.getUserSeverity();
+
+					if ((this.normalUser && userSeverity != 0)
+							|| !this.normalUser) {
+						if (presRules.getRulesTable()[category][index]
+								.getActivated()) {
+							f = new FinalAnnotation(swpi, swpi.getMatched().get(0),
+									presRules.getRulesTable()[category][index]);
+						}
+					}
 				}
 			}
 		}

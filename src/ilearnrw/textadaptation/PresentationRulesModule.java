@@ -44,7 +44,7 @@ public class PresentationRulesModule implements PresentationRules, Serializable{
 			{
 				rulesTable[i][j] = new Rule();
 			}
-		}
+		}	
 	}
 	
 	public Rule[][] getRulesTable()

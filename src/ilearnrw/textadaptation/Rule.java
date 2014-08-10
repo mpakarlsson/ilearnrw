@@ -17,10 +17,10 @@ public class Rule {
 	
 	public Rule()
 	{
-		this.presentationStyle = HIGHLIGHT_PROBLEMATIC_PARTS;
+		this.presentationStyle = DO_NOTHING;
 		this.textColor =  0xffff0000; 
 		this.highlightingColor = 0xffff00; //color yellow
-		this.activated = true;
+		this.activated = false;
 	}
 	
 	public Rule(int presentationStyle, boolean activated)
