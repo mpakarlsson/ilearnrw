@@ -605,19 +605,19 @@
          },
          {  
             "descriptions":[  
-               "i_C_e-aɪ"
+               "iCe-aɪC"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027i_C_e\u0027 as \u0027aɪ\u0027.For example: times, while, smile\u0027s",
+            "humanReadableDescription":"Pronounce \u0027iCe\u0027 as \u0027aɪC\u0027.For example: times, while, smile\u0027s",
             "cluster":23,
             "character":"Diphthong"
          },
          {  
             "descriptions":[  
-               "a_C_e-eɪ"
+               "aCe-eɪC"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027a_C_e\u0027 as \u0027eɪ\u0027.For example: estimates, rates, lakes",
+            "humanReadableDescription":"Pronounce \u0027aCe\u0027 as \u0027eɪC\u0027.For example: estimates, rates, lakes",
             "cluster":23,
             "character":"Diphthong"
          },
@@ -659,19 +659,19 @@
          },
          {  
             "descriptions":[  
-               "o_C_e-əʊ"
+               "oCe-əʊC"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027o_C_e\u0027 as \u0027əʊ\u0027.For example: wholes, phone\u0027s, bone",
+            "humanReadableDescription":"Pronounce \u0027oCe\u0027 as \u0027əʊC\u0027.For example: wholes, phone\u0027s, bone",
             "cluster":28,
             "character":"Diphthong"
          },
          {  
             "descriptions":[  
-               "u_C_e-juː"
+               "uCe-juːC"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027u_C_e\u0027 as \u0027juː\u0027.For example: contribute, schedule, schedule\u0027s",
+            "humanReadableDescription":"Pronounce \u0027uCe\u0027 as \u0027juːC\u0027.For example: contribute, schedule, schedule\u0027s",
             "cluster":28,
             "character":"Long vowel"
          },
@@ -776,10 +776,10 @@
          },
          {  
             "descriptions":[  
-               "e_C_e-iː"
+               "eCe-iːC"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027e_C_e\u0027 as \u0027iː\u0027.For example: these, theme, supreme",
+            "humanReadableDescription":"Pronounce \u0027eCe\u0027 as \u0027iːC\u0027.For example: these, theme, supreme",
             "cluster":33,
             "character":"Long vowel"
          },
@@ -893,10 +893,10 @@
          },
          {  
             "descriptions":[  
-               "y_C_e-aɪ"
+               "yCe-aɪC"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027y_C_e\u0027 as \u0027aɪ\u0027.For example: type, style\u0027s, types",
+            "humanReadableDescription":"Pronounce \u0027yCe\u0027 as \u0027aɪC\u0027.For example: type, style\u0027s, types",
             "cluster":38,
             "character":"Diphthong"
          },
@@ -1345,10 +1345,10 @@
          },
          {  
             "descriptions":[  
-               "_V_b-b"
+               "Vb-Vb"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_b\u0027 as \u0027b\u0027.For example: job, club, lab",
+            "humanReadableDescription":"Pronounce \u0027Vb\u0027 as \u0027Vb\u0027.For example: job, club, lab",
             "cluster":7,
             "character":"Vowel pattern"
          },
@@ -1363,10 +1363,10 @@
          },
          {  
             "descriptions":[  
-               "_V_lt-lt"
+               "Vlt-Vlt"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_lt\u0027 as \u0027lt\u0027.For example: adult, result, difficult",
+            "humanReadableDescription":"Pronounce \u0027Vlt\u0027 as \u0027Vlt\u0027.For example: adult, result, difficult",
             "cluster":7,
             "character":"Vowel pattern"
          },
@@ -1417,28 +1417,28 @@
          },
          {  
             "descriptions":[  
-               "_V_ll-l"
+               "Vll-Vl"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_ll\u0027 as \u0027l\u0027.For example: recall, wall, small",
+            "humanReadableDescription":"Pronounce \u0027Vll\u0027 as \u0027Vl\u0027.For example: recall, wall, small",
             "cluster":8,
             "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
-               "_V_ss-s"
+               "Vss-Vs"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_ss\u0027 as \u0027s\u0027.For example: brightness, quietness, lowness",
+            "humanReadableDescription":"Pronounce \u0027Vss\u0027 as \u0027Vs\u0027.For example: brightness, quietness, lowness",
             "cluster":8,
             "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
-               "_V_ft-ft"
+               "Vft-Vft"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_ft\u0027 as \u0027ft\u0027.For example: gift, soft, shift",
+            "humanReadableDescription":"Pronounce \u0027Vft\u0027 as \u0027Vft\u0027.For example: gift, soft, shift",
             "cluster":11,
             "character":"Vowel pattern"
          },
@@ -1471,10 +1471,10 @@
          },
          {  
             "descriptions":[  
-               "_V_g-g"
+               "Vg-Vg"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_g\u0027 as \u0027g\u0027.",
+            "humanReadableDescription":"Pronounce \u0027Vg\u0027 as \u0027Vg\u0027.",
             "cluster":11,
             "character":"Vowel pattern"
          },
@@ -1498,19 +1498,19 @@
          },
          {  
             "descriptions":[  
-               "_V_sk-sk"
+               "Vsk-Vsk"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_sk\u0027 as \u0027sk\u0027.For example: task, desk, risk",
+            "humanReadableDescription":"Pronounce \u0027Vsk\u0027 as \u0027Vsk\u0027.For example: task, desk, risk",
             "cluster":14,
             "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
-               "_V_lk-lk"
+               "Vlk-Vlk"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_lk\u0027 as \u0027lk\u0027.For example: milk",
+            "humanReadableDescription":"Pronounce \u0027Vlk\u0027 as \u0027Vlk\u0027.For example: milk",
             "cluster":14,
             "character":"Vowel pattern"
          },
@@ -1525,19 +1525,19 @@
          },
          {  
             "descriptions":[  
-               "_V_ng-ŋ"
+               "Vng-Vŋ"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_ng\u0027 as \u0027ŋ\u0027.For example: approving, stressing, rushing",
+            "humanReadableDescription":"Pronounce \u0027Vng\u0027 as \u0027Vŋ\u0027.For example: approving, stressing, rushing",
             "cluster":14,
             "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
-               "_V_nk-ŋk"
+               "Vnk-Vŋk"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_nk\u0027 as \u0027ŋk\u0027.For example: thank, bank, tank",
+            "humanReadableDescription":"Pronounce \u0027Vnk\u0027 as \u0027Vŋk\u0027.For example: thank, bank, tank",
             "cluster":14,
             "character":"Vowel pattern"
          },
@@ -1580,10 +1580,10 @@
          },
          {  
             "descriptions":[  
-               "_V_ck-k"
+               "Vck-Vk"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_ck\u0027 as \u0027k\u0027.For example: black, lock, pick",
+            "humanReadableDescription":"Pronounce \u0027Vck\u0027 as \u0027Vk\u0027.For example: black, lock, pick",
             "cluster":14,
             "character":"Vowel pattern"
          },
@@ -1661,10 +1661,10 @@
          },
          {  
             "descriptions":[  
-               "_V_sh-ʃ"
+               "Vsh-Vʃ"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_sh\u0027 as \u0027ʃ\u0027.For example: spanish, wash, push",
+            "humanReadableDescription":"Pronounce \u0027Vsh\u0027 as \u0027Vʃ\u0027.For example: spanish, wash, push",
             "cluster":16,
             "character":"Vowel pattern"
          },
@@ -1679,10 +1679,10 @@
          },
          {  
             "descriptions":[  
-               "_V_x-ks"
+               "Vx-Vks"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_x\u0027 as \u0027ks\u0027.For example: fix, six, sex",
+            "humanReadableDescription":"Pronounce \u0027Vx\u0027 as \u0027Vks\u0027.For example: fix, six, sex",
             "cluster":18,
             "character":"Vowel pattern"
          },
@@ -1697,37 +1697,37 @@
          },
          {  
             "descriptions":[  
-               "_V_ff-f"
+               "Vff-Vf"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_ff\u0027 as \u0027f\u0027.For example: staff, off, stuff",
+            "humanReadableDescription":"Pronounce \u0027Vff\u0027 as \u0027Vf\u0027.For example: staff, off, stuff",
             "cluster":21,
             "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
-               "_V_nch-ntʃ"
+               "Vnch-Vntʃ"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_nch\u0027 as \u0027ntʃ\u0027.For example: branch, french, lunch",
+            "humanReadableDescription":"Pronounce \u0027Vnch\u0027 as \u0027Vntʃ\u0027.For example: branch, french, lunch",
             "cluster":21,
             "character":"Vowel pattern"
          },
          { 
             "descriptions":[  
-               "_V_se-z"
+               "Vse-Vz"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027se\u0027 as \u0027z\u0027.For example: presences, please, cheese",
+            "humanReadableDescription":"Pronounce \u0027Vse\u0027 as \u0027Vz\u0027.For example: presences, please, cheese",
             "cluster":33,
             "character":"Vowel pattern"
          },
          { 
             "descriptions":[  
-               "_V_ze-z"
+               "Vze-Vz"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027ze\u0027 as \u0027z\u0027.For example: analyze, emphasized, emphasize",
+            "humanReadableDescription":"Pronounce \u0027Vze\u0027 as \u0027Vz\u0027.For example: analyze, emphasized, emphasize",
             "cluster":33,
             "character":"Vowel pattern"
          },
@@ -1742,19 +1742,19 @@
          },
          {  
             "descriptions":[  
-               "_V_ce-ɪs"
+               "Vce-Vɪs"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_ce\u0027 as \u0027ɪs\u0027.For example: space, ice, price",
+            "humanReadableDescription":"Pronounce \u0027Vce\u0027 as \u0027Vɪs\u0027.For example: space, ice, price",
             "cluster":33,
             "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
-               "_V_nce-ns"
+               "Vnce-Vns"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_nce\u0027 as \u0027ns\u0027.For example: assistance, dance, enhance",
+            "humanReadableDescription":"Pronounce \u0027Vnce\u0027 as \u0027Vns\u0027.For example: assistance, dance, enhance",
             "cluster":25,
             "character":"Vowel pattern"
          },
@@ -1769,37 +1769,37 @@
          },
          {  
             "descriptions":[  
-               "_V_ge-dʒ"
+               "Vge-Vdʒ"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_ge\u0027 as \u0027dʒ\u0027.For example: package, college, engage",
+            "humanReadableDescription":"Pronounce \u0027Vge\u0027 as \u0027Vdʒ\u0027.For example: package, college, engage",
             "cluster":28,
             "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
-               "_V_rge-dʒ"
+               "Vrge-Vdʒ"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_rge\u0027 as \u0027dʒ\u0027.For example: large, emerge, charge",
+            "humanReadableDescription":"Pronounce \u0027Vrge\u0027 as \u0027Vdʒ\u0027.For example: large, emerge, charge",
             "cluster":28,
             "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
-               "_V_nge-ndʒ"
+               "Vnge-Vndʒ"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_nge\u0027 as \u0027ndʒ\u0027.For example: challenge, change, strange",
+            "humanReadableDescription":"Pronounce \u0027Vnge\u0027 as \u0027Vndʒ\u0027.For example: challenge, change, strange",
             "cluster":28,
             "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
-               "_V_dge-dʒ"
+               "Vdge-Vdʒ"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_dge\u0027 as \u0027dʒ\u0027.For example: bridge, acknowledge, knowledge",
+            "humanReadableDescription":"Pronounce \u0027Vdge\u0027 as \u0027Vdʒ\u0027.For example: bridge, acknowledge, knowledge",
             "cluster":28,
             "character":"Vowel pattern"
          },{  
@@ -1930,10 +1930,10 @@
          },
          {  
             "descriptions":[  
-               "_V_tch-tʃ"
+               "Vtch-Vtʃ"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_V_tch\u0027 as \u0027tʃ\u0027.For example: match, stretch, watch",
+            "humanReadableDescription":"Pronounce \u0027Vtch\u0027 as \u0027Vtʃ\u0027.For example: match, stretch, watch",
             "cluster":33,
             "character":"Vowel pattern"
          },
@@ -2128,10 +2128,10 @@
          },
          {  
             "descriptions":[  
-               "al_C_"
+               "alC-əlC"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027al\u0027 as \u0027C\u0027.For example: finals, hospitals, recall",
+            "humanReadableDescription":"Pronounce \u0027alC\u0027 as \u0027C\u0027.For example: finals, hospitals, recall",
             "cluster":14,
             "character":"Vowel pattern"
          },
@@ -2164,28 +2164,28 @@
          },
          {  
             "descriptions":[  
-               "ol_C_-əʊ"
+               "olC-əʊlC"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027ol_C_\u0027 as \u0027əʊ\u0027.",
+            "humanReadableDescription":"Pronounce \u0027olC\u0027 as \u0027əʊlC\u0027.",
             "cluster":14,
             "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
-               "quar_C_-kwɒ,kwɔː"
+               "quarC-kwɒ,kwɔː"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027quar_C_\u0027 as \u0027kwɒ,kwɔː\u0027.",
+            "humanReadableDescription":"Pronounce \u0027quarC\u0027 as \u0027kwɒ,kwɔː\u0027.",
             "cluster":39,
             "character":"Beginning of word"
          },
          {  
             "descriptions":[  
-               "_C_re-tə"
+               "Cre-Ctə"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027_C_re\u0027 as \u0027tə\u0027.",
+            "humanReadableDescription":"Pronounce \u0027Cre\u0027 as \u0027Ctə\u0027.",
             "cluster":33,
             "character":"Silent letter"
          },
@@ -3655,7 +3655,7 @@
                "n/h"
             ],
             "problemType":"LETTER_PAIR",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"\u0027n\u0027 and \u0027h\u0027 can be confused",
             "cluster":3,
             "character":"Letter pairs"
          },
@@ -3664,7 +3664,7 @@
                "a/o"
             ],
             "problemType":"LETTER_PAIR",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"\u0027a\u0027 and \u0027o\u0027 can be confused",
             "cluster":3,
             "character":"Letter pairs"
          },
@@ -3673,7 +3673,7 @@
                "r/t"
             ],
             "problemType":"LETTER_PAIR",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":" \u0027r\u0027 and \u0027t\u0027 can be confused",
             "cluster":5,
             "character":"Letter pairs"
          },
@@ -3682,7 +3682,7 @@
                "m/n"
             ],
             "problemType":"LETTER_PAIR",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":" \u0027m\u0027 and \u0027n\u0027 can be confused",
             "cluster":5,
             "character":"Letter pairs"
          },
@@ -3691,7 +3691,7 @@
                "m/h"
             ],
             "problemType":"LETTER_PAIR",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":" \u0027m\u0027 and \u0027h\u0027 can be confused",
             "cluster":5,
             "character":"Letter pairs"
          },
@@ -3700,7 +3700,7 @@
                "b/d"
             ],
             "problemType":"LETTER_PAIR",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":" \u0027b\u0027 and \u0027d\u0027 can be confused",
             "cluster":7,
             "character":"Letter pairs"
          },
@@ -3709,7 +3709,7 @@
                "l/r"
             ],
             "problemType":"LETTER_PAIR",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":" \u0027l\u0027 and \u0027r\u0027 can be confused",
             "cluster":7,
             "character":"Letter pairs"
          },
@@ -3718,7 +3718,7 @@
                "b/g"
             ],
             "problemType":"LETTER_PAIR",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":" \u0027b\u0027 and \u0027g\u0027 can be confused",
             "cluster":11,
             "character":"Letter pairs"
          },
@@ -3727,7 +3727,7 @@
                "d/g"
             ],
             "problemType":"LETTER_PAIR",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":" \u0027d\u0027 and \u0027g\u0027 can be confused",
             "cluster":11,
             "character":"Letter pairs"
          },
@@ -3736,7 +3736,7 @@
                "t/f"
             ],
             "problemType":"LETTER_PAIR",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":" \u0027t\u0027 and \u0027f\u0027 can be confused",
             "cluster":11,
             "character":"Letter pairs"
          },
@@ -3745,7 +3745,7 @@
                "r/f"
             ],
             "problemType":"LETTER_PAIR",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":" \u0027r\u0027 and \u0027f\u0027 can be confused",
             "cluster":11,
             "character":"Letter pairs"
          },
@@ -3754,7 +3754,7 @@
                "b/q"
             ],
             "problemType":"LETTER_PAIR",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":" \u0027b\u0027 and \u0027q\u0027 can be confused",
             "cluster":18,
             "character":"Letter pairs"
          },
@@ -3763,7 +3763,7 @@
                "d/q"
             ],
             "problemType":"LETTER_PAIR",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":" \u0027d\u0027 and \u0027q\u0027 can be confused",
             "cluster":18,
             "character":"Letter pairs"
          },
@@ -3772,7 +3772,7 @@
                "q/g"
             ],
             "problemType":"LETTER_PAIR",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":" \u0027q\u0027 and \u0027g\u0027 can be confused",
             "cluster":18,
             "character":"Letter pairs"
         },
@@ -3781,7 +3781,7 @@
                "k/x"
             ],
             "problemType":"LETTER_PAIR",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":" \u0027k\u0027 and \u0027x\u0027 can be confused",
             "cluster":18,
             "character":"Letter pairs"
          }
