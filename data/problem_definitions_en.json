@@ -1807,7 +1807,7 @@
                "ble-bəl"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Pronounce \u0027ble\u0027 as \u0027bəl\u0027.For example: able, stable",
             "cluster":30,
             "character":"End of word"
          },
@@ -1816,7 +1816,7 @@
                "fle-fəl"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Pronounce \u0027fle\u0027 as \u0027fəl\u0027.For example: trifle, shuffle, waffle",
             "cluster":30,
             "character":"End of word"
          },
@@ -1825,7 +1825,7 @@
                "ple-pəl"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Pronounce \u0027ple\u0027 as \u0027pəl\u0027.For example: people, example, couple",
             "cluster":30,
             "character":"End of word"
          },
@@ -1834,7 +1834,7 @@
                "tle-təl"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Pronounce \u0027tle\u0027 as \u0027təl\u0027.For example: little, bottle, title",
             "cluster":30,
             "character":"End of word"
          },
@@ -1843,7 +1843,7 @@
                "dle-dəl"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Pronounce \u0027dle\u0027 as \u0027dəl\u0027.For example: handle, middle, needle",
             "cluster":30,
             "character":"End of word"
          },
@@ -1852,7 +1852,7 @@
                "kle-kəl"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Pronounce \u0027kle\u0027 as \u0027kəl\u0027.For example: tackle, ankle, sprinkle",
             "cluster":30,
             "character":"End of word"
          },
@@ -1861,7 +1861,7 @@
                "cle-kəl"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Pronounce  \u0027cle \u0027 as  \u0027kəl \u0027.For example: article, circle, uncle",
             "cluster":30,
             "character":"End of word"
          },
@@ -1870,7 +1870,7 @@
                "gle-ɡəl"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Pronounce \u0027gle\u0027 as \u0027gəl\u0027.For example: single, angle, eagle",
             "cluster":30,
             "character":"End of word"
          },
@@ -1879,7 +1879,7 @@
                "zle-zəl"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Pronounce \u0027zle\u0027 as \u0027zəl\u0027.For example: puzzle, drizzle, muzzle",
             "cluster":30,
             "character":"End of word"
          },
@@ -1888,7 +1888,7 @@
                "stle-səl"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Pronounce \u0027stle\u0027 as \u0027səl\u0027.For example: castle, whistle, hustle",
             "cluster":30,
             "character":"End of word"
          },
@@ -2877,7 +2877,7 @@
                "ation-eɪʃən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027ation\u0027 pronounced as \u0027eɪʃən\u0027 adds to, drops or changes ending of the stem. For example: imagination, information, direction",
             "cluster":28,
             "character":"Change"
          },
@@ -2886,7 +2886,7 @@
                "otion-əʊʃən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027otion\u0027 pronounced as \u0027eɪʃən\u0027 adds to, drops or changes ending of the stem. For example: motion, emotion, notion",
             "cluster":28,
             "character":"Change"
          },
@@ -2895,7 +2895,7 @@
                "ition-ɪʃən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027ition\u0027 pronounced as \u0027ɪʃən\u0027 adds to, drops or changes ending of the stem. For example: position, addition, competition",
             "cluster":28,
             "character":"Change"
          },
@@ -2904,7 +2904,7 @@
                "ution-uːʃən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027ution\u0027 pronounced as \u0027uːʃən\u0027 adds to, drops or changes ending of the stem. For example: solution, revolution, constitution",
             "cluster":28,
             "character":"Change"
          },
@@ -2913,7 +2913,7 @@
                "action-ækʃən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027action\u0027 pronounced as \u0027ækʃən\u0027 adds to, drops or changes ending of the stem. For example: satisfaction, interaction, fraction",
             "cluster":28,
             "character":"Change"
          },
@@ -2922,7 +2922,7 @@
                "ection-ekʃən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027ection\u0027 pronounced as \u0027ekʃən\u0027 adds to, drops or changes ending of the stem. For example: election, collection, direction",
             "cluster":28,
             "character":"Change"
          },
@@ -2931,7 +2931,7 @@
                "iction-ɪkʃən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027iction\u0027 pronounced as \u0027ɪkʃən\u0027 adds to, drops or changes ending of the stem. For example: conviction, addition, prediction",
             "cluster":28,
             "character":"Change"
          },
@@ -2940,7 +2940,7 @@
                "uction-ʌkʃən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027uction\u0027 pronounced as \u0027ʌkʃən\u0027 adds to, drops or changes ending of the stem. For example: production, construction, instruction",
             "cluster":28,
             "character":"Change"
          },
@@ -2949,7 +2949,7 @@
                "ention-enʃən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027ention\u0027 pronounced as \u0027enʃən\u0027 adds to, drops or changes ending of the stem. For example: attention, mention, intervention",
             "cluster":28,
             "character":"Change"
          },
@@ -2958,7 +2958,7 @@
                "asion-eɪʒən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027asion\u0027 pronounced as \u0027eɪʒən\u0027 changes ending of the stem. For example: invasion, occasion, persuasion",
             "cluster":35,
             "character":"Change"
          },
@@ -2967,7 +2967,7 @@
                "usion-uːʒən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027usion\u0027 pronounced as \u0027uːʒən\u0027 changes ending of the stem. For example: invasion, occasion, persuasion",
             "cluster":35,
             "character":"Change"
          },
@@ -2976,7 +2976,7 @@
                "ision-ɪʒən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027ision\u0027 pronounced as \u0027ɪʒən\u0027 changes ending of the stem. For example: decision, television, division",
             "cluster":35,
             "character":"Change"
          },
@@ -2985,7 +2985,7 @@
                "osion-əʊʒən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027osion\u0027 pronounced as \u0027əʊʒən\u0027 changes ending of the stem. For example: explosion, erosion, corrosion",
             "cluster":35,
             "character":"Change"
          },
@@ -2994,7 +2994,7 @@
                "mission-mɪʃən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027mission\u0027 pronounced as \u0027mɪʃən\u0027 changes ending of the stem. For example: mission, permission, fission",
             "cluster":35,
             "character":"Change"
          },
@@ -3003,7 +3003,7 @@
                "ession-eʃən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027ession\u0027 pronounced as \u0027eʃən\u0027 changes ending of the stem. For example: expression, session, profession",
             "cluster":35,
             "character":"Change"
          },
@@ -3012,7 +3012,7 @@
                "ussion-ʌʃən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027ussion\u0027 pronounced as \u0027ʌʃən\u0027 changes ending of the stem. For example: discussion, concussion, percussion",
             "cluster":35,
             "character":"Change"
          },
@@ -3021,7 +3021,7 @@
                "version-vɜːʃən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027version\u0027 pronounced as \u0027vɜːʃən\u0027 changes ending of the stem. For example: version, immersion, dispersion",
             "cluster":35,
             "character":"Change"
          },
@@ -3030,7 +3030,7 @@
                "ulsion-ʌlʃən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027ulsion\u0027 pronounced as \u0027ʌlʃən\u0027 changes ending of the stem. For example: propulsion, expulsion, emulsion",
             "cluster":35,
             "character":"Change"
          },
@@ -3156,7 +3156,7 @@
                "cian-ʃən"
             ],
             "problemType":"SUFFIX_PATTERN",
-            "humanReadableDescription":"no description",
+            "humanReadableDescription":"Suffix \u0027cian\u0027 pronounced as \u0027ʃən\u0027 drops or changes ending of the stem. For example: musician, politician, magician",
             "cluster":37,
             "character":"Change"
          },
