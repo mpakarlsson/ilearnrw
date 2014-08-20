@@ -271,6 +271,9 @@ public class WordVsProblems {
 			case SYLLABLE_COUNT:
 				wpi.setProblemInfo(i, j, StringMatchesInfo.syllableCount(pd, word));
 				break;
+			case LETTER_PAIR:
+				wpi.setProblemInfo(i, j, StringMatchesInfo.letterPair(pd, word));
+				break;
 		default:
 			break;
 		}

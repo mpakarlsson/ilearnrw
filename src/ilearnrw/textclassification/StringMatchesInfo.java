@@ -1,6 +1,7 @@
 package ilearnrw.textclassification;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
+import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
 import ilearnrw.textclassification.english.EnglishWord;
 import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.user.problems.ProblemType;
@@ -513,6 +514,34 @@ public class StringMatchesInfo {
 		    result.add(new StringMatchesInfo(w.getWord(), 0, w.getWord().length()));
 		    return result;
 		}
+		return null;
+	}
+	
+	public static ArrayList<StringMatchesInfo> letterPair(String str[], Word w){
+		ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
+		
+		if(w.getLanguageCode() == LanguageCode.EN){
+			String l1 = Character.toString(str[0].charAt(0));
+			String l2 = Character.toString(str[0].charAt(2));
+			
+			String tempW = w.getWord();
+			tempW = tempW.substring(1);
+			
+			if(w.getWord().startsWith(l1))
+				tempW = l2 + tempW;
+			else if(w.getWord().startsWith(l2))
+				tempW = l1 + tempW;
+			else
+				return null;
+			
+			
+			if(EnglishLanguageAnalyzer.getInstance().getDictionary().getDictionary().containsKey(tempW)){
+				result.add(new StringMatchesInfo(w.getWord(), 0, w.getWord().length()));
+				return result;
+			}
+		}
+		
+		
 		return null;
 	}
 	
