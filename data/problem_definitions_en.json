@@ -1970,8 +1970,8 @@
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027ch\u0027 as \u0027ʃ\u0027.For example: chef, chefs, chef\u0027s",
-            "cluster":0,
-            "character":"INVALID"
+            "cluster":39,
+            "character":"Xgraph"
          },
          {  
             "descriptions":[  
@@ -2110,21 +2110,12 @@
          },
          {  
             "descriptions":[  
-               "xc-ksk"
+               "xc-ks"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027xc\u0027 as \u0027ksk\u0027.For example: excepts, excellent, excepted",
             "cluster":33,
             "character":"Middle of word"
-         },
-         { 
-            "descriptions":[  
-               "xc-ks"
-            ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027xc\u0027 as \u0027ks\u0027.For example: excepts, excellent, excepted",
-            "cluster":0,
-            "character":"INVALID"
          },
          {  
             "descriptions":[  
