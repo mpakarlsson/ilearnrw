@@ -670,6 +670,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	public void setAttributeToWord(Element element, String wordID,
 			String attribute, String value, int start, int end) {
 		String word = element.text().trim();
+		if (start <0 || end<=start || word.length()<end)
+			return;
 
 		if (end == word.length() && start == 0) {
 			element.attr("style", element.attr("style") + " " + attribute + ":"
@@ -714,9 +716,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 			{
 				element.empty();
 				element.appendChild(new TextNode(word.substring(0, start), ""));
-				element.appendElement("span")
-				.attr("style", attribute + ":" + value + ";")
-				.text(word.substring(start, end));
+				element.appendElement("span").attr("style", attribute + ":" + value + ";")
+					.text(word.substring(start, end));
 				element.appendChild(new TextNode(word.substring(end), ""));
 			}
 		}
