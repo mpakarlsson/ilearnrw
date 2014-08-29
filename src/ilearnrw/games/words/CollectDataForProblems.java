@@ -53,7 +53,7 @@ public class CollectDataForProblems {
 		 */
 		// unionOfSoundSimilarWords();
 		
-		gd = new GreekDictionary();
+		gd = GreekDictionary.getInstance();
 		LanguageCode lc = LanguageCode.GR;
 		
 		String lan = "EN";
@@ -108,17 +108,17 @@ public class CollectDataForProblems {
 				ws.add(w);
 			}
 		}
-		return new GreekDictionary(ws);
+		return null;//GreekDictionary.getInstance(ws);
 	}
 
 	private static void unionOfSoundSimilarWords() {
-		GreekDictionary gr = new GreekDictionary();
+		GreekDictionary gr = GreekDictionary.getInstance();
 		SortedTreeSet sts = new SortedTreeSet();
 		String path = "greek_collection_for_problems/cat1/";
 		for (int i = 0; i < 12; i++) {
 			String name = path + "words_for_problem_1_" + i + "_" + "GR.txt";
-			gr = new GreekDictionary(name);
-			SortedTreeSet s = gr.getWords();
+			gr = null;//GreekDictionary.getInstance(name);
+			SortedTreeSet s = null;// gr.getWords();
 			sts = sts.union(s);
 			System.out.println(sts.size());
 		}
@@ -136,7 +136,7 @@ public class CollectDataForProblems {
 		String path = "data/greek_collection_for_problems/cat" + category + "/";
 		FileData fd = new FileData(path + "words_for_problem_" + category + "_"
 				+ index + "_" + "GR.txt");
-		SortedTreeSet sts1 = gd.getWords();
+		SortedTreeSet sts1 = null;//gd.getWords();
 		System.out.println("filling a list with words...");
 		Word allWords[];
 		int reps = 1;
@@ -154,7 +154,7 @@ public class CollectDataForProblems {
 					System.out.println("loading again language analyser...");
 					languageAnalyser = new GreekLanguageAnalyzer(gd, null);
 				}
-				SortedTreeSet sts = gd.getWords();
+				SortedTreeSet sts = null;//gd.getWords();
 				System.out.println("filling an array with " + sts.size()
 						+ " words...");
 				allWords = new Word[sts.size()];

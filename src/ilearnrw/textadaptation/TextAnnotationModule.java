@@ -12,10 +12,6 @@ import java.util.Map;
 import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
-//import java.awt.Font;
-//import java.awt.Color;
-//import java.awt.geom.AffineTransform;
-//import java.awt.font.FontRenderContext;
 import java.io.File;
 import java.io.IOException;
 import java.io.FileInputStream;
@@ -52,8 +48,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	private String inputHTMLFile;
 
 	private String annotatedHTMLFile;
-	private File annotatedFile;
-	private File inputFile;
+	//private File annotatedFile;
+	//private File inputFile;
 
 	private Document doc;
 
@@ -71,8 +67,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	private int backgroundColor;
 	private int foregroundColor;
 
-	private int screenWidth;
-	private int screenHeight;
+	//private int screenWidth;
+	//private int screenHeight;
 
 	private boolean activatePagination;
 
@@ -98,8 +94,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		this.jsonObject = null;
 		this.activatePagination = false;
 		this.normalUser = true;
-		this.screenWidth = 200;
-		this.screenHeight = 200;
+		//this.screenWidth = 200;
+		///this.screenHeight = 200;
 	}
 
 	public TextAnnotationModule() {
@@ -115,8 +111,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		this.jsonObject = null;
 		this.activatePagination = false;
 		this.normalUser = true;
-		this.screenWidth = 200;
-		this.screenHeight = 200;
+		//this.screenWidth = 200;
+		//this.screenHeight = 200;
 	}
 	
 	public void initializePresentationModuleFromServer(String token, String userID)
@@ -297,10 +293,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 			
 			selElem.text(selElem.text().replace(" ", ""));
 			String word = selElem.text();
-			System.out.println(word);
 			
 			if (f != null) {
-				System.out.println("Rule: " + f.getRule().getHighlightingColor());
 				if (f.getRule().getPresentationStyle() == Rule.HIGHLIGHT_WHOLE_WORD) {
 					this.setWordHighlighting(selElem.attr("id"), f.getRule()
 							.getHighlightingColor(), 0, word.length() - 1);
@@ -677,10 +671,11 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 			String attribute, String value, int start, int end) {
 		String word = element.text().trim();
 
-		if (end == word.length() - 1 && start == 0) {
+		if (end == word.length() && start == 0) {
 			element.attr("style", element.attr("style") + " " + attribute + ":"
 					+ value + ";");
-		} else {
+		} 
+		else {
 			// Checks if the base element contains span
 			if (element.outerHtml().contains("span")) {
 				boolean found = false;
@@ -714,26 +709,15 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 						}
 					}
 				}
-			} else // The element had no span
+			} 
+			else // The element had no span
 			{
-				String result[] = setElementsText(element.text(), start, end);
-
-				for (int i = 0; i < element.childNodes().size(); i++) {
-					Node child = element.childNodes().get(i);
-					child.remove();
-				}
-
-				if (!result[0].equals("")) {
-					element.appendChild(new TextNode(result[0], ""));
-				}
-				if (!result[1].equals("")) {
-					element.appendElement("span")
-							.attr("style", attribute + ":" + value + ";")
-							.text(result[1]);
-				}
-				if (!result[2].equals("")) {
-					element.appendChild(new TextNode(result[2], ""));
-				}
+				element.empty();
+				element.appendChild(new TextNode(word.substring(0, start), ""));
+				element.appendElement("span")
+				.attr("style", attribute + ":" + value + ";")
+				.text(word.substring(start, end));
+				element.appendChild(new TextNode(word.substring(end), ""));
 			}
 		}
 	}
@@ -742,7 +726,7 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 			String attribute, int start, int end) {
 		String word = element.text();
 
-		if (end == word.length() - 1 && start == 0) {
+		if (end == word.length() && start == 0) {
 			Attributes styleAtt = element.attributes();
 
 			if (!styleAtt.asList().isEmpty()) {
@@ -1092,48 +1076,13 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		return this.foregroundColor;
 	}
 
-	public void setScreenWidth(int screenWidth) {
+	/*public void setScreenWidth(int screenWidth) {
 		this.screenWidth = screenWidth;
 	}
 
 	public void setScreenHeight(int screenHeight) {
 		this.screenHeight = screenHeight;
-	}
-
-	/**
-	 * Splits the word in three parts to determine the part that will be
-	 * visualized independently.
-	 * 
-	 * @param elementText
-	 * @param start
-	 * @param end
-	 * @return
-	 */
-	private static String[] setElementsText(String elementText, int start,
-			int end) {
-		String beforeText = "";
-		String middleText = "";
-		String endText = "";
-
-		if (start == 0 && end != elementText.length() - 2) {
-			middleText = elementText.substring(0, end);
-			endText = elementText.substring(end, elementText.length());
-		} else if (start != 0 && end != elementText.length() - 2) {
-			beforeText = elementText.substring(0, start);
-			middleText = elementText.substring(start, end - 1);
-			endText = elementText.substring(end - 1, elementText.length());
-		} else if (start != 0 && end == elementText.length() - 2) {
-			beforeText = elementText.substring(0, start);
-			middleText = elementText.substring(start, end);
-		}
-
-		String[] result = new String[3];
-		result[0] = beforeText;
-		result[1] = middleText;
-		result[2] = endText;
-
-		return result;
-	}
+	}*/
 	
 	public String toString()
 	{

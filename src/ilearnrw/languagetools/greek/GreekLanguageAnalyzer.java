@@ -15,7 +15,7 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 
 
 	protected GreekLanguageAnalyzer() {
-		dictionary = new GreekDictionary();
+		dictionary = GreekDictionary.getInstance();
 		//GreekLineByLineDictionaryLoader glld = new GreekLineByLineDictionaryLoader("greek_sound_similarity.txt");
 		//soundsSimilarDictionary = new GreekDictionary(glld.getEntries());
 		soundsSimilarDictionary = new GreekSoundDictionary("similarSoundWords.txt");
@@ -46,11 +46,11 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 	@Override
 	public void setWord(Word w) {
 		this.word = (GreekWord)w;
-		if (dictionary.contains(word))
-			word.setType((dictionary.get(word)).getType());
+		GreekWord gr = dictionary.getWord(word.toString());
+		if (gr != null)
+			word.setType(gr.getType());
 		else word.setType(WordType.Unknown);
 	}
-	
 	@Override
 	public Word getSimilarSoundWord(String phA, String phB){
 		String phonems = this.word.getPhonetics();

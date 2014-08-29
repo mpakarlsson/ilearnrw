@@ -8,12 +8,12 @@ public class Rule {
 	private int textColor;
 	private int highlightingColor;
 	private boolean activated;
-	
-	public static final int PAINT_PROBLEMATIC_PARTS = 0;
-	public static final int PAINT_WHOLE_WORD = 1;
-	public static final int HIGHLIGHT_PROBLEMATIC_PARTS = 2;
-	public static final int HIGHLIGHT_WHOLE_WORD = 3;
-	public static final int DO_NOTHING = 4;
+
+	public static final int DO_NOTHING = 0;
+	public static final int PAINT_PROBLEMATIC_PARTS = 1;
+	public static final int PAINT_WHOLE_WORD = 2;
+	public static final int HIGHLIGHT_PROBLEMATIC_PARTS = 3;
+	public static final int HIGHLIGHT_WHOLE_WORD = 4;
 	
 	public Rule()
 	{

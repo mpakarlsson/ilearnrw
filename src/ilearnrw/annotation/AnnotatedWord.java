@@ -13,6 +13,8 @@ import ilearnrw.utils.LanguageCode;
 public class AnnotatedWord extends Word {
 	private static final long serialVersionUID = 1L;
 	private ArrayList<WordProblemInfo> wordProblems;
+	private LanguageAnalyzerAPI lan;
+	
 	public AnnotatedWord(Word w) {
 		super();
 		super.word = w.getWord();
@@ -50,10 +52,9 @@ public class AnnotatedWord extends Word {
 	}
 	
 	private ArrayList<WordProblemInfo> getProblems(Word w){
-		LanguageAnalyzerAPI lan;
-		if (super.getLanguageCode().equals(LanguageCode.GR))
+		if (lan == null && super.getLanguageCode().equals(LanguageCode.GR))
 			lan = GreekLanguageAnalyzer.getInstance();
-		else 
+		else if (lan == null)
 			lan = EnglishLanguageAnalyzer.getInstance();
 		WordVsProblems wp = new WordVsProblems(lan);
 		wp.insertWord(w);
@@ -61,10 +62,9 @@ public class AnnotatedWord extends Word {
 	}
 	
 	private ArrayList<WordProblemInfo> getProblems(Word w, int i, int j){
-		LanguageAnalyzerAPI lan;
-		if (super.getLanguageCode().equals(LanguageCode.GR))
+		if (lan == null && super.getLanguageCode().equals(LanguageCode.GR))
 			lan = GreekLanguageAnalyzer.getInstance();
-		else 
+		else if (lan == null)
 			lan = EnglishLanguageAnalyzer.getInstance();
 		WordVsProblems wp = new WordVsProblems(lan);
 		wp.insertWord(w, i, j);

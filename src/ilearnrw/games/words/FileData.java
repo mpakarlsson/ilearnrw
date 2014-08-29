@@ -8,8 +8,8 @@ import java.io.Writer;
 import java.util.ArrayList;
 
 public class FileData {
-	String filename;
-	ArrayList<String> data;
+	public String filename;
+	public ArrayList<String> data;
 	public FileData(){}
 	public FileData(String n){
 		filename = "data/"+n;
@@ -31,6 +31,18 @@ public class FileData {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+	public ArrayList<String> getData() {
+		return data;
+	}
+	public void setData(ArrayList<String> data) {
+		this.data = data;
 	}
 
 }
