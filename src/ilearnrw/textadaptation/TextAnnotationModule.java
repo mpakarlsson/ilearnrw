@@ -150,39 +150,6 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 		return this.presRules;
 	}
 
-	/*public String sendPostToServer(String token, String input, String text)
-	{
-		String tokenParams;
-		String resp = "No resp";
-		int language;
-		if (profile.getLanguage() == ilearnrw.utils.LanguageCode.EN)
-		{
-			tokenParams = "&lc=EN&token=";
-			language = 1;
-			
-		}
-		else
-		{
-			tokenParams = "&lc=GR&token=";
-			language = 5;
-		}
-		try
-		{
-			this.textFile = text;
-			resp = ServerHelperClass.sendPost(input+token, this.textFile);
-			//PrintWriter printWriter = new PrintWriter("response.json");
-			//printWriter.println(resp);
-			//printWriter.close();
-			this.JSONFileName = resp;
-		}
-		catch (Exception e)
-		{
-			resp = "Nothing";
-		}
-		return resp;
-		
-	}*/
-	
 	/**
 	 * Sets a text file to the TextAnnotator object
 	 */
@@ -297,14 +264,14 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 			if (f != null) {
 				if (f.getRule().getPresentationStyle() == Rule.HIGHLIGHT_WHOLE_WORD) {
 					this.setWordHighlighting(selElem.attr("id"), f.getRule()
-							.getHighlightingColor(), 0, word.length() - 1);
+							.getHighlightingColor(), 0, word.length());
 				} else if (f.getRule().getPresentationStyle() == Rule.HIGHLIGHT_PROBLEMATIC_PARTS) {
 					this.setWordHighlighting(selElem.attr("id"), f.getRule()
 							.getHighlightingColor(), f.getStringMatchesInfo()
 							.getStart(), f.getStringMatchesInfo().getEnd());
 				} else if (f.getRule().getPresentationStyle() == Rule.PAINT_WHOLE_WORD) {
 					this.setWordColor(selElem.attr("id"), f.getRule()
-							.getTextColor(), 0, word.length() - 1);
+							.getTextColor(), 0, word.length());
 				} else if (f.getRule().getPresentationStyle() == Rule.PAINT_PROBLEMATIC_PARTS) {
 					this.setWordColor(selElem.attr("id"), f.getRule()
 							.getTextColor(), f.getStringMatchesInfo()
