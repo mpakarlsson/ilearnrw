@@ -85,8 +85,7 @@ public class HtmlGenerator {
 							//else
 								w = new GreekWord(word);
 							
-							UserBasedAnnotatedWord t = new UserBasedAnnotatedWord(
-									w , userProfile, wp);
+							UserBasedAnnotatedWord t = new UserBasedAnnotatedWord(w , userProfile, wp);
 							wordSet.addWord(t, wId);
 						}
 						builder.append("<w id = w"+(wId++)+">");
