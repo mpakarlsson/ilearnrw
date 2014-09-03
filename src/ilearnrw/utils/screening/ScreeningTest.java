@@ -1,0 +1,94 @@
+package ilearnrw.utils.screening;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayList;
+
+import com.google.gson.Gson;
+
+
+public class ScreeningTest implements ScreeningTestIP, Serializable{
+	private static final long serialVersionUID = 1L;
+	private ArrayList<ClusterTestQuestions> questions;
+	
+	public ScreeningTest(ArrayList<ClusterTestQuestions> questions) {
+		this.questions = questions;
+	}
+
+	public ScreeningTest() {
+		this.questions = new ArrayList<ClusterTestQuestions>();
+	}
+	
+	public void addQuestion(TestQuestion question, int cluster) {
+		for (ClusterTestQuestions ctq : questions){
+			if (ctq.getClusterNumber() == cluster){
+				ctq.getClusterQuestions().add(question);
+				return;
+			}
+		}
+		ClusterTestQuestions ctq = new ClusterTestQuestions(cluster);
+		ctq.getClusterQuestions().add(question);
+		questions.add(ctq);
+	}
+	
+	public void setQuestions(ArrayList<ClusterTestQuestions> questions) {
+		this.questions = questions;
+	}
+	
+	public void setClusterQuestions(ArrayList<TestQuestion> questions, int cluster) {
+		this.questions.get(cluster).setClusterQuestions(questions);
+	}
+
+	@Override
+	public ArrayList<TestQuestion> getQuestionsList() {
+		ArrayList<TestQuestion> res = new ArrayList<TestQuestion>();
+		for (ClusterTestQuestions ctq : questions){
+			for (TestQuestion tq : ctq.getClusterQuestions())
+				res.add(tq);
+		}
+		return res;
+	}
+
+	@Override
+	public void storeTest(String filename) {
+		Gson gson = new Gson();
+		String jsonRepresentation = gson.toJson(this);
+		try {
+			FileWriter Filewriter = new FileWriter(filename);
+			Filewriter.write(jsonRepresentation);
+			Filewriter.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void loadTest(String filename) {
+		Gson gson = new Gson();
+		try {
+			FileReader fileReader = new FileReader(filename);
+			BufferedReader buffered = new BufferedReader(fileReader);
+			ScreeningTest obj = gson.fromJson(buffered, ScreeningTest.class);
+			this.questions = obj.getQuestions();
+		} catch (IOException e) {
+
+		}
+	}
+
+	@Override
+	public ArrayList<ClusterTestQuestions> getQuestions() {
+		return questions;
+	}
+
+	@Override
+	public ArrayList<TestQuestion> getClusterQuestions(int c) {
+		for (ClusterTestQuestions ctq : questions){
+			if (ctq.getClusterNumber() == c)
+				return ctq.getClusterQuestions();
+		}
+		return null;
+	}
+
+}
