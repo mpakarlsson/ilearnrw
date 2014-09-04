@@ -27,7 +27,7 @@ public class GreekDictionary {
 			return dictionary.get(w);
 		}
 
-		return null;
+		return new GreekWord(w);
 	}
 	
 	/*protected GreekDictionary(String filename) {

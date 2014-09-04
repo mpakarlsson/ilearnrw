@@ -7,11 +7,12 @@ public class TestQuestion implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String question;
 	private ArrayList<String> relatedWords;
-	
+	private int id;
 
-	public TestQuestion(String question, ArrayList<String> relatedWords) {
+	public TestQuestion(String question, ArrayList<String> relatedWords, int id) {
 		this.question = question;
 		this.relatedWords = relatedWords;
+		this.id = id;
 	}
 
 	public TestQuestion() {
@@ -39,8 +40,16 @@ public class TestQuestion implements Serializable {
 		return relatedWords;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String toString() {
-		return "TestQuestion [\nquestion="
+		return "TestQuestion [\nquestionId="+id+"\nquestion="
 				+ question + "\nrelatedWords=" + relatedWords + "]";
 	}
 
