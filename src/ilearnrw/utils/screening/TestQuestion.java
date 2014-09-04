@@ -9,8 +9,7 @@ public class TestQuestion implements Serializable {
 	private ArrayList<String> relatedWords;
 	
 
-	public TestQuestion(String question, ArrayList<String> relatedWords, 
-			int clusterNumber) {
+	public TestQuestion(String question, ArrayList<String> relatedWords) {
 		this.question = question;
 		this.relatedWords = relatedWords;
 	}

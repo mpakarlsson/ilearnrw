@@ -1,4 +1,6 @@
 package ilearnrw.utils.screening;
+import ilearnrw.user.profile.clusters.ProfileClusters;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -20,6 +22,12 @@ public class ScreeningTest implements ScreeningTestIP, Serializable{
 	public ScreeningTest() {
 		this.questions = new ArrayList<ClusterTestQuestions>();
 	}
+
+	public ScreeningTest(ProfileClusters profileClusters) {
+		this.questions = new ArrayList<ClusterTestQuestions>();
+		for (Integer t : profileClusters.getClustersNumbers())
+			this.questions.add(new ClusterTestQuestions(t));
+	}
 	
 	public void addQuestion(TestQuestion question, int cluster) {
 		for (ClusterTestQuestions ctq : questions){
@@ -31,6 +39,15 @@ public class ScreeningTest implements ScreeningTestIP, Serializable{
 		ClusterTestQuestions ctq = new ClusterTestQuestions(cluster);
 		ctq.getClusterQuestions().add(question);
 		questions.add(ctq);
+	}
+	
+	public void deleteQuestion(int cluster, int id){
+		for (ClusterTestQuestions ctq : questions){
+			if (ctq.getClusterNumber() == cluster){
+				ctq.getClusterQuestions().remove(id);
+				return;
+			}
+		}
 	}
 	
 	public void setQuestions(ArrayList<ClusterTestQuestions> questions) {
