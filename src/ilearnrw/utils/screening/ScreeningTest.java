@@ -29,14 +29,15 @@ public class ScreeningTest implements ScreeningTestIP, Serializable{
 			this.questions.add(new ClusterTestQuestions(t));
 	}
 	
-	public int addQuestion(String question, ArrayList<String> relatedWords, int cluster) {
+	public int addQuestion(String question, ArrayList<String> relatedWords, boolean attachRelWords, 
+			int cluster) {
 		for (ClusterTestQuestions ctq : questions){
 			if (ctq.getClusterNumber() == cluster){
-				return ctq.addClusterQuestion(question, relatedWords);
+				return ctq.addClusterQuestion(question, relatedWords, attachRelWords);
 			}
 		}
 		ClusterTestQuestions ctq = new ClusterTestQuestions(cluster);
-		int id = ctq.addClusterQuestion(question, relatedWords);
+		int id = ctq.addClusterQuestion(question, relatedWords, attachRelWords);
 		questions.add(ctq);
 		return id;
 	}
@@ -50,10 +51,11 @@ public class ScreeningTest implements ScreeningTestIP, Serializable{
 		}
 	}
 	
-	public void editQuestion(int cluster, int id, String question, ArrayList<String> relatedWords) {
+	public void editQuestion(int cluster, int id, String question, ArrayList<String> relatedWords, 
+			boolean attachRelWords) {
 		for (ClusterTestQuestions ctq : questions){
 			if (ctq.getClusterNumber() == cluster){
-				ctq.editClusterQuestion(id, question, relatedWords);
+				ctq.editClusterQuestion(id, question, relatedWords, attachRelWords);
 				return;
 			}
 		}

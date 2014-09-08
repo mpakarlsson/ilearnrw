@@ -37,9 +37,9 @@ public class ClusterTestQuestions implements Serializable{
 		this.clusterQuestions = clusterQuestions;
 	}
 
-	public int addClusterQuestion(String question, ArrayList<String> relatedWords) {
+	public int addClusterQuestion(String question, ArrayList<String> relatedWords, boolean attachRelWords) {
 		int id = getFirstAvailbleId();
-		TestQuestion tq = new TestQuestion(question, relatedWords, id);
+		TestQuestion tq = new TestQuestion(question, relatedWords, attachRelWords, id);
 		this.clusterQuestions.add(tq);
 		return id;
 	}
@@ -52,11 +52,12 @@ public class ClusterTestQuestions implements Serializable{
 			}
 	}
 
-	public boolean editClusterQuestion(int id, String question, ArrayList<String> relatedWords) {
+	public boolean editClusterQuestion(int id, String question, ArrayList<String> relatedWords, boolean attachRelWords) {
 		for (int i=0;i<clusterQuestions.size();i++)
 			if (clusterQuestions.get(i).getId() == id){
 				clusterQuestions.get(i).setQuestion(question);
 				clusterQuestions.get(i).setRelatedWords(relatedWords);
+				clusterQuestions.get(i).setAttachRelWords(attachRelWords);
 				return true;
 			}
 		return false;

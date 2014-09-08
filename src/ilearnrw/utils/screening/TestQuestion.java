@@ -7,17 +7,20 @@ public class TestQuestion implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String question;
 	private ArrayList<String> relatedWords;
+	private boolean attachRelWords;
 	private int id;
 
-	public TestQuestion(String question, ArrayList<String> relatedWords, int id) {
+	public TestQuestion(String question, ArrayList<String> relatedWords, boolean attachRelWords, int id) {
 		this.question = question;
 		this.relatedWords = relatedWords;
+		this.attachRelWords = attachRelWords;
 		this.id = id;
 	}
 
 	public TestQuestion() {
 		this.question = "";
 		this.relatedWords = new ArrayList<String>();
+		this.attachRelWords = true;
 	}
 
 	public void setQuestion(String question) {
@@ -40,6 +43,14 @@ public class TestQuestion implements Serializable {
 		return relatedWords;
 	}
 
+	public boolean isAttachRelWords() {
+		return attachRelWords;
+	}
+
+	public void setAttachRelWords(boolean attachRelWords) {
+		this.attachRelWords = attachRelWords;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -47,10 +58,4 @@ public class TestQuestion implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public String toString() {
-		return "TestQuestion [\nquestionId="+id+"\nquestion="
-				+ question + "\nrelatedWords=" + relatedWords + "]";
-	}
-
 }
