@@ -29,22 +29,31 @@ public class ScreeningTest implements ScreeningTestIP, Serializable{
 			this.questions.add(new ClusterTestQuestions(t));
 	}
 	
-	public void addQuestion(String question, ArrayList<String> relatedWords, int cluster) {
+	public int addQuestion(String question, ArrayList<String> relatedWords, int cluster) {
 		for (ClusterTestQuestions ctq : questions){
 			if (ctq.getClusterNumber() == cluster){
-				ctq.addClusterQuestion(question, relatedWords);
-				return;
+				return ctq.addClusterQuestion(question, relatedWords);
 			}
 		}
 		ClusterTestQuestions ctq = new ClusterTestQuestions(cluster);
-		ctq.addClusterQuestion(question, relatedWords);
+		int id = ctq.addClusterQuestion(question, relatedWords);
 		questions.add(ctq);
+		return id;
 	}
 	
 	public void deleteQuestion(int cluster, int id) {
 		for (ClusterTestQuestions ctq : questions){
 			if (ctq.getClusterNumber() == cluster){
 				ctq.deleteClusterQuestion(id);
+				return;
+			}
+		}
+	}
+	
+	public void editQuestion(int cluster, int id, String question, ArrayList<String> relatedWords) {
+		for (ClusterTestQuestions ctq : questions){
+			if (ctq.getClusterNumber() == cluster){
+				ctq.editClusterQuestion(id, question, relatedWords);
 				return;
 			}
 		}

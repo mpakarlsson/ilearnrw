@@ -35,6 +35,8 @@ public class EasyHardList {
 	}
 
 	private void setWords(ArrayList<String> words) {
+		if (words == null)
+			return;
 		boolean easy = true;
 		for (String x:words){
 			if (x.isEmpty())
