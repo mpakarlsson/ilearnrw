@@ -241,7 +241,6 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	public void writeAnnotatedHTML() {
 		this.annotatedHTMLFile = doc.html().toString();
 		removeExtraWhiteSpaces();
-		System.out.println(this.annotatedHTMLFile);
 	}
 
 	public void removeExtraWhiteSpaces() {
@@ -345,16 +344,12 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 					SeverityOnWordProblemInfo swpi = wordProblems.remove(0);
 					category = swpi.getCategory();
 					index = swpi.getIndex();
-
+					
 					userSeverity = swpi.getUserSeverity();
-
-					if ((this.normalUser && userSeverity != 0)
-							|| !this.normalUser) {
-						if (presRules.getRulesTable()[category][index]
-								.getActivated()) {
-							f = new FinalAnnotation(swpi, swpi.getMatched().get(0),
-									presRules.getRulesTable()[category][index]);
-						}
+					
+					if (presRules.getRulesTable()[category][index].getActivated()) {
+						f = new FinalAnnotation(swpi, swpi.getMatched().get(0),
+							presRules.getRulesTable()[category][index]);
 					}
 				}
 			}
