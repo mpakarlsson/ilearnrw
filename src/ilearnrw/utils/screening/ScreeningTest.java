@@ -69,6 +69,29 @@ public class ScreeningTest implements ScreeningTestIP, Serializable{
 		this.questions.get(cluster).setClusterQuestions(questions);
 	}
 
+	public ArrayList<TestQuestion> getSortedQuestionsListByType() {
+		ArrayList<TestQuestion> res = new ArrayList<TestQuestion>();
+		for (ClusterTestQuestions ctq : questions){
+			for (TestQuestion tq : ctq.getClusterQuestions()){
+				boolean in = false;
+				if (!tq.isAttachRelWords()){
+					res.add(tq);
+					continue;
+				}
+				for (int i=res.size()-2;i>=0; i--)
+					if (tq.getQuestion().equalsIgnoreCase(res.get(i).getQuestion())){
+						res.add(i+1, tq);
+						in = true;
+						break;
+					}
+				if (!in){
+					res.add(tq);
+				}
+			}
+		}
+		return res;
+	}
+
 	@Override
 	public ArrayList<TestQuestion> getQuestionsList() {
 		ArrayList<TestQuestion> res = new ArrayList<TestQuestion>();
