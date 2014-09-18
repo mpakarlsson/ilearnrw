@@ -43,14 +43,14 @@
       }
     },
     {
-      "uri": "Derivational",
+      "uri": "Derivational Suffixing",
       "severityType": "zeroToThree",
       "type": {
         "url": "suffixing"
       }
     },
     {
-      "uri": "Inflectional/Grammatical",
+      "uri": "Inflectional/Grammatical Suffixing",
       "severityType": "zeroToThree",
       "type": {
         "url": "suffixing"
@@ -72,9 +72,9 @@
           "p-b"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'p\'-\'b\' ή τους ήχους \'t\'-\'d\' (π.χ. τείνω-ντύνω)", 
         "cluster": 0,
-        "character":""
+        "character":"character0"
       },
       {
         "descriptions": [
@@ -82,18 +82,18 @@
           "k-t"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'k\'-\'t\' ή τους ήχους \'k\'-\'p\' (π.χ. κάνω-πάνω)", 
         "cluster": 0,
-        "character":""
+        "character":"character0"
       },
       {
         "descriptions": [
           "m-n"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'m\'-\'n\' (π.χ. μένω-Νέμο)", 
         "cluster": 0,
-        "character":""
+        "character":"character0"
       },
       {
         "descriptions": [
@@ -102,9 +102,9 @@
           "χ-γ"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'χ\'-\'γ\', τους ήχους \'f\'-\'v\' ή τους ήχους \'θ\'-\'ð\' (π.χ. θέλω-δένω)", 
         "cluster": 1,
-        "character":""
+        "character":"character0"
       },
       {
         "descriptions": [
@@ -112,27 +112,27 @@
           "k-χ"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'k\'-\'γ\' ή τους ήχους \'k\'-\'χ\' (π.χ. κάνω-χάνω)", 
         "cluster": 1,
-        "character":""
+        "character":"character0"
       },
       {
         "descriptions": [
           "s-z"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'s\'-\'z\' (π.χ. σώνει-ζώνη)", 
         "cluster": 2,
-        "character":""
+        "character":"character0"
       },
       {
         "descriptions": [
           "l-r"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'l\'-\'r\' (π.χ. αράζω-αλλάζω)", 
         "cluster": 2,
-        "character":""
+        "character":"character0"
       },
       {
         "descriptions": [
@@ -142,18 +142,18 @@
           "θ-ð"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
-        "cluster": 2,
-        "character":""
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'f\'-\'θ\', \'f\' και \'v\', \'θ\'-\'ð\' ή \'ð\'-\'v\' (π.χ. βαίνω-δένω)", 
+        "cluster": 3,
+        "character":"character0"
       },
       {
         "descriptions": [
           "kt-pt"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'kt\'-\'pt\' (π.χ. κτήνος-πτηνό)", 
         "cluster": 3,
-        "character":""
+        "character":"character1"
       },
       {
         "descriptions": [
@@ -162,9 +162,9 @@
           "ps-sp"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'ks\'-\'ps\', τους \'ps\'-\'sp\' ή τους ήχους \'ks\'-\'sk\' (π.χ. ξυνή-σκηνή)", 
         "cluster": 3,
-        "character":""
+        "character":"character1"
       },
       {
         "descriptions": [
@@ -172,18 +172,18 @@
           "fr-χr"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
-        "cluster": 3,
-        "character":""
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'ðr\'-\'θr\' ή τους ήχους \'fr\'-\'χr\' (π.χ. αφρός-ωχρός)", 
+        "cluster": 4,
+        "character":"character1"
       },
       {
         "descriptions": [
           "χθ-fθ"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "the word must have similar sound with others if the sound X is replaced by Y (when writing 'X-Y')", 
-        "cluster": 3,
-        "character":""
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'χθ\'-\'fθ\' (π.χ. χθεσινός-φθάνω)", 
+        "cluster": 4,
+        "character":"character1"
       }
     ],
     [
@@ -192,45 +192,45 @@
           "οϋ"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contain the following letter combination", 
-        "cluster": 4,
-        "character":""
+        "humanReadableDescription": "Λέξεις που περιέχουν τον συνδυασμό γραμμάτων \'οϋ\' (π.χ. προϋπόθεση)", 
+        "cluster": 5,
+        "character":"character2"
       },
       {
         "descriptions": [
           "αϊ"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contain the following letter combination", 
-        "cluster": 4,
-        "character":""
+        "humanReadableDescription": "Λέξεις που περιέχουν τον συνδυασμό γραμμάτων \'αϊ\' (π.χ. μαϊμού)", 
+        "cluster": 5,
+        "character":"character2"
       },
       {
         "descriptions": [
           "αη"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contain the following letter combination", 
-        "cluster": 4,
-        "character":""
+        "humanReadableDescription": "Λέξεις που περιέχουν τον συνδυασμό γραμμάτων \'αη\' (π.χ. αηδόνι)", 
+        "cluster": 6,
+        "character":"character2"
       },
       {
         "descriptions": [
           "οΰ"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contain the following letter combination", 
-        "cluster": 5,
-        "character":""
+        "humanReadableDescription": "Λέξεις που περιέχουν τον συνδυασμό γραμμάτων \'οΰ\' (π.χ. προΰπαρξη)", 
+        "cluster": 6,
+        "character":"character2"
       },
       {
         "descriptions": [
           "αΐ"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contain the following letter combination", 
-        "cluster": 5,
-        "character":""
+        "humanReadableDescription": "Λέξεις που περιέχουν τον συνδυασμό γραμμάτων \'αΐ\' (π.χ. καΐκι)", 
+        "cluster": 6,
+        "character":"character2"
       }
     ],
     [
@@ -242,9 +242,9 @@
           "ό"
         ],
         "problemType": "VISUAL_SIMILARITY",
-        "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 6,
-        "character":""
+        "humanReadableDescription": "Λέξεις που περιέχουν τους χαρακτήρες \'α\', \'ά\', \'ο\' και \'ό\' (π.χ. άποροι)", 
+        "cluster": 7,
+        "character":"character3"
       },
       {
         "descriptions": [
@@ -255,9 +255,9 @@
           "β"
         ],
         "problemType": "VISUAL_SIMILARITY",
-        "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 6,
-        "character":""
+        "humanReadableDescription": "Λέξεις που περιέχουν τους χαρακτήρες \'φ\', \'θ\' και \'β\' (π.χ. βάθος)", 
+        "cluster": 7,
+        "character":"character3"
       },
       {
         "descriptions": [
@@ -267,9 +267,9 @@
           "ώ"
         ],
         "problemType": "VISUAL_SIMILARITY",
-        "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 6,
-        "character":""
+        "humanReadableDescription": "Λέξεις που περιέχουν τους χαρακτήρες \'ψ\', \'ω\' και \'ώ\' (π.χ. ψώνια)", 
+        "cluster": 7,
+        "character":"character3"
       },
       {
         "descriptions": [
@@ -279,9 +279,9 @@
           "ξ"
         ],
         "problemType": "VISUAL_SIMILARITY",
-        "humanReadableDescription": "the word must contain at least one of the following characters", 
-        "cluster": 6,
-        "character":""
+        "humanReadableDescription": "Λέξεις ή αριθμοί που περιέχουν τους χαρακτήρες \'3\', \'ε\', \'έ\' και \'ξ\' (π.χ. ξεχνώ)", 
+        "cluster": 7,
+        "character":"character3"
       },
       {
         "descriptions": [
@@ -291,9 +291,9 @@
           "χ"
         ],
         "problemType": "VISUAL_SIMILARITY",
-        "humanReadableDescription": "the word must contain at least one of the following characters", 
+        "humanReadableDescription": "Λέξεις ή αριθμοί που περιέχουν τους χαρακτήρες \'κ\', \'γ\', \'λ\' και \'χ\' (π.χ. γλυκό)", 
         "cluster": 7,
-        "character":""
+        "character":"character3"
       },
       {
         "descriptions": [
@@ -302,9 +302,9 @@
           "μ"
         ],
         "problemType": "VISUAL_SIMILARITY",
-        "humanReadableDescription": "the word must contain at least one of the following characters", 
+        "humanReadableDescription": "Λέξεις ή αριθμοί που περιέχουν τους χαρακτήρες \'η\', \'ή\' και \'μ\' (π.χ. γραμμή)", 
         "cluster": 7,
-        "character":""
+        "character":"character3"
       },
       {
         "descriptions": [
@@ -314,9 +314,9 @@
           "τ"
         ],
         "problemType": "VISUAL_SIMILARITY",
-        "humanReadableDescription": "the word must contain at least one of the following characters", 
+        "humanReadableDescription": "Λέξεις ή αριθμοί που περιέχουν τους χαρακτήρες \'π\' και \'τ\' (π.χ. πτηνό)", 
         "cluster": 7,
-        "character":""
+        "character":"character3"
       },
       {
         "descriptions": [
@@ -327,9 +327,9 @@
           "6"
         ],
         "problemType": "VISUAL_SIMILARITY",
-        "humanReadableDescription": "the word must contain at least one of the following characters", 
+        "humanReadableDescription": "Λέξεις ή αριθμοί που περιέχουν τους χαρακτήρες \'δ\', \'σ\', \'ρ\' και \'6\' (π.χ. δροσερός)", 
         "cluster": 7,
-        "character":""
+        "character":"character3"
       }
     ],
     [
@@ -340,9 +340,9 @@
           "sk"
         ],
         "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
+        "humanReadableDescription": "Δισύλλαβες λέξεις που ξεκινάνε με έναν από τους ήχους \'sp\', \'st\', \'sk\' (π.χ. σπίτι)", 
         "cluster": 8,
-        "character":""
+        "character":"character4"
       },
       {
         "descriptions": [
@@ -351,9 +351,9 @@
           "kr"
         ],
         "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
+        "humanReadableDescription": "Δισύλλαβες λέξεις που ξεκινάνε με έναν από τους ήχους \'pr\', \'tr\', \'kr\' (π.χ. κρέμα)", 
         "cluster": 8,
-        "character":""
+        "character":"character4"
       },
       {
         "descriptions": [
@@ -362,9 +362,9 @@
           "br"
         ],
         "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
+        "humanReadableDescription": "Δισύλλαβες λέξεις που ξεκινάνε με έναν από τους ήχους \'gr\', \'dr\', \'br\' (π.χ. γκρεμός)", 
         "cluster": 8,
-        "character":""
+        "character":"character4"
       },
       {
         "descriptions": [
@@ -376,9 +376,9 @@
           "θr"
         ],
         "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
+        "humanReadableDescription": "Δισύλλαβες λέξεις που ξεκινάνε με έναν από τους ήχους \'fr\', \'ðr\', \'χr\', \'vr\', \'γr\', \'θr\' (π.χ. φρούτο)", 
         "cluster": 8,
-        "character":""
+        "character":"character4"
       },
       {
         "descriptions": [
@@ -388,9 +388,9 @@
           "sfr"
         ],
         "problemType": "TWO_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and starts with one of the following phonemes", 
+        "humanReadableDescription": "Δισύλλαβες λέξεις που ξεκινάνε με έναν από τους ήχους \'spr\', \'skr\', \'str\', \'sfr\' (π.χ. σπρώχνω)", 
         "cluster": 8,
-        "character":""
+        "character":"character4"
       },
       {
         "descriptions": [
@@ -399,9 +399,9 @@
           "sk"
         ],
         "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
+        "humanReadableDescription": "Τρισύλλαβες λέξεις που ξεκινάνε με έναν από τους ήχους \'sp\', \'st\', \'sk\' (π.χ. σπανάκι)", 
         "cluster": 9,
-        "character":""
+        "character":"character5"
       },
       {
         "descriptions": [
@@ -410,9 +410,9 @@
           "kr"
         ],
         "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
+        "humanReadableDescription": "Τρισύλλαβες λέξεις που ξεκινάνε με έναν από τους ήχους \'pr\', \'tr\', \'kr\' (π.χ. πρόβατο)", 
         "cluster": 9,
-        "character":""
+        "character":"character5"
       },
       {
         "descriptions": [
@@ -421,9 +421,9 @@
           "br"
         ],
         "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
+        "humanReadableDescription": "Τρισύλλαβες λέξεις που ξεκινάνε με έναν από τους ήχους \'gr\', \'dr\', \'br\' (π.χ. μπριζόλα)", 
         "cluster": 9,
-        "character":""
+        "character":"character5"
       },
       {
         "descriptions": [
@@ -435,9 +435,9 @@
           "θr"
         ],
         "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
+        "humanReadableDescription": "Τρισύλλαβες λέξεις που ξεκινάνε με έναν από τους ήχους \'fr\', \'ðr\', \'χr\', \'vr\', \'γr\', \'θr\' (π.χ. δροσερός)", 
         "cluster": 9,
-        "character":""
+        "character":"character5"
       },
       {
         "descriptions": [
@@ -447,9 +447,9 @@
           "sfr"
         ],
         "problemType": "THREE_SYL_WORD_INITIAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and starts with one of the following phonemes", 
+        "humanReadableDescription": "Τρισύλλαβες λέξεις που ξεκινάνε με έναν από τους ήχους \'spr\', \'skr\', \'str\', \'sfr\' (π.χ. σφραγίδα)", 
         "cluster": 9,
-        "character":""
+        "character":"character5"
       },
       {
         "descriptions": [
@@ -458,9 +458,9 @@
           "sk"
         ],
         "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
+        "humanReadableDescription": "Δισύλλαβες λέξεις που περιέχουν έναν από τους ήχους \'sp\', \'st\', \'sk\' (π.χ. μάσκα)", 
         "cluster": 10,
-        "character":""
+        "character":"character6"
       },
       {
         "descriptions": [
@@ -469,9 +469,9 @@
           "kr"
         ],
         "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
+        "humanReadableDescription": "Δισύλλαβες λέξεις που περιέχουν έναν από τους ήχους \'pr\', \'tr\', \'kr\' (π.χ. άκρη)", 
         "cluster": 10,
-        "character":""
+        "character":"character6"
       },
       {
         "descriptions": [
@@ -480,9 +480,9 @@
           "br"
         ],
         "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
+        "humanReadableDescription": "Δισύλλαβες λέξεις που περιέχουν έναν από τους ήχους \'gr\', \'dr\', \'br\' (π.χ. δέντρο)", 
         "cluster": 10,
-        "character":""
+        "character":"character6"
       },
       {
         "descriptions": [
@@ -494,9 +494,9 @@
           "θr"
         ],
         "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
+        "humanReadableDescription": "Δισύλλαβες λέξεις που περιέχουν έναν από τους ήχους \'fr\', \'ðr\', \'χr\', \'vr\', \'γr\', \'θr\' (π.χ. αφρός)", 
         "cluster": 10,
-        "character":""
+        "character":"character6"
       },
       {
         "descriptions": [
@@ -506,9 +506,9 @@
           "sfr"
         ],
         "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
+        "humanReadableDescription": "Δισύλλαβες λέξεις που περιέχουν έναν από τους ήχους \'spr\', \'skr\', \'str\', \'sfr\' (π.χ. κάστρο)", 
         "cluster": 10,
-        "character":""
+        "character":"character6"
       },
       {
         "descriptions": [
@@ -517,9 +517,9 @@
           "sk"
         ],
         "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have two syllables and contains one of the following phonemes as an internal phoneme", 
+        "humanReadableDescription": "Δισύλλαβες λέξεις που περιέχουν έναν από τους ήχους \'sp\', \'st\', \'sk\' (π.χ. δάσκαλος)", 
         "cluster": 11,
-        "character":""
+        "character":"character7"
       },
       {
         "descriptions": [
@@ -528,9 +528,9 @@
           "kr"
         ],
         "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and contains one of the following phonemes as an internal phoneme", 
+        "humanReadableDescription": "Τρισύλλαβες λέξεις που περιέχουν έναν από τους ήχους \'pr\', \'tr\', \'kr\' (π.χ. σφυρίχτρα)", 
         "cluster": 11,
-        "character":""
+        "character":"character7"
       },
       {
         "descriptions": [
@@ -539,9 +539,9 @@
           "br"
         ],
         "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and contains one of the following phonemes as an internal phoneme", 
+        "humanReadableDescription": "Τρισύλλαβες λέξεις που περιέχουν έναν από τους ήχους \'gr\', \'dr\', \'br\' (π.χ. τσουγκράνα)", 
         "cluster": 11,
-        "character":""
+        "character":"character7"
       },
       {
         "descriptions": [
@@ -553,9 +553,9 @@
           "θr"
         ],
         "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and contains one of the following phonemes as an internal phoneme", 
+        "humanReadableDescription": "Τρισύλλαβες λέξεις που περιέχουν έναν από τους ήχους \'fr\', \'ðr\', \'χr\', \'vr\', \'γr\', \'θr\' (π.χ. Δεκέμβρης)", 
         "cluster": 11,
-        "character":""
+        "character":"character7"
       },
       {
         "descriptions": [
@@ -565,9 +565,9 @@
           "sfr"
         ],
         "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "the word must have three syllables and contains one of the following phonemes as an internal phoneme", 
+        "humanReadableDescription": "Τρισύλλαβες λέξεις που περιέχουν έναν από τους ήχους \'spr\', \'skr\', \'str\', \'sfr\' (π.χ. κάτασπρος)", 
         "cluster": 11,
-        "character":""
+        "character":"character7"
       },
       {
         "descriptions": [
@@ -575,9 +575,9 @@
           "εύ"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contains one of the following letter combinations", 
+        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς γραμμάτων \'ευ\', \'εύ\' (π.χ. παρασκευή)", 
         "cluster": 12,
-        "character":""
+        "character":"character8"
       },
       {
         "descriptions": [
@@ -585,9 +585,9 @@
           "αύ"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contains one of the following letter combinations", 
+        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς γραμμάτων \'αυ\', \'αύ\' (π.χ. αυλάκι)", 
         "cluster": 12,
-        "character":""
+        "character":"character8"
       },
       {
         "descriptions": [
@@ -595,36 +595,36 @@
           "οϋ"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contains one of the following letter combinations", 
+        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς γραμμάτων \'εϋ\', \'οϋ\' (π.χ. Σεϋχέλες)", 
         "cluster": 13,
-        "character":""
+        "character":"character8"
       },
       {
         "descriptions": [
           "αϊ"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contains the following letter combination", 
+        "humanReadableDescription": "Λέξεις που περιέχουν τον συνδυασμό γραμμάτων \'αϊ\' (π.χ. γαϊδούρι)", 
         "cluster": 13,
-        "character":""
+        "character":"character8"
       },
       {
         "descriptions": [
           "οΰ"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contains the following letter combination", 
-        "cluster": 14,
-        "character":""
+        "humanReadableDescription": "Λέξεις που περιέχουν τον συνδυασμό γραμμάτων \'οΰ\' (π.χ. αραχνοΰφαντο)", 
+        "cluster": 13,
+        "character":"character8"
       },
       {
         "descriptions": [
           "αΐ"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contains the following letter combination", 
-        "cluster": 14,
-        "character":""
+        "humanReadableDescription": "Λέξεις που περιέχουν τον συνδυασμό γραμμάτων \'αΐ\' (π.χ. καΐκι)", 
+        "cluster": 13,
+        "character":"character8"
       }
     ],
     [
@@ -633,99 +633,99 @@
           "-cv-cv-"
         ],
         "problemType": "CONTAINS_PATTERN",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel)", 
-        "cluster": 15,
-        "character":""
+        "humanReadableDescription": "Λέξεις που κατά τον συλλαβισμό τους σχηματίζουν τον συνδυασμό \'cv-cv\', όπου c:σύμφωνο, v:φωνήεν (π.χ. πηγή)", 
+        "cluster": 14,
+        "character":"character9"
       },
       {
         "descriptions": [
           "-cv-v-"
         ],
         "problemType": "CONTAINS_PATTERN",
-        "humanReadableDescription": "syllables of the word must contain the following pattern (c: consonant, v:vowel)", 
-        "cluster": 15,
-        "character":""
+        "humanReadableDescription": "Λέξεις που κατά τον συλλαβισμό τους σχηματίζουν τον συνδυασμό \'cv-v\', όπου c:σύμφωνο, v:φωνήεν (π.χ. νέο)", 
+        "cluster": 14,
+        "character":"character9"
       },
       {
         "descriptions": [
           "-v-cv-"
         ],
         "problemType": "CONTAINS_PATTERN",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel)", 
-        "cluster": 15,
-        "character":""
+        "humanReadableDescription": "Λέξεις που κατά τον συλλαβισμό τους σχηματίζουν τον συνδυασμό \'v-cv\', όπου c:σύμφωνο, v:φωνήεν (π.χ. εδώ)", 
+        "cluster": 14,
+        "character":"character9"
       },
       {
         "descriptions": [
           "-cv-vc-"
         ],
         "problemType": "CONTAINS_PATTERN",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel)", 
-        "cluster": 15,
-        "character":""
+        "humanReadableDescription": "Λέξεις που κατά τον συλλαβισμό τους σχηματίζουν τον συνδυασμό \'cv-vc\', όπου c:σύμφωνο, v:φωνήεν (π.χ. νέος)", 
+        "cluster": 14,
+        "character":"character9"
       },
       {
         "descriptions": [
           "-vc-cv-"
         ],
         "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "humanReadableDescription": "Λέξεις που κατά τον συλλαβισμό τους σχηματίζουν τον συνδυασμό \'vc-cv\', όπου c:σύμφωνο, v:φωνήεν. Είτε στον συνδυασμό αυτό περιέχεται και ένα επιπλέον τελικό σύμφωνο (π.χ. ορμή, ανθός)", 
         "cluster": 15,
-        "character":""
+        "character":"character9"
       },
       {
         "descriptions": [
           "-cvc-cv-"
         ],
         "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "humanReadableDescription": "Λέξεις που κατά τον συλλαβισμό τους σχηματίζουν τον συνδυασμό \'cvc-cv\', όπου c:σύμφωνο, v:φωνήεν. Είτε στον συνδυασμό αυτό περιέχεται και ένα επιπλέον τελικό σύμφωνο (π.χ. μορφή, ξανθός)", 
         "cluster": 15,
-        "character":""
+        "character":"character9"
       },
       {
         "descriptions": [
           "-cv-ccv-"
         ],
         "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "humanReadableDescription": "Λέξεις που κατά τον συλλαβισμό τους σχηματίζουν τον συνδυασμό \'cv-ccv\', όπου c:σύμφωνο, v:φωνήεν. Είτε στον συνδυασμό αυτό περιέχεται και ένα επιπλέον τελικό σύμφωνο (π.χ. τάβλι, ληστής)", 
         "cluster": 16,
-        "character":""
+        "character":"character10"
       },
       {
         "descriptions": [
           "-ccv-cv-"
         ],
         "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "humanReadableDescription": "Λέξεις που κατά τον συλλαβισμό τους σχηματίζουν τον συνδυασμό \'ccv-cv\', όπου c:σύμφωνο, v:φωνήεν. Είτε στον συνδυασμό αυτό περιέχεται και ένα επιπλέον τελικό σύμφωνο (π.χ. κρύβω, χλωμός)", 
         "cluster": 16,
-        "character":""
+        "character":"character10"
       },
       {
         "descriptions": [
           "-ccvc-cv-"
         ],
         "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "humanReadableDescription": "Λέξεις που κατά τον συλλαβισμό τους σχηματίζουν τον συνδυασμό \'ccvc-cv\', όπου c:σύμφωνο, v:φωνήεν. Είτε στον συνδυασμό αυτό περιέχεται και ένα επιπλέον τελικό σύμφωνο (π.χ. σκάρτο, γλύπτης)", 
         "cluster": 16,
-        "character":""
+        "character":"character10"
       },
       {
         "descriptions": [
           "-cv-cccv-"
         ],
         "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "humanReadableDescription": "Λέξεις που κατά τον συλλαβισμό τους σχηματίζουν τον συνδυασμό \'cv-cccv\', όπου c:σύμφωνο, v:φωνήεν. Είτε στον συνδυασμό αυτό περιέχεται και ένα επιπλέον τελικό σύμφωνο (π.χ. δίχτυα, ψήκτρες)", 
         "cluster": 17,
-        "character":""
+        "character":"character11"
       },
       {
         "descriptions": [
           "-v-cccv-"
         ],
         "problemType": "CONTAINS_PATTERN_OR_ENDS_WITH_EXTRA_CONSONANT",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "humanReadableDescription": "Λέξεις που κατά τον συλλαβισμό τους σχηματίζουν τον συνδυασμό \'v-cccv\', όπου c:σύμφωνο, v:φωνήεν. Είτε στον συνδυασμό αυτό περιέχεται και ένα επιπλέον τελικό σύμφωνο (π.χ. άστρα, άσπρων)", 
         "cluster": 17,
-        "character":""
+        "character":"character11"
       },
       {
         "descriptions": [
@@ -733,18 +733,18 @@
           "ειά"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'ιά\' ή \'ειά\' (π.χ. γηρατειά)", 
         "cluster": 18,
-        "character":""
+        "character":"character12"
       },
       {
         "descriptions": [
           "ία"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
+        "humanReadableDescription": "Λέξεις που περιέχουν τον συνδυασμό \'ία\' (π.χ. ανεργία)", 
         "cluster": 18,
-        "character":""
+        "character":"character12"
       },
       {
         "descriptions": [
@@ -753,9 +753,9 @@
           "οΐ"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the syllables of the word must contain the following pattern (c: consonant, v:vowel). still true when the pattern is in the last position of the word and includes a final consonant", 
-        "cluster": 18,
-        "character":""
+        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'αΐ\' ή \'εΐ\' ή \'οΐ\' (π.χ. φαΐ)", 
+        "cluster": 19,
+        "character":"character12"
       },
       {
         "descriptions": [
@@ -763,9 +763,9 @@
           "οί"
         ],
         "problemType": "CONTAINS_LETTERS_ON_SAME_SYLLABLES",
-        "humanReadableDescription": "the word must contain at least one of the following letter combinations in the same syllable", 
-        "cluster": 18,
-        "character":""
+        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'αί\' ή \'οί\' στην ίδια συλλαβή (π.χ. πλοίου)", 
+        "cluster": 19,
+        "character":"character12"
       },
       {
         "descriptions": [
@@ -773,9 +773,9 @@
           "όι"
         ],
         "problemType": "CONTAINS_LETTERS_ON_SAME_SYLLABLES",
-        "humanReadableDescription": "the word must contain at least one of the following letter combinations in the same syllable", 
-        "cluster": 18,
-        "character":""
+        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'άι\' ή \'όι\' στην ίδια συλλαβή (π.χ. νεράιδα)", 
+        "cluster": 19,
+        "character":"character12"
       },
       {
         "descriptions": [
@@ -784,9 +784,9 @@
           "εϊ"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contain at least one of the following letter combinations", 
-        "cluster": 18,
-        "character":""
+        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'αϊ\', \'οϊ\' ή \'εϊ\' (π.χ. προϊόν)", 
+        "cluster": 20,
+        "character":"character12"
       },
       {
         "descriptions": [
@@ -794,9 +794,9 @@
           "οΰ"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contain at least one of the following letter combinations", 
-        "cluster": 18,
-        "character":""
+        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'οϋ\' ή \'οΰ\' (π.χ. προϋπόθεση)", 
+        "cluster": 20,
+        "character":"character12"
       },
       {
         "descriptions": [
@@ -806,9 +806,9 @@
           "αΰ"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contain at least one of the following letter combinations", 
-        "cluster": 18,
-        "character":""
+        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'αυ\', \'αϋ\', \'αϋ\' ή \'αΰ\' (π.χ. κεραυνός)", 
+        "cluster": 21,
+        "character":"character13"
       },
       {
         "descriptions": [
@@ -826,9 +826,9 @@
           "ευαν"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "the word must contain at least one of the following letter combinations", 
-        "cluster": 18,
-        "character":""
+        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'εύω\', \'εύεις\', \'εύει\', \'εύουμε\', \'εύετε\', \'εύουν\', \'ευα\', \'ευες\', \'ευαν\', \'ευαμε\', \'ευατε\' ή \'ευαν\' (π.χ. παιδεύω)", 
+        "cluster": 21,
+        "character":"character13"
       }
     ],
     [
@@ -839,9 +839,9 @@
           "δυσ"
         ],
         "problemType": "IS_ADJ_AND_STARTS_WITH",
-        "humanReadableDescription": "the word must be an adjective and start with one of the following letter combinations", 
-        "cluster": 19,
-        "character":""
+        "humanReadableDescription": "Επίθετα που ξεκινάνε με \'α\', \'αντί\' ή \'δυσ\' (π.χ. άλυτος)", 
+        "cluster": 22,
+        "character":"character14"
       },
       {
         "descriptions": [
@@ -850,9 +850,9 @@
           "κατα"
         ],
         "problemType": "IS_NOUN_OR_ADJ_AND_STARTS_WITH",
-        "humanReadableDescription": "the word must be a noun or adjective and start with one of the following letter combinations", 
-        "cluster": 20,
-        "character":""
+        "humanReadableDescription": "Επίθετα ή ουσιαστικά που ξεκινάνε με \'υπερ\', \'υπο\' ή \'κατα\' (π.χ. υπερβολή)", 
+        "cluster": 22,
+        "character":"character14"
       },
       {
         "descriptions": [
@@ -860,9 +860,9 @@
           "υπο"
         ],
         "problemType": "IS_VERB_AND_STARTS_WITH",
-        "humanReadableDescription": "the word must be a verb and start with one of the following letter combinations", 
-        "cluster": 20,
-        "character":""
+        "humanReadableDescription": "Ρήματα που ξεκινάνε με \'υπερ\' ή \'υπο\' (π.χ. υπερβάλω)", 
+        "cluster": 23,
+        "character":"character14"
       },
       {
         "descriptions": [
@@ -876,9 +876,9 @@
           "ημι"
         ],
         "problemType": "STARTS_WITH",
-        "humanReadableDescription": "the word must start with one of the following letter combinations", 
-        "cluster": 21,
-        "character":""
+        "humanReadableDescription": "Λέξεις που ξεκινάνε με \'δι'\, '\τρι'\, '\πρωτο'\, '\αυτο'\, '\πολυ'\, '\μικρο'\, '\ψιλο'\ ή '\ημι\' (π.χ. ψιλοβρόχι)", 
+        "cluster": 23,
+        "character":"character15"
       },
       {
         "descriptions": [
@@ -900,9 +900,9 @@
           "συν"
         ],
         "problemType": "IS_VERB_AND_STARTS_WITH",
-        "humanReadableDescription": "the word must be a verb and start with one of the following letter combinations", 
-        "cluster": 21,
-        "character":""
+        "humanReadableDescription": "Ρήματα που ξεκινάνε με \'ανα'\, '\αντι'\, '\απο'\, '\δια'\, '\εισ'\, '\εκ'\, '\εξ'\, '\εν'\, '\επι'\, '\κατα'\, '\μετα'\, '\παρα'\, '\περι'\, '\προ'\, '\προσ'\ ή '\συν\' (π.χ. αναγνωρίζω)", 
+        "cluster": 24,
+        "character":"character15"
       },
       {
         "descriptions": [
@@ -912,9 +912,9 @@
           "ψευτο"
         ],
         "problemType": "IS_VERB_AND_STARTS_WITH",
-        "humanReadableDescription": "the word must be a verb and start with one of the following letter combinations", 
-        "cluster": 21,
-        "character":""
+        "humanReadableDescription": "Ρήματα που ξεκινάνε με \'ψιλο'\, '\μισο'\, '\κουτσο'\ ή '\ψευτο\' (π.χ. μισογεμίζω)", 
+        "cluster": 24,
+        "character":"character15"
       }
     ],
     [
@@ -938,9 +938,9 @@
           "ούτσικο"
         ],
         "problemType": "IS_BIG_NOUN_OR_ADJ_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a noun or adjective and end with one of the following letter combinations", 
-        "cluster": 22,
-        "character":""
+        "humanReadableDescription": "Επίθετα ή ουσιαστικά που τελειώνουν με \'άκι'\, '\άκης'\, '\άκος'\, '\ίτσα'\, '\κας'\, '\οπούλα'\, '\όπουλο'\, '\ούδι'\, '\ούλα'\, '\ούλης'\, '\ούλης'\, '\ούλα'\, '\ούλικο'\, '\ούτσικος'\, '\ούτσικη'\ ή '\ούτσικο\' (π.χ. λιμνούλα)", 
+        "cluster": 25,
+        "character":"character16"
       },
       {
         "descriptions": [
@@ -952,9 +952,9 @@
           "ούκλα"
         ],
         "problemType": "IS_BIG_NOUN_OR_ADJ_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a noun or adjective and end with one of the following letter combinations", 
-        "cluster": 23,
-        "character":""
+        "humanReadableDescription": "Επίθετα ή ουσιαστικά που τελειώνουν με \'άκλα'\, '\άρα'\, '\αράς'\, '\αρόνα'\, '\αρος'\ ή '\ούκλα\' (π.χ. ζημιάρα)", 
+        "cluster": 25,
+        "character":"character16"
       },
       {
         "descriptions": [
@@ -980,9 +980,9 @@
           "τορας"
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 23,
-        "character":""
+        "humanReadableDescription": "Ουσιαστικά που τελειώνουν με \'έας'\, '\ιάς'\, '\δόρος'\, '\άρης'\, '\ιάρης'\, '\ιέρης'\, '\ιέρα'\, '\ίτης'\, '\ιώτης'\, '\ίστας'\, '\ιστής'\, '\ίστρια'\, '\της'\, '\τής'\, '\τρια'\, '\τισσα'\, '\τζής'\, '\τζού'\, '\τίας'\ ή '\τορας\' (π.χ. νικητής)", 
+        "cluster": 26,
+        "character":"character16"
       },
       {
         "descriptions": [
@@ -993,9 +993,9 @@
           "δικο"
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 23,
-        "character":""
+        "humanReadableDescription": "Ουσιαστικά που τελειώνουν με \'είο'\, '\ιά'\, '\ία'\, '\ικο'\ ή '\δικο\' (π.χ. ιατρείο)", 
+        "cluster": 26,
+        "character":"character16"
       },
       {
         "descriptions": [
@@ -1009,9 +1009,9 @@
           "της"
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 23,
-        "character":""
+        "humanReadableDescription": "Ουσιαστικά που τελειώνουν με \'έας'\, '\ερό'\, '\ιέρα'\, '\τήρας'\, '\τήρι'\, '\τήριο'\, '\τρα'\ ή '\της\' (π.χ. προβολέας)", 
+        "cluster": 27,
+        "character":"character16"
       },
       {
         "descriptions": [
@@ -1028,9 +1028,9 @@
           "ύτητα"
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 23,
-        "character":""
+        "humanReadableDescription": "Ουσιαστικά που τελειώνουν με \'άδα'\, '\εια'\, '\ίλα'\, '\ιλίκι'\, '\μάρα'\, '\οσύνη'\, '\ούρα'\, '\σιά'\, '\ξιά'\, '\ότητα'\ ή '\ύτητα\' (π.χ. φρεσκάδα)", 
+        "cluster": 27,
+        "character":"character16"
       },
       {
         "descriptions": [
@@ -1038,9 +1038,9 @@
           "ιά"
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 23,
-        "character":""
+        "humanReadableDescription": "Ουσιαστικά που τελειώνουν με \'ί\' ή \'ιά\' (π.χ. θαλασσί)", 
+        "cluster": 27,
+        "character":"character16"
       },
       {
         "descriptions": [
@@ -1073,9 +1073,9 @@
           "πτό"
         ],
         "problemType": "IS_BIG_NOUN_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 23,
-        "character":""
+        "humanReadableDescription": "Ουσιαστικά που τελειώνουν με \'άλα'\, '\εία'\, '\ειά'\, '\εια'\, '\ση'\, '\ξη'\, '\ψη'\, '\ία'\, '\σιά'\, '\ψιά'\, '\ξιά'\, '\ματιά'\, '\σιμο'\, '\ξιμο'\, '\ψιμο'\, '\αμα'\, '\ημα'\, '\ωμα'\, '\σμα'\, '\γμα'\, '\μός'\, '\ητό'\, '\ατό'\, '\κτό'\, '\χτό'\, '\φτό'\ ή '\πτό\' (π.χ. γραπτό)", 
+        "cluster": 27,
+        "character":"character16"
       },
       {
         "descriptions": [
@@ -1111,9 +1111,9 @@
           "ούρικο"
         ],
         "problemType": "IS_BIG_ADJ_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 24,
-        "character":""
+        "humanReadableDescription": "Επίθετα που τελειώνουν με \'ικός'\, '\ική'\, '\ικό'\, '\σιμος'\, '\σιμη'\, '\σιμο'\, '\ιάρης'\, '\ιάρα'\, '\άρικο'\, '\ερός'\, '\ερή'\, '\ερό'\, '\τός'\, '\τή'\, '\τό'\, '\άτος'\, '\άτη'\, '\άτο'\, '\ινος'\, '\ινη'\, '\ινο'\, '\ιακός'\, '\ιακή'\, '\ιακό'\, '\ανός'\, '\ανή'\, '\ανό'\, '\ούρης'\, '\ούρα'\ ή '\ούρικο\' (π.χ. σοκολατένιος)", 
+        "cluster": 28,
+        "character":"character17"
       },
       {
         "descriptions": [
@@ -1142,9 +1142,9 @@
           "ώδες"
         ],
         "problemType": "IS_BIG_ADJ_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 24,
-        "character":""
+        "humanReadableDescription": "Επίθετα που τελειώνουν με \'ίστικος'\, '\ίστικη'\, '\ίστικο'\, '\ήσιος'\, '\ήσια'\, '\ήσιο'\, '\λέος'\, '\λέα'\, '\λέο'\, '\αίος'\, '\αία'\, '\αίο'\, '\ωπός'\, '\ωπή'\, '\ωπό'\, '\ένιος'\, '\ένια'\, '\ένιο'\, '\τέος'\, '\τέα'\, '\τέο'\, '\ώδης'\ ή '\ώδες\' (π.χ. νεφώδης)", 
+        "cluster": 28,
+        "character":"character17"
       },
       {
         "descriptions": [
@@ -1158,9 +1158,9 @@
           "άρω"
         ],
         "problemType": "IS_BIG_VERB_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 25,
-        "character":""
+        "humanReadableDescription": "Ρήματα που τελειώνουν με \'ίζω'\, '\άζω'\, '\ιάζω'\, '\αίνω'\, '\ώνω'\, '\ύνω'\, '\εύω'\ ή '\άρω\' (π.χ. προβάρω)", 
+        "cluster": 29,
+        "character":"character18"
       },
       {
         "descriptions": [
@@ -1169,9 +1169,9 @@
           "ποιώ"
         ],
         "problemType": "IS_BIG_VERB_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 25,
-        "character":""
+        "humanReadableDescription": "Ρήματα που τελειώνουν με \'βολώ\', \'λογώ\' ή \'ποιώ\' (π.χ. πετροβολώ)", 
+        "cluster": 29,
+        "character":"character18"
       },
       {
         "descriptions": [
@@ -1183,9 +1183,9 @@
           "ετές"
         ],
         "problemType": "IS_BIG_ADJ_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 25,
-        "character":""
+        "humanReadableDescription": "Επίθετα που τελειώνουν με \'ειδής'\, '\ειδές'\, '\μελής'\, '\μελές'\, '\ετής'\ ή '\ετές\' (π.χ. τριμελής)", 
+        "cluster": 29,
+        "character":"character18"
       }
     ],
     [
@@ -1202,9 +1202,9 @@
           "ο"
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 26,
-        "character":""
+        "humanReadableDescription": "Ουσιαστικά που τελειώνουν με \'ος'\, '\ο'\, '\ας'\, '\α'\, '\ης'\, '\η'\, '\α'\, '\η'\ ή '\ο\' (π.χ. μαθητής)", 
+        "cluster": 30,
+        "character":"character19"
       },
       {
         "descriptions": [
@@ -1215,9 +1215,9 @@
           "α"
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 26,
-        "character":""
+        "humanReadableDescription": "Ουσιαστικά που τελειώνουν με \'οι'\, '\ους'\, '\ες'\, '\εις'\ ή '\α\' (π.χ. μαθητές)", 
+        "cluster": 30,
+        "character":"character19"
       },
       {
         "descriptions": [
@@ -1233,9 +1233,9 @@
           "ων"
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 26,
-        "character":""
+        "humanReadableDescription": "Ουσιαστικά που τελειώνουν με \'ου'\, '\ες'\, '\ές'\, '\εις'\, '\εων'\, '\είς'\, '\έων'\, '\ών'\, '\ού'\ ή '\ων\' (π.χ. ανθρώπων)", 
+        "cluster": 30,
+        "character":"character19"
       },
       {
         "descriptions": [
@@ -1255,9 +1255,9 @@
           "υ"
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 26,
-        "character":""
+        "humanReadableDescription": "Ουσιαστικά που τελειώνουν με \'ες'\, '\ές'\, '\ε'\, '\άς'\, '\ά'\, '\ούς'\, '\ού'\, '\ού'\, '\ι'\, '\ον'\, '\ος'\, '\ας'\, '\α'\ ή '\υ\' (π.χ. φρέσκα)", 
+        "cluster": 31,
+        "character":"character19"
       },
       {
         "descriptions": [
@@ -1270,9 +1270,9 @@
           "ατα"
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 27,
-        "character":""
+        "humanReadableDescription": "Ουσιαστικά που τελειώνουν με \'έδες'\, '\άδες'\, '\ούδες'\, '\οντα'\, '\ά'\, '\η'\ ή '\ατα\' (π.χ. καρδιά)", 
+        "cluster": 31,
+        "character":"character19"
       },
       {
         "descriptions": [
@@ -1292,9 +1292,9 @@
           "άτων"
         ],
         "problemType": "IS_NOUN_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a noun and end with one of the following letter combinations", 
-        "cluster": 27,
-        "character":""
+        "humanReadableDescription": "Ουσιαστικά που τελειώνουν με \'έ'\, '\έδων'\, '\ά'\, '\άδων'\, '\ού'\, '\ούδων'\, '\ούς'\, '\ούδων'\, '\ιού'\, '\ιών'\, '\οντος'\, '\όντων'\, '\ατος'\ ή '\άτων\' (π.χ. κρεάτων)", 
+        "cluster": 31,
+        "character":"character19"
       },
       {
         "descriptions": [
@@ -1315,9 +1315,9 @@
           "άδικο"
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 28,
-        "character":""
+        "humanReadableDescription": "Επίθετα που τελειώνουν με \'ος'\, '\η'\, '\ο'\, '\α'\, '\ας'\, '\άς'\, '\ός'\, '\ιά'\, '\ό'\, '\ης'\, '\ά'\, '\ικο'\, '\ικάς'\, '\ικού'\ ή '\άδικο\' (π.χ. τρύπιος)", 
+        "cluster": 32,
+        "character":"character20"
       },
       {
         "descriptions": [
@@ -1334,9 +1334,9 @@
           "πολύ"
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 28,
-        "character":""
+        "humanReadableDescription": "Επίθετα που τελειώνουν με \'ύς'\, '\ιά'\, '\ύ'\, '\ής'\, '\ιά'\, '\ί'\, '\ής'\, '\ές'\, '\πολύς'\, '\πολλή'\ ή '\πολύ\' (π.χ. βαθύς)", 
+        "cluster": 32,
+        "character":"character20"
       },
       {
         "descriptions": [
@@ -1351,9 +1351,9 @@
           "άδικα"
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 28,
-        "character":""
+        "humanReadableDescription": "Επίθετα που τελειώνουν με \'οι'\, '\ες'\, '\α'\, '\ηδες'\, '\ες'\, '\ικα'\, '\άδες'\, '\ούδες'\ ή '\άδικα\' (π.χ. γκρινιάρικα)", 
+        "cluster": 32,
+        "character":"character20"
       },
       {
         "descriptions": [
@@ -1367,9 +1367,9 @@
           "πολλά"
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 28,
-        "character":""
+        "humanReadableDescription": "Επίθετα που τελειώνουν με \'ιοί'\, '\ιές'\, '\ιά'\, '\είς'\, '\ή'\, '\πολλοί'\, '\πολλές'\ ή '\πολλά\' (π.χ. βαθιά)", 
+        "cluster": 32,
+        "character":"character20"
       },
       {
         "descriptions": [
@@ -1390,9 +1390,9 @@
           "άδικου"
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 28,
-        "character":""
+        "humanReadableDescription": "Επίθετα που τελειώνουν με \'ου'\, '\ης'\, '\ου'\, '\ου'\, '\ας'\, '\ου'\, '\ού'\, '\ιάς'\, '\ού'\, '\η'\, '\ας'\, '\ικου'\, '\ά'\, '\ούς'\ ή '\άδικου\' (π.χ. γκρίζου)", 
+        "cluster": 33,
+        "character":"character20"
       },
       {
         "descriptions": [
@@ -1404,9 +1404,9 @@
           "ών"
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 28,
-        "character":""
+        "humanReadableDescription": "Επίθετα που τελειώνουν με \'ιού'\, '\ιάς'\, '\ιού'\, '\ιών'\, '\ούς'\ ή '\ών\' (π.χ. παλιού)", 
+        "cluster": 33,
+        "character":"character20"
       },
       {
         "descriptions": [
@@ -1437,9 +1437,9 @@
           "ούνε"
         ],
         "problemType": "IS_VERB_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 29,
-        "character":""
+        "humanReadableDescription": "Ρήματα που τελειώνουν με \'ω'\, '\εις'\, '\ει'\, '\ουμε'\, '\ετε'\, '\ουν'\, '\ώ'\, '\άς'\, '\ά'\, '\άει'\, '\άμε'\, '\ούμε'\, '\άτε'\, '\ούν'\, '\ούνε'\, '\άν'\, '\άνε'\, '\ούν'\, '\ώ'\, '\είς'\, '\εί'\, '\ούμε'\, '\είτε'\, '\ούν'\ ή '\ούνε\' (π.χ. αγαπάτε)", 
+        "cluster": 34,
+        "character":"character21"
       },
       {
         "descriptions": [
@@ -1466,9 +1466,9 @@
           "ούσανε"
         ],
         "problemType": "IS_VERB_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 29,
-        "character":""
+        "humanReadableDescription": "Ρήματα που τελειώνουν με \'α'\, '\ες'\, '\ε'\, '\αμε'\, '\ατε'\, '\αν'\, '\άνε'\, '\αγα'\, '\αγες'\, '\αγε'\, '\άγαμε'\, '\άγατε'\, '\αγαν'\, '\άγανε'\, '\ούσα'\, '\ούσες'\, '\ούσε'\, '\ούσαμε'\, '\ούσατε'\, '\ούσαν'\ ή '\ούσανε\' (π.χ. έντυσα)", 
+        "cluster": 34,
+        "character":"character21"
       },
       {
         "descriptions": [
@@ -1494,9 +1494,9 @@
           "ούνται"
         ],
         "problemType": "IS_VERB_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 29,
-        "character":""
+        "humanReadableDescription": "Ρήματα που τελειώνουν με \'ομαι'\, '\εσαι'\, '\εται'\, '\όμαστε'\, '\όσαστε'\, '\εστε'\, '\ονται'\, '\ιέμαι'\, '\ιέσαι'\, '\ιέται'\, '\ιόμαστε'\, '\ιέστε'\, '\ιούνται'\, '\ιόνται'\, '\ιούμαι'\, '\είσαι'\, '\είται'\, '\ούμαστε'\, '\είστε'\ ή '\ούνται\' (π.χ. βαριόμαστε)", 
+        "cluster": 35,
+        "character":"character21"
       },
       {
         "descriptions": [
@@ -1532,9 +1532,9 @@
           "αν"
         ],
         "problemType": "IS_VERB_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be a verb and end with one of the following letter combinations", 
-        "cluster": 29,
-        "character":""
+        "humanReadableDescription": "Ρήματα που τελειώνουν με \'όμουν'\, '\όμουνα'\, '\όσουν'\, '\όμουνα'\, '\όταν'\, '\ότανε'\, '\όμασταν'\, '\όμαστε'\, '\όσασταν'\, '\όσαστε'\, '\ονταν'\, '\όντανε'\, '\όντουσαν'\, '\ούμουν'\, '\ούμουνα'\, '\ούσουν'\, '\ούσουνα'\, '\ούνταν'\, '\ούμασταν'\, '\ούμαστε'\, '\ούσασταν'\, '\ούσαστε'\, '\ούνταν'\, '\ούντανε'\, '\ηκα'\, '\ηκες'\, '\ηκε'\, '\ήκαμε'\, '\ήκατε'\ ή '\αν\' (π.χ. θεωρούμαστε)", 
+        "cluster": 35,
+        "character":"character21"
       },
       {
         "descriptions": [
@@ -1546,9 +1546,9 @@
           "έν"
         ],
         "problemType": "IS_ADJ_AND_ENDS_WITH",
-        "humanReadableDescription": "the word must be an adjective and end with one of the following letter combinations", 
-        "cluster": 29,
-        "character":""
+        "humanReadableDescription": "Επίθετα που τελειώνουν με \'ών'\, '\ούσα'\, '\όν'\, '\είς'\, '\είσα'\ ή '\έν\' (π.χ. τραχείς)", 
+        "cluster": 36,
+        "character":"character22"
       }
     ],
     [
@@ -1559,9 +1559,9 @@
           "ένα"
         ],
         "problemType": "EQUALS",
-        "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 30,
-        "character":""
+        "humanReadableDescription": "Λέξεις \'ένας'\, '\μία'\, '\ένα\'", 
+        "cluster": 37,
+        "character":"character23"
       },
       {
         "descriptions": [
@@ -1569,9 +1569,9 @@
           "μιας"
         ],
         "problemType": "EQUALS",
-        "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 30,
-        "character":""
+        "humanReadableDescription": "Λέξεις \'ενός\', \'μιας\'", 
+        "cluster": 37,
+        "character":"character23"
       },
       {
         "descriptions": [
@@ -1580,9 +1580,9 @@
           "το"
         ],
         "problemType": "EQUALS",
-        "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 31,
-        "character":""
+        "humanReadableDescription": "Λέξεις \'ο\', \'η\', \'το\'", 
+        "cluster": 38,
+        "character":"character23"
       },
       {
         "descriptions": [
@@ -1590,9 +1590,9 @@
           "της"
         ],
         "problemType": "EQUALS",
-        "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 31,
-        "character":""
+        "humanReadableDescription": "Λέξεις \'του\', \'της\'", 
+        "cluster": 38,
+        "character":"character23"
       },
       {
         "descriptions": [
@@ -1600,54 +1600,54 @@
           "τα"
         ],
         "problemType": "EQUALS",
-        "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 32,
-        "character":""
+        "humanReadableDescription": "Λέξεις \'οι\', \'τα\'", 
+        "cluster": 38,
+        "character":"character23"
       },
       {
         "descriptions": [
           "των"
         ],
         "problemType": "EQUALS",
-        "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 32,
-        "character":""
+        "humanReadableDescription": "Λέξη \'των\'", 
+        "cluster": 38,
+        "character":"character23"
       },
       {
         "descriptions": [
           "σε"
         ],
         "problemType": "EQUALS",
-        "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 33,
-        "character":""
+        "humanReadableDescription": "Λέξη \'σε\'", 
+        "cluster": 39,
+        "character":"character24"
       },
       {
         "descriptions": [
           "με"
         ],
         "problemType": "EQUALS",
-        "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 33,
-        "character":""
+        "humanReadableDescription": "Λέξη \'με\'", 
+        "cluster": 39,
+        "character":"character24"
       },
       {
         "descriptions": [
           "για"
         ],
         "problemType": "EQUALS",
-        "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 33,
-        "character":""
+        "humanReadableDescription": "Λέξη \'για\'", 
+        "cluster": 40,
+        "character":"character24"
       },
       {
         "descriptions": [
           "από"
         ],
         "problemType": "EQUALS",
-        "humanReadableDescription": "the word must be one of the following", 
-        "cluster": 33,
-        "character":""
+        "humanReadableDescription": "Λέξη \'από\'", 
+        "cluster": 40,
+        "character":"character24"
       }
     ]
   ],
