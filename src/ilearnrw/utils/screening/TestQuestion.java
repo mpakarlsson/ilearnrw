@@ -8,13 +8,14 @@ public class TestQuestion implements Serializable {
 	private String question;
 	private ArrayList<String> relatedWords;
 	private boolean attachRelWords;
-	private int id;
+	private int id, parentCluster;
 
-	public TestQuestion(String question, ArrayList<String> relatedWords, boolean attachRelWords, int id) {
+	public TestQuestion(String question, ArrayList<String> relatedWords, boolean attachRelWords, int id, int parentCluster) {
 		this.question = question;
 		this.relatedWords = relatedWords;
 		this.attachRelWords = attachRelWords;
 		this.id = id;
+		this.parentCluster= parentCluster; 
 	}
 
 	public TestQuestion() {
@@ -58,4 +59,13 @@ public class TestQuestion implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public int getParentCluster() {
+		return parentCluster;
+	}
+
+	public void setParentCluster(int parentCluster) {
+		this.parentCluster = parentCluster;
+	}
+	
 }

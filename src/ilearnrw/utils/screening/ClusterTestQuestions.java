@@ -39,7 +39,7 @@ public class ClusterTestQuestions implements Serializable{
 
 	public int addClusterQuestion(String question, ArrayList<String> relatedWords, boolean attachRelWords) {
 		int id = getFirstAvailbleId();
-		TestQuestion tq = new TestQuestion(question, relatedWords, attachRelWords, id);
+		TestQuestion tq = new TestQuestion(question, relatedWords, attachRelWords, id, clusterNumber);
 		this.clusterQuestions.add(tq);
 		return id;
 	}
