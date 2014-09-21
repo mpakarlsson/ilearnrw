@@ -14,9 +14,19 @@ public class AnnotatedWord extends Word {
 	private static final long serialVersionUID = 1L;
 	private ArrayList<WordProblemInfo> wordProblems;
 	private LanguageAnalyzerAPI lan;
+	private WordVsProblems wp;
 	
 	public AnnotatedWord(Word w) {
 		super();
+		if (w.getLanguageCode().equals(LanguageCode.GR))
+			lan = GreekLanguageAnalyzer.getInstance();
+		else
+			lan = EnglishLanguageAnalyzer.getInstance();
+		wp = new WordVsProblems(lan);
+	
+		wp.insertWord(w);
+		w = wp.getWord();
+		
 		super.word = w.getWord();
 		super.wordUnmodified = w.getWordUnmodified();
 		super.type = w.getType();
@@ -31,6 +41,15 @@ public class AnnotatedWord extends Word {
 	}
 	public AnnotatedWord(Word w, int i, int j) {
 		super();
+		if (w.getLanguageCode().equals(LanguageCode.GR))
+			lan = GreekLanguageAnalyzer.getInstance();
+		else
+			lan = EnglishLanguageAnalyzer.getInstance();
+		wp = new WordVsProblems(lan);
+	
+		wp.insertWord(w);
+		w = wp.getWord();
+		
 		super.word = w.getWord();
 		super.wordUnmodified = w.getWordUnmodified();
 		super.type = w.getType();
@@ -52,21 +71,11 @@ public class AnnotatedWord extends Word {
 	}
 	
 	private ArrayList<WordProblemInfo> getProblems(Word w){
-		if (lan == null && super.getLanguageCode().equals(LanguageCode.GR))
-			lan = GreekLanguageAnalyzer.getInstance();
-		else if (lan == null)
-			lan = EnglishLanguageAnalyzer.getInstance();
-		WordVsProblems wp = new WordVsProblems(lan);
 		wp.insertWord(w);
 		return wp.getMatchedProbs();
 	}
 	
 	private ArrayList<WordProblemInfo> getProblems(Word w, int i, int j){
-		if (lan == null && super.getLanguageCode().equals(LanguageCode.GR))
-			lan = GreekLanguageAnalyzer.getInstance();
-		else if (lan == null)
-			lan = EnglishLanguageAnalyzer.getInstance();
-		WordVsProblems wp = new WordVsProblems(lan);
 		wp.insertWord(w, i, j);
 		return wp.getMatchedProbs();
 	}
