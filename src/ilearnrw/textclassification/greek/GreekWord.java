@@ -36,7 +36,7 @@ public class GreekWord extends Word{
 		//System.out.println(word);
 	}
 	
-	public GreekWord(String word, WordType wt, String stem, double frequency){
+	public GreekWord(String word, WordType wt, String stem, int frequency){
 		super(word, wt);
 		super.languageCode = LanguageCode.GR;
 		syllabism();

@@ -47,8 +47,10 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 	public void setWord(Word w) {
 		this.word = (GreekWord)w;
 		GreekWord gr = dictionary.getWord(word.toString());
-		if (gr != null)
+		if (gr != null){
 			word.setType(gr.getType());
+			word.setFrequency(gr.getFrequency());
+		}
 		else word.setType(WordType.Unknown);
 	}
 	@Override

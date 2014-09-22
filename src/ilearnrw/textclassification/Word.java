@@ -18,7 +18,7 @@ public class Word implements Serializable, Comparable {
 	protected String stem;
 	protected int numSyllables;
 	protected LanguageCode languageCode;
-	protected double frequency;
+	protected int frequency;
 	protected ArrayList<GraphemePhonemePair> graphemesPhonemes;
 
 	// @JsonIgnore
@@ -107,8 +107,12 @@ public class Word implements Serializable, Comparable {
 		return word.length();
 	}
 
-	public double getFrequency() {
+	public int getFrequency() {
 		return frequency;
+	}
+
+	public void setFrequency(int frequency) {
+		this.frequency = frequency;
 	}
 
 	public LanguageCode getLanguageCode() {

@@ -72,7 +72,7 @@
           "p-b"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'p\'-\'b\' ή τους ήχους \'t\'-\'d\' (π.χ. τείνω-ντύνω)", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'p\'-\'b\' ή τους ήχους \'t\'-\'d\' (π.χ. τείνω-ντύνω)", 
         "cluster": 0,
         "character":"character0"
       },
@@ -82,7 +82,7 @@
           "k-t"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'k\'-\'t\' ή τους ήχους \'k\'-\'p\' (π.χ. κάνω-πάνω)", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'k\'-\'t\' ή τους ήχους \'k\'-\'p\' (π.χ. κάνω-πάνω)", 
         "cluster": 0,
         "character":"character0"
       },
@@ -91,7 +91,7 @@
           "m-n"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'m\'-\'n\' (π.χ. μένω-Νέμο)", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'m\'-\'n\' (π.χ. μένω-Νέμο)", 
         "cluster": 0,
         "character":"character0"
       },
@@ -102,7 +102,7 @@
           "χ-γ"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'χ\'-\'γ\', τους ήχους \'f\'-\'v\' ή τους ήχους \'θ\'-\'ð\' (π.χ. θέλω-δένω)", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'χ\'-\'γ\', τους ήχους \'f\'-\'v\' ή τους ήχους \'θ\'-\'ð\' (π.χ. θέλω-δένω)", 
         "cluster": 1,
         "character":"character0"
       },
@@ -112,7 +112,7 @@
           "k-χ"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'k\'-\'γ\' ή τους ήχους \'k\'-\'χ\' (π.χ. κάνω-χάνω)", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'k\'-\'γ\' ή τους ήχους \'k\'-\'χ\' (π.χ. κάνω-χάνω)", 
         "cluster": 1,
         "character":"character0"
       },
@@ -121,7 +121,7 @@
           "s-z"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'s\'-\'z\' (π.χ. σώνει-ζώνη)", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'s\'-\'z\' (π.χ. σώνει-ζώνη)", 
         "cluster": 2,
         "character":"character0"
       },
@@ -130,7 +130,7 @@
           "l-r"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'l\'-\'r\' (π.χ. αράζω-αλλάζω)", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'l\'-\'r\' (π.χ. αράζω-αλλάζω)", 
         "cluster": 2,
         "character":"character0"
       },
@@ -142,7 +142,7 @@
           "θ-ð"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'f\'-\'θ\', \'f\' και \'v\', \'θ\'-\'ð\' ή \'ð\'-\'v\' (π.χ. βαίνω-δένω)", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'f\'-\'θ\', \'f\' και \'v\', \'θ\'-\'ð\' ή \'ð\'-\'v\' (π.χ. βαίνω-δένω)", 
         "cluster": 3,
         "character":"character0"
       },
@@ -151,7 +151,7 @@
           "kt-pt"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'kt\'-\'pt\' (π.χ. κτήνος-πτηνό)", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'kt\'-\'pt\' (π.χ. κτήνος-πτηνό)", 
         "cluster": 3,
         "character":"character1"
       },
@@ -162,7 +162,7 @@
           "ps-sp"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'ks\'-\'ps\', τους \'ps\'-\'sp\' ή τους ήχους \'ks\'-\'sk\' (π.χ. ξυνή-σκηνή)", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'ks\'-\'ps\', τους \'ps\'-\'sp\' ή τους ήχους \'ks\'-\'sk\' (π.χ. ξυνή-σκηνή)", 
         "cluster": 3,
         "character":"character1"
       },
@@ -172,7 +172,7 @@
           "fr-χr"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'ðr\'-\'θr\' ή τους ήχους \'fr\'-\'χr\' (π.χ. αφρός-ωχρός)", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'ðr\'-\'θr\' ή τους ήχους \'fr\'-\'χr\' (π.χ. αφρός-ωχρός)", 
         "cluster": 4,
         "character":"character1"
       },
@@ -181,7 +181,7 @@
           "χθ-fθ"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχιτικά αν εξαιρέσουμε τους ήχους \'χθ\'-\'fθ\' (π.χ. χθεσινός-φθάνω)", 
+        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'χθ\'-\'fθ\' (π.χ. χθεσινός-φθάνω)", 
         "cluster": 4,
         "character":"character1"
       }

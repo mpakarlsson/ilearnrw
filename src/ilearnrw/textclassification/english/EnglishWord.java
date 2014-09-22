@@ -32,7 +32,7 @@ public class EnglishWord extends Word {
     }
 
     //We put inside only lower case words
-    public EnglishWord(String word, String phonetic, String stem, ArrayList<GraphemePhonemePair> phoneticList, String[] graphemeSyllables, String suffix, String suffixType, int numSyllables, double frequency, WordType type) {
+    public EnglishWord(String word, String phonetic, String stem, ArrayList<GraphemePhonemePair> phoneticList, String[] graphemeSyllables, String suffix, String suffixType, int numSyllables, int frequency, WordType type) {
     	super(word, type);
     	super.wordUnmodified = word;
 		super.languageCode = LanguageCode.EN;

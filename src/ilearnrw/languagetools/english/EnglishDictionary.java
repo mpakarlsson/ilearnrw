@@ -49,7 +49,7 @@ public class EnglishDictionary {
 				ArrayList<GraphemePhonemePair> phoneticList;
 				String[] graphemeSyllables;
 				int numChars, numPhons, numSyllables;
-				double frequency;
+				int frequency;
 				String suffixType, suffix;
 				// Add this when it's possible
 				// partOfSpeech
@@ -92,7 +92,7 @@ public class EnglishDictionary {
 				graphemeSyllables = results[6].split("\\.");
 				numChars = Integer.parseInt(results[7]);
 				numSyllables = Integer.parseInt(results[9]);
-				frequency = Double.parseDouble(results[10]);
+				frequency = Integer.parseInt(results[10]);
 
 				EnglishWord w = new EnglishWord(word, phonetic, stem,
 						phoneticList, graphemeSyllables, suffix, suffixType,
