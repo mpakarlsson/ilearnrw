@@ -1,1 +1,5 @@
+technique
+unique
+techniques
 ###
+uniqueness

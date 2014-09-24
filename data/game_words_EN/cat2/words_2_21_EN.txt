@@ -1,10 +1,2 @@
-job
-club
-lab
-arab
-grab
+camp
 ###
-rib
-rub
-web
-cab

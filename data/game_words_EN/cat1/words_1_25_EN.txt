@@ -1,6 +1,5 @@
-notice
-practice
-office
 service
-justice
+office
+practice
 ###
+notice

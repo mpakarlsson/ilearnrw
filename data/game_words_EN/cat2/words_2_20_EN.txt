@@ -1,10 +1,5 @@
-him
-victim
-claim
-aim
+program
+slam
+exam
 ###
-swim
-muslim
-rim
-proclaim
-trim
+dam

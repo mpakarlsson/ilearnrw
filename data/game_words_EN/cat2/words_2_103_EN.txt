@@ -1,8 +1,8 @@
-acquires
-acquired
-acquiring
-acquire
+listen
+listener
+listening
+listens
+listened
 ###
-acquisition's
-acquisition
-acquisitions
+christmases
+christmas

@@ -1,1 +1,14 @@
+nation
+station
+relation
+location
+creation
+foundation
+vacation
+formation
+inflation
 ###
+frustration
+translation
+donation
+migration

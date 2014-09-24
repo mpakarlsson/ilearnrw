@@ -1,5 +1,0 @@
-politician
-physician
-###
-technician
-musician

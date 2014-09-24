@@ -1,12 +1,2 @@
-accept
-adopt
-attempt
-concept
-except
+college
 ###
-script
-interrupt
-opt
-adapt
-prompt
-leapt

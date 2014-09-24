@@ -1,7 +1,5 @@
-player
-gayer
-sayer
-payer
-layer
+climb
+bomb
+limb
 ###
-taxpayer
+thumb

@@ -1,8 +1,0 @@
-interaction
-action
-reaction
-###
-attraction
-satisfaction
-transaction
-fraction

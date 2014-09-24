@@ -1,6 +1,3 @@
-poor
-poorness
-poornesses
-poorness's
+tour
+toured
 ###
-poorly

@@ -1,1 +1,4 @@
+acquire
+acquired
 ###
+acquires

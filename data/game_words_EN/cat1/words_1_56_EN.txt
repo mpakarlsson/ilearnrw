@@ -1,11 +1,2 @@
-goes
-heroes
-potatoes
+neutral
 ###
-echoes
-cargoes
-undergoes
-tomatoes
-toe's
-toe
-toes

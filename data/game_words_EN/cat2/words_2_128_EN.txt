@@ -1,0 +1,6 @@
+camp
+jump
+pump
+dump
+###
+lamp

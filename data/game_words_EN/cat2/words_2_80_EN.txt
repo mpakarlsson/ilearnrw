@@ -1,1 +1,9 @@
+article
+vehicle
+circle
+cycle
+uncle
+miracle
 ###
+obstacle
+particle

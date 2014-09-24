@@ -1,9 +1,4 @@
-psychological
+single
+struggle
 ###
-psychologies
-psychologist
-psychology's
-psychologist's
-psychologists
-psychology
-psychologically
+angle
