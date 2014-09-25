@@ -1,66 +1,66 @@
 {
   "problemsIndex": [
     {
-      "uri": "Consonants",
+      "uri": "Φωνήματα: Σύμφωνα",
       "severityType": "zeroToThree",
       "type": {
-        "url": "phonemes"
+        "url": "Φωνήματα: Σύμφωνα"
       }
     },
     {
-      "uri": "Vowels",
+      "uri": "Φωνήματα: Φωνήεντα",
       "severityType": "zeroToThree",
       "type": {
-        "url": "phonemes"
+        "url": "Φωνήματα: Φωνήεντα"
       }
     },
     {
-      "uri": "Visual Similarity",
+      "uri": "Οπτική Ομοίτητα",
       "severityType": "binary",
       "type": {
-        "url": "visual similarity"
+        "url": "Οπτική Ομοίτητα"
       }
     },
     {
-      "uri": "Regular/Irregular:Consonant clusters",
+      "uri": "Αντιστοίχιση Γραφήματος-Φωνήματος",
       "severityType": "zeroToThree",
       "type": {
-        "url": "grapheme/phoneme correspondence"
+        "url": "Αντιστοίχιση Γραφήματος-Φωνήματος, συμφωνικά συμπλέγματα (ομαλά / ανώμαλα)"
       }
     },
     {
-      "uri": "Syllable Division",
+      "uri": "Συλλαβισμός",
       "severityType": "zeroToThree",
       "type": {
-        "url": "syllable division"
+        "url": "Συλλαβισμός"
       }
     },
     {
-      "uri": "Prefixing",
+      "uri": "Προθήματα",
       "severityType": "zeroToThree",
       "type": {
-        "url": "prefixing"
+        "url": "Προθήματα"
       }
     },
     {
-      "uri": "Derivational Suffixing",
+      "uri": "Παραγωγικά Επιθήματα",
       "severityType": "zeroToThree",
       "type": {
-        "url": "suffixing"
+        "url": "Παραγωγικά Επιθήματα"
       }
     },
     {
-      "uri": "Inflectional/Grammatical Suffixing",
+      "uri": "Κλιτικά/Γραμματικά Επιθήματα",
       "severityType": "zeroToThree",
       "type": {
-        "url": "suffixing"
+        "url": "Κλιτικά/Γραμματικά Επιθήματα"
       }
     },
     {
-      "uri": "Grammar/Function Words",
+      "uri": "Γραμματικές/Λειτουργικές Λέξεις",
       "severityType": "zeroToThree",
       "type": {
-        "url": "grammar/function words"
+        "url": "Γραμματικές/Λειτουργικές Λέξεις"
       }
     }
   ],

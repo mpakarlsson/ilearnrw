@@ -184,8 +184,7 @@ public class WordHeatMapPanel extends JPanel {
 					equalsIgnoreCase(userProfile.getUserProblems().getProblemDefinition(i).getType().getUrl()))
 				res = res + ", Targeted Area:"+userProfile.getUserProblems().getProblemDefinition(i).getUri();
 			//res = user.getProfile().getUserSeveritiesToProblems().getProblemDefinition(i).toString();
-			res = res + "\nMatching word characteristics:"+userProfile.getUserProblems().getProblemDescription(i, j).getProblemType();
-			res = res + " {"+userProfile.getUserProblems().getProblemDescription(i, j).returnDescriptionsAsString()+"}";
+			res = res + "\nMatching word characteristics:"+userProfile.getUserProblems().getProblemDescription(i, j).getHumanReadableDescription();
 			res = res + " \nFound "+multi[i][j]+" times\n";
 		}
 		return res;
