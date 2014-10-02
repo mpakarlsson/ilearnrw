@@ -48,7 +48,7 @@ public class HtmlGenerator {
 			la = EnglishLanguageAnalyzer.getInstance();
 		WordVsProblems wp = new WordVsProblems(la);
 		wordSet = new UserBasedAnnotatedWordsSet();
-		HtmlPartsGenerator tp = new HtmlPartsGenerator(text);
+		HtmlPartsGenerator tp = new HtmlPartsGenerator(text, lc);
 		String template = "";
 		int pn = tp.getParagraphsNumber();
 		int pId = 0, sId = 0, wId = 0;
