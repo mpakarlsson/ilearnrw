@@ -1,9 +1,6 @@
 package ilearnrw.languagetools;
 
-import java.util.HashMap;
-
 import ilearnrw.textclassification.Word;
-import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.utils.LanguageCode;
 
 public interface LanguageAnalyzerAPI {

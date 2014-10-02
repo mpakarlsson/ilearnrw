@@ -10,6 +10,7 @@ import java.util.Map;
 import ilearnrw.resource.ResourceLoader;
 import ilearnrw.resource.ResourceLoader.Type;
 import ilearnrw.textclassification.WordType;
+import ilearnrw.textclassification.english.EnglishWord;
 import ilearnrw.textclassification.greek.GreekWord;
 
 public class GreekDictionary {
@@ -29,44 +30,17 @@ public class GreekDictionary {
 
 		return new GreekWord(w);
 	}
-	
-	/*protected GreekDictionary(String filename) {
-		super();
-		loadWords(filename);
+
+	public Map<String, GreekWord> getDictionary() {
+		return dictionary;
 	}
 
-	protected GreekDictionary(SortedTreeSet gw) {
-		super(gw);
-	}*/
 	public static GreekDictionary getInstance() {
 	      if(instance == null) {
 	         instance = new GreekDictionary();
 	      }
 	      return instance;
 	}
-	/*public static GreekDictionary getInstance(String filename) {
-	      if(instance == null) {
-	         instance = new GreekDictionary(filename);
-	      }
-	      return instance;
-	}
-	public static GreekDictionary getInstance(SortedTreeSet gw) {
-	      if(instance == null) {
-	         instance = new GreekDictionary(gw);
-	      }
-	      return instance;
-	}
-	
-	public void loadWords(){
-		GreekDictionaryLoader gl = new GreekDictionaryLoader("greekDictionary");
-		words = gl.getEntries();
-	}	
-
-	
-	public void loadWords(String filename){
-		GreekDictionaryLoader gl = new GreekDictionaryLoader(filename);
-		words = gl.getEntries();
-	}*/
 	
 	private void readDic(){
 		try {
@@ -82,7 +56,6 @@ public class GreekDictionary {
 				}
 				if (row.length == 4){
 					GreekWord w = new GreekWord(row[0], partOfSpeech(row[1]), row[2].trim(), Integer.parseInt(row[3]));
-
 					dictionary.put(row[0], w);
 				}
 				if (row.length<4)

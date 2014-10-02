@@ -1566,6 +1566,7 @@
       {
         "descriptions": [
           "ενός",
+          "μίας",
           "μιας"
         ],
         "problemType": "EQUALS",
@@ -1577,7 +1578,8 @@
         "descriptions": [
           "ο",
           "η",
-          "το"
+          "το",
+          "τον"
         ],
         "problemType": "EQUALS",
         "humanReadableDescription": "Λέξεις \'ο\', \'η\', \'το\'", 

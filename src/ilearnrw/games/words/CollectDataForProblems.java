@@ -73,7 +73,7 @@ public class CollectDataForProblems {
 		
 		languageAnalyser = EnglishLanguageAnalyzer.getInstance();
 		if (lc == LanguageCode.GR)
-			languageAnalyser = new GreekLanguageAnalyzer(gd, null);
+			languageAnalyser = GreekLanguageAnalyzer.getInstance();
 		wp = new WordVsProblems(languageAnalyser);
 		
 		int row = 3, column = 3;
@@ -152,7 +152,7 @@ public class CollectDataForProblems {
 					String[] parts = prb.split("-");
 					gd = getWordsWithPhonemeAtPosition(sts1, again, parts);
 					System.out.println("loading again language analyser...");
-					languageAnalyser = new GreekLanguageAnalyzer(gd, null);
+					languageAnalyser = GreekLanguageAnalyzer.getInstance();
 				}
 				SortedTreeSet sts = null;//gd.getWords();
 				System.out.println("filling an array with " + sts.size()

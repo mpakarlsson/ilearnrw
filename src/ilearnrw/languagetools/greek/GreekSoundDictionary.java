@@ -1,51 +1,83 @@
 package ilearnrw.languagetools.greek;
 
-import ilearnrw.structs.sets.SortedTreeSet;
-import ilearnrw.textclassification.Word;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import ilearnrw.resource.ResourceLoader;
+import ilearnrw.resource.ResourceLoader.Type;
+import ilearnrw.textclassification.WordType;
 import ilearnrw.textclassification.greek.GreekWord;
 
 public class GreekSoundDictionary {
-	private GreekWord words[];
-	public GreekSoundDictionary() {
+	private static ArrayList<GreekWord> words;
+	private static GreekSoundDictionary instance = null;
+	private GreekSoundDictionary() {
 		loadWords();
 	}
 
-	public GreekSoundDictionary(String filename) {
-		super();
-		loadWords(filename);
+	public static GreekSoundDictionary getInstance(){
+		if(instance==null)
+			instance = new GreekSoundDictionary();
+		return instance;
 	}
 
-	public GreekSoundDictionary(SortedTreeSet sts) {
-		words = new GreekWord[sts.size()];
-		int i = 0;
-		for (Word w : sts){
-			words[i++] = (GreekWord)w;
-		}
-	}
+	private void loadWords(){
+		try {
+			words = new ArrayList<GreekWord>();
+			InputStream input = ResourceLoader.getInstance().getInputStream(Type.DATA, "greekSoundSimilarityList.txt");
+			InputStreamReader in = new InputStreamReader(input, "UTF-8");
+			BufferedReader buf = new BufferedReader(in);
+			String line = null;
+			while((line=buf.readLine())!=null) {
+				String[] row = line.split(" ");
+				if (row.length == 1 && row[0]!=null && !row[0].isEmpty()){
+					words.add(new GreekWord(row[0], WordType.Unknown));
+				}
+				if (row.length == 4){
+					GreekWord w = new GreekWord(row[0], partOfSpeech(row[1]), row[2].trim(), Integer.parseInt(row[3]));
 
-	
-	public void loadWords(){
-		GreekDictionaryLoader gl = new GreekDictionaryLoader("greekDictionary");
-		SortedTreeSet sts = gl.getEntries();
-		words = new GreekWord[sts.size()];
-		int i = 0;
-		for (Word w : sts){
-			words[i++] = (GreekWord)w;
-		}
-	}	
-
-	
-	public void loadWords(String filename){
-		GreekDictionaryLoader gl = new GreekDictionaryLoader(filename);
-		SortedTreeSet sts = gl.getEntries();
-		words = new GreekWord[sts.size()];
-		int i = 0;
-		for (Word w : sts){
-			words[i++] = (GreekWord)w;
+					words.add(w);
+				}
+				if (row.length<4)
+					continue;
+			}
+			buf.close();
+			in.close();
+			input.close();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 	
-	public GreekWord[] getWords(){
-		return this.words;
+	public ArrayList<GreekWord> getWords(){
+		return words;
+	}
+	
+	private WordType partOfSpeech(String pos){
+		if (pos.trim().equals("ουσιαστικό"))
+			return WordType.Noun;
+		if (pos.trim().equals("επίθετο"))
+			return WordType.Adjective;
+		if (pos.trim().equals("ρήμα"))
+			return WordType.Verb;
+		if (pos.trim().equals("μετοχή"))
+			return WordType.Participle;
+		if (pos.trim().equals("επίρρημα"))
+			return WordType.Adverb;
+		if (pos.trim().equals("επιφώνημα"))
+			return WordType.Exclamation;
+		if (pos.trim().equals("αντωνυμία"))
+			return WordType.Pronoun;
+		if (pos.trim().equals("πρόθεση"))
+			return WordType.Preposition;
+		if (pos.trim().equals("μόριο"))
+			return WordType.Particle;
+		if (pos.trim().equals("άρθρο"))
+			return WordType.Article;
+		if (pos.trim().equals("σύνδεσμος"))
+			return WordType.Conjunction;
+		return WordType.Unknown;
 	}
 }

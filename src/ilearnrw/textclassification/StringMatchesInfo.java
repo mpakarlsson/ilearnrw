@@ -294,14 +294,15 @@ public class StringMatchesInfo {
 	}
 
 	public static ArrayList<StringMatchesInfo> soundSimilarity(String str[], Word w){
-	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
+	    //ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		languageAnalyser.setWord(w);
 		for (int i=0;i<str.length;i++){
 			String[] parts = str[i].split("-");
 			GreekWord r = (GreekWord)languageAnalyser.getSimilarSoundWord(parts[0], parts[1]);
 			if (r!=null){
-			    result.add(new StringMatchesInfo(str[i], 0, w.toString().length()));
-				return result;
+			    //result.add(new StringMatchesInfo(str[i], 0, w.toString().length()));
+				//return result;
+				return containsPhoneme(parts, w);
 			}
 		}
 		return null;
