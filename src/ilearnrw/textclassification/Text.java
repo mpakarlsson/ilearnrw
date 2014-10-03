@@ -14,7 +14,7 @@ public class Text implements TextAPI{
 
 	private int numberOfTotalWords, numberOfDistinctWords, numberOfSentences, numberOfSyllables, numberOfBigSentences,
 		longestWordLength, longestSentenceLength, numberOfPolysyllabicWords, numberOfLettersAndNumbers, numberOfParagraphs;
-	private double averageWordLength, averageLongestWordLength;
+	private double averageWordLength, averageLongestWordLength, averageWordRank;
 	
 	public Text(String text, LanguageCode lc){	
 		this.lc = lc;
@@ -89,6 +89,10 @@ public class Text implements TextAPI{
 		return averageLongestWordLength;
 	}
 
+	public double getAverageWordRank() {
+		return averageWordRank;
+	}
+
 	public LanguageCode getLanguageCode(){
 		return lc;
 	}
@@ -116,6 +120,8 @@ public class Text implements TextAPI{
 		numberOfLettersAndNumbers = 0;
 		averageWordLength = 0;
 		averageLongestWordLength = 0;
+		averageWordRank = 0;
+		int rankCnt = 0;
 		numberOfPolysyllabicWords = 0;
 		numberOfBigSentences = 0;
 		
@@ -138,6 +144,10 @@ public class Text implements TextAPI{
 			
 			
 			for (int j=0;j<words.length; j++){
+				if (words[j].getFrequency()>0){
+					averageWordRank += words[j].getFrequency();
+					rankCnt++;
+				}
 				numberOfLettersAndNumbers += words[j].getLength();
 				if (wordsFreq.containsKey(words[j])){
 					wordsFreq.put(words[j], wordsFreq.get(words[j]) + 1);
@@ -148,6 +158,7 @@ public class Text implements TextAPI{
 				}
 			}
 		}
+		averageWordRank = rankCnt>0?averageWordRank/rankCnt : 0;
 		averageWordLength = (double)numberOfLettersAndNumbers/numberOfTotalWords;
 		averageLongestWordLength = averageLongestWordLength/numberOfSentences;
 	}

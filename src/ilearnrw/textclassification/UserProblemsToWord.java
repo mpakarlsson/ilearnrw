@@ -91,6 +91,7 @@ public class UserProblemsToWord  implements Serializable {
 		cr.setNumberOfSyllables(word.getNumberOfSyllables());
 		cr.setLanguageCode(word.getLanguageCode());
 		cr.setFrequency(word.getFrequency());
+		cr.setWordRank(word.getFrequency());
 		
 		//text
 		cr.setTotalHits(getTotalHits());

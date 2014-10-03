@@ -1,7 +1,6 @@
 package ilearnrw.textclassification;
 
 import ilearnrw.user.UserTextCounters;
-import ilearnrw.user.profile.UserProblems;
 import ilearnrw.utils.LanguageCode;
 
 public class WordClassificationResults{
@@ -19,7 +18,7 @@ public class WordClassificationResults{
 	private WordVsProblems wprobs;
 	private UserTextCounters userWordCounters;
 	private boolean isDifficult, isVeryDifficult;
-	private int totalHits, userHits, Wscore;
+	private int totalHits, userHits, Wscore, wordRank;
 
 	public WordClassificationResults() {
 		// TODO Auto-generated constructor stub
@@ -159,6 +158,14 @@ public class WordClassificationResults{
 
 	public void setWscore(int wscore) {
 		Wscore = wscore;
+	}
+
+	public int getWordRank() {
+		return wordRank;
+	}
+
+	public void setWordRank(int wordRank) {
+		this.wordRank = wordRank;
 	}
 
 }

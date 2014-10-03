@@ -1,14 +1,10 @@
 package ilearnrw.textclassification.tests.panels;
 
-import ilearnrw.textclassification.Text;
-import ilearnrw.textclassification.tests.TextMetricsTest;
+import ilearnrw.textclassification.tests.TextMetricsGUI;
 import ilearnrw.user.profile.UserProfile;
-import ilearnrw.utils.LanguageCode;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -22,8 +18,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
-
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.TableColumn;
 import javax.swing.JTable;
@@ -44,7 +38,7 @@ public class WordPanel extends JPanel{
 		
 	}
 	
-	public WordPanel(UserProfile userProfile, final TextMetricsTest metrics) {
+	public WordPanel(UserProfile userProfile, final TextMetricsGUI metrics) {
 		super();
 		this.setBorder(new EmptyBorder(5, 5, 5, 5));
 		this.setLayout(new BorderLayout(0, 0));

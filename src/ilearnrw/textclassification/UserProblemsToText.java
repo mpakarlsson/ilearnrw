@@ -150,6 +150,7 @@ public class UserProblemsToText implements Serializable {
 		cr.setAverageLongestWordLength(text.getAverageLongestWordLength());
 		cr.setAverageWordsPerSentence(text.getWordsPerSentence());
 		cr.setAverageSyllablesPerWord(text.getSyllablesPerWord());
+		cr.setAverageWordRank(text.getAverageWordRank());
 		cr.setFlesch(text.flesch());
 		cr.setFleschKincaid(text.fleschKincaid());
 		cr.setAutomated(text.automated());

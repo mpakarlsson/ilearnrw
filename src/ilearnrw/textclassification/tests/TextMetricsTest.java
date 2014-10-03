@@ -44,7 +44,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
 import javax.swing.border.EmptyBorder;
 
-public class TextMetricsTest extends JFrame {
+public class TextMetricsTest extends JFrame implements TextMetricsGUI{
 	private static final long serialVersionUID = 1L;
 	private LanguageCode lc;
 	private UserProblemsToText upt;

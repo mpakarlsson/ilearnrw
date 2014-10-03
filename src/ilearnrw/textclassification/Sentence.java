@@ -1,6 +1,7 @@
 package ilearnrw.textclassification;
 
 import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
+import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
 import ilearnrw.textclassification.english.EnglishWord;
 import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.utils.LanguageCode;
@@ -68,7 +69,11 @@ public class Sentence {
 			int j = 0;
 			for (int i=0;i<theWords.length;i++){
 				if (theWords[i].trim().equals("")) continue;
-				words[j++] = new GreekWord(theWords[i]);
+				
+				if(GreekLanguageAnalyzer.getInstance().getDictionary().getDictionary().containsKey(theWords[i].toLowerCase())){
+					words[j++] = GreekLanguageAnalyzer.getInstance().getDictionary().getDictionary().get(theWords[i].toLowerCase());
+				} else 
+					words[j++] = new GreekWord(theWords[i]);
 			}
 		}
 		else {

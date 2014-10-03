@@ -4,7 +4,7 @@ import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.TextClassificationResults;
 import ilearnrw.textclassification.UserProblemsToText;
-import ilearnrw.textclassification.tests.TextMetricsTest;
+import ilearnrw.textclassification.tests.TextMetricsGUI;
 import ilearnrw.user.profile.UserProfile;
 import ilearnrw.utils.LanguageCode;
 
@@ -44,7 +44,7 @@ public class FilesExplorerPanel extends JPanel{
 	private String unknown = "";
 	
 	public FilesExplorerPanel(UserProfile userProfile, final JTabbedPane tabbedPane, final TextPanel textPanel, 
-			final TextMetricsTest metrics, LanguageAnalyzerAPI languageAnalyzer) {
+			final TextMetricsGUI metrics, LanguageAnalyzerAPI languageAnalyzer) {
 		super();		
 		this.userProfile = userProfile;
 		this.languageAnalyzer = languageAnalyzer;

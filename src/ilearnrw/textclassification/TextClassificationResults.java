@@ -4,10 +4,7 @@
 **/
 package ilearnrw.textclassification;
 
-import ilearnrw.languagetools.LanguageAnalyzerAPI;
-import ilearnrw.user.User;
 import ilearnrw.user.UserTextCounters;
-import ilearnrw.user.profile.UserProfile;
 import ilearnrw.utils.LanguageCode;
 
 import java.util.HashMap;
@@ -24,7 +21,7 @@ public class TextClassificationResults {
 	//text
 	private int numberOfTotalWords, numberOfDistinctWords, numberOfSentences, numberOfSyllables, numberOfBigSentences,
 		longestWordLength, longestSentenceLength, numberOfPolysyllabicWords, numberOfLettersAndNumbers, numberOfParagraphs;
-	private double averageWordLength, averageLongestWordLength, averageWordsPerSentence, averageSyllablesPerWord;
+	private double averageWordLength, averageLongestWordLength, averageWordsPerSentence, averageSyllablesPerWord, averageWordRank;
 	private double flesch, fleschKincaid, automated, colemanLiau, smog, gunningFog, daleChall;
 	private LanguageCode lc;
 	private HashMap<Word, Integer> wordsFreq;	
@@ -256,6 +253,14 @@ public class TextClassificationResults {
 		this.averageSyllablesPerWord = averageSyllablesPerWord;
 	}
 
+	public double getAverageWordRank() {
+		return averageWordRank;
+	}
+
+	public void setAverageWordRank(double averageWordRank) {
+		this.averageWordRank = averageWordRank;
+	}
+
 	public double getFlesch() {
 		return flesch;
 	}
@@ -295,7 +300,7 @@ public class TextClassificationResults {
 	public void setSmog(double smog) {
 		this.smog = smog;
 	}
-
+	
 	public double getGunningFog() {
 		return gunningFog;
 	}

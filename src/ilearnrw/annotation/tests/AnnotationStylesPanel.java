@@ -104,7 +104,6 @@ public class AnnotationStylesPanel extends JPanel {
 				"4. BOLD_PROBLEMATIC_PARTS");
 		javax.swing.JButton b6 = new javax.swing.JButton("5. DO_NOTHING");
 		javax.swing.JButton b7 = new javax.swing.JButton("5. ANNOTATE");
-		b7.addActionListener(new AnnotateListener(mediator));
 
 		downPane.add(b1);
 		downPane.add(b2);
@@ -147,59 +146,4 @@ public class AnnotationStylesPanel extends JPanel {
 		}
 	}
 
-	public String readFile(String path, java.nio.charset.Charset encoding)
-			throws java.io.IOException {
-		byte[] encoded = java.nio.file.Files.readAllBytes(java.nio.file.Paths
-				.get(path));
-		return new String(encoded, encoding);
-	}
-
-	class AnnotateListener implements java.awt.event.ActionListener {
-		private Mediator m;
-
-		public AnnotateListener(Mediator m) {
-			this.m = m;
-		}
-
-		public void actionPerformed(java.awt.event.ActionEvent e) {
-			String JSONfile = "C:\\Users\\Fouli\\Desktop\\response.json";
-			TextAnnotationModule t = new TextAnnotationModule("");
-			t.initializePresentationModule(mediator.getUserProfile());
-			try {
-				String htmlFile = readFile(
-						"C:\\Users\\Fouli\\Desktop\\input.html",
-						java.nio.charset.StandardCharsets.UTF_8);
-				// String json = readFile(JSONfile,
-				// java.nio.charset.StandardCharsets.UTF_8);
-
-				java.io.BufferedReader br = new java.io.BufferedReader(
-						new java.io.InputStreamReader(
-								new java.io.FileInputStream(JSONfile), "UTF8"));
-
-				String strLine;
-
-				StringBuffer text = new StringBuffer();
-
-				while ((strLine = br.readLine()) != null) {
-					text.append(strLine.trim());
-				}
-				br.close();
-				System.out.println(text.toString());
-
-				t.setJSONFile(text.toString());
-				t.setInputHTMLFile(htmlFile);
-
-				t.setAnnotatedHTMLFile(htmlFile);
-
-				t.annotateText();
-
-				org.apache.commons.io.FileUtils.writeStringToFile(
-						new java.io.File(
-								"C:\\Users\\Fouli\\Desktop\\output.html",
-								"UTF-8"), htmlFile);
-			} catch (java.io.IOException a) {
-
-			}
-		}
-	}
 }
