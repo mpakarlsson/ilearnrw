@@ -13,32 +13,21 @@ public class StringMatchesInfo {
 
 	private static LanguageAnalyzerAPI languageAnalyser;
 	
-	private String matchedPart;
 	private int start, end;
 	
 	public StringMatchesInfo(LanguageAnalyzerAPI la) {
 		languageAnalyser = la;
-		matchedPart = null;
 		start = -1;
 		end = -1;
 	}
 
-	public StringMatchesInfo(String what, int start, int end) {
-		this.matchedPart = what;
+	public StringMatchesInfo(int start, int end) {
 		this.start = start;
 		this.end = end;
 	}
 
 	public boolean isMatched(){
-		return matchedPart != null && !matchedPart.isEmpty();
-	}
-	
-	public String getMatchedPart() {
-		return matchedPart;
-	}
-
-	public void setMatchedPart(String what) {
-		this.matchedPart = what;
+		return start != -1 && end != -1;
 	}
 
 	public int getStart() {
@@ -59,7 +48,7 @@ public class StringMatchesInfo {
 
 	@Override
 	public String toString() {
-		return "StringMatchesInfo [what=" + matchedPart + ", start=" + start
+		return "StringMatchesInfo [start=" + start
 				+ ", end=" + end + "]";
 	}
 
@@ -69,7 +58,7 @@ public class StringMatchesInfo {
 		String ws = w.getWord();
 		for (int i=0;i<str.length;i++){
 			if (ws.equals(str[i])){
-			    result.add(new StringMatchesInfo(str[i], 0, ws.length()));
+			    result.add(new StringMatchesInfo(0, ws.length()));
 				return result;
 			}
 		}
@@ -82,7 +71,7 @@ public class StringMatchesInfo {
 		for (int i=0;i<str.length;i++){
 			for (int k=0;k<ws.length();k++){
 				if ((ws.substring(k)).startsWith(str[i])){
-				    result.add(new StringMatchesInfo(str[i], k, k+str[i].length()));
+				    result.add(new StringMatchesInfo(k, k+str[i].length()));
 				}
 			}
 		}
@@ -97,7 +86,7 @@ public class StringMatchesInfo {
 		for (int i=0;i<str.length;i++){
 			for (int k=0;k<ws.length();k++){
 				if ((ws.substring(k)).startsWith(str[i])){
-				    result.add(new StringMatchesInfo(str[i], k, k+str[i].length()));
+				    result.add(new StringMatchesInfo(k, k+str[i].length()));
 				}
 			}
 		}
@@ -115,7 +104,7 @@ public class StringMatchesInfo {
 			int start = syl[0].length();
 			for (int j=0;j<syl.length-1;j++){
 				if (syl[j].endsWith(fp) && syl[j+1].startsWith(sp)){
-				    result.add(new StringMatchesInfo(str[i], start-1, start-1+sp.length()));
+				    result.add(new StringMatchesInfo(start-1, start-1+sp.length()));
 				}
 				start += syl[j].length();
 			}
@@ -133,8 +122,8 @@ public class StringMatchesInfo {
 			int start = syl[0].length();
 			for (int j=0;j<syl.length-1;j++){
 				if (syl[j].contains(str[i])){
-				    result.add(new StringMatchesInfo(str[i], 
-						ws.indexOf(str[i], start-1), ws.indexOf(str[i], start-1)+str[i].length()));
+				    result.add(new StringMatchesInfo(
+				    		ws.indexOf(str[i], start-1), ws.indexOf(str[i], start-1)+str[i].length()));
 				}
 				start += syl[j].length();
 			}
@@ -149,7 +138,7 @@ public class StringMatchesInfo {
 		String ws = w.getWord();
 		for (int i=0;i<str.length;i++){
 			if (ws.endsWith(str[i])){
-			    result.add(new StringMatchesInfo(str[i], ws.lastIndexOf(str[i]), ws.lastIndexOf(str[i])+str[i].length()));
+			    result.add(new StringMatchesInfo(ws.lastIndexOf(str[i]), ws.lastIndexOf(str[i])+str[i].length()));
 				return result;
 			}
 		}
@@ -161,7 +150,7 @@ public class StringMatchesInfo {
 		String ws = w.getWord();
 		for (int i=0;i<str.length;i++){
 			if (ws.startsWith(str[i])){
-			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
+			    result.add(new StringMatchesInfo(ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
 				return result;
 			}
 		}
@@ -173,7 +162,7 @@ public class StringMatchesInfo {
 		String ws = w.getPhonetics();
 		for (int i=0;i<str.length;i++){
 			if (ws.contains(str[i])){
-			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
+			    result.add(new StringMatchesInfo(ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
 			}
 		}
 		if (result.size()>0)
@@ -186,7 +175,7 @@ public class StringMatchesInfo {
 		String ws = w.getPhonetics();
 		for (int i=0;i<str.length;i++){
 			if (ws.contains(str[i]) && !ws.startsWith(str[i])){
-			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
+			    result.add(new StringMatchesInfo(ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
 			}
 		}
 		if (result.size()>0)
@@ -209,7 +198,7 @@ public class StringMatchesInfo {
 					k++;
 				}
 				if (match.equals(str[i])){
-					result.add(new StringMatchesInfo(str[i], 0,length));
+					result.add(new StringMatchesInfo(0,length));
 			    	return result;
 				}
 			}
@@ -242,7 +231,7 @@ public class StringMatchesInfo {
 							break;
 						start += syl[i].length();
 					}
-				    result.add(new StringMatchesInfo(str[i], start, start+length));
+				    result.add(new StringMatchesInfo(start, start+length));
 				}
 			}
 			/*if (ws.contains(str[i])){
@@ -284,7 +273,7 @@ public class StringMatchesInfo {
 							break;
 						start += syl[i].length();
 					}
-				    result.add(new StringMatchesInfo(str[i], start, start+length));
+				    result.add(new StringMatchesInfo(start, start+length));
 				}
 			}
 		}
@@ -334,14 +323,14 @@ public class StringMatchesInfo {
 					
 					if(w.getWord().endsWith(values[0]) && tempPhon.endsWith(values[1])){
 						int pos2 = w.getWord().lastIndexOf(values[0]);
-						result.add(new StringMatchesInfo(s, pos2, pos2 + values[0].length()));
+						result.add(new StringMatchesInfo(pos2, pos2 + values[0].length()));
 						return result;
 					}
 					
 				} else {
 					if(w.getWord().endsWith(s) && pt.toString().equals(((EnglishWord)w).getSuffixType())){
 						int pos2 = w.getWord().lastIndexOf(s);
-						result.add(new StringMatchesInfo(s, pos2, pos2+s.length()));
+						result.add(new StringMatchesInfo(pos2, pos2+s.length()));
 						return result;
 					}
 				}
@@ -387,7 +376,7 @@ public class StringMatchesInfo {
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		for(String s : str){
 			if(w.getWord().startsWith(s)){
-			    result.add(new StringMatchesInfo(s, w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length()));
+			    result.add(new StringMatchesInfo(w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length()));
 				return result;
 			}
 		}
@@ -426,7 +415,7 @@ public class StringMatchesInfo {
 				
 				
 				if(pos != -1){					
-					result.add(new StringMatchesInfo(difficulty, pos+savePos, pos+savePos+difficulty.length()));
+					result.add(new StringMatchesInfo(pos+savePos, pos+savePos+difficulty.length()));
 					word = word.substring(pos+difficulty.length());
 					tempPhon = tempPhon.substring(tempPhon.indexOf(transcription)+transcription.length());
 					savePos = pos+difficulty.length();
@@ -455,7 +444,7 @@ public class StringMatchesInfo {
 				
 				if(s.equals("Closed and Open syllables"))
 					if(ContainsOpenClosedSyllables(w)){
-						result.add(new StringMatchesInfo(w.getWord(), 0, w.getWord().length()));
+						result.add(new StringMatchesInfo(0, w.getWord().length()));
 						return result;
 					}
 				
@@ -499,7 +488,7 @@ public class StringMatchesInfo {
 				int index = cv.indexOf(problem);
 				String temp = cv.substring(0, index);
 				index = index - countCharacter(temp, '-');
-				result.add(new StringMatchesInfo(w.getWord(), index, index+problem.length()-1));
+				result.add(new StringMatchesInfo(index, index+problem.length()-1));
 			}
 		}
 
@@ -512,7 +501,7 @@ public class StringMatchesInfo {
 	public static ArrayList<StringMatchesInfo> syllableCount(String str[], Word w){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		if(w.getSyllables().length>=3){
-		    result.add(new StringMatchesInfo(w.getWord(), 0, w.getWord().length()));
+		    result.add(new StringMatchesInfo(0, w.getWord().length()));
 		    return result;
 		}
 		return null;
@@ -537,7 +526,7 @@ public class StringMatchesInfo {
 			
 			
 			if(EnglishLanguageAnalyzer.getInstance().getDictionary().getDictionary().containsKey(tempW)){
-				result.add(new StringMatchesInfo(w.getWord(), 0, w.getWord().length()));
+				result.add(new StringMatchesInfo(0, w.getWord().length()));
 				return result;
 			}
 		}
@@ -567,7 +556,7 @@ public class StringMatchesInfo {
 					while((ind=(word.indexOf(shortStr, ind)+1)) > 0){
 						if(ind+shortStr.length()-1<word.length())
 							if(!isVowel(word.charAt(ind+shortStr.length()-1))){
-								result.add(new StringMatchesInfo(s, word.indexOf(shortStr), ind+shortStr.length()));
+								result.add(new StringMatchesInfo(word.indexOf(shortStr), ind+shortStr.length()));
 							}
 					}
 					
@@ -590,10 +579,10 @@ public class StringMatchesInfo {
 				int pos = wordContainsGraphemePhoneme(w.getGraphemesPhonemes(), difficulty, transcription);
 				if(pos != -1){
 					if(difficulty.contains("_C_") || difficulty.contains("_V_")){
-						result.add(new StringMatchesInfo(s, pos, pos+difficulty.length()-2));
+						result.add(new StringMatchesInfo(pos, pos+difficulty.length()-2));
 						return result;					
 					}
-					result.add(new StringMatchesInfo(s, pos, pos+difficulty.length()));
+					result.add(new StringMatchesInfo(pos, pos+difficulty.length()));
 					return result;
 				}
 			} else if(type.equals("ends")){
@@ -606,7 +595,7 @@ public class StringMatchesInfo {
 					if(difficulty.contains("_C_")){
 						sVal = difficulty.substring(3);
 						if(w.getWord().endsWith(sVal) && !isVowel(w.getWord().charAt(w.getWord().length()-sVal.length()-1))){
-							result.add(new StringMatchesInfo(s, w.getWord().length()-sVal.length()-1, w.getWord().length()));
+							result.add(new StringMatchesInfo(w.getWord().length()-sVal.length()-1, w.getWord().length()));
 							return result;
 						} else 
 							return null;
@@ -615,13 +604,13 @@ public class StringMatchesInfo {
 					}else if(difficulty.contains("_V_")){
 						sVal = difficulty.substring(3);
 						if(w.getWord().endsWith(sVal) && isVowel(w.getWord().charAt(w.getWord().length()-sVal.length()-1))){
-							result.add(new StringMatchesInfo(s, w.getWord().length()-sVal.length()-1, w.getWord().length()));
+							result.add(new StringMatchesInfo(w.getWord().length()-sVal.length()-1, w.getWord().length()));
 							return result;
 						} else 
 							return null;
 					}
 					if(w.getWord().endsWith(difficulty)){
-						result.add(new StringMatchesInfo(s, w.getWord().lastIndexOf(values[0]), w.getWord().lastIndexOf(values[0])+difficulty.length()));
+						result.add(new StringMatchesInfo(w.getWord().lastIndexOf(values[0]), w.getWord().lastIndexOf(values[0])+difficulty.length()));
 						return result;
 					}
 				}
@@ -631,7 +620,7 @@ public class StringMatchesInfo {
 				tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
 				
 				if(w.getWord().startsWith(difficulty) && tempPhon.startsWith(transcription)){
-					result.add(new StringMatchesInfo(s, w.getWord().indexOf(values[0]), w.getWord().indexOf(values[0])+difficulty.length()));
+					result.add(new StringMatchesInfo(w.getWord().indexOf(values[0]), w.getWord().indexOf(values[0])+difficulty.length()));
 					return result;
 				}
 			} 
