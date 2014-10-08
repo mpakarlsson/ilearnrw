@@ -1028,10 +1028,10 @@
          },
          {  
             "descriptions":[  
-               "ine-ʒɪn"
+               "ine-ɪn"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027ine\u0027 as \u0027ʒɪn\u0027.",
+            "humanReadableDescription":"Pronounce \u0027ine\u0027 as \u0027ɪn\u0027.",
             "cluster":37,
             "character":"Short vowel"
          },

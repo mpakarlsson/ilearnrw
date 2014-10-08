@@ -62,7 +62,8 @@ public class GreekSyllabification implements Speller{
 		this.result.add(this.stringToSpell);
 		this.splitSyllables(0);
 		this.postprocess(result);
-	
+
+		//System.err.println(this.stringToSpell + " == " +result.toString());
     }
     
     private void splitSyllables(int i){
@@ -180,7 +181,6 @@ public class GreekSyllabification implements Speller{
 	    			&& !this.nonSeperable.contains(str.substring(i, i+3))){
 	    		String str1 = str.substring(0, i+1);
 	    		String str2 = str.substring(i+1);
-	    		System.err.println(this.stringToSpell + " == " +str1 +" - "+ str2);
 	    		ArrayList<String> l1 = new ArrayList<String>();
 	    		l1.add(str1);
 	    		l1.add(str2);

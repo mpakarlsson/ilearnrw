@@ -310,7 +310,7 @@ public class StringMatchesInfo {
 			return null;
 		
 		if(w.getLanguageCode().equals(LanguageCode.EN)){
-			for(String s : str){
+		for(String s : str){
 				int pos = s.indexOf("-");
 
 				if(pos != -1){
@@ -328,9 +328,9 @@ public class StringMatchesInfo {
 					}
 					
 				} else {
-					if(w.getWord().endsWith(s) && pt.toString().equals(((EnglishWord)w).getSuffixType())){
-						int pos2 = w.getWord().lastIndexOf(s);
-						result.add(new StringMatchesInfo(pos2, pos2+s.length()));
+					if(((EnglishWord)w).getSuffix().equals(s) && pt.toString().equals(((EnglishWord)w).getSuffixType())){
+						//int pos2 = w.getWord().lastIndexOf(s);
+						result.add(new StringMatchesInfo(w.getLength()-s.length(), w.getLength()));
 						return result;
 					}
 				}
@@ -442,6 +442,24 @@ public class StringMatchesInfo {
 		for(String s : str){
 			if(!s.contains("/")){
 				
+				if(s.equals("1 syllable"))
+					if(w.getSyllables().length == 1){
+						result.add(new StringMatchesInfo(0, w.getWord().length()));
+						return result;
+					}
+				
+				if(s.equals("Closed syllables"))
+					if(w.getSyllables().length == 2 && !isVowel(w.getSyllables()[0].charAt(w.getSyllables()[0].length()-1))){
+						result.add(new StringMatchesInfo(0, w.getWord().length()));
+						return result;
+					}
+				
+				if(s.equals("Open syllables"))
+					if(w.getSyllables().length == 2 && isVowel(w.getSyllables()[0].charAt(w.getSyllables()[0].length()-1))){
+						result.add(new StringMatchesInfo(0, w.getWord().length()));
+						return result;
+					}
+				
 				if(s.equals("Closed and Open syllables"))
 					if(ContainsOpenClosedSyllables(w)){
 						result.add(new StringMatchesInfo(0, w.getWord().length()));
@@ -511,11 +529,12 @@ public class StringMatchesInfo {
 		ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		
 		if(w.getLanguageCode() == LanguageCode.EN){
-			String l1 = Character.toString(str[0].charAt(0));
-			String l2 = Character.toString(str[0].charAt(2));
-			
-			String tempW = w.getWord();
-			tempW = tempW.substring(1);
+			//String l1 = Character.toString(str[0].charAt(0));
+			//String l2 = Character.toString(str[0].charAt(2));
+			//if (w.getWord().indexOf(str[0].charAt(0)) == -1)
+			//	return null;
+			//String tempW = w.getWord().replace(str[0].charAt(0), str[0].charAt(2));
+			/*tempW = tempW.substring(1);
 			
 			if(w.getWord().startsWith(l1))
 				tempW = l2 + tempW;
@@ -523,15 +542,34 @@ public class StringMatchesInfo {
 				tempW = l1 + tempW;
 			else
 				return null;
-			
-			
-			if(EnglishLanguageAnalyzer.getInstance().getDictionary().getDictionary().containsKey(tempW)){
-				result.add(new StringMatchesInfo(0, w.getWord().length()));
-				return result;
+			*/
+			int start = w.getWord().indexOf(str[0].charAt(0), 0);
+			while (start != -1) {
+			//(w.getWord().indexOf(str[0].charAt(0), start) > -1){
+				String tempW = w.getWord();
+				tempW = tempW.substring(0,start)+str[0].charAt(2)+tempW.substring(start+1);
+				if(EnglishLanguageAnalyzer.getInstance().getDictionary().getDictionary().containsKey(tempW))
+					result.add(new StringMatchesInfo(start, start+1));
+				start = w.getWord().indexOf(str[0].charAt(0), start+1);
 			}
+			start = w.getWord().indexOf(str[0].charAt(2), 0);
+			while (start != -1) {
+				String tempW = w.getWord();
+				tempW = tempW.substring(0,start)+str[0].charAt(0)+tempW.substring(start+1);
+				if(EnglishLanguageAnalyzer.getInstance().getDictionary().getDictionary().containsKey(tempW))
+					result.add(new StringMatchesInfo(start, start+1));
+				start = w.getWord().indexOf(str[0].charAt(2), start+1);
+			}
+			/*if (w.getWord().indexOf(str[0].charAt(2)) > -1){
+				String tempW = w.getWord();
+				tempW = tempW.replace(str[0].charAt(2), str[0].charAt(0));
+				if(EnglishLanguageAnalyzer.getInstance().getDictionary().getDictionary().containsKey(tempW)){
+					result.add(new StringMatchesInfo(0, w.getWord().length()));
+				}
+			}*/
 		}
-		
-		
+		if (!result.isEmpty())
+			return result;		
 		return null;
 	}
 	

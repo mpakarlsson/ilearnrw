@@ -10,7 +10,8 @@ import ilearnrw.textclassification.WordType;
 import ilearnrw.utils.LanguageCode;
 
 public class GreekWord extends Word{
-	
+	private static final long serialVersionUID = 1L;
+
 	public GreekWord(){
 	}
 	
