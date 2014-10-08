@@ -517,10 +517,20 @@ public class StringMatchesInfo {
 	}
 	
 	public static ArrayList<StringMatchesInfo> syllableCount(String str[], Word w){
+		String t = str[0].substring(0, str[0].indexOf(' ')>0?str[0].indexOf(' '):str[0].length());
+		int syllables = Integer.parseInt(t.trim());
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
-		if(w.getSyllables().length>=3){
-		    result.add(new StringMatchesInfo(0, w.getWord().length()));
-		    return result;
+		if (str[0].contains("or more")){
+			if(w.getSyllables().length >= syllables){
+			    result.add(new StringMatchesInfo(0, w.getWord().length()));
+			    return result;
+			}
+		}
+		else{
+			if(w.getSyllables().length == syllables){
+			    result.add(new StringMatchesInfo(0, w.getWord().length()));
+			    return result;
+			}
 		}
 		return null;
 	}
@@ -663,6 +673,51 @@ public class StringMatchesInfo {
 				}
 			} 
 		}
+		return null;
+	}
+	
+	public static ArrayList<StringMatchesInfo> patternEqualsMixedPronunciation(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
+	    String[] sarr = str[0].split("-");
+		String ipa = w.getPhonetics();
+		if(ipa==null || ipa.isEmpty() || sarr == null || sarr.length != 2 || sarr[0].length()<=2)
+			return null;
+		//contains 'variable' C that denotes consonants
+		if (sarr[0].charAt(1) == 'C'){
+			String target = "";
+			int idx = -1;
+			for (int i=0;i<w.getGraphemesPhonemes().size()-1; i++){
+				if (w.getGraphemesPhonemes().get(i).getGrapheme().equals(sarr[0].charAt(0)+"."+sarr[0].charAt(2))){
+					target = w.getGraphemesPhonemes().get(i).getPhoneme();
+					idx = i;
+					break;
+				}
+			}
+			if (idx != -1 && w.getGraphemesPhonemes().get(idx+1).getGrapheme().length() == 1)
+				target = target + (isConsonant(w.getGraphemesPhonemes().get(idx+1).getGrapheme().charAt(0))?'C':'X');
+			if (target.equals(sarr[1])){
+				result.add(new StringMatchesInfo(w.getWord().indexOf(sarr[0]), w.getWord().indexOf(sarr[0])+sarr[0].length()));
+				return result;
+			}
+		}
+		else if (w.getWord().contains(sarr[0])){
+			String target = "";
+			int idx = -1;
+			for (int i=0;i<w.getGraphemesPhonemes().size()-1; i++){
+				if (w.getGraphemesPhonemes().get(i).getGrapheme().equals(sarr[0].charAt(0)+"."+sarr[0].charAt(2))){
+					target = w.getGraphemesPhonemes().get(i).getPhoneme();
+					idx = i;
+					break;
+				}
+			}
+			if (idx != -1)
+				target = target + w.getGraphemesPhonemes().get(idx+1).getPhoneme();
+			if (target.equals(sarr[1])){
+				result.add(new StringMatchesInfo(w.getWord().indexOf(sarr[0]), w.getWord().indexOf(sarr[0])+sarr[0].length()));
+				return result;
+			}
+		}
+		
 		return null;
 	}
 	
@@ -812,6 +867,10 @@ public class StringMatchesInfo {
 	
 	private static boolean isVowel(char c){
 		return "AEIOUYaeiouy".indexOf(c) != -1;
+	}
+	
+	private static boolean isConsonant(char c){
+		return "BCDFGHJKLMNPQRSTVXZbcdfghjklmnpqrstvwxyz".indexOf(c) != -1;
 	}
 	
 	private static int countCharacter(String word, Character lookup){

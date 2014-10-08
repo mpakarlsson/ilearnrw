@@ -96,8 +96,8 @@ public class GreekSyllabification implements Speller{
     private ArrayList<String> firstRule(String str){
     	for (int i=0; i<str.length()-2; i++){    		
 	    	if (this.vowels.contains(""+str.charAt(i)) 
-	    			&& this.vowels.contains(""+str.charAt(i+2))
-	    			&& this.consonants.contains(""+str.charAt(i+1))){
+	    			&& this.consonants.contains(""+str.charAt(i+1))
+	    			&& this.vowels.contains(""+str.charAt(i+2))){
 	    		String str1 = str.substring(0, i+1);
 	    		String str2 = str.substring(i+1);
 	    		ArrayList<String> l1 = new ArrayList<String>();
@@ -172,8 +172,56 @@ public class GreekSyllabification implements Speller{
 		return l;
     }
     
+    private ArrayList<String> vowelsRule(String str){
+    	for (int i=0; i<str.length()-1; i++){
+    		int j = i;
+	    	while (i<str.length() && this.vowels.contains(""+str.charAt(i)))
+	    		j++;
+	    	if (j-i>1 && !nonSeperable.contains(str.substring(i, j))){
+	    		String str1 = str.substring(0, i+2);
+	    		String str2 = str.substring(i+2);
+	    		ArrayList<String> l1 = new ArrayList<String>();
+	    		System.err.println(str1+" 1 "+str2);
+	    		l1.add(str1);
+	    		l1.add(str2);
+	    		return l1;
+	    	} 
+    	}
+		ArrayList<String> l = new ArrayList<String>();
+		l.add(str);
+		return l;
+    }
+    
     private ArrayList<String> lastFirstRule(String str){
-    	for (int i=0; i<str.length()-1; i++){    
+    	for (int i=0; i<str.length()-1; i++){
+    		// vvvv
+	    	/*if (i<str.length()-3 && this.vowels.contains(""+str.charAt(i)) 
+	    			&& this.vowels.contains(""+str.charAt(i+1))
+	    			&& this.vowels.contains(""+str.charAt(i+2))
+	    			&& this.vowels.contains(""+str.charAt(i+3))
+	    			&& this.nonSeperable.contains(str.substring(i, i+2))
+	    			&& this.nonSeperable.contains(str.substring(i+2, i+4))){
+	    		String str1 = str.substring(0, i+2);
+	    		String str2 = str.substring(i+2);
+	    		ArrayList<String> l1 = new ArrayList<String>();
+	    		l1.add(str1);
+	    		l1.add(str2);
+	    		return l1;
+	    	} */
+    		// vvv
+	    	if (i<str.length()-2 && this.vowels.contains(""+str.charAt(i)) 
+	    			&& this.vowels.contains(""+str.charAt(i+1))
+	    			&& this.vowels.contains(""+str.charAt(i+2))
+	    			&& this.nonSeperable.contains(str.substring(i, i+2))
+	    			&& !this.nonSeperable.contains(str.substring(i, i+3))){
+	    		String str1 = str.substring(0, i+2);
+	    		String str2 = str.substring(i+2);
+	    		ArrayList<String> l1 = new ArrayList<String>();
+	    		l1.add(str1);
+	    		l1.add(str2);
+	    		return l1;
+	    	} 
+    		// vvv
 	    	if (i<str.length()-2 && this.vowels.contains(""+str.charAt(i)) 
 	    			&& this.vowels.contains(""+str.charAt(i+1))
 	    			&& this.vowels.contains(""+str.charAt(i+2))
@@ -185,7 +233,8 @@ public class GreekSyllabification implements Speller{
 	    		l1.add(str1);
 	    		l1.add(str2);
 	    		return l1;
-	    	}  
+	    	} 
+	    	// vv
 	    	if (this.vowels.contains(""+str.charAt(i)) 
 	    			&& this.vowels.contains(""+str.charAt(i+1))
 	    			&& !this.nonSeperable.contains(str.substring(i, i+2))){
@@ -314,7 +363,7 @@ public class GreekSyllabification implements Speller{
 		this.nonSeperable.add("υος");
 		this.nonSeperable.add("ιου");
 
-		// ι,υ,ει,οι+φωνήεν
+		// ι,υ,ει,οι+φωνήεν ή δίψηφο (ου, αι, ει, οι)
 		this.nonSeperable.add("ια");
 		this.nonSeperable.add("ιά");
 		this.nonSeperable.add("ιε");
@@ -349,6 +398,47 @@ public class GreekSyllabification implements Speller{
 		this.nonSeperable.add("οιό");
 		this.nonSeperable.add("οιυ");
 		this.nonSeperable.add("οιύ");
+
+		this.nonSeperable.add("ιου");
+		this.nonSeperable.add("ιού");
+		this.nonSeperable.add("ιαι");
+		this.nonSeperable.add("ιαί");
+		this.nonSeperable.add("ιει");
+		this.nonSeperable.add("ιεί");
+		this.nonSeperable.add("ιοι");
+		this.nonSeperable.add("ιοί");
+
+		this.nonSeperable.add("υου");
+		this.nonSeperable.add("υού");
+		this.nonSeperable.add("υαι");
+		this.nonSeperable.add("υαί");
+		this.nonSeperable.add("υει");
+		this.nonSeperable.add("υεί");
+		this.nonSeperable.add("υοι");
+		this.nonSeperable.add("υοί");
+
+		this.nonSeperable.add("ειου");
+		this.nonSeperable.add("ειού");
+		this.nonSeperable.add("ειαι");
+		this.nonSeperable.add("ειαί");
+		this.nonSeperable.add("ειει");
+		this.nonSeperable.add("ειεί");
+		this.nonSeperable.add("ειοι");
+		this.nonSeperable.add("ειοί");
+
+		this.nonSeperable.add("οιου");
+		this.nonSeperable.add("οιού");
+		this.nonSeperable.add("οιαι");
+		this.nonSeperable.add("οιαί");
+		this.nonSeperable.add("οιει");
+		this.nonSeperable.add("οιεί");
+		this.nonSeperable.add("οιοι");
+		this.nonSeperable.add("οιοί");
+
+		this.nonSeperable.add("ι");
+		this.nonSeperable.add("υ");
+		this.nonSeperable.add("ει");
+		this.nonSeperable.add("οι");
 	
 		/* Undues... */
 		//this.nonSeperable.add("ι");

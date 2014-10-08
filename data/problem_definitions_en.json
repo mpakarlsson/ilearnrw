@@ -607,7 +607,7 @@
             "descriptions":[  
                "iCe-aɪC"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS_MIXED",
             "humanReadableDescription":"Pronounce \u0027iCe\u0027 as \u0027aɪC\u0027.For example: times, while, smile\u0027s",
             "cluster":23,
             "character":"Diphthong"
@@ -616,7 +616,7 @@
             "descriptions":[  
                "aCe-eɪC"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS_MIXED",
             "humanReadableDescription":"Pronounce \u0027aCe\u0027 as \u0027eɪC\u0027.For example: estimates, rates, lakes",
             "cluster":23,
             "character":"Diphthong"
@@ -661,7 +661,7 @@
             "descriptions":[  
                "oCe-əʊC"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS_MIXED",
             "humanReadableDescription":"Pronounce \u0027oCe\u0027 as \u0027əʊC\u0027.For example: wholes, phone\u0027s, bone",
             "cluster":28,
             "character":"Diphthong"
@@ -670,7 +670,7 @@
             "descriptions":[  
                "uCe-juːC"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS_MIXED",
             "humanReadableDescription":"Pronounce \u0027uCe\u0027 as \u0027juːC\u0027.For example: contribute, schedule, schedule\u0027s",
             "cluster":28,
             "character":"Long vowel"
@@ -778,7 +778,7 @@
             "descriptions":[  
                "eCe-iːC"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS_MIXED",
             "humanReadableDescription":"Pronounce \u0027eCe\u0027 as \u0027iːC\u0027.For example: these, theme, supreme",
             "cluster":33,
             "character":"Long vowel"
@@ -895,7 +895,7 @@
             "descriptions":[  
                "yCe-aɪC"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS_MIXED",
             "humanReadableDescription":"Pronounce \u0027yCe\u0027 as \u0027aɪC\u0027.For example: type, style\u0027s, types",
             "cluster":38,
             "character":"Diphthong"
@@ -1021,7 +1021,7 @@
             "descriptions":[  
                "ine-aɪn"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS_MIXED",
             "humanReadableDescription":"Pronounce \u0027ine\u0027 as \u0027aɪn\u0027.For example: combine, define, airline",
             "cluster":23,
             "character":"Diphthong"
@@ -1030,7 +1030,7 @@
             "descriptions":[  
                "ine-ɪn"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS_MIXED",
             "humanReadableDescription":"Pronounce \u0027ine\u0027 as \u0027ɪn\u0027.",
             "cluster":37,
             "character":"Short vowel"
@@ -1543,8 +1543,7 @@
          },
          {  
             "descriptions":[  
-               "thank-θæŋk",
-               "than-ðæn"
+               "thank-θæŋk"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027thank\u0027 as \u0027θæŋk\u0027.For example: thank, thanking, thanks",
@@ -2397,7 +2396,7 @@
             "descriptions":[  
                "2 syllables"
             ],
-            "problemType":"SYLLABLE_PATTERN",
+            "problemType":"SYLLABLE_COUNT",
             "humanReadableDescription":"Words containing only two syllables",
             "cluster":19,
             "character":"Polysyl"
@@ -2406,7 +2405,7 @@
             "descriptions":[  
                "3 syllables"
             ],
-            "problemType":"SYLLABLE_PATTERN",
+            "problemType":"SYLLABLE_COUNT",
             "humanReadableDescription":"Words containing only three syllables",
             "cluster":40,
             "character":"Polysyl"
@@ -2415,7 +2414,7 @@
             "descriptions":[  
                "4 syllables"
             ],
-            "problemType":"SYLLABLE_PATTERN",
+            "problemType":"SYLLABLE_COUNT",
             "humanReadableDescription":"Words containing only four syllables",
             "cluster":40,
             "character":"Polysyl"
@@ -2424,7 +2423,7 @@
             "descriptions":[  
                "5 or more syllables"
             ],
-            "problemType":"SYLLABLE_PATTERN",
+            "problemType":"SYLLABLE_COUNT",
             "humanReadableDescription":"Words containing five or more syllables",
             "cluster":40,
             "character":"Polysyl"
