@@ -596,7 +596,7 @@ public class StringMatchesInfo {
 			if(sarr.length==1){
 				String word = w.getWord();
 		
-				String shortStr = s.substring(0,s.indexOf("_C_"));				
+				String shortStr = s.substring(0,s.indexOf("C"));				
 				
 				if(word.contains(shortStr)){
 					int ind = -1;
@@ -626,7 +626,7 @@ public class StringMatchesInfo {
 			if(type.equals("contains")){
 				int pos = wordContainsGraphemePhoneme(w.getGraphemesPhonemes(), difficulty, transcription);
 				if(pos != -1){
-					if(difficulty.contains("_C_") || difficulty.contains("_V_")){
+					if(difficulty.contains("C") || difficulty.contains("V")){
 						result.add(new StringMatchesInfo(pos, pos+difficulty.length()-2));
 						return result;					
 					}
@@ -640,7 +640,7 @@ public class StringMatchesInfo {
 				
 				if(tempPhon.endsWith(transcription)){
 					String sVal = "";
-					if(difficulty.contains("_C_")){
+					if(difficulty.contains("C")){
 						sVal = difficulty.substring(3);
 						if(w.getWord().endsWith(sVal) && !isVowel(w.getWord().charAt(w.getWord().length()-sVal.length()-1))){
 							result.add(new StringMatchesInfo(w.getWord().length()-sVal.length()-1, w.getWord().length()));
@@ -649,7 +649,7 @@ public class StringMatchesInfo {
 							return null;
 						
 						
-					}else if(difficulty.contains("_V_")){
+					}else if(difficulty.contains("V")){
 						sVal = difficulty.substring(3);
 						if(w.getWord().endsWith(sVal) && isVowel(w.getWord().charAt(w.getWord().length()-sVal.length()-1))){
 							result.add(new StringMatchesInfo(w.getWord().length()-sVal.length()-1, w.getWord().length()));
@@ -721,6 +721,69 @@ public class StringMatchesInfo {
 		return null;
 	}
 	
+	public static ArrayList<StringMatchesInfo> equalsPronunciation(String str[], Word w, String type){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
+	    
+		String ipa = w.getPhonetics();
+		if(ipa==null || ipa.isEmpty())
+			return null;				
+		
+		for(String s : str){
+			String[] values = s.split("-");
+			String difficulty = values[0];
+			String transcription = values[1];
+			
+			if(type.equals("contains")){
+				if (!w.getWord().contains(difficulty))
+					continue;
+				for (int i=0; i<w.getGraphemesPhonemes().size(); i++){
+					String phon = "", graph = "";
+					int j = i;
+					while (difficulty.startsWith(graph) && transcription.startsWith(phon)){
+						GraphemePhonemePair pair = w.getGraphemesPhonemes().get(j);
+						phon = phon + pair.getPhoneme();
+						graph = graph + pair.getGrapheme().trim();
+						if (phon.equals(transcription) && graph.equals(difficulty)){
+							result.add(new StringMatchesInfo(0, graph.length()));
+							return result;
+						}
+						j++;
+						if (j>=w.getGraphemesPhonemes().size())
+							break;
+					}
+				}
+			} 
+			else if(type.equals("ends")){
+				if (!w.getWord().endsWith(difficulty))
+					continue;
+				String phon = "", graph = "";
+				for (int i=w.getGraphemesPhonemes().size()-1; i>=0; i--){
+					GraphemePhonemePair pair = w.getGraphemesPhonemes().get(i);
+					phon = pair.getPhoneme() + phon;
+					graph = pair.getGrapheme() + graph;
+					if (phon.equals(transcription) && graph.equals(difficulty)){
+						result.add(new StringMatchesInfo(0, graph.length()));
+						return result;
+					}
+				}
+			} 
+			else if(type.equals("begins")){
+				if (!w.getWord().startsWith(difficulty))
+					continue;
+				String phon = "", graph = "";
+				for (GraphemePhonemePair pair : w.getGraphemesPhonemes()){
+					phon = phon + pair.getPhoneme();
+					graph = graph + pair.getGrapheme();
+					if (phon.equals(transcription) && graph.equals(difficulty)){
+						result.add(new StringMatchesInfo(0, graph.length()));
+						return result;
+					}
+				}
+			} 
+		}
+		return null;
+	}
+	
 	private static int wordContainsGraphemePhoneme(ArrayList<GraphemePhonemePair> graphsPhons, String difficulty, String ipa){
 		ArrayList<GraphemePhonemePair> gpList = graphsPhons;
 		
@@ -731,13 +794,13 @@ public class StringMatchesInfo {
 		int specialDiff = 0;
 		
 		// If character contains unknown consonant or vowel character
-		if(difficulty.contains("_C_")){
+		if(difficulty.contains("C")){
 			specialDiff = 1;
-			value = difficulty.replace("_C_", ":");
+			value = difficulty.replace("C", ":");
 		}
-		else if(difficulty.contains("_V_")){
+		else if(difficulty.contains("V")){
 			specialDiff = 2;
-			value = difficulty.replace("_V_", ":");
+			value = difficulty.replace("V", ":");
 		} else
 			value = difficulty;
 		

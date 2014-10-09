@@ -477,10 +477,10 @@
          },
          {  
             "descriptions":[  
-               "x-ɡz"
+               "x-gz"
             ],
             "problemType":"LETTER_EQUALS_PHONEME",
-            "humanReadableDescription":"Pronounce \u0027x\u0027 as \u0027ɡz\u0027.For example: executives, existences, existence\u0027s",
+            "humanReadableDescription":"Pronounce \u0027x\u0027 as \u0027gz\u0027.For example: executives, existences, existence\u0027s",
             "cluster":18,
             "character":"Single letter"
          },
@@ -931,7 +931,7 @@
             "descriptions":[  
                "eigh-eɪ"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027eigh\u0027 as \u0027eɪ\u0027.For example: weights, eight\u0027s, neighborhood",
             "cluster":38,
             "character":"Diphthong"
@@ -1012,7 +1012,7 @@
             "descriptions":[  
                "eur-ə"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027eur\u0027 as \u0027ə\u0027.",
             "cluster":28,
             "character":"Long vowel"
@@ -1039,7 +1039,7 @@
             "descriptions":[  
                "ine-iːn"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027ine\u0027 as \u0027iːn\u0027.For example: machine\u0027s, machine, magazines",
             "cluster":37,
             "character":"Long vowel"
@@ -1140,7 +1140,7 @@
             "descriptions":[  
                "ip-ɪp"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ip\u0027 as \u0027ɪp\u0027.For example: relationship, chip, lip",
             "cluster":1,
             "character":"End of word"
@@ -1149,7 +1149,7 @@
             "descriptions":[  
                "in-ɪn"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027in\u0027 as \u0027ɪn\u0027.For example: brain, in, contain",
             "cluster":1,
             "character":"End of word"
@@ -1158,7 +1158,7 @@
             "descriptions":[  
                "st-st"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027st\u0027 as \u0027st\u0027.For example: stress\u0027s, stressing, steeling",
             "cluster":1,
             "character":"Beginning of word"
@@ -1167,7 +1167,7 @@
             "descriptions":[  
                "sp-sp"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027sp\u0027 as \u0027sp\u0027.For example: spends, spanish, space",
             "cluster":1,
             "character":"Beginning of word"
@@ -1176,7 +1176,7 @@
             "descriptions":[  
                "sn-sn"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027sn\u0027 as \u0027sn\u0027.For example: snows, snow, snowed",
             "cluster":1,
             "character":"Beginning of word"
@@ -1185,7 +1185,7 @@
             "descriptions":[  
                "sm-sm"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027sm\u0027 as \u0027sm\u0027.For example: smile\u0027s, smarted, smarter",
             "cluster":16,
             "character":"Beginning of word"
@@ -1194,7 +1194,7 @@
             "descriptions":[  
                "ad-æd"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ad\u0027 as \u0027æd\u0027.For example: ad, glad, dad",
             "cluster":3,
             "character":"End of word"
@@ -1203,7 +1203,7 @@
             "descriptions":[  
                "and-ænd"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027and\u0027 as \u0027ænd\u0027.For example: stand, expand, understand",
             "cluster":3,
             "character":"End of word"
@@ -1212,7 +1212,7 @@
             "descriptions":[  
                "de-de"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027de\u0027 as \u0027de\u0027.For example: demonstrated, demonstrates, demonstrating",
             "cluster":5,
             "character":"Beginning of word"
@@ -1221,7 +1221,7 @@
             "descriptions":[  
                "act-ækt"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027act\u0027 as \u0027ækt\u0027.For example: contract, contact, attract",
             "cluster":3,
             "character":"End of word"
@@ -1230,7 +1230,7 @@
             "descriptions":[  
                "sc-sk"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027sc\u0027 as \u0027sk\u0027.For example: schooled, schooling, school\u0027s",
             "cluster":3,
             "character":"Beginning of word"
@@ -1239,7 +1239,7 @@
             "descriptions":[  
                "cr-kr"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027cr\u0027 as \u0027kr\u0027.For example: creativenesses, crime, cries",
             "cluster":5,
             "character":"Beginning of word"
@@ -1248,7 +1248,7 @@
             "descriptions":[  
                "dr-dr"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027dr\u0027 as \u0027dr\u0027.For example: drop, drug, draw",
             "cluster":5,
             "character":"Beginning of word"
@@ -1257,7 +1257,7 @@
             "descriptions":[  
                "pr-pr"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027pr\u0027 as \u0027pr\u0027.For example: president\u0027s, process\u0027s, prisoned",
             "cluster":5,
             "character":"Beginning of word"
@@ -1266,7 +1266,7 @@
             "descriptions":[  
                "tr-tr"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027tr\u0027 as \u0027tr\u0027.For example: tripped, traffics, travelled",
             "cluster":5,
             "character":"Beginning of word"
@@ -1275,7 +1275,7 @@
             "descriptions":[  
                "str-str"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027str\u0027 as \u0027str\u0027.For example: stress\u0027s, stressing, straighter",
             "cluster":5,
             "character":"Beginning of word"
@@ -1284,7 +1284,7 @@
             "descriptions":[  
                "spr-spr"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027spr\u0027 as \u0027spr\u0027.For example: spring, spreads, springer",
             "cluster":5,
             "character":"Beginning of word"
@@ -1293,7 +1293,7 @@
             "descriptions":[  
                "scr-skr"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027scr\u0027 as \u0027skr\u0027.For example: screen, screens, screamed",
             "cluster":5,
             "character":"Beginning of word"
@@ -1302,7 +1302,7 @@
             "descriptions":[  
                "ed-t"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ed\u0027 as \u0027t\u0027.For example: tripped, reached, accessed",
             "cluster":25,
             "character":"End of word"
@@ -1311,7 +1311,7 @@
             "descriptions":[  
                "ed-d"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ed\u0027 as \u0027d\u0027.For example: schooled, timed, chickened",
             "cluster":25,
             "character":"End of word"
@@ -1320,7 +1320,7 @@
             "descriptions":[  
                "am-æm"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027am\u0027 as \u0027æm\u0027.For example: am, program",
             "cluster":5,
             "character":"End of word"
@@ -1329,7 +1329,7 @@
             "descriptions":[  
                "amp-æmp"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027amp\u0027 as \u0027æmp\u0027.For example: camp",
             "cluster":5,
             "character":"End of word"
@@ -1338,7 +1338,7 @@
             "descriptions":[  
                "im-ɪm"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027im\u0027 as \u0027ɪm\u0027.For example: him, victim, claim",
             "cluster":5,
             "character":"End of word"
@@ -1356,7 +1356,7 @@
             "descriptions":[  
                "br-br"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027br\u0027 as \u0027br\u0027.For example: brightness, briefs, bridging",
             "cluster":7,
             "character":"Beginning of word"
@@ -1374,7 +1374,7 @@
             "descriptions":[  
                "bl-bl"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027bl\u0027 as \u0027bl\u0027.For example: blueness, black, blacks",
             "cluster":7,
             "character":"Beginning of word"
@@ -1383,7 +1383,7 @@
             "descriptions":[  
                "cl-kl"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027cl\u0027 as \u0027kl\u0027.For example: clouded, cleanness\u0027s, climate",
             "cluster":7,
             "character":"Beginning of word"
@@ -1392,7 +1392,7 @@
             "descriptions":[  
                "pl-pl"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027pl\u0027 as \u0027pl\u0027.For example: plenty\u0027s, plane\u0027s, pleasure",
             "cluster":7,
             "character":"Beginning of word"
@@ -1401,7 +1401,7 @@
             "descriptions":[  
                "sl-sl"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027sl\u0027 as \u0027sl\u0027.For example: sleeps, sliding, slowness",
             "cluster":7,
             "character":"Beginning of word"
@@ -1410,7 +1410,7 @@
             "descriptions":[  
                "spl-spl"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027spl\u0027 as \u0027spl\u0027.For example: splitting, splits, split\u0027s",
             "cluster":7,
             "character":"Beginning of word"
@@ -1446,7 +1446,7 @@
             "descriptions":[  
                "elf-elf"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027elf\u0027 as \u0027elf\u0027.For example: herself, himself, itself",
             "cluster":11,
             "character":"End of word"
@@ -1455,7 +1455,7 @@
             "descriptions":[  
                "fl-fl"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027fl\u0027 as \u0027fl\u0027.For example: flight, fly, floors",
             "cluster":11,
             "character":"Beginning of word"
@@ -1464,7 +1464,7 @@
             "descriptions":[  
                "fr-fr"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027fr\u0027 as \u0027fr\u0027.For example: friends, friend, frame\u0027s",
             "cluster":11,
             "character":"Beginning of word"
@@ -1482,7 +1482,7 @@
             "descriptions":[  
                "gl-gl"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027gl\u0027 as \u0027gl\u0027.",
             "cluster":11,
             "character":"Beginning of word"
@@ -1491,7 +1491,7 @@
             "descriptions":[  
                "gr-gr"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027gr\u0027 as \u0027gr\u0027.",
             "cluster":11,
             "character":"Beginning of word"
@@ -1518,7 +1518,7 @@
             "descriptions":[  
                "sk-sk"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027sk\u0027 as \u0027sk\u0027.For example: tasking, skin\u0027s, tasked",
             "cluster":14,
             "character":"Middle of word"
@@ -1545,7 +1545,7 @@
             "descriptions":[  
                "thank-θæŋk"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027thank\u0027 as \u0027θæŋk\u0027.For example: thank, thanking, thanks",
             "cluster":14,
             "character":"Beginning of word"
@@ -1554,7 +1554,7 @@
             "descriptions":[  
                "ath-ɑːθ"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ath\u0027 as \u0027ɑːθ\u0027.For example: path",
             "cluster":14,
             "character":"End of word"
@@ -1563,7 +1563,7 @@
             "descriptions":[  
                "oth-ɒθ"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027oth\u0027 as \u0027ɒθ\u0027.For example: cloth",
             "cluster":14,
             "character":"End of word"
@@ -1572,7 +1572,7 @@
             "descriptions":[  
                "ength-eŋθ"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ength\u0027 as \u0027eŋθ\u0027.For example: length, strength",
             "cluster":14,
             "character":"End of word"
@@ -1590,7 +1590,7 @@
             "descriptions":[  
                "ic-ɪk"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ic\u0027 as \u0027ɪk\u0027.For example: basic, scientific, ethnic",
             "cluster":14,
             "character":"End of word"
@@ -1599,7 +1599,7 @@
             "descriptions":[  
                "ve-v"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ve\u0027 as \u0027v\u0027.For example: resolve, wave, observe",
             "cluster":16,
             "character":"Silent letter"
@@ -1608,7 +1608,7 @@
             "descriptions":[  
                "sw-sw"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027sw\u0027 as \u0027sw\u0027.For example: sweet, sweets, sweeter",
             "cluster":16,
             "character":"Beginning of word"
@@ -1617,7 +1617,7 @@
             "descriptions":[  
                "tw-tw"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027tw\u0027 as \u0027tw\u0027.For example: twenty, twice, twenties",
             "cluster":16,
             "character":"Beginning of word"
@@ -1626,7 +1626,7 @@
             "descriptions":[  
                "dw-dw"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027dw\u0027 as \u0027dw\u0027.",
             "cluster":16,
             "character":"Beginning of word"
@@ -1635,7 +1635,7 @@
             "descriptions":[  
                "wa-wɒ"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027wa\u0027 as \u0027wɒ\u0027.For example: wants, want, wash",
             "cluster":16,
             "character":"Beginning of word"
@@ -1644,7 +1644,7 @@
             "descriptions":[  
                "tion-ʃən"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027tion\u0027 as \u0027ʃən\u0027.For example: construction, communication\u0027s, action\u0027s",
             "cluster":28,
             "character":"Change"
@@ -1653,7 +1653,7 @@
             "descriptions":[  
                "swa-swɒ"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027swa\u0027 as \u0027swɒ\u0027.For example: swallows, swallowing, swallowed",
             "cluster":16,
             "character":"Beginning of word"
@@ -1671,7 +1671,7 @@
             "descriptions":[  
                "shr-ʃr"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027shr\u0027 as \u0027ʃr\u0027.For example: shrugged, shrugs, shrimp\u0027s",
             "cluster":16,
             "character":"Beginning of word"
@@ -1689,7 +1689,7 @@
             "descriptions":[  
                "zz-z"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027zz\u0027 as \u0027z\u0027.For example: jazz",
             "cluster":18,
             "character":"End of word"
@@ -1734,7 +1734,7 @@
             "descriptions":[  
                "arch-tʃ"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027arch\u0027 as \u0027tʃ\u0027.For example: search, research",
             "cluster":21,
             "character":"End of word"
@@ -1761,7 +1761,7 @@
             "descriptions":[  
                "wh-w"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027wh\u0027 as \u0027w\u0027.For example: which, while, white",
             "cluster":25,
             "character":"Beginning of word"
@@ -1866,7 +1866,7 @@
          },
          {  
             "descriptions":[  
-               "gle-ɡəl"
+               "gle-gəl"
             ],
             "problemType":"SUFFIX_PATTERN",
             "humanReadableDescription":"Pronounce \u0027gle\u0027 as \u0027gəl\u0027.For example: single, angle, eagle",
@@ -1895,7 +1895,7 @@
             "descriptions":[  
                "c-s"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027c\u0027 as \u0027s\u0027.For example: cycling, century, celebrate",
             "cluster":35,
             "character":"Beginning of word"
@@ -1904,7 +1904,7 @@
             "descriptions":[  
                "sc-s"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027sc\u0027 as \u0027s\u0027.For example: schooled, scientific, schooling",
             "cluster":39,
             "character":"Beginning of word"
@@ -1913,7 +1913,7 @@
             "descriptions":[  
                "age-ɪdʒ"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027age\u0027 as \u0027ɪdʒ\u0027.For example: advantaged, damaged, package",
             "cluster":31,
             "character":"Silent letter"
@@ -1922,7 +1922,7 @@
             "descriptions":[  
                "ege-ɪdʒ"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ege\u0027 as \u0027ɪdʒ\u0027.For example: college",
             "cluster":33,
             "character":"Silent letter"
@@ -1940,7 +1940,7 @@
             "descriptions":[  
                "ph-f"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027ph\u0027 as \u0027f\u0027.For example: telephoning, photographing, phone\u0027s",
             "cluster":35,
             "character":"Middle of word"
@@ -1949,7 +1949,7 @@
             "descriptions":[  
                "pph-f"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027pph\u0027 as \u0027f\u0027.",
             "cluster":35,
             "character":"Middle of word"
@@ -1958,7 +1958,7 @@
             "descriptions":[  
                "ch-k"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027ch\u0027 as \u0027k\u0027.For example: characters, christian, christmas",
             "cluster":35,
             "character":"Beginning of word"
@@ -1967,7 +1967,7 @@
             "descriptions":[  
                "ch-ʃ"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027ch\u0027 as \u0027ʃ\u0027.For example: chef, chefs, chef\u0027s",
             "cluster":39,
             "character":"Xgraph"
@@ -1976,7 +1976,7 @@
             "descriptions":[  
                "kn-n"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027kn\u0027 as \u0027n\u0027.For example: knee\u0027s, know, knee",
             "cluster":39,
             "character":"Silent letter"
@@ -1985,7 +1985,7 @@
             "descriptions":[  
                "gn-n"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027gn\u0027 as \u0027n\u0027.For example: gnome",
             "cluster":39,
             "character":"Silent letter"
@@ -1994,7 +1994,7 @@
             "descriptions":[  
                "gh-g"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027gh\u0027 as \u0027g\u0027.",
             "cluster":39,
             "character":"Silent letter"
@@ -2003,7 +2003,7 @@
             "descriptions":[  
                "ps-s"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027ps\u0027 as \u0027s\u0027.For example: psychological",
             "cluster":39,
             "character":"Silent letter"
@@ -2012,7 +2012,7 @@
             "descriptions":[  
                "rh-r"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027rh\u0027 as \u0027r\u0027.For example: rhythms, rhetoric, rhetoric\u0027s",
             "cluster":39,
             "character":"Silent letter"
@@ -2021,7 +2021,7 @@
             "descriptions":[  
                "mb-m"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027mb\u0027 as \u0027m\u0027.For example: bomb, climb",
             "cluster":39,
             "character":"Silent letter"
@@ -2030,7 +2030,7 @@
             "descriptions":[  
                "bt-t"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027bt\u0027 as \u0027t\u0027.For example: doubt, debt",
             "cluster":39,
             "character":"Silent letter"
@@ -2039,7 +2039,7 @@
             "descriptions":[  
                "mn-m"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027mn\u0027 as \u0027m\u0027.For example: column",
             "cluster":39,
             "character":"Silent letter"
@@ -2048,7 +2048,7 @@
             "descriptions":[  
                "wr-r"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027wr\u0027 as \u0027r\u0027.For example: wronged, wronging, wrapped",
             "cluster":39,
             "character":"Silent letter"
@@ -2057,7 +2057,7 @@
             "descriptions":[  
                "pt-pt"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027pt\u0027 as \u0027pt\u0027.For example: accept, adopt, attempt",
             "cluster":11,
             "character":"End of word"
@@ -2066,7 +2066,7 @@
             "descriptions":[  
                "st-s"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027st\u0027 as \u0027s\u0027.For example: christmas, listened, listening",
             "cluster":39,
             "character":"Silent letter"
@@ -2075,7 +2075,7 @@
             "descriptions":[  
                "gu-g"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027gu\u0027 as \u0027g\u0027.",
             "cluster":39,
             "character":"Beginning of word"
@@ -2084,7 +2084,7 @@
             "descriptions":[  
                "gue-g"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027gue\u0027 as \u0027g\u0027.",
             "cluster":39,
             "character":"Silent letter"
@@ -2093,7 +2093,7 @@
             "descriptions":[  
                "que-k"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027que\u0027 as \u0027k\u0027.For example: techniques, unique, uniqueness",
             "cluster":39,
             "character":"Silent letter"
@@ -2102,7 +2102,7 @@
             "descriptions":[  
                "sch-sk"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027sch\u0027 as \u0027sk\u0027.For example: schooled, schooling, school\u0027s",
             "cluster":14,
             "character":"Beginning of word"
@@ -2111,7 +2111,7 @@
             "descriptions":[  
                "xc-ks"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027xc\u0027 as \u0027ksk\u0027.For example: excepts, excellent, excepted",
             "cluster":33,
             "character":"Middle of word"
@@ -2129,7 +2129,7 @@
             "descriptions":[  
                "oh-əʊ"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027oh\u0027 as \u0027əʊ\u0027.For example: oh",
             "cluster":39,
             "character":"Middle of word"
@@ -2138,7 +2138,7 @@
             "descriptions":[  
                "cqu-kwa"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027cqu\u0027 as \u0027kwa\u0027.For example: acquires, acquired, acquiring",
             "cluster":39,
             "character":"Middle of word"
@@ -2147,7 +2147,7 @@
             "descriptions":[  
                "ngue-ŋ"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ngue\u0027 as \u0027ŋ\u0027.For example: tongue",
             "cluster":39,
             "character":"Silent letter"
@@ -2163,10 +2163,10 @@
          },
          {  
             "descriptions":[  
-               "quarC-kwɒ,kwɔː"
+               "quarC-kwɒC"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027quarC\u0027 as \u0027kwɒ,kwɔː\u0027.",
+            "humanReadableDescription":"Pronounce \u0027quarC\u0027 as \u0027kwɒ,kwɔː\u0027. For example: quark",
             "cluster":39,
             "character":"Beginning of word"
          },
@@ -2183,7 +2183,7 @@
             "descriptions":[  
                "ro-ra,rə"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027ro\u0027 as \u0027ra,rə\u0027.For example: moreover",
             "cluster":29,
             "character":"Middle of word"
@@ -2192,7 +2192,7 @@
             "descriptions":[  
                "wor-wɜː"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027wor\u0027 as \u0027wɜː\u0027.For example: wording, word\u0027s, worded",
             "cluster":35,
             "character":"Beginning of word"
@@ -2201,7 +2201,7 @@
             "descriptions":[  
                "sci-saɪ"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027sci\u0027 as \u0027saɪ\u0027.For example: scientific, scientist, scientists",
             "cluster":35,
             "character":"Silent letter"
@@ -2210,7 +2210,7 @@
             "descriptions":[  
                "scle-səl"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027scle\u0027 as \u0027səl\u0027.For example: muscles, muscled, muscle",
             "cluster":35,
             "character":"Silent letter"
@@ -2219,7 +2219,7 @@
             "descriptions":[  
                "sure-ʒə"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027sure\u0027 as \u0027ʒə\u0027.",
             "cluster":35,
             "character":"Silent letter"
@@ -2228,7 +2228,7 @@
             "descriptions":[  
                "ti-ʃ"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027ti\u0027 as \u0027ʃ\u0027.For example: construction, communication\u0027s, action\u0027s",
             "cluster":35,
             "character":"Middle of word"
@@ -2237,7 +2237,7 @@
             "descriptions":[  
                "ci-ʃ"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027ci\u0027 as \u0027ʃ\u0027.For example: ancient, politician, specials",
             "cluster":35,
             "character":"Middle of word"
@@ -2246,7 +2246,7 @@
             "descriptions":[  
                "zure-ʒə"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027zure\u0027 as \u0027ʒə\u0027.",
             "cluster":35,
             "character":"Silent letter"
@@ -2255,7 +2255,7 @@
             "descriptions":[  
                "thr-θr"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027thr\u0027 as \u0027θr\u0027.For example: throws, threatening, threats",
             "cluster":14,
             "character":"Beginning of word"
@@ -2264,7 +2264,7 @@
             "descriptions":[  
                "nd-nd"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027nd\u0027 as \u0027nd\u0027.For example: remind, friend, bond",
             "cluster":8,
             "character":"End of word"
@@ -2273,7 +2273,7 @@
             "descriptions":[  
                "nt-nt"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027nt\u0027 as \u0027nt\u0027.For example: instrument, ancient, want",
             "cluster":8,
             "character":"End of word"
@@ -2282,7 +2282,7 @@
             "descriptions":[  
                "nch-ntʃ"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027nch\u0027 as \u0027ntʃ\u0027.For example: branch, french, lunch",
             "cluster":8,
             "character":"End of word"
@@ -2291,7 +2291,7 @@
             "descriptions":[  
                "mp-mp"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027mp\u0027 as \u0027mp\u0027.For example: jump, camp",
             "cluster":8,
             "character":"End of word"
@@ -2300,7 +2300,7 @@
             "descriptions":[  
                "cise-saɪz"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027cise\u0027 as \u0027saɪz\u0027.For example: exercise",
             "cluster":33,
             "character":"Silent letter"
@@ -3082,7 +3082,7 @@
             "descriptions":[  
                "tial-ʃəl"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027tial\u0027 as \u0027ʃəl\u0027.For example: initials, presidential, initialled",
             "cluster":35,
             "character":"Change"
@@ -3091,7 +3091,7 @@
             "descriptions":[  
                "sion-ʒən"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027sion\u0027 as \u0027ʒən\u0027.For example: visions, decision\u0027s, televisions",
             "cluster":35,
             "character":"Change"
@@ -3100,7 +3100,7 @@
             "descriptions":[  
                "sure-ʒə"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
+            "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
             "humanReadableDescription":"Pronounce \u0027sure\u0027 as \u0027ʒə\u0027.",
             "cluster":35,
             "character":"Change"
@@ -3109,7 +3109,7 @@
             "descriptions":[  
                "cial-ʃəl"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027cial\u0027 as \u0027ʃəl\u0027.For example: official, commercial, special",
             "cluster":35,
             "character":"Change"
@@ -3118,7 +3118,7 @@
             "descriptions":[  
                "tial-ʃəl"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027tial\u0027 as \u0027ʃəl\u0027.For example: presidential, initial, potential",
             "cluster":35,
             "character":"Change"
@@ -3127,7 +3127,7 @@
             "descriptions":[  
                "ology-ɒlədʒi"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ology\u0027 as \u0027ɒlədʒi\u0027.For example: technology",
             "cluster":35,
             "character":"Change"
@@ -3136,7 +3136,7 @@
             "descriptions":[  
                "tory-str̩i"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027tory\u0027 as \u0027str̩i\u0027.",
             "cluster":35,
             "character":"Change"
@@ -3154,7 +3154,7 @@
             "descriptions":[  
                "dual-dʒʊə"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027dual\u0027 as \u0027dʒʊə\u0027.",
             "cluster":37,
             "character":"Change"
@@ -3163,7 +3163,7 @@
             "descriptions":[  
                "tual-tʃʊəl"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027tual\u0027 as \u0027tʃʊəl\u0027.For example: spiritual",
             "cluster":37,
             "character":"Change"
@@ -3172,7 +3172,7 @@
             "descriptions":[  
                "sual-ʒuəl"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027sual\u0027 as \u0027ʒuəl\u0027.For example: visual",
             "cluster":37,
             "character":"Change"
@@ -3181,7 +3181,7 @@
             "descriptions":[  
                "ayor-eə"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ayor\u0027 as \u0027eə\u0027.",
             "cluster":38,
             "character":"Change"
@@ -3190,7 +3190,7 @@
             "descriptions":[  
                "ayer-eɪə"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
+            "problemType":"EQUALS_PRONUNCIATION_ENDS",
             "humanReadableDescription":"Pronounce \u0027ayer\u0027 as \u0027eɪə\u0027.For example: player, gayer, sayer",
             "cluster":38,
             "character":"Change"
@@ -3300,7 +3300,7 @@
             "descriptions":[  
                "pro-prə"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027pro\u0027 as \u0027prə\u0027.For example: process\u0027s, processes, processed",
             "cluster":28,
             "character":"Prefix add"
@@ -3309,7 +3309,7 @@
             "descriptions":[  
                "pre-prɪ"
             ],
-            "problemType":"PATTERN_EQUALS_PRONUNCIATION_BEGINS",
+            "problemType":"EQUALS_PRONUNCIATION_BEGINS",
             "humanReadableDescription":"Pronounce \u0027pre\u0027 as \u0027prɪ\u0027.For example: predicted, pretty, preserving",
             "cluster":28,
             "character":"Prefix add"

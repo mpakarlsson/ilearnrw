@@ -254,8 +254,9 @@ public class WordVsProblems {
 			case LETTER_EQUALS_PHONEME: 
 			case DIGRAPH_EQUALS_PHONEME:
 			case TRIGRAPH_EQUALS_PHONEME:
-				String startType = pt.toString().substring(0, pt.toString().indexOf("_")).toLowerCase();
-				wpi.setProblemInfo(i, j, StringMatchesInfo.equalsPhoneme(pd, word, startType));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.equalsPronunciation(pd, word, "contains"));
+				//String startType = pt.toString().substring(0, pt.toString().indexOf("_")).toLowerCase();
+				//wpi.setProblemInfo(i, j, StringMatchesInfo.equalsPhoneme(pd, word, startType));
 				break;
 			
 			// TODO: Fix to be more complex, discuss with language experts
@@ -267,6 +268,12 @@ public class WordVsProblems {
 				break;
 			case PATTERN_EQUALS_PRONUNCIATION_CONTAINS_MIXED:
 				wpi.setProblemInfo(i, j, StringMatchesInfo.patternEqualsMixedPronunciation(pd, word));
+				break;
+			case EQUALS_PRONUNCIATION_CONTAINS:
+			case EQUALS_PRONUNCIATION_BEGINS:
+			case EQUALS_PRONUNCIATION_ENDS:
+				endType = pt.toString().substring(pt.toString().lastIndexOf("_")+1, pt.toString().length()).toLowerCase();
+				wpi.setProblemInfo(i, j, StringMatchesInfo.equalsPronunciation(pd, word, endType));
 				break;
 			case SYLLABLE_PATTERN:
 				wpi.setProblemInfo(i, j, StringMatchesInfo.syllablePattern(pd, word));
