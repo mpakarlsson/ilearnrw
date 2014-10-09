@@ -8,6 +8,7 @@ public class GreekSyllabification implements Speller{
     private ArrayList<String> vowels;
     private ArrayList<String> consonants;
     private ArrayList<String> nonSeperable;
+    private ArrayList<String> strongNonSeperable;
     private ArrayList<String> greekPrefixes;
 
     private ArrayList<String> result;
@@ -41,6 +42,7 @@ public class GreekSyllabification implements Speller{
 		this.vowels = new ArrayList<String>();
 		this.consonants = new ArrayList<String>();
 		this.nonSeperable = new ArrayList<String>();
+		this.strongNonSeperable = new ArrayList<String>();
 		this.greekPrefixes = new ArrayList<String>();
 		this.result = new ArrayList<String>();
 		this.initLists();
@@ -70,7 +72,7 @@ public class GreekSyllabification implements Speller{
     	if (this.result.size() <= i)
     		return;
     	ArrayList<String> res;
-    	res = lastFirstRule(this.result.get(i));
+    	res = vowelsRule(this.result.get(i));//lastFirstRule(this.result.get(i));
     	check(res, i);
 
     	res = firstRule(this.result.get(i));
@@ -175,16 +177,18 @@ public class GreekSyllabification implements Speller{
     private ArrayList<String> vowelsRule(String str){
     	for (int i=0; i<str.length()-1; i++){
     		int j = i;
-	    	while (i<str.length() && this.vowels.contains(""+str.charAt(i)))
+	    	while (j<str.length() && this.vowels.contains(""+str.charAt(j)))
 	    		j++;
-	    	if (j-i>1 && !nonSeperable.contains(str.substring(i, j))){
-	    		String str1 = str.substring(0, i+2);
-	    		String str2 = str.substring(i+2);
-	    		ArrayList<String> l1 = new ArrayList<String>();
-	    		System.err.println(str1+" 1 "+str2);
-	    		l1.add(str1);
-	    		l1.add(str2);
-	    		return l1;
+	    	if (j>i){
+		    	int idx = multipleVowels(str.substring(i, j));
+		    	if (idx > 0){
+		    		String str1 = str.substring(0, i+idx);
+		    		String str2 = str.substring(i+idx);
+		    		ArrayList<String> l1 = new ArrayList<String>();
+		    		l1.add(str1);
+		    		l1.add(str2);
+		    		return l1;
+		    	}
 	    	} 
     	}
 		ArrayList<String> l = new ArrayList<String>();
@@ -195,19 +199,22 @@ public class GreekSyllabification implements Speller{
     private ArrayList<String> lastFirstRule(String str){
     	for (int i=0; i<str.length()-1; i++){
     		// vvvv
-	    	/*if (i<str.length()-3 && this.vowels.contains(""+str.charAt(i)) 
+    		if (i<str.length()-3 && this.vowels.contains(""+str.charAt(i)) 
 	    			&& this.vowels.contains(""+str.charAt(i+1))
 	    			&& this.vowels.contains(""+str.charAt(i+2))
 	    			&& this.vowels.contains(""+str.charAt(i+3))
 	    			&& this.nonSeperable.contains(str.substring(i, i+2))
-	    			&& this.nonSeperable.contains(str.substring(i+2, i+4))){
+	    			&& this.nonSeperable.contains(str.substring(i+2, i+4))
+	    			&& !this.nonSeperable.contains(str.substring(i, i+4))
+	    			&& !this.nonSeperable.contains(str.substring(i, i+3))
+	    			&& !this.nonSeperable.contains(str.substring(i+1, i+4))){
 	    		String str1 = str.substring(0, i+2);
 	    		String str2 = str.substring(i+2);
 	    		ArrayList<String> l1 = new ArrayList<String>();
 	    		l1.add(str1);
 	    		l1.add(str2);
 	    		return l1;
-	    	} */
+	    	}
     		// vvv
 	    	if (i<str.length()-2 && this.vowels.contains(""+str.charAt(i)) 
 	    			&& this.vowels.contains(""+str.charAt(i+1))
@@ -249,6 +256,32 @@ public class GreekSyllabification implements Speller{
 		ArrayList<String> l = new ArrayList<String>();
 		l.add(str);
 		return l;
+    }
+    
+    /*
+     * @param a greek string contains only vowels
+     * @return the first index that the string needs to be split (-1 if not exists)
+     */
+    private int multipleVowels(String vv){
+    	if (vv.length() <= 1)
+    		return -1;
+    	if (this.nonSeperable.contains(vv))
+    		return -1;
+    	if (!this.nonSeperable.contains(vv) && vv.length() == 2)
+    		return 1;
+    	if (!this.nonSeperable.contains(vv.substring(0, vv.length()-1)) && this.nonSeperable.contains(1) 
+    			&& !strongNonSeperable.contains(vv.substring(0, 2)))
+    		return 1;
+    	else if (strongNonSeperable.contains(vv.substring(0, 2)))
+    		return 2;
+    	if (this.nonSeperable.contains(vv.substring(0, vv.length()-1)) && !this.nonSeperable.contains(1) 
+    			&& !strongNonSeperable.contains(vv.substring(vv.length()-2)))
+    		return multipleVowels(vv.substring(0, vv.length()-1));
+    	else if (strongNonSeperable.contains(vv.substring(vv.length()-2)))
+    		return multipleVowels(vv.substring(0, vv.length()-2)) == -1?vv.length()-2:multipleVowels(vv.substring(0, vv.length()-2));
+        	if (vv.substring(vv.length()-1).length()>1)
+        		return multipleVowels(vv.substring(0, vv.length()-1));
+    	return -1;
     }
     
     /**
@@ -322,12 +355,35 @@ public class GreekSyllabification implements Speller{
 		this.consonants.add("ς");
 
 		/*Two Digits Vowels...*/
+		this.strongNonSeperable.add("ου");
+		this.strongNonSeperable.add("ού");
+		this.strongNonSeperable.add("αι");
+		this.strongNonSeperable.add("αί");
+		this.strongNonSeperable.add("ει");
+		this.strongNonSeperable.add("εί");
+		this.strongNonSeperable.add("εϊ");
+		this.strongNonSeperable.add("οι");
+		this.strongNonSeperable.add("οί");
+		this.strongNonSeperable.add("υι");
+		this.strongNonSeperable.add("αϊ");
+		this.strongNonSeperable.add("άι");
+		this.strongNonSeperable.add("αη");
+		this.strongNonSeperable.add("οϊ");
+		this.strongNonSeperable.add("όι");
+		this.strongNonSeperable.add("οη");
+		this.strongNonSeperable.add("αυ");
+		this.strongNonSeperable.add("ευ");
+		this.strongNonSeperable.add("αύ");
+		this.strongNonSeperable.add("εύ");
+
+		/*Two Digits Vowels...*/
 		this.nonSeperable.add("ου");
 		this.nonSeperable.add("ού");
 		this.nonSeperable.add("αι");
 		this.nonSeperable.add("αί");
 		this.nonSeperable.add("ει");
 		this.nonSeperable.add("εί");
+		this.nonSeperable.add("εϊ");
 		this.nonSeperable.add("οι");
 		this.nonSeperable.add("οί");
 		this.nonSeperable.add("υι");
@@ -386,6 +442,7 @@ public class GreekSyllabification implements Speller{
 		this.nonSeperable.add("υό");
 		this.nonSeperable.add("υω");
 		this.nonSeperable.add("υώ");
+		this.nonSeperable.add("εια");
 		this.nonSeperable.add("ειά");
 		this.nonSeperable.add("ειέ");
 		this.nonSeperable.add("ειή");
@@ -396,6 +453,7 @@ public class GreekSyllabification implements Speller{
 		this.nonSeperable.add("οιέ");
 		this.nonSeperable.add("οιή");
 		this.nonSeperable.add("οιό");
+		this.nonSeperable.add("οιο");
 		this.nonSeperable.add("οιυ");
 		this.nonSeperable.add("οιύ");
 
