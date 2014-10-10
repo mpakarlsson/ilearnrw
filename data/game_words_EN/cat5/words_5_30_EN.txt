@@ -1,9 +1,3 @@
 suggest
-suggestion
-suggesting
-suggests
-suggested
-suggestions
 ###
-suggestively
-suggestive
+suggestion

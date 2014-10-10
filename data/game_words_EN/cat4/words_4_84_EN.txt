@@ -1,4 +1,6 @@
-player
+sayer
+payer
 layer
 ###
-payer
+player
+taxpayer

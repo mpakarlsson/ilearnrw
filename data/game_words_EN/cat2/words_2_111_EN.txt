@@ -1,4 +1,1 @@
-acquire
-acquired
 ###
-acquires

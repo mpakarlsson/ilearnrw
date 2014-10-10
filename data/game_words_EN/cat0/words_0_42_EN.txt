@@ -1,8 +1,3 @@
 jazz
-puzzle
-jazzed
-jazzes
-jazzing
 ###
-puzzles
-puzzled
+puzzle

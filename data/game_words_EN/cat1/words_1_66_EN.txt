@@ -1,11 +1,9 @@
 here
 merely
-atmosphere
 severe
+atmosphere
 mere
-sphere
-severely
 ###
-atmospheres
-meres
-spheres
+sphere
+interfere
+severely

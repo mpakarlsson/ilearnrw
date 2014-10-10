@@ -1,10 +1,11 @@
 little
-battle
 title
+battle
 settle
 bottle
 gentle
 ###
 subtle
-entitle
 cattle
+entitle
+shuttle

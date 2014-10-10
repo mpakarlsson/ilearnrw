@@ -1,8 +1,5 @@
 they
-survey
 hey
-convey
-surveyed
 ###
-surveys
-conveys
+survey
+convey

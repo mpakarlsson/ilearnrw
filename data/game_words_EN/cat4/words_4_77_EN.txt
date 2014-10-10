@@ -1,5 +1,7 @@
 technology
-psychology
+biology
+ideology
 theology
 ###
-biology
+psychology
+apology

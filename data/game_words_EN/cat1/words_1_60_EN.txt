@@ -1,10 +1,7 @@
 magazine
 machine
 routine
-vaccine
 marine
-magazines
 ###
-machines
-routines
-vaccines
+vaccine
+gasoline

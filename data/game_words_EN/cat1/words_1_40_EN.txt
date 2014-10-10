@@ -1,12 +1,7 @@
 new
 few
 news
-newspaper
 fewer
-newly
-newness
-newer
 ###
-fewness
-newspapers
-newest
+newspaper
+newly

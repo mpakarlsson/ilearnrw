@@ -1,8 +1,10 @@
 social
-official
 special
+official
 financial
 commercial
-###
 racial
+###
 crucial
+judicial
+artificial

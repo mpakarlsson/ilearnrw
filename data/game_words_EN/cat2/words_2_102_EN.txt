@@ -1,10 +1,11 @@
+adopt
 accept
+except
 concept
 attempt
-adopt
-except
-adapt
+opt
 ###
+adapt
 prompt
 script
-opt
+interrupt

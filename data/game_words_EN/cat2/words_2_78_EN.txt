@@ -2,3 +2,4 @@ middle
 handle
 ###
 needle
+candle

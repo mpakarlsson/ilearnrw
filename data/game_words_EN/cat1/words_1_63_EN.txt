@@ -1,6 +1,4 @@
 wear
 bear
-swear
-wears
 ###
-bears
+swear

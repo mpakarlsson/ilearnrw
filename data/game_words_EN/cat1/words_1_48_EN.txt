@@ -1,12 +1,7 @@
 eight
-weight
 weigh
-eighth
-eights
-weighted
-weighting
-weights
+weight
+neighborhood
 ###
-weighing
-weighs
-weighed
+eighth
+neighboring

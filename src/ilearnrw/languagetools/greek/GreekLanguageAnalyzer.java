@@ -1,5 +1,8 @@
 package ilearnrw.languagetools.greek;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordType;
@@ -12,6 +15,7 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 	private GreekSoundDictionary soundsSimilarDictionary;
 	private Word word;
 	private static GreekLanguageAnalyzer instance = null;
+	//public static HashMap<String, ArrayList<String>> collection = new HashMap<String, ArrayList<String>>();
 
 
 	protected GreekLanguageAnalyzer() {
@@ -71,7 +75,9 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 						dist++;
 				}
 				//if (temp.equals(target)){
+				//ArrayList<String> p = new ArrayList<String>();
 				if (altDist > dist && (dist < 3 && this.word.getLength()>3 || dist < 2 && this.word.getLength()>2)){
+					//p.add(x.getWord());
 					/*if (this.word.getFrequency()>0 && !test.contains(this.word.getWord()+" "+this.word.getType()+" "+
 							this.word.getStem()+" "+this.word.getFrequency())){
 						test.add(this.word.getWord()+" "+this.word.getType()+" "+
@@ -82,6 +88,20 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 					}*/
 					return x;
 				}
+				/*if (p.size()>0){
+					if (collection.containsKey(this.word.getWord())){
+						ArrayList<String> k = collection.get(this.word.getWord());
+						if (!k.contains(x.getWord())){
+							k.add(x.getWord());
+							collection.put(this.word.getWord(), k);
+						}
+					}
+					else{
+						ArrayList<String> k = new ArrayList<String>();
+						k.add(x.getWord());
+						collection.put(this.word.getWord(), k);
+					}
+				}*/
 			}
 			return null;
 		}

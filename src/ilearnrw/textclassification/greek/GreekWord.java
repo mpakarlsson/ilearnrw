@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import ilearnrw.languagetools.greek.GreekPhonetics;
 import ilearnrw.languagetools.greek.GreekSpeller;
+import ilearnrw.languagetools.greek.GreekSyllabification;
 import ilearnrw.languagetools.greek.Speller;
 import ilearnrw.textclassification.GraphemePhonemePair;
 import ilearnrw.textclassification.Word;
@@ -49,7 +50,7 @@ public class GreekWord extends Word{
 	}
 	
 	protected void syllabism(){
-		Speller s = new GreekSpeller();
+		Speller s = new GreekSyllabification();
 		s.setStringToSpell(word);
 		s.performSpelling();
 		syllables = s.getTokensArray();

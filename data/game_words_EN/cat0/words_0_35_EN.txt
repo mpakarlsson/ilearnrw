@@ -1,12 +1,5 @@
 issue
 pressure
+###
 assure
 tissue
-issuing
-issues
-issued
-pressures
-###
-assuring
-assures
-assured

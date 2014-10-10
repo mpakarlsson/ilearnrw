@@ -1,4 +1,3 @@
 psychology
-psychologist
 ###
-psychologies
+psychologist

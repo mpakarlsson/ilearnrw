@@ -1,6 +1,4 @@
 sure
 ensure
-surely
-sureness
 ###
-ensures
+surely

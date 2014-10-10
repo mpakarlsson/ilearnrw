@@ -1,5 +1,7 @@
 production
-construction
 instruction
-###
+construction
 reduction
+###
+destruction
+introduction

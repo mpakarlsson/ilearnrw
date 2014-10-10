@@ -1,0 +1,6 @@
+egg
+struggle
+aggressive
+###
+trigger
+aggression

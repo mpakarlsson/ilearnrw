@@ -1,8 +1,2 @@
-toe
-goes
-heroes
-potatoes
-tomatoes
 ###
-toes
-echoes
+toe
