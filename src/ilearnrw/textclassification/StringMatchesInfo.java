@@ -582,7 +582,7 @@ public class StringMatchesInfo {
 			return result;		
 		return null;
 	}
-	
+
 	public static ArrayList<StringMatchesInfo> patternEqualsPronunciation(String str[], Word w, String type){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 	    
@@ -754,7 +754,7 @@ public class StringMatchesInfo {
 				}
 			} 
 			else if(type.equals("ends")){
-				if (!w.getWord().endsWith(difficulty))
+				/*if (!w.getWord().endsWith(difficulty))
 					continue;
 				String phon = "", graph = "";
 				for (int i=w.getGraphemesPhonemes().size()-1; i>=0; i--){
@@ -765,10 +765,15 @@ public class StringMatchesInfo {
 						result.add(new StringMatchesInfo(0, graph.length()));
 						return result;
 					}
+				}*/
+				String ph = ipa.replace(".", "").replace("ˈ", "");
+				if (w.getWord().endsWith(difficulty) && ph.endsWith(transcription)){
+					result.add(new StringMatchesInfo(w.getWord().length() - difficulty.length(), w.getWord().length()));
+					return result;
 				}
 			} 
 			else if(type.equals("begins")){
-				if (!w.getWord().startsWith(difficulty))
+				/*if (!w.getWord().startsWith(difficulty))
 					continue;
 				String phon = "", graph = "";
 				for (GraphemePhonemePair pair : w.getGraphemesPhonemes()){
@@ -778,10 +783,84 @@ public class StringMatchesInfo {
 						result.add(new StringMatchesInfo(0, graph.length()));
 						return result;
 					}
+				}*/
+				String ph = ipa.replace(".", "").replace("ˈ", "");
+				if (w.getWord().startsWith(difficulty) && ph.startsWith(transcription)){
+					result.add(new StringMatchesInfo(0, difficulty.length()));
+					return result;
 				}
 			} 
 		}
 		return null;
+	}
+	
+	public static ArrayList<StringMatchesInfo> equalsPronunciationPattern(String str[], Word w, String type){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
+	    
+		String ipa = w.getPhonetics();
+		if(ipa==null || ipa.isEmpty())
+			return null;				
+		
+		for(String s : str){
+			String[] values = s.split("-");
+			String difficulty = values[0];
+			String transcription = values[1];
+			
+			if (difficulty.length() > w.getWord().length() || transcription.length() > ipa.length())
+				continue;
+			if(type.equals("contains")){
+				for (int i=0; i<w.getGraphemesPhonemes().size(); i++){
+					String phon = "", graph = "";
+					int j = i;
+					while (j<w.getGraphemesPhonemes().size()){
+						GraphemePhonemePair pair = w.getGraphemesPhonemes().get(j);
+						phon = phon + pair.getPhoneme();
+						graph = graph + pair.getGrapheme().trim();
+						if (replaceWithCV(transcription, phon).equals(transcription) && 
+								replaceWithCV(difficulty, graph).equals(difficulty)){
+							result.add(new StringMatchesInfo(0, graph.length()));
+							return result;
+						}
+						j++;
+						if (j>=w.getGraphemesPhonemes().size())
+							break;
+					}
+				}
+			} 
+			else if(type.equals("ends")){
+				String ph = ipa.replace(".", "").replace("ˈ", "");
+				if (replaceWithCV(difficulty, w.getWord().substring(w.getWord().length() - difficulty.length())).endsWith(difficulty) && 
+						replaceWithCV(transcription, ph.substring(ph.length() - transcription.length())).endsWith(transcription)){
+					result.add(new StringMatchesInfo(w.getWord().length()-difficulty.length(), w.getWord().length()));
+					return result;
+				}
+			} 
+			else if(type.equals("begins")){
+				String ph = ipa.replace(".", "").replace("ˈ", "");
+				if (replaceWithCV(difficulty, w.getWord().substring(0, difficulty.length())).startsWith(difficulty) && 
+						replaceWithCV(transcription, ph.substring(0, transcription.length())).startsWith(transcription)){
+					result.add(new StringMatchesInfo(0, difficulty.length()));
+					return result;
+				}
+			} 
+		}
+		return null;
+	}
+	
+	private static String replaceWithCV(String difficulty, String string){
+		if (string.length() <1)
+			return "XXX";
+		if (difficulty.startsWith("C") && (isConsonant(string.charAt(0)) || !isConsonant(string.charAt(0)) && !isVowel(string.charAt(0))))
+			return "C"+string.substring(1);
+		if (difficulty.startsWith("V") && isVowel(string.charAt(0)) || !isConsonant(string.charAt(0)) && !isVowel(string.charAt(0)))
+			return "V"+string.substring(1);
+		if (difficulty.endsWith("C") && isConsonant(string.charAt(string.length()-1)) || 
+				!isConsonant(string.charAt(string.length()-1)) && !isVowel(string.charAt(string.length()-1)))
+			return string.substring(0, string.length()-1)+"C";
+		if (difficulty.endsWith("V") && isVowel(string.charAt(string.length()-1)) || 
+				!isConsonant(string.charAt(string.length()-1)) && !isVowel(string.charAt(string.length()-1)))
+			return string.substring(0, string.length()-1)+"V";
+		return "XXX";
 	}
 	
 	private static int wordContainsGraphemePhoneme(ArrayList<GraphemePhonemePair> graphsPhons, String difficulty, String ipa){

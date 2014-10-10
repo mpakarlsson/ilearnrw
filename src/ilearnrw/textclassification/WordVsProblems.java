@@ -264,7 +264,8 @@ public class WordVsProblems {
 			case PATTERN_EQUALS_PRONUNCIATION_BEGINS:
 			case PATTERN_EQUALS_PRONUNCIATION_ENDS:
 				String endType = pt.toString().substring(pt.toString().lastIndexOf("_")+1, pt.toString().length()).toLowerCase();
-				wpi.setProblemInfo(i, j, StringMatchesInfo.patternEqualsPronunciation(pd, word, endType));
+				//wpi.setProblemInfo(i, j, StringMatchesInfo.patternEqualsPronunciation(pd, word, endType));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.equalsPronunciationPattern(pd, word, endType));
 				break;
 			case PATTERN_EQUALS_PRONUNCIATION_CONTAINS_MIXED:
 				wpi.setProblemInfo(i, j, StringMatchesInfo.patternEqualsMixedPronunciation(pd, word));

@@ -2166,7 +2166,7 @@
                "quarC-kwɒC"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027quarC\u0027 as \u0027kwɒ,kwɔː\u0027. For example: quark",
+            "humanReadableDescription":"Pronounce \u0027quarC\u0027 as \u0027kwɒC\u0027. For example: quark",
             "cluster":39,
             "character":"Beginning of word"
          },
@@ -3134,10 +3134,10 @@
          },
          { 
             "descriptions":[  
-               "tory-str̩i"
+               "tory-təri"
             ],
             "problemType":"EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027tory\u0027 as \u0027str̩i\u0027.",
+            "humanReadableDescription":"Pronounce \u0027tory\u0027 as \u0027təri\u0027. For example: documentary",
             "cluster":35,
             "character":"Change"
          },
