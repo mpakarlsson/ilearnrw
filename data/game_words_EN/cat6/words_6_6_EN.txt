@@ -2,7 +2,6 @@ law
 low
 lip
 row
-hear
 play
 lose
 real
@@ -52,14 +51,13 @@ appeal
 reading
 hearing
 prayer
-dealer
 leading
 raw
 rid
 rip
-###
 lid
 tire
+###
 load
 flee
 dear

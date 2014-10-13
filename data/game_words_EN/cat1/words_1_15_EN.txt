@@ -6,7 +6,6 @@ never
 another
 ever
 user
-beer
 water
 under
 power
@@ -24,7 +23,6 @@ however
 whether
 teacher
 perhaps
-peer
 paper
 cover
 order
@@ -48,7 +46,6 @@ either
 energy
 summer
 letter
-career
 wonder
 answer
 sister
@@ -64,9 +61,9 @@ perform
 pattern
 soldier
 together
-###
 remember
 consider
+###
 computer
 daughter
 whatever

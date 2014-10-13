@@ -1,9 +1,9 @@
 character
 characteristic
 chemical
-characterize
+characterise
 chaos
-###
 chronic
+###
 chemistry
 cholesterol

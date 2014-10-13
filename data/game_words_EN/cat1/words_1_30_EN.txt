@@ -64,8 +64,8 @@ motion
 clothes
 overall
 totally
-###
 supposed
+###
 tomorrow
 location
 proposal
@@ -96,6 +96,5 @@ negotiate
 association
 negotiation
 cooperation
-toe
 pro
 ego

@@ -2,6 +2,6 @@ artist
 tourist
 terrorist
 journalist
-###
 specialist
+###
 columnist

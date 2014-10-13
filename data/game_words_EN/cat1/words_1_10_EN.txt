@@ -18,7 +18,7 @@ identify
 supply
 nearby
 occupy
-analyze
+analyse
 testify
 psychological
 shy
@@ -26,8 +26,8 @@ dying
 modify
 comply
 justify
-###
 satisfy
+###
 qualify
 thereby
 dynamic

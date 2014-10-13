@@ -9,7 +9,6 @@ concept
 conduct
 context
 contact
-connect
 content
 confirm
 consumer
@@ -19,7 +18,6 @@ conclude
 contrast
 concerned
 contribute
-connection
 conclusion
 confidence
 consequence
@@ -61,9 +59,9 @@ concrete
 conceive
 confident
 continued
-###
 consensus
 container
+###
 confusion
 convinced
 conscious

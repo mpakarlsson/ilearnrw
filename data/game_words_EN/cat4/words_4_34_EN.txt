@@ -22,8 +22,8 @@ largest
 loosest
 densest
 bravest
-###
 simplest
+###
 gentlest
 severest
 minutest

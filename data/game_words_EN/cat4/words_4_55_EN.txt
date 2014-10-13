@@ -2,6 +2,6 @@ production
 instruction
 construction
 reduction
-###
 destruction
+###
 introduction

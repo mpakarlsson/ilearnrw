@@ -34,17 +34,14 @@ experiment
 exhibition
 explanation
 extraordinary
-exit
-exam
-exact
 exceed
 export
 excuse
 exotic
 explode
 exhibit
-###
 exclude
+###
 excited
 execute
 exploit
@@ -58,7 +55,6 @@ explosion
 extension
 exclusive
 expertise
-execution
 excessive
 excitement
 expedition

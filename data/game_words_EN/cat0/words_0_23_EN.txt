@@ -60,12 +60,11 @@ finger
 together
 language
 magazine
-recognize
 government
 significant
 garden
-###
 global
+###
 target
 engage
 gather
@@ -78,7 +77,6 @@ category
 negative
 progress
 greatest
-organize
 governor
 agreement
 beginning

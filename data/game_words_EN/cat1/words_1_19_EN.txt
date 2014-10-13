@@ -1,4 +1,3 @@
-student
 minute
 tube
 assume
@@ -14,9 +13,9 @@ tune
 cute
 excuse
 resume
-###
 immune
 consume
+###
 confuse
 execute
 costume

@@ -1,4 +1,3 @@
 suffer
-suffering
-###
 sufficient
+###

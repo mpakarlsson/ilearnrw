@@ -3,7 +3,6 @@ big
 bad
 dad
 dig
-both
 bone
 bear
 beer
@@ -12,9 +11,9 @@ brain
 brown
 rid
 bay
-###
 rib
 deer
+###
 dear
 dare
 bare

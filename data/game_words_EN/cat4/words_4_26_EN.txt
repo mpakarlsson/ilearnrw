@@ -1,6 +1,5 @@
 bigger
 cutter
-redder
 topper
 hotter
 leveller
@@ -16,9 +15,9 @@ digger
 popper
 madder
 hipper
-###
 wrapper
 snapper
+###
 flatter
 logger
 ripper

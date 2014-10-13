@@ -3,8 +3,7 @@ cell
 cite
 policy
 decide
-process
-civil
+circle
 cycle
 agency
 accept
@@ -24,7 +23,7 @@ certainly
 necessary
 participant
 access
-circle
+process
 except
 citizen
 concept
@@ -61,11 +60,10 @@ cigarette
 criticism
 excellent
 exception
-criticize
 precisely
 incentive
-###
 concentrate
+###
 electricity
 participation
 concentration
@@ -85,7 +83,6 @@ grocery
 excited
 precise
 vaccine
-circuit
 concede
 bicycle
 specify
@@ -93,7 +90,6 @@ dancing
 advanced
 tendency
 exciting
-civilian
 receiver
 currency
 accuracy

@@ -38,8 +38,8 @@ sole
 scope
 slope
 stove
-###
 globe
+###
 remote
 stroke
 devote

@@ -5,8 +5,6 @@ find
 life
 feel
 first
-after
-family
 few
 far
 fly
@@ -64,10 +62,10 @@ himself
 self
 roof
 flag
-###
 flat
 floor
 focus
+###
 fight
 final
 front
@@ -99,3 +97,5 @@ finish
 finger
 finally
 federal
+after
+family

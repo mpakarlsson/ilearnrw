@@ -51,16 +51,14 @@ pet
 rip
 bat
 tail
+###
 fate
 tent
 dare
 rail
-###
-rape
 rent
 rear
 tide
-ours
 cute
 toll
 cure
@@ -70,8 +68,6 @@ tight
 swear
 march
 sweat
-rumor
-tumor
 sheer
 closer
 closet
@@ -79,9 +75,5 @@ render
 tender
 rocket
 patent
-bucket
 marker
-blanket
 tightly
-rolling
-starting

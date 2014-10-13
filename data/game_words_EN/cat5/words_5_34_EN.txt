@@ -1,4 +1,3 @@
-dish
 disease
 discuss
 discover
@@ -16,16 +15,14 @@ discovery
 discipline
 disability
 distribution
-disk
-disc
 dismiss
 disturb
 distinct
 dissolve
 disabled
-###
 disclose
 discount
+###
 distract
 discourse
 distribute

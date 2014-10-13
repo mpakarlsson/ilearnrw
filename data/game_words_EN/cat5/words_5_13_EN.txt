@@ -1,6 +1,5 @@
 appear
 apply
-apple
 approach
 appeal
 apparently
@@ -9,8 +8,8 @@ appreciate
 appropriate
 application
 approve
-###
 apparent
+###
 approval
 approximately
 appoint

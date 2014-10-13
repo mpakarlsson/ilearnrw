@@ -1,12 +1,9 @@
 system
-enjoy
-layer
-player
+gym
 everyone
 physical
 everybody
 everything
-destroy
 analyst
 typical
 symbol
@@ -15,7 +12,7 @@ mystery
 typically
 physician
 everywhere
-gym
+bicycle
 myth
 rhythm
 oxygen
@@ -23,8 +20,6 @@ solely
 physics
 crystal
 ###
-bicycle
-taxpayer
 everyday
 symbolic
 syndrome
@@ -34,4 +29,3 @@ anonymous
 routinely
 physically
 mysterious
-unemployment

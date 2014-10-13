@@ -4,8 +4,8 @@ battle
 settle
 bottle
 gentle
-###
 subtle
+###
 cattle
 entitle
 shuttle

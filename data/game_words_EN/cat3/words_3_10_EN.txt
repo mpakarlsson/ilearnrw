@@ -15,8 +15,6 @@ theory
 memory
 camera
 finally
-federal
-society
 century
 medical
 officer
@@ -38,7 +36,6 @@ continue
 anything
 together
 remember
-actually
 consider
 probably
 possible
@@ -64,9 +61,9 @@ employee
 specific
 politics
 somebody
-###
 discover
 property
+###
 positive
 magazine
 president
@@ -96,6 +93,5 @@ commercial
 discussion
 performance
 significant
-traditional
 relationship
 nobody

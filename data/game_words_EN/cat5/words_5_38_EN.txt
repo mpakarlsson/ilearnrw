@@ -2,6 +2,6 @@ opportunity
 oppose
 opposition
 opponent
-###
 opposite
+###
 opposed

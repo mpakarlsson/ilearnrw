@@ -2,7 +2,6 @@ edge
 judge
 knowledge
 bridge
-###
-acknowledge
 ridge
+###
 hedge

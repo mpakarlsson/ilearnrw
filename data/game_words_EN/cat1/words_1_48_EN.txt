@@ -1,7 +1,7 @@
 eight
 weigh
 weight
-neighborhood
-###
+neighbourhood
 eighth
-neighboring
+###
+neighbouring

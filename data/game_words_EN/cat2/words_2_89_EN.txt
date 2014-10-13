@@ -3,7 +3,7 @@ photo
 phase
 physical
 telephone
-emphasize
+emphasise
 photograph
 phrase
 emphasis
@@ -14,8 +14,8 @@ phenomenon
 sphere
 physics
 triumph
-###
 metaphor
+###
 elephant
 physically
 photography

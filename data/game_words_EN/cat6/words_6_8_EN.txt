@@ -16,7 +16,6 @@ gate
 king
 ###
 gear
-daily
 beg
 bid
 dear

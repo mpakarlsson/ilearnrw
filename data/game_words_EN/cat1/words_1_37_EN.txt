@@ -1,8 +1,6 @@
 cause
 sauce
 pause
-author
-authority
 launch
 audience
 auto
@@ -12,11 +10,11 @@ fraud
 trauma
 assault
 auction
-###
 exhaust
+###
 autonomy
 automatic
-authorize
-automobile
-automatically
+authorise
 laundry
+author
+authority

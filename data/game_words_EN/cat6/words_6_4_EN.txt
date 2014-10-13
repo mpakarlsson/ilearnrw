@@ -12,14 +12,12 @@ host
 small
 money
 house
-morning
 hill
 shall
 smell
 shell
-###
-housing
 hay
+###
 mere
 mall
 mate

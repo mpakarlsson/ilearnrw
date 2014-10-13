@@ -3,6 +3,4 @@ wrap
 wrong
 writer
 ###
-writing
 wrist
-written

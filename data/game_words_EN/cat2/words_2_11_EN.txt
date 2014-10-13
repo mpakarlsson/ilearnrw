@@ -18,9 +18,9 @@ creation
 creature
 criteria
 criticism
-criticize
-###
+criticise
 craft
+###
 crash
 crack
 crawl

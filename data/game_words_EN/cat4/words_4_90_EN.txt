@@ -2,7 +2,7 @@ available
 variable
 capable
 valuable
-###
 reliable
+###
 vulnerable
 inevitable

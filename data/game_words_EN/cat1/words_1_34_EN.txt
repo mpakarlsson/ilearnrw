@@ -8,8 +8,8 @@ noise
 joint
 choice
 boil
-###
 coin
+###
 toilet
 appoint
 exploit

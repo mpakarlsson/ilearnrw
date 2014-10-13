@@ -6,9 +6,7 @@ liking
 giving
 stating
 leaving
-whiling
 becoming
-casing
 moving
 homing
 siding
@@ -27,7 +25,6 @@ voicing
 raising
 pricing
 valuing
-icing
 hoping
 basing
 typing
@@ -38,7 +35,6 @@ fining
 racing
 rising
 sizing
-edging
 spacing
 tabling
 imaging
@@ -53,7 +49,6 @@ staging
 shaking
 proving
 smiling
-ranging
 styling
 scoring
 staring
@@ -64,15 +59,14 @@ deciding
 coupling
 figuring
 sourcing
-###
 choosing
 chancing
+###
 singling
 reducing
 arriving
 removing
 charging
-middling
 relating
 believing
 providing
@@ -92,7 +86,6 @@ purposing
 troubling
 surfacing
 describing
-evidencing
 indicating
 pressuring
 determining

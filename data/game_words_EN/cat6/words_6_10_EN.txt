@@ -13,7 +13,6 @@ sort
 fear
 soft
 root
-beer
 rare
 right
 father
@@ -21,8 +20,8 @@ wire
 fight
 river
 shirt
-shift
 ###
+shift
 round
 found
 rather
@@ -32,6 +31,3 @@ rail
 beef
 rear
 fare
-founder
-fighter
-fighting

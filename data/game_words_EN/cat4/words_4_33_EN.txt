@@ -64,8 +64,8 @@ harshest
 quietest
 cheapest
 clearest
-###
 smartest
+###
 sweetest
 sheerest
 blackest

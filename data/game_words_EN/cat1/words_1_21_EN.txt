@@ -1,7 +1,6 @@
 head
 dead
 health
-already
 ready
 ahead
 heavy
@@ -22,9 +21,9 @@ sweat
 realm
 steady
 deadly
-###
 thread
 leather
+###
 wealthy
 feather
 peasant
@@ -35,3 +34,4 @@ deadline
 headache
 widespread
 headquarters
+already

@@ -15,4 +15,3 @@ bug
 tag
 fog
 shrug
-catalog

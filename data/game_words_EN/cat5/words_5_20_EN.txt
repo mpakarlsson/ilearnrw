@@ -8,8 +8,8 @@ commitment
 communication
 command
 commander
-###
 commission
+###
 communicate
 commonly
 commodity

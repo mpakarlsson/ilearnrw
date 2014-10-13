@@ -4,8 +4,8 @@ except
 concept
 attempt
 opt
-###
 adapt
+###
 prompt
 script
 interrupt

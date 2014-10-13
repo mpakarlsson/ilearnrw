@@ -54,8 +54,8 @@ steep
 stiff
 steam
 stove
-###
 stack
+###
 steak
 steer
 straw

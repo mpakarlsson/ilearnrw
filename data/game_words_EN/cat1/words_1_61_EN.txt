@@ -3,7 +3,7 @@ pair
 chair
 stair
 affair
-###
 chairman
+###
 repair
 upstairs

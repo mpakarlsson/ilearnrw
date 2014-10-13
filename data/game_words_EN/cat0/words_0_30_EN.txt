@@ -82,7 +82,6 @@ aesthetic
 northeast
 threshold
 twentieth
-authorize
 strengthen
 hypothesis
 enthusiasm
@@ -90,4 +89,3 @@ earthquake
 thoroughly
 theoretical
 mathematics
-theological

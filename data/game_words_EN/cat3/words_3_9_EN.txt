@@ -19,12 +19,10 @@ between
 country
 something
 ago
-area
 away
 ever
 city
 body
-idea
 open
 able
 data
@@ -64,9 +62,9 @@ party
 maybe
 early
 offer
-###
 music
 human
+###
 local
 major
 along

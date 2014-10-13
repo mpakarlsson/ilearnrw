@@ -18,8 +18,8 @@ classic
 clothing
 clue
 clip
-###
 clay
+###
 cloth
 click
 clerk

@@ -1,7 +1,7 @@
 off
 offer
 office
-effect
+stiff
 effort
 staff
 stuff
@@ -19,12 +19,11 @@ traffic
 effective
 difficulty
 effectively
-stiff
 cliff
 differ
-###
 offense
 playoff
+###
 offering
 offender
 efficient
@@ -35,4 +34,4 @@ efficiency
 sufficient
 officially
 differently
-effectiveness
+effect

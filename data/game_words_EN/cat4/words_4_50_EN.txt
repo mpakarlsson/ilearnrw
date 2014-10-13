@@ -8,8 +8,8 @@ coalition
 definition
 transition
 exhibition
-###
 recognition
+###
 edition
 ambition
 expedition

@@ -1,12 +1,8 @@
-add
-adult
 admit
 adopt
-address
 administration
 advice
 advantage
-additional
 adjust
 advise
 advance
@@ -17,9 +13,9 @@ advertising
 administrator
 adapt
 added
-###
 admire
 advanced
+###
 adequate
 adoption
 adventure

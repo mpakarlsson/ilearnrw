@@ -10,7 +10,6 @@ hot
 dog
 box
 nod
-mom
 cop
 pot
 pop
@@ -64,9 +63,9 @@ solid
 knock
 shock
 clock
-###
 doctor
 common
+###
 beyond
 product
 economy

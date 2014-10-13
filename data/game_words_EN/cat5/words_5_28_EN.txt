@@ -1,5 +1,4 @@
 success
 successful
-###
 succeed
-successfully
+###

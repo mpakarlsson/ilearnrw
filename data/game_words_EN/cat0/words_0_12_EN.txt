@@ -1,4 +1,7 @@
+run
+red
 try
+row
 from
 very
 three
@@ -6,14 +9,10 @@ group
 great
 really
 through
-country
-run
-red
+rice
 cry
 dry
-row
 room
-area
 real
 read
 grow
@@ -64,8 +63,8 @@ across
 remain
 report
 strong
-###
 problem
+###
 program
 provide
 several
@@ -81,7 +80,6 @@ bury
 pray
 crop
 rank
-rice
 drive
 break
 agree

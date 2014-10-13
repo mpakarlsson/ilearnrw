@@ -24,7 +24,6 @@ task
 park
 folk
 cook
-okay
 desk
 link
 wake
@@ -64,9 +63,9 @@ thanks
 weekend
 mistake
 thinking
-###
 basketball
 unlike
+###
 killer
 broken
 parking

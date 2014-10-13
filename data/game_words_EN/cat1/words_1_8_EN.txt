@@ -32,7 +32,6 @@ afford
 airport
 reporter
 northern
-organize
 abortion
 corporate
 importance
@@ -64,9 +63,8 @@ sword
 orbit
 absorb
 export
-###
-and/or
 format
+###
 import
 mentor
 shorts

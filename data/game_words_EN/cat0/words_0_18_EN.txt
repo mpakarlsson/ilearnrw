@@ -2,17 +2,16 @@ let
 old
 like
 look
-also
-only
 life
 last
 feel
 child
+also
+only
 world
 leave
 while
 school
-family
 lot
 law
 low
@@ -64,9 +63,9 @@ lady
 male
 salt
 leaf
-###
 lots
 pool
+###
 soul
 loan
 meal
@@ -99,3 +98,4 @@ value
 always
 little
 social
+family
