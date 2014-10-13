@@ -1,16 +1,13 @@
-school
 score
 scale
 screen
 scream
-scholar
 scan
 scope
 scare
 scary
 screw
 scared
-scheme
 script
 ###
 scandal
@@ -19,4 +16,3 @@ scratch
 scramble
 sculpture
 screening
-scholarship

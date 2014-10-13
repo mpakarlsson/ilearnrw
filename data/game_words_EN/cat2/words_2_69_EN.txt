@@ -9,6 +9,7 @@ whether
 wheel
 whatever
 whisper
+whereas
 ###
 whenever
 whip

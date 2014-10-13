@@ -12,12 +12,15 @@ citizen
 circumstance
 ceiling
 ceremony
-###
 celebrate
+cigarette
+###
 civic
 cease
 circuit
 civilian
 cemetery
 celebrity
+celebration
 citizenship
+civilization

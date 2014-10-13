@@ -7,7 +7,6 @@ sing
 ring
 wing
 bring
-young
 among
 along
 during
@@ -64,8 +63,8 @@ drawing
 ceiling
 hunting
 existing
-###
 planning
+###
 spending
 clothing
 shopping
@@ -99,3 +98,4 @@ driving
 banking
 burning
 sibling
+rolling

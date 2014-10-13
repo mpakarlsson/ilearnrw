@@ -14,10 +14,8 @@ fill
 bill
 cell
 ball
-roll
 hell
 tall
-poll
 hall
 small
 hill
@@ -30,8 +28,8 @@ shell
 recall
 overall
 baseball
-football
 ###
+football
 basketball
 install
 ill
@@ -40,7 +38,6 @@ pill
 doll
 bull
 mill
-toll
 till
 spill
 skull
@@ -48,4 +45,3 @@ spell
 chill
 drill
 swell
-enroll

@@ -18,8 +18,8 @@ creation
 creature
 criteria
 criticism
-###
 criticize
+###
 craft
 crash
 crack
@@ -29,3 +29,5 @@ cruel
 cruise
 crystal
 crowded
+creativity
+credibility

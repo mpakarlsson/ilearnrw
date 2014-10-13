@@ -1,4 +1,3 @@
-once
 since
 dance
 fence
@@ -13,7 +12,6 @@ balance
 silence
 violence
 audience
-announce
 distance
 insurance
 influence
@@ -35,9 +33,8 @@ assistance
 resistance
 independence
 hence
-bounce
-###
 stance
+###
 finance
 romance
 entrance

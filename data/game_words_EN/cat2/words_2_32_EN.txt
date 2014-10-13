@@ -10,7 +10,6 @@ kiss
 boss
 toss
 glass
-guess
 press
 cross
 dress
@@ -33,7 +32,6 @@ ass
 mess
 ###
 bless
-gross
 possess
 dismiss
 impress

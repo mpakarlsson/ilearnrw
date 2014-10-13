@@ -56,55 +56,33 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 			target = target.replaceAll(phA, "*");
 			target = target.replaceAll(phB, "*");
 			
-			for (Word x : soundsSimilarDictionary.getWords()){
-				if (x.getWord().equalsIgnoreCase(this.word.getWord()))
-					continue;
-				String temp = x.getPhonetics();
-				temp = temp.replaceAll(phA, "*");
-				temp = temp.replaceAll(phB, "*");
-				if (temp.length() != target.length())
-					continue;
-				int altDist = 0;
-				for (int i=0;i<phonems.length() && i<x.getPhonetics().length(); i++){
-					if (phonems.charAt(i) != x.getPhonetics().charAt(i))
-						altDist++;
-				}
-				int dist = 0;
-				for (int i=0;i<temp.length() && i<target.length(); i++){
-					if (temp.charAt(i) != target.charAt(i))
-						dist++;
-				}
-				//if (temp.equals(target)){
-				//ArrayList<String> p = new ArrayList<String>();
-				if (altDist > dist && (dist < 3 && this.word.getLength()>3 || dist < 2 && this.word.getLength()>2)){
-					//p.add(x.getWord());
-					/*if (this.word.getFrequency()>0 && !test.contains(this.word.getWord()+" "+this.word.getType()+" "+
-							this.word.getStem()+" "+this.word.getFrequency())){
-						test.add(this.word.getWord()+" "+this.word.getType()+" "+
-							this.word.getStem()+" "+this.word.getFrequency());
+			if (soundsSimilarDictionary.getCollection().containsKey(this.word.getWord())){
+				for (String x : soundsSimilarDictionary.getCollection().get(this.word.getWord())){
+					GreekWord w = new GreekWord(x);
+					if (w.getWord().equalsIgnoreCase(this.word.getWord()))
+						continue;
+					String temp = w.getPhonetics();
+					temp = temp.replaceAll(phA, "*");
+					temp = temp.replaceAll(phB, "*");
+					if (temp.length() != target.length())
+						continue;
+					int altDist = 0;
+					for (int i=0;i<phonems.length() && i<w.getPhonetics().length(); i++){
+						if (phonems.charAt(i) != w.getPhonetics().charAt(i))
+							altDist++;
 					}
-					if (x.getFrequency()>0 && !test.contains(x.getWord()+" "+x.getType()+" "+x.getStem()+" "+x.getFrequency())){
-						test.add(x.getWord()+" "+x.getType()+" "+x.getStem()+" "+x.getFrequency());
-					}*/
-					return x;
+					int dist = 0;
+					for (int i=0;i<temp.length() && i<target.length(); i++){
+						if (temp.charAt(i) != target.charAt(i))
+							dist++;
+					}
+					if (altDist > dist && (dist < 3 && this.word.getLength()>3 || dist < 2 && this.word.getLength()>2)){
+						return w;
+					}
 				}
-				/*if (p.size()>0){
-					if (collection.containsKey(this.word.getWord())){
-						ArrayList<String> k = collection.get(this.word.getWord());
-						if (!k.contains(x.getWord())){
-							k.add(x.getWord());
-							collection.put(this.word.getWord(), k);
-						}
-					}
-					else{
-						ArrayList<String> k = new ArrayList<String>();
-						k.add(x.getWord());
-						collection.put(this.word.getWord(), k);
-					}
-				}*/
 			}
-			return null;
 		}
+		return null;
 	}
 
 	@Override

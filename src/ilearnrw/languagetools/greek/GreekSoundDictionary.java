@@ -5,16 +5,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import ilearnrw.resource.ResourceLoader;
 import ilearnrw.resource.ResourceLoader.Type;
 import ilearnrw.textclassification.WordType;
 import ilearnrw.textclassification.greek.GreekWord;
 
 public class GreekSoundDictionary {
-	private static ArrayList<GreekWord> words;
+	private HashMap<String, ArrayList<String>> collection = new HashMap<String, ArrayList<String>>();
 	private static GreekSoundDictionary instance = null;
 	private GreekSoundDictionary() {
-		loadWords();
+		loadCollection();
 	}
 
 	public static GreekSoundDictionary getInstance(){
@@ -23,7 +25,37 @@ public class GreekSoundDictionary {
 		return instance;
 	}
 
-	private void loadWords(){
+	private void loadCollection(){
+		try {
+			InputStream input = ResourceLoader.getInstance().getInputStream(Type.DATA, "soundSimilarityList.txt");
+			InputStreamReader in = new InputStreamReader(input, "UTF-8");
+			BufferedReader buf = new BufferedReader(in);
+			String line = null;
+			while((line=buf.readLine())!=null) {
+				String[] row = line.split("\t");
+				if (row.length > 1 && row[0]!=null && !row[0].isEmpty()){
+					ArrayList<String> similar = new ArrayList<String>();
+					for (int i = 1; i<row.length; i++){
+						if (row[i]!=null && !row[i].isEmpty())
+							similar.add(row[i]);
+					}
+					if (!similar.isEmpty())
+						collection.put(row[0], similar);
+				}
+			}
+			buf.close();
+			in.close();
+			input.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public HashMap<String, ArrayList<String>> getCollection(){
+		return collection;
+	}
+	
+	/*private void loadWords(){
 		try {
 			words = new ArrayList<GreekWord>();
 			InputStream input = ResourceLoader.getInstance().getInputStream(Type.DATA, "greekSoundSimilarityList.txt");
@@ -79,5 +111,5 @@ public class GreekSoundDictionary {
 		if (pos.trim().equals("σύνδεσμος"))
 			return WordType.Conjunction;
 		return WordType.Unknown;
-	}
+	}*/
 }

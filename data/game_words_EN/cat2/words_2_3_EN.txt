@@ -24,8 +24,8 @@ spill
 spite
 spoon
 spray
-###
 spell
+###
 spare
 spine
 spouse
@@ -36,6 +36,7 @@ sprinkle
 specialty
 specialize
 spectacular
+speculation
 spy
 spark
 speculate
