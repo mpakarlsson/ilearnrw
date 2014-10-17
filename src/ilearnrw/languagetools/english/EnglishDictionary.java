@@ -50,7 +50,7 @@ public class EnglishDictionary {
 				String[] graphemeSyllables;
 				int numChars, numPhons, numSyllables;
 				int frequency;
-				String suffixType, suffix;
+				String suffixType, suffix, prefixType, prefix;
 				// Add this when it's possible
 				// partOfSpeech
 
@@ -94,8 +94,13 @@ public class EnglishDictionary {
 				numSyllables = Integer.parseInt(results[9]);
 				frequency = Integer.parseInt(results[10]);
 
+				prefix = results[11];
+				prefixType = results[12];
+				
 				EnglishWord w = new EnglishWord(word, phonetic, stem,
-						phoneticList, graphemeSyllables, suffix, suffixType,
+						phoneticList, graphemeSyllables, 
+						suffix, suffixType,
+						prefix, prefixType,
 						numSyllables, frequency, WordType.Unknown);
 
 				if (!dictionary.containsKey(word)) {

@@ -12,6 +12,8 @@ public class EnglishWord extends Word {
 	private static final long serialVersionUID = 1L;
 	private String suffix;
 	private String suffixType;
+	private String prefix;
+	private String prefixType;
 	private CharacterInfo chInfo;
 	
     //We put inside only lower case words
@@ -28,11 +30,13 @@ public class EnglishWord extends Word {
         frequency = 5001;
         setSuffix("");
         setSuffixType("SUFFIX_NONE");
+        setPrefix("");
+        setPrefixType("PREFIX_NONE");
         super.setStem("");
     }
 
     //We put inside only lower case words
-    public EnglishWord(String word, String phonetic, String stem, ArrayList<GraphemePhonemePair> phoneticList, String[] graphemeSyllables, String suffix, String suffixType, int numSyllables, int frequency, WordType type) {
+    public EnglishWord(String word, String phonetic, String stem, ArrayList<GraphemePhonemePair> phoneticList, String[] graphemeSyllables, String suffix, String suffixType, String prefix, String prefixType, int numSyllables, int frequency, WordType type) {
     	super(word, type);
     	super.wordUnmodified = word;
 		super.languageCode = LanguageCode.EN;
@@ -49,6 +53,10 @@ public class EnglishWord extends Word {
         
         this.setSuffix(suffix);
         this.setSuffixType(suffixType);
+        
+        this.setPrefix(prefix);
+        this.setPrefixType(prefixType);
+        
         super.setStem(stem);
         createCVForm();
     }
@@ -145,6 +153,22 @@ public class EnglishWord extends Word {
 
 	public void setSuffixType(String suffixType) {
 		this.suffixType = suffixType;
+	}
+	
+	public String getPrefix() {
+		return prefix;
+	}
+
+	public void setPrefix(String prefix) {
+		this.prefix = prefix;
+	}
+
+	public String getPrefixType() {
+		return prefixType;
+	}
+
+	public void setPrefixType(String prefixType) {
+		this.prefixType = prefixType;
 	}
 
 	private String[] syllabify(String word){    	
