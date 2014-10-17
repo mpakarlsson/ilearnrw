@@ -375,10 +375,13 @@ public class StringMatchesInfo {
 	public static ArrayList<StringMatchesInfo> startsWithPrefix(String str[], Word w){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		for(String s : str){
-			if(w.getWord().startsWith(s)){
-			    result.add(new StringMatchesInfo(w.getWord().indexOf(s), w.getWord().indexOf(s)+s.length()));
+			EnglishWord ew =  (EnglishWord)(w);
+			
+			if(ew.getPrefix().equals(s)){
+				result.add(new StringMatchesInfo(0, ew.getPrefix().length()));
 				return result;
 			}
+			
 		}
 		return null;
 	}

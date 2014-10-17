@@ -94,8 +94,8 @@ public class EnglishDictionary {
 				numSyllables = Integer.parseInt(results[9]);
 				frequency = Integer.parseInt(results[10]);
 
-				prefix = results[11];
-				prefixType = results[12];
+				prefixType = results[11];
+				prefix = results[12];
 				
 				EnglishWord w = new EnglishWord(word, phonetic, stem,
 						phoneticList, graphemeSyllables, 
