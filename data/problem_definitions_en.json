@@ -414,10 +414,10 @@
          },
          {  
             "descriptions":[  
-               "qu-k"
+               "que-k"
             ],
             "problemType":"DIGRAPH_EQUALS_PHONEME",
-            "humanReadableDescription":"Pronounce \u0027qu\u0027 as \u0027k\u0027.",
+            "humanReadableDescription":"Pronounce \u0027que\u0027 as \u0027k\u0027.",
             "cluster":18,
             "character":"Xgraph"
          },
@@ -1732,10 +1732,10 @@
          },
          {  
             "descriptions":[  
-               "arch-tʃ"
+               "arch-ɑːtʃ"
             ],
             "problemType":"EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027arch\u0027 as \u0027tʃ\u0027.For example: search, research",
+            "humanReadableDescription":"Pronounce \u0027arch\u0027 as \u0027ɑːtʃ\u0027.For example: search, research",
             "cluster":21,
             "character":"End of word"
          },
@@ -2118,10 +2118,10 @@
          },
          {  
             "descriptions":[  
-               "alC-əlC"
+               "alC-ɑːC"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027alC\u0027 as \u0027C\u0027.For example: finals, hospitals, recall",
+            "humanReadableDescription":"Pronounce \u0027alC\u0027 as \u0027ɑːC\u0027.For example: finals, hospitals, recall",
             "cluster":14,
             "character":"Vowel pattern"
          },
@@ -2136,10 +2136,10 @@
          },
          {  
             "descriptions":[  
-               "cqu-kwa"
+               "cqu-kw"
             ],
             "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027cqu\u0027 as \u0027kwa\u0027.For example: acquires, acquired, acquiring",
+            "humanReadableDescription":"Pronounce \u0027cqu\u0027 as \u0027kw\u0027.For example: acquires, acquired, acquiring",
             "cluster":39,
             "character":"Middle of word"
          },
@@ -2154,37 +2154,37 @@
          },
          {  
             "descriptions":[  
-               "olC-əʊlC"
+               "olC-əʊC"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027olC\u0027 as \u0027əʊlC\u0027.",
+            "humanReadableDescription":"Pronounce \u0027olC\u0027 as \u0027əʊC\u0027.",
             "cluster":14,
             "character":"Vowel pattern"
          },
          {  
             "descriptions":[  
-               "quarC-kwɒC"
+               "quarC-kwɔːC"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027quarC\u0027 as \u0027kwɒC\u0027. For example: quark",
+            "humanReadableDescription":"Pronounce \u0027quarC\u0027 as \u0027kwɔːC\u0027. For example: quark",
             "cluster":39,
             "character":"Beginning of word"
          },
          {  
             "descriptions":[  
-               "Cre-Ctə"
+               "Cre-Cə"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027Cre\u0027 as \u0027Ctə\u0027.",
+            "humanReadableDescription":"Pronounce \u0027Cre\u0027 as \u0027Cə\u0027.",
             "cluster":33,
             "character":"Silent letter"
          },
          {  
             "descriptions":[  
-               "ro-ra,rə"
+               "ro-rə"
             ],
             "problemType":"EQUALS_PRONUNCIATION_CONTAINS",
-            "humanReadableDescription":"Pronounce \u0027ro\u0027 as \u0027ra,rə\u0027.For example: moreover",
+            "humanReadableDescription":"Pronounce \u0027ro\u0027 as \u0027rə\u0027.For example: moreover",
             "cluster":29,
             "character":"Middle of word"
          },
@@ -3152,10 +3152,10 @@
          },
          { 
             "descriptions":[  
-               "dual-dʒʊə"
+               "dual-djʊəl"
             ],
             "problemType":"EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027dual\u0027 as \u0027dʒʊə\u0027.",
+            "humanReadableDescription":"Pronounce \u0027dual\u0027 as \u0027djʊəl\u0027.",
             "cluster":37,
             "character":"Change"
          },
