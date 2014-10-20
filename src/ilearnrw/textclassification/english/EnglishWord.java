@@ -16,6 +16,8 @@ public class EnglishWord extends Word {
 	private String prefixType;
 	private CharacterInfo chInfo;
 	
+	private boolean isValid;
+	
     //We put inside only lower case words
     public EnglishWord(String word) {
     	super(word);
@@ -26,7 +28,8 @@ public class EnglishWord extends Word {
         syllabism();
         super.word = word.toLowerCase();
         createCVForm();
-            
+        
+        isValid = true;
         frequency = 5001;
         setSuffix("");
         setSuffixType("SUFFIX_NONE");
@@ -49,6 +52,7 @@ public class EnglishWord extends Word {
         this.numSyllables = numSyllables;
 		graphemesPhonemes = phoneticList;
         
+		isValid = true;
         this.frequency = frequency;
         
         this.setSuffix(suffix);
@@ -139,6 +143,14 @@ public class EnglishWord extends Word {
             return numVowels;
     }
 	
+    public boolean getValid(){
+    	return isValid;
+    }
+    
+    public void setValid(boolean value){
+    	isValid = value;
+    }
+    
 	public String getSuffix() {
 		return suffix;
 	}

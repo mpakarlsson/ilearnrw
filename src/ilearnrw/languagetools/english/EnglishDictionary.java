@@ -51,10 +51,11 @@ public class EnglishDictionary {
 				int numChars, numPhons, numSyllables;
 				int frequency;
 				String suffixType, suffix, prefixType, prefix;
+				String valid;
 				// Add this when it's possible
 				// partOfSpeech
 
-				word = results[0].toLowerCase();
+				word = results[0];
 				stem = results[1];
 				phonetic = results[2];
 
@@ -97,14 +98,19 @@ public class EnglishDictionary {
 				prefixType = results[11];
 				prefix = results[12];
 				
+				valid =  results[13];
+				
 				EnglishWord w = new EnglishWord(word, phonetic, stem,
 						phoneticList, graphemeSyllables, 
 						suffix, suffixType,
 						prefix, prefixType,
 						numSyllables, frequency, WordType.Unknown);
 
+				if(valid.equals("NO_LIST"))
+					w.setValid(false);
+				
 				if (!dictionary.containsKey(word)) {
-					dictionary.put(word, w);
+					dictionary.put(word.toLowerCase(), w);
 				}
 			}
 
