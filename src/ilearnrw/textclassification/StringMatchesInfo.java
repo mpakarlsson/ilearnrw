@@ -841,7 +841,7 @@ public class StringMatchesInfo {
 	    
 		String ipa = w.getPhonetics();
 		if(ipa==null || ipa.isEmpty())
-			return null;				
+			return null;
 		
 		for(String s : str){
 			String[] values = s.split("-");
