@@ -158,11 +158,14 @@ public class StringMatchesInfo {
 		return null;
 	}
 
-	public static ArrayList<StringMatchesInfo> containsPhoneme(String str[], Word w){
+	/*public static ArrayList<StringMatchesInfo> containsPhoneme(String str[], Word w){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getPhonetics();
 		for (int i=0;i<str.length;i++){
 			if (ws.contains(str[i])){
+				for (GraphemePhonemePair gp : w.getGraphemesPhonemes()){
+					
+				}
 			    result.add(new StringMatchesInfo(ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
 			}
 		}
@@ -205,8 +208,94 @@ public class StringMatchesInfo {
 			}
 		}
 		return null;
+	}*/
+	
+	public static ArrayList<StringMatchesInfo> containsPhoneme(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
+		String ws = w.getPhonetics();
+		ArrayList<GraphemePhonemePair> gp = w.getGraphemesPhonemes();
+		for (int i=0;i<str.length;i++){
+			if (!ws.contains(str[i]))
+				continue;
+			int start = 0;
+			for (int j=0;j<gp.size();j++){
+				int length = 0, k=j;
+				String phonemes = gp.get(k).getPhoneme();
+				while (str[i].startsWith(phonemes) && k+1<gp.size()){
+					length += gp.get(k).getGrapheme().length();
+					if (str[i].equals(phonemes) && length>0 && start>=0 && 
+							start+length<=w.getWord().length()){
+					    result.add(new StringMatchesInfo(start, start+length));
+					    break;
+					}
+					k++;
+					phonemes = phonemes + gp.get(k).getPhoneme();
+				}
+				start += gp.get(j).getGrapheme().length();
+			}
+		}
+		if (result.size()>0)
+			return result;
+		return null;
 	}
-
+	
+	public static ArrayList<StringMatchesInfo> startsWithPhoneme(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
+		String ws = w.getPhonetics();
+		ArrayList<GraphemePhonemePair> gp = w.getGraphemesPhonemes();
+		for (int i=0;i<str.length;i++){
+			if (!ws.startsWith(str[i]))
+				continue;
+			int start = 0;
+			int j=0, length = 0, k=j;
+			String phonemes = gp.get(k).getPhoneme();
+			while (str[i].startsWith(phonemes) && k+1<gp.size()){
+				length += gp.get(k).getGrapheme().length();
+				if (str[i].equals(phonemes) && length>0 && start>=0 && 
+						start+length<=w.getWord().length()){
+				    result.add(new StringMatchesInfo(start, start+length));
+				    break;
+				}
+				k++;
+				phonemes = phonemes + gp.get(k).getPhoneme();
+			}
+			start += gp.get(j).getGrapheme().length();
+		}
+		if (result.size()>0)
+			return result;
+		return null;
+	}
+	
+	public static ArrayList<StringMatchesInfo> hasInternalPhoneme(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
+		String ws = w.getPhonetics();
+		ArrayList<GraphemePhonemePair> gp = w.getGraphemesPhonemes();
+		for (int i=0;i<str.length;i++){
+			if (!ws.contains(str[i]))
+				continue;
+			int start = 0;
+			for (int j=1;j<gp.size();j++){
+				int length = 0, k=j;
+				String phonemes = gp.get(k).getPhoneme();
+				while (str[i].startsWith(phonemes) && k+1<gp.size()){
+					length += gp.get(k).getGrapheme().length();
+					if (str[i].equals(phonemes) && length>0 && start>=0 && 
+							start+length<=w.getWord().length()){
+					    result.add(new StringMatchesInfo(start, start+length));
+					    break;
+					}
+					k++;
+					phonemes = phonemes + gp.get(k).getPhoneme();
+				}
+				start += gp.get(j).getGrapheme().length();
+			}
+		}
+		if (result.size()>0)
+			return result;
+		return null;
+	}
+	
+	
 	public static ArrayList<StringMatchesInfo> containsPattern(String str[], Word w){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getCVForm();
@@ -216,6 +305,7 @@ public class StringMatchesInfo {
 		String syl[] = w.getSyllables();
 		for (int i=0;i<str.length;i++){
 			String pat[] = (str[i].substring(1, str[i].length()-1)).split("-");
+			int start = 0;
 			for (int j=0;j<=cvf.length-pat.length;j++){
 				int length = 0;
 				for (int k=0;k<pat.length;k++){
@@ -225,15 +315,9 @@ public class StringMatchesInfo {
 					}
 					length += syl[j+k].length();
 				}
-				if (length>0){
-					int start = 0;
-					for (int k=0;k<str.length;k++){
-						if (k>=j)
-							break;
-						start += syl[i].length();
-					}
+				if (length>0 && start>=0 && start+length<=w.getWord().length())
 				    result.add(new StringMatchesInfo(start, start+length));
-				}
+				start += syl[j].length();
 			}
 			/*if (ws.contains(str[i])){
 			    result.add(new StringMatchesInfo(str[i], ws.indexOf(str[i]), ws.indexOf(str[i])+str[i].length()));
@@ -254,6 +338,7 @@ public class StringMatchesInfo {
 		String syl[] = w.getSyllables();
 		for (int i=0;i<str.length;i++){
 			String pat[] = (str[i].substring(1, str[i].length()-1)).split("-");
+			int start = 0;
 			for (int j=0;j<=cvf.length-pat.length;j++){
 				int length = 0;
 				for (int k=0;k<pat.length;k++){
@@ -267,15 +352,9 @@ public class StringMatchesInfo {
 					}
 					length += syl[j+k].length();
 				}
-				if (length>0){
-					int start = 0;
-					for (int k=0;k<str.length;k++){
-						if (k>=j)
-							break;
-						start += syl[i].length();
-					}
+				if (length>0 && start>=0 && start+length<=w.getWord().length())
 				    result.add(new StringMatchesInfo(start, start+length));
-				}
+				start += syl[j].length();
 			}
 		}
 		if (result.size()>0)
