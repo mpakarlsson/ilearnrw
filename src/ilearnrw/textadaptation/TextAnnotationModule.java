@@ -340,8 +340,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 				if (wordProblems.size() == 0){
 					return null;
 				}
-				while (wordProblems.size() > 0) {
-					SeverityOnWordProblemInfo swpi = wordProblems.remove(0);
+				for (SeverityOnWordProblemInfo swpi : wordProblems) {
+					// = wordProblems.remove(0);
 					category = swpi.getCategory();
 					index = swpi.getIndex();
 					
