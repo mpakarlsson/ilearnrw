@@ -8,6 +8,7 @@ import ilearnrw.user.problems.ProblemType;
 import ilearnrw.utils.LanguageCode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class StringMatchesInfo {
 
@@ -856,13 +857,38 @@ public class StringMatchesInfo {
 				String phon = "", graph = "";
 				int j = i;
 				int endsTo = totalStartsFrom;
+				String savedValue = "";
+				int savedPos = -2;
+				
 				while (j<w.getGraphemesPhonemes().size()){
 					GraphemePhonemePair pair = w.getGraphemesPhonemes().get(j);
-					phon = phon + pair.getPhoneme();
-					graph = graph + pair.getGrapheme().trim();
+					
+					String nextPhon = pair.getPhoneme();
+					String nextGraph =  pair.getGrapheme().trim();
+					
+					if(nextGraph.contains(".")){
+						String[] vals	= nextGraph.split("\\.");
+						nextGraph 		= vals[0];
+						savedValue 		= vals[1];
+						savedPos 		= j;
+					}
+					
+					if(j==savedPos+1){
+						nextGraph 	= nextGraph + savedValue;
+						savedValue 	= "";
+						savedPos 	= -2;
+					}
+					
+					
+					phon = phon + nextPhon;
+					graph = graph + nextGraph;
 					endsTo = totalStartsFrom + graph.length();
-					if (replaceWithCV(transcription, phon).equals(transcription) && 
-							replaceWithCV(difficulty, graph).equals(difficulty)){
+					
+					String phonCV = replaceWithCV(transcription, phon, true);
+					String diffCV = replaceWithCV(difficulty, graph, false);
+					
+					if (phonCV.equals(transcription) && 
+							diffCV.equals(difficulty)){
 						if (type.equals("ends") && j == w.getGraphemesPhonemes().size()-1){
 							result.add(new StringMatchesInfo(w.getWord().length() - graph.length(), w.getWord().length()));
 							return result;
@@ -921,21 +947,47 @@ public class StringMatchesInfo {
 		return null;
 	}
 	
-	private static String replaceWithCV(String difficulty, String string){
+	private static String replaceWithCV(String difficulty, String string, boolean phoneticCheck){
 		string = string.replace(".", "").replace("ː", "");
+		int offset = 1;
+		
 		if (string.length() <1)
 			return "XXX";
 		if (difficulty.startsWith("C") && (isConsonant(string.charAt(0)) || !isConsonant(string.charAt(0)) && !isVowel(string.charAt(0))))
 			return "C"+string.substring(1);
-		if (difficulty.startsWith("V") && isVowel(string.charAt(0)) || !isConsonant(string.charAt(0)) && !isVowel(string.charAt(0)))
-			return "V"+string.substring(1);
+		
+		if (difficulty.startsWith("V") && (isVowel(string.charAt(0)) || !isConsonant(string.charAt(0)) && !isVowel(string.charAt(0)))){
+			if(phoneticCheck)
+				if(containsDiphthong(string, true))
+					offset++;
+			
+			return "V"+string.substring(offset);
+		}
 		if (difficulty.endsWith("C") && isConsonant(string.charAt(string.length()-1)) || 
 				!isConsonant(string.charAt(string.length()-1)) && !isVowel(string.charAt(string.length()-1)))
 			return string.substring(0, string.length()-1)+"C";
 		if (difficulty.endsWith("V") && isVowel(string.charAt(string.length()-1)) || 
-				!isConsonant(string.charAt(string.length()-1)) && !isVowel(string.charAt(string.length()-1)))
-			return string.substring(0, string.length()-1)+"V";
+				!isConsonant(string.charAt(string.length()-1)) && !isVowel(string.charAt(string.length()-1))){
+			if(phoneticCheck)
+				if(containsDiphthong(string, false))
+					offset++;
+			
+			return string.substring(0, string.length()-offset)+"V";
+		}
 		return "XXX";
+	}
+	
+	private static boolean containsDiphthong(String string, boolean isStart){
+		ArrayList<String> diphthongs = new ArrayList<String>(Arrays.asList("əʊ","aɪ","aʊ","ɛə","eə","eɪ","ɪə","ɔɪ","ʊə"));
+		for(String d : diphthongs){
+			if(isStart){
+				if(string.startsWith(d))
+					return true;
+			} else
+				if(string.endsWith(d))
+					return true;
+		}
+		return false;
 	}
 	
 	private static int wordContainsGraphemePhoneme(ArrayList<GraphemePhonemePair> graphsPhons, String difficulty, String ipa){

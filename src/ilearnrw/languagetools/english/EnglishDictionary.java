@@ -7,11 +7,9 @@ import ilearnrw.textclassification.WordType;
 import ilearnrw.textclassification.english.EnglishWord;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -107,10 +105,11 @@ public class EnglishDictionary {
 						numSyllables, frequency, WordType.Unknown);
 
 				if(valid.equals("NO_LIST"))
-					w.setValid(false);
+					w.setListAsGameWord(false);
 				
-				if (!dictionary.containsKey(word)) {
-					dictionary.put(word.toLowerCase(), w);
+				String lowerWord = word.toLowerCase();
+				if (!dictionary.containsKey(lowerWord)) {
+					dictionary.put(lowerWord, w);
 				}
 			}
 
