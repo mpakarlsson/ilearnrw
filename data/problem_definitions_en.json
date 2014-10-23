@@ -1744,7 +1744,7 @@
                "Vce-Vs"
             ],
             "problemType":"PATTERN_EQUALS_PRONUNCIATION_ENDS",
-            "humanReadableDescription":"Pronounce \u0027Vce\u0027 as \u0027Vɪs\u0027.For example: space, ice, price",
+            "humanReadableDescription":"Pronounce \u0027Vce\u0027 as \u0027Vs\u0027.For example: space, ice, price",
             "cluster":33,
             "character":"Vowel pattern"
          },
