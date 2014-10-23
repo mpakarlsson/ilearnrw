@@ -1027,7 +1027,13 @@ public class StringMatchesInfo {
 	}
 	
 	private static String replaceWithCV(String difficulty, String string, boolean phoneticCheck){
-		string = string.replace(".", "").replace("ː", "");
+		string = string.replace(".", "");
+		
+		int colIndex = -1;
+		if(phoneticCheck){
+			colIndex = string.indexOf("ː");
+		} 
+		
 		int offset = 1;
 		
 		if (string.length() <1)
@@ -1057,7 +1063,10 @@ public class StringMatchesInfo {
 	}
 	
 	private static boolean containsDiphthong(String string, boolean isStart){
-		ArrayList<String> diphthongs = new ArrayList<String>(Arrays.asList("əʊ","aɪ","aʊ","ɛə","eə","eɪ","ɪə","ɔɪ","ʊə"));
+		ArrayList<String> diphthongs = new ArrayList<String>(
+				Arrays.asList(
+						"əʊ","aɪ","aʊ","ɛə","eə","eɪ","ɪə","ɔɪ","ʊə",
+						"ɜː","eː","ɑː","aː","iː","juː","ɔː","uː"));
 		for(String d : diphthongs){
 			if(isStart){
 				if(string.startsWith(d))
