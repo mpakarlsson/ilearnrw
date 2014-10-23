@@ -1,8 +1,8 @@
 bigger
 cutter
+redder
 topper
 hotter
-leveller
 fitter
 fatter
 spotter
@@ -16,8 +16,8 @@ popper
 madder
 hipper
 wrapper
-snapper
 ###
+snapper
 flatter
 logger
 ripper
@@ -26,3 +26,4 @@ flipper
 trimmer
 stripper
 crueller
+leveller

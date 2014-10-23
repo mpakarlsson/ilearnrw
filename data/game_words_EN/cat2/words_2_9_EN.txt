@@ -11,4 +11,5 @@ enact
 intact
 abstract
 interact
+artifact
 distract

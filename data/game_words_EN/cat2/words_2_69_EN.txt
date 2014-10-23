@@ -10,8 +10,8 @@ wheel
 whatever
 whisper
 whereas
-whenever
 ###
+whenever
 whip
 whale
 wheat

@@ -14,8 +14,10 @@ fill
 bill
 cell
 ball
+roll
 hell
 tall
+poll
 hall
 small
 hill
@@ -38,6 +40,7 @@ pill
 doll
 bull
 mill
+toll
 till
 spill
 skull
@@ -45,3 +48,4 @@ spell
 chill
 drill
 swell
+enroll

@@ -18,13 +18,13 @@ dig
 game
 girl
 grow
-drug
 goal
 gold
 gain
 gift
 grab
 golf
+grey
 begin
 again
 against
@@ -58,13 +58,16 @@ degree
 forget
 finger
 together
+Congress
 language
 magazine
+recognise
 government
 significant
+###
+organisation
 garden
 global
-###
 target
 engage
 gather
@@ -77,6 +80,7 @@ category
 negative
 progress
 greatest
+organise
 governor
 agreement
 beginning
@@ -95,5 +99,3 @@ graduate
 pregnant
 disagree
 immigrant
-regarding
-cigarette

@@ -4,3 +4,4 @@ occasion
 occasionally
 ###
 occupation
+occasional

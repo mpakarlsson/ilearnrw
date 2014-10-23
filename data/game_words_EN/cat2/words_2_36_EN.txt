@@ -16,8 +16,8 @@ frankly
 fragile
 friendly
 frequent
-freshman
 ###
+freshman
 frontier
 fraction
 fragment

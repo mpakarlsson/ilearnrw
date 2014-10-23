@@ -3,7 +3,7 @@ glass
 global
 glance
 glove
-glory
 ###
+glory
 globe
 glimpse

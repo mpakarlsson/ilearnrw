@@ -5,6 +5,8 @@ find
 life
 feel
 first
+after
+family
 few
 far
 fly
@@ -62,10 +64,10 @@ himself
 self
 roof
 flag
+###
 flat
 floor
 focus
-###
 fight
 final
 front
@@ -82,8 +84,8 @@ forth
 fewer
 knife
 brief
+fibre
 fifth
-false
 draft
 fence
 found
@@ -97,5 +99,3 @@ finish
 finger
 finally
 federal
-after
-family

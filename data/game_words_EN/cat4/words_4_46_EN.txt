@@ -2,8 +2,8 @@ using
 having
 saying
 making
-upping
 outing
+taking
 seeing
 liking
 giving
@@ -11,11 +11,11 @@ trying
 asking
 owning
 hissing
-canning
 getting
 wanting
 manning
 telling
+backing
 downing
 calling
 lasting
@@ -28,7 +28,6 @@ whiling
 keeping
 talking
 handing
-stilling
 becoming
 grouping
 schooling
@@ -53,13 +52,13 @@ caring
 turning
 seeming
 helping
+showing
 parting
 placing
 playing
 holding
 heading
 issuing
-jobbing
 wording
 longing
 sitting
@@ -99,3 +98,4 @@ laying
 acting
 edging
 minding
+viewing

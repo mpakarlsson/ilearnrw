@@ -2,6 +2,6 @@ technology
 biology
 ideology
 theology
-psychology
 ###
+psychology
 apology

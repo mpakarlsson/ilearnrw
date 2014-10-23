@@ -3,6 +3,7 @@ cell
 cite
 civil
 cycle
+centre
 certain
 century
 central
@@ -24,3 +25,4 @@ celebrity
 celebration
 citizenship
 civilisation
+civilizations

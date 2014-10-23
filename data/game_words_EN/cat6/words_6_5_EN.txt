@@ -3,6 +3,7 @@ big
 bad
 dad
 dig
+both
 bone
 bear
 beer
@@ -12,11 +13,12 @@ brown
 rid
 bay
 rib
-deer
 ###
+deer
 dear
 dare
 bare
 duck
 drain
 drown
+done

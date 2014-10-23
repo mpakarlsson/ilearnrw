@@ -1,2 +1,9 @@
+goes
+heroes
+potatoes
+tomatoes
 toe
 ###
+echoes
+undergoes
+cargoes

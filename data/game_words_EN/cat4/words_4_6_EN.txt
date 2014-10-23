@@ -18,7 +18,6 @@ needing
 keeping
 talking
 handing
-stilling
 grouping
 schooling
 eyeing
@@ -99,3 +98,4 @@ reaching
 classing
 thanking
 fielding
+carrying

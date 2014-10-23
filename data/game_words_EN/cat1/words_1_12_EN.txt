@@ -47,7 +47,6 @@ invite
 beside
 survive
 combine
-exercise
 surprise
 otherwise
 meanwhile
@@ -99,3 +98,4 @@ comprise
 likewise
 driveway
 guideline
+lifestyle

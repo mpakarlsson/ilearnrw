@@ -477,7 +477,10 @@
         "descriptions": [
           "gr",
           "dr",
-          "br"
+          "br",
+          "ŋgr",
+          "ndr",
+          "mbr"
         ],
         "problemType": "TWO_SYL_WORD_INTERNAL_PHONEME",
         "humanReadableDescription": "Δισύλλαβες λέξεις που περιέχουν έναν από τους ήχους \'gr\', \'dr\', \'br\' (π.χ. δέντρο)", 
@@ -536,7 +539,10 @@
         "descriptions": [
           "gr",
           "dr",
-          "br"
+          "br",
+          "ŋgr",
+          "ndr",
+          "mbr"
         ],
         "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
         "humanReadableDescription": "Τρισύλλαβες λέξεις που περιέχουν έναν από τους ήχους \'gr\', \'dr\', \'br\' (π.χ. τσουγκράνα)", 

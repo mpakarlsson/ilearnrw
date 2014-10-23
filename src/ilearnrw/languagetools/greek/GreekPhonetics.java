@@ -311,9 +311,9 @@ public class GreekPhonetics {
 
     private void convertTwoVowelsFirstRule(){
         replaceTwoVowelsFirstRule("αυ", "av", "af");
-        replaceTwoVowelsFirstRule("αύ", "av", "áf");
+        replaceTwoVowelsFirstRule("αύ", "áv", "áf");
         replaceTwoVowelsFirstRule("ευ", "ev", "ef");
-        replaceTwoVowelsFirstRule("εύ", "ev", "éf");
+        replaceTwoVowelsFirstRule("εύ", "év", "éf");
         replaceTwoVowelsFirstRule("ηυ", "iv", "if");
         replaceTwoVowelsFirstRule("ηύ", "ív", "íf");
     }
@@ -552,12 +552,12 @@ public class GreekPhonetics {
         while (tmpStart < n && word.substring(tmpStart).contains(a)){
             int k = word.indexOf(a, tmpStart);
             if (hasVowelOrVoicedAfter(k+1)){
-                tempResult[k] = s;
-                tempResult[k+1] = "*";                
+                tempResult[k] = s.substring(0, 1);
+                tempResult[k+1] = s.substring(1, 2);                
             }
             else{
-                tempResult[k] = t;
-                tempResult[k+1] = "*";
+                tempResult[k] = t.substring(0, 1);
+                tempResult[k+1] = t.substring(1, 2);
             }
             tmpStart = k+2;
         }

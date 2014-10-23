@@ -6,7 +6,6 @@ management
 development
 environment
 element
-comment
 argument
 document
 judgment

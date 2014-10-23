@@ -11,9 +11,12 @@ plastic
 traffic
 academic
 domestic
+Catholic
 scientific
 characteristic
 clinic
+Islamic
+Olympic
 classic
 genetic
 dramatic
@@ -33,11 +36,12 @@ exotic
 tragic
 organic
 chronic
-dynamic
 ###
+dynamic
 athletic
 romantic
 artistic
+Hispanic
 rhetoric
 republic
 symbolic

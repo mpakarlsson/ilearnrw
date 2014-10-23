@@ -1,5 +1,4 @@
 try
-true
 tree
 trip
 trade
@@ -38,8 +37,8 @@ trash
 treaty
 tribal
 tragic
-trauma
 ###
+trauma
 tragedy
 trading
 trigger

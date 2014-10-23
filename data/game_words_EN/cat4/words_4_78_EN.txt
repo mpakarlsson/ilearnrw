@@ -1,6 +1,6 @@
 history
 victory
 factory
-laboratory
 ###
+laboratory
 regulatory

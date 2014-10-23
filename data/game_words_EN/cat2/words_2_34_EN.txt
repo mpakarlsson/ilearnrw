@@ -2,6 +2,7 @@ himself
 self
 itself
 myself
-herself
 ###
+herself
+yourself
 shelf

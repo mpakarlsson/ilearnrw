@@ -22,13 +22,12 @@ largest
 loosest
 densest
 bravest
-simplest
 ###
+simplest
 gentlest
 severest
 minutest
 divinest
-littlest
 remotest
 fiercest
 subtlest

@@ -17,6 +17,7 @@ visible
 capable
 valuable
 reasonable
+Bible
 stable
 bubble
 marble
@@ -26,8 +27,8 @@ reliable
 assemble
 horrible
 flexible
-scramble
 ###
+scramble
 eligible
 suitable
 invisible

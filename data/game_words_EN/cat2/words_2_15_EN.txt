@@ -16,8 +16,8 @@ stranger
 strategic
 strip
 straw
-stroke
 ###
+stroke
 strict
 strain
 streak

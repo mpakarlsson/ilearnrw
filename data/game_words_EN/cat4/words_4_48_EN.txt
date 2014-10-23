@@ -5,6 +5,7 @@ situation
 operation
 population
 information
+organisation
 administration
 relation
 location
@@ -60,8 +61,8 @@ innovation
 separation
 invitation
 revelation
-graduation
 ###
+graduation
 imagination
 examination
 orientation
@@ -77,6 +78,7 @@ translation
 speculation
 calculation
 presentation
+civilisation
 compensation
 conservation
 appreciation
@@ -91,4 +93,4 @@ transformation
 implementation
 rehabilitation
 accusation
-excommunication
+abbreviation

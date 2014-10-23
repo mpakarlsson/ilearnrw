@@ -31,6 +31,7 @@ research
 approach
 challenge
 speech
+French
 search
 launch
 branch
@@ -49,9 +50,9 @@ purchase
 champion
 childhood
 chocolate
+###
 championship
 chin
-###
 chop
 chew
 bench

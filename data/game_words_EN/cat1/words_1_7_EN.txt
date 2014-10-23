@@ -54,6 +54,7 @@ weed
 deem
 greet
 steep
+Greek
 queen
 sheep
 fleet

@@ -1,3 +1,4 @@
+newness
 pass
 less
 loss
@@ -17,6 +18,7 @@ grass
 success
 discuss
 address
+Congress
 access
 unless
 stress
@@ -28,10 +30,10 @@ illness
 darkness
 awareness
 nevertheless
-ass
 mess
-bless
 ###
+bless
+gross
 possess
 dismiss
 impress

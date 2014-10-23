@@ -1,4 +1,5 @@
 type
 style
-stereotype
 ###
+lifestyle
+stereotype

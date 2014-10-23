@@ -6,7 +6,7 @@ ask
 this
 just
 some
-sit
+also
 last
 most
 same
@@ -14,8 +14,10 @@ first
 still
 state
 school
-also
+student
+something
 yes
+sit
 set
 six
 son
@@ -61,8 +63,8 @@ task
 sing
 safe
 fast
-###
 spot
+###
 soft
 suit
 salt
@@ -88,8 +90,12 @@ speak
 spend
 serve
 sense
+system
 social
 almost
+person
 second
+season
+strong
 against
 service

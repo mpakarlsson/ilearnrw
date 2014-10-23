@@ -3,6 +3,11 @@ result
 belt
 adult
 difficult
-###
 melt
+bolt
 consult
+###
+wilt
+smelt
+spelt
+spilt

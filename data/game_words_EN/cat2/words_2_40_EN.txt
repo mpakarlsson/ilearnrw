@@ -2,6 +2,6 @@ ask
 risk
 task
 desk
-mask
 ###
+mask
 disk

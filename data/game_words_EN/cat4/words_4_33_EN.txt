@@ -47,10 +47,8 @@ drunkest
 sharpest
 weirdest
 thickest
-lowliest
 grandest
 toughest
-stillest
 soundest
 faintest
 blindest
@@ -65,8 +63,8 @@ quietest
 cheapest
 clearest
 smartest
-###
 sweetest
+###
 sheerest
 blackest
 smallest
@@ -80,6 +78,7 @@ roundest
 brownest
 lightest
 steepest
+stillest
 strictest
 goodliest
 liveliest
@@ -93,9 +92,10 @@ strongest
 narrowest
 likeliest
 bitterest
-sickliest
-kindliest
 tenderest
-cleanliest
+stateliest
 worldliest
 shallowest
+profoundest
+pleasantest
+unlikeliest

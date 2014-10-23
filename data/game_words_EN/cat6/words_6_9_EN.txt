@@ -1,5 +1,6 @@
 it
 if
+its
 four
 fall
 free
@@ -17,10 +18,14 @@ tear
 roof
 fight
 tired
+letter
 quality
 identify
+fasted
 ###
 identity
+shifting
+tasted
 tire
 tail
 fool
@@ -29,3 +34,4 @@ tile
 tight
 fighter
 qualify
+tucking

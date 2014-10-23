@@ -34,6 +34,9 @@ experiment
 exhibition
 explanation
 extraordinary
+exit
+exam
+exact
 exceed
 export
 excuse
@@ -55,6 +58,7 @@ explosion
 extension
 exclusive
 expertise
+execution
 excessive
 excitement
 expedition
@@ -63,3 +67,5 @@ exploration
 experienced
 exclusively
 experimental
+expulsion
+excommunication

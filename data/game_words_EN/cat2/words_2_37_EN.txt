@@ -3,7 +3,6 @@ dog
 leg
 bag
 dig
-drug
 drag
 flag
 log

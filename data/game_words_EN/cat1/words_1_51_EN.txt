@@ -4,5 +4,6 @@ juice
 lawsuit
 cruise
 ###
+suited
 recruit
 suitable

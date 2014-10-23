@@ -63,8 +63,8 @@ soldier
 together
 remember
 consider
-###
 computer
+###
 daughter
 whatever
 shoulder
@@ -96,3 +96,6 @@ winner
 master
 partner
 western
+perfect
+deliver
+quarter

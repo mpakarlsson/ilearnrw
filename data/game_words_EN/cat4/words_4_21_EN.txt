@@ -1,12 +1,14 @@
 timed
 liked
 stated
+whiled
 eyed
 aged
 died
 lied
 iced
 tied
+cased
 moved
 lived
 homed
@@ -58,10 +60,14 @@ taped
 hired
 hated
 coded
+nosed
 filed
-cored
-toned
+zoned
+cited
 ###
+cored
+gated
+toned
 biked
 mined
 joked
@@ -91,4 +97,5 @@ ranged
 styled
 scored
 stared
+coupled
 figured

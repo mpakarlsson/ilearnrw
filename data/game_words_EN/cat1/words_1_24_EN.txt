@@ -1,5 +1,6 @@
 other
 another
+becoming
 son
 money
 month
@@ -13,6 +14,7 @@ worry
 front
 dozen
 onion
+colour
 wonder
 brother
 discover
@@ -29,9 +31,9 @@ recovery
 discovery
 accompany
 accomplish
+###
 grandmother
 oven
-###
 lover
 honey
 tongue

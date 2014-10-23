@@ -27,14 +27,17 @@ offered
 fielded
 decided
 sited
+fired
 noted
 acted
 voted
 dated
+hired
 hated
 coded
 cited
 gated
+wired
 minded
 tabled
 costed
@@ -61,11 +64,11 @@ planted
 shorted
 singled
 sported
+###
 boarded
 natured
 sounded
 ordered
-###
 blooded
 entered
 readied
@@ -96,6 +99,3 @@ modelled
 actioned
 recorded
 grounded
-mattered
-doctored
-pictured

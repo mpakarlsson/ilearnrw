@@ -5,6 +5,9 @@ trip
 ship
 slip
 chip
+relationship
+leadership
+championship
 rip
 dip
 grip
@@ -12,8 +15,8 @@ flip
 clip
 whip
 skip
-strip
 ###
+strip
 equip
 ownership
 membership
@@ -21,3 +24,4 @@ friendship
 partnership
 scholarship
 citizenship
+fellowship

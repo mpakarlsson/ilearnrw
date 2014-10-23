@@ -24,8 +24,8 @@ shock
 clock
 attack
 duck
-suck
 ###
+suck
 tuck
 rack
 sock

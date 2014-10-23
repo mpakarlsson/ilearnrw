@@ -64,8 +64,8 @@ surgeries
 faculties
 majorities
 identities
-facilities
 ###
+facilities
 categories
 minorities
 capacities

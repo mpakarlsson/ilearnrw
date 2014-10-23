@@ -1,6 +1,4 @@
-allow
 ally
-alley
 alleged
 alliance
 ###

@@ -1,7 +1,6 @@
 county
 difficulty
 guilty
-deputy
-dirty
 ###
+dirty
 treaty

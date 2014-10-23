@@ -3,7 +3,9 @@ photo
 phase
 physical
 telephone
+emphasise
 photograph
+emphasizing
 phrase
 emphasis
 physician
@@ -13,9 +15,9 @@ phenomenon
 sphere
 physics
 triumph
+###
 metaphor
 elephant
-###
 physically
 photography
 demographic

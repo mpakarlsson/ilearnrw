@@ -32,10 +32,14 @@ shoulder
 establish
 relationship
 shadow
+Jewish
 publish
+British
+English
 fashion
 leadership
 fishing
+Spanish
 shopping
 accomplish
 championship
@@ -44,6 +48,7 @@ ash
 bush
 shed
 crash
+Irish
 shelf
 shrug
 shade
@@ -59,10 +64,10 @@ sheep
 sheer
 shark
 crush
+###
 trash
 shower
 bishop
-###
 vanish
 shared
 punish

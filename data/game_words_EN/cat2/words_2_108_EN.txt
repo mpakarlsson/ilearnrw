@@ -4,5 +4,6 @@ exception
 exceed
 excited
 ###
+exciting
 excessive
 excitement

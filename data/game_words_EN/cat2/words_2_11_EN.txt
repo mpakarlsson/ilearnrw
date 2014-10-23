@@ -19,8 +19,9 @@ creature
 criteria
 criticism
 criticise
-craft
+criticizing
 ###
+craft
 crash
 crack
 crawl

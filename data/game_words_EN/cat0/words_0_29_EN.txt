@@ -15,8 +15,8 @@ ankle
 blink
 chunk
 blank
-banker
 ###
+banker
 monkey
 shrink
 blanket

@@ -9,11 +9,13 @@ dry
 deny
 rely
 ally
+typed
 apply
 reply
 cycle
 imply
 myself
+styled
 identify
 supply
 nearby
@@ -37,8 +39,10 @@ classify
 psychology
 hypothesis
 underlying
+stereotyped
 psychologist
 carbohydrate
 spy
 flying
+multiply
 butterfly

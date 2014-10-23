@@ -5,12 +5,14 @@ associate
 assessment
 assist
 assign
+assure
 assistant
 assistance
 assumption
 association
-assert
 ###
+asses
+assert
 assault
 assemble
 assembly

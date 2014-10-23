@@ -3,7 +3,7 @@ determine
 engine
 examine
 medicine
-discipline
 ###
+discipline
 genuine
 doctrine

@@ -45,11 +45,13 @@ thanks
 ethnic
 length
 healthy
+theatre
 athlete
 beneath
 strength
 threaten
 thinking
+Catholic
 throat
 wealth
 therapy
@@ -57,9 +59,10 @@ bathroom
 birthday
 myth
 bath
+maths
 cloth
-sixth
 ###
+sixth
 thumb
 thigh
 thirty
@@ -82,6 +85,7 @@ aesthetic
 northeast
 threshold
 twentieth
+authorise
 strengthen
 hypothesis
 enthusiasm
@@ -89,3 +93,4 @@ earthquake
 thoroughly
 theoretical
 mathematics
+theological

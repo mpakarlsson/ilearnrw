@@ -9,8 +9,8 @@ basketball
 ski
 mask
 disk
-skip
 ###
+skip
 skirt
 skull
 risky

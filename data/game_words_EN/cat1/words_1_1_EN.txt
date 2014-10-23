@@ -47,6 +47,7 @@ program
 perhaps
 mass
 wrap
+Arab
 drag
 sand
 glad
@@ -63,9 +64,9 @@ catch
 happy
 adult
 track
+###
 marry
 actor
-###
 panel
 angry
 match
@@ -75,6 +76,7 @@ album
 grand
 habit
 anger
+Latin
 brand
 apple
 salad
@@ -97,5 +99,3 @@ national
 actually
 activity
 practice
-campaign
-language

@@ -1,1 +1,10 @@
+actor
+editor
+investor
+governor
+inspector
+collector
 ###
+processor
+instructor
+contractor

@@ -6,8 +6,8 @@ score
 ignore
 explore
 anymore
-therefore
 ###
+therefore
 restore
 shore
 furthermore

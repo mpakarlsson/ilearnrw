@@ -1,3 +1,4 @@
+warring
 carry
 worry
 sorry
@@ -12,10 +13,14 @@ tomorrow
 surround
 terrible
 currently
+curriculum
 narrow
 arrest
 terror
 arrange
+barrier
+territory
+terrorism
 terrorist
 arrangement
 correspondent
@@ -26,12 +31,12 @@ barrel
 borrow
 horror
 carrot
+###
 arrival
 carrier
 warrior
 terrain
 corridor
-###
 currency
 horrible
 terrific
@@ -44,7 +49,3 @@ corruption
 correlation
 surrounding
 embarrassed
-curriculum
-barrier
-territory
-terrorism

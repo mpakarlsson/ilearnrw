@@ -7,6 +7,7 @@ have
 here
 high
 hand
+hi
 hit
 hot
 hey
@@ -33,6 +34,7 @@ hate
 hall
 host
 house
+human
 heart
 happen
 health
@@ -41,6 +43,7 @@ however
 history
 himself
 perhaps
+hero
 hill
 holy
 happy
@@ -54,15 +57,17 @@ hundred
 husband
 herself
 hospital
+behaviour
 handle
 highly
 hardly
 healthy
 somehow
 hearing
+###
 household
 historical
-###
+neighbourhood
 height
 heaven
 holiday
@@ -74,6 +79,7 @@ hunting
 historic
 childhood
 historian
+ha
 hay
 huh
 hug
@@ -93,4 +99,3 @@ hurry
 hence
 harsh
 hunter
-hungry

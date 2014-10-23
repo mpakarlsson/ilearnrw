@@ -5,6 +5,7 @@ physical
 telephone
 emphasise
 photograph
+emphasizing
 phrase
 emphasis
 physician
@@ -14,8 +15,8 @@ phenomenon
 sphere
 physics
 triumph
-metaphor
 ###
+metaphor
 elephant
 physically
 photography

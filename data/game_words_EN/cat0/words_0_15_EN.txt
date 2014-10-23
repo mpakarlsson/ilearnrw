@@ -1,6 +1,7 @@
 summer
 common
 community
+programmed
 commercial
 commit
 comment
@@ -18,10 +19,17 @@ immigration
 communicate
 recommendation
 summit
-###
+summed
 immune
+dammed
+###
+rimmed
+slammed
+stemmed
 dilemma
+drummed
 summary
+trimmed
 commonly
 swimming
 commodity

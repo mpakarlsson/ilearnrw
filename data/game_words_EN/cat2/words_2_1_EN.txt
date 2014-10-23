@@ -5,11 +5,12 @@ thin
 begin
 twin
 spin
+Latin
 origin
 sin
 pin
-chin
 ###
+chin
 grin
 ruin
 cabin
