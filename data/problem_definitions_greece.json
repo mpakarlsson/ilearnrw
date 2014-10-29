@@ -198,10 +198,11 @@
       },
       {
         "descriptions": [
-          "αϊ"
+          "αϊ",
+          "άι"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "Λέξεις που περιέχουν τον συνδυασμό γραμμάτων \'αϊ\' (π.χ. μαϊμού)", 
+        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς γραμμάτων \'αϊ\' και \'άι\' (π.χ. μαϊμού)", 
         "cluster": 5,
         "character":"character2"
       },
@@ -520,7 +521,7 @@
           "sk"
         ],
         "problemType": "THREE_SYL_WORD_INTERNAL_PHONEME",
-        "humanReadableDescription": "Δισύλλαβες λέξεις που περιέχουν έναν από τους ήχους \'sp\', \'st\', \'sk\' (π.χ. δάσκαλος)", 
+        "humanReadableDescription": "Τρισύλλαβες λέξεις που περιέχουν έναν από τους ήχους \'sp\', \'st\', \'sk\' (π.χ. δάσκαλος)", 
         "cluster": 11,
         "character":"character7"
       },
@@ -736,19 +737,20 @@
       {
         "descriptions": [
           "ιά",
-          "ειά"
+          "ία"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'ιά\' ή \'ειά\' (π.χ. γηρατειά)", 
+        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'ιά\' ή \'ία\' (π.χ. γηρατειά)", 
         "cluster": 18,
         "character":"character12"
       },
       {
         "descriptions": [
-          "ία"
+          "ειά",
+          "εία"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "Λέξεις που περιέχουν τον συνδυασμό \'ία\' (π.χ. ανεργία)", 
+        "humanReadableDescription": "Λέξεις που περιέχουν τον συνδυασμό \'εία\' ή \'ειά\' (π.χ. ανεργία)", 
         "cluster": 18,
         "character":"character12"
       },
@@ -766,25 +768,30 @@
       {
         "descriptions": [
           "αί",
-          "οί"
+          "οί",
+          "εί"
         ],
         "problemType": "CONTAINS_LETTERS_ON_SAME_SYLLABLES",
-        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'αί\' ή \'οί\' στην ίδια συλλαβή (π.χ. πλοίου)", 
+        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'αί\', \'οί\' ή \'εί\' στην ίδια συλλαβή (π.χ. πλοίου)", 
         "cluster": 19,
         "character":"character12"
       },
       {
         "descriptions": [
           "άι",
-          "όι"
+          "όι",
+          "έι"
         ],
         "problemType": "CONTAINS_LETTERS_ON_SAME_SYLLABLES",
-        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'άι\' ή \'όι\' στην ίδια συλλαβή (π.χ. νεράιδα)", 
+        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'άι\', \'όι\' ή \'έι\' στην ίδια συλλαβή (π.χ. νεράιδα)", 
         "cluster": 19,
         "character":"character12"
       },
       {
         "descriptions": [
+          "αι",
+          "οι",
+          "ει",
           "αϊ",
           "οϊ",
           "εϊ"
@@ -796,6 +803,8 @@
       },
       {
         "descriptions": [
+          "ου",
+          "ού",
           "οϋ",
           "οΰ"
         ],
@@ -841,8 +850,11 @@
       {
         "descriptions": [
           "α",
+          "ά",
           "αντι",
-          "δυσ"
+          "αντί",
+          "δυσ",
+          "δύσ"
         ],
         "problemType": "IS_ADJ_AND_STARTS_WITH",
         "humanReadableDescription": "Επίθετα που ξεκινάνε με \'α\', \'αντί\' ή \'δυσ\' (π.χ. άλυτος)", 
@@ -853,7 +865,10 @@
         "descriptions": [
           "υπερ",
           "υπο",
-          "κατα"
+          "κατα",
+          "υπέρ",
+          "υπό",
+          "κατά"
         ],
         "problemType": "IS_NOUN_OR_ADJ_AND_STARTS_WITH",
         "humanReadableDescription": "Επίθετα ή ουσιαστικά που ξεκινάνε με \'υπερ\', \'υπο\' ή \'κατα\' (π.χ. υπερβολή)", 
@@ -863,7 +878,9 @@
       {
         "descriptions": [
           "υπερ",
-          "υπο"
+          "υπο",
+          "υπέρ",
+          "υπό"
         ],
         "problemType": "IS_VERB_AND_STARTS_WITH",
         "humanReadableDescription": "Ρήματα που ξεκινάνε με \'υπερ\' ή \'υπο\' (π.χ. υπερβάλω)", 
@@ -879,7 +896,15 @@
           "πολυ",
           "μικρο",
           "ψιλο",
-          "ημι"
+          "ημι",
+          "δί",
+          "τρί",
+          "πρωτό",
+          "αυτό",
+          "πολύ",
+          "μικρό",
+          "ψιλό",
+          "ημί"
         ],
         "problemType": "STARTS_WITH",
         "humanReadableDescription": "Λέξεις που ξεκινάνε με \'δι'\, '\τρι'\, '\πρωτο'\, '\αυτο'\, '\πολυ'\, '\μικρο'\, '\ψιλο'\ ή '\ημι\' (π.χ. ψιλοβρόχι)", 
@@ -900,6 +925,7 @@
           "κατα",
           "μετα",
           "παρα",
+          "παρά",
           "περι",
           "προ",
           "προσ",
