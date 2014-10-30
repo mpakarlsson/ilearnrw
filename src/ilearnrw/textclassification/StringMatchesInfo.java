@@ -874,7 +874,13 @@ public class StringMatchesInfo {
 					if (j>=w.getGraphemesPhonemes().size())
 						break;
 				}
-				totalStartsFrom += w.getGraphemesPhonemes().get(i).getGrapheme().length();
+				String grapheme = w.getGraphemesPhonemes().get(i).getGrapheme();
+				
+				if(grapheme.contains(".")){
+					String[] vals = grapheme.split("\\.");
+					totalStartsFrom += vals[0].length();
+				} else 
+					totalStartsFrom += grapheme.length();
 			}
 			
 			/*if(type.equals("contains")){
@@ -1012,7 +1018,13 @@ public class StringMatchesInfo {
 					if (j>=w.getGraphemesPhonemes().size())
 						break;
 				}
-				totalStartsFrom += w.getGraphemesPhonemes().get(i).getGrapheme().length();
+				String grapheme = w.getGraphemesPhonemes().get(i).getGrapheme();
+				
+				if(grapheme.contains(".")){
+					String[] vals = grapheme.split("\\.");
+					totalStartsFrom += vals[0].length();
+				} else 
+					totalStartsFrom += grapheme.length();
 			}
 			/*if(type.equals("contains")){
 				for (int i=0; i<w.getGraphemesPhonemes().size(); i++){
