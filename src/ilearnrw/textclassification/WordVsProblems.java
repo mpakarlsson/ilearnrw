@@ -216,6 +216,9 @@ public class WordVsProblems {
 			case CONTAINS_LETTERS_ON_CONSEQUTIVE_SYLLABLES:
 				wpi.setProblemInfo(i, j, StringMatchesInfo.containsLettersOnConsequtiveSyllables(pd, word));
 				break;
+			case CONTAINS_BUT_EXCLUDE_PREVIOUS_LETTERS:
+				wpi.setProblemInfo(i, j, StringMatchesInfo.containsButExcludePreviousLetters(pd, word));
+				break;
 			case CONTAINS_LETTERS_ON_SAME_SYLLABLES:
 				wpi.setProblemInfo(i, j, StringMatchesInfo.containsLettersOnSameSyllable(pd, word));
 				break;
@@ -223,7 +226,8 @@ public class WordVsProblems {
 				wpi.setProblemInfo(i, j, StringMatchesInfo.containsPatternOrEndsWithExtraConsonant(pd, word));
 				break;
 			case SOUND_SIMILARITY:
-				wpi.setProblemInfo(i, j, StringMatchesInfo.soundSimilarity(pd, word));
+				//wpi.setProblemInfo(i, j, StringMatchesInfo.soundSimilarity(pd, word));
+				wpi.setProblemInfo(i, j, StringMatchesInfo.containsSimilarPhonemeAdaptor(pd, word));
 				//if (wpi.getFound())
 					//gDic.getGreekWords().add((GreekWord)word);
 				break;

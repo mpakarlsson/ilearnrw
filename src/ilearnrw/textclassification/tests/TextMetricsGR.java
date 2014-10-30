@@ -204,6 +204,8 @@ public class TextMetricsGR extends JFrame implements TextMetricsGUI {
 						for (User u : mUserStore.getAllUsers())
 							if (u.getUserId() == user.getUserId())
 								user = u;
+						ProblemDefinitionIndex pdi = new ProblemDefinitionIndex(user.getProfile().getLanguage());
+						user.getProfile().getUserProblems().setProblems(pdi);
 					} catch (AuthenticationException e1) {
 						e1.printStackTrace();
 					}
@@ -256,6 +258,8 @@ public class TextMetricsGR extends JFrame implements TextMetricsGUI {
 
 			/* Select the first user. */
 			user = mUserStore.getAllUsers().get(0);
+			ProblemDefinitionIndex pdi = new ProblemDefinitionIndex(user.getProfile().getLanguage());
+			user.getProfile().getUserProblems().setProblems(pdi);
 			userCombobox.setSelectedIndex(0);
 		} catch (Exception ex) {
 			ex.printStackTrace();

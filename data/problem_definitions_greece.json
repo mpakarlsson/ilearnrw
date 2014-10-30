@@ -69,10 +69,12 @@
       {
         "descriptions": [
           "t-d",
-          "p-b"
+          "t-nd",
+          "p-b",
+          "p-mb"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'p\'-\'b\' ή τους ήχους \'t\'-\'d\' (π.χ. τείνω-ντύνω)", 
+        "humanReadableDescription": "Ηχητική ομοιότητα μεταξύ των ήχων \'p\'-\'b\' ή \'t\'-\'d\' (π.χ. τείνω-ντύνω)", 
         "cluster": 0,
         "character":"character0"
       },
@@ -82,16 +84,17 @@
           "k-t"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'k\'-\'t\' ή τους ήχους \'k\'-\'p\' (π.χ. κάνω-πάνω)", 
+        "humanReadableDescription": "Ηχητική ομοιότητα μεταξύ των ήχων \'k\'-\'t\' ή \'k\'-\'p\' (π.χ. κάνω-πάνω)", 
         "cluster": 0,
         "character":"character0"
       },
       {
         "descriptions": [
-          "m-n"
+          "m-n",
+          "m-ɲ"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'m\'-\'n\' (π.χ. μένω-Νέμο)", 
+        "humanReadableDescription": "Ηχητική ομοιότητα μεταξύ των ήχων \'m\'-\'n\' (π.χ. μένω-Νέμο)", 
         "cluster": 0,
         "character":"character0"
       },
@@ -102,7 +105,7 @@
           "χ-γ"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'χ\'-\'γ\', τους ήχους \'f\'-\'v\' ή τους ήχους \'θ\'-\'ð\' (π.χ. θέλω-δένω)", 
+        "humanReadableDescription": "Ηχητική ομοιότητα μεταξύ των ήχων \'χ\'-\'γ\', \'f\'-\'v\' ή \'θ\'-\'ð\' (π.χ. θέλω-δένω)", 
         "cluster": 1,
         "character":"character0"
       },
@@ -112,7 +115,7 @@
           "k-χ"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'k\'-\'γ\' ή τους ήχους \'k\'-\'χ\' (π.χ. κάνω-χάνω)", 
+        "humanReadableDescription": "Ηχητική ομοιότητα μεταξύ των ήχων \'k\'-\'γ\' ή \'k\'-\'χ\' (π.χ. κάνω-χάνω)", 
         "cluster": 1,
         "character":"character0"
       },
@@ -121,7 +124,7 @@
           "s-z"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'s\'-\'z\' (π.χ. σώνει-ζώνη)", 
+        "humanReadableDescription": "Ηχητική ομοιότητα μεταξύ των ήχων \'s\'-\'z\' (π.χ. σώνει-ζώνη)", 
         "cluster": 2,
         "character":"character0"
       },
@@ -130,7 +133,7 @@
           "l-r"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'l\'-\'r\' (π.χ. αράζω-αλλάζω)", 
+        "humanReadableDescription": "Ηχητική ομοιότητα μεταξύ των ήχων \'l\'-\'r\' (π.χ. αράζω-αλλάζω)", 
         "cluster": 2,
         "character":"character0"
       },
@@ -142,7 +145,7 @@
           "θ-ð"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'f\'-\'θ\', \'f\' και \'v\', \'θ\'-\'ð\' ή \'ð\'-\'v\' (π.χ. βαίνω-δένω)", 
+        "humanReadableDescription": "Ηχητική ομοιότητα μεταξύ των ήχων \'f\'-\'θ\', \'f\' και \'v\', \'θ\'-\'ð\' ή \'ð\'-\'v\' (π.χ. βαίνω-δένω)", 
         "cluster": 3,
         "character":"character0"
       },
@@ -151,7 +154,7 @@
           "kt-pt"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'kt\'-\'pt\' (π.χ. κτήνος-πτηνό)", 
+        "humanReadableDescription": "Ηχητική ομοιότητα μεταξύ των ήχων \'kt\'-\'pt\' (π.χ. κτήνος-πτηνό)", 
         "cluster": 3,
         "character":"character1"
       },
@@ -162,7 +165,7 @@
           "ps-sp"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'ks\'-\'ps\', τους \'ps\'-\'sp\' ή τους ήχους \'ks\'-\'sk\' (π.χ. ξυνή-σκηνή)", 
+        "humanReadableDescription": "Ηχητική ομοιότητα μεταξύ των ήχων \'ks\'-\'ps\', \'ps\'-\'sp\' ή \'ks\'-\'sk\' (π.χ. ξυνή-σκηνή)", 
         "cluster": 3,
         "character":"character1"
       },
@@ -172,7 +175,7 @@
           "fr-χr"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'ðr\'-\'θr\' ή τους ήχους \'fr\'-\'χr\' (π.χ. αφρός-ωχρός)", 
+        "humanReadableDescription": "Ηχητική ομοιότητα μεταξύ των ήχων \'ðr\'-\'θr\' ή \'fr\'-\'χr\' (π.χ. αφρός-ωχρός)", 
         "cluster": 4,
         "character":"character1"
       },
@@ -181,7 +184,7 @@
           "χθ-fθ"
         ],
         "problemType": "SOUND_SIMILARITY",
-        "humanReadableDescription": "Λέξεις που μοιάζουν ηχητικά αν εξαιρέσουμε τους ήχους \'χθ\'-\'fθ\' (π.χ. χθεσινός-φθάνω)", 
+        "humanReadableDescription": "Ηχητική ομοιότητα μεταξύ των ήχων \'χθ\'-\'fθ\' (π.χ. χθεσινός-φθάνω)", 
         "cluster": 4,
         "character":"character1"
       }
@@ -736,11 +739,11 @@
       },
       {
         "descriptions": [
-          "ιά",
-          "ία"
+          "ιά-ε",
+          "ία-ε"
         ],
-        "problemType": "CONTAINS",
-        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'ιά\' ή \'ία\' (π.χ. γηρατειά)", 
+        "problemType": "CONTAINS_BUT_EXCLUDE_PREVIOUS_LETTERS",
+        "humanReadableDescription": "Λέξεις που γράφονται με \'ιά\' ή \'ία\' (π.χ. ανεργία)", 
         "cluster": 18,
         "character":"character12"
       },
@@ -750,7 +753,7 @@
           "εία"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "Λέξεις που περιέχουν τον συνδυασμό \'εία\' ή \'ειά\' (π.χ. ανεργία)", 
+        "humanReadableDescription": "Λέξεις που γράφονται με \'εία\' ή \'ειά\' (π.χ. γηρατειά)", 
         "cluster": 18,
         "character":"character12"
       },
@@ -797,7 +800,7 @@
           "εϊ"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'αϊ\', \'οϊ\' ή \'εϊ\' (π.χ. προϊόν)", 
+        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'αι\', \'οι\' ή \'ει\', \'αϊ\', \'οϊ\' ή \'εϊ\' (π.χ. προϊόν)", 
         "cluster": 20,
         "character":"character12"
       },
@@ -809,7 +812,7 @@
           "οΰ"
         ],
         "problemType": "CONTAINS",
-        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'οϋ\' ή \'οΰ\' (π.χ. προϋπόθεση)", 
+        "humanReadableDescription": "Λέξεις που περιέχουν τους συνδυασμούς \'ου\', \'ού\', \'οϋ\' ή \'οΰ\' (π.χ. προϋπόθεση)", 
         "cluster": 20,
         "character":"character12"
       },
@@ -857,7 +860,7 @@
           "δύσ"
         ],
         "problemType": "IS_ADJ_AND_STARTS_WITH",
-        "humanReadableDescription": "Επίθετα που ξεκινάνε με \'α\', \'αντί\' ή \'δυσ\' (π.χ. άλυτος)", 
+        "humanReadableDescription": "Επίθετα που ξεκινάνε με \'α\', \'ά\', \'αντι\', \'αντί\', \'δυσ\' ή \'δύσ\' (π.χ. άλυτος)", 
         "cluster": 22,
         "character":"character14"
       },
@@ -871,7 +874,7 @@
           "κατά"
         ],
         "problemType": "IS_NOUN_OR_ADJ_AND_STARTS_WITH",
-        "humanReadableDescription": "Επίθετα ή ουσιαστικά που ξεκινάνε με \'υπερ\', \'υπο\' ή \'κατα\' (π.χ. υπερβολή)", 
+        "humanReadableDescription": "Επίθετα ή ουσιαστικά που ξεκινάνε με \'υπερ\', \'υπο\', \'κατα\', \'υπέρ\', \'υπό\' ή \'κατά\' (π.χ. υπερβολή)", 
         "cluster": 22,
         "character":"character14"
       },
@@ -883,7 +886,7 @@
           "υπό"
         ],
         "problemType": "IS_VERB_AND_STARTS_WITH",
-        "humanReadableDescription": "Ρήματα που ξεκινάνε με \'υπερ\' ή \'υπο\' (π.χ. υπερβάλω)", 
+        "humanReadableDescription": "Ρήματα που ξεκινάνε με \'υπερ\', \'υπο\', \'υπέρ\' ή \'υπό\' (π.χ. υπερβάλω)", 
         "cluster": 23,
         "character":"character14"
       },
@@ -907,7 +910,7 @@
           "ημί"
         ],
         "problemType": "STARTS_WITH",
-        "humanReadableDescription": "Λέξεις που ξεκινάνε με \'δι'\, '\τρι'\, '\πρωτο'\, '\αυτο'\, '\πολυ'\, '\μικρο'\, '\ψιλο'\ ή '\ημι\' (π.χ. ψιλοβρόχι)", 
+        "humanReadableDescription": "Λέξεις που ξεκινάνε με \'δι'\, '\τρι'\, '\πρωτο'\, '\αυτο'\, '\πολυ'\, '\μικρο'\, '\ψιλο'\, '\ημι\', \'δί'\, '\τρί'\, '\πρωτό'\, '\αυτό'\, '\πολύ'\, '\μικρό'\, '\ψιλό'\ ή '\ημί\' (π.χ. ψιλοβρόχι)", 
         "cluster": 23,
         "character":"character15"
       },
@@ -932,7 +935,7 @@
           "συν"
         ],
         "problemType": "IS_VERB_AND_STARTS_WITH",
-        "humanReadableDescription": "Ρήματα που ξεκινάνε με \'ανα'\, '\αντι'\, '\απο'\, '\δια'\, '\εισ'\, '\εκ'\, '\εξ'\, '\εν'\, '\επι'\, '\κατα'\, '\μετα'\, '\παρα'\, '\περι'\, '\προ'\, '\προσ'\ ή '\συν\' (π.χ. αναγνωρίζω)", 
+        "humanReadableDescription": "Ρήματα που ξεκινάνε με \'ανα'\, '\αντι'\, '\απο'\, '\δια'\, '\εισ'\, '\εκ'\, '\εξ'\, '\εν'\, '\επι'\, '\κατα'\, '\μετα'\, '\παρα'\, '\παρά'\, '\περι'\, '\προ'\, '\προσ'\ ή '\συν\' (π.χ. αναγνωρίζω)", 
         "cluster": 24,
         "character":"character15"
       },

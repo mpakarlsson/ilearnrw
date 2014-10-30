@@ -81,6 +81,23 @@ public class StringMatchesInfo {
 		return null;
 	}
 	
+	public static ArrayList<StringMatchesInfo> containsButExcludePreviousLetters(String str[], Word w){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
+		String ws = w.getWord();
+		for (int i=0;i<str.length;i++){
+			for (int k=0;k<ws.length();k++){
+				String p[] = str[i].split("-");
+				String in = p[0], out = p[1]+p[0];
+				if ((ws.substring(k)).startsWith(in) && (k-p[1].length()<0 || !ws.substring(k-p[1].length()).startsWith(out))){
+				    result.add(new StringMatchesInfo(k, k+in.length()));
+				}
+			}
+		}
+		if (result.size()>0)
+			return result;
+		return null;
+	}
+	
 	public static ArrayList<StringMatchesInfo> visualSimilarity(String str[], Word w){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getWordUnmodified();
@@ -96,6 +113,7 @@ public class StringMatchesInfo {
 		return null;
 	}
 	
+	//must be wrong, but not used at the moment!
 	public static ArrayList<StringMatchesInfo> containsLettersOnConsequtiveSyllables(String str[], Word w){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String syl[] = w.getSyllables();
@@ -117,14 +135,13 @@ public class StringMatchesInfo {
 	
 	public static ArrayList<StringMatchesInfo> containsLettersOnSameSyllable(String str[], Word w){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
-		String ws = w.getWord();
 		String syl[] = w.getSyllables();
 		for (int i=0;i<str.length;i++){
-			int start = syl[0].length();
+			int start = 0;
 			for (int j=0;j<syl.length-1;j++){
 				if (syl[j].contains(str[i])){
 				    result.add(new StringMatchesInfo(
-				    		ws.indexOf(str[i], start-1), ws.indexOf(str[i], start-1)+str[i].length()));
+				    		start+syl[j].indexOf(str[i]), start+syl[j].indexOf(str[i])+str[i].length()));
 				}
 				start += syl[j].length();
 			}
@@ -210,6 +227,16 @@ public class StringMatchesInfo {
 		return null;
 	}*/
 	
+	public static ArrayList<StringMatchesInfo> containsSimilarPhonemeAdaptor(String str[], Word w){
+		String p[] = new String[2*str.length];
+		for (int i=0;i<p.length; i+= 2){
+			String k[] = str[i/2].split("-");
+			p[i] = k[0];
+			p[i+1] = k[1];
+		}
+		return containsPhoneme(p, w);
+	}
+	
 	public static ArrayList<StringMatchesInfo> containsPhoneme(String str[], Word w){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getPhonetics();
@@ -220,8 +247,9 @@ public class StringMatchesInfo {
 			int start = 0;
 			for (int j=0;j<gp.size();j++){
 				int length = 0, k=j;
-				String phonemes = gp.get(k).getPhoneme();
-				while (str[i].startsWith(phonemes) && k+1<gp.size()){
+				String phonemes = "";
+				while (str[i].startsWith(phonemes) && k<gp.size()){
+					phonemes = phonemes + gp.get(k).getPhoneme();
 					length += gp.get(k).getGrapheme().length();
 					if (str[i].equals(phonemes) && length>0 && start>=0 && 
 							start+length<=w.getWord().length()){
@@ -229,7 +257,6 @@ public class StringMatchesInfo {
 					    break;
 					}
 					k++;
-					phonemes = phonemes + gp.get(k).getPhoneme();
 				}
 				start += gp.get(j).getGrapheme().length();
 			}

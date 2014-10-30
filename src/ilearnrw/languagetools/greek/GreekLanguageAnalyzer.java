@@ -20,7 +20,7 @@ public class GreekLanguageAnalyzer implements LanguageAnalyzerAPI{
 
 	protected GreekLanguageAnalyzer() {
 		dictionary = GreekDictionary.getInstance();
-		soundsSimilarDictionary = GreekSoundDictionary.getInstance();
+		soundsSimilarDictionary = null;//GreekSoundDictionary.getInstance();
 	}
 	
 	public static GreekLanguageAnalyzer getInstance(){
