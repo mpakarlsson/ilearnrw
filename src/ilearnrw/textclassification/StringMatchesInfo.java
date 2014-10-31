@@ -2,6 +2,7 @@ package ilearnrw.textclassification;
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
+import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
 import ilearnrw.textclassification.english.EnglishWord;
 import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.user.problems.ProblemType;
@@ -151,10 +152,18 @@ public class StringMatchesInfo {
 		return null;
 	}
 	
-	public static ArrayList<StringMatchesInfo> endsWith(String str[], Word w){
+	public static ArrayList<StringMatchesInfo> endsWithSuffixAndSatisfiesFilter(String str[], Word w){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getWord();
-		for (int i=0;i<str.length;i++){
+		int start = 0;
+		if (str[0].startsWith("filters")){
+			GreekWord t = GreekLanguageAnalyzer.getInstance().getDictionary().getWord(w.getWord());
+			if (t != null && GreekWordTypeFilterChecker.check(t, str[0]))
+				start = 1;
+			else
+				return null;
+		}
+		for (int i=start;i<str.length;i++){
 			if (ws.endsWith(str[i])){
 			    result.add(new StringMatchesInfo(ws.lastIndexOf(str[i]), ws.lastIndexOf(str[i])+str[i].length()));
 				return result;

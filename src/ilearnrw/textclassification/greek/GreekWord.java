@@ -5,6 +5,7 @@ import ilearnrw.languagetools.greek.GreekPhonetics;
 import ilearnrw.languagetools.greek.GreekSpeller;
 import ilearnrw.languagetools.greek.GreekSyllabification;
 import ilearnrw.languagetools.greek.Speller;
+import ilearnrw.languagetools.greek.WordTypeInfo;
 import ilearnrw.textclassification.GraphemePhonemePair;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordType;
@@ -12,6 +13,8 @@ import ilearnrw.utils.LanguageCode;
 
 public class GreekWord extends Word{
 	private static final long serialVersionUID = 1L;
+	
+	private WordTypeInfo wordTypeInfo;
 
 	public GreekWord(){
 	}
@@ -24,6 +27,7 @@ public class GreekWord extends Word{
 		createPhonetics();
 		createGraphemePhonemePairs();
 		setStem("");
+		wordTypeInfo = new WordTypeInfo();
 		//System.out.println(word);
 	}
 	
@@ -35,6 +39,7 @@ public class GreekWord extends Word{
 		createPhonetics();
 		createGraphemePhonemePairs();
 		setStem("");
+		wordTypeInfo = new WordTypeInfo();
 		//System.out.println(word);
 	}
 	
@@ -47,6 +52,19 @@ public class GreekWord extends Word{
 		createGraphemePhonemePairs();
 		setStem(stem);
 		super.frequency = frequency;
+		wordTypeInfo = new WordTypeInfo();
+	}
+	
+	public GreekWord(String word, WordType wt, String stem, int frequency, String jsonWTI){
+		super(word, wt);
+		super.languageCode = LanguageCode.GR;
+		syllabism();
+		createCVForm();
+		createPhonetics();
+		createGraphemePhonemePairs();
+		setStem(stem);
+		super.frequency = frequency;
+		wordTypeInfo = new WordTypeInfo(jsonWTI);
 	}
 	
 	protected void syllabism(){
@@ -118,6 +136,14 @@ public class GreekWord extends Word{
 			if (ph != "" && gr != "")
 				graphemesPhonemes.add(new GraphemePhonemePair(gr, ph));
 		}
+	}
+
+	public WordTypeInfo getWordTypeInfo() {
+		return wordTypeInfo;
+	}
+
+	public void setWordTypeInfo(WordTypeInfo wordTypeInfo) {
+		this.wordTypeInfo = wordTypeInfo;
 	}
 	
 }

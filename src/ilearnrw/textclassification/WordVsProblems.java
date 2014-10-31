@@ -1,8 +1,10 @@
 package ilearnrw.textclassification;
 
 import java.util.ArrayList;
+
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
+import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemType;
 import ilearnrw.utils.LanguageCode;
@@ -143,41 +145,41 @@ public class WordVsProblems {
 				wpi.setProblemInfo(i, j, StringMatchesInfo.visualSimilarity(pd, word));
 				break;
 			case IS_NOUN_OR_ADJ_AND_ENDS_WITH:
-				if (languageAnalyser.isNoun() || languageAnalyser.isAdj())
-					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
+				if ((languageAnalyser.isNoun() || languageAnalyser.isAdj()))
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWithSuffixAndSatisfiesFilter(pd, word));
 				break;
 			case IS_BIG_NOUN_OR_ADJ_AND_ENDS_WITH:
 				if (word.getNumberOfSyllables()>=3 && 
 				(languageAnalyser.isNoun() || languageAnalyser.isAdj()))
-					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWithSuffixAndSatisfiesFilter(pd, word));
 				break;
 			case IS_NOUN_AND_ENDS_WITH:
 				if (languageAnalyser.isNoun())
-					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWithSuffixAndSatisfiesFilter(pd, word));
 				break;
 			case IS_BIG_NOUN_AND_ENDS_WITH:
 				if (word.getNumberOfSyllables()>=3 && languageAnalyser.isNoun())
-					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWithSuffixAndSatisfiesFilter(pd, word));
 				break;
 			case IS_ADJ_AND_ENDS_WITH:
 				if (languageAnalyser.isAdj())
-					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWithSuffixAndSatisfiesFilter(pd, word));
 				break;
 			case IS_BIG_ADJ_AND_ENDS_WITH:
 				if (word.getNumberOfSyllables()>=3 && languageAnalyser.isAdj())
-					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWithSuffixAndSatisfiesFilter(pd, word));
 				break;
 			case IS_VERB_AND_ENDS_WITH:
 				if (languageAnalyser.isVerb())
-					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWithSuffixAndSatisfiesFilter(pd, word));
 				break;
 			case IS_BIG_VERB_AND_ENDS_WITH:
 				if (word.getNumberOfSyllables()>=3 && languageAnalyser.isVerb())
-					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWithSuffixAndSatisfiesFilter(pd, word));
 				break;
 			case IS_PARTICIPLE_AND_ENDS_WITH:
 				if (languageAnalyser.isParticiple())
-					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWith(pd, word));
+					wpi.setProblemInfo(i, j, StringMatchesInfo.endsWithSuffixAndSatisfiesFilter(pd, word));
 				break;
 			case IS_NOUN_OR_ADJ_AND_STARTS_WITH:
 				if (languageAnalyser.isNoun() || languageAnalyser.isAdj())

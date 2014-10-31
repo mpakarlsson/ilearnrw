@@ -45,16 +45,20 @@ public class GreekDictionary {
 	private void readDic(){
 		try {
 			dictionary = new HashMap<String, GreekWord>();
-			InputStream input = ResourceLoader.getInstance().getInputStream(Type.DATA, "greekSmallDict.txt");
+			InputStream input = ResourceLoader.getInstance().getInputStream(Type.DATA, "greekFullDictionaryLight.csv");
 			InputStreamReader in = new InputStreamReader(input, "UTF-8");
 			BufferedReader buf = new BufferedReader(in);
 			String line = null;
 			while((line=buf.readLine())!=null) {
-				String[] row = line.split(" ");
+				String[] row = line.split("\t");
 				if (row.length == 1 && row[0]!=null && !row[0].isEmpty()){
 					dictionary.put(row[0], new GreekWord(row[0], WordType.Unknown));
 				}
-				if (row.length == 4){
+				else if (row.length >= 5){
+					GreekWord w = new GreekWord(row[0], partOfSpeech(row[1]), row[2].trim(), Integer.parseInt(row[3]), row[4]);
+					dictionary.put(row[0], w);
+				}
+				else if (row.length >= 4){
 					GreekWord w = new GreekWord(row[0], partOfSpeech(row[1]), row[2].trim(), Integer.parseInt(row[3]));
 					dictionary.put(row[0], w);
 				}
