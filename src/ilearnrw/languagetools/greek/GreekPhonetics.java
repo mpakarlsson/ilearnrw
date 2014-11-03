@@ -194,7 +194,7 @@ public class GreekPhonetics {
     	}
     }
        
-        private void convertTwoOrThreeConsonants(){
+    private void convertTwoOrThreeConsonants(){
         int n = word.trim().length(), tmpStart;
         tmpStart = 0;
         while (tmpStart < n && word.substring(tmpStart).contains("ντζ")){
@@ -402,6 +402,12 @@ public class GreekPhonetics {
             int k = word.indexOf("κ", tmpStart);
             if (k>0 && word.indexOf("γκ", tmpStart)==k-1){
                 tmpStart = k+1;
+                continue;
+            }
+            if (k>=0 && k<word.length()-1 && word.indexOf("κκ", tmpStart)==k){
+                tmpStart = k+2;
+                tempResult[k] = "k";
+                tempResult[k+1] = "*";
                 continue;
             }
             if (k>n-2){

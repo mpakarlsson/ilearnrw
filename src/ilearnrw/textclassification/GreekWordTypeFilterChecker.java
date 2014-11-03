@@ -5,18 +5,18 @@ import ilearnrw.textclassification.greek.GreekWord;
 public class GreekWordTypeFilterChecker {
 	static boolean check(GreekWord w, String filter){
 		//filters should be in the following format:
-		//filters property:value property:value ...
-		String filters[] = filter.toLowerCase().split(" ");
-		String hackWord = "gender:"+(w.getWordTypeInfo().getGender() == null?"":w.getWordTypeInfo().getGender().toLowerCase())+" " +
-				"mood:"+(w.getWordTypeInfo().getMood() == null?"":w.getWordTypeInfo().getMood().toLowerCase())+" " + 
-				"number:"+(w.getWordTypeInfo().getNumber() == null?"":w.getWordTypeInfo().getNumber().toLowerCase())+ " " +
-				"person:"+(w.getWordTypeInfo().getPerson() == null?"":w.getWordTypeInfo().getPerson().toLowerCase())+ " " +
-				"tense:"+(w.getWordTypeInfo().getTense() == null?"":w.getWordTypeInfo().getTense().toLowerCase())+ " " +
-				"thecase:"+(w.getWordTypeInfo().getTheCase() == null?"":w.getWordTypeInfo().getTheCase().toLowerCase())+ " " +
-				"voice:"+(w.getWordTypeInfo().getVoice() == null?"":w.getWordTypeInfo().getVoice().toLowerCase());
-		for (int i=1;i<filters.length; i++){
-			if (!hackWord.contains(filters[i]))
-					return false;
+		//(filter1, filter2, ...)
+		String filters[] = filter.substring(1, filter.length()-1).toLowerCase().split(", ");
+		String hackWord = "["+(w.getWordTypeInfo().getGender() == null?"":w.getWordTypeInfo().getGender().toLowerCase())+"]" +
+				(w.getWordTypeInfo().getMood() == null?"":"["+w.getWordTypeInfo().getMood().toLowerCase() +"]") + 
+				(w.getWordTypeInfo().getNumber() == null?"":"["+w.getWordTypeInfo().getNumber().toLowerCase() +"]") +
+				(w.getWordTypeInfo().getPerson() == null?"":"["+w.getWordTypeInfo().getPerson().toLowerCase() + "]") +
+				(w.getWordTypeInfo().getTense() == null?"":"["+w.getWordTypeInfo().getTense().toLowerCase() + "]") +
+				(w.getWordTypeInfo().getTheCase() == null?"":"["+w.getWordTypeInfo().getTheCase().toLowerCase() + "]") +
+				(w.getWordTypeInfo().getVoice() == null?"":"["+w.getWordTypeInfo().getVoice().toLowerCase() + "]");
+		for (int i=0;i<filters.length; i++){
+			if (!hackWord.contains("["+filters[i]+"]"))
+				return false;
 		}
 		return true;
 	}

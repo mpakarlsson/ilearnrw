@@ -155,18 +155,23 @@ public class StringMatchesInfo {
 	public static ArrayList<StringMatchesInfo> endsWithSuffixAndSatisfiesFilter(String str[], Word w){
 	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String ws = w.getWord();
-		int start = 0;
-		if (str[0].startsWith("filters")){
-			GreekWord t = GreekLanguageAnalyzer.getInstance().getDictionary().getWord(w.getWord());
-			if (t != null && GreekWordTypeFilterChecker.check(t, str[0]))
-				start = 1;
-			else
-				return null;
-		}
-		for (int i=start;i<str.length;i++){
-			if (ws.endsWith(str[i])){
-			    result.add(new StringMatchesInfo(ws.lastIndexOf(str[i]), ws.lastIndexOf(str[i])+str[i].length()));
-				return result;
+		GreekWord t = GreekLanguageAnalyzer.getInstance().getDictionary().getWord(w.getWord());
+		if (t == null)
+			return null;
+		
+		for (int i=0;i<str.length;i++){
+			String p[] = str[i].split("-");
+			if (p.length == 2){
+				if (ws.endsWith(p[1]) && GreekWordTypeFilterChecker.check(t, p[0])){
+				    result.add(new StringMatchesInfo(ws.lastIndexOf(p[1]), ws.lastIndexOf(p[1])+p[1].length()));
+					return result;
+				}
+			}
+			else { // no filters!
+				if (ws.endsWith(str[i])){
+				    result.add(new StringMatchesInfo(ws.lastIndexOf(str[i]), ws.lastIndexOf(str[i])+str[i].length()));
+					return result;
+				}
 			}
 		}
 		return null;
@@ -237,12 +242,17 @@ public class StringMatchesInfo {
 	}*/
 	
 	public static ArrayList<StringMatchesInfo> containsSimilarPhonemeAdaptor(String str[], Word w){
-		String p[] = new String[2*str.length];
-		for (int i=0;i<p.length; i+= 2){
-			String k[] = str[i/2].split("-");
-			p[i] = k[0];
-			p[i+1] = k[1];
+		ArrayList<String> t = new ArrayList<String>();
+		for (int i=0;i<str.length; i++){
+			String k[] = str[i].split("-");
+			if (!t.contains(k[0]))
+				t.add(k[0]);
+			if (!t.contains(k[1]))
+				t.add(k[1]);
 		}
+		String p[] = new String[t.size()];
+		for (int i=0;i<p.length;i++)
+			p[i] = t.get(i);
 		return containsPhoneme(p, w);
 	}
 	
@@ -310,18 +320,17 @@ public class StringMatchesInfo {
 			if (!ws.contains(str[i]))
 				continue;
 			int start = 0;
-			for (int j=1;j<gp.size();j++){
+			for (int j=0;j<gp.size();j++){
 				int length = 0, k=j;
-				String phonemes = gp.get(k).getPhoneme();
-				while (str[i].startsWith(phonemes) && k+1<gp.size()){
+				String phonemes = "";
+				while (str[i].startsWith(phonemes) && k<gp.size()){
+					phonemes = phonemes + gp.get(k).getPhoneme();
 					length += gp.get(k).getGrapheme().length();
-					if (str[i].equals(phonemes) && length>0 && start>=0 && 
+					if (str[i].equals(phonemes) && length>0 && start>0 && 
 							start+length<=w.getWord().length()){
 					    result.add(new StringMatchesInfo(start, start+length));
-					    break;
 					}
 					k++;
-					phonemes = phonemes + gp.get(k).getPhoneme();
 				}
 				start += gp.get(j).getGrapheme().length();
 			}
