@@ -465,34 +465,36 @@ public class StringMatchesInfo {
 	}
 	
 	public static ArrayList<StringMatchesInfo> suffixStress(String[] pd, Word w, ProblemType pt){
-		ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
 		String phonetics = w.getPhonetics();
-		
 		if(phonetics==null || phonetics.isEmpty())
 			return null;
 		
-		if(w.getNumberOfSyllables()<=1)
+		String wordStem = w.getStem();
+		if(wordStem == null || wordStem.isEmpty())
 			return null;
 		
-		String[] args = pd[0].split(",");
-		String word = w.getWord();
+		EnglishWord stem = EnglishLanguageAnalyzer.getInstance().getDictionary().getDictionary().get(wordStem);
+		if(stem == null)
+			return null;
 		
-		if(word.endsWith(args[0])){
-			String[] syllables = phonetics.split("\\.");
-			
-			Character ch = syllables[syllables.length-2].charAt(0);
-			if((ch=='\u02C8' || ch=='\u02CC') && syllables.length-2>0){
-				((EnglishWord)w).setSuffixType("SUFFIX_DOUBLE");
-				return StringMatchesInfo.endsWithSuffix(new String[]{args[0]}, w, ProblemType.SUFFIX_DOUBLE);
-			}
-			
-			ch = syllables[0].charAt(0);
-			if(ch=='\u02C8' || ch=='\u02CC'){
-				((EnglishWord)w).setSuffixType("SUFFIX_ADD");
-				return StringMatchesInfo.endsWithSuffix(new String[]{args[0]}, w, ProblemType.SUFFIX_ADD);
-			}
+		EnglishWord word = (EnglishWord) w;
+		if(word.getNumberOfSyllables() < 2 || stem.getNumberOfSyllables() < 2)
+			return null;
+		
+		ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();		
+		String[] syllables = stem.getPhonetics().split("\\.");
+		
+		String syllable = syllables[0];
+		if(word.getSuffixType().equals("SUFFIX_ADD") && syllable.charAt(0) == '\u02C8' ){
+			result.add(new StringMatchesInfo(word.getLength()-word.getSuffix().length(), word.getLength()));
+			return result;
 		}
 		
+		syllable = syllables[stem.getSyllables().length-1];
+		if(word.getSuffixType().equals("SUFFIX_DOUBLE") && syllable.charAt(0) == '\u02C8'){
+			result.add(new StringMatchesInfo(word.getLength()-word.getSuffix().length(), word.getLength()));
+			return result;
+		}
 		
 		return null;
 	}
