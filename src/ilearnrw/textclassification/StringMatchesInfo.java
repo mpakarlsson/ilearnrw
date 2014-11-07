@@ -466,7 +466,7 @@ public class StringMatchesInfo {
 	
 	public static ArrayList<StringMatchesInfo> suffixStress(String[] pd, Word w, ProblemType pt){
 		String phonetics = w.getPhonetics();
-		if(phonetics==null || phonetics.isEmpty())
+		if(phonetics==null || phonetics.isEmpty() || !((EnglishWord)w).getSuffix().equals(pd[0].split(",")[0]))
 			return null;
 		
 		String wordStem = w.getStem();
@@ -490,6 +490,8 @@ public class StringMatchesInfo {
 			return result;
 		}
 		
+		if (stem.getSyllables().length-1 >= syllables.length)
+			return null;
 		syllable = syllables[stem.getSyllables().length-1];
 		if(word.getSuffixType().equals("SUFFIX_DOUBLE") && syllable.charAt(0) == '\u02C8'){
 			result.add(new StringMatchesInfo(word.getLength()-word.getSuffix().length(), word.getLength()));
