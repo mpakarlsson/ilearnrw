@@ -14,7 +14,6 @@ public class SeverityOnWordProblemInfo extends WordProblemInfo{
 	public void setProblemInfo(int posI, int posJ, ArrayList<StringMatchesInfo> smi, 
 			UserProfile userProfile) {
 		if (smi!=null) {
-			this.found = true;
 			this.category = posI;
 			this.index = posJ;
 			this.matched = smi;
@@ -22,13 +21,10 @@ public class SeverityOnWordProblemInfo extends WordProblemInfo{
 				userSeverity = userProfile.getUserProblems().getUserSeverity(posI, posJ);
 			}
 		}
-		else 
-			this.found = false;
 	}
 	
 	public void setProblemInfo(WordProblemInfo wpi, UserProfile userProfile) {
 		if (wpi!=null) {
-			this.found = true;
 			this.category = wpi.getCategory();
 			this.index = wpi.getIndex();
 			this.matched = wpi.getMatched();
@@ -36,8 +32,6 @@ public class SeverityOnWordProblemInfo extends WordProblemInfo{
 				userSeverity = userProfile.getUserProblems().getUserSeverity(category, index);
 			}
 		}
-		else 
-			this.found = false;
 	}
 
 	public int getUserSeverity() {

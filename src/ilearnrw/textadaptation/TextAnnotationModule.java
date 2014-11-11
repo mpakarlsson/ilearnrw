@@ -329,8 +329,8 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 			
 
 			if (word != null) {
-				ArrayList<SeverityOnWordProblemInfo> wordProblems = word
-						.getUserSeveritiesOnWordProblems();
+				ArrayList<WordProblemInfo> wordProblems = word
+						.getWordProblems();
 				
 
 				int category;
@@ -340,12 +340,13 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 				if (wordProblems.size() == 0){
 					return null;
 				}
-				for (SeverityOnWordProblemInfo swpi : wordProblems) {
+				for (WordProblemInfo swpi : wordProblems) {
 					// = wordProblems.remove(0);
 					category = swpi.getCategory();
 					index = swpi.getIndex();
 					
-					userSeverity = swpi.getUserSeverity();
+					userSeverity = profile.getUserProblems().getUserSeverity(category, index);
+					//swpi.getUserSeverity();
 					
 					if (presRules.getRulesTable()[category][index].getActivated()) {
 						f = new FinalAnnotation(swpi, swpi.getMatched().get(0),

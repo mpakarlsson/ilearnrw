@@ -10,14 +10,14 @@ import ilearnrw.textadaptation.Rule;
  */
 public class FinalAnnotation 
 {
-	private SeverityOnWordProblemInfo severityOnWordProblemInfo;
+	private WordProblemInfo wordProblemInfo;
 	private StringMatchesInfo stringMatchesInfo;
 	private Rule rule;
 	
 	
-	public FinalAnnotation(SeverityOnWordProblemInfo severityOnWordProblemInfo, StringMatchesInfo stringMatchesInfo, Rule rule)
+	public FinalAnnotation(WordProblemInfo wordProblemInfo, StringMatchesInfo stringMatchesInfo, Rule rule)
 	{
-		this.severityOnWordProblemInfo = severityOnWordProblemInfo;
+		this.wordProblemInfo = wordProblemInfo;
 		this.stringMatchesInfo = stringMatchesInfo;
 		this.rule = rule;
 	}
@@ -42,14 +42,14 @@ public class FinalAnnotation
 		return this.stringMatchesInfo;
 	}
 	
-	public void setSeverityOnWordProblemInfo(SeverityOnWordProblemInfo severityOnWordProblemInfo)
+	public void setWordProblemInfo(WordProblemInfo wordProblemInfo)
 	{
-		this.severityOnWordProblemInfo = severityOnWordProblemInfo;
+		this.wordProblemInfo = wordProblemInfo;
 	}
 	
-	public SeverityOnWordProblemInfo getSeverityOnWordProblemInfo()
+	public WordProblemInfo getWordProblemInfo()
 	{
-		return this.severityOnWordProblemInfo;
+		return this.wordProblemInfo;
 	}
 	
 	public String toString()

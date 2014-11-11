@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class UserBasedAnnotatedWord extends Word {
 	private static final long serialVersionUID = 1L;
 	
-	private ArrayList<SeverityOnWordProblemInfo> userSeveritiesOnWordProblems;
+	private ArrayList<WordProblemInfo> wordProblems;
 	//private ArrayList<Integer> severitiesOnWordProblems = new ArrayList<Integer>();
 	private WordVsProblems wp;
 	public UserBasedAnnotatedWord(Word w) {
@@ -39,7 +39,7 @@ public class UserBasedAnnotatedWord extends Word {
 		super.languageCode = w.getLanguageCode();
 		super.frequency = w.getFrequency();
 		super.graphemesPhonemes = w.getGraphemesPhonemes();
-		this.userSeveritiesOnWordProblems = getProblems(w, null);
+		this.wordProblems = getProblems(w, null);
 		//createSeveritiesList(null);
 	}
 	public UserBasedAnnotatedWord(Word w, UserProfile userProfile, WordVsProblems wp) {
@@ -59,7 +59,7 @@ public class UserBasedAnnotatedWord extends Word {
 		super.frequency = w.getFrequency();
 		super.graphemesPhonemes = w.getGraphemesPhonemes();
 		
-		this.userSeveritiesOnWordProblems = getProblems(w, userProfile);
+		this.wordProblems = getProblems(w, userProfile);
 		
 		//createSeveritiesList(userProfile);
 		
@@ -80,7 +80,7 @@ public class UserBasedAnnotatedWord extends Word {
 		super.languageCode = w.getLanguageCode();
 		super.frequency = w.getFrequency();
 		super.graphemesPhonemes = w.getGraphemesPhonemes();
-		this.userSeveritiesOnWordProblems = getProblems(w, i, j, userProfile);
+		this.wordProblems = getProblems(w, i, j, userProfile);
 		//createSeveritiesList(userProfile);
 	}
 
@@ -91,32 +91,34 @@ public class UserBasedAnnotatedWord extends Word {
 		}
 	}*/
 	
-	public ArrayList<SeverityOnWordProblemInfo> getUserSeveritiesOnWordProblems() {
-		return userSeveritiesOnWordProblems;
+	public ArrayList<WordProblemInfo> getWordProblems() {
+		return wordProblems;
 	}
-	public void setWordProblems(ArrayList<SeverityOnWordProblemInfo> userSeveritiesOnWordProblems) {
-		this.userSeveritiesOnWordProblems = userSeveritiesOnWordProblems;
+	public void setWordProblems(ArrayList<WordProblemInfo> wordProblems) {
+		this.wordProblems = wordProblems;
 	}
 	
-	private ArrayList<SeverityOnWordProblemInfo> getProblems(Word w, UserProfile userProfile){
-		ArrayList<SeverityOnWordProblemInfo> uswp = new ArrayList<SeverityOnWordProblemInfo>();
+	private ArrayList<WordProblemInfo> getProblems(Word w, UserProfile userProfile){
+		/*ArrayList<SeverityOnWordProblemInfo> uswp = new ArrayList<SeverityOnWordProblemInfo>();
 		for (WordProblemInfo prob : wp.getMatchedProbs()){
 			SeverityOnWordProblemInfo n = new SeverityOnWordProblemInfo();
 			n.setProblemInfo(prob, userProfile);
 			uswp.add(n);
 		}
-		return uswp;
+		return uswp;*/
+		return wp.getMatchedProbs();
 	}
 	
-	private ArrayList<SeverityOnWordProblemInfo> getProblems(Word w, int i, int j, 
+	private ArrayList<WordProblemInfo> getProblems(Word w, int i, int j, 
 			UserProfile userProfile){
-		ArrayList<SeverityOnWordProblemInfo> uswp = new ArrayList<SeverityOnWordProblemInfo>();
+		/*ArrayList<SeverityOnWordProblemInfo> uswp = new ArrayList<SeverityOnWordProblemInfo>();
 		for (WordProblemInfo prob : wp.getMatchedProbs()){
 			SeverityOnWordProblemInfo n = new SeverityOnWordProblemInfo();
 			n.setProblemInfo(prob, userProfile);
 			uswp.add(n);
 		}
-		return uswp;
+		return uswp;*/
+		return wp.getMatchedProbs();
 	}
 	@Override
 	public boolean equals(Object x) {

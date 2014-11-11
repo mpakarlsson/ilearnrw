@@ -5,24 +5,19 @@ import java.util.ArrayList;
 public class WordProblemInfo {
 	protected int category, index;
 	protected ArrayList<StringMatchesInfo> matched;
-	protected boolean found;
 	
 	public WordProblemInfo() {
 		this.category = -1;
 		this.index = -1;
-		this.found = false;
 		this.matched = null;
 	}
 	
 	public void setProblemInfo(int posI, int posJ, ArrayList<StringMatchesInfo> smi) {
 		if (smi!=null) {
-			this.found = true;
 			this.category = posI;
 			this.index = posJ;
 			this.matched = smi;
 		}
-		else 
-			this.found = false;
 	}
 
 	public int getCategory() {
@@ -42,7 +37,7 @@ public class WordProblemInfo {
 	}
 
 	public boolean found() {
-		return found;
+		return matched != null;
 	}
 
 	public ArrayList<StringMatchesInfo> getMatched() {
