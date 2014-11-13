@@ -7,7 +7,6 @@ reaches
 classes
 taxes
 boxes
-sexes
 gases
 buses
 mixes
