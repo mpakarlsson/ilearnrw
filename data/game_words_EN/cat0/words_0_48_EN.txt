@@ -1,7 +1,6 @@
 six
 tax
 box
-sex
 mix
 fix
 next

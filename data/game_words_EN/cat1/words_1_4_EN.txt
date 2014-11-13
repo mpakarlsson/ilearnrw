@@ -12,7 +12,6 @@ end
 set
 red
 bed
-sex
 leg
 ten
 egg
