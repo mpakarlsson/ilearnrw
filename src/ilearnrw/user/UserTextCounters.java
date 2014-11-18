@@ -64,6 +64,10 @@ public class UserTextCounters implements Serializable {
 		return counters;
 	}
 
+	public void setCounters(int[][] counters) {
+		this.counters = counters;
+	}
+
 	@Override
 	public String toString() {
 		if (counters == null)
