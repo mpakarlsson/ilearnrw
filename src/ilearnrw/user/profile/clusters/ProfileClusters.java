@@ -38,7 +38,7 @@ public class ProfileClusters {
 			if (clusters.get(i).getClusterNumber() == clusterNumber)
 				return clusters.get(i).getRelatedProblems();
 		}
-		return null;
+		return new ArrayList<ProblemDescriptionCoordinates>();
 	}
 	
 	public String getClusterHTMLDescription(int clusterNumber){
@@ -47,12 +47,14 @@ public class ProfileClusters {
 			specialSymbol = ", ";
 			String res = "";
 			boolean firstTime = true;
-			for (ProblemDescriptionCoordinates pdc : clusters.get(clusterNumber).getRelatedProblems()){
+			for (ProblemDescriptionCoordinates pdc : getClusterProblems(clusterNumber)){
 				int idx = pdc.getProblemDescription().getHumanReadableDescription().indexOf("<>");
-				String description = pdc.getProblemDescription().getHumanReadableDescription().substring(0, idx);
+				if (idx<0)
+					idx = pdc.getProblemDescription().getHumanReadableDescription().length();
+				String description = pdc.getProblemDescription().getHumanReadableDescription().substring(0, idx).trim();
 				if (!firstTime)
 					res = res+specialSymbol+description;
-				else if (clusters.get(clusterNumber).getRelatedProblems().size() == 1)
+				else if (getClusterProblems(clusterNumber).size() == 1)
 					res = description;
 				else{
 					res = description;
@@ -64,10 +66,10 @@ public class ProfileClusters {
 		else {
 			String res = "";
 			boolean firstTime = true;
-			for (ProblemDescriptionCoordinates pdc : clusters.get(clusterNumber).getRelatedProblems()){
+			for (ProblemDescriptionCoordinates pdc : getClusterProblems(clusterNumber)){
 				if (!firstTime)
 					res = res+specialSymbol+pdc.getProblemDescription().getHumanReadableDescription();
-				else if (clusters.get(clusterNumber).getRelatedProblems().size() == 1)
+				else if (getClusterProblems(clusterNumber).size() == 1)
 					res = pdc.getProblemDescription().getHumanReadableDescription();
 				else{
 					res = pdc.getProblemDescription().getHumanReadableDescription();
