@@ -1,9 +1,9 @@
-serious
 various
-religious
+curious
 obvious
 previous
-###
-curious
 anxious
+###
+religious
+serious
 mysterious

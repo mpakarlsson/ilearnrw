@@ -4,6 +4,6 @@ box
 mix
 fix
 ###
-index
-complex
 relax
+complex
+index

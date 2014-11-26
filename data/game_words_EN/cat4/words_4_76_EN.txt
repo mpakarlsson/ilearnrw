@@ -1,9 +1,9 @@
+partial
 initial
 potential
 essential
-presidential
 substantial
 ###
-partial
 residential
 influential
+presidential

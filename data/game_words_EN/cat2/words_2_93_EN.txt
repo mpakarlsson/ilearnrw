@@ -1,8 +1,8 @@
 know
-knee
 knock
+known
 knife
 ###
-knowledge
-known
 kneel
+knee
+knowledge

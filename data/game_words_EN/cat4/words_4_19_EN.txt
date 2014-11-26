@@ -1,6 +1,6 @@
-property
 safety
-specialty
-###
-uncertainty
 sovereignty
+uncertainty
+###
+property
+specialty

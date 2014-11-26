@@ -1,7 +1,7 @@
-opportunity
 oppose
-opposition
-opponent
-###
-opposite
 opposed
+opponent
+opposite
+###
+opposition
+opportunity

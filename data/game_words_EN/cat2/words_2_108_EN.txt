@@ -1,7 +1,7 @@
 except
+exceed
 excellent
 exception
-exceed
 excited
 ###
 exciting

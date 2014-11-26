@@ -1,8 +1,8 @@
 effect
 effort
-effective
-effectively
-###
 efficient
+effective
+###
 efficiency
+effectively
 effectiveness

@@ -1,9 +1,9 @@
-glad
 glass
-global
-glance
+glad
 glove
-###
-glory
 globe
+glance
+###
 glimpse
+glory
+global

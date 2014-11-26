@@ -1,9 +1,9 @@
+genuine
+engine
+doctrine
 imagine
 determine
-engine
-examine
-medicine
 ###
 discipline
-genuine
-doctrine
+examine
+medicine

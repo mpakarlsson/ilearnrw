@@ -1,6 +1,6 @@
-annual
 announce
 annually
-###
 anniversary
+###
+annual
 announcement

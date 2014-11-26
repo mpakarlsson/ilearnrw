@@ -1,12 +1,12 @@
 watch
 catch
-match
-kitchen
 stretch
-switch
+match
 pitch
-###
 patch
 Dutch
-pitcher
+###
 scratch
+switch
+kitchen
+pitcher

@@ -1,12 +1,12 @@
 object
 obtain
 observe
-obvious
 obviously
 observer
 objective
-###
-observation
 obstacle
+###
 objection
 obligation
+observation
+obvious

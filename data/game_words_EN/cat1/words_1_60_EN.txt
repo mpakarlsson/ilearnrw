@@ -1,7 +1,7 @@
-magazine
 machine
-routine
 marine
-###
 vaccine
+routine
+###
+magazine
 gasoline

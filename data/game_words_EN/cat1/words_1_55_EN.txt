@@ -1,9 +1,9 @@
+toe
 goes
 heroes
+echoes
+cargoes
+###
 potatoes
 tomatoes
-toe
-###
-echoes
 undergoes
-cargoes

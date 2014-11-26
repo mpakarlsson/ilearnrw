@@ -1,7 +1,7 @@
-production
+reduction
+destruction
 instruction
 construction
-reduction
 ###
-destruction
+production
 introduction
