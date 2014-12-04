@@ -4,11 +4,13 @@ import ilearnrw.textclassification.Word;
 import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemDescription;
+import ilearnrw.user.profile.clusters.ProblemDescriptionCoordinates;
+import ilearnrw.user.profile.clusters.ProfileClusters;
 import ilearnrw.utils.LanguageCode;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
 import java.util.Random;
 
 public class UserProblems implements Serializable {
@@ -155,6 +157,46 @@ public class UserProblems implements Serializable {
 		}
 	}
 
+	
+	public int calculateSystemCluster(){
+		
+		ProfileClusters cls = new ProfileClusters(this.getProblems());
+
+		ArrayList<Integer> clusters = cls.getClustersNumbers();
+		
+		int index = -1;
+		for(int c : clusters){
+			
+			ArrayList<ProblemDescriptionCoordinates> problems = cls.getClusterProblems(c);
+			
+			for(ProblemDescriptionCoordinates coord : problems){//first cluster with a difficulty with severity 2 or 3
+				if(this.getUserSeverity(coord.getCategory(),coord.getIndex())>1){
+					index = c;
+					break;
+				}
+			}
+			
+			if (index!=-1)
+				break;
+		}
+		
+		if(index==-1)
+			index = clusters.get(clusters.size()-1);
+		
+		return index;
+	}
+	
+	
+	
+	public int getSystemCluster() {
+		return userSeverities.getSystemCluster();
+	}
+	
+	public void updateSystemCluster(){
+		 userSeverities.setSystemCluster(calculateSystemCluster());
+	}
+	
+	
 	public int getSystemIndex(int i) {
 		return userSeverities.getSystemIndex(i);
 	}

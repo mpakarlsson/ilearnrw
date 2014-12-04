@@ -23,6 +23,6 @@ public abstract class ResourceLoader {
 	}
 	
 	public enum Type {
-		DATA;
+		DATA,LOCAL;
 	}
 }

@@ -12,6 +12,9 @@ public class FileResourceLoader extends ResourceLoader {
 		case DATA:
 			resource = "data/" + resource;
 			break;
+		case LOCAL:
+			resource = "src/main/webapp/data/" + resource;
+			break;			
 		}
 
 		try {

@@ -11,6 +11,8 @@ public class UserSeverities implements Serializable {
 	private int teacherIndices[];
 	// the matrix severities contains the severities to the problems of the user
 	private int severities[][];
+	
+	private int systemCluster = -1;
 
 	public UserSeverities() {
 		systemIndices = null;
@@ -90,6 +92,15 @@ public class UserSeverities implements Serializable {
 
 	public void setTeacherIndices(int[] indices) {
 		this.teacherIndices = indices;
+	}
+	
+	public int getSystemCluster(){
+		
+		return this.systemCluster;
+	}
+	
+	public void setSystemCluster(int cluster){
+		this.systemCluster = cluster;
 	}
 
 	public int[][] getSeverities() {
