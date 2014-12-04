@@ -321,7 +321,12 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 	private FinalAnnotation processWord(String wordID) {
 		
 		FinalAnnotation f = null;
-		Integer pos = this.jsonObject.getIdCorrespondance().get(Integer.parseInt(wordID.replace("w", "")));
+
+		Integer pos = null;
+		if(wordID.contains("w"))
+			pos = this.jsonObject.getIdCorrespondance().get(Integer.parseInt(wordID.replace("w", "")));
+		else
+			pos = this.jsonObject.getIdCorrespondance().get(Integer.parseInt(wordID));
 		
 		if (pos != null) {
 			UserBasedAnnotatedWord word = this.jsonObject

@@ -1,10 +1,10 @@
 build
-building
-guilty
 guilt
-guitar
-rebuild
-###
 circuit
+rebuild
+building
+guitar
+###
 builder
+guilty
 fatiguing

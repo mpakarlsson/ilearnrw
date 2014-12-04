@@ -1,5 +1,7 @@
 package ilearnrw.user.profile;
 
+import ilearnrw.user.problems.ProblemDefinitionIndex;
+
 import java.io.Serializable;
 
 public class UserSeverities implements Serializable {
@@ -47,6 +49,28 @@ public class UserSeverities implements Serializable {
 
 	public int getTeacherIndex(int i) {
 		return teacherIndices[i];
+	}
+	
+	public void setIndicesFromCount(ProblemDefinitionIndex theProblems)
+	{
+		for (int i = 0; i < theProblems.getProblemsIndex().length; i++) {
+			teacherIndices[i] = systemIndices[i] = countAcomplished(i, theProblems);  
+		}
+	}
+	
+	private int countAcomplished(int i, ProblemDefinitionIndex theProblems) {
+		int count = 0;
+		int threshold;
+		if (theProblems.getProblemDefinition(i).getSeverityType().equals("binary"))
+			threshold = 0;
+		else {
+			threshold = 1;
+		}
+		for (int j = 0; j < severities[i].length; j++) {
+			if (severities[i][j] <= threshold)
+				count++;
+		}
+		return count;
 	}
 
 	public void setSeverity(int i, int j, int value) {

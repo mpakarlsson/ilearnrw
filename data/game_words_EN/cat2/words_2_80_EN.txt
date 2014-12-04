@@ -1,10 +1,10 @@
-cycle
-article
-circle
 vehicle
+cycle
 uncle
-miracle
-###
+circle
 bicycle
 obstacle
+###
+miracle
 particle
+article

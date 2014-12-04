@@ -2,9 +2,7 @@ package ilearnrw.textadaptation;
 
 import ilearnrw.user.profile.UserProfile;
 import ilearnrw.user.profile.UserProblems;
-import ilearnrw.utils.LanguageCode;
 import java.io.Serializable;
-import java.awt.Color;
 
 
 
@@ -26,7 +24,6 @@ public class PresentationRulesModule implements PresentationRules, Serializable{
 	 * Initializes a Presentation Rules object based on a user's profile.
 	 */
 	public void initializePresentationRules(){
-		
 		UserProblems userProblems = this.profile.getUserProblems();
 		
 		int[][] severities = userProblems.getUserSeverities().getSeverities();
@@ -35,16 +32,9 @@ public class PresentationRulesModule implements PresentationRules, Serializable{
 		for (int i = 0; i < severities.length; i++)
 		{
 			rulesTable[i] = new Rule[severities[i].length];
-		}
-		
-		// To change if preferences are set from profile.
-		for (int i = 0; i < rulesTable.length; i++)
-		{
-			for (int j = 0; j < rulesTable[i].length; j++)
-			{
+			for(int j=0; j<rulesTable[i].length; j++)
 				rulesTable[i][j] = new Rule();
-			}
-		}	
+		}
 	}
 	
 	public Rule[][] getRulesTable()

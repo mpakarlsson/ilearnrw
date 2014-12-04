@@ -1,8 +1,8 @@
-available
 variable
 capable
 valuable
-###
 reliable
+###
+available
 vulnerable
 inevitable

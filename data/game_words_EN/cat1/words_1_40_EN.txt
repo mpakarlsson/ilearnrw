@@ -3,5 +3,5 @@ few
 news
 fewer
 ###
-newspaper
 newly
+newspaper

@@ -3,14 +3,14 @@ dog
 leg
 bag
 dig
-drag
-flag
 log
 beg
 pig
-###
 hug
 bug
+###
 tag
 fog
+drag
+flag
 shrug

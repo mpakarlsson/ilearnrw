@@ -1,7 +1,5 @@
 package ilearnrw.textadaptation;
 
-import java.awt.Color;
-
 public class Rule {
 
 	private int presentationStyle;

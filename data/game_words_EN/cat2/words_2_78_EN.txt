@@ -1,6 +1,6 @@
+dwindle
 middle
 handle
-needle
 ###
 candle
-dwindle
+needle

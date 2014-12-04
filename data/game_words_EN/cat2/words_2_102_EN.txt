@@ -1,12 +1,12 @@
+opt
+script
+prompt
 adopt
+adapt
 accept
 except
+###
 concept
 attempt
-opt
-adapt
-###
-prompt
-script
 interrupt
 leapt

@@ -1,7 +1,7 @@
 mission
-commission
 emission
+commission
 admission
 ###
-permission
 transmission
+permission

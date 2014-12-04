@@ -1,9 +1,9 @@
 suit
 fruit
 juice
-lawsuit
 cruise
-###
-suited
 recruit
+###
+lawsuit
+suited
 suitable

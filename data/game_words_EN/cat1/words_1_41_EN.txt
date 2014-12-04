@@ -1,8 +1,8 @@
 blue
+clue
 issue
-trued
 tissue
 ###
-clue
-virtue
 statue
+virtue
+trued

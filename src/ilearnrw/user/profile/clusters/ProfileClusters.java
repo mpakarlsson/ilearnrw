@@ -2,15 +2,13 @@ package ilearnrw.user.profile.clusters;
 
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.problems.ProblemDescription;
+import ilearnrw.utils.LanguageCode;
 
 import java.util.ArrayList;
 
 public class ProfileClusters {
 	private ArrayList<ClusterInfo> clusters;
-
-	public ProfileClusters(ArrayList<ClusterInfo> clusters) {
-		this.clusters = clusters;
-	}
+	private LanguageCode languageCode;
 
 	public ProfileClusters() {
 		this.clusters = new ArrayList<ClusterInfo>();
@@ -18,6 +16,7 @@ public class ProfileClusters {
 
 	public ProfileClusters(ProblemDefinitionIndex pdi) {
 		this();
+		languageCode = pdi.getLanguage();
 		ProblemDescription pd[][] = pdi.getProblems();
 		for (int i=0;i<pd.length;i++){
 			for (int j=0;j<pd[i].length;j++){
@@ -39,7 +38,46 @@ public class ProfileClusters {
 			if (clusters.get(i).getClusterNumber() == clusterNumber)
 				return clusters.get(i).getRelatedProblems();
 		}
-		return null;
+		return new ArrayList<ProblemDescriptionCoordinates>();
+	}
+	
+	public String getClusterHTMLDescription(int clusterNumber){
+		String specialSymbol = "<br>";
+		if (languageCode == LanguageCode.EN){
+			specialSymbol = ", ";
+			String res = "";
+			boolean firstTime = true;
+			for (ProblemDescriptionCoordinates pdc : getClusterProblems(clusterNumber)){
+				int idx = pdc.getProblemDescription().getHumanReadableDescription().indexOf("<>");
+				if (idx<0)
+					idx = pdc.getProblemDescription().getHumanReadableDescription().length();
+				String description = pdc.getProblemDescription().getHumanReadableDescription().substring(0, idx).trim();
+				if (!firstTime)
+					res = res+specialSymbol+description;
+				else if (getClusterProblems(clusterNumber).size() == 1)
+					res = description;
+				else{
+					res = description;
+					firstTime = false;
+				}
+			}
+			return res;
+		}
+		else {
+			String res = "";
+			boolean firstTime = true;
+			for (ProblemDescriptionCoordinates pdc : getClusterProblems(clusterNumber)){
+				if (!firstTime)
+					res = res+specialSymbol+pdc.getProblemDescription().getHumanReadableDescription();
+				else if (getClusterProblems(clusterNumber).size() == 1)
+					res = pdc.getProblemDescription().getHumanReadableDescription();
+				else{
+					res = pdc.getProblemDescription().getHumanReadableDescription();
+					firstTime = false;
+				}
+			}
+			return res;
+		}
 	}
 	
 	public void addProblemDefinition(ProblemDescriptionCoordinates problem){
