@@ -1,5 +1,6 @@
 package ilearnrw.resource;
 
+import java.io.FileOutputStream;
 import java.io.InputStream;
 
 public abstract class ResourceLoader {
@@ -16,7 +17,7 @@ public abstract class ResourceLoader {
 	}
 
 	public abstract InputStream getInputStream(Type type, String resource);
-	
+	public abstract FileOutputStream getOutputStream(Type type, String resource);
 	public static void setResourceLoaderInstance(ResourceLoader resourceLoader)
 	{
 		ResourceLoader.resourceLoader = resourceLoader; 
