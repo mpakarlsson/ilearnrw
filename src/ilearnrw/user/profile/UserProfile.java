@@ -1,9 +1,12 @@
 package ilearnrw.user.profile;
 
 import ilearnrw.user.UserPreferences;
+import ilearnrw.user.profile.clusters.ProblemDescriptionCoordinates;
+import ilearnrw.user.profile.clusters.ProfileClusters;
 import ilearnrw.utils.LanguageCode;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class UserProfile implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -17,7 +20,14 @@ public class UserProfile implements Serializable {
 		this.language = language;
 		this.userProblems = problemsMatrix;
 		this.preferences = preferences;
+		
+		this.userProblems.updateSystemCluster();
+	//	this.userProblems.setSystemCluster(calculateSystemCluster());
+		
 	}
+	
+
+	
 	
 	public UserProfile() {
 		this.userProblems = new UserProblems();//has to set the problems to default values;
