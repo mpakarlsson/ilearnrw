@@ -41,6 +41,11 @@ public class PresentationRulesModule implements PresentationRules, Serializable{
 	{
 		return this.rulesTable;
 	}
+	
+	public void setRulesTable(Rule rulesTable[][])
+	{
+		this.rulesTable = rulesTable;
+	}
 
 	/**
 	 * Sets a new user profile to the Presentation Rules object
