@@ -446,7 +446,7 @@ public class StringMatchesInfo {
 					// remove stress, syllable dividers and vertical lines
 					tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
 					
-					if(w.getWord().endsWith(values[0]) && tempPhon.endsWith(values[1])){
+					if(w.getWord().endsWith(values[0]) && tempPhon.endsWith(values[1]) && pt.toString().equals(((EnglishWord)w).getSuffixType())){
 						int pos2 = w.getWord().lastIndexOf(values[0]);
 						result.add(new StringMatchesInfo(pos2, pos2 + values[0].length()));
 						return result;
