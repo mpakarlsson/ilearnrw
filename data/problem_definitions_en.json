@@ -2678,8 +2678,8 @@
             "descriptions":[
                "ed-d"
             ],
-            "problemType":"SUFFIX_ADD",
-            "humanReadableDescription":"-ed\u003d-d (Add) \u003c\u003e Suffix -ed-d adds to the word with no changes. For example: need, time+d \u003d timed, out+ed \u003d outed",
+            "problemType":"SPECIAL_SUFFIX_ADD",
+            "humanReadableDescription":"-ed\u003d-d (Add) \u003c\u003e Suffix -ed-d adds to the word with no changes. For example: owned, will+ed \u003d willed, down+ed \u003d downed",
             "cluster":25,
             "character":"Add"
          },
@@ -2687,8 +2687,8 @@
             "descriptions":[
                "ed-d"
             ],
-            "problemType":"SUFFIX_DROP",
-            "humanReadableDescription":"-ed\u003d-d (Drop) \u003c\u003e Suffix -ed-d drops the last letter of the stem. For example: need, timed, outed",
+            "problemType":"SPECIAL_SUFFIX_DROP",
+            "humanReadableDescription":"-ed\u003d-d (Drop) \u003c\u003e Suffix -ed-d drops the last letter of the stem. For example: died, freed, trued",
             "cluster":25,
             "character":"Drop"
          },
@@ -2696,8 +2696,8 @@
             "descriptions":[
                "ed-d"
             ],
-            "problemType":"SUFFIX_DOUBLE",
-            "humanReadableDescription":"-ed\u003d-d (Double as need) \u003c\u003e Suffix -ed-d doubles the last letter of the word. For example: need, timed, outed",
+            "problemType":"SPECIAL_SUFFIX_DOUBLE",
+            "humanReadableDescription":"-ed\u003d-d (Double as planned) \u003c\u003e Suffix -ed-d doubles the last letter of the word. For example: manned, warred, planned",
             "cluster":25,
             "character":"Double"
          },
@@ -2705,8 +2705,8 @@
             "descriptions":[
                "ed-t"
             ],
-            "problemType":"SUFFIX_ADD",
-            "humanReadableDescription":"-ed\u003d-t (Add) \u003c\u003e Suffix -ed-t adds to the word with no changes. For example: ask+ed \u003d asked, hiss+ed \u003d hissed",
+            "problemType":"SPECIAL_SUFFIX_ADD",
+            "humanReadableDescription":"-ed\u003d-t (Add) \u003c\u003e Suffix -ed-t adds to the word with no changes. For example: ask+ed \u003d asked, look+ed \u003d looked",
             "cluster":25,
             "character":"Add"
          },
@@ -2714,8 +2714,8 @@
             "descriptions":[
                "ed-t"
             ],
-            "problemType":"SUFFIX_DROP",
-            "humanReadableDescription":"-ed\u003d-t (Drop) \u003c\u003e Suffix -ed-t drops the last letter of the stem. For example: liked, asked, hissed",
+            "problemType":"SPECIAL_SUFFIX_DROP",
+            "humanReadableDescription":"-ed\u003d-t (Drop) \u003c\u003e Suffix -ed-t drops the last letter of the stem. For example: lied, liked",
             "cluster":25,
             "character":"Drop"
          },
@@ -2723,8 +2723,8 @@
             "descriptions":[
                "ed-t"
             ],
-            "problemType":"SUFFIX_DOUBLE",
-            "humanReadableDescription":"-ed\u003d-t (Double as liked) \u003c\u003e Suffix -ed-t doubles the last letter of the word. For example: liked, asked, hissed",
+            "problemType":"SPECIAL_SUFFIX_DOUBLE",
+            "humanReadableDescription":"-ed\u003d-t (Double as hissed) \u003c\u003e Suffix -ed-t doubles the last letter of the word. For example: hissed, stopped, topped",
             "cluster":25,
             "character":"Double"
          },

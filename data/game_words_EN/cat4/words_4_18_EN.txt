@@ -5,11 +5,11 @@ stability
 disability
 liability
 capability
-reliability
 possibility
-###
 credibility
+###
 flexibility
 responsibility
+reliability
 availability
 accountability

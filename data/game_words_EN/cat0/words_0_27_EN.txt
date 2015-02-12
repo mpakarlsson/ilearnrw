@@ -13,6 +13,7 @@ stick
 truck
 block
 thick
+pocket
 lock
 pack
 luck
@@ -32,17 +33,15 @@ crack
 trick
 brick
 click
-stack
 ###
+stack
 quick
 ticket
 chicken
 package
 jacket
 pickup
-rocket
 attack
-pocket
 background
 lucky
 tackle
@@ -51,4 +50,5 @@ bucket
 backyard
 quickly
 feedback
+rocket
 quarterback

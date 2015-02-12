@@ -1,7 +1,6 @@
 does
 byes
 goes
-heroes
 watches
 pushes
 fishes
@@ -64,13 +63,13 @@ teaches
 guesses
 coaches
 touches
-###
 beaches
+###
 searches
 launches
-biases
 couches
 churches
+heroes
 porches
 marches
 stretches
@@ -78,7 +77,6 @@ researches
 finishes
 discusses
 publishes
-viruses
 potatoes
 tomatoes
 relaxes
@@ -96,5 +94,7 @@ campuses
 attaches
 processes
 progresses
+biases
 establishes
+viruses
 accomplishes

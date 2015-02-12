@@ -1,5 +1,6 @@
 basement
 judgment
+settlement
 fragment
 movement
 statement
@@ -14,9 +15,7 @@ agreement
 apartment
 equipment
 department
-requirement
 achievement
-retirement
 amendment
 adjustment
 punishment
@@ -28,13 +27,12 @@ instrument
 commitment
 improvement
 implement
-settlement
 employment
 involvement
 enforcement
-###
 assignment
 excitement
+###
 engagement
 appointment
 announcement
@@ -43,10 +41,12 @@ measurement
 argument
 arrangement
 development
+requirement
+retirement
 unemployment
 establishment
 disappointment
-environment
 experiment
 entertainment
 accomplishment
+environment

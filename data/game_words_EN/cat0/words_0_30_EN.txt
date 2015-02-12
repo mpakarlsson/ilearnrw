@@ -73,6 +73,7 @@ thirty
 throughout
 threaten
 earthquake
+anything
 sympathy
 theory
 theatre
@@ -83,7 +84,6 @@ thoroughly
 everything
 aesthetic
 authorise
-anything
 hypothesis
 mathematics
 enthusiasm

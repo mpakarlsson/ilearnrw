@@ -1,3 +1,4 @@
+growing
 even
 power
 level
@@ -37,7 +38,6 @@ someday
 writer
 travel
 prison
-growing
 writing
 closer
 shower

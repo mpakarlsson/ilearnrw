@@ -24,12 +24,11 @@ propose
 franchise
 likewise
 realise
-diagnose
 surprise
 Japanese
 analyse
-###
 utilise
+###
 minimise
 recognise
 exercise
@@ -40,6 +39,7 @@ compromise
 otherwise
 criticise
 specialise
+diagnose
 organise
 authorise
 apologise

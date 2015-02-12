@@ -39,7 +39,6 @@ dramatic
 ###
 athletic
 rhetoric
-scientific
 aesthetic
 terrific
 strategic
@@ -54,5 +53,6 @@ epidemic
 economic
 academic
 optimistic
+scientific
 automatic
 characteristic

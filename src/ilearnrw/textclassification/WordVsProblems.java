@@ -246,6 +246,12 @@ public class WordVsProblems {
 				wpi.setProblemInfo(i, j, StringMatchesInfo.endsWithSuffix(pd, word, pt));
 				break;
 				
+			case SPECIAL_SUFFIX_ADD: 
+			case SPECIAL_SUFFIX_DROP:
+			case SPECIAL_SUFFIX_DOUBLE:
+				wpi.setProblemInfo(i, j, StringMatchesInfo.endsWithSpecialSuffix(pd, word, pt));
+				break;
+				
 			case SUFFIX_STRESS_PATTERN:
 				wpi.setProblemInfo(i, j, StringMatchesInfo.suffixStress(pd, word, pt));
 				break;

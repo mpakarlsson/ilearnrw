@@ -58,14 +58,13 @@ recently
 exercise
 medicine
 accident
-associate
 incident
 excellent
 exception
 incentive
 concentrate
-###
 excited
+###
 tendency
 exciting
 specific
@@ -85,6 +84,7 @@ necessary
 democracy
 emergency
 ceremony
+associate
 concentration
 accuracy
 specifically
@@ -93,9 +93,9 @@ participant
 participate
 participation
 central
-society
 successful
 ancestor
+society
 facility
 capacity
 electricity

@@ -17,7 +17,6 @@ post
 pro
 roll
 poll
-hero
 old
 hold
 cold
@@ -41,7 +40,6 @@ motion
 holy
 poem
 solar
-moreover
 overcome
 ego
 only
@@ -61,11 +59,12 @@ protein
 profile
 clothing
 ocean
+hero
 narrow
 also
 almost
-###
 follow
+###
 soldier
 yellow
 golden
@@ -81,14 +80,15 @@ potato
 tomato
 opening
 emotion
+moreover
 negotiate
-associate
 component
-appropriate
 opponent
 photograph
 scenario
 coalition
+associate
+appropriate
 negotiation
 cooperation
 association

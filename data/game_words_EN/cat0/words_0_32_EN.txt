@@ -51,6 +51,7 @@ world
 walk
 weight
 wild
+wing
 waste
 weigh
 wealth
@@ -63,8 +64,8 @@ water
 toward
 network
 aware
-western
 ###
+western
 wire
 award
 towards
@@ -90,7 +91,6 @@ worker
 forward
 warning
 always
-wing
 willing
 welcome
 welfare

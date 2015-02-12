@@ -8,6 +8,7 @@ blow
 snow
 slow
 flow
+growing
 known
 bowl
 growth
@@ -19,7 +20,6 @@ lower
 unknown
 slowly
 shadow
-growing
 narrow
 borrow
 follow
@@ -34,6 +34,6 @@ swallow
 shallow
 tomorrow
 ownership
+bowing
 flown
 owed
-bowing

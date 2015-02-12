@@ -4,12 +4,12 @@ brief
 yield
 priest
 grief
-series
 piece
 belief
-###
 relief
+###
 briefly
+series
 believed
 achieved
 relieved

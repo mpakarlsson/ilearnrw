@@ -41,7 +41,6 @@ hard
 hurt
 hell
 hall
-hero
 hill
 herb
 horn
@@ -64,8 +63,8 @@ hire
 holy
 habit
 honey
-###
 happen
+###
 himself
 happy
 hundred
@@ -83,6 +82,7 @@ housing
 perhaps
 herself
 hardly
+hero
 childhood
 hurry
 highly

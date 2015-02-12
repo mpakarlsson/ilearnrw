@@ -31,7 +31,6 @@ innocent
 instance
 instruct
 instinct
-inherent
 interest
 initiate
 including
@@ -50,11 +49,11 @@ interpret
 incentive
 increasing
 ingredient
-inquiry
 inherit
 invasion
 interact
 intimate
+inherent
 inflation
 integrate
 interrupt
@@ -64,8 +63,8 @@ invention
 interested
 interesting
 initially
-###
 initiative
+###
 information
 institution
 independent
@@ -76,11 +75,11 @@ increasingly
 intervention
 incorporate
 independence
+inquiry
 invisible
 incredible
 investigation
 interpretation
-interior
 initial
 investor
 internal
@@ -88,6 +87,7 @@ investment
 instrument
 industrial
 involvement
+interior
 informal
 interval
 inspector

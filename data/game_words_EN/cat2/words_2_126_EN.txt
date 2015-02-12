@@ -67,6 +67,7 @@ participant
 ###
 correspondent
 judgment
+settlement
 movement
 statement
 treatment
@@ -79,16 +80,13 @@ agreement
 apartment
 equipment
 department
-requirement
 achievement
-retirement
 investment
 assessment
 instrument
 commitment
 improvement
 implement
-settlement
 employment
 involvement
 enforcement
@@ -96,6 +94,8 @@ tournament
 argument
 arrangement
 development
-environment
+requirement
+retirement
 experiment
 entertainment
+environment

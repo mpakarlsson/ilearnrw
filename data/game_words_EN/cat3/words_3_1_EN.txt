@@ -1,3 +1,5 @@
+ring
+wing
 into
 many
 only
@@ -62,9 +64,9 @@ lucky
 people
 really
 early
+###
 season
 very
-###
 during
 person
 former
@@ -86,8 +88,6 @@ college
 order
 argue
 army
-ring
-wing
 fully
 urban
 ally

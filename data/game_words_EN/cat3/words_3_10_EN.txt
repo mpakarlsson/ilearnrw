@@ -79,7 +79,6 @@ strategy
 government
 animal
 federal
-society
 director
 hospital
 financial
@@ -99,3 +98,4 @@ serious
 personal
 cultural
 beautiful
+society

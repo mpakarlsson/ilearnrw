@@ -16,15 +16,14 @@ leave
 serve
 voice
 solve
-vehicle
 over
 never
 ever
 value
 believe
 event
-movie
 cover
+movie
 above
 visit
 avoid
@@ -64,8 +63,8 @@ private
 travel
 driver
 prevent
-###
 every
+###
 heavy
 very
 service
@@ -73,6 +72,7 @@ survey
 version
 arrive
 village
+vehicle
 develop
 evidence
 discover
@@ -92,9 +92,9 @@ several
 various
 movement
 government
-variety
 development
 available
+variety
 activity
 individual
 environment

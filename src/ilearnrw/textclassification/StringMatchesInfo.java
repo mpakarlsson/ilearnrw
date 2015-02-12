@@ -446,7 +446,7 @@ public class StringMatchesInfo {
 					// remove stress, syllable dividers and vertical lines
 					tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
 					
-					if(w.getWord().endsWith(values[0]) && tempPhon.endsWith(values[1]) && pt.toString().equals(((EnglishWord)w).getSuffixType())){
+					if(w.getWord().endsWith(values[0]) && tempPhon.endsWith(values[1])){// && pt.toString().equals(((EnglishWord)w).getSuffixType())){
 						int pos2 = w.getWord().lastIndexOf(values[0]);
 						result.add(new StringMatchesInfo(pos2, pos2 + values[0].length()));
 						return result;
@@ -454,6 +454,45 @@ public class StringMatchesInfo {
 					
 				} else {
 					if(((EnglishWord)w).getSuffix().equals(s) && pt.toString().equals(((EnglishWord)w).getSuffixType())){
+						//int pos2 = w.getWord().lastIndexOf(s);
+						result.add(new StringMatchesInfo(w.getLength()-s.length(), w.getLength()));
+						return result;
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+	public static ArrayList<StringMatchesInfo> endsWithSpecialSuffix(String str[], Word w, ProblemType pt){
+	    ArrayList<StringMatchesInfo> result = new ArrayList<StringMatchesInfo>();
+		String phonetics = w.getPhonetics();
+		
+		if(phonetics==null || phonetics.isEmpty())
+			return null;
+		
+		if(w.getLanguageCode().equals(LanguageCode.EN)){
+		for(String s : str){
+				int pos = s.indexOf("-");
+				int t = pt.toString().indexOf("_");
+				String prt = pt.toString().substring(t+1);
+
+				if(pos != -1){
+					String[] values = s.split("-");
+					
+					// TODO: fix this temporary solution -> if no phonetics but word ends with suffix -> difficult word
+					String tempPhon = w.getPhonetics();
+					// remove stress, syllable dividers and vertical lines
+					tempPhon = tempPhon.replace(".", "").replace("\u02C8", "").replace("\u02CC", "").replace("\u0329", "").replace("\u0027", "");
+					
+					if(w.getWord().endsWith(values[0]) && tempPhon.endsWith(values[1]) && prt.equals(((EnglishWord)w).getSuffixType())){
+						int pos2 = w.getWord().lastIndexOf(values[0]);
+						result.add(new StringMatchesInfo(pos2, pos2 + values[0].length()));
+						return result;
+					}
+					
+				} else {
+					if(((EnglishWord)w).getSuffix().equals(s) && prt.equals(((EnglishWord)w).getSuffixType())){
 						//int pos2 = w.getWord().lastIndexOf(s);
 						result.add(new StringMatchesInfo(w.getLength()-s.length(), w.getLength()));
 						return result;

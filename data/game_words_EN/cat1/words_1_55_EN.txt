@@ -1,7 +1,7 @@
 toe
 goes
-heroes
 echoes
+heroes
 cargoes
 ###
 potatoes

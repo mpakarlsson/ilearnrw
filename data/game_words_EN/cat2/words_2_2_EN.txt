@@ -42,6 +42,7 @@ strange
 strength
 straight
 stream
+string
 strain
 streak
 stance
@@ -53,8 +54,8 @@ structure
 status
 studio
 struggle
-stupid
 ###
+stupid
 stomach
 strongly
 stranger
@@ -69,7 +70,6 @@ striking
 strengthen
 starter
 starting
-string
 steady
 strictly
 straighten

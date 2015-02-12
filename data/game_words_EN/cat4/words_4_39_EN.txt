@@ -4,7 +4,6 @@ cried
 dried
 shied
 spied
-varied
 denied
 relied
 busied
@@ -26,6 +25,7 @@ readied
 partied
 carried
 married
+varied
 dirtied
 worried
 ###

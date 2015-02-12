@@ -1,4 +1,3 @@
-firing
 using
 having
 making
@@ -62,10 +61,10 @@ valuing
 policing
 deciding
 believing
-requiring
+firing
 imaging
-###
 figuring
+###
 reducing
 removing
 relating
@@ -94,6 +93,7 @@ surfacing
 arguing
 arriving
 challenging
+requiring
 imagining
 evidencing
 determining

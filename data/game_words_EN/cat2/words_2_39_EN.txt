@@ -1,6 +1,7 @@
 grow
 grab
 grant
+growing
 grass
 grand
 grip
@@ -20,13 +21,12 @@ greet
 grief
 growth
 grey
-grandmother
 ###
-growing
 graduate
 grandchild
 greatest
 greatly
+grandmother
 grocery
 gradually
 grandfather

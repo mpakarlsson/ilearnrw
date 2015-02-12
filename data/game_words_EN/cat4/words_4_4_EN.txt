@@ -1,4 +1,3 @@
-richness
 evenness
 niceness
 newness
@@ -18,6 +17,7 @@ lightness
 closeness
 wrongness
 dryness
+richness
 fastness
 softness
 thinness
@@ -68,7 +68,6 @@ singleness
 wildness
 tallness
 maleness
-tiredness
 brightness
 strangeness
 straightness
@@ -90,6 +89,7 @@ Britishness
 quietness
 forwardness
 correctness
+tiredness
 yellowness
 togetherness
 positiveness

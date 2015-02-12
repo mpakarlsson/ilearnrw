@@ -1,3 +1,5 @@
+ring
+wing
 any
 over
 about
@@ -62,9 +64,9 @@ happen
 little
 member
 office
+###
 onto
 okay
-###
 user
 other
 student
@@ -90,8 +92,6 @@ always
 almost
 follow
 army
-ring
-wing
 local
 major
 social

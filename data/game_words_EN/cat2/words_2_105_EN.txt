@@ -1,6 +1,6 @@
 league
 fatigue
-dialogue
-###
 colleague
+###
 catalogue
+dialogue

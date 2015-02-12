@@ -13,7 +13,6 @@ nose
 pose
 phase
 phrase
-series
 raise
 cause
 choose
@@ -64,13 +63,14 @@ propose
 preserve
 sometimes
 whereas
-###
 reason
+###
 season
 thousand
 ourselves
 cousin
 housing
+series
 surprise
 surprised
 always

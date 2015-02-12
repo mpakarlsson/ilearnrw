@@ -37,10 +37,10 @@ steady
 sweater
 headquarters
 already
-leant
-leapt
-meant
 dealt
+meant
+leapt
+leant
 dreamt
 measure
 cleanlier

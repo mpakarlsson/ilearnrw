@@ -1,5 +1,5 @@
-American
 anything
+American
 military
 education
 analysis
@@ -91,7 +91,6 @@ educator
 community
 activity
 individual
-environment
 additional
 difficulty
 comfortable
@@ -99,3 +98,4 @@ traditional
 presidential
 priority
 authority
+environment
