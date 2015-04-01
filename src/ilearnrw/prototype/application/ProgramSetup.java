@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ProgramSetup {
@@ -29,8 +30,7 @@ public class ProgramSetup {
 		
 		Map<String, ArrayList<String>> dict = new HashMap<String, ArrayList<String>>();		
 			try {
-				BufferedReader reader = new BufferedReader(
-						new InputStreamReader(ResourceLoader.getInstance().getInputStream(Type.DATA, "dictionary_english.csv"), "UTF-8"));
+				BufferedReader reader = ResourceLoader.getInstance().getBufferedReaderUTF8(Type.DATA, "dictionary_english.csv");
 				String line = null;
 				while ((line = reader.readLine()) != null) {
 					String[] parts = line.split("\\|");
@@ -52,23 +52,16 @@ public class ProgramSetup {
 		return dict;
 	}
 	
-	public static ArrayList<String> LoadDaleChallList(){
-		ArrayList<String> words = new ArrayList<String>();
+	public static List<String> LoadDaleChallList(){
 		try {
-			BufferedReader reader = new BufferedReader(
-					new InputStreamReader(ResourceLoader.getInstance().getInputStream(Type.DATA, "dale-chall_word_list.txt"), "UTF-8"));
-					
-			String line = null;
-			while ((line = reader.readLine()) != null) {
-				words.add(line);
-			}
-			reader.close();
+			List<String> words = ResourceLoader.getInstance().readAllLinesAsListUTF8(Type.DATA, "dale-chall_word_list.txt");
+			return words;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return words;
+		return new ArrayList<String>();
 	}
 	
 	public static Map<String, ArrayList<String>> SetupSoundToSpelling(){

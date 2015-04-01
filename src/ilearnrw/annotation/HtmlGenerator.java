@@ -1,17 +1,7 @@
 package ilearnrw.annotation;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
-
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
 import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
@@ -110,22 +100,8 @@ public class HtmlGenerator {
 	}
 	
 	public static String loadTemplate(String filename){
-		InputStream templ;
-		templ = ResourceLoader.getInstance().getInputStream(Type.DATA, filename);
 		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(templ, "UTF-8"));
-			String line = "";
-			StringBuilder sb = new StringBuilder();
-			
-			while((line = br.readLine()) != null){
-				sb.append(line + "\n");
-			}
-			br.close();
-			return sb.toString();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
+			return ResourceLoader.getInstance().readAllLinesAsStringUTF8(Type.DATA, filename);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
