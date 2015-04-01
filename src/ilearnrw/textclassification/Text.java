@@ -2,8 +2,8 @@ package ilearnrw.textclassification;
 import ilearnrw.prototype.application.Program;
 import ilearnrw.utils.LanguageCode;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Text implements TextAPI{
 	private String text;
@@ -217,7 +217,7 @@ public class Text implements TextAPI{
 		}
 		
 		int numDifficultWords = 0;
-		ArrayList<String> wordList = Program.getDaleChallList();
+		List<String> wordList = Program.getDaleChallList();
 		for(int i=0, numSentences = sentences.length; i<numSentences; i++){
 			Sentence sentence = sentences[i];
 			for(int j=0, numWords = sentence.getWords().length; j<numWords; j++){

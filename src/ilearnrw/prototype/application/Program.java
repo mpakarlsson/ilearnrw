@@ -1,20 +1,13 @@
 package ilearnrw.prototype.application;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;
 import ilearnrw.prototype.application.ConsoleMenu.IConsoleMenuAction;
 import ilearnrw.textclassification.english.EnglishWord;
-import ilearnrw.textclassification.greek.GreekWord;
-
 import ilearnrw.datalogger.IProfileAccessUpdater;
 import ilearnrw.datalogger.ILoginProvider;
 import ilearnrw.datalogger.IDataLogger;
@@ -24,7 +17,7 @@ public class Program {
 
 	private static DataLogger sDataLogger = new DataLogger();
 	private static final Map<String, ArrayList<String>> sDictionary = ProgramSetup.LoadDictionary();
-	private static final ArrayList<String> sDaleChallList = ProgramSetup.LoadDaleChallList();
+	private static final List<String> sDaleChallList = ProgramSetup.LoadDaleChallList();
 	private static final Map<String, ArrayList<String>> sSoundToSpelling = ProgramSetup.SetupSoundToSpelling();
 	
 	
@@ -36,7 +29,7 @@ public class Program {
 		return sDictionary;
 	}
 	
-	public static ArrayList<String> getDaleChallList(){
+	public static List<String> getDaleChallList(){
 		return sDaleChallList;
 	}
 	
