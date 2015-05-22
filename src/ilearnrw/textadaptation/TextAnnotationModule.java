@@ -275,6 +275,10 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 					this.setWordColor(selElem.attr("id"), f.getRule()
 							.getTextColor(), f.getStringMatchesInfo()
 							.getStart(), f.getStringMatchesInfo().getEnd());
+				} else if (f.getRule().getPresentationStyle() == Rule.HIDE_PROBLEMATIC_PARTS) {
+					this.setWordForegroundAndBackgroundColor(selElem.attr("id"), f.getRule()
+							.getHighlightingColor(), f.getStringMatchesInfo()
+							.getStart(), f.getStringMatchesInfo().getEnd());
 				}
 			}
 		}
@@ -617,6 +621,77 @@ public class TextAnnotationModule implements TextAnnotator, Serializable {
 
 		this.setAttributeToWord(element, wordID, "background-color", String.format("#%06X", (0xFFFFFF & color)), start, end);
 
+	}
+
+
+
+	public void setWordForegroundAndBackgroundColor(String wordID, int color, int start,
+			int end) {
+		//("background-color", String.format("#%06X", (0xFFFFFF & color)));
+		//("color", String.format("#%06X", (0xFFFFFF & color))+"");
+		
+		Element element = doc.getElementById(wordID);
+
+		String word = element.text().trim();
+		if (start <0 || end<=start || word.length()<end)
+			return;
+
+		if (end == word.length() && start == 0) {
+			element.attr("style", element.attr("style") + " background-color:"
+					+ String.format("#%06X", (0xFFFFFF & color)) + ";").
+					attr("style", element.attr("style") + " color:"
+					+ String.format("#%06X", (0xFFFFFF & color)) + ";");
+		} 
+		else {
+			// Checks if the base element contains span
+			if (element.outerHtml().contains("span")) {
+				boolean found = false;
+				for (Element e : element.select("span")) {
+					// Checks if the desired word contains span
+					if (e.text().equals(
+							element.text().substring(start, end + 1))) {
+						e.attr("style", element.attr("style") + " background-color:"
+								+ String.format("#%06X", (0xFFFFFF & color)) + ";").
+								attr("style", element.attr("style") + " color:"
+								+ String.format("#%06X", (0xFFFFFF & color)) + ";");
+						found = true;
+					}
+				}
+
+				// If the desired word is not within a span
+				if (!found) {
+					for (int i = 0; i < element.childNodes().size(); i++) {
+						Node child = element.childNodes().get(i);
+
+						if (child instanceof TextNode) {
+							String text = ((TextNode) child).text();
+
+							if (text.equals(element.text().substring(start,
+									end + 1))) {
+								child.remove();
+								element.prependElement("span")
+										.attr("style", element.attr("style") + " background-color:"
+												+ String.format("#%06X", (0xFFFFFF & color)) + ";").
+												attr("style", element.attr("style") + " color:"
+												+ String.format("#%06X", (0xFFFFFF & color)) + ";")
+										.text(text);
+							}
+						}
+					}
+				}
+			} 
+			else // The element had no span
+			{
+				element.empty();
+				element.appendChild(new TextNode(word.substring(0, start), ""));
+				element.appendElement("span").attr("style", "background-color:"
+						+ String.format("#%06X", (0xFFFFFF & color)) + "; color:"
+						+ String.format("#%06X", (0xFFFFFF & color)) + ";")
+					.text(word.substring(start, end));
+				element.appendChild(new TextNode(word.substring(end), ""));
+			}
+		}
+		
 	}
 
 	public void setAttributesToWord(String wordID,

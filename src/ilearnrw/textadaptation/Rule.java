@@ -12,6 +12,7 @@ public class Rule {
 	public static final int PAINT_WHOLE_WORD = 2;
 	public static final int HIGHLIGHT_PROBLEMATIC_PARTS = 3;
 	public static final int HIGHLIGHT_WHOLE_WORD = 4;
+	public static final int HIDE_PROBLEMATIC_PARTS = 5;
 	
 	public Rule()
 	{
