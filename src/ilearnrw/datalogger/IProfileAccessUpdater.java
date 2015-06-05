@@ -7,7 +7,9 @@ import ilearnrw.user.UserSession;
 import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.profile.UserProblems;
 import ilearnrw.utils.LanguageCode;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 /** \brief Interface to update profiles in the iLearnRW system.
  *
  * This interface assumes that `Apps` would get a read-only

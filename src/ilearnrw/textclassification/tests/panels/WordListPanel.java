@@ -1,5 +1,7 @@
 package ilearnrw.textclassification.tests.panels;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.textclassification.Word;
 
 import java.awt.BorderLayout;
@@ -17,7 +19,6 @@ import javax.swing.JTextArea;
 
 public class WordListPanel extends JPanel{
 	private static final long serialVersionUID = 1L;
-	private static Word value = null;
     private JTextArea wordList;
     private ArrayList<Word> words;
 

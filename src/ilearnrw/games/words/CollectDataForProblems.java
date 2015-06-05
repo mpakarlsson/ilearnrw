@@ -33,7 +33,9 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 public class CollectDataForProblems {
 	static GreekDictionary gd;
 	static LanguageAnalyzerAPI languageAnalyser;

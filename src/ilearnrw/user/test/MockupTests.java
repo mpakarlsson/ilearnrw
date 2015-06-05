@@ -1,10 +1,7 @@
 package ilearnrw.user.test;
-
-import ilearnrw.user.mockup.ProblemDefinitionIndexMockup;
-import ilearnrw.user.problems.ProblemDefinitionIndexApi;
-import ilearnrw.utils.LanguageCode;
-
-import org.junit.Assert;
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import org.junit.Test;
 
 public class MockupTests {

@@ -1,8 +1,7 @@
 package ilearnrw.textclassification;
-
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 
 import ilearnrw.user.profile.UserProblems;
 

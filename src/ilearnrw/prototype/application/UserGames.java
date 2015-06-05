@@ -1,5 +1,7 @@
 package ilearnrw.prototype.application;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.games.GameAddTwoNumbers;
 import ilearnrw.games.NumbersToText;
 import ilearnrw.prototype.application.ConsoleMenu.EConsoleMenuActionResult;

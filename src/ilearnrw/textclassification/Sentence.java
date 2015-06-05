@@ -1,5 +1,7 @@
 package ilearnrw.textclassification;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
 import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
 import ilearnrw.textclassification.english.EnglishWord;
@@ -59,7 +61,6 @@ public class Sentence {
 	private void splitWords(){
 		String theWords[] = sentence.split("[(\\s+)(\\.)(\\!)(\\,)(\\;)(\\-)(\\:)(\\?)(\\\")]");
 		//String theWords[] = sentence.split("[(\\s+)(\\.)(\\')(\\!)(\\,)(\\;)(\\-)(\\:)(\\?)(\\\")]");
-		String tmp;
 		int size = 0;
 		for (int i=0;i<theWords.length; i++){
 			if (!theWords[i].trim().equals("")) size++;

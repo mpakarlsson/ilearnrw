@@ -2,7 +2,9 @@ package ilearnrw.languagetools;
 
 import ilearnrw.structs.sets.SortedTreeSet;
 import ilearnrw.textclassification.Word;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 public class WordDictionary {
 	protected SortedTreeSet words;
 

@@ -1,5 +1,7 @@
 package ilearnrw.prototype.application;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.annotation.HtmlGenerator;
 import ilearnrw.datalogger.ILoginProvider;
 import ilearnrw.datalogger.IProfileAccessUpdater.PendingChangesAvailable;

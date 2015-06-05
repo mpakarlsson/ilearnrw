@@ -1,4 +1,7 @@
 package ilearnrw.structs.sets;
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.textclassification.Word;
 import java.util.*;
 

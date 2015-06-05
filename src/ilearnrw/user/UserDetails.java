@@ -1,5 +1,7 @@
 package ilearnrw.user;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.utils.LanguageCode;
 
 import java.io.Serializable;

@@ -4,7 +4,9 @@ import java.util.Date;
 import java.util.List;
 
 import ilearnrw.application.ApplicationId;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 /** The UserActionFilter is used to query the datalogger for information
  * 
  * @todo Add getters/setters, appropriate functions etc.

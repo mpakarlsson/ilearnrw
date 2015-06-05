@@ -1,5 +1,8 @@
 package ilearnrw.languagetools.greek;
 /*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
+/*
  * GreekSpeller.java
  *
  * Created on 4 June 2008, 11:14 pm

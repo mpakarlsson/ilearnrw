@@ -1,5 +1,7 @@
 package ilearnrw.user.profile.clusters;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.user.problems.ProblemDescription;
 
 public class ProblemDescriptionCoordinates {

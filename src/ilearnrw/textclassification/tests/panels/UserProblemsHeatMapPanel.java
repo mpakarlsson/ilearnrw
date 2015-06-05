@@ -1,11 +1,12 @@
 package ilearnrw.textclassification.tests.panels;
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.languagetools.extras.EasyHardList;
 import ilearnrw.languagetools.extras.WordListLoader;
 import ilearnrw.textclassification.Word;
-import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.textclassification.tests.panels.userproblems.TrickyWordsPanel;
 import ilearnrw.user.User;
-import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.profile.UserProblems;
 import ilearnrw.user.profile.UserSeverities;
 import ilearnrw.utils.LanguageCode;
@@ -15,17 +16,12 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;

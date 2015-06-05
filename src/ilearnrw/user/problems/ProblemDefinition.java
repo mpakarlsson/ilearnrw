@@ -1,8 +1,8 @@
 package ilearnrw.user.problems;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import java.io.Serializable;
-
-import com.google.gson.annotations.SerializedName;
 
 public class ProblemDefinition implements Serializable {
 	private static final long serialVersionUID = 1L;

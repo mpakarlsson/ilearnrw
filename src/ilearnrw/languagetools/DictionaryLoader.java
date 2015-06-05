@@ -4,7 +4,9 @@ import ilearnrw.resource.ResourceLoader;
 import ilearnrw.resource.ResourceLoader.Type;
 import ilearnrw.structs.sets.SortedTreeSet;
 import java.io.InputStream;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 public class DictionaryLoader {
 	protected SortedTreeSet entries;
 	protected InputStream dictionary;

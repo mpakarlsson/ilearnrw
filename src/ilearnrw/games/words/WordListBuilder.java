@@ -10,7 +10,9 @@ import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
 import ilearnrw.languagetools.extras.WordListLoader;
 import ilearnrw.textclassification.english.EnglishWord;
 import ilearnrw.textclassification.greek.GreekWord;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 public class WordListBuilder {
 	public static void main(String args[]){
 		ArrayList<String> t = new ArrayList<String>();

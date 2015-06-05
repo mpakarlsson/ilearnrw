@@ -1,5 +1,7 @@
 package ilearnrw.textclassification.tests.panels;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.textclassification.TextClassificationResults;
 import ilearnrw.user.profile.UserProfile;
 

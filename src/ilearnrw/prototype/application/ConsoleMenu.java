@@ -1,5 +1,7 @@
 package ilearnrw.prototype.application;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Scanner;

@@ -1,5 +1,7 @@
 package ilearnrw.textclassification.tests.panels;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.textclassification.Text;
 import ilearnrw.textclassification.TextClassificationResults;
@@ -40,9 +42,7 @@ public class FilesExplorerPanel extends JPanel{
 	private UserProfile userProfile;
 	private JTable table;
 	private LanguageAnalyzerAPI languageAnalyzer;
-	// TODO remove the following
-	private String unknown = "";
-	
+
 	public FilesExplorerPanel(UserProfile userProfile, final JTabbedPane tabbedPane, final TextPanel textPanel, 
 			final TextMetricsGUI metrics, LanguageAnalyzerAPI languageAnalyzer) {
 		super();		

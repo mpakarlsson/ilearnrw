@@ -5,7 +5,9 @@ import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordType;
 import ilearnrw.textclassification.english.EnglishWord;
 import ilearnrw.utils.LanguageCode;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 public class EnglishLanguageAnalyzer implements LanguageAnalyzerAPI{
 	
 	private Word word;

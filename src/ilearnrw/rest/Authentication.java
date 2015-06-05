@@ -1,5 +1,7 @@
 package ilearnrw.rest;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 public class Authentication {
 	String auth = null;
 	String refresh = null;

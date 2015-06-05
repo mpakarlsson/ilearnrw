@@ -5,7 +5,9 @@ package ilearnrw.languagetools.greek;
  * Created on 4 june 2008, 11:13 pm
  *
  */
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import java.util.ArrayList;
 
 /**

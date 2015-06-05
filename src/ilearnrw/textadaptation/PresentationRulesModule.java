@@ -1,5 +1,7 @@
 package ilearnrw.textadaptation;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.user.profile.UserProfile;
 import ilearnrw.user.profile.UserProblems;
 import java.io.Serializable;

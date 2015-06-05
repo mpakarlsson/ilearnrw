@@ -1,9 +1,9 @@
 package ilearnrw.user.problems;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.utils.IlearnException;
-import ilearnrw.utils.LanguageCode;
 
-import java.util.ArrayList;
 
 public interface ProblemDefinitionIndexApi {
 	public int getCategoryFirstIndex(Category x);

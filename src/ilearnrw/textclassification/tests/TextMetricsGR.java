@@ -1,9 +1,9 @@
 package ilearnrw.textclassification.tests;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.datalogger.IUserAdministration.AuthenticationException;
 import ilearnrw.datalogger.UserStore;
-import ilearnrw.languagetools.LanguageAnalyzerAPI;
-import ilearnrw.languagetools.english.EnglishLanguageAnalyzer;
 import ilearnrw.languagetools.greek.GreekLanguageAnalyzer;
 import ilearnrw.textclassification.TextClassificationResults;
 import ilearnrw.textclassification.Text;
@@ -11,7 +11,6 @@ import ilearnrw.textclassification.UserProblemsToText;
 import ilearnrw.textclassification.UserProblemsToWord;
 import ilearnrw.textclassification.Word;
 import ilearnrw.textclassification.WordClassificationResults;
-import ilearnrw.textclassification.english.EnglishWord;
 import ilearnrw.textclassification.greek.GreekWord;
 import ilearnrw.textclassification.tests.panels.FilesExplorerPanel;
 import ilearnrw.textclassification.tests.panels.TextPanel;
@@ -19,8 +18,6 @@ import ilearnrw.textclassification.tests.panels.UserProblemsHeatMapPanel;
 import ilearnrw.textclassification.tests.panels.WordPanel;
 import ilearnrw.user.User;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
-import ilearnrw.user.profile.UserProfile;
-import ilearnrw.user.profile.UserSeverities;
 import ilearnrw.utils.LanguageCode;
 
 import java.awt.BorderLayout;
@@ -32,7 +29,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Random;
 import java.util.Scanner;
 
 import javax.swing.JButton;

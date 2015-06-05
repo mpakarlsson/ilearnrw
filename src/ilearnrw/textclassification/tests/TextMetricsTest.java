@@ -1,5 +1,7 @@
 package ilearnrw.textclassification.tests;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.datalogger.IUserAdministration.AuthenticationException;
 import ilearnrw.datalogger.UserStore;
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
@@ -20,7 +22,6 @@ import ilearnrw.textclassification.tests.panels.WordPanel;
 import ilearnrw.user.User;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
 import ilearnrw.user.profile.UserProfile;
-import ilearnrw.user.profile.UserSeverities;
 import ilearnrw.utils.LanguageCode;
 
 import java.awt.BorderLayout;
@@ -32,7 +33,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Random;
 import java.util.Scanner;
 
 import javax.swing.JButton;

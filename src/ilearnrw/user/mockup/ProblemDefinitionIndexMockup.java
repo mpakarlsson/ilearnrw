@@ -1,15 +1,11 @@
 package ilearnrw.user.mockup;
-
-import java.util.ArrayList;
-import java.util.List;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.user.problems.Category;
 import ilearnrw.user.problems.ProblemDefinition;
 import ilearnrw.user.problems.ProblemDefinitionIndex;
-import ilearnrw.user.problems.ProblemDefinitionIndexApi;
-import ilearnrw.user.problems.ProblemDescription;
 import ilearnrw.user.problems.ProblemType;
-import ilearnrw.utils.IlearnException;
 import ilearnrw.utils.LanguageCode;
 
 public class ProblemDefinitionIndexMockup{

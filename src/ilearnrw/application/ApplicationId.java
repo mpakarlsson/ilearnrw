@@ -1,5 +1,7 @@
 package ilearnrw.application;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import java.io.Serializable;
 
 /** \brief ApplicationId identifies an application in different parts of the system.

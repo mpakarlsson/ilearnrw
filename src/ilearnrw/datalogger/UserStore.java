@@ -19,6 +19,9 @@ import ilearnrw.user.User;
 import ilearnrw.user.profile.UserProfile;
 import ilearnrw.user.profile.UserProblems;
 import ilearnrw.utils.LanguageCode;
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 /**
  * @brief The UserStore is used to create and store user objects persistantly.
  * 

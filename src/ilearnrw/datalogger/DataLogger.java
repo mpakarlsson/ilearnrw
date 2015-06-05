@@ -15,7 +15,9 @@
  * 
  */
 package ilearnrw.datalogger;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 /** \addtogroup DolphinTodo_20130619
  *  @{
  * 		@todo Implement IProfileAccessUpdater

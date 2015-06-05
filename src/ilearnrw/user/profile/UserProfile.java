@@ -1,12 +1,11 @@
 package ilearnrw.user.profile;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.user.UserPreferences;
-import ilearnrw.user.profile.clusters.ProblemDescriptionCoordinates;
-import ilearnrw.user.profile.clusters.ProfileClusters;
 import ilearnrw.utils.LanguageCode;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class UserProfile implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -3,7 +3,9 @@ package ilearnrw.datalogger;
 import java.util.List;
 
 import ilearnrw.user.UserAction;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 
 /** \brief Provides an interface for applications to log UserActions.
  * 

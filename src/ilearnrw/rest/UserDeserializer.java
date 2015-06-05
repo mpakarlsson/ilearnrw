@@ -1,5 +1,7 @@
 package ilearnrw.rest;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import java.lang.reflect.Type;
 
 import ilearnrw.user.User;

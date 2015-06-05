@@ -1,15 +1,14 @@
 package ilearnrw.textclassification;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.user.UserTextCounters;
 import ilearnrw.user.profile.UserProblems;
 import ilearnrw.user.profile.UserProfile;
-import ilearnrw.utils.LanguageCode;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class UserProblemsToWord  implements Serializable {
 	private static final long serialVersionUID = 1L;

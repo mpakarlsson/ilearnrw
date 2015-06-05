@@ -1,7 +1,7 @@
 package ilearnrw.languagetools.greek;
-
-import java.util.ArrayList;
-import java.util.HashMap;
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
 import ilearnrw.textclassification.Word;

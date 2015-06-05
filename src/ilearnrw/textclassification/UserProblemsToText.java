@@ -1,13 +1,12 @@
 package ilearnrw.textclassification;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 import ilearnrw.languagetools.LanguageAnalyzerAPI;
-import ilearnrw.languagetools.greek.GreekDictionary;
-import ilearnrw.user.User;
 import ilearnrw.user.UserTextCounters;
 import ilearnrw.user.profile.UserProblems;
 import ilearnrw.user.profile.UserProfile;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;

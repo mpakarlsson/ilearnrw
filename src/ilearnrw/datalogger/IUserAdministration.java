@@ -4,7 +4,9 @@ import java.util.List;
 
 import ilearnrw.user.User;
 import ilearnrw.utils.LanguageCode;
-
+/*
+ * Copyright (c) 2015, iLearnRW. Licensed under Modified BSD Licence. See licence.txt for details.
+ */
 /** \brief Provides User administration tasks.
  */
 public interface IUserAdministration {
